@@ -1,0 +1,613 @@
+
+#registration_form_are{
+  position:relative;
+  left: 0px;
+  top: 10px;
+  width: 100%;
+  /*z-index: 8;*/
+
+}
+#registration_form_are .registration_form_s {
+  max-width: 570px;
+  background: #fff;
+  padding: 0px 30px;
+  border: 1px solid #5c7500;
+  border-radius: 3px;
+  position: relative;
+  top: 20px;
+}
+
+#registration_form_are .registration_form_s h4 {
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  color: #2f3c44;
+  padding: 30px 0px 22px 0px;
+}
+
+#registration_form_are .registration_form_s .form-group {
+  margin-bottom: 20px;
+}
+
+#registration_form_are .registration_form_s .form-group input {
+  width: 100%;
+  height: 46px;
+  box-shadow: none;
+  border: 1px solid #f4f4f4;
+  border-radius: 3px;
+  background: #f4f4f4;
+  padding: 0px 20px;
+  outline: none;
+  box-shadow: none;
+  text-shadow: none;
+  font-size: 16px;
+  color: #334249;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+#registration_form_are .registration_form_s .form-group input.placeholder {
+  font-size: 16px;
+  color: #334249;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+#registration_form_are .registration_form_s .form-group input:-moz-placeholder {
+  font-size: 16px;
+  color: #334249;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+#registration_form_are .registration_form_s .form-group input::-moz-placeholder {
+  font-size: 16px;
+  color: #334249;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+#registration_form_are .registration_form_s .form-group input::-webkit-input-placeholder {
+  font-size: 16px;
+  color: #334249;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+#registration_form_are .registration_form_s .form-group input:focus {
+  border: 1px solid #e74c3c;
+}
+
+#registration_form_are .registration_form_s .form-group .btn-group {
+  width: 100%;
+  text-align: left;
+}
+
+#registration_form_are .registration_form_s .form-group .btn-group .dropdown-toggle {
+  width: 100%;
+  border: 1px solid #f4f4f4;
+  background: #f4f4f4;
+  padding: 0px 10px 0px 18px;
+  height: 47px;
+  box-shadow: none;
+  position: relative;
+}
+
+#registration_form_are .registration_form_s .form-group .btn-group .dropdown-toggle span[data-bind="label"] {
+  text-align: left;
+  float: left;
+  font-size: 16px;
+  color: #334249;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  line-height: 45px;
+}
+
+.registration_form_are .registration_form_s .form-group .btn-group .dropdown-toggle .arrow_carrot-down {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+}
+
+#registration_form_are .registration_form_s .form-group .btn-group .dropdown-toggle .arrow_carrot-down .fa-sort-asc {
+  position: relative;
+  right: -8px;
+  top: -1px;
+  color: #c2c2c2;
+}
+
+.registration_form_are .registration_form_s .form-group .btn-group .dropdown-toggle .arrow_carrot-down .fa-sort-desc {
+  position: relative;
+  bottom: -1px;
+  color: #c2c2c2;
+}
+
+#registration_form_are .registration_form_s .form-group .form_datetime {
+  position: relative;
+}
+
+#registration_form_are .registration_form_s .form-group .form_datetime .datetimepicker-dropdown-bottom-right {
+  left: 0px;
+}
+
+#registration_form_are .registration_form_s .form-group .datepicker {
+  position: relative;
+}
+
+#registration_form_are .registration_form_s .form-group .datepicker .add-on {
+  position: absolute;
+  right: 10px;
+  color: #c2c2c2;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#registration_form_are .registration_form_s .form-group.reg_chose {
+  text-align: center;
+  margin: 10px 0px 50px 0px;
+}
+
+.aline-center-box
+{
+  float: none;
+  margin: auto;
+}
+#form-box
+{
+      max-width: 670px;
+    background: #fff;
+    padding: 0px 30px;
+    border: 1px solid #5c7500;
+    border-radius: 3px;
+    position: relative;
+    top: 20px;
+}
+.basic-box
+{
+  padding-top: 10px;
+  float: right;
+}
+.head-box
+{
+  padding-top: 0px;
+}
+#fees-box
+{
+  border: 2px solid black;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+#h1,#d1
+{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+#h1
+{
+    border: 2px solid black;
+    border-collapse: collapse; 
+}
+#h1
+{
+  background-color:#a4e009;
+} 
+#d1
+{
+    padding: 0px;
+    text-align:center;    
+}
+.image-box
+{
+  
+  padding-top: 5px;
+  padding-bottom: 5px;
+  float: right;
+}
+.text-box
+{
+  padding-top:15px;
+  float: left;
+}
+.base-box
+{
+  padding-top: 10px;
+  color: #fff;
+}
+.button-box
+{
+  float: none;
+  margin: auto;
+  padding-top: 10px;
+}
+.button-boxs
+{
+    width: 150px !important;
+    outline: none !important;
+    border-radius: 1px;
+    box-shadow: none; 
+}
+.image-box
+{
+  padding-top: 10px;
+  border: 0px;
+  border-radius: 0px;
+}
+.selva
+{
+  background-color: red;
+
+}
+.form-box
+{
+  background-color:#2e3c43;
+}
+.box
+{
+  padding-top: 10px;
+}
+
+
+
+#registration_form_are_box{
+  position:relative;
+  left: 0px;
+  top: 10px;
+  width: 100%;
+  /*z-index: 8;*/
+
+}
+#registration_form_are_box .registration_form_s_box {
+  max-width: 270px;
+  position: relative;
+  top: 20px;
+}
+
+#registration_form_are_box .registration_form_s_box h4 {
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  color: #2f3c44;
+  padding: 30px 0px 22px 0px;
+}
+
+#registration_form_are_box .registration_form_s_box .form-group {
+  margin-bottom: 20px;
+}
+
+#registration_form_are_box .registration_form_s_box .form-group input {
+  width: 100%;
+  height: 46px;
+  box-shadow: none;
+  border: 1px solid #f4f4f4;
+  border-radius: 3px;
+  background: #f4f4f4;
+  padding: 0px 20px;
+  outline: none;
+  box-shadow: none;
+  text-shadow: none;
+  font-size: 16px;
+  color: #334249;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+#registration_form_are_box .registration_form_s_box .form-group input.placeholder {
+  font-size: 16px;
+  color: #334249;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+#registration_form_are_box .registration_form_s_box .form-group input:-moz-placeholder {
+  font-size: 16px;
+  color: #334249;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+#registration_form_are_box .registration_form_s_box .form-group input::-moz-placeholder {
+  font-size: 16px;
+  color: #334249;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+#registration_form_are_box .registration_form_s_box .form-group input::-webkit-input-placeholder {
+  font-size: 16px;
+  color: #334249;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+#registration_form_are_box .registration_form_s_box .form-group input:focus {
+  border: 1px solid #e74c3c;
+}
+
+#registration_form_are_box .registration_form_s_box .form-group .btn-group {
+  width: 100%;
+  text-align: left;
+}
+
+#registration_form_are_box .registration_form_s_box .form-group .btn-group .dropdown-toggle {
+  width: 100%;
+  border: 1px solid #f4f4f4;
+  background: #f4f4f4;
+  padding: 0px 10px 0px 18px;
+  height: 47px;
+  box-shadow: none;
+  position: relative;
+}
+
+#registration_form_are_box .registration_form_s_box .form-group .btn-group .dropdown-toggle span[data-bind="label"] {
+  text-align: left;
+  float: left;
+  font-size: 16px;
+  color: #334249;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  line-height: 45px;
+}
+
+#registration_form_are_box .registration_form_s_box .form-group .btn-group .dropdown-toggle .arrow_carrot-down {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+}
+
+#registration_form_are_box .registration_form_s_box .form-group .btn-group .dropdown-toggle .arrow_carrot-down .fa-sort-asc {
+  position: relative;
+  right: -8px;
+  top: -1px;
+  color: #c2c2c2;
+}
+
+#registration_form_are_box .registration_form_s .form-group .btn-group .dropdown-toggle .arrow_carrot-down .fa-sort-desc {
+  position: relative;
+  bottom: -1px;
+  color: #c2c2c2;
+}
+
+#registration_form_are_box .registration_form_s_box .form-group .form_datetime {
+  position: relative;
+}
+
+#registration_form_are_box .registration_form_s .form-group .form_datetime .datetimepicker-dropdown-bottom-right {
+  left: 0px;
+}
+
+#registration_form_are_box .registration_form_s .form-group .datepicker {
+  position: relative;
+}
+
+#registration_form_are_box .registration_form_s .form-group .datepicker .add-on {
+  position: absolute;
+  right: 10px;
+  color: #c2c2c2;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#registration_form_are_box .registration_form_s .form-group.reg_chose {
+  text-align: center;
+  margin: 10px 0px 50px 0px;
+}
+
+#registration_form_area .registration_form_s_box .form-group .btn-group .dropdown-toggle .arrow_carrot-down {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+}
+
+#registration_form_area .registration_form_s_box .form-group .btn-group .dropdown-toggle .arrow_carrot-down .fa-sort-asc {
+  position: relative;
+  right: -8px;
+  top: -1px;
+  color: #c2c2c2;
+}
+
+#registration_form_area .registration_form_s_box .form-group .btn-group .dropdown-toggle .arrow_carrot-down .fa-sort-desc {
+  position: relative;
+  bottom: -1px;
+  color: #c2c2c2;
+}
+
+#registration_form_area .registration_form_s_box .form-group .form_datetime {
+  position: relative;
+}
+
+#registration_form_area .registration_form_s_box .form-group .form_datetime .datetimepicker-dropdown-bottom-right {
+  left: 0px;
+}
+
+#registration_form_area .registration_form_s_box .form-group .datepicker {
+  position: relative;
+}
+
+#registration_form_area .registration_form_s_box .form-group .datepicker .add-on {
+  position: absolute;
+  right: 10px;
+  color: #c2c2c2;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#registration_form_area .registration_form_s_box .form-group.reg_chose {
+  text-align: center;
+  margin: 10px 0px 50px 0px;
+}
+
+
+.butn-box
+{
+  padding-top: 30px;
+}
+
+.more-box h5
+{
+  font-size: 16px;
+    color: #334249;
+    font-family: "Ubuntu", sans-serif;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+.head-box
+{
+  float: none;
+  margin: auto;
+  text-align: center;
+}
+.back-box
+{
+  float: right;
+  padding-bottom: 20px;
+}
+.age-box
+{
+ padding-top: 20px;
+}
+
+
+
+        
+
+.checkbox label:after, 
+.radio label:after
+ {
+    content: '';
+    display: table;
+    clear: both;
+
+}
+
+
+.checkbox .cr,
+.radio .cr 
+{
+    position: relative;
+    display: inline-block;
+    border: 1px solid #a9a9a9;
+    border-radius: .25em;
+    width: 1.3em;
+    height: 1.3em;
+    float: left;
+    margin-right: .5em;
+
+}
+
+
+.radio .cr 
+{
+    border-radius: 50%;
+
+}
+
+
+.checkbox .cr .cr-icon,
+.radio .cr .cr-icon 
+{
+    position: absolute;
+    font-size: .8em;
+    line-height: 0;
+    top: 50%;
+    left: 20%;
+
+}
+
+
+.radio .cr .cr-icon 
+{
+    margin-left: 0.04em;
+
+}
+
+
+.checkbox label input[type="checkbox"],
+.radio label input[type="radio"]
+ {
+    display: none;
+
+}
+
+
+.checkbox label input[type="checkbox"] + .cr > .cr-icon,
+.radio label input[type="radio"] + .cr > .cr-icon 
+{
+    transform: scale(3) rotateZ(-20deg);
+    opacity: 0;
+    transition: all .3s ease-in;
+
+}
+
+
+.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
+.radio label input[type="radio"]:checked + .cr > .cr-icon
+ {
+    transform: scale(1) rotateZ(0deg);
+    opacity: 1;
+
+}
+
+
+.checkbox label input[type="checkbox"]:disabled + .cr,
+.radio label input[type="radio"]:disabled + .cr
+ {
+    opacity: .5;
+}
+
+.view-box
+{
+ 
+  border: 1px solid black;
+  border-collapse: collapse;
+  overflow: hidden;
+
+}
+.top-box
+{
+  padding-bottom: 100px;
+}
+.price_widget #height_select {
+  height: 2px;
+  border: none;
+  background: #e0e0e0;
+  border-radius: 0px;
+}
+
+.price_widget #height_select .ui-slider-range {
+  background: #768804;
+}
+
+.price_widget #height_select .ui-slider-handle {
+  border: none;
+  border-radius: 50%;
+  background: #768804;
+  height: 12px;
+  width: 12px;
+  outline: none !important;
+}
+.price_widget #weight_select {
+  height: 2px;
+  border: none;
+  background: #e0e0e0;
+  border-radius: 0px;
+}
+
+.price_widget #weight_select .ui-slider-range {
+  background: #768804;
+}
+
+.price_widget #weight_select .ui-slider-handle {
+  border: none;
+  border-radius: 50%;
+  background: #768804;
+  height: 12px;
+  width: 12px;
+  outline: none !important;
+}
