@@ -8115,9 +8115,22 @@ p2
     color: #ffffff;
     text-decoration: none;
 }
+/*ravi updated*/
+#hcolor{
+  color: #5c7500;
+  background-color: #e0e3e5;
+}
+.hbgcolor{
+  background-image: url(img/reg_bdy_inner_top.png);
+  background-repeat: repeat-x;
+  height: auto;
+  width: 100%;
 
-
-/* End Footer area css
+}
+.profile_list{
+  padding-top: 10px;
+}
+/* End Ravi updated
 ============================================================================================ */
 /*---------------------------------------------------- */
 
