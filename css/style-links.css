@@ -234,11 +234,7 @@
   border: 0px;
   border-radius: 0px;
 }
-.selva
-{
-  background-color: red;
 
-}
 .form-box
 {
   background-color:#2e3c43;
@@ -572,4 +568,21 @@
 .top-box
 {
   padding-bottom: 100px;
+}
+
+.active
+{
+  color: #e6701a;
+}
+.img-box
+{
+ margin-top: 42px;
+}
+.detail-box
+{
+  padding-bottom: 70px;
+}
+.text-box-name
+{
+  padding-top: 20px;
 }
