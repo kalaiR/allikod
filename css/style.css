@@ -5660,7 +5660,7 @@ p2
 .members_about_box {
   border: 2px solid #e0e0e0;
   border-radius: 5px;
-  padding: 30px 22px;
+  padding-bottom: 0px;
   margin-bottom: 30px;
   margin-top: 40px;
 }
@@ -8119,6 +8119,7 @@ p2
 #hcolor{
   color: #5c7500;
   background-color: #e0e3e5;
+  padding:7px;
 }
 .hbgcolor{
   background-image: url(img/reg_bdy_inner_top.png);
@@ -8128,8 +8129,17 @@ p2
 
 }
 .profile_list{
-  padding-top: 10px;
+  padding: 30px;
+  padding-bottom: 10px;
 }
+ol a{
+  color: #000;
+  font-weight: bolder;
+}
+.pad{
+  padding: 20px;
+}
+
 /* End Ravi updated
 ============================================================================================ */
 /*---------------------------------------------------- */
