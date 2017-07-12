@@ -7470,13 +7470,13 @@ p2
 
 .search_option .tab-content .tab-pane .height_item .bootstrap-select .dropdown-toggle  {
   padding: 0px 20px;
-  border-radius: 24px;
+  border-radius: 4px;
   outline: none !important;
   box-shadow: none;
 }
 
 .search_option .tab-content .tab-pane .height_item .bootstrap-select .dropdown-toggle .filter-option {
-  line-height: 48px;
+  line-height: 34px;
   font-size: 16px;
   color: #334249;
   font-family: "Ubuntu", sans-serif;
@@ -7496,7 +7496,7 @@ p2
   font: normal normal normal 14px/1 FontAwesome;
   position: relative;
   right: 12px;
-  top: 15px;
+  top: 7px;
   color: #c2c2c2;
 }
 
@@ -8115,9 +8115,22 @@ p2
     color: #ffffff;
     text-decoration: none;
 }
+/*ravi updated*/
+#hcolor{
+  color: #5c7500;
+  background-color: #e0e3e5;
+}
+.hbgcolor{
+  background-image: url(img/reg_bdy_inner_top.png);
+  background-repeat: repeat-x;
+  height: auto;
+  width: 100%;
 
-
-/* End Footer area css
+}
+.profile_list{
+  padding-top: 10px;
+}
+/* End Ravi updated
 ============================================================================================ */
 /*---------------------------------------------------- */
 
