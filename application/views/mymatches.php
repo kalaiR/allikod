@@ -22,7 +22,7 @@
                         <div class="col-md-4 head-box">
                             <div class="welcome_title">
                                 <h3>My Matches</h3>
-                                 <img src="img/w-title-b.png" alt="">
+                                 <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
                             </div>
                         </div>   
                     </div>    
@@ -292,10 +292,10 @@
                             <aside class="s_widget categories_widget">
                                 <div class="s_title">
                                     <h4>Searching Options</h4>
-                                    <img src="img/widget-title-border.png" alt="">
+                                    <img src="<?php echo base_url(); ?>assets/img/widget-title-border.png" alt="">
                                 </div>
                                 <ul>
-                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Age Limit</b></a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Age Limit</b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="price_select"></div>
@@ -311,7 +311,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Height Limit</b></a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Height Limit</b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="height_select"></div>
@@ -327,7 +327,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Weight Limit<b></a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Weight Limit<b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="weight_select"></div>
@@ -343,7 +343,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Marital Status<b></a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Marital Status<b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -379,7 +379,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Occupation</b></a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Occupation</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -415,7 +415,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Education</b></a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Education</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -451,7 +451,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Employed In</b></a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Employed In</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -487,7 +487,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Food</b></a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Food</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -516,7 +516,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Complexion</b></a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Complexion</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -552,7 +552,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Body Type</b></a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Body Type</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
