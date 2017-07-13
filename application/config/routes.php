@@ -61,6 +61,7 @@ $route['search_result'] 							= "base/search_result";
 $route['success_stories'] 							= "base/success_stories";
 $route['vanniyar'] 							= "base/vanniyar";
 $route['full_view'] 							= "base/full_view";
+$route['myprofile'] 							= "base/myprofile";
 
 
 
