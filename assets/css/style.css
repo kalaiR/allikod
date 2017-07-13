@@ -3375,7 +3375,7 @@ p2
 .s_widget {
   margin-bottom: 50px;
   clear: both;
-  overflow: hidden;
+
 }
 
 .s_widget:last-child {
@@ -3400,7 +3400,7 @@ p2
 
 .categories_widget ul li a {
   font-size: 16px;
-  color: #334249;
+  color:#001100;
   font-family: "Ubuntu", sans-serif;
   margin-left: -22px;
   transition: all 400ms linear 0s;

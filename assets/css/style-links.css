@@ -213,7 +213,6 @@
 .base-box
 {
   padding-top: 10px;
-  color: #fff;
 }
 .button-box
 {
@@ -573,41 +572,19 @@
 {
   padding-bottom: 100px;
 }
-.price_widget #height_select {
-  height: 2px;
-  border: none;
-  background: #e0e0e0;
-  border-radius: 0px;
+.active
+{
+  color: #e6701a;
 }
-
-.price_widget #height_select .ui-slider-range {
-  background: #768804;
+.img-box
+{
+ margin-top: 42px;
 }
-
-.price_widget #height_select .ui-slider-handle {
-  border: none;
-  border-radius: 50%;
-  background: #768804;
-  height: 12px;
-  width: 12px;
-  outline: none !important;
+.detail-box
+{
+  padding-bottom: 70px;
 }
-.price_widget #weight_select {
-  height: 2px;
-  border: none;
-  background: #e0e0e0;
-  border-radius: 0px;
-}
-
-.price_widget #weight_select .ui-slider-range {
-  background: #768804;
-}
-
-.price_widget #weight_select .ui-slider-handle {
-  border: none;
-  border-radius: 50%;
-  background: #768804;
-  height: 12px;
-  width: 12px;
-  outline: none !important;
+.text-box-name
+{
+  padding-top: 20px;
 }
