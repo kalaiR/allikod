@@ -133,9 +133,9 @@
                                 <li><a href="http://shtheme.com/html/verodate/checkout.html">Checkout</a></li> -->
                             </ul>
                         </li>
-                        <li><a href="<?php echo base_url(); ?>vanniyar">My Vanniyar</a></li>
-                         <li><a href="<?php echo base_url(); ?>payment">Payment</a></li>
-                        <li><a href="<?php echo base_url(); ?>contact">Contact</a></li>
+                        <li id="vanniyar"><a href="<?php echo base_url(); ?>vanniyar">My Vanniyar</a></li>
+                         <li id="payment"><a href="<?php echo base_url(); ?>payment">Payment</a></li>
+                        <li id="contact"><a href="<?php echo base_url(); ?>contact">Contact</a></li>
                         <li class="dropdown submenu">
                             <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, Madhi <i class="fa fa-user-circle" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu">
@@ -146,8 +146,8 @@
                         </li>
                     </ul>
                     <!-- <ul class="nav navbar-nav navbar-right">
-                        <li><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
-                        <li><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>Registration</a></li>
+                        <li id="login"><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
+                        <li id="register"><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>Registration</a></li>
                     </ul> -->
                     </div><!-- /.navbar-collapse (selva) -->
                 </div><!-- /.container-fluid  (selva)-->
