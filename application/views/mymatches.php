@@ -37,7 +37,7 @@
                 <div class="row">
                   <div class="col-md-9">
                     <div class="col-md-4 col-sm-6">
-                        <img src="img/search-result-page/img1.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="">
                           <div><a href="#">More Images</a></div> 
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
-                        <img src="img/search-result-page/img1.jpg" alt="">
+                       <img src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="">
                           <div><a href="#">More Images</a></div> 
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
-                        <img src="img/search-result-page/img1.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="">
                           <div><a href="#">More Images</a></div> 
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
@@ -187,7 +187,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
-                        <img src="img/search-result-page/img1.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="">
                           <div><a href="#">More Images</a></div> 
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
@@ -237,7 +237,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
-                        <img src="img/search-result-page/img1.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="">
                           <div><a href="#">More Images</a></div> 
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
