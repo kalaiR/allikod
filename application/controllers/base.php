@@ -55,5 +55,8 @@ class Base extends CI_Controller {
 	public function myprofile(){
 		$this->load->view('myprofile');
 	}
+	public function mymatches(){
+		$this->load->view('mymatches');
+	}
 
 }
