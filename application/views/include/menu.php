@@ -136,21 +136,19 @@
                         <li><a href="<?php echo base_url(); ?>vanniyar">My Vanniyar</a></li>
                          <li><a href="<?php echo base_url(); ?>payment">Payment</a></li>
                         <li><a href="<?php echo base_url(); ?>contact">Contact</a></li>
+                        <li class="dropdown submenu">
+                            <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, Madhi <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="<?php echo base_url(); ?>">Matches</a></li>
+                                <li><a href="<?php echo base_url(); ?>myprofile">My Profile</a></li>
+                                <li><a href="<?php echo base_url(); ?>contact">Logout</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                    <!-- <ul class="nav navbar-nav navbar-right">
                         <li><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
                         <li><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>Registration</a></li>
-                       <!-- <li class="flag_drop">
-                            <div class="selector">
-                                <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                                  <option value='yt' data-image="img/country-aus.png" data-imagecss="flag yt" data-title="English">English</option>
-                                  <option value='yu' data-image="img/country-bang.png" data-imagecss="flag yu" data-title="Bangladesh">Bangla</option>
-                                  <option value='yt' data-image="img/country-aus.png" data-imagecss="flag yt" data-title="English">English</option>
-                                  <option value='yu' data-image="img/country-bang.png" data-imagecss="flag yu" data-title="Bangladesh">Bangla</option>
-                                </select>
-                            </div>
-                        </li>-->
-                    </ul>
+                    </ul> -->
                     </div><!-- /.navbar-collapse (selva) -->
                 </div><!-- /.container-fluid  (selva)-->
             </nav>
