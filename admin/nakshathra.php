@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info" id="add" href="add_nakshathra.php">
+						<a class="btn btn-info pull-right" id="add" href="add_nakshathra.php">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>

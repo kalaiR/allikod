@@ -64,7 +64,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"> <img alt="Charisma Logo" src="img/logo20.png" /> <span>Charisma</span></a>
+				<a class="brand" href="index.html"> <img alt="Vallikodi Logo" src="img/logo1.png" /></a>
 				
 				<!-- theme selector starts -->
 				<div class="btn-group pull-right theme-container" >
@@ -124,8 +124,10 @@
 				<li class="nav-header hidden-tablet">Administration</li>
 				<li><a class="ajax-link" href="administration.php"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
 				<li><a class="ajax-link" href="selling_admin.php"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li>
-				<li class="nav-header hidden-tablet">Report</li>
+				<li class="nav-header hidden-tablet">Report</li>				
 				<li><a class="ajax-link" href="report.php"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
+				<li class="nav-header hidden-tablet">Customer User</li>
+				<li><a class="ajax-link" href="customer_user.php"><i class="icon-user"></i></i><span class="hidden-tablet">View Customer User</span></a></li>
 				<li class="nav-header hidden-tablet">Successful Story</li>
 				<li><a class="ajax-link" href="successful_story.php"><i class="icon-font"></i><span class="hidden-tablet"> Successful Story</span></a></li>
 				<li class="nav-header hidden-tablet">Mail</li>

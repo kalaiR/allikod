@@ -1,7 +1,7 @@
 <?php 
     include('header.php');
 ?>
-	<div id="content" class="span12">
+	<div id="content" class="span10">
 			<!-- content starts -->
 			<div>
 				<ul class="breadcrumb">
@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-					<a class="btn btn-info" id="add" href="add_customer_user.php">
+					<a class="btn btn-info pull-right" id="add" href="add_customer_user.php">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
