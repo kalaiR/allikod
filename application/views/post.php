@@ -26,10 +26,10 @@
                             </div>
                             <div class="registration_form_area" id="registration_form_are">
                                     <div class="row">
+                                    <form action="<?php echo base_url();?>success_stories">
                                         <div class="col-sm-8">
                                             <div class="registration_form_s" id="registration_form_s">
                                                     <h4>Post Your Story</h4>
-                                                <form>
                                                     <div class="form-group">
                                                             <input type="text" class="form-control" id="bride_name" placeholder="Bride Name">      
                                                     </div>
@@ -74,6 +74,7 @@
                                                         </div>     
                                             </div>
                                         </div>
+                                    </form>    
                                             <div class="col-sm-4">
                                                 <div class="form_man">
                                                     <img src="<?php echo base_url(); ?>assets/img/registration-man.png" alt="">
