@@ -1,5 +1,5 @@
 <?php 
-    include('header.php');
+    include('templates/header.php');
 ?>
 <!-- left menu starts -->
 	<div class="span2 main-menu-span">
@@ -62,5 +62,5 @@
 				</div><!--/span-->
 
 <?php 
-    include('footer.php');
+    include('templates/footer.php');
 ?>

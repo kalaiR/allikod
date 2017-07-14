@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-					<a class="btn btn-info pull-right" id="add" href="add_administration.php">
+					<a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/add_administration">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
@@ -52,7 +52,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -74,7 +74,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -96,7 +96,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -118,7 +118,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -140,7 +140,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -162,7 +162,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -184,7 +184,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -206,7 +206,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -228,7 +228,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -250,7 +250,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -272,7 +272,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -294,7 +294,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -316,7 +316,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -338,7 +338,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -360,7 +360,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -382,7 +382,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -404,7 +404,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -426,7 +426,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -448,7 +448,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -470,7 +470,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -492,7 +492,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -514,7 +514,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -536,7 +536,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -558,7 +558,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -580,7 +580,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -602,7 +602,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -624,7 +624,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -646,7 +646,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -668,7 +668,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -690,7 +690,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -712,7 +712,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -734,7 +734,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_administration.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>

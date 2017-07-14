@@ -1,5 +1,5 @@
 <?php 
-    include('header.php');
+    include('templates/header.php');
 ?>
 	<div id="content" class="span10">
 			<!-- content starts -->
@@ -9,7 +9,7 @@
 						<a href="index.php">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="occupation.php">Occupation</a>
+						<a href="<?php echo base_url(); ?>admin/occupation">Occupation</a>
 					</li>
 				</ul>
 			</div>
@@ -81,5 +81,5 @@
 		</div>
 
 <?php 
-    include('footer.php');
+    include('templates/footer.php');
 ?>
