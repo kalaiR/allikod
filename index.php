@@ -29,17 +29,17 @@
                         <div class="col-sm-6">
                             <div class="registration_form_s">
                                 <h4>Registration</h4>
-                                <form action="registration.html">
+                                <form action="registration.php">
                                     <div class="form-group">
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                                     <span data-bind="label">Registered By</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
                                                     </button>
                                                     <ul class="dropdown-menu" role="menu">
-                                                        <li><a href="index.html#">Self</a></li>
-                                                        <li><a href="index.html#">Friend</a></li>
-                                                        <li><a href="index.html#">Brother</a></li>
-                                                        <li><a href="index.html#">Sister</a></li>
+                                                        <li><a href="index.php#">Self</a></li>
+                                                        <li><a href="index.php#">Friend</a></li>
+                                                        <li><a href="index.php#">Brother</a></li>
+                                                        <li><a href="index.php#">Sister</a></li>
                                                     </ul>
                                                 </div>
                                     </div>
@@ -72,8 +72,8 @@
                                                     <span data-bind="label">Gender</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
                                                     </button>
                                                     <ul class="dropdown-menu" role="menu">
-                                                        <li><a href="index.html#">Male</a></li>
-                                                        <li><a href="index.html#">Female</a></li>
+                                                        <li><a href="index.php#">Male</a></li>
+                                                        <li><a href="index.php#">Female</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -88,7 +88,7 @@
                                         </div>
                                     </div>
                                     <div class="reg_chose form-group">
-                                        <button type="submit" value="LogIn" herf="registration.html" class="btn form-control login_btn"> Register</button>
+                                        <button type="submit" value="LogIn" herf="#" class="btn form-control login_btn"> Register</button>
                                     </div>
                                 </form>
                             </div>
@@ -173,12 +173,12 @@
                                 <!--<div class="blog_grid_content">
                                     <h3>Your Blog title here</h3>
                                     <div class="blog_grid_date">
-                                        <a href="stories.html#">By David</a>
-                                        <a href="stories.html#">03 Sep, 2016</a>
-                                        <a href="stories.html#">Dating</a>
+                                        <a href="stories.php#">By David</a>
+                                        <a href="stories.php#">03 Sep, 2016</a>
+                                        <a href="stories.php#">Dating</a>
                                     </div>
                                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                    <a href="stories.html#">Read More <i class="fa fa-angle-double-right"></i></a>
+                                    <a href="stories.php#">Read More <i class="fa fa-angle-double-right"></i></a>
                                 </div>-->
                             </div>
                         </div>
@@ -193,12 +193,12 @@
                                 <!--<div class="blog_grid_content">
                                     <h3>Your Blog title here</h3>
                                     <div class="blog_grid_date">
-                                        <a href="stories.html#">By David</a>
-                                        <a href="stories.html#">03 Sep, 2016</a>
-                                        <a href="stories.html#">Dating</a>
+                                        <a href="stories.php#">By David</a>
+                                        <a href="stories.php#">03 Sep, 2016</a>
+                                        <a href="stories.php#">Dating</a>
                                     </div>
                                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                    <a href="stories.html#">Read More <i class="fa fa-angle-double-right"></i></a>
+                                    <a href="stories.php#">Read More <i class="fa fa-angle-double-right"></i></a>
                                 </div>-->
                             </div>
                         </div>
@@ -213,12 +213,12 @@
                                 <!--<div class="blog_grid_content">
                                     <h3>Your Blog title here</h3>
                                     <div class="blog_grid_date">
-                                        <a href="stories.html#">By David</a>
-                                        <a href="stories.html#">03 Sep, 2016</a>
-                                        <a href="stories.html#">Dating</a>
+                                        <a href="stories.php#">By David</a>
+                                        <a href="stories.php#">03 Sep, 2016</a>
+                                        <a href="stories.php#">Dating</a>
                                     </div>
                                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                    <a href="stories.html#">Read More <i class="fa fa-angle-double-right"></i></a>
+                                    <a href="stories.php#">Read More <i class="fa fa-angle-double-right"></i></a>
                                 </div>-->
                             </div>
                         </div>
@@ -233,12 +233,12 @@
                                 <!--<div class="blog_grid_content">
                                     <h3>Your Blog title here</h3>
                                     <div class="blog_grid_date">
-                                        <a href="stories.html#">By David</a>
-                                        <a href="stories.html#">03 Sep, 2016</a>
-                                        <a href="stories.html#">Dating</a>
+                                        <a href="stories.php#">By David</a>
+                                        <a href="stories.php#">03 Sep, 2016</a>
+                                        <a href="stories.php#">Dating</a>
                                     </div>
                                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                    <a href="stories.html#">Read More <i class="fa fa-angle-double-right"></i></a>
+                                    <a href="stories.php#">Read More <i class="fa fa-angle-double-right"></i></a>
                                 </div>-->
                             </div>
                         </div>
