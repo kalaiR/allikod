@@ -68,8 +68,40 @@ $route['mymatches'] 							= "base/mymatches";
 
 
 $route['admin'] 							= "admin/base/index";
+
+$route['admin/zodiac_sign'] 							= "admin/base/zodiac_sign";
+$route['admin/add_zodiac_sign'] 							= "admin/base/add_zodiac_sign";
+$route['admin/edit_zodiac_sign'] 							= "admin/base/edit_zodiac_sign";
+$route['admin/administration'] 							= "admin/base/administration";
+$route['admin/add_administration'] 							= "admin/base/add_administration";
+$route['admin/edit_administration'] 							= "admin/base/edit_administration";
+$route['admin/selling_admin'] 							= "admin/base/selling_admin";
+$route['admin/edit_selling_admin'] 							= "admin/base/edit_selling_admin";
+$route['admin/add_selling_admin'] 							= "admin/base/add_selling_admin";
+$route['admin/report'] 							= "admin/base/report";
+$route['admin/successful_story'] 							= "admin/base/successful_story";
+$route['admin/add_successful_story'] 							= "admin/base/add_successful_story";
+$route['admin/edit_successful_story'] 							= "admin/base/edit_successful_story";
+$route['admin/nakshathra'] 							= "admin/base/nakshathra";
+$route['admin/add_nakshathra'] 							= "admin/base/add_nakshathra";
+$route['admin/edit_nakshathra'] 							= "admin/base/edit_nakshathra";
+$route['admin/mother_tongue'] 							= "admin/base/mother_tongue";
+$route['admin/add_mother_tongue'] 							= "admin/base/add_mother_tongue";
+$route['admin/edit_mother_tongue'] 							= "admin/base/edit_mother_tongue";
+$route['admin/luknam'] 							= "admin/base/luknam";
+$route['admin/add_luknam'] 							= "admin/base/add_luknam";
+$route['admin/edit_luknam'] 							= "admin/base/edit_luknam";
 $route['admin/country'] 							= "admin/base/country";
-$route['admin/zodaic_sign'] 							= "admin/master_data/zodaic_sign";
+$route['admin/add_country'] 							= "admin/base/add_country";
+$route['admin/edit_country'] 							= "admin/base/edit_country";
+$route['admin/education'] 							= "admin/base/education";
+$route['admin/edit_education'] 							= "admin/base/edit_education";
+$route['admin/add_education'] 							= "admin/base/add_education";
+$route['admin/occupation'] 							= "admin/base/occupation";
+$route['admin/add_occupation'] 							= "admin/base/add_occupation";
+$route['admin/edit_occupation'] 							= "admin/base/edit_occupation";
+
+
 
 
 

@@ -70,7 +70,7 @@
                                                         </div>
                                                     </div>    
                                                         <div class="reg_chose form-group">
-                                                            <button type="submit" value="LogIn" class="btn form-control login_btn">Register</button>
+                                                            <button type="submit" value="LogIn" class="btn form-control login_btn">Post</button>
                                                         </div>     
                                             </div>
                                         </div>

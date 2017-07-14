@@ -9,7 +9,7 @@
 						<a href="index.php">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="zodiac_sign.php">Zodiac Sign</a>
+						<a href="<?php echo base_url(); ?>admin/zodiac_sign">Zodiac Sign</a>
 					</li>
 				</ul>
 			</div>

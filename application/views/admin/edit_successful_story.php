@@ -9,7 +9,7 @@
 						<a href="index.php">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>admin/zodiac_sign">Zodiac Sign</a>
+						<a href="<?php echo base_url(); ?>admin/successful_story">Successful Story</a>
 					</li>
 				</ul>
 			</div>
@@ -27,18 +27,46 @@
 						<form class="form-horizontal">
 							<fieldset>
 							  <div class="control-group">
-								<label class="control-label" for="focusedInput">Zodiac Sign : </label>
+								<label class="control-label" for="focusedInput">Bride Name(Female) : </label>
 								<div class="controls">
 								  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 								</div>
 							  </div>
-							  
 							  <div class="control-group">
-								<label class="control-label">Active Status : </label>
+								<label class="control-label" for="focusedInput">Groom Name(Male) : </label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+								</div>
+							  </div>
+							  <div class="control-group">
+								<label class="control-label" for="focusedInput">Marriage Date : </label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="focusedInput" type="date" value="">
+								</div>
+							  </div>
+							  <div class="control-group">
+								<label class="control-label" for="focusedInput">Vallikodi ID of Bride or Groom : </label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+								</div>
+							  </div>
+							  <div class="control-group">
+								<label class="control-label" for="focusedInput">Success Story : </label>
+								<div class="controls">
+								  <textarea class="input-xlarge focused" id="focusedInput" type="text" rows="5" value=""></textarea>
+								</div>
+							  </div>
+							  <div class="control-group">
+								<label class="control-label" for="focusedInput">Photo : </label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="focusedInput" type="file" value="">
+								</div>
+							  </div>
+								<label class="control-label">Status : </label>
 								<div class="controls">
 								  <select data-rel="chosen">
-									<option>Enabled</option>
-									<option>Disabled</option>
+									<option>Activated</option>
+									<option>Diabled</option>									
 								  </select>
 								</div>
 							    <div class="form-actions">

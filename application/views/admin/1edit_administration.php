@@ -6,10 +6,10 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="<?php echo base_url(); ?>admin/index">Home</a> <span class="divider">/</span>
+						<a href="#">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>admin/administration">Administration</a>
+						<a href="#">Forms</a>
 					</li>
 				</ul>
 			</div>
@@ -67,7 +67,6 @@
 			</div><!--/row-->
 	<!-- content ends -->
 	</div><!--/fluid-row-->
-
 <?php 
     include('templates/footer.php');
 ?>

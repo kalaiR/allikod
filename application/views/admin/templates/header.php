@@ -64,7 +64,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"> <img alt="Charisma Logo" src="<?php echo base_url(); ?>assets/admin/img/logo20.png" /> <span>Charisma</span></a>
+				<a class="brand" href="index.html"> <img alt="Vallikodi Logo" src="assets/admin/img/logo1.png" /></a>
 				
 				<!-- theme selector starts -->
 				<div class="btn-group pull-right theme-container" >
@@ -120,26 +120,26 @@
 		<div class="well nav-collapse sidebar-nav">
 			<ul class="nav nav-tabs nav-stacked main-menu">
 				<!-- <li class="nav-header hidden-tablet">Main</li> -->
-				<li><a class="ajax-link" href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 				<li class="nav-header hidden-tablet">Administration</li>
-				<li><a class="ajax-link" href="administration.php"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
-				<li><a class="ajax-link" href="selling_admin.php"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li>
+				<li><a class="ajax-link" href="administration"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/selling_admin"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li>
 				<li class="nav-header hidden-tablet">Report</li>
-				<li><a class="ajax-link" href="report.php"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/report"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
 				<li class="nav-header hidden-tablet">Successful Story</li>
-				<li><a class="ajax-link" href="successful_story.php"><i class="icon-font"></i><span class="hidden-tablet"> Successful Story</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/successful_story"><i class="icon-font"></i><span class="hidden-tablet"> Successful Story</span></a></li>
 				<li class="nav-header hidden-tablet">Mail</li>
-				<li><a class="ajax-link" href="mail.php"><i class="icon-align-justify"></i><span class="hidden-tablet"> Mail</span></a></li>
+				<li><a class="ajax-link" href="mail"><i class="icon-align-justify"></i><span class="hidden-tablet"> Mail</span></a></li>
 				<!-- <li class="nav-header hidden-tablet">Sample Section</li> -->
-				<li><a class="ajax-link" href="send_mail.php"><i class="icon-picture"></i><span class="hidden-tablet"> Send Mail</span></a></li>
-				<li><a class="ajax-link" href="send_sms.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Send SMS</span></a></li>
+				<li><a class="ajax-link" href="send_mail"><i class="icon-picture"></i><span class="hidden-tablet"> Send Mail</span></a></li>
+				<li><a class="ajax-link" href="send_sms"><i class="icon-calendar"></i><span class="hidden-tablet"> Send SMS</span></a></li>
 				<li class="nav-header hidden-tablet">Setting</li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/zodaic_sign"><i class="icon-calendar"></i><span class="hidden-tablet"> Zodiac Sign</span></a></li>
-				<li><a class="ajax-link" href="nakshathra.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Nakshathra</span></a></li>
-				<li><a class="ajax-link" href="mother_tongue.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Mother Tongue</span></a></li>
-				<li><a class="ajax-link" href="luknam.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Luknam</span></a></li>
-				<li><a class="ajax-link" href="country.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Country</span></a></li>
-				<li><a class="ajax-link" href="education.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Education</span></a></li>
-				<li><a class="ajax-link" href="occupation.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Occupation</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/zodiac_sign"><i class="icon-calendar"></i><span class="hidden-tablet"> Zodiac Sign</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/nakshathra"><i class="icon-calendar"></i><span class="hidden-tablet"> Nakshathra</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/mother_tongue"><i class="icon-calendar"></i><span class="hidden-tablet"> Mother Tongue</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/luknam"><i class="icon-calendar"></i><span class="hidden-tablet"> Luknam</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/country"><i class="icon-calendar"></i><span class="hidden-tablet"> Country</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/education"><i class="icon-calendar"></i><span class="hidden-tablet"> Education</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/occupation"><i class="icon-calendar"></i><span class="hidden-tablet"> Occupation</span></a></li>
 		</div><!--/.well -->
 	</div><!-- left menu ends -->
