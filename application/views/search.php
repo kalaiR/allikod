@@ -175,7 +175,6 @@
                                                 </div>
                                                 <div class="search_btn">
                                                     <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
-                                                    <button type="reset" value="LogIn" class="btn form-control login_btn">Reset</button>
                                                 </div>
                         	 	 			 </form>
                         	 	 		</div>
@@ -376,10 +375,9 @@
                                                             </div>
                                                         </div>        
                                                 </div>
-                                                <div class="search_btn">
-                                                    <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
-                                                    <button type="reset" value="LogIn" class="btn form-control login_btn">Reset</button>
-                                                </div>
+                                                    <div class="search_btn">
+                                                        <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
+                                                    </div>
                                              </form>
                                         </div>
                                     </div>
