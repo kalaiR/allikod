@@ -28,37 +28,59 @@
 			<div class="sortable row-fluid">
 				<a data-rel="tooltip" title="6 new members." class="well span3 top-block" href="#">
 					<span class="icon32 icon-red icon-user"></span>
-					<div>Total Members</div>
+					<div>Admin</div>
 					<div>507</div>
 					<span class="notification">6</span>
 				</a>
 
 				<a data-rel="tooltip" title="4 new pro members." class="well span3 top-block" href="#">
 					<span class="icon32 icon-color icon-star-on"></span>
-					<div>Pro Members</div>
+					<div>Report</div>
 					<div>228</div>
 					<span class="notification green">4</span>
 				</a>
 
 				<a data-rel="tooltip" title="$34 new sales." class="well span3 top-block" href="#">
 					<span class="icon32 icon-color icon-cart"></span>
-					<div>Sales</div>
+					<div>Customer</div>
 					<div>$13320</div>
 					<span class="notification yellow">$34</span>
 				</a>
 				
 				<a data-rel="tooltip" title="12 new messages." class="well span3 top-block" href="#">
 					<span class="icon32 icon-color icon-envelope-closed"></span>
-					<div>Messages</div>
+					<div>Success Story</div>
 					<div>25</div>
 					<span class="notification red">12</span>
+				</a>
+			</div>
+			<div class="sortable row-fluid">
+				<a data-rel="tooltip" title="6 new members." class="well span3 top-block" href="#">
+					<span class="icon32 icon-red icon-user"></span>
+					<div>Mail</div>
+					<div>507</div>
+					<span class="notification">6</span>
+				</a>
+
+				<a data-rel="tooltip" title="4 new pro members." class="well span3 top-block" href="#">
+					<span class="icon32 icon-color icon-star-on"></span>
+					<div>Photo Gallry</div>
+					<div>228</div>
+					<span class="notification green">4</span>
+				</a>
+
+				<a data-rel="tooltip" title="$34 new sales." class="well span3 top-block" href="#">
+					<span class="icon32 icon-color icon-cart"></span>
+					<div>Change Settings</div>
+					<div>$13320</div>
+					<span class="notification yellow">$34</span>
 				</a>
 			</div>
 			
 			<div class="row-fluid">
 				<div class="box span12">
 					<div class="box-header well">
-						<h2><i class="icon-info-sign"></i> Introduction</h2>
+						<h2><i class="icon-info-sign"></i> Name</h2>
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
 							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
@@ -66,20 +88,31 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<h1>Charisma <small>free, premium quality, responsive, multiple skin admin template.</small></h1>
-						<p>Its a live demo of the template. I have created Charisma to ease the repeat work I have to do on my projects. Now I re-use Charisma as a base for my admin panel work and I am sharing it with you :)</p>
-						<p><b>All pages in the menu are functional, take a look at all, please share this with your followers.</b></p>
+						<div class="row-fluid show-grid">
+							<div class="span3">Online Registration</div>
+							<div class="span3">5698</div>
+							<div class="span3">3256</div>
+							<div class="span3">1858</div>
+						</div>
+						<div class="row-fluid show-grid">
+							<div class="span3">Simple Registration</div>
+							<div class="span3">5698</div>
+							<div class="span3">3256</div>
+							<div class="span3">1858</div>
+						</div>
+						<div class="row-fluid show-grid">
+							<div class="span3">Total No. of Registration</div>
+							<div class="span3">11563</div>
+							<div class="span3">6485</div>
+							<div class="span3">3698</div>
+						</div>
 						
-						<p class="center">
-							<a href="http://usman.it/free-responsive-admin-template" class="btn btn-large btn-primary"><i class="icon-chevron-left icon-white"></i> Back to article</a> 
-							<a href="http://usman.it/free-responsive-admin-template" class="btn btn-large"><i class="icon-download-alt"></i> Download Page</a>
-						</p>
 						<div class="clearfix"></div>
 					</div>
 				</div>
 			</div>
 					
-			<div class="row-fluid sortable">
+			<!-- <div class="row-fluid sortable">
 				<div class="box span4">
 					<div class="box-header well">
 						<h2><i class="icon-th"></i> Tabs</h2>
@@ -115,7 +148,7 @@
 					</div>
 				</div><!--/span-->
 						
-				<div class="box span4">
+				<!-- <div class="box span4">
 					<div class="box-header well" data-original-title>
 						<h2><i class="icon-user"></i> Member Activity</h2>
 						<div class="box-icon">
@@ -161,9 +194,9 @@
 							</ul>
 						</div>
 					</div>
-				</div><!--/span-->
+				</div> --><!--/span-->
 						
-				<div class="box span4">
+				<!-- <div class="box span4">
 					<div class="box-header well" data-original-title>
 						<h2><i class="icon-list-alt"></i> Realtime Traffic</h2>
 						<div class="box-icon">
@@ -176,10 +209,10 @@
 							<p class="clearfix">You can update a chart periodically to get a real-time effect by using a timer to insert the new data in the plot and redraw it.</p>
 							<p>Time between updates: <input id="updateInterval" type="text" value="" style="text-align: right; width:5em"> milliseconds</p>
 					</div>
-				</div><!--/span-->
-			</div><!--/row-->
+				</div>--><!--/span-->
+			<!--</div> --> <!--/row-->
 
-			<div class="row-fluid sortable">
+			<!-- <div class="row-fluid sortable">
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
 						<h2><i class="icon-list"></i> Buttons</h2>
@@ -223,9 +256,9 @@
 							<button class="btn btn-mini btn-inverse">Mini button</button>
 						</p>
 					</div>
-				</div><!--/span-->
+				</div --><!--/span-->
 					
-				<div class="box span4">
+				<!-- <div class="box span4">
 					<div class="box-header well" data-original-title>
 						<h2><i class="icon-list"></i> Buttons</h2>
 						<div class="box-icon">
@@ -263,9 +296,9 @@
 						</div>
 						
 					</div>
-				</div><!--/span-->
+				</div> --><!--/span-->
 					
-				<div class="box span4">
+				<!-- <div class="box span4">
 					<div class="box-header well" data-original-title>
 						<h2><i class="icon-list"></i> Weekly Stat</h2>
 						<div class="box-icon">
@@ -334,7 +367,7 @@
 						  </li>
 						</ul>
 					</div>
-				</div><!--/span-->
+				</div> --><!--/span-->
 			</div><!--/row-->
 				  
 

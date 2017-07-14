@@ -9,7 +9,7 @@
 						<a href="index.php">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="#">Nakshathra</a>
+						<a href="#">View Customer User</a>
 					</li>
 				</ul>
 			</div>
@@ -17,30 +17,34 @@
 		<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Nakshathra</h2>
+						<h2><i class="icon-user"></i> Add Online User</h2>
 						<div class="box-icon">
-							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
-							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
-							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
+							
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info pull-right" id="add" href="add_nakshathra.php">
+						<a class="btn btn-info pull-right" id="add" href="add_successful_story.php">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
-					        Add
+					        Save
+					    </a>
+					    <a class="btn btn-info pull-right" id="add" href="add_successful_story.php">
+					        <i class="glyphicon glyphicon-edit icon-white"></i>
+					        Cancel
 					    </a>
     						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead>
 							  <tr>
-								  <th>Nakshthra</th>
-								  <th>Added Date</th>
+								  <th>Bride</th>
+								  <th>Groom</th>
+								  <th>Marriage Date</th>
 								  <th>Status</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>   
 						  <tbody>
 							<tr>
-								<td>Uthram</td>
+								<td>Others</td>
+								<td class="center">Test1</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -50,7 +54,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_nakshathra.php">
+									<a class="btn btn-info" href="edit_successful_story.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -61,7 +65,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Kettai</td>
+								<td>10th</td>
+								<td class="center">Test2</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -71,7 +76,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_nakshathra.php">
+									<a class="btn btn-info" href="edit_successful_story.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -82,7 +87,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Vishaka / Vishakam</td>
+								<td>PhD</td>
+								<td class="center">Test3</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -92,7 +98,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_nakshathra.php">
+									<a class="btn btn-info" href="edit_successful_story.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -103,7 +109,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Uttarapalguni / UthramUttarashada / Uthradam</td>
+								<td>Rishabam (Taurus)</td>
+								<td class="center">Test4</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -113,7 +120,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_nakshathra.php">
+									<a class="btn btn-info" href="edit_successful_story.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -124,7 +131,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Uttarabadrapada / Uthratadhi</td>
+								<td>Mithunam (Gemini)</td>
+								<td class="center">Test5</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -134,7 +142,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_nakshathra.php">
+									<a class="btn btn-info" href="edit_successful_story.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -145,7 +153,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Swati / Choth</td>
+								<td>Mesham (Aries)</td>
+								<td class="center">Test6</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -155,7 +164,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_nakshathra.php">
+									<a class="btn btn-info" href="edit_successful_story.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -166,7 +175,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Shravan / Thiruvonam</td>
+								<td>Meenam (Pisces)</td>
+								<td class="center">Test7</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -176,7 +186,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_nakshathra.php">
+									<a class="btn btn-info" href="edit_successful_story.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -187,7 +197,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Shatataraka / Sadayam / Satabishek</td>
+								<td>Makara (Capricorn)</td>
+								<td class="center">Test8</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -197,7 +208,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_nakshathra.php">
+									<a class="btn btn-info" href="edit_successful_story.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -208,7 +219,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Rohini</td>
+								<td>Kumbha (Aquarius)</td>
+								<td class="center">Test9</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -218,7 +230,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_nakshathra.php">
+									<a class="btn btn-info" href="edit_successful_story.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -229,7 +241,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Revathi</td>
+								<td>Katagam (Cancer)</td>
+								<td class="center">Test10</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -239,7 +252,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_nakshathra.php">
+									<a class="btn btn-info" href="edit_successful_story.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -250,7 +263,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Pushya / Poosam / Pooyam</td>
+								<td>Kanni (Virgo)</td>
+								<td class="center">Test11</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -260,7 +274,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_nakshathra.php">
+									<a class="btn btn-info" href="edit_successful_story.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -271,7 +285,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Moolam / Moola</td>
+								<td>Dhanus (Sagittarius)</td>
+								<td class="center">Test12</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -281,7 +296,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_nakshathra.php">
+									<a class="btn btn-info" href="edit_successful_story.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>

@@ -459,6 +459,7 @@ float:left !important;
 }
 .pull-right{
 float:right !important;
+margin-right: 10px;
 }
 .remember{
 margin-top:3px;

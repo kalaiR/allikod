@@ -142,11 +142,11 @@ body {
   text-shadow:0 -1px 1px rgba(0, 0, 0, 0.2)
 }
 a {
-  color: #369bd7;
+  color: #087a02;
   text-decoration: none;
 }
 a:hover {
-  color: #2071a1;
+  color: #5c7500;
   text-decoration: underline;
 }
 .row {
@@ -365,7 +365,7 @@ h6 {
   margin: 0;
   font-family: 'Karla', sans-serif;
   font-weight: bold;
-  color: #317eac;
+  color: #087a02;
   text-rendering: optimizelegibility;
 }
 h1 small,
@@ -3037,7 +3037,7 @@ input[type="submit"].btn.btn-mini {
   margin-top: 5px;
 }
 .navbar .btn-group .btn {
-  margin: 0;
+  margin-top: 20px;
 }
 .navbar-form {
   margin-bottom: 0;
@@ -3088,8 +3088,8 @@ input[type="submit"].btn.btn-mini {
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
-  color: #ffffff;
-  background-color: #a0d0ec;
+  color: #333333;
+  background-color: #fff;
   border: 1px solid #288ecb;
   -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15);
   -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15);
@@ -3165,11 +3165,12 @@ input[type="submit"].btn.btn-mini {
   float: none;
   padding: 9px 10px 11px;
   line-height: 19px;
-  color: #f5f5f5;
+  color: #fff;
   text-decoration: none;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  border-right: 1px solid #3887B3;
-  border-left: 1px solid #3887B3;
+  border-right: 1px solid #087a02;
+  border-left: 1px solid #087a02;
+  margin-top: 20px;
 }
 .navbar .btn {
   display: inline-block;
@@ -3185,6 +3186,7 @@ input[type="submit"].btn.btn-mini {
   background-color: transparent;
   color: #ffffff;
   text-decoration: none;
+  margin-top: 20px;
 }
 .navbar .nav .active > a,
 .navbar .nav .active > a:hover {
@@ -4205,7 +4207,7 @@ a.badge:hover {
   font-family: 'Karla', sans-serif;
 }
 .navbar .navbar-inner {
-  background-color: #3f9fd9;
+  background-color: #5c7500;
 }
 .navbar-inner{
   background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(0,0,0,0.15) 50%, rgba(30,30,30,0) 100%);
@@ -4221,7 +4223,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   background-color: rgba(0, 0, 0, 0.2);
 }
 .navbar .search-query {
-  border: 1px solid #2480b6;
+  border: 1px solid #087a02;
+  margin-top: 20px;
 }
 .navbar .nav-collapse.in > .nav > li .dropdown-menu a {
   color: #ffffff;

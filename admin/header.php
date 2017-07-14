@@ -43,7 +43,7 @@
 	<link href='css/jquery.iphone.toggle.css' rel='stylesheet'>
 	<link href='css/opa-icons.css' rel='stylesheet'>
 	<link href='css/uploadify.css' rel='stylesheet'>
-
+	
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -67,7 +67,7 @@
 				<a class="brand" href="index.html"> <img alt="Vallikodi Logo" src="img/logo1.png" /></a>
 				
 				<!-- theme selector starts -->
-				<div class="btn-group pull-right theme-container" >
+				<!-- <div class="btn-group pull-right theme-container" >
 					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 						<i class="icon-tint"></i><span class="hidden-phone"> Change Theme / Skin</span>
 						<span class="caret"></span>
@@ -83,7 +83,7 @@
 						<li><a data-value="spacelab" href="#"><i class="icon-blank"></i> Spacelab</a></li>
 						<li><a data-value="united" href="#"><i class="icon-blank"></i> United</a></li>
 					</ul>
-				</div>
+				</div> -->
 				<!-- theme selector ends -->
 				
 				<!-- user dropdown starts -->
