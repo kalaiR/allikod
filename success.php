@@ -30,13 +30,21 @@
 	                            <div class="col-sm-4 sucess-box">
 		                             <img src="img/sucess/stories-4.jpg" class="img-thumbnail image-box " alt="">   
 	                             </div>
-	                             	<div class="col-sm-3 text-box">
-	                                	<p>Vallikodi ID : 123</p>
-	                                	<p>Birde Name : Sharmila</p>
-	                                	<p>Groom Name : Ramachandran</p>
-	                                	<p>Vallikodi ID : 123</p>
+	                             	<div class="col-sm-4 text-box">
+	                                	<div class="col-sm-5 text-box">
+		                                	<p>Vallikodi ID</p>
+		                                	<p>Birde Name </p>
+		                                	<p>Groom Name</p>
+		                                	<p>Marriage date</p>
+	                             		</div>
+	                             		<div class="col-sm-5 text-box">
+		                                	<p> : 123</p>
+		                                	<p> : Sharmila</p>
+		                                	<p> : Ramachandran</p>
+		                                	<p> : 2017-02-12</p>
+	                             		</div>
 	                             	</div>
-	                             <div class="col-sm-5">
+	                             <div class="col-sm-4">
 	                              	<div class="comment_form_area">
 	                              		<div class="row">
 	                              			<form action="#" class="form_inner">
@@ -55,13 +63,21 @@
 	                            <div class="col-sm-4 sucess-box">
 	                                <img src="img/sucess/stories-5.jpg" class="img-thumbnail image-box "  alt="">
 	                             </div>
-	                             	<div class="col-sm-3 text-box">
-	                                	<p>Vallikodi ID : 123</p>
-	                                	<p>Birde Name : Sharmila</p>
-	                                	<p>Groom Name : Ramachandran</p>
-	                                	<p>Vallikodi ID : 123</p>
+	                             	<div class="col-sm-4 text-box">
+	                                	<div class="col-sm-5 text-box">
+		                                	<p>Vallikodi ID</p>
+		                                	<p>Birde Name </p>
+		                                	<p>Groom Name</p>
+		                                	<p>Marriage date</p>
+	                             		</div>
+	                             		<div class="col-sm-5 text-box">
+		                                	<p> : 123</p>
+		                                	<p> : Sharmila</p>
+		                                	<p> : Ramachandran</p>
+		                                	<p> : 2017-02-12</p>
+	                             		</div>
 	                             	</div>
-	                             <div class="col-sm-5">
+	                             <div class="col-sm-4">
 	                              	<div class="comment_form_area">
 	                              		<div class="row">
 	                              			<form action="#" class="form_inner">
@@ -80,13 +96,21 @@
 	                            <div class="col-sm-4 sucess-box">
 	                                <img src="img/sucess/stories-4.jpg" class="img-thumbnail image-box " alt="">
 	                             </div>
-	                             	<div class="col-sm-3 text-box">
-	                                	<p>Vallikodi ID : 123</p>
-	                                	<p>Birde Name : Sharmila</p>
-	                                	<p>Groom Name : Ramachandran</p>
-	                                	<p>Vallikodi ID : 123</p>
+	                             	<div class="col-sm-4 text-box">
+	                                	<div class="col-sm-5 text-box">
+		                                	<p>Vallikodi ID</p>
+		                                	<p>Birde Name </p>
+		                                	<p>Groom Name</p>
+		                                	<p>Marriage date</p>
+	                             		</div>
+	                             		<div class="col-sm-5 text-box">
+		                                	<p> : 123</p>
+		                                	<p> : Sharmila</p>
+		                                	<p> : Ramachandran</p>
+		                                	<p> : 2017-02-12</p>
+	                             		</div>
 	                             	</div>
-	                             <div class="col-sm-5">
+	                             <div class="col-sm-4">
 	                              	<div class="comment_form_area">
 	                              		<div class="row">
 	                              			<form action="#" class="form_inner">
