@@ -36,229 +36,258 @@
                      </div>
                  </div>   
                 <div class="row">
-                    <div class="col-md-9">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6">
-                                <div class="product_item more-box">
-                                    <div class="product_img">
-                                        <img src="<?php echo base_url(); ?>assets/img/shop/product-1.jpg" alt=""> 
-                                    </div>
-                                    <h5>More Images</h5>
-                                </div>
+                     <div class="col-md-9">
+                    <div class="col-md-4 col-sm-6">
+                        <img src="http://localhost/vali_dev/allikod/assets/img/search-result-page/img1.jpg" alt="">
+                          <div><a href="#">More Images</a></div> 
+                    </div>
+                    <div class="col-md-6 col-sm-6 detail-box">
+                      <div class="head-box"><h4>Vallikodi ID : V1234567</h4></div>
+                        <div class="text-box-name">
+                          <div class="col-md-5 col-xs-6 name-box">
+                            <p><b>Name</b></p>
+                          </div>
+                          <div class="col-md-6 ">
+                              <p> : Priya</p>
                             </div>
-                             <div class="col-md-8 col-sm-6">
-                                <div class="product_item">
-                                    <div class="product_img">
-                                         <h5>Vallikodi ID : VM68492</h5>
-                                    </div>
-                                        <table class="table ">
-                                            <tr> 
-                                              <td>Name</td>
-                                              <td>:</td>
-                                              <td>Priya</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>DOB / Age</td>
-                                              <td>:</td>
-                                              <td>1993-01-23 / 23</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Star</td>
-                                              <td>:</td>
-                                              <td> Uttarapalguni / uthram Uuttarashda / uthrodam</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Religion</td>
-                                              <td>:</td>
-                                              <td> Hindhu</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Education</td>
-                                              <td>:</td>
-                                              <td>M Sc</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Occupation</td>
-                                              <td>:</td>
-                                              <td>Others</td>
-                                            </tr>
-                                            <tr> 
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> <a href="<?php echo base_url(); ?>full_view">View Full Details</a></td>
-                                            </tr>
-                                        </table>  
-                                    
-                                    </div>
-                            </div>
-                            
+                        </div>    
+                        <div class="col-md-5 col-xs-6 name-box">
+                          <p><b>DOB / Age</b></p>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6">
-                                <div class="product_item more-box">
-                                    <div class="product_img">
-                                        <img src="<?php echo base_url(); ?>assets/img/shop/product-1.jpg" alt=""> 
-                                    </div>
-                                    <h5>More Images</h5>
-                                </div>
-                            </div>
-                             <div class="col-md-8 col-sm-6">
-                                <div class="product_item">
-                                    <div class="product_img">
-                                         <h5>Vallikodi ID : VM68492</h5>
-                                    </div>
-                                        <table class="table ">
-                                            <tr> 
-                                              <td>Name</td>
-                                              <td>:</td>
-                                              <td>Priya</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>DOB / Age</td>
-                                              <td>:</td>
-                                              <td>1993-01-23 / 23</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Star</td>
-                                              <td>:</td>
-                                              <td> Uttarapalguni / uthram Uuttarashda / uthrodam</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Religion</td>
-                                              <td>:</td>
-                                              <td> Hindhu</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Education</td>
-                                              <td>:</td>
-                                              <td>M Sc</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Occupation</td>
-                                              <td>:</td>
-                                              <td>Others</td>
-                                            </tr>
-                                            <tr> 
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> <a href="#">View Full Details</a></td>
-                                            </tr>
-                                        </table>  
-                                    
-                                    </div>
-                            </div>  
+                        <div class="col-md-6">
+                            <p>: 1993-01-23 / 23</p>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6">
-                                <div class="product_item more-box">
-                                    <div class="product_img">
-                                        <img src="<?php echo base_url(); ?>assets/img/shop/product-1.jpg" alt=""> 
-                                    </div>
-                                    <h5>More Images</h5>
-                                </div>
-                            </div>
-                             <div class="col-md-8 col-sm-6">
-                                <div class="product_item">
-                                    <div class="product_img">
-                                         <h5>Vallikodi ID : VM68492</h5>
-                                    </div>
-                                        <table class="table ">
-                                            <tr> 
-                                              <td>Name</td>
-                                              <td>:</td>
-                                              <td>Priya</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>DOB / Age</td>
-                                              <td>:</td>
-                                              <td>1993-01-23 / 23</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Star</td>
-                                              <td>:</td>
-                                              <td> Uttarapalguni / uthram Uuttarashda / uthrodam</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Religion</td>
-                                              <td>:</td>
-                                              <td> Hindhu</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Education</td>
-                                              <td>:</td>
-                                              <td>M Sc</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Occupation</td>
-                                              <td>:</td>
-                                              <td>Others</td>
-                                            </tr>
-                                            <tr> 
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> <a href="#">View Full Details</a></td>
-                                            </tr>
-                                        </table>  
-                                    
-                                    </div>
-                            </div>  
+                        <div class="col-md-5 col-xs-6 name-box">
+                            <p><b>Star</b></p>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6">
-                                <div class="product_item more-box">
-                                    <div class="product_img">
-                                        <img src="<?php echo base_url(); ?>assets/img/shop/product-1.jpg" alt=""> 
-                                    </div>
-                                    <h5>More Images</h5>
-                                </div>
-                            </div>
-                             <div class="col-md-8 col-sm-6">
-                                <div class="product_item">
-                                    <div class="product_img">
-                                         <h5>Vallikodi ID : VM68492</h5>
-                                    </div>
-                                        <table class="table ">
-                                            <tr> 
-                                              <td>Name</td>
-                                              <td>:</td>
-                                              <td>Priya</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>DOB / Age</td>
-                                              <td>:</td>
-                                              <td>1993-01-23 / 23</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Star</td>
-                                              <td>:</td>
-                                              <td> Uttarapalguni / uthram Uuttarashda / uthrodam</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Religion</td>
-                                              <td>:</td>
-                                              <td> Hindhu</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Education</td>
-                                              <td>:</td>
-                                              <td>M Sc</td>
-                                            </tr>
-                                            <tr> 
-                                              <td>Occupation</td>
-                                              <td>:</td>
-                                              <td>Others</td>
-                                            </tr>
-                                            <tr> 
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> <a href="#">View Full Details</a></td>
-                                            </tr>
-                                        </table>  
-                                    
-                                    </div>
-                            </div>  
+                        <div class="col-md-7">
+                          <p> : Uttarapalguni / uthram Uuttarashda / uthrodam</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Religion</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: Hindhu</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Education</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: M Sc</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Occupation</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: Others </p>
+                        </div>
+                        <div class="text-box-name">
+                          <div class="col-md-6 head-box">
+                            <p><a herf="#">View Full Details</a></p>
+                          </div>  
                         </div>
                     </div>
+                    <div class="col-md-4 col-sm-6">
+                         <img src="http://localhost/vali_dev/allikod/assets/img/search-result-page/img1.jpg" alt="">
+                          <div><a href="#">More Images</a></div> 
+                    </div>
+                    <div class="col-md-6 col-sm-6 detail-box">
+                      <div class="head-box"><h4>Vallikodi ID : V1234567</h4></div>
+                        <div class="text-box-name">
+                          <div class="col-md-5 col-xs-6 name-box">
+                            <p><b>Name</b></p>
+                          </div>
+                          <div class="col-md-6 ">
+                              <p> : Priya</p>
+                            </div>
+                        </div>    
+                        <div class="col-md-5 col-xs-6 name-box">
+                          <p><b>DOB / Age</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: 1993-01-23 / 23</p>
+                        </div>
+                        <div class="col-md-5 col-xs-6 name-box">
+                            <p><b>Star</b></p>
+                        </div>
+                        <div class="col-md-7">
+                          <p> : Uttarapalguni / uthram Uuttarashda / uthrodam</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Religion</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: Hindhu</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Education</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: M Sc</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Occupation</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: Others </p>
+                        </div>
+                        <div class="text-box-name">
+                          <div class="col-md-6 head-box">
+                            <p><a herf="#">View Full Details</a></p>
+                          </div>  
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                         <img src="http://localhost/vali_dev/allikod/assets/img/search-result-page/img1.jpg" alt="">
+                          <div><a href="#">More Images</a></div> 
+                    </div>
+                    <div class="col-md-6 col-sm-6 detail-box">
+                      <div class="head-box"><h4>Vallikodi ID : V1234567</h4></div>
+                        <div class="text-box-name">
+                          <div class="col-md-5 col-xs-6 name-box">
+                            <p><b>Name</b></p>
+                          </div>
+                          <div class="col-md-6 ">
+                              <p> : Priya</p>
+                            </div>
+                        </div>    
+                        <div class="col-md-5 col-xs-6 name-box">
+                          <p><b>DOB / Age</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: 1993-01-23 / 23</p>
+                        </div>
+                        <div class="col-md-5 col-xs-6 name-box">
+                            <p><b>Star</b></p>
+                        </div>
+                        <div class="col-md-7">
+                          <p> : Uttarapalguni / uthram Uuttarashda / uthrodam</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Religion</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: Hindhu</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Education</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: M Sc</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Occupation</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: Others </p>
+                        </div>
+                        <div class="text-box-name">
+                          <div class="col-md-6 head-box">
+                            <p><a herf="#">View Full Details</a></p>
+                          </div>  
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                         <img src="http://localhost/vali_dev/allikod/assets/img/search-result-page/img1.jpg" alt="">
+                          <div><a href="#">More Images</a></div> 
+                    </div>
+                    <div class="col-md-6 col-sm-6 detail-box">
+                      <div class="head-box"><h4>Vallikodi ID : V1234567</h4></div>
+                        <div class="text-box-name">
+                          <div class="col-md-5 col-xs-6 name-box">
+                            <p><b>Name</b></p>
+                          </div>
+                          <div class="col-md-6 ">
+                              <p> : Priya</p>
+                            </div>
+                        </div>    
+                        <div class="col-md-5 col-xs-6 name-box">
+                          <p><b>DOB / Age</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: 1993-01-23 / 23</p>
+                        </div>
+                        <div class="col-md-5 col-xs-6 name-box">
+                            <p><b>Star</b></p>
+                        </div>
+                        <div class="col-md-7">
+                          <p> : Uttarapalguni / uthram Uuttarashda / uthrodam</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Religion</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: Hindhu</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Education</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: M Sc</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Occupation</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: Others </p>
+                        </div>
+                        <div class="text-box-name">
+                          <div class="col-md-6 head-box">
+                            <p><a herf="#">View Full Details</a></p>
+                          </div>  
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <img src="http://localhost/vali_dev/allikod/assets/img/search-result-page/img1.jpg" alt="">
+                          <div><a href="#">More Images</a></div> 
+                    </div>
+                    <div class="col-md-6 col-sm-6 detail-box">
+                      <div class="head-box"><h4>Vallikodi ID : V1234567</h4></div>
+                        <div class="text-box-name">
+                          <div class="col-md-5 col-xs-6 name-box">
+                            <p><b>Name</b></p>
+                          </div>
+                          <div class="col-md-6 ">
+                              <p> : Priya</p>
+                            </div>
+                        </div>    
+                        <div class="col-md-5 col-xs-6 name-box">
+                          <p><b>DOB / Age</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: 1993-01-23 / 23</p>
+                        </div>
+                        <div class="col-md-5 col-xs-6 name-box">
+                            <p><b>Star</b></p>
+                        </div>
+                        <div class="col-md-7">
+                          <p> : Uttarapalguni / uthram Uuttarashda / uthrodam</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Religion</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: Hindhu</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Education</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: M Sc</p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Occupation</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: Others </p>
+                        </div>
+                        <div class="text-box-name">
+                          <div class="col-md-6 head-box">
+                            <p><a herf="#">View Full Details</a></p>
+                          </div>  
+                        </div>
+                    </div>            
+                </div> 
                     <div class="col-md-3">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
@@ -267,7 +296,7 @@
                                     <img src="<?php echo base_url(); ?>assets/img/widget-title-border.png" alt="">
                                 </div>
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt="">Age Limit</a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Age Limit</b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="price_select"></div>
@@ -283,7 +312,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt="">Height Limit</a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Height Limit</b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="height_select"></div>
@@ -299,7 +328,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt="">Weight Limit</a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Weight Limit</b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="weight_select"></div>
@@ -315,7 +344,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt="">Marital Status</a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Marital Status</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -351,7 +380,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt="">Occupation</a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Occupation</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -387,7 +416,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt="">Education</a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Education</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -423,7 +452,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt="">Employed In</a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Employed In</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -459,7 +488,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt="">Food</a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Food</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -488,7 +517,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt="">Complexion</a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Complexion</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -524,7 +553,7 @@
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt="">Body Type</a></li>
+                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Body Type</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>

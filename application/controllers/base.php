@@ -52,5 +52,11 @@ class Base extends CI_Controller {
 	public function full_view(){
 		$this->load->view('view');
 	}
+	public function myprofile(){
+		$this->load->view('myprofile');
+	}
+	public function mymatches(){
+		$this->load->view('mymatches');
+	}
 
 }
