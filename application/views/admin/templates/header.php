@@ -64,10 +64,10 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"> <img alt="Vallikodi Logo" src="assets/admin/img/logo1.png" /></a>
+				<a class="brand" href="index.html"> <img alt="Vallikodi Logo" src="<?php echo base_url(); ?>assets/admin/img/logo1.png" /></a>
 				
 				<!-- theme selector starts -->
-				<div class="btn-group pull-right theme-container" >
+				<!-- <div class="btn-group pull-right theme-container" >
 					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 						<i class="icon-tint"></i><span class="hidden-phone"> Change Theme / Skin</span>
 						<span class="caret"></span>
@@ -83,7 +83,7 @@
 						<li><a data-value="spacelab" href="#"><i class="icon-blank"></i> Spacelab</a></li>
 						<li><a data-value="united" href="#"><i class="icon-blank"></i> United</a></li>
 					</ul>
-				</div>
+				</div> -->
 				<!-- theme selector ends -->
 				
 				<!-- user dropdown starts -->
@@ -120,12 +120,14 @@
 		<div class="well nav-collapse sidebar-nav">
 			<ul class="nav nav-tabs nav-stacked main-menu">
 				<!-- <li class="nav-header hidden-tablet">Main</li> -->
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 				<li class="nav-header hidden-tablet">Administration</li>
 				<li><a class="ajax-link" href="administration"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/selling_admin"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li>
 				<li class="nav-header hidden-tablet">Report</li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/report"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
+				<li class="nav-header hidden-tablet">Customer User</li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/customer_user"><i class="icon-user"></i></i><span class="hidden-tablet">View Customer User</span></a></li>
 				<li class="nav-header hidden-tablet">Successful Story</li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/successful_story"><i class="icon-font"></i><span class="hidden-tablet"> Successful Story</span></a></li>
 				<li class="nav-header hidden-tablet">Mail</li>

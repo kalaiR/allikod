@@ -1,7 +1,7 @@
 <?php 
     include('templates/header.php');
 ?>
-	<div id="content" class="span10">
+	<div id="content" class="span11">
 			<!-- content starts -->
 			<div>
 				<ul class="breadcrumb">
@@ -24,7 +24,7 @@
 							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
 						</div>
 					</div>
-					<div class="box-content">
+					<div class="box-content pull-right">
 						<a class="btn btn-info" id="add" href="<?php echo base_url(); ?>admin/add_nakshathra">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
