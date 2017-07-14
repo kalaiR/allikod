@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info" id="add" href="<?php echo base_url(); ?>admin/zodaic_sign?type=add">
+						<a class="btn btn-info" id="add" href="<?php echo base_url(); ?>admin/add_zodiac_sign">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>

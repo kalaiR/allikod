@@ -69,8 +69,25 @@ $route['mymatches'] 							= "base/mymatches";
 
 $route['admin'] 							= "admin/base/index";
 $route['admin/country'] 							= "admin/base/country";
-$route['admin/zodaic_sign'] 							= "admin/base/zodaic_sign";
+$route['admin/zodiac_sign'] 							= "admin/base/zodiac_sign";
+$route['admin/add_zodiac_sign'] 							= "admin/base/add_zodiac_sign";
+$route['admin/edit_zodiac_sign'] 							= "admin/base/edit_zodiac_sign";
 $route['admin/administration'] 							= "admin/base/administration";
+$route['admin/add_administration'] 							= "admin/base/add_administration";
+$route['admin/edit_administration'] 							= "admin/base/edit_administration";
+$route['admin/selling_admin'] 							= "admin/base/selling_admin";
+$route['admin/edit_selling_admin'] 							= "admin/base/edit_selling_admin";
+$route['admin/add_selling_admin'] 							= "admin/base/add_selling_admin";
+$route['admin/report'] 							= "admin/base/report";
+$route['admin/successful_story'] 							= "admin/base/successful_story";
+$route['admin/add_successful_story'] 							= "admin/base/add_successful_story";
+$route['admin/edit_successful_story'] 							= "admin/base/edit_successful_story";
+$route['admin/nakshathra'] 							= "admin/base/nakshathra";
+$route['admin/add_nakshathra'] 							= "admin/base/add_nakshathra";
+$route['admin/edit_nakshathra'] 							= "admin/base/edit_nakshathra";
+$route['admin/mother_tongue'] 							= "admin/base/mother_tongue";
+$route['admin/add_mother_tongue'] 							= "admin/base/add_mother_tongue";
+$route['admin/edit_mother_tongue'] 							= "admin/base/edit_mother_tongue";
 
 
 

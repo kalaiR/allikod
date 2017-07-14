@@ -1,5 +1,5 @@
 <?php 
-    include('header.php');
+    include('templates/header.php');
 ?>
 	<div id="content" class="span10">
 			<!-- content starts -->
@@ -304,5 +304,5 @@
 
 
 <?php 
-    include('footer.php');
+    include('templates/footer.php');
 ?>
