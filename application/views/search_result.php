@@ -31,14 +31,14 @@
                  <div class="row">
                      <div class="col-md-9 aline-center-box ">
                         <div class="search_btn back-box">
-                                <a href="search.html" class="register_angkar_btn">Back</a>
+                                <a href="<?php echo base_url(); ?>search" class="register_angkar_btn">Back</a>
                         </div>
                      </div>
                  </div>   
                 <div class="row">
                      <div class="col-md-9">
                     <div class="col-md-4 col-sm-6">
-                        <img src="http://localhost/vali_dev/allikod/assets/img/search-result-page/img1.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="">
                           <div><a href="#">More Images</a></div> 
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
@@ -83,12 +83,12 @@
                         </div>
                         <div class="text-box-name">
                           <div class="col-md-6 head-box">
-                            <p><a herf="#">View Full Details</a></p>
+                            <p><a href="<?php echo base_url(); ?>full_view">View Full Details</a></p>
                           </div>  
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
-                         <img src="http://localhost/vali_dev/allikod/assets/img/search-result-page/img1.jpg" alt="">
+                         <img src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="">
                           <div><a href="#">More Images</a></div> 
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
@@ -133,12 +133,12 @@
                         </div>
                         <div class="text-box-name">
                           <div class="col-md-6 head-box">
-                            <p><a herf="#">View Full Details</a></p>
+                            <p><a href="<?php echo base_url(); ?>full_view">View Full Details</a></p>
                           </div>  
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
-                         <img src="http://localhost/vali_dev/allikod/assets/img/search-result-page/img1.jpg" alt="">
+                         <img src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="">
                           <div><a href="#">More Images</a></div> 
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
@@ -183,12 +183,12 @@
                         </div>
                         <div class="text-box-name">
                           <div class="col-md-6 head-box">
-                            <p><a herf="#">View Full Details</a></p>
+                            <p><a href="<?php echo base_url(); ?>full_view">View Full Details</a></p>
                           </div>  
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
-                         <img src="http://localhost/vali_dev/allikod/assets/img/search-result-page/img1.jpg" alt="">
+                         <img src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="">
                           <div><a href="#">More Images</a></div> 
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
@@ -233,12 +233,12 @@
                         </div>
                         <div class="text-box-name">
                           <div class="col-md-6 head-box">
-                            <p><a herf="#">View Full Details</a></p>
+                            <p><a href="<?php echo base_url();?>full_view">View Full Details</a></p>
                           </div>  
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
-                        <img src="http://localhost/vali_dev/allikod/assets/img/search-result-page/img1.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="">
                           <div><a href="#">More Images</a></div> 
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
@@ -283,7 +283,7 @@
                         </div>
                         <div class="text-box-name">
                           <div class="col-md-6 head-box">
-                            <p><a herf="#">View Full Details</a></p>
+                            <p><a href="<?php echo base_url(); ?>full_view">View Full Details</a></p>
                           </div>  
                         </div>
                     </div>            
@@ -596,7 +596,7 @@
         </section>
         <!--================End search_reslut grid Area =================-->               
         
-        <div id="largeContent" style="display:none;">
+       <!--  <div id="largeContent" style="display:none;">
             <div class="media tool_content">
                 <div class="media-left">
                     <img src="<?php echo base_url(); ?>assets/img/map-persion.png" alt="">
@@ -608,7 +608,7 @@
                     <h5>Distance 16 km</h5>
                 </div>
             </div>
-        </div>
+        </div> -->
 <?php 
     include('include/footer.php');
 ?> 

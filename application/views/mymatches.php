@@ -1,4 +1,4 @@
-<?php 
+r<?php 
     include('include/header.php');
 ?> 
        <?php 
@@ -30,7 +30,7 @@
                  <div class="row">
                      <div class="col-md-9 aline-center-box ">
                         <div class="search_btn back-box">
-                                <a href="search.html" class="register_angkar_btn">Back</a>
+                                <a href="<?php echo base_url(); ?>search" class="register_angkar_btn">Back</a>
                         </div>
                      </div>
                  </div>   
@@ -82,7 +82,7 @@
                         </div>
                         <div class="text-box-name">
                           <div class="col-md-6 head-box">
-                            <p><a herf="#">View Full Details</a></p>
+                            <p><a href="<?php echo base_url(); ?>full_view">View Full Details</a></p>
                           </div>  
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                         </div>
                         <div class="text-box-name">
                           <div class="col-md-6 head-box">
-                            <p><a herf="#">View Full Details</a></p>
+                            <p><a href="<?php echo base_url();?>full_view">View Full Details</a></p>
                           </div>  
                         </div>
                     </div>
@@ -182,7 +182,7 @@
                         </div>
                         <div class="text-box-name">
                           <div class="col-md-6 head-box">
-                            <p><a herf="#">View Full Details</a></p>
+                            <p><a href="<?php echo base_url(); ?>full_view">View Full Details</a></p>
                           </div>  
                         </div>
                     </div>
@@ -232,7 +232,7 @@
                         </div>
                         <div class="text-box-name">
                           <div class="col-md-6 head-box">
-                            <p><a herf="#">View Full Details</a></p>
+                            <p><a href="<?php echo base_url(); ?>full_view">View Full Details</a></p>
                           </div>  
                         </div>
                     </div>
@@ -282,7 +282,7 @@
                         </div>
                         <div class="text-box-name">
                           <div class="col-md-6 head-box">
-                            <p><a herf="#">View Full Details</a></p>
+                            <p><a href="<?php echo base_url(); ?>full_view">View Full Details</a></p>
                           </div>  
                         </div>
                     </div>            

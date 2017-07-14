@@ -29,7 +29,7 @@
                         <div class="col-sm-6">
                             <div class="registration_form_s">
                                 <h4>Registration</h4>
-                                <form method="post" action="<?php echo base_url(); ?>">
+                                <form method="post" action="<?php echo base_url();?>registration">
                                     <div class="form-group">
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">

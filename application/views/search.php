@@ -25,14 +25,14 @@
                 <div class="search_option">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="search.html#home" aria-controls="home" role="tab" data-toggle="tab">Basic Search</a></li>
+                        <li role="presentation" class="active"><a href="search.html#base" aria-controls="base" role="tab" data-toggle="tab">Basic Search</a></li>
                          <li role="presentation" class="#"><a href="search.html#advanced-search" aria-controls="advanced-search" role="tab" data-toggle="tab">Advanced Search</a></li>
                         <li role="presentation" class="#"><a href="search.html#vallikodi" aria-controls="vallikodi" role="tab" data-toggle="tab">Search By Vallikodi ID</a></li>
                         <li role="presentation" class="#"><a href="search.html#manual-id" aria-controls="manual-id" role="tab" data-toggle="tab"> Search By Manual ID</a></li>
                          <li role="presentation" class="#"><a href="search.html#dh-id" aria-controls="dh-id" role="tab" data-toggle="tab"> Search By Dhosham</a></li>
                     </ul>
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade in active" id="home">
+                        <div role="tabpanel" class="tab-pane fade in active" id="base">
                             <div class="registration_form_are">
                         	 	 <div class="row">
                         	 	 	<div class="col-sm-12 aline-center-box">
@@ -193,7 +193,7 @@
                                                     <h3>Advanced Search</h3>
                                                 </div>    
                                              </div>
-                                             <form class="box">
+                                             <form class="box" action="<?php echo base_url(); ?>search_result">
                                               
                                                 <div class="col-sm-10  aline-center-box">
                                                        <div class="row">
@@ -377,8 +377,8 @@
                                                         </div>        
                                                 </div>
                                                 <div class="search_btn">
-                                                    <a href="search_result.html" class="register_angkar_btn">Search</a>
-                                                    <a href="matches.html#" class="white_angkar_btn">Reset</a>
+                                                    <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
+                                                    <button type="reset" value="LogIn" class="btn form-control login_btn">Reset</button>
                                                 </div>
                                              </form>
                                         </div>
@@ -401,24 +401,24 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6 aline-center-box ">
-                                        <div class="col-sm-6 ">
-                                            <div class="registration_form_area form-box" id="registration_form_are_box">
-                                                <div class="registration_form_s_box" id="registration_form_s_box">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" id="bride_name" placeholder="">      
-                                                        </div>
-                                                    </form>
-                                                 </div>
+                                    <form action="<?php echo base_url(); ?>search_result">
+                                        <div class="col-sm-6 aline-center-box ">
+                                            <div class="col-sm-6 ">
+                                                <div class="registration_form_area form-box" id="registration_form_are_box">
+                                                    <div class="registration_form_s_box" id="registration_form_s_box">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" id="bride_name" placeholder="">      
+                                                            </div>
+                                                     </div>
+                                                </div>
                                             </div>
+                                            <div class="col-sm-6 butn-box">
+                                                <div class="reg_chose form-group ">
+                                                    <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
+                                                </div>
+                                            </div>                                           
                                         </div>
-                                        <div class="col-sm-6 butn-box">
-                                            <div class="reg_chose form-group ">
-                                                <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
-                                            </div>
-                                        </div>                                           
-                                    </div>    
+                                    </form>        
                                 </div>     
                            </div>
                            <div role="tabpanel" class="tab-pane fade in" id="manual-id">
@@ -436,24 +436,24 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6 aline-center-box ">
-                                        <div class="col-sm-6 ">
-                                            <div class="registration_form_area form-box" id="registration_form_are_box">
-                                                <div class="registration_form_s_box" id="registration_form_s_box">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" id="bride_name" placeholder="">      
-                                                        </div>
-                                                    </form>
-                                                 </div>
+                                    <form  action="<?php echo base_url(); ?>search_result">
+                                        <div class="col-sm-6 aline-center-box ">
+                                            <div class="col-sm-6 ">
+                                                <div class="registration_form_area form-box" id="registration_form_are_box">
+                                                    <div class="registration_form_s_box" id="registration_form_s_box">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" id="bride_name" placeholder="">      
+                                                            </div>
+                                                     </div>
+                                                </div>
                                             </div>
+                                            <div class="col-sm-6 butn-box">
+                                                <div class="reg_chose form-group ">
+                                                    <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
+                                                </div>
+                                            </div>                                           
                                         </div>
-                                        <div class="col-sm-6 butn-box">
-                                            <div class="reg_chose form-group ">
-                                                <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
-                                            </div>
-                                        </div>                                           
-                                    </div>    
+                                    </form>        
                                 </div>     
                            </div>
                             
@@ -472,35 +472,33 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6 aline-center-box ">
-                                        <div class="col-sm-6 ">
-                                            <div class="registration_form_area form-box" id="registration_form_are_box">
-                                                <div class="registration_form_s_box" id="registration_form_s_box">
-                                                    <form>
-                                                         <div class="col-sm-6 ">
-                                                                <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>Naga Dhosam</option>
-                                                                        <option>Chevvai Dhosam</option>
-                                                                        <option>Raghu Kedhu Dhosam</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>     
-                                                        </div>
-                                                    </form>
-                                                 </div>
+                                    <form  action="<?php echo base_url(); ?>search_result">
+                                        <div class="col-sm-6 aline-center-box ">
+                                            <div class="col-sm-6 ">
+                                                <div class="registration_form_area form-box" id="registration_form_are_box">
+                                                    <div class="registration_form_s_box" id="registration_form_s_box">
+                                                             <div class="col-sm-6 ">
+                                                                    <div class="height_item">
+                                                                        <select class="selectpicker">
+                                                                            <option>Naga Dhosam</option>
+                                                                            <option>Chevvai Dhosam</option>
+                                                                            <option>Raghu Kedhu Dhosam</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>     
+                                                            </div>
+                                                     </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-6 butn-box">
-                                            <div class="reg_chose form-group ">
-                                                <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
-                                            </div>
-                                        </div>                                           
-                                    </div>    
+                                            <div class="col-sm-6 butn-box">
+                                                <div class="reg_chose form-group ">
+                                                    <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
+                                                </div>
+                                            </div>                                           
+                                        </div> 
+                                    </form>       
                                 </div>     
                            </div>
-
-
                     </div>
             </div>        	    
 					 
@@ -667,7 +665,7 @@
             </div>
         </section>-->
               
-        <div id="largeContent" style="display:none;">
+        <!-- <div id="largeContent" style="display:none;">
             <div class="media tool_content">
                 <div class="media-left">
                     <img src="<?php echo base_url(); ?>assets/img/map-persion.png" alt="">
@@ -679,7 +677,7 @@
                     <h5>Distance 16 km</h5>
                 </div>
             </div>
-        </div>
+        </div> -->
 <?php 
     include('include/footer.php');
 ?> 

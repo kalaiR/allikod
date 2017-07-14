@@ -24,7 +24,7 @@
                 <div class="search_option">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="search.html#home" aria-controls="home" role="tab" data-toggle="tab">User Details</a></li>
+                        <li role="presentation" class="active"><a href="search.html#base" aria-controls="base" role="tab" data-toggle="tab">User Details</a></li>
                          <li role="presentation" class="#"><a href="search.html#advanced-search" aria-controls="advanced-search" role="tab" data-toggle="tab">Ethnicity</a></li>
                         <li role="presentation" class="#"><a href="search.html#vallikodi" aria-controls="vallikodi" role="tab" data-toggle="tab">Education</a></li>
                         <li role="presentation" class="#"><a href="search.html#manual-id" aria-controls="manual-id" role="tab" data-toggle="tab">Family</a></li>
@@ -32,7 +32,7 @@
                          <li role="presentation" class="#"><a href="search.html#dh-id" aria-controls="dh-id" role="tab" data-toggle="tab">Image &amp;Horoscope</a></li>
                     </ul>
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade in active" id="home">
+                        <div role="tabpanel" class="tab-pane fade in active" id="base">
                             <div class="registration_form_are">
                         	 	 <div class="row">
                         	 	 	<div class="col-sm-12 aline-center-box">
@@ -260,7 +260,7 @@
                                                         </div>        
                                                 </div>-->
                                                 <div class="search_btn">
-                                                    <a href="matches.html#" class="register_angkar_btn pull-right">Next</a>
+                                                    <a href="#" class="register_angkar_btn pull-right">Next</a>
                                                     <!--<a href="matches.html#" class="white_angkar_btn">Reset</a>-->
                                                 </div>
                         	 	 			 </form>
@@ -1397,7 +1397,7 @@
             </div>
         </section>-->      
         
-        <div id="largeContent" style="display:none;">
+       <!--  <div id="largeContent" style="display:none;">
             <div class="media tool_content">
                 <div class="media-left">
                     <img src="<?php echo base_url(); ?>assets/img/map-persion.png" alt="">
@@ -1409,7 +1409,7 @@
                     <h5>Distance 16 km</h5>
                 </div>
             </div>
-        </div>
+        </div> -->
 <?php 
     include('include/footer.php');
 ?> 
