@@ -9,7 +9,7 @@
 						<a href="index.php">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="country.php">Country</a>
+						<a href="<?php echo base_url(); ?>admin/country">Country</a>
 					</li>
 				</ul>
 			</div>

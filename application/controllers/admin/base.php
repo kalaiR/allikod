@@ -10,10 +10,7 @@ class Base extends CI_Controller {
 	}
 	public function index(){
 		$this->load->view('admin/index');
-	}
-	public function country(){
-		$this->load->view('admin/country');
-	}
+	}	
 	public function administration(){
 		$this->load->view('admin/administration');
 	}
@@ -70,6 +67,42 @@ class Base extends CI_Controller {
 	}
 	public function edit_mother_tongue(){
 		$this->load->view('admin/edit_mother_tongue');
+	}
+	public function luknam(){
+		$this->load->view('admin/luknam');
+	}
+	public function add_luknam(){
+		$this->load->view('admin/add_luknam');
+	}
+	public function edit_luknam(){
+		$this->load->view('admin/edit_luknam');
+	}
+	public function country(){
+		$this->load->view('admin/country');
+	}
+	public function add_country(){
+		$this->load->view('admin/add_country');
+	}
+	public function edit_country(){
+		$this->load->view('admin/edit_country');
+	}
+	public function education(){
+		$this->load->view('admin/education');
+	}
+	public function add_education(){
+		$this->load->view('admin/add_education');
+	}
+	public function edit_education(){
+		$this->load->view('admin/edit_education');
+	}
+	public function occupation(){
+		$this->load->view('admin/occupation');
+	}
+	public function add_occupation(){
+		$this->load->view('admin/add_occupation');
+	}
+	public function edit_occupation(){
+		$this->load->view('admin/edit_occupation');
 	}
 
 }

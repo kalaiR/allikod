@@ -6,7 +6,7 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="index.php">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin/country">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">Country</a>

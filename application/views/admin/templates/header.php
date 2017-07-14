@@ -136,10 +136,10 @@
 				<li class="nav-header hidden-tablet">Setting</li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/zodiac_sign"><i class="icon-calendar"></i><span class="hidden-tablet"> Zodiac Sign</span></a></li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/nakshathra"><i class="icon-calendar"></i><span class="hidden-tablet"> Nakshathra</span></a></li>
-				<li><a class="ajax-link" href="mother_tongue"><i class="icon-calendar"></i><span class="hidden-tablet"> Mother Tongue</span></a></li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/mother_tongue"><i class="icon-calendar"></i><span class="hidden-tablet"> Luknam</span></a></li>
-				<li><a class="ajax-link" href="country"><i class="icon-calendar"></i><span class="hidden-tablet"> Country</span></a></li>
-				<li><a class="ajax-link" href="education"><i class="icon-calendar"></i><span class="hidden-tablet"> Education</span></a></li>
-				<li><a class="ajax-link" href="occupation"><i class="icon-calendar"></i><span class="hidden-tablet"> Occupation</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/mother_tongue"><i class="icon-calendar"></i><span class="hidden-tablet"> Mother Tongue</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/luknam"><i class="icon-calendar"></i><span class="hidden-tablet"> Luknam</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/country"><i class="icon-calendar"></i><span class="hidden-tablet"> Country</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/education"><i class="icon-calendar"></i><span class="hidden-tablet"> Education</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/occupation"><i class="icon-calendar"></i><span class="hidden-tablet"> Occupation</span></a></li>
 		</div><!--/.well -->
 	</div><!-- left menu ends -->

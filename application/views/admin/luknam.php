@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info" id="add" href="add_luknam.php">
+						<a class="btn btn-info" id="add" href="<?php echo base_url(); ?>admin/add_luknam">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
@@ -50,7 +50,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_luknam.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -71,7 +71,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_luknam.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -92,7 +92,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_luknam.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -113,7 +113,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_luknam.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -134,7 +134,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_luknam.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -155,7 +155,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_luknam.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -176,7 +176,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_luknam.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -197,7 +197,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_luknam.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -218,7 +218,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_luknam.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -239,7 +239,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_luknam.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -260,7 +260,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_luknam.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -281,7 +281,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_luknam.php">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
