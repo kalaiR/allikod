@@ -1,5 +1,5 @@
 <?php 
-    include('templates/header.php');
+    include('header.php');
 ?>
 	<div id="content" class="span10">
 			<!-- content starts -->
@@ -35,7 +35,7 @@
 								  <th>Username</th>
 								  <th>Date registered</th>
 								  <th>Admin Type</th>
-								  <th>Status</th>
+								  <th>User Status</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>   
@@ -757,5 +757,5 @@
 
 
 <?php 
-    include('templates/footer.php');
+    include('footer.php');
 ?>

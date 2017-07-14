@@ -14,5 +14,8 @@ class Base extends CI_Controller {
 	public function country(){
 		$this->load->view('admin/country');
 	}
+	public function administration(){
+		$this->load->view('admin/administration');
+	}
 
 }

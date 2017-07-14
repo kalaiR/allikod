@@ -69,7 +69,8 @@ $route['mymatches'] 							= "base/mymatches";
 
 $route['admin'] 							= "admin/base/index";
 $route['admin/country'] 							= "admin/base/country";
-$route['admin/zodaic_sign'] 							= "admin/master_data/zodaic_sign";
+$route['admin/zodaic_sign'] 							= "admin/base/zodaic_sign";
+$route['admin/administration'] 							= "admin/base/administration";
 
 
 
