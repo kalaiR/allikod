@@ -35,7 +35,7 @@
 							<!-- View Tab Begins -->
 							<div class="tab-pane active" id="view">
 								<div class="box-content">
-									<a class="btn btn-info pull-right" id="add" href="add_customer_user.php">
+									<a class="btn btn-info pull-right" id="add" href="add_online_user.php">
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Online User
 								    </a>
