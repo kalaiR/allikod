@@ -27,46 +27,67 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6">
+                        <form action="registration.php" class="reg_form">
                             <div class="registration_form_s">
+                                <span class="val_status" style="display: block;">
+                                    <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
+                                </span>
                                 <h4>Registration</h4>
-                                <form action="registration.php">
-                                    <div class="form-group">
+                                <!-- <div class="form-group">
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                                     <span data-bind="label">Registered By</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
                                                     </button>
-                                                    <ul class="dropdown-menu" role="menu">
+                                                    <ul class="dropdown-menu form_inputs" role="menu">
                                                         <li><a href="index.php#">Self</a></li>
                                                         <li><a href="index.php#">Friend</a></li>
                                                         <li><a href="index.php#">Brother</a></li>
                                                         <li><a href="index.php#">Sister</a></li>
                                                     </ul>
                                                 </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
-                                                <input type="text" class="form-control" id="reg_Name" placeholder="Name">
+                                        <div class="row controls">
+                                            <div class="col-sm-9">
+                                                <div class="search_option">
+                                                    <div class="tab-content">
+                                                        <div role="tabpanel" class="tab-pane active"> 
+                                                            <div class="height_item">
+                                                                <select class="selectpicker form_inputs" name="registered_by">
+                                                                    <option value="">Registered By</option>
+                                                                    <option value="0">Self</option>
+                                                                    <option value="1">Friend</option>
+                                                                    <option value="2">Brother</option>
+                                                                    <option value="3">Sister</option>
+                                                                    <option value="4">Parent</option>
+                                                                </select>
+                                                            </div>
+                                                        </div> 
+                                                     </div>
+                                                </div>
                                             </div>
-                                        <!--
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" id="reg_con_pass2" placeholder=" Confirm Password">
-                                    </div>-->
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="reg_Religion" placeholder="Religion">
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="reg_Mobile" placeholder="Mobile">
+                                                <input type="text" class="form-control form_inputs" id="reg_Name" placeholder="Name" name="username">
+                                            </div>
+                                    <div class="form-group">
+                                        <input type="text" name="religion" class="form-control form_inputs" id="reg_Religion" placeholder="Religion">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="reg_email2" placeholder="Email">
+                                        <input type="text" name="mobile_no" class="form-control form_inputs mobile_value" id="reg_Mobile" placeholder="Mobile">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="email_id" class="form-control form_inputs email_value" id="reg_email2" placeholder="Email">
                                     </div>
                                     
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="reg_pass2" placeholder="Password">
+                                        <input type="password" name="password" class="form-control form_inputs" id="reg_pass2" placeholder="Password">
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group">
+                                        <!-- <div class="form-group">
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                                     <span data-bind="label">Gender</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
@@ -76,12 +97,29 @@
                                                         <li><a href="index.php#">Female</a></li>
                                                     </ul>
                                                 </div>
+                                            </div> -->
+                                        <div class="control-group form-group">
+                                            <div class="controls">
+                                                        <div class="search_option">
+                                                            <div class="tab-content">
+                                                                <div role="tabpanel" class="tab-pane active"> 
+                                                                    <div class="height_item">
+                                                                        <select class="selectpicker form_inputs" name="gender">
+                                                                            <option value="">Gender</option>
+                                                                            <option value="0">Male</option>
+                                                                            <option value="1">Female</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div> 
+                                                             </div>
+                                                        </div>
                                             </div>
+                                        </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="datepicker">
-                                                    <input type='text' class="form-control datetimepicker4" placeholder="Birthday" />
+                                                    <input type='text' name="birthday" class="form-control datetimepicker4 form_inputs" placeholder="Birthday" />
                                                     <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                                 </div>
                                             </div>
@@ -90,8 +128,8 @@
                                     <div class="reg_chose form-group">
                                         <button type="submit" value="LogIn" herf="#" class="btn form-control login_btn"> Register</button>
                                     </div>
-                                </form>
                             </div>
+                        </form>                            
                         </div>
                         <!--<div class="col-sm-6">
                             <div class="form_man">

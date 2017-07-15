@@ -1,4 +1,4 @@
-/*----------------------------------------------------
+----------------------------------------------------
 @File: Default Styles
 @Author: Rocky Ahmed
 @URL: http://wethemez.com
@@ -8143,5 +8143,31 @@ ol a{
 /* End Ravi updated
 ============================================================================================ */
 /*---------------------------------------------------- */
+/* Select box css*/
+.control-group
+{
+    margin-bottom: 15px !important;
+}
+.fill_symbol
+{
+   color:#ff0000;
+}
+/*.form-control {
+     width: 310px;
+}*/
+/* End of Select box css*/
+/* Validation Error*/
+.val_error{
+    color: #ff0000;
+    padding: 8px 20px 0px 14px !important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+    display:none;
+}
 
-/*# sourceMappingURL=style.css.map */
+.val_status {
+    text-align: center;
+    display: none;
+}
+/* End of Validation Error*/
+
+/*# sourceMappingURL=style.css.map 

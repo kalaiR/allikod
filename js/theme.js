@@ -713,20 +713,20 @@
     /*  Select js
     /*----------------------------------------------------*/
     /*Bootstrap Select picker*/
-    $( document.body ).on( 'click', '.registration_form_s .btn-group .dropdown-menu li', function( event ) {
+    // $( document.body ).on( 'click', '.registration_form_s .btn-group .dropdown-menu li', function( event ) {
 
-        window.location.href = $('a', this).attr('href');
+    //     window.location.href = $('a', this).attr('href');
 
-        var $target = $( event.currentTarget );
+    //     var $target = $( event.currentTarget );
 
-        $target.closest( '.registration_form_s .form-group .btn-group' )
-        .find( '[data-bind="label"]' ).text( $target.text() )
-        .end()
-        .children( '.registration_form_s .btn-group .dropdown-toggle' ).dropdown( 'toggle' );
+    //     $target.closest( '.registration_form_s .form-group .btn-group' )
+    //     .find( '[data-bind="label"]' ).text( $target.text() )
+    //     .end()
+    //     .children( '.registration_form_s .btn-group .dropdown-toggle' ).dropdown( 'toggle' );
 
-        return false;
+    //     return false;
 
-    });
+    // });
     
     /*----------------------------------------------------*/
     /*  Date Picker js
