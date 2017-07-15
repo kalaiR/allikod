@@ -36,10 +36,10 @@
                                                     <span data-bind="label">Registered By</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
                                                     </button>
                                                     <ul class="dropdown-menu" role="menu">
-                                                        <li><a href="index.html#">Self</a></li>
-                                                        <li><a href="index.html#">Friend</a></li>
-                                                        <li><a href="index.html#">Brother</a></li>
-                                                        <li><a href="index.html#">Sister</a></li>
+                                                        <li><a href="<?php echo base_url(); ?>#">Self</a></li>
+                                                        <li><a href="<?php echo base_url(); ?>#">Friend</a></li>
+                                                        <li><a href="<?php echo base_url(); ?>#">Brother</a></li>
+                                                        <li><a href="<?php echo base_url(); ?>#">Sister</a></li>
                                                     </ul>
                                                 </div>
                                     </div>
@@ -72,8 +72,8 @@
                                                     <span data-bind="label">Gender</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
                                                     </button>
                                                     <ul class="dropdown-menu" role="menu">
-                                                        <li><a href="index.html#">Male</a></li>
-                                                        <li><a href="index.html#">Female</a></li>
+                                                        <li><a href="<?php echo base_url(); ?>#">Male</a></li>
+                                                        <li><a href="<?php echo base_url(); ?>#">Female</a></li>
                                                     </ul>
                                                 </div>
                                             </div>

@@ -10,8 +10,8 @@
             <div class="container">
                 <div class="banner_content">
                     <h3 title="Contact us"><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">Contact us<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
-                    <a href="http://shtheme.com/html/verodate/index.html">Home</a>
-                    <a href="http://shtheme.com/html/verodate/matches.html">Contact us</a>
+                    <a href="<?php echo base_url(); ?>">Home</a>
+                    <a href="<?php echo base_url(); ?>contact">Contact us</a>
                 </div>
             </div>
         </section>
@@ -780,7 +780,7 @@
                     <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
                 <div class="row">
-                    <form action="http://shtheme.com/html/verodate/contact_process.php" method="post" id="contactForm" class="form_inner">
+                    <form action="<?php echo base_url(); ?>contact" method="post" id="contactForm" class="form_inner">
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="form-group col-md-12">

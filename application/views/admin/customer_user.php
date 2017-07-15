@@ -6,7 +6,7 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="index.php">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">Customer User</a>
@@ -35,11 +35,11 @@
 							<!-- View Tab Begins -->
 							<div class="tab-pane active" id="view">
 								<div class="box-content">
-									<a class="btn btn-info pull-right" id="add" href="add_customer_user.php">
+									<a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/add_customer_user">
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Online User
 								    </a>
-								    <a class="btn btn-info pull-right" id="add" href="add_customer_user.php">
+								    <a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/add_customer_user">
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Simple User
 								    </a>
@@ -93,7 +93,7 @@
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -130,7 +130,7 @@
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -187,7 +187,7 @@
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -219,7 +219,7 @@
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -273,7 +273,7 @@
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -302,7 +302,7 @@
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -359,7 +359,7 @@
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -391,7 +391,7 @@
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">

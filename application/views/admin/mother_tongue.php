@@ -6,7 +6,7 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="index.php">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">Mother Tongue</a>
@@ -24,8 +24,8 @@
 							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
 						</div>
 					</div>
-					<div class="box-content pull-right">
-						<a class="btn btn-info" id="add" href="<?php echo base_url(); ?>admin/add_mother_tongue">
+					<div class="box-content">
+						<a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/add_mother_tongue">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
