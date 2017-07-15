@@ -122,7 +122,7 @@
 				<!-- <li class="nav-header hidden-tablet">Main</li> -->
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 				<li class="nav-header hidden-tablet">Administration</li>
-				<li><a class="ajax-link" href="administration"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/administration"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/selling_admin"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li>
 				<li class="nav-header hidden-tablet">Report</li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
