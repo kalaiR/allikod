@@ -12,7 +12,7 @@
 		http://twitter.com/halalit_usman
 	-->
 	<meta charset="utf-8">
-	<title>Free HTML5 Bootstrap Admin Template</title>
+	<title>Vallikodi Martimonial</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
 	<meta name="author" content="Muhammad Usman">
@@ -64,10 +64,10 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"> <img alt="Vallikodi Logo" src="assets/admin/img/logo1.png" /></a>
+				<a class="brand" href="<?php echo base_url(); ?>admin/"> <img alt="Vallikodi Logo" src="<?php echo base_url(); ?>assets/admin/img/logo1.png" /></a>
 				
 				<!-- theme selector starts -->
-				<div class="btn-group pull-right theme-container" >
+				<!-- <div class="btn-group pull-right theme-container" >
 					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 						<i class="icon-tint"></i><span class="hidden-phone"> Change Theme / Skin</span>
 						<span class="caret"></span>
@@ -83,7 +83,7 @@
 						<li><a data-value="spacelab" href="#"><i class="icon-blank"></i> Spacelab</a></li>
 						<li><a data-value="united" href="#"><i class="icon-blank"></i> United</a></li>
 					</ul>
-				</div>
+				</div> -->
 				<!-- theme selector ends -->
 				
 				<!-- user dropdown starts -->
@@ -93,16 +93,16 @@
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Profile</a></li>
+						<li><a href="<?php echo base_url(); ?>admin">Profile</a></li>
 						<li class="divider"></li>
-						<li><a href="login.html">Logout</a></li>
+						<li><a href="<?php echo base_url(); ?>admin">Logout</a></li>
 					</ul>
 				</div>
 				<!-- user dropdown ends -->
 				
 				<div class="top-nav nav-collapse">
 					<ul class="nav">
-						<li><a href="#">Visit Site</a></li>
+						<li><a href="<?php echo base_url(); ?>">Visit Site</a></li>
 						<li>
 							<form class="navbar-search pull-left">
 								<input placeholder="Search" class="search-query span2" name="query" type="text">
@@ -120,19 +120,21 @@
 		<div class="well nav-collapse sidebar-nav">
 			<ul class="nav nav-tabs nav-stacked main-menu">
 				<!-- <li class="nav-header hidden-tablet">Main</li> -->
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 				<li class="nav-header hidden-tablet">Administration</li>
-				<li><a class="ajax-link" href="administration"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/administration"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/selling_admin"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li>
 				<li class="nav-header hidden-tablet">Report</li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/report"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
+				<li class="nav-header hidden-tablet">Customer User</li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/customer_user"><i class="icon-user"></i></i><span class="hidden-tablet">View Customer User</span></a></li>
 				<li class="nav-header hidden-tablet">Successful Story</li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/successful_story"><i class="icon-font"></i><span class="hidden-tablet"> Successful Story</span></a></li>
 				<li class="nav-header hidden-tablet">Mail</li>
-				<li><a class="ajax-link" href="mail"><i class="icon-align-justify"></i><span class="hidden-tablet"> Mail</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-align-justify"></i><span class="hidden-tablet"> Mail</span></a></li>
 				<!-- <li class="nav-header hidden-tablet">Sample Section</li> -->
-				<li><a class="ajax-link" href="send_mail"><i class="icon-picture"></i><span class="hidden-tablet"> Send Mail</span></a></li>
-				<li><a class="ajax-link" href="send_sms"><i class="icon-calendar"></i><span class="hidden-tablet"> Send SMS</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-picture"></i><span class="hidden-tablet"> Send Mail</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-calendar"></i><span class="hidden-tablet"> Send SMS</span></a></li>
 				<li class="nav-header hidden-tablet">Setting</li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/zodiac_sign"><i class="icon-calendar"></i><span class="hidden-tablet"> Zodiac Sign</span></a></li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/nakshathra"><i class="icon-calendar"></i><span class="hidden-tablet"> Nakshathra</span></a></li>

@@ -1,12 +1,12 @@
 <?php 
     include('templates/header.php');
 ?>
-	<div id="content" class="span10">
+	<div id="content" class="span11">
 			<!-- content starts -->
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="index.php">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="<?php echo base_url(); ?>admin/selling_admin">Selling Admin</a>

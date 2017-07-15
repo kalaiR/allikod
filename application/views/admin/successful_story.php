@@ -1,12 +1,12 @@
 <?php 
     include('templates/header.php');
 ?>
-	<div id="content" class="span10">
+	<div id="content" class="span11">
 			<!-- content starts -->
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="index.php">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">Successful Story</a>
@@ -19,7 +19,7 @@
 					<div class="box-header well" data-original-title>
 						<h2><i class="icon-user"></i> Successful Story</h2>
 						<div class="box-icon">
-							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
+							<a href="#" class="btn b tn-setting btn-round"><i class="icon-cog"></i></a>
 							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
 							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
 						</div>

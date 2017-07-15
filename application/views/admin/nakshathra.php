@@ -1,12 +1,12 @@
 <?php 
     include('templates/header.php');
 ?>
-	<div id="content" class="span10">
+	<div id="content" class="span11">
 			<!-- content starts -->
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="index.php">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">Nakshathra</a>
@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info" id="add" href="<?php echo base_url(); ?>admin/add_nakshathra">
+						<a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/add_nakshathra">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
