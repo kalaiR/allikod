@@ -77,20 +77,20 @@
             <div class="copyright">
                 <div class="copyright_left">
                     <div class="copyright_text">
-                        <h4>Copyright © 2012. <a href="index.html#"> Vallikodi Vanniar Matrimonial.</a> </h4>
+                        <h4>Copyright © 2012. <a href="index.php"> Vallikodi Vanniar Matrimonial.</a> </h4>
                     </div>
                 </div>
                 <div class="copyright_right">
                     <div class="copyright_social">
                         <ul>
-                            <li><a href="stories.html#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="stories.html#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="stories.html#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                            <li><a href="stories.html#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="stories.html#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="stories.html#"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
-                            <li><a href="stories.html#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                            <li><a href="stories.html#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                            <li><a href="index.php" class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="index.php"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="index.php"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                            <li><a href="index.php"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="index.php"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                            <li><a href="index.php"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
+                            <li><a href="index.php"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                            <li><a href="index.php"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>

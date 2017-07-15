@@ -1,6 +1,6 @@
 <div class="login_form_inner zoom-anim-dialog mfp-hide" id="small-dialog">
    <h4>User Login</h4>
-   <form>
+   <form method="post" action="index.php">
        <input type="text" placeholder="Username">
        <input type="password" placeholder="Password">
        <div class="login_btn_area">
@@ -35,10 +35,10 @@
                                     <span data-bind="label">Registered By</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="index.html#">Self</a></li>
-                                        <li><a href="index.html#">Friend</a></li>
-                                        <li><a href="index.html#">Brother</a></li>
-                                        <li><a href="index.html#">Sister</a></li>
+                                        <li><a href="index.php#">Self</a></li>
+                                        <li><a href="index.php#">Friend</a></li>
+                                        <li><a href="index.php#">Brother</a></li>
+                                        <li><a href="index.php#">Sister</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -69,8 +69,8 @@
                                             <span data-bind="label">Gender</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
                                             </button>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="index.html#">Male</a></li>
-                                                <li><a href="index.html#">Female</a></li>
+                                                <li><a href="index.php#">Male</a></li>
+                                                <li><a href="index.php#">Female</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -136,19 +136,19 @@
                         <li id="vanniyar"><a href="vanniyar.php">My Vanniyar</a></li>
                          <li id="payment"><a href="payment.php">Payment</a></li>
                         <li id="contact"><a href="contact.php">Contact</a></li>
-                        <li class="dropdown submenu">
+                        <!-- <li class="dropdown submenu">
                             <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, Madhi <i class="fa fa-user-circle" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="mymatches.php">Matches</a></li>
                                 <li><a href="myprofile.php">My Profile</a></li>
                                 <li><a href="index.php">Logout</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
-                    <!-- <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right">
                         <li id="login"><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
                         <li id="register"><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>Registration</a></li>
-                    </ul> -->
+                    </ul>
                     </div><!-- /.navbar-collapse (selva) -->
                 </div><!-- /.container-fluid  (selva)-->
             </nav>

@@ -1,15 +1,15 @@
 <?php 
     include('header.php');
 ?>
-	<div id="content" class="span10">
+	<div id="content" class="span11">
 			<!-- content starts -->
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="#">Home</a> <span class="divider">/</span>
+						<a href="index.php">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="#">Forms</a>
+						<a href="administration.php">Administration</a>
 					</li>
 				</ul>
 			</div>
@@ -67,6 +67,7 @@
 			</div><!--/row-->
 	<!-- content ends -->
 	</div><!--/fluid-row-->
+
 <?php 
     include('footer.php');
 ?>

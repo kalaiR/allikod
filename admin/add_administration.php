@@ -1,7 +1,7 @@
 <?php 
     include('header.php');
 ?>
-	<div id="content" class="span10">
+	<div id="content" class="span11">
 			<!-- content starts -->
 			<div>
 				<ul class="breadcrumb">
@@ -9,7 +9,7 @@
 						<a href="index.php">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="administration.php">Administration</a>
+						<a href="add_administration">Administration</a>
 					</li>
 				</ul>
 			</div>

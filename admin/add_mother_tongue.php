@@ -1,7 +1,7 @@
 <?php 
     include('header.php');
 ?>
-	<div id="content" class="span10">
+	<div id="content" class="span11">
 			<!-- content starts -->
 			<div>
 				<ul class="breadcrumb">
