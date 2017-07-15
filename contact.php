@@ -781,7 +781,7 @@
                     <img src="img/w-title-b.png" alt="">
                 </div>
                 <div class="row">
-                    <form action="http://shtheme.com/html/verodate/contact_process.php" method="post" id="contactForm" class="form_inner">
+                    <form action="contact.php" method="post" id="contactForm" class="form_inner">
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="form-group col-md-12">
