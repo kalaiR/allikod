@@ -35,24 +35,52 @@
 								  <th>Bride</th>
 								  <th>Groom</th>
 								  <th>Marriage Date</th>
-								  <th>Status</th>
+								  <th>Active Status</th>
+								  <th>Delete Status</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>   
 						  <tbody>
+							  <?php
+			                      if(!empty($successtory_values)) :
+			                      $i=0;
+			                      foreach ($successtory_values as $suc_val) :
+			                      $i++;
+	                      	  ?>
 							<tr>
-								<td>Others</td>
-								<td class="center">Test1</td>
-								<td class="center">2012/01/01</td>
+								<td><?php echo $suc_val['female_name']; ?></td>
+								<td class="center"><?php echo $suc_val['male_name']; ?></td>
 								<td class="center">
-									<span class="label label-success">Active</span>
+									<?php 
+			                            echo date("d/m/Y", strtotime($suc_val['added_date']));
+			                        ?> 
+								</td>
+								<td class="center">
+									<span class="label label-success">
+										<?php 
+				                          if ($suc_val['active_status'] == 1) 
+				                            echo "Activated";
+				                          else
+				                            echo "Not-Activated";
+				                        ?>
+				                    </span>
+								</td>
+								<td class="center">
+									<span class="label label-success">
+										<?php 
+				                          if ($suc_val['delete_status'] == 1) 
+				                            echo "Deleted";
+				                          else
+				                            echo "Not-Deleted";
+				                        ?>
+				                    </span>
 								</td>
 								<td class="center">
 									<!-- <a class="btn btn-success" href="#">
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story/<?php echo $suc_val["successstories_id"] ?>">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -62,248 +90,10 @@
 									</a>
 								</td>
 							</tr>
-							<tr>
-								<td>10th</td>
-								<td class="center">Test2</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>PhD</td>
-								<td class="center">Test3</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Rishabam (Taurus)</td>
-								<td class="center">Test4</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Mithunam (Gemini)</td>
-								<td class="center">Test5</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Mesham (Aries)</td>
-								<td class="center">Test6</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Meenam (Pisces)</td>
-								<td class="center">Test7</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Makara (Capricorn)</td>
-								<td class="center">Test8</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Kumbha (Aquarius)</td>
-								<td class="center">Test9</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Katagam (Cancer)</td>
-								<td class="center">Test10</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Kanni (Virgo)</td>
-								<td class="center">Test11</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Dhanus (Sagittarius)</td>
-								<td class="center">Test12</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
+							<?php
+		                      endforeach;
+		                      endif;
+		                    ?>
 						  </tbody>
 					  </table>            
 					</div>

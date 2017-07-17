@@ -30,15 +30,15 @@ class Base extends CI_Controller {
 	public function report(){
 		$this->load->view('admin/report');
 	}
-	public function successful_story(){
-		$this->load->view('admin/successful_story');
-	}
-	public function add_successful_story(){
-		$this->load->view('admin/add_successful_story');
-	}
-	public function edit_successful_story(){
-		$this->load->view('admin/edit_successful_story');
-	}
+	// public function successful_story(){
+	// 	$this->load->view('admin/successful_story');
+	// }
+	// public function add_successful_story(){
+	// 	$this->load->view('admin/add_successful_story');
+	// }
+	// public function edit_successful_story(){
+	// 	$this->load->view('admin/edit_successful_story');
+	// }
 	// public function zodiac_sign(){
 	// 	$this->load->view('admin/zodiac_sign');
 	// }

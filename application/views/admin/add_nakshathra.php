@@ -52,7 +52,7 @@
 								</div>
 							    <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button class="btn">Cancel</button>
+								<button type="reset" class="btn">Cancel</button>
 							  </div>
 							</fieldset>
 <?php if(!$this->input->is_ajax_request()) { ?>						
