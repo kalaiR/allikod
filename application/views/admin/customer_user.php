@@ -51,12 +51,12 @@
 											  <th>No</th>
 											  <th>Vallikodi ID</th>
 											  <th>Profile ID</th>
-											  <th>Reg. Date</th>
+											  <th>Reg. <br>Date</th>
 											  <th>Name</th>
 											  <th>Mail</th>
-											  <th>No.of profile Viewed</th>
-											  <th>Reg. From</th>
-											  <th>User Type</th>
+											  <th>Profile <br>Viewed</th>
+											  <th>Reg. <br>From</th>
+											  <th>User <br>Type</th>
 											  <th>Profile</th>
 											  <th>Payment</th>
 											  
@@ -69,9 +69,9 @@
 											<td class="center">1</td>
 											<td class="center">66699</td>
 											<td class="center">259</td>
-											<td class="center">21-June-2017</td>
-											<td class="center">Madhivanan</td>
-											<td class="center">v.madhivanan@gmail.com</td>
+											<td class="center">21-07-2017</td>
+											<td class="center">Madhi</td>
+											<td class="center">madhi@gmail.com</td>
 											<td class="center">0 / 60</td>
 											<td class="center">
 												<span class="label label-success">CUSTOMER</span>
@@ -87,7 +87,7 @@
 											</td>
 											
 											<td class="center">
-												<a class="btn btn-warning" href="#">
+												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
 													<a class="btn btn-success" href="#">
@@ -106,9 +106,9 @@
 											<td class="center">1</td>
 											<td class="center">66699</td>
 											<td class="center">259</td>
-											<td class="center">21-June-2017</td>
-											<td class="center">Madhivanan</td>
-											<td class="center">v.madhivanan@gmail.com</td>
+											<td class="center">21-07-2017</td>
+											<td class="center">Madhi</td>
+											<td class="center">madhi@gmail.com</td>
 											<td class="center">0 / 60</td>
 											<td class="center">
 												<span class="label label-success">CUSTOMER</span>
@@ -127,7 +127,7 @@
 												<a class="btn btn-warning" href="#">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="#">
+													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
 													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
@@ -159,7 +159,7 @@
 											  <th>Reg. From</th>											  
 											  <th>Profile</th>
 											  <th>Payment</th>											  
-											  <th>Action</th>
+											  <th>Actions Action</th>
 										  </tr>
 									  </thead>   
 									  <tbody>
@@ -181,7 +181,7 @@
 												<span class="label label-danger">Not Paid</span>
 											</td>										
 											<td class="center">
-												<a class="btn btn-warning" href="#">
+												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
 													<a class="btn btn-success" href="#">
@@ -216,7 +216,7 @@
 												<a class="btn btn-warning" href="#">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="#">
+													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
 													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
@@ -270,7 +270,7 @@
 												<a class="btn btn-warning" href="#">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="#">
+													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
 													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
@@ -299,7 +299,7 @@
 												<a class="btn btn-warning" href="#">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="#">
+													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
 													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
@@ -353,7 +353,7 @@
 												<span class="label label-danger">Not Paid</span>
 											</td>										
 											<td class="center">
-												<a class="btn btn-warning" href="#">
+												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
 													<a class="btn btn-success" href="#">
@@ -388,7 +388,7 @@
 												<a class="btn btn-warning" href="#">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="#">
+													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
 													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
