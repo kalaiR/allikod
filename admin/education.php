@@ -40,7 +40,7 @@
 						  </thead>   
 						  <tbody>
 							<tr>
-								<td>Others</td>
+								<td>Bachelors - Engineering</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -61,7 +61,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>10th</td>
+								<td>&nbsp&nbsp&nbsp<i class="icon icon-arrowreturn-nw"></i>BE/BTech</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -82,7 +82,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>PhD</td>
+								<td>&nbsp&nbsp&nbsp<i class="icon icon-arrowreturn-nw"></i>BArch</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -103,7 +103,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Rishabam (Taurus)</td>
+								<td>&nbsp&nbsp&nbsp<i class="icon icon-arrowreturn-nw"></i>BPlan</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -122,175 +122,7 @@
 										Delete
 									</a>
 								</td>
-							</tr>
-							<tr>
-								<td>Mithunam (Gemini)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="edit_education.php">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Mesham (Aries)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="edit_education.php">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Meenam (Pisces)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="edit_education.php">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Makara (Capricorn)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="edit_education.php">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Kumbha (Aquarius)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="edit_education.php">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Katagam (Cancer)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="edit_education.php">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Kanni (Virgo)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="edit_education.php">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Dhanus (Sagittarius)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="edit_education.php">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
+							</tr>													
 						  </tbody>
 					  </table>            
 					</div>

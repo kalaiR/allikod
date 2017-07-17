@@ -123,9 +123,9 @@
 				<li><a class="ajax-link" href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 				<li class="nav-header hidden-tablet">Administration</li>
 				<li><a class="ajax-link" href="administration.php"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
-				<li><a class="ajax-link" href="selling_admin.php"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li>
+				<!-- <li><a class="ajax-link" href="selling_admin.php"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li> -->
 				<li class="nav-header hidden-tablet">Report</li>				
-				<li><a class="ajax-link" href="index.php"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
+				<li><a class="ajax-link" href="report.php"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
 				<li class="nav-header hidden-tablet">Customer User</li>
 				<li><a class="ajax-link" href="customer_user.php"><i class="icon-user"></i></i><span class="hidden-tablet">View Customer User</span></a></li>
 				<li class="nav-header hidden-tablet">Successful Story</li>

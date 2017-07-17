@@ -35,11 +35,11 @@
 							<!-- View Tab Begins -->
 							<div class="tab-pane active" id="view">
 								<div class="box-content">
-									<a class="btn btn-info pull-right" id="add" href="add_online_user.php">
+									<a class="btn btn-primary pull-right" id="add" href="add_online_user.php">
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Online User
 								    </a>
-								    <a class="btn btn-info pull-right" id="add" href="add_customer_user.php">
+								    <a class="btn btn-primary pull-right" id="add" href="add_customer_user.php">
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Simple User
 								    </a>
@@ -51,12 +51,12 @@
 											  <th>No</th>
 											  <th>Vallikodi ID</th>
 											  <th>Profile ID</th>
-											  <th>Reg. Date</th>
+											  <th>Reg. <br>Date</th>
 											  <th>Name</th>
 											  <th>Mail</th>
-											  <th>No.of profile Viewed</th>
-											  <th>Reg. From</th>
-											  <th>User Type</th>
+											  <th>Profile<br>Viewed</th>
+											  <th>Reg. <br>From</th>
+											  <th>User <br>Type</th>
 											  <th>Profile</th>
 											  <th>Payment</th>
 											  
@@ -69,9 +69,9 @@
 											<td class="center">1</td>
 											<td class="center">66699</td>
 											<td class="center">259</td>
-											<td class="center">21-June-2017</td>
-											<td class="center">Madhivanan</td>
-											<td class="center">v.madhivanan@gmail.com</td>
+											<td class="center">21-07-2017</td>
+											<td class="center">Madhi</td>
+											<td class="center">Madhi@gmail.com</td>
 											<td class="center">0 / 60</td>
 											<td class="center">
 												<span class="label label-success">CUSTOMER</span>
@@ -86,14 +86,14 @@
 												<span class="label label-success">Paid</span>
 											</td>
 											
-											<td class="center">
+											<td class="center" style="float: left;">
 												<a class="btn btn-warning" href="#">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="#">
+													<a class="btn btn-success" href="view_customer_user.php">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-primary" href="edit_customer_user.php">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -106,9 +106,9 @@
 											<td class="center">1</td>
 											<td class="center">66699</td>
 											<td class="center">259</td>
-											<td class="center">21-June-2017</td>
-											<td class="center">Madhivanan</td>
-											<td class="center">v.madhivanan@gmail.com</td>
+											<td class="center">21-07-2017</td>
+											<td class="center">Madhi</td>
+											<td class="center">@gmail.com</td>
 											<td class="center">0 / 60</td>
 											<td class="center">
 												<span class="label label-success">CUSTOMER</span>
@@ -127,10 +127,10 @@
 												<a class="btn btn-warning" href="#">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="#">
+													<a class="btn btn-success" href="view_customer_user.php">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-primary" href="edit_customer_user.php">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -167,7 +167,7 @@
 											<td class="center">1</td>
 											<td class="center">66699</td>
 											<td class="center">259</td>											
-											<td class="center">Madhivanan</td>
+											<td class="center">Madhi</td>
 											<td class="center">v.madhivanan@gmail.com</td>
 											<td class="center">0 / 60</td>
 											<td class="center">21-June-2017</td>
@@ -181,13 +181,13 @@
 												<span class="label label-danger">Not Paid</span>
 											</td>										
 											<td class="center">
-												<a class="btn btn-warning" href="#">
+												<a class="btn btn-warning" href="view_customer_user.php">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-primary" href="edit_customer_user.php">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -199,7 +199,7 @@
 											<td class="center">1</td>
 											<td class="center">66699</td>
 											<td class="center">259</td>											
-											<td class="center">Madhivanan</td>
+											<td class="center">Madhi</td>
 											<td class="center">v.madhivanan@gmail.com</td>
 											<td class="center">0 / 60</td>
 											<td class="center">21-June-2017</td>
@@ -219,7 +219,7 @@
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-primary" href="edit_customer_user.php">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -273,7 +273,7 @@
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-primary" href="edit_customer_user.php">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -302,7 +302,7 @@
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-primary" href="edit_customer_user.php">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -359,7 +359,7 @@
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-primary" href="edit_customer_user.php">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">
@@ -391,7 +391,7 @@
 													<a class="btn btn-success" href="#">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="edit_customer_user.php">
+													<a class="btn btn-primary" href="edit_customer_user.php">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger" href="#">

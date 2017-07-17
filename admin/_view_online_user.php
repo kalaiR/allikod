@@ -23,14 +23,14 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info pull-right" id="add" href="add_successful_story.php">
+						<a class="btn btn-info pull-right" id="add" href="edit_online_user.php">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
-					        Save
+					        Edit
 					    </a>
-					    <a class="btn btn-info pull-right" id="add" href="add_successful_story.php">
+					   <!--  <a class="btn btn-info pull-right" id="add" href="add_successful_story.php">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Cancel
-					    </a>
+					    </a> -->
     						 <div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
@@ -52,46 +52,27 @@
 									    </a> -->
 										<form class="form-horizontal">
 											<fieldset>
+											<div class="control-group">
+												<label class="control-label" for="focusedInput">Owner of registration :  </label>
+												<label class="control-label" for="focusedInput">pondy_admin </label>												
+											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Your Email : </label>
-												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="email" value="">
-												</div>
-											  </div>
+												<label class="control-label" for="focusedInput">abc@xyz.com </label></div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Password : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="Password" value="">
+												<label class="control-label" for="focusedInput">*** </label>
+												  <!-- <input class="input-xlarge focused" id="focusedInput" type="Password" value="">-->
 												</div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Confirm Password : </label>
-												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="Password" value="">
-												</div>
-											  </div>
-											  <!-- <div class="control-group">
-												<label class="control-label">Active Status : </label>
-												<div class="controls">
-												  <select data-rel="chosen">
-													<option>Enabled</option>
-													<option>Disabled</option>
-												  </select>
-												</div>
-											  </div>
-											   <div class="control-group">
-												<label class="control-label">Admin Type : </label>
-												<div class="controls">
-												  <select data-rel="chosen">
-													<option>Admin</option>
-													<option>Selling Admin</option>
-												  </select>
-												</div>
-											  </div> -->
-											  <!-- <div class="form-actions">
-												<button type="submit" class="btn btn-primary">Save changes</button>
-												<button class="btn">Cancel</button>
-											  </div> -->
+												<label class="control-label" for="focusedInput">*** </label>
+												<!-- <div class="controls">
+												  <input class="input-xlarge focused" id="focusedInput" type="Password" value="">-->
+												</div> 
+											  </div>										  
 											</fieldset>
 										  </form>
 										</div>
@@ -289,7 +270,7 @@
 													</div>
 											  	</div>
 											  	<div class="control-group">
-												<label class="control-label">Nakshathra<b>*</b> : </label>
+												<label class="control-label">Nakshathra : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 													<option>Star</option>
@@ -312,7 +293,7 @@
 													</div>
 											  	</div>
 											  	<div class="control-group">
-												<label class="control-label">Zodiac Sign<b>*</b> : </label>
+												<label class="control-label">Zodiac Sign : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 													<option>Virgo</option>
@@ -334,7 +315,7 @@
 										<form class="form-horizontal">
 											<fieldset>										  
 											  <div class="control-group">
-												<label class="control-label">Education<b>*</b> : </label>
+												<label class="control-label">Education : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 													<option>BE/BTech</option>
@@ -343,13 +324,13 @@
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Education in Detail<b>*</b>  : </label>
+												<label class="control-label" for="focusedInput">Education in Detail  : </label>
 												<div class="controls">
 												  <textarea class="input-xlarge focused" id="focusedInput" type="text" value="Hindu"></textarea>
 												</div>												
 											  </div>
 											  <div class="control-group">
-												<label class="control-label">Occupation<b>*</b> : </label>
+												<label class="control-label">Occupation : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 													<option>Admin</option>
@@ -358,7 +339,7 @@
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label">Employed In<b>*</b> : </label>
+												<label class="control-label">Employed In : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 													<option>Government</option>
@@ -367,13 +348,13 @@
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Monthly Income<b>*</b> : </label>
+												<label class="control-label" for="focusedInput">Monthly Income : </label>
 												<div class="controls">
 												  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  	<div class="control-group">
-												<label class="control-label" for="focusedInput">Occupation in Detail<b>*</b>  : </label>
+												<label class="control-label" for="focusedInput">Occupation in Detail  : </label>
 												<div class="controls">
 												  <textarea class="input-xlarge focused" id="focusedInput" type="text" value="Hindu"></textarea>
 												</div>												
@@ -533,31 +514,31 @@
 										<form class="form-horizontal">
 											<fieldset>
 											<div class="control-group">
-												<label class="control-label" for="focusedInput">Father's Name<b>*</b> : </label>
+												<label class="control-label" for="focusedInput">Father's Name : </label>
 												<div class="controls">
 													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Father's Employment<b>*</b> : </label>
+												<label class="control-label" for="focusedInput">Father's Employment : </label>
 												<div class="controls">
 													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Mother's Name<b>*</b> : </label>
+												<label class="control-label" for="focusedInput">Mother's Name : </label>
 												<div class="controls">
 													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Mother's Employment<b>*</b> : </label>
+												<label class="control-label" for="focusedInput">Mother's Employment : </label>
 												<div class="controls">
 													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>										  
 											  <div class="control-group">
-												<label class="control-label">Family Status<b>*</b> : </label>
+												<label class="control-label">Family Status : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 													<option>Middle</option>
@@ -566,7 +547,7 @@
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label">Family Type<b>*</b> : </label>
+												<label class="control-label">Family Type : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 													<option>Nuclear</option>

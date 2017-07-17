@@ -80,7 +80,7 @@
 			<div class="row-fluid">
 				<div class="box span12">
 					<div class="box-header well">
-						<h2><i class="icon-info-sign"></i> Name</h2>
+						<h2><i class="icon-info-sign"></i> User Details</h2>
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
 							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
@@ -88,6 +88,12 @@
 						</div>
 					</div>
 					<div class="box-content">
+						<div class="row-fluid show-grid">
+							<div class="span3" style="color: green;">Name</div>
+							<div class="span3" style="color: green;">All User</div>
+							<div class="span3" style="color: green;">Active</div>
+							<div class="span3" style="color: green;">InActive</div>
+						</div>
 						<div class="row-fluid show-grid">
 							<div class="span3">Online Registration</div>
 							<div class="span3">5698</div>

@@ -12,9 +12,9 @@
 		http://twitter.com/halalit_usman
 	-->
 	<meta charset="utf-8">
-	<title>Free HTML5 Bootstrap Admin Template</title>
+	<title>Vallikodi Matrimonial</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	<meta name="description" content="Vallikodi, a fully featured, responsive, HTML5, Bootstrap admin template.">
 	<meta name="author" content="Muhammad Usman">
 
 	<!-- The styles -->
@@ -43,6 +43,7 @@
 	<link href='css/jquery.iphone.toggle.css' rel='stylesheet'>
 	<link href='css/opa-icons.css' rel='stylesheet'>
 	<link href='css/uploadify.css' rel='stylesheet'>
+	<link href='css/style.css' rel='stylesheet'>
 
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -54,13 +55,13 @@
 		
 </head>
 
-<body>
-		<div class="container-fluid">
+<body class="bgcolor">
+		<div class="container-fluid ">
 		<div class="row-fluid">
 		
 			<div class="row-fluid">
 				<div class="span12 center login-header">
-					<a class="brand" href="index.php"> <img alt="Vallikodi Logo" src="img/logo1.png" /></a>
+					<a class="center" href="index.php"> <img alt="Vallikodi Logo" src="img/logo1.png" /></a>
 				</div><!--/span-->
 			</div><!--/row-->
 			
