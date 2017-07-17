@@ -146,6 +146,7 @@
         <script src="vendors/bs-tooltip/jquery.webui-popover.min.js"></script>
         <script src="vendors/jquery-ui/jquery-ui.js"></script>
         <script type="text/javascript" src="js/custom.js"></script>
+        <script src="js/custom_validation.js"></script>
         
         <!--<script src="js/video_player.js"></script>-->
         <script src="js/theme.js"></script>
