@@ -11,3 +11,29 @@
   font-weight: bolder;
   color: #087a02;
 }
+/*style for validation error and success message */
+/*===============start===================*/
+.db_status{
+    background-color: #d9edf7 !important;
+    border-color: #bce8f1 !important;
+    padding: 8px 35px 8px 14px !important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+    margin-top: 10px !important;
+}
+
+/*.update_success_md{
+    color: #324F17 !important;
+    font-size: 14px !important;
+}*/
+
+.val_error{
+    color: #ff0000;
+    font-size: 14px !important;
+    background-color: #d9edf7 !important;
+    border-color: #bce8f1 !important;
+    padding: 8px 35px 8px 14px !important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+    display:none;
+    margin-top: 10px !important;
+}
+/*===============end===================*/

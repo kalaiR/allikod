@@ -69,9 +69,9 @@ $route['mymatches'] 							= "base/mymatches";
 
 $route['admin'] 							= "admin/base/index";
 
-$route['admin/zodiac_sign'] 							= "admin/base/zodiac_sign";
-$route['admin/add_zodiac_sign'] 							= "admin/base/add_zodiac_sign";
-$route['admin/edit_zodiac_sign'] 							= "admin/base/edit_zodiac_sign";
+$route['admin/zodiac_sign'] 							= "admin/master_data/zodiac_sign";
+$route['admin/add_zodiac_sign'] 							= "admin/master_data/add_zodiac_sign";
+$route['admin/edit_zodiac_sign/(:any)'] 							= "admin/master_data/edit_zodiac_sign/$1";
 $route['admin/administration'] 							= "admin/base/administration";
 $route['admin/add_administration'] 							= "admin/base/add_administration";
 $route['admin/edit_administration'] 							= "admin/base/edit_administration";
@@ -82,9 +82,9 @@ $route['admin/report'] 							= "admin/base/report";
 $route['admin/successful_story'] 							= "admin/base/successful_story";
 $route['admin/add_successful_story'] 							= "admin/base/add_successful_story";
 $route['admin/edit_successful_story'] 							= "admin/base/edit_successful_story";
-$route['admin/nakshathra'] 							= "admin/base/nakshathra";
-$route['admin/add_nakshathra'] 							= "admin/base/add_nakshathra";
-$route['admin/edit_nakshathra'] 							= "admin/base/edit_nakshathra";
+$route['admin/nakshathra'] 							= "admin/master_data/nakshathra";
+$route['admin/add_nakshathra'] 							= "admin/master_data/add_nakshathra";
+$route['admin/edit_nakshathra/(:any)'] 							= "admin/master_data/edit_nakshathra/$1";
 $route['admin/mother_tongue'] 							= "admin/base/mother_tongue";
 $route['admin/add_mother_tongue'] 							= "admin/base/add_mother_tongue";
 $route['admin/edit_mother_tongue'] 							= "admin/base/edit_mother_tongue";

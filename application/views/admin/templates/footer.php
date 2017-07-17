@@ -89,6 +89,16 @@
 	<script src="<?php echo base_url(); ?>assets/admin/js/charisma.js"></script>
 	<!-- Custom.js for functionality -->
 	<script src="<?php echo base_url(); ?>assets/admin/js/custom.js"></script>
+
+	<script>
+		//CSRF Protection declaration
+        var csfrData = {};
+        csfrData['<?php echo $this->security->get_csrf_token_name(); ?>'] = '<?php echo $this->security->get_csrf_hash(); ?>';
+        var csrf_name = "<?php echo $this->security->get_csrf_token_name(); ?>";
+
+        //Admin base url declaration (route path)
+        var admin_baseurl = "<?php echo base_url(); ?>admin/";
+    </script>
 	
 		
 </body>
