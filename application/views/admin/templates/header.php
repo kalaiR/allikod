@@ -43,6 +43,7 @@
 	<link href='<?php echo base_url(); ?>assets/admin/css/jquery.iphone.toggle.css' rel='stylesheet'>
 	<link href='<?php echo base_url(); ?>assets/admin/css/opa-icons.css' rel='stylesheet'>
 	<link href='<?php echo base_url(); ?>assets/admin/css/uploadify.css' rel='stylesheet'>
+	<link href='<?php echo base_url(); ?>assets/admin/css/style.css' rel='stylesheet'>
 
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -123,9 +124,9 @@
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 				<li class="nav-header hidden-tablet">Administration</li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/administration"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/selling_admin"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li>
+				<!-- <li><a class="ajax-link" href="<?php echo base_url(); ?>admin/selling_admin"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li> -->
 				<li class="nav-header hidden-tablet">Report</li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/report"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
 				<li class="nav-header hidden-tablet">Customer User</li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/customer_user"><i class="icon-user"></i></i><span class="hidden-tablet">View Customer User</span></a></li>
 				<li class="nav-header hidden-tablet">Successful Story</li>

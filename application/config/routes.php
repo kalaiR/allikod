@@ -103,6 +103,7 @@ $route['admin/edit_occupation'] 							= "admin/base/edit_occupation";
 $route['admin/customer_user'] 							= "admin/base/customer_user";
 $route['admin/edit_customer_user'] 							= "admin/base/edit_customer_user";
 $route['admin/add_customer_user'] 							= "admin/base/add_customer_user";
+$route['admin/view_customer_user'] 							= "admin/base/view_customer_user";
 $route['admin/add_online_user'] 							= "admin/base/add_online_user";
 $route['admin/login'] 							= "admin/base/login";
 
