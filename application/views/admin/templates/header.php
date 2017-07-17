@@ -43,6 +43,7 @@
 	<link href='<?php echo base_url(); ?>assets/admin/css/jquery.iphone.toggle.css' rel='stylesheet'>
 	<link href='<?php echo base_url(); ?>assets/admin/css/opa-icons.css' rel='stylesheet'>
 	<link href='<?php echo base_url(); ?>assets/admin/css/uploadify.css' rel='stylesheet'>
+	<link href='<?php echo base_url(); ?>assets/admin/css/style.css' rel='stylesheet'>
 
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>

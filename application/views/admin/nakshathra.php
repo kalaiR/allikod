@@ -33,24 +33,53 @@
 						  <thead>
 							  <tr>
 								  <th>Nakshthra</th>
+								  <th>Active Status</th>
+								  <th>Delete Status</th>
 								  <th>Added Date</th>
-								  <th>Status</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>   
 						  <tbody>
+							  <?php
+			                      if(!empty($nakshathra_values)) :
+			                      $i=0;
+			                      foreach ($nakshathra_values as $nak_val) :
+			                      $i++;
+	                      	  ?>
 							<tr>
-								<td>Uthram</td>
-								<td class="center">2012/01/01</td>
+								<td><?php echo $nak_val['name']; ?></td>
 								<td class="center">
-									<span class="label label-success">Active</span>
+									<span class="label label-success">
+										<?php 
+				                          if ($nak_val['active_status'] == 1) 
+				                            echo "Activated";
+				                          else
+				                            echo "Not-Activated";
+				                        ?>
+									</span>
+								</td>
+								<td class="center">
+									<span class="label label-success">
+										<?php 
+				                          if ($nak_val['delete_status'] == 1) 
+				                            echo "Deleted";
+				                          else
+				                            echo "Not-Deleted";
+				                        ?>
+									</span>
+								</td>
+								<td class="center">
+									<?php 
+			                            $created_datetime = explode(' ', $nak_val['added_date']);
+			                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
+			                        ?> 
 								</td>
 								<td class="center">
 									<!-- <a class="btn btn-success" href="#">
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_nakshathra">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_nakshathra/<?php echo $nak_val["nakshathra_id"] ?>">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -60,237 +89,10 @@
 									</a>
 								</td>
 							</tr>
-							<tr>
-								<td>Kettai</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_nakshathra">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Vishaka / Vishakam</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_nakshathra">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Uttarapalguni / UthramUttarashada / Uthradam</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_nakshathra">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Uttarabadrapada / Uthratadhi</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_nakshathra">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Swati / Choth</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_nakshathra">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Shravan / Thiruvonam</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_nakshathra">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Shatataraka / Sadayam / Satabishek</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_nakshathra">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Rohini</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_nakshathra">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Revathi</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_nakshathra">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Pushya / Poosam / Pooyam</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_nakshathra">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Moolam / Moola</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_nakshathra">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
+							<?php
+		                      endforeach;
+		                      endif;
+		                    ?>
 						  </tbody>
 					  </table>            
 					</div>

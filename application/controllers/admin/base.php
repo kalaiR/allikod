@@ -4,9 +4,7 @@ class Base extends CI_Controller {
 
 	public function __construct()
 	{
-		parent::__construct();
-		// $this->load->model('admin/admin_login_model');
-		// $this->load->library('form_validation');		
+		parent::__construct();		
 	}
 	public function index(){
 		$this->load->view('admin/index');
@@ -41,24 +39,24 @@ class Base extends CI_Controller {
 	public function edit_successful_story(){
 		$this->load->view('admin/edit_successful_story');
 	}
-	public function zodiac_sign(){
-		$this->load->view('admin/zodiac_sign');
-	}
-	public function add_zodiac_sign(){
-		$this->load->view('admin/add_zodiac_sign');
-	}
-	public function edit_zodiac_sign(){
-		$this->load->view('admin/edit_zodiac_sign');
-	}
-	public function nakshathra(){
-		$this->load->view('admin/nakshathra');
-	}
-	public function add_nakshathra(){
-		$this->load->view('admin/add_nakshathra');
-	}
-	public function edit_nakshathra(){
-		$this->load->view('admin/edit_nakshathra');
-	}
+	// public function zodiac_sign(){
+	// 	$this->load->view('admin/zodiac_sign');
+	// }
+	// public function add_zodiac_sign(){
+	// 	$this->load->view('admin/add_zodiac_sign');
+	// }
+	// public function edit_zodiac_sign(){
+	// 	$this->load->view('admin/edit_zodiac_sign');
+	// }
+	// public function nakshathra(){
+	// 	$this->load->view('admin/nakshathra');
+	// }
+	// public function add_nakshathra(){
+	// 	$this->load->view('admin/add_nakshathra');
+	// }
+	// public function edit_nakshathra(){
+	// 	$this->load->view('admin/edit_nakshathra');
+	// }
 	public function mother_tongue(){
 		$this->load->view('admin/mother_tongue');
 	}
