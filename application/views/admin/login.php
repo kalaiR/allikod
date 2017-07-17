@@ -61,7 +61,7 @@
 		
 			<div class="row-fluid">
 				<div class="span12 center login-header">
-					<a class="brand" href="<?php echo base_url(); ?>admin"> <img alt="Vallikodi Logo" src="<?php echo base_url(); ?>assets/admin/img/logo1.png" /></a>
+					<a class="center" href="<?php echo base_url(); ?>admin"> <img alt="Vallikodi Logo" src="<?php echo base_url(); ?>assets/admin/img/logo1.png" /></a>
 				</div><!--/span-->
 			</div><!--/row-->
 			
