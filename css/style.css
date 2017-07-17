@@ -8170,4 +8170,22 @@ ol a{
 }
 /* End of Validation Error*/
 
+.login_btn_1 {
+  width: 160px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none;
+  background: transparent;
+}
+
 /*# sourceMappingURL=style.css.map 
+

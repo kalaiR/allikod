@@ -56,7 +56,8 @@
                                                         </div>
                                                             <div class="col-md-5 upload_box">
                                                                 <div class="form-group col-md-12">
-                                                                    <button type="file" value="LogIn" class="btn form-control login_btn">Upload Image</button>
+                                                                    <!-- <button type="file" value="LogIn" class="btn form-control login_btn">Upload Image</button> -->
+                                                                    <input id="image_couple" class="btn form-control login_btn_1 image_act" type="file" value="LogIn" name="cand_pic" placeholder="Upload Image">
                                                                 </div>
                                                             </div>
                                                     </div>            
