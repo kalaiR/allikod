@@ -50,42 +50,74 @@
 											  </th>
 											  <th>No</th>
 											  <th>Vallikodi ID</th>
-											  <th>Profile ID</th>
-											  <th>Reg. <br>Date</th>
+											  <!-- <th>Profile ID</th> -->		  
 											  <th>Name</th>
 											  <th>Mail</th>
-											  <th>Profile <br>Viewed</th>
-											  <th>Reg. <br>From</th>
+											  <!-- <th>Profile <br>Viewed</th> -->
+											  <th>Reg. <br>By</th>
 											  <th>User <br>Type</th>
-											  <th>Profile</th>
-											  <th>Payment</th>
+											  <th>Profile Status</th>
+											  <th>Payment Status</th>
+											  <th>Reg. <br>Date</th>
 											  
 											  <th>Action</th>
 										  </tr>
 									  </thead>   
 									  <tbody>
+									  	<?php
+						                      if(!empty($customeruser_values)) :
+						                      // print_r($customeruser_values);
+						                      $i=0;
+						                      foreach ($customeruser_values as $cus_val) :
+						                      $i++;
+			                      	    ?>
 										<tr>
 											<td><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span></td>
-											<td class="center">1</td>
-											<td class="center">66699</td>
-											<td class="center">259</td>
-											<td class="center">21-07-2017</td>
-											<td class="center">Madhi</td>
-											<td class="center">madhi@gmail.com</td>
-											<td class="center">0 / 60</td>
+											<td class="center"><?php echo $i; ?></td>
+											<td class="center"><?php echo "VM".$cus_val['userdetail_id']; ?></td>
+											<!-- <td class="center">259</td> -->
+											<td class="center"><?php echo $cus_val['user_fname']; ?></td>
+											<td class="center"><?php echo $cus_val['user_email']; ?></td>
 											<td class="center">
-												<span class="label label-success">CUSTOMER</span>
+												<?php echo "self"; ?>
+											</td>
+											<!-- <td class="center">0 / 60</td> -->
+											<td class="center">
+												<span class="label label-success">
+													<?php 
+							                          if ($cus_val['user_online_or_simple'] == 'online') 
+							                            echo "Online";
+							                          else
+							                            echo "Simple";
+							                        ?>  
+												</span>
 											</td>
 											<td class="center">
-												<span class="label label-success">Online</span>
+												<span class="label label-success">
+													<?php 
+							                          if ($cus_val['user_active_status'] == 1) 
+							                            echo "Activated";
+							                          else
+							                            echo "Not-Activated";
+							                        ?>    	
+				                        		</span>
 											</td>
 											<td class="center">
-												<span class="label label-success">Activated</span>
+												<span class="label label-success">
+													<?php 
+							                          // if ($cus_val['payment_status'] == 1) 
+							                          //   echo "Activated";
+							                          // else
+							                          //   echo "Not-Activated";
+							                        ?>    	
+				                        		</span>
 											</td>
 											<td class="center">
-												<span class="label label-success">Paid</span>
-											</td>
-											
+												<?php 
+						                            $created_datetime = explode(' ', $cus_val['user_added_date']);
+						                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
+						                        ?>
+											</td>											
 											<td class="center">
 												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
@@ -101,43 +133,10 @@
 												</a>
 											</td>
 										</tr>
-										<tr>
-											<td><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span></td>
-											<td class="center">1</td>
-											<td class="center">66699</td>
-											<td class="center">259</td>
-											<td class="center">21-07-2017</td>
-											<td class="center">Madhi</td>
-											<td class="center">madhi@gmail.com</td>
-											<td class="center">0 / 60</td>
-											<td class="center">
-												<span class="label label-success">CUSTOMER</span>
-											</td>
-											<td class="center">
-												<span class="label label-success">Online</span>
-											</td>
-											<td class="center">
-												<span class="label label-success">Activated</span>
-											</td>
-											<td class="center">
-												<span class="label label-success">Paid</span>
-											</td>
-											
-											<td class="center">
-												<a class="btn btn-warning" href="#">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
-											</td>
-										</tr>							
+										<?php
+					                      endforeach;
+					                      endif;
+					                     ?>						
 									  </tbody>
 								  </table>
 								</div>
