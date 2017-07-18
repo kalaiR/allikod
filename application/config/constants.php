@@ -41,5 +41,12 @@ define('ADMIN_MEDIA_PATH','assets/admin/img/');
 define('ADMIN_UPLOAD_MEDIA_PATH','assets/admin/img/uploads/');
 define('FILETYPE_ALLOWED','jpg|jpeg|png|gif');
 
+//array to get payment type
+define('PAYMENT_TYPE',serialize(array("1"=>"Cash","2"=>"DD","3"=>"CHQ","4"=>"Netbaning")));
+//array to get Gender
+define('GENDER',serialize(array("1"=>"Male","2"=>"Female")));
+//array to get User type
+define('USER_TYPE',serialize(array("online"=>"Online","simple"=>"Simple")));
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

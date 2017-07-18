@@ -91,4 +91,29 @@ class Customeruser_data_model extends CI_Model {
 
 	    return $model_data;
   }
+  public function customer_user_profile($id){
+  		// View by id
+    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name');
+	    $this->db->from('reg_userdetail usr');
+	    $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('reg_communication_family cf','cf.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('reg_physical_expectation pe','pe.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('reg_image_horoscope ih','ih.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('reg_payment pm','pm.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('registered_by rb','rb.registeredby_id=usr.user_registeredby','left');
+	    $this->db->join('marital_category mc','mc.maritalcategory_id=usr.user_maritalstatus','left');
+	    $this->db->join('mother_tongue mt','mt.mothertongue_id=re.rel_mothertongue_id','left');
+	    $this->db->join('nakshathra nak','nak.nakshathra_id=re.rel_nakshathra_id','left');
+	    $this->db->join('luknam luk','luk.luknam_id=re.rel_luknam_id','left');
+	    $this->db->join('zodiac_sign zod','zod.zodiacsign_id=re.rel_zodiacsign_id','left');
+	    $this->db->join('education ed','ed.education_id=eo.edu_education','left');
+	    $this->db->join('occupation occ','occ.occupation_id=eo.edu_occupation','left');
+	    $this->db->join('employed_in ein','ein.employedin_id=eo.edu_employedin','left');
+	    $model_data['customeruser_values'] = $this->db->get()->row_array();
+	   //  echo "<pre>";
+  		// print_r($model_data['customeruser_values']);
+  		// echo "</pre>";
+  		return $model_data;
+  }
 }
