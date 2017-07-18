@@ -5,8 +5,8 @@ class Base extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// $this->load->model('admin/admin_login_model');
-		// $this->load->library('form_validation');		
+		$this->load->model('user_model');
+		$this->load->library(array('form_validation')); 
 	}
 	public function index(){
 		$this->load->view('index');
@@ -38,7 +38,45 @@ class Base extends CI_Controller {
 		$this->load->view('post');
 	}
 	public function registration(){
-		$this->load->view('registration');
+		if($this->input->post()){
+			$form_data = $this->input->post();		  	
+			$validation_rules = array(
+  				array( 'field'  => 'reg_email','label'   => 'Register Email Id','rules' => 'trim|required|xss_clean|alpha_numeric_spaces|min_length[3]|max_length[50]' ),
+			    array( 'field'   => 'reg_pass1','label'   => 'Premium Visible Days','rules'   => 'trim|required|xss_clean|regex_match[/^[0-9]{1,15}$/]' ),
+		        array( 'field'   => 'reg_con_pass2','label'   => 'Premium Visible Status','rules'   => 'required|xss_clean|' ),
+		        array( 'field'   => 'register_by','label'   => 'Admin Verification','rules'   => 'required|xss_clean|' ));
+	   		$this->form_validation->set_rules($validation_rules);
+			if ($this->form_validation->run() == FALSE) {   
+		        foreach($validation_rules as $row){
+					$field = $row['field'];         //getting field name
+			        $error = form_error($field);    //getting error for field name
+			        if($error){
+			        	$data_values['status'] = strip_tags($error);
+			            $data_values['error'] = 1;
+			            break;
+			        }
+			    }
+				$data['register'] = $data_values;
+				$this->load->view('registration',$data);			    
+		  	}else{
+		  		$data = array(
+					'userdetail_id'=>'',
+					'userdetail_profile_id'=>1,
+					'user_email'=>$form_data['reg_email'],
+					'user_pwd'=>$form_data['reg_pass1'],
+					'user_fname'=>$form_data['reg_con_pass2'],
+					'user_gender'=>$form_data['gender'][0],					
+					'user_age'=>'',
+					'user_dob'=>'',
+					'user_maritalstatus'=>$form_data['marital_status'][0],
+					'user_registeredby'=>$form_data['register_by'][0]
+				);
+		  		$id_userdetails = $this->user_model->insert_registration('reg_userdetail',$data);
+		  	}
+		}else{
+			$data['register'] = $this->user_model->get_registerid();						
+			$this->load->view('registration', $data);
+		}
 	}
 	public function search_result(){
 		$this->load->view('search_result');
