@@ -37,14 +37,21 @@ class Master_Data extends CI_Controller {
 	//To check the entered date format is correct
 	public function valid_date_required($date)
 	{
+		// echo substr_count($date, '/'); // 2
 		if(!empty($date)){
-	   		$date_split =  explode('/', $date);
-	   		if(checkdate($date_split[1],$date_split[0],$date_split[2]) ) {
-	      		return true;
-	   		} else {
-	     		$this->form_validation->set_message('valid_date_required','The %s is not valid it should match this dd/mm/yyyy format');
-	        	return false;
-	   		}
+			if(substr_count($date, '/') == 2){
+		   		$date_split =  explode('/', $date);
+		   		if(checkdate($date_split[0],$date_split[1],$date_split[2]) ) {
+		      		return true;
+		   		} else {
+		     		$this->form_validation->set_message('valid_date_required','The %s is not valid it should match this dd/mm/yyyy format');
+		        	return false;
+		   		}
+		   	}
+		   	else{
+		   		$this->form_validation->set_message('valid_date_required','The %s is not valid it should match this dd/mm/yyyy format');
+		        return false;
+		   	}
 		}
 		else{
         	return true;
@@ -580,8 +587,13 @@ class Master_Data extends CI_Controller {
 			  		$id = $this->input->post('rid');
 			  		$action_post = $this->input->post('action');
 			   		$validation_rules = array(
-				        array('field'   => 'zod_name','label'   => 'Zodiac Name','rules'   => 'trim|required|xss_clean|max_length[50]|edit_unique[zodiac_sign.zodiacsign_id.name.'.$id.']' ),
-				        array( 'field'   => 'zod_status','label'   => 'Zodiac Status','rules'   => 'trim|required|xss_clean|' ),);
+						array( 'field'   => 'suc_bridename','label'   => 'Bridename','rules'   => 'trim|required|xss_clean|max_length[50]' ),
+		            	array( 'field'   => 'suc_groomname','label'   => 'Groomname','rules'   => 'trim|required|xss_clean|max_length[50]' ),
+		            	array( 'field'   => 'suc_marriagedate','label'   => 'Marriage Date','rules'   => 'trim|required|xss_clean|callback_valid_date_required' ),
+		            	array( 'field'   => 'suc_vallikodiid','label'   => 'Vallikodi ID of Bride or Groom','rules'   => 'trim|required|xss_clean' ),
+		            	array( 'field'   => 'suc_description','label'   => 'Description','rules'   => 'trim|required|xss_clean|min_length[10]|max_length[150]' ),
+		            	array( 'field'   => 'suc_couplephoto','label'   => 'Couple Photo','rules'   => 'trim|xss_clean'),
+				        array( 'field'   => 'suc_status','label'   => 'Active Status','rules'   => 'trim|required|xss_clean|' ),);
 			    }
 
 			  	// Save data
@@ -591,9 +603,9 @@ class Master_Data extends CI_Controller {
 		            	array( 'field'   => 'suc_bridename','label'   => 'Bridename','rules'   => 'trim|required|xss_clean|max_length[50]' ),
 		            	array( 'field'   => 'suc_groomname','label'   => 'Groomname','rules'   => 'trim|required|xss_clean|max_length[50]' ),
 		            	array( 'field'   => 'suc_marriagedate','label'   => 'Marriage Date','rules'   => 'trim|required|xss_clean|callback_valid_date_required' ),
-		            	array( 'field'   => 'suc_vallikodiid','label'   => 'Vallikodi ID of Bride or Groom','rules'   => 'trim|required|xss_clean|max_length[50]|is_unique[zodiac_sign.name]' ),
+		            	array( 'field'   => 'suc_vallikodiid','label'   => 'Vallikodi ID of Bride or Groom','rules'   => 'trim|required|xss_clean' ),
 		            	array( 'field'   => 'suc_description','label'   => 'Description','rules'   => 'trim|required|xss_clean|min_length[10]|max_length[150]' ),
-		            	array( 'field'   => 'suc_couplephoto','label'   => 'Couple','rules'   => 'trim|required|xss_clean'),
+		            	array( 'field'   => 'suc_couplephoto','label'   => 'Couple Photo','rules'   => 'trim|xss_clean'),
 				        array( 'field'   => 'suc_status','label'   => 'Active Status','rules'   => 'trim|required|xss_clean|' ),);
 		      	}
 
@@ -617,7 +629,35 @@ class Master_Data extends CI_Controller {
 				        }
 			      	}
 		      		else {
-			    		$data_values = $this->master_data_model->zodiac_sign($action_post); 
+		      			// echo "else no other";
+		      			// echo $_FILES['suc_couplephoto']['name'];
+		      			//Check whether user upload picture
+						if(!empty($_FILES['suc_couplephoto']['name'])){
+							// echo "image uploaded";
+							// echo $_FILES['category_image']['name'];
+							$couplephoto = $_FILES['suc_couplephoto']['name'];
+							// echo $couplephoto;
+							// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
+							$config['upload_path'] = FCPATH.ADMIN_UPLOAD_MEDIA_PATH; 
+							$config['allowed_types'] = FILETYPE_ALLOWED;//FILETYPE_ALLOWED which is defined constantly in constants file
+							$config['file_name'] = $_FILES['suc_couplephoto']['name'];
+							$config['max_size']  = '1000000';
+							$config['max_width'] = '300';
+							$config['max_height'] = '300';
+
+							$this->upload->initialize($config);
+							if($this->upload->do_upload('suc_couplephoto')){
+							    $uploadData = $this->upload->data();
+							    $couplephoto = ADMIN_UPLOAD_MEDIA_PATH.$uploadData['file_name'];
+							}else{
+								$errors = $this->upload->display_errors();
+								// echo $errors;
+							    $couplephoto = '';
+							    $data['error'] = 1;
+							    $data['status'] = strip_tags($errors);
+							}
+						}
+			    		$data_values = $this->master_data_model->successful_story($action_post); 
 			    		$data['error'] = $data_values['error'];
 				        $data['status'] = $data_values['status'];	
 		      		}
@@ -625,7 +665,7 @@ class Master_Data extends CI_Controller {
 	      	}
 	      	// Delete data
 	    	else if($this->input->post('action')=='delete' && $this->input->post('rid')) {
-	      		$data_values = $this->master_data_model->zodiac_sign('delete'); 	
+	      		$data_values = $this->master_data_model->successful_story('delete'); 	
 	      		$data['error'] = $data_values['error'];
 			    $data['status'] = $data_values['status'];
 	      	}
@@ -640,14 +680,14 @@ class Master_Data extends CI_Controller {
 				echo json_encode($result);
 			}
 			else if($data['error']==2) {
-				$data_ajax['zodiac_values'] = $data_values['zodiac_values'];
+				$data_ajax['successtory_values'] = $data_values['successtory_values'];
 				$data_ajax['status'] = $data['status'];
 				// $data_ajax['mapped_data'] = $data_values['mapped_data'];
 				$result['error'] = $data['error'];
 				if($this->input->post('action') == 'save')
 					$result['output'] = $this->load->view('admin/add_successful_story',$data_ajax,true);
 				else if($this->input->post('action') == 'update'){
-					$data_ajax['zodiac_data'] = $this->master_data_model->zodiac_sign('edit')['zodiac_data'];
+					$data_ajax['successtory_data'] = $this->master_data_model->successful_story('edit')['successtory_data'];
 					$result['output'] = $this->load->view('admin/edit_successful_story',$data_ajax,true);
 				}
 				else
@@ -669,7 +709,7 @@ class Master_Data extends CI_Controller {
 	}
 	// zodiac_sign - Load Edit page
 	public function edit_successful_story(){
-		$status['successtory_data'] = $this->master_data_model->zodiac_sign('edit')['successtory_data'];
+		$status['successtory_data'] = $this->master_data_model->successful_story('edit')['successtory_data'];
 		$this->load->view('admin/edit_successful_story',$status);
 	}
 

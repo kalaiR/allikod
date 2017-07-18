@@ -198,9 +198,14 @@ class Master_data_model extends CI_Model {
       if(is_numeric($this->input->post('rid')) && !empty($this->db->get_where('zodiac_sign', array('zodiacsign_id' => $this->input->post('rid')))->row_array()))
       { 
         // if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
-          $zodiac_update_data = array( 
-                                'name' => $this->input->post('zod_name'),
-                                'active_status' => $this->input->post('zod_status')
+          $successstory_update_data = array( 
+                                'vallikodi_id' => $this->input->post('suc_vallikodiid'),
+                                'male_name' => $this->input->post('suc_groomname'),
+                                'female_name' => $this->input->post('suc_bridename'),
+                                // 'image' => $this->input->post('suc_couplephoto'),
+                                'description' => $this->input->post('suc_description'),
+                                'marriage_date' => date('Y-m-d',strtotime($this->input->post('suc_marriagedate'))), 
+                                'active_status' => $this->input->post('suc_status')
                               ); 
         // }
         // else {
@@ -208,10 +213,10 @@ class Master_data_model extends CI_Model {
         //                         'name' => $this->input->post('s_name')
         //                       );
         // }
-        $zodiac_update_where = '( zodiacsign_id="'.$this->input->post('rid').'")'; 
-        $this->db->set($zodiac_update_data); 
-        $this->db->where($zodiac_update_where);
-        $this->db->update("zodiac_sign", $zodiac_update_data);
+        $successstory_update_where = '( successstories_id="'.$this->input->post('rid').'")'; 
+        $this->db->set($successstory_update_data); 
+        $this->db->where($successstory_update_where);
+        $this->db->update("success_stories", $successstory_update_data);
         // echo $this->db->last_query(); 
         $model_data['status'] = "Updated Successfully";
         $model_data['error'] = 2;
@@ -224,11 +229,16 @@ class Master_data_model extends CI_Model {
 
     // Save data
     else if($status=='save') {
-      $zodiac_insert_data = array( 
-                            'name' => $this->input->post('zod_name'),
-                            'active_status' => $this->input->post('zod_status')
+      $successstory_insert_data = array( 
+                            'vallikodi_id' => $this->input->post('suc_vallikodiid'),
+                            'male_name' => $this->input->post('suc_groomname'),
+                            'female_name' => $this->input->post('suc_bridename'),
+                            // 'image' => $this->input->post('suc_couplephoto'),
+                            'description' => $this->input->post('suc_description'),
+                            'marriage_date' => date('Y-m-d',strtotime($this->input->post('suc_marriagedate'))), 
+                            'active_status' => $this->input->post('suc_status')
                           );
-      $this->db->insert("zodiac_sign", $zodiac_insert_data);
+      $this->db->insert("success_stories", $successstory_insert_data);
       $model_data['status'] = "Inserted Successfully";
       $model_data['error'] = 2;
     }
@@ -236,8 +246,8 @@ class Master_data_model extends CI_Model {
     // Delete data
     else if($status =='delete') {
       if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
-        $zodiac_delete_where = '(zodiacsign_id="'.$this->input->post('rid').'")';
-        $this->db->delete("zodiac_sign", $zodiac_delete_where); 
+        $successstory_delete_where = '(successstories_id="'.$this->input->post('rid').'")';
+        $this->db->delete("success_stories", $successstory_delete_where); 
         $model_data['status'] = "Deleted Successfully";
         $model_data['error'] = 2; 
       }
@@ -252,7 +262,7 @@ class Master_data_model extends CI_Model {
           $id = $this->input->post('rid');
         else
           $id = $this->uri->segment(3);
-        $model_data['zodiac_data'] = $this->db->get_where('zodiac_sign', array('zodiacsign_id' => $id ))->row_array();
+        $model_data['successtory_data'] = $this->db->get_where('success_stories', array('successstories_id' => $id ))->row_array();
     }  
     // View
     $model_data['successtory_values'] = $this->db->order_by('successstories_id','desc')->get_where('success_stories')->result_array();

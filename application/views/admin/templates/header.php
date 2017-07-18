@@ -51,7 +51,7 @@
 	<![endif]-->
 
 	<!-- The fav icon -->
-	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/admin/img/favicon.ico">
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/admin/img/fav.ico">
 		
 </head>
 
@@ -94,8 +94,8 @@
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url(); ?>admin">Profile</a></li>
-						<li class="divider"></li>
+						<!-- <li><a href="<?php echo base_url(); ?>admin">Profile</a></li> -->
+						<!-- <li class="divider"></li> -->
 						<li><a href="<?php echo base_url(); ?>admin">Logout</a></li>
 					</ul>
 				</div>
@@ -136,6 +136,10 @@
 				<!-- <li class="nav-header hidden-tablet">Sample Section</li> -->
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-picture"></i><span class="hidden-tablet"> Send Mail</span></a></li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-calendar"></i><span class="hidden-tablet"> Send SMS</span></a></li>
+				<li class="nav-header hidden-tablet">Gallery</li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/gallery_upload"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery Upload</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/gallery_category"><i class="icon-align-justify"></i><span class="hidden-tablet"> Gallery Category</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/contact_gallery_upload"><i class="icon-calendar"></i><span class="hidden-tablet">Contact Gallery Upload</span></a></li>
 				<li class="nav-header hidden-tablet">Setting</li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/zodiac_sign"><i class="icon-calendar"></i><span class="hidden-tablet"> Zodiac Sign</span></a></li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/nakshathra"><i class="icon-calendar"></i><span class="hidden-tablet"> Nakshathra</span></a></li>

@@ -4,10 +4,14 @@ class Base extends CI_Controller {
 
 	public function __construct()
 	{
-		parent::__construct();		
+		parent::__construct();	
+		$this->load->model('admin/base_model');	
 	}
 	public function index(){
-		$this->load->view('admin/index');
+		//Functionality for dashboard page
+		$data['user_results'] = $this->base_model->get_user_count();
+		// print_r($data['user_results']);
+		$this->load->view('admin/index',$data);
 	}	
 	// public function administration(){
 	// 	$this->load->view('admin/administration');
@@ -27,9 +31,9 @@ class Base extends CI_Controller {
 	public function add_selling_admin(){
 		$this->load->view('admin/add_selling_admin');
 	}
-	public function report(){
-		$this->load->view('admin/report');
-	}
+	// public function report(){
+	// 	$this->load->view('admin/report');
+	// }
 	// public function successful_story(){
 	// 	$this->load->view('admin/successful_story');
 	// }
@@ -102,23 +106,50 @@ class Base extends CI_Controller {
 	public function edit_occupation(){
 		$this->load->view('admin/edit_occupation');
 	}
-	public function customer_user(){
-		$this->load->view('admin/customer_user');
-	}
-	public function add_customer_user(){
-		$this->load->view('admin/add_customer_user');
-	}
-	public function edit_customer_user(){
-		$this->load->view('admin/edit_customer_user');
-	}
-	public function view_customer_user(){
-		$this->load->view('admin/view_customer_user');
-	}
-	public function add_online_user(){
-		$this->load->view('admin/add_online_user');
-	}
+	// public function customer_user(){
+	// 	$this->load->view('admin/customer_user');
+	// }
+	// public function add_customer_user(){
+	// 	$this->load->view('admin/add_customer_user');
+	// }
+	// public function edit_customer_user(){
+	// 	$this->load->view('admin/edit_customer_user');
+	// }
+	// public function view_customer_user(){
+	// 	$this->load->view('admin/view_customer_user');
+	// }
+	// public function add_online_user(){
+	// 	$this->load->view('admin/add_online_user');
+	// }
 	public function login(){
 		$this->load->view('admin/login');
+	}
+	public function gallery_upload(){
+		$this->load->view('admin/gallery_upload');
+	}
+	public function add_gallery(){
+		$this->load->view('admin/add_gallery');
+	}
+	public function edit_gallery_upload(){
+		$this->load->view('admin/edit_gallery_upload');
+	}
+	public function gallery_category(){
+		$this->load->view('admin/gallery_category');
+	}
+	public function add_gallery_category(){
+		$this->load->view('admin/add_gallery_category');
+	}
+	public function edit_gallery_category(){
+		$this->load->view('admin/edit_gallery_category');
+	}
+	public function contact_gallery_upload(){
+		$this->load->view('admin/contact_gallery_upload');
+	}
+	public function add_contact_gallery(){
+		$this->load->view('admin/add_contact_gallery');
+	}
+	public function edit_contact_gallery(){
+		$this->load->view('admin/edit_contact_gallery');
 	}
 
 }
