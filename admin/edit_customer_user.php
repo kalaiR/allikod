@@ -23,11 +23,11 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info pull-right" id="add" href="add_successful_story.php">
+						<a class="btn btn-primar pull-right" id="add" href="add_successful_story.php">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Save
 					    </a>
-					    <a class="btn btn-info pull-right" id="add" href="add_successful_story.php">
+					    <a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Cancel
 					    </a>

@@ -15,8 +15,8 @@
 			</div>
 		</div>
 		<footer>
-			<p class="pull-left">&copy; <a href="http://usman.it" target="_blank">Vallikodi</a> 2017</p>
-			<p class="pull-right">Powered by: <a href="http://usman.it/free-responsive-admin-template">Etekchno Services</a></p>
+			<p class="pull-left">&copy; <a href="http://www.vallikodivanniarmatrimonial.com/" target="_blank">Vallikodi</a> 2017</p>
+			<p class="pull-right">Powered by: <a href="http://www.etekchnoservices.com/">Etekchno Services</a></p>
 		</footer>
 			<!-- jQuery -->
 	<script src="js/jquery-1.7.2.min.js"></script>

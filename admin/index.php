@@ -26,54 +26,54 @@
 				</ul>
 			</div>
 			<div class="sortable row-fluid">
-				<a data-rel="tooltip" title="6 new members." class="well span3 top-block" href="#">
+				<a data-rel="tooltip" title="Admin" class="well span3 top-block" href="#">
 					<span class="icon32 icon-red icon-user"></span>
 					<div>Admin</div>
 					<div>507</div>
-					<span class="notification">6</span>
+					<!-- <span class="notification">6</span> -->
 				</a>
 
-				<a data-rel="tooltip" title="4 new pro members." class="well span3 top-block" href="#">
-					<span class="icon32 icon-color icon-star-on"></span>
+				<a data-rel="tooltip" title="Report" class="well span3 top-block" href="#">
+					<span class="icon32 icon-color icon-list-alt"></span>
 					<div>Report</div>
 					<div>228</div>
-					<span class="notification green">4</span>
+					<!-- <span class="notification green">4</span> -->
 				</a>
 
-				<a data-rel="tooltip" title="$34 new sales." class="well span3 top-block" href="#">
+				<a data-rel="tooltip" title="Customer" class="well span3 top-block" href="#">
 					<span class="icon32 icon-color icon-cart"></span>
 					<div>Customer</div>
 					<div>$13320</div>
-					<span class="notification yellow">$34</span>
+					<!-- <span class="notification yellow">$34</span> -->
 				</a>
 				
-				<a data-rel="tooltip" title="12 new messages." class="well span3 top-block" href="#">
+				<a data-rel="tooltip" title="Success Story" class="well span3 top-block" href="#">
 					<span class="icon32 icon-color icon-envelope-closed"></span>
 					<div>Success Story</div>
 					<div>25</div>
-					<span class="notification red">12</span>
+					<!-- <span class="notification red">12</span> -->
 				</a>
 			</div>
 			<div class="sortable row-fluid">
-				<a data-rel="tooltip" title="6 new members." class="well span3 top-block" href="#">
+				<a data-rel="tooltip" title="Mail" class="well span3 top-block" href="#">
 					<span class="icon32 icon-red icon-user"></span>
 					<div>Mail</div>
 					<div>507</div>
-					<span class="notification">6</span>
+					<!-- <span class="notification">6</span> -->
 				</a>
 
-				<a data-rel="tooltip" title="4 new pro members." class="well span3 top-block" href="#">
+				<a data-rel="tooltip" title="Photo Gallery" class="well span3 top-block" href="#">
 					<span class="icon32 icon-color icon-star-on"></span>
 					<div>Photo Gallry</div>
 					<div>228</div>
-					<span class="notification green">4</span>
+					<!-- <span class="notification green">4</span> -->
 				</a>
 
-				<a data-rel="tooltip" title="$34 new sales." class="well span3 top-block" href="#">
+				<a data-rel="tooltip" title="Change Settings" class="well span3 top-block" href="#">
 					<span class="icon32 icon-color icon-cart"></span>
 					<div>Change Settings</div>
 					<div>$13320</div>
-					<span class="notification yellow">$34</span>
+					<!-- <span class="notification yellow">$34</span> -->
 				</a>
 			</div>
 			

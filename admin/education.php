@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info pull-right" id="add" href="add_education.php">
+						<a class="btn btn-primary pull-right" id="add" href="add_education.php">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
@@ -50,7 +50,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_education.php">
+									<a class="btn btn-primary" href="edit_education.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -71,7 +71,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_education.php">
+									<a class="btn btn-primary" href="edit_education.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -92,7 +92,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_education.php">
+									<a class="btn btn-primary" href="edit_education.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -113,7 +113,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="edit_education.php">
+									<a class="btn btn-primary" href="edit_education.php">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>

@@ -135,6 +135,10 @@
 				<!-- <li class="nav-header hidden-tablet">Sample Section</li> -->
 				<li><a class="ajax-link" href="index.php"><i class="icon-picture"></i><span class="hidden-tablet"> Send Mail</span></a></li>
 				<li><a class="ajax-link" href="index.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Send SMS</span></a></li>
+				<li class="nav-header hidden-tablet">Gallery</li>
+				<li><a class="ajax-link" href="gallery_upload.php"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery Upload</span></a></li>
+				<li><a class="ajax-link" href="gallery_category.php"><i class="icon-align-justify"></i><span class="hidden-tablet"> Gallery Category</span></a></li>
+				<li><a class="ajax-link" href="contact_gallery_upload.php"><i class="icon-calendar"></i><span class="hidden-tablet">Contact Gallery Upload</span></a></li>
 				<li class="nav-header hidden-tablet">Setting</li>
 				<li><a class="ajax-link" href="zodiac_sign.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Zodiac Sign</span></a></li>
 				<li><a class="ajax-link" href="nakshathra.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Nakshathra</span></a></li>
