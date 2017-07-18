@@ -6,7 +6,7 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="index.php">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">View Customer User</a>
@@ -23,11 +23,11 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info pull-right" id="add" href="add_successful_story.php">
+						<a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Save
 					    </a>
-					    <a class="btn btn-info pull-right" id="add" href="add_successful_story.php">
+					    <a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/customer_user">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Cancel
 					    </a>
@@ -46,7 +46,7 @@
 									        <i class="glyphicon glyphicon-edit icon-white"></i>
 									        Save
 									    </a>
-									    <a class="btn btn-info pull-right" id="add" href="add_successful_story.php">
+									    <a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
 									        <i class="glyphicon glyphicon-edit icon-white"></i>
 									        Cancel
 									    </a> -->
