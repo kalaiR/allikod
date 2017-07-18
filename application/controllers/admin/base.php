@@ -4,10 +4,14 @@ class Base extends CI_Controller {
 
 	public function __construct()
 	{
-		parent::__construct();		
+		parent::__construct();	
+		$this->load->model('admin/base_model');	
 	}
 	public function index(){
-		$this->load->view('admin/index');
+		//Functionality for dashboard page
+		$data['user_results'] = $this->base_model->get_user_count();
+		// print_r($data['user_results']);
+		$this->load->view('admin/index',$data);
 	}	
 	public function administration(){
 		$this->load->view('admin/administration');
@@ -27,9 +31,9 @@ class Base extends CI_Controller {
 	public function add_selling_admin(){
 		$this->load->view('admin/add_selling_admin');
 	}
-	public function report(){
-		$this->load->view('admin/report');
-	}
+	// public function report(){
+	// 	$this->load->view('admin/report');
+	// }
 	// public function successful_story(){
 	// 	$this->load->view('admin/successful_story');
 	// }

@@ -94,8 +94,8 @@
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url(); ?>admin">Profile</a></li>
-						<li class="divider"></li>
+						<!-- <li><a href="<?php echo base_url(); ?>admin">Profile</a></li> -->
+						<!-- <li class="divider"></li> -->
 						<li><a href="<?php echo base_url(); ?>admin">Logout</a></li>
 					</ul>
 				</div>

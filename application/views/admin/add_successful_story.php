@@ -25,7 +25,7 @@
 							</div>
 						</div>
 						<div class="box-content">
-							<form class="form-horizontal add_form" method="post" action="successful_story">
+							<form enctype="multipart/form-data" class="form-horizontal add_form" method="post" action="successful_story">
 <?php } ?>
 							<?php
 			                  if(!empty($status)) :
@@ -74,8 +74,8 @@
 								<label class="control-label">Status : </label>
 								<div class="controls">
 								  <select data-rel="chosen" class="form_inputs" name="suc_status">
-									<option>Active</option>
-									<option>Inactive</option>									
+									<option value="1">Active</option>
+									<option value="0">Inactive</option>									
 								  </select>
 								</div>
 							    <div class="form-actions">

@@ -76,7 +76,7 @@ else{
 	$db['default']['password'] = 'Valli123';
 	$db['default']['database'] = 'BBBn3tl_vallikodi';
 }
-$db['default']['dbdriver'] = 'mysql';
+$db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
