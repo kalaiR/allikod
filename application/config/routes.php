@@ -106,6 +106,15 @@ $route['admin/add_customer_user'] 							= "admin/base/add_customer_user";
 $route['admin/view_customer_user'] 							= "admin/base/view_customer_user";
 $route['admin/add_online_user'] 							= "admin/base/add_online_user";
 $route['admin/login'] 							= "admin/base/login";
+$route['admin/gallery_upload'] 							= "admin/base/gallery_upload";
+$route['admin/add_gallery'] 							= "admin/base/add_gallery";
+$route['admin/edit_gallery_upload'] 					= "admin/base/edit_gallery_upload";
+$route['admin/gallery_category'] 							= "admin/base/gallery_category";
+$route['admin/add_gallery_category'] 				 = "admin/base/add_gallery_category";
+$route['admin/edit_gallery_category'] 				= "admin/base/edit_gallery_category";
+$route['admin/contact_gallery_upload'] 				= "admin/base/contact_gallery_upload";
+$route['admin/add_contact_gallery'] 					= "admin/base/add_contact_gallery";
+$route['admin/edit_contact_gallery'] 					= "admin/base/edit_contact_gallery";
 
 
 
