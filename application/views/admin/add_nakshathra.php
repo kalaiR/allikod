@@ -51,7 +51,9 @@
 								</div>
 							    <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save changes</button>
+
 								<button type="reset" class="btn">Reset</button>
+
 							  </div>
 							</fieldset>
 <?php if(!$this->input->is_ajax_request()) { ?>						
