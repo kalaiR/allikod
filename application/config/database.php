@@ -52,7 +52,7 @@ if($_SERVER['SERVER_ADDR'] === '::1' || $_SERVER['SERVER_ADDR'] === '127.0.0.1')
 	$db['default']['hostname'] = 'localhost';
 	$db['default']['username'] = 'root';
 	$db['default']['password'] = 'root';
-	$db['default']['database'] = 'vallikodi';
+	$db['default']['database'] = 'vallikodi_db';
 
 }
 // //Testing server
