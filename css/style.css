@@ -7394,7 +7394,7 @@ p2
 }
 
 .search_option .nav.nav-tabs {
-  max-width: 955px;
+  max-width: 968px;
   margin: 0 auto 40px;
   padding: 0px 50px;
 }
@@ -7436,7 +7436,7 @@ p2
 }
 
 .search_option .tab-content .tab-pane {
-  color: #fff;
+  /*color: #fff;*/
 }
 
 .search_option .tab-content .tab-pane .height_item {
@@ -8264,4 +8264,7 @@ ol a{
   -webkit-transform: scale(1, 1);
   -ms-transform: scale(1, 1);
   transform: scale(1, 1);
+}
+#white{
+  color: #fff;
 }

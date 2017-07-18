@@ -23,7 +23,7 @@
                 <div class="search_option">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="registration.php#base" aria-controls="base" role="tab" data-toggle="tab">User Details</a></li>
+                        <li role="presentation" class="active"><a href="registration.php#base" aria-controls="base" role="tab" data-toggle="tab" id="white">User Details</a></li>
                          <li role="presentation" class="#"><a href="registration.php#advanced-search" aria-controls="advanced-search" role="tab" data-toggle="tab">Ethnicity</a></li>
                         <li role="presentation" class="#"><a href="registration.php#vallikodi" aria-controls="vallikodi" role="tab" data-toggle="tab">Education</a></li>
                         <li role="presentation" class="#"><a href="registration.php#manual-id" aria-controls="manual-id" role="tab" data-toggle="tab">Family</a></li>
@@ -38,7 +38,7 @@
                         	 	 		<div class="registration_form_s form-box aline-center-box">
                         	 	 			 <div class="col-sm-2 aline-center-box box">
                                                 <div class="height_item">      
-                                                    <h3>User Details</h3>
+                                                    <h3 id="white">User Details</h3>
                                                 </div>    
                                              </div>
                         	 	 			 <form class="box">
@@ -196,8 +196,7 @@
                                                                 <div class="height_item">
                                                                 <!-- <div class="form-group"> -->
                                                                     <!-- <div class="datepicker"> -->
-                                                                        <input type='text' class="form-control datetimepicker4" placeholder="Birthday" />
-                                                                        <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                                                        <input type='text' class="form-control datetimepicker4" placeholder="Birthday" />     
                                                                 </div>
                                                             </div>
                                                         </div>

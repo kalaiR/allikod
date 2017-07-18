@@ -37,7 +37,7 @@
                         	 	 		<div class="registration_form_s form-box aline-center-box">
                         	 	 			 <div class="col-sm-2 aline-center-box box">
                                                 <div class="height_item">      
-                                                    <h3>Basic Search</h3>
+                                                    <h3 id="white">Basic Search</h3>
                                                 </div>    
                                              </div>
                         	 	 			 <form class="box" action="search_result.php">
