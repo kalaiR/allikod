@@ -189,7 +189,7 @@
                                         <div class="registration_form_s form-box aline-center-box">
                                              <div class="col-sm-3 aline-center-box box">
                                                 <div class="height_item">      
-                                                    <h3>Advanced Search</h3>
+                                                    <h3  id="white">Advanced Search</h3>
                                                 </div>    
                                              </div>
                                              <form class="box" action="<?php echo base_url(); ?>search_result">
@@ -391,7 +391,7 @@
                                             <div class="registration_form_s form-box aline-center-box">
                                                 <div class="col-sm-3 aline-center-box box">
                                                     <div class="height_item">      
-                                                        <h3>Search By Vallikodi ID</h3>
+                                                        <h3  id="white">Search By Vallikodi ID</h3>
                                                     </div>    
                                                 </div>
                                             </div>
@@ -426,7 +426,7 @@
                                             <div class="registration_form_s form-box aline-center-box">
                                                 <div class="col-sm-3 aline-center-box box">
                                                     <div class="height_item">      
-                                                        <h3>Search By Manual ID</h3>
+                                                        <h3  id="white">Search By Manual ID</h3>
                                                     </div>    
                                                 </div>
                                             </div>
@@ -462,7 +462,7 @@
                                             <div class="registration_form_s form-box aline-center-box">
                                                 <div class="col-sm-3 aline-center-box box">
                                                     <div class="height_item">      
-                                                        <h3> Search By Dhosham</h3>
+                                                        <h3  id="white"> Search By Dhosham</h3>
                                                     </div>    
                                                 </div>
                                             </div>
