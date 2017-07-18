@@ -33,24 +33,49 @@
 						  <thead>
 							  <tr>
 								  <th>Luknam</th>
+								  <th>Active Status</th>
+								  <th>Delete Status</th>
 								  <th>Added Date</th>
-								  <th>Status</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>   
 						  <tbody>
+						  <?php
+			                      if(!empty($luknam_values)) :
+			                      $i=0;
+			                      foreach ($luknam_values as $luk_val) :
+			                      $i++;
+	                      	  ?>
 							<tr>
-								<td>Vrichigam (Scorpio)</td>
-								<td class="center">2012/01/01</td>
+								<td><?php echo $luk_val['name']; ?></td>
 								<td class="center">
-									<span class="label label-success">Active</span>
+									<span class="label label-success">
+										<?php 
+				                          if ($luk_val['active_status'] == 1) 
+				                            echo "Activated";
+				                          else
+				                            echo "Not-Activated";
+				                        ?>
+									</span>
 								</td>
 								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
+									<span class="label label-success">
+										<?php 
+				                          if ($luk_val['delete_status'] == 1) 
+				                            echo "Deleted";
+				                          else
+				                            echo "Not-Deleted";
+				                        ?>
+									</span>
+								</td>
+								<td class="center">
+									<?php 
+			                            $created_datetime = explode(' ', $luk_val['added_date']);
+			                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
+			                        ?> 
+								</td>
+								<td class="center">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam/<?php echo $luk_val["luknam_id"] ?>">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -60,237 +85,10 @@
 									</a>
 								</td>
 							</tr>
-							<tr>
-								<td>Tula (Libra)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Simham (Leo)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Rishabam (Taurus)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Mithunam (Gemini)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Mesham (Aries)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Meenam(Pisces)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Makara (Capricorn)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Kumbha (Aquarius)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Katagam (Cancer)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Kanni (Virgo)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Dhanus (Sagittarius)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
+							<?php
+		                      endforeach;
+		                      endif;
+		                    ?>
 						  </tbody>
 					  </table>            
 					</div>

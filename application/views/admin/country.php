@@ -33,24 +33,49 @@
 						  <thead>
 							  <tr>
 								  <th>Country</th>
+								  <th>Active Status</th>
+								  <th>Delete Status</th>
 								  <th>Added Date</th>
-								  <th>Status</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>   
 						  <tbody>
+						  <?php
+			                      if(!empty($country_values)) :
+			                      $i=0;
+			                      foreach ($country_values as $cou_val) :
+			                      $i++;
+	                      	  ?>
 							<tr>
-								<td>India</td>
-								<td class="center">2012/01/01</td>
+								<td><?php echo $cou_val['name']; ?></td>
 								<td class="center">
-									<span class="label label-success">Active</span>
+									<span class="label label-success">
+										<?php 
+				                          if ($cou_val['active_status'] == 1) 
+				                            echo "Activated";
+				                          else
+				                            echo "Not-Activated";
+				                        ?>
+									</span>
 								</td>
 								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_country">
+									<span class="label label-success">
+										<?php 
+				                          if ($cou_val['delete_status'] == 1) 
+				                            echo "Deleted";
+				                          else
+				                            echo "Not-Deleted";
+				                        ?>
+									</span>
+								</td>
+								<td class="center">
+									<?php 
+			                            $created_datetime = explode(' ', $cou_val['added_date']);
+			                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
+			                        ?> 
+								</td>
+								<td class="center">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_country/<?php echo $cou_val["country_id"] ?>">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -60,237 +85,10 @@
 									</a>
 								</td>
 							</tr>
-							<tr>
-								<td>Kuwait</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_country">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Srilanka</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_country">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Saudi</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_country">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>USA</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_country">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>UK</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_country">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>West Indies</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_country">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>UAE</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_country">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Australia</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_country">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Qatar</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_country">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Russia</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_country">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Others</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_country">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
+							<?php
+		                      endforeach;
+		                      endif;
+		                    ?>
 						  </tbody>
 					  </table>            
 					</div>

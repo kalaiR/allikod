@@ -41,7 +41,6 @@
 									  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="zod_name" value="<?php if(!empty($zodiac_data)) echo $zodiac_data['name']; ?>">
 									</div>
 								  </div>
-								  
 								  <div class="control-group">
 									<label class="control-label">Active Status : </label>
 									<div class="controls">

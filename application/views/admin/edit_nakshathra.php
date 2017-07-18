@@ -41,7 +41,6 @@
 								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="nak_name" value="<?php if(!empty($nakshathra_data)) echo $nakshathra_data['name']; ?>">
 								</div>
 							  </div>
-							  
 							  <div class="control-group">
 								<label class="control-label">Active Status : </label>
 								<div class="controls">
@@ -53,7 +52,9 @@
 								</div>
 							    <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button type="reset" class="btn">Cancel</button>
+
+								<button type="reset" class="btn">Reset</button>
+
 							  </div>
 							</fieldset>
 <?php if(!$this->input->is_ajax_request()) { ?>
