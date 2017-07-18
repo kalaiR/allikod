@@ -63,6 +63,7 @@ $route['vanniyar'] 							= "base/vanniyar";
 $route['full_view'] 							= "base/full_view";
 $route['myprofile'] 							= "base/myprofile";
 $route['mymatches'] 							= "base/mymatches";
+$route['myedit'] 							= "base/myedit";
 
 
 
