@@ -159,8 +159,8 @@
                                 </div>
                             </div>
                             <div class="col-md-4 pull-right">
-                                <button type="submit" value="LogIn" herf="#" class="btn form-control login_btn">Cancel</button>
-                                <button type="submit" value="LogIn" herf="#" class="btn form-control login_btn">Save</button>
+                                <button type="submit" value="LogIn" herf="#" class="btn form-control edit_btn pull-right save-box">Cancel</button>
+                                <button type="submit" value="LogIn" herf="#" class="btn form-control edit_btn pull-right ">Save</button>
                             </div>
                         </div>    
                             <div class="col-md-12">
