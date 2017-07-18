@@ -13,15 +13,15 @@ class Base extends CI_Controller {
 		// print_r($data['user_results']);
 		$this->load->view('admin/index',$data);
 	}	
-	public function administration(){
-		$this->load->view('admin/administration');
-	}
-	public function add_administration(){
-		$this->load->view('admin/add_administration');
-	}
-	public function edit_administration(){
-		$this->load->view('admin/edit_administration');
-	}
+	// public function administration(){
+	// 	$this->load->view('admin/administration');
+	// }
+	// public function add_administration(){
+	// 	$this->load->view('admin/add_administration');
+	// }
+	// public function edit_administration(){
+	// 	$this->load->view('admin/edit_administration');
+	// }
 	public function selling_admin(){
 		$this->load->view('admin/selling_admin');
 	}
