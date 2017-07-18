@@ -33,21 +33,21 @@
 				</a>
 
 				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin/report">
-					<span class="icon32 icon-color icon-tasks"></span>
+					<span class="icon32 icon-orange icon-document"></span>
 					<div>Report</div>
 					<!-- <div>228</div> -->
 					<!-- <span class="notification green">4</span> -->
 				</a>
 
 				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin/customer_user">
-					<span class="icon32 icon-color icon-user"></span>
+					<span class="icon32 icon-green icon-users"></span>
 					<div>Customer</div>
 					<!-- <div>$13320</div> -->
 					<!-- <span class="notification yellow">$34</span> -->
 				</a>
 				
 				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin/successful_story">
-					<span class="icon32 icon-color icon-thumbs-up"></span>
+					<span class="icon32 icon-blue icon-book"></span>
 					<div>Success Story</div>
 					<!-- <div>25</div> -->
 					<!-- <span class="notification red">12</span> -->
@@ -55,21 +55,21 @@
 			</div>
 			<div class="sortable row-fluid">
 				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin">
-					<span class="icon32 icon-red icon-envelope-closed"></span>
+					<span class="icon32 icon-blue icon-envelope-closed"></span>
 					<div>Mail</div>
 					<!-- <div>507</div> -->
 					<!-- <span class="notification">6</span> -->
 				</a>
 
 				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin">
-					<span class="icon32 icon-color icon-star-on"></span>
+					<span class="icon32 icon-green icon-image"></span>
 					<div>Photo Gallry</div>
 					<!-- <div>228</div> -->
 					<!-- <span class="notification green">4</span> -->
 				</a>
 
 				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin/zodiac_sign">
-					<span class="icon32 icon-red icon-tasks"></span>
+					<span class="icon32 icon-red icon-gear"></span>
 					<div>Master Data Settings</div>
 					<!-- <div>$13320</div> -->
 					<!-- <span class="notification yellow">$34</span> -->

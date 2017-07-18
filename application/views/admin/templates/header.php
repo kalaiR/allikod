@@ -51,7 +51,7 @@
 	<![endif]-->
 
 	<!-- The fav icon -->
-	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/admin/img/favicon.ico">
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/admin/img/fav.ico">
 		
 </head>
 
