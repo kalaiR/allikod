@@ -22,7 +22,7 @@
                         <div class="members_profile_inners">
                            <div class="members_about_box">
                                 <div class="heads">
-                                <h3 id="hcolor">Name : Madhivanan</h3>
+                                <h3 id="hcolor">Name : Madhivanan <button type="submit" value="Edit" class="btn form-control edit_btn pull-right">Edit</button></h3>
                                 </div>                                
                                 <div class="profile_list">                                    
                                         <ul>
