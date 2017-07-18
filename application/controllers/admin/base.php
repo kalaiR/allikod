@@ -124,5 +124,32 @@ class Base extends CI_Controller {
 	public function login(){
 		$this->load->view('admin/login');
 	}
+	public function gallery_upload(){
+		$this->load->view('admin/gallery_upload');
+	}
+	public function add_gallery(){
+		$this->load->view('admin/add_gallery');
+	}
+	public function edit_gallery_upload(){
+		$this->load->view('admin/edit_gallery_upload');
+	}
+	public function gallery_category(){
+		$this->load->view('admin/gallery_category');
+	}
+	public function add_gallery_category(){
+		$this->load->view('admin/add_gallery_category');
+	}
+	public function edit_gallery_category(){
+		$this->load->view('admin/edit_gallery_category');
+	}
+	public function contact_gallery_upload(){
+		$this->load->view('admin/contact_gallery_upload');
+	}
+	public function add_contact_gallery(){
+		$this->load->view('admin/add_contact_gallery');
+	}
+	public function edit_contact_gallery(){
+		$this->load->view('admin/edit_contact_gallery');
+	}
 
 }

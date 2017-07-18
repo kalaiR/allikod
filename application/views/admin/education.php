@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/add_education">
+						<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_education">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
@@ -50,7 +50,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_education">
+									<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_education">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -71,7 +71,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_education">
+									<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_education">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -92,7 +92,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_education">
+									<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_education">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -113,7 +113,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_education">
+									<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_education">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>

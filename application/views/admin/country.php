@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/add_country">
+						<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_country">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
