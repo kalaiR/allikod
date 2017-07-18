@@ -61,8 +61,8 @@ include('include/menu.php');
                                             <div class="col-sm-12 aline-center-box">
                                                 <div class="registration_form_s form-box aline-center-box">
                                                      <div class="col-sm-2 aline-center-box box">
-                                                        <div class="height_item">      
-                                                            <h3 id ="user-id">User Details</h3>
+                                                        <div class="height_item">
+                                                            <h3 id="white">User Details</h3>
                                                         </div>    
                                                      </div>
                                                         <input type="hidden" value="edit" id="popup_mode" />

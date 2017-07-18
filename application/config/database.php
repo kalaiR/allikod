@@ -51,7 +51,7 @@ $active_record = TRUE;
 if($_SERVER['SERVER_ADDR'] === '::1' || $_SERVER['SERVER_ADDR'] === '127.0.0.1'){
 	$db['default']['hostname'] = 'localhost';
 	$db['default']['username'] = 'root';
-	$db['default']['password'] = 'root';
+	$db['default']['password'] = '';
 	$db['default']['database'] = 'vallikodi_db';
 
 }
@@ -69,13 +69,21 @@ if($_SERVER['SERVER_ADDR'] === '::1' || $_SERVER['SERVER_ADDR'] === '127.0.0.1')
 // 	$db['default']['password'] = 'SC.NAxg3]2kn';
 // 	$db['default']['database'] = 'teacher_recruit';
 // }
-//Live server
+//Local IP address server
 else{
-	$db['default']['hostname'] = 'mysql1111.ixwebhosting.com';
-	$db['default']['username'] = 'BBBn3tl_valli123';
-	$db['default']['password'] = 'Valli123';
-	$db['default']['database'] = 'BBBn3tl_vallikodi';
+	$db['default']['hostname'] = 'localhost';
+	$db['default']['username'] = 'root';
+	$db['default']['password'] = 'root';
+	$db['default']['database'] = 'vallikodi_db';
 }
+
+//Live server
+// else{
+// 	$db['default']['hostname'] = 'mysql1111.ixwebhosting.com';
+// 	$db['default']['username'] = 'BBBn3tl_valli123';
+// 	$db['default']['password'] = 'Valli123';
+// 	$db['default']['database'] = 'BBBn3tl_vallikodi';
+// }
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

@@ -4454,3 +4454,7 @@ i[class^="icon-"] {
 .invisible {
   visibility: hidden;
 }
+.dataTables_filter{
+  float: right;
+  margin-top: 5px;
+}
