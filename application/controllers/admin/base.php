@@ -57,33 +57,33 @@ class Base extends CI_Controller {
 	// public function edit_nakshathra(){
 	// 	$this->load->view('admin/edit_nakshathra');
 	// }
-	public function mother_tongue(){
-		$this->load->view('admin/mother_tongue');
-	}
-	public function add_mother_tongue(){
-		$this->load->view('admin/add_mother_tongue');
-	}
-	public function edit_mother_tongue(){
-		$this->load->view('admin/edit_mother_tongue');
-	}
-	public function luknam(){
-		$this->load->view('admin/luknam');
-	}
-	public function add_luknam(){
-		$this->load->view('admin/add_luknam');
-	}
-	public function edit_luknam(){
-		$this->load->view('admin/edit_luknam');
-	}
-	public function country(){
-		$this->load->view('admin/country');
-	}
-	public function add_country(){
-		$this->load->view('admin/add_country');
-	}
-	public function edit_country(){
-		$this->load->view('admin/edit_country');
-	}
+	// public function mother_tongue(){
+	// 	$this->load->view('admin/mother_tongue');
+	// }
+	// public function add_mother_tongue(){
+	// 	$this->load->view('admin/add_mother_tongue');
+	// }
+	// public function edit_mother_tongue(){
+	// 	$this->load->view('admin/edit_mother_tongue');
+	// }
+	// public function luknam(){
+	// 	$this->load->view('admin/luknam');
+	// }
+	// public function add_luknam(){
+	// 	$this->load->view('admin/add_luknam');
+	// }
+	// public function edit_luknam(){
+	// 	$this->load->view('admin/edit_luknam');
+	// }
+	// public function country(){
+	// 	$this->load->view('admin/country');
+	// }
+	// public function add_country(){
+	// 	$this->load->view('admin/add_country');
+	// }
+	// public function edit_country(){
+	// 	$this->load->view('admin/edit_country');
+	// }
 	public function education(){
 		$this->load->view('admin/education');
 	}
