@@ -1247,8 +1247,11 @@
                                                             <div class="col-sm-4 base-box">
                                                                 <div class="height_item">
                                                                     <h4>Image</h4>
-                                                                </div>    
+                                                                </div> 
                                                             </div>
+                                                            
+                                                                <svg id="chart" class="col-md-10" width="300"height="400"/>   
+                                                            
                                                             <!--<div class="col-sm-6 box">
                                                                 <div class="height_item">
                                                                     <select class="selectpicker">
