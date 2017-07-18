@@ -7391,7 +7391,7 @@ p2
 }
 
 .search_option .tab-content .tab-pane {
-  color: #fff;
+  /*color: #fff;*/
 }
 
 .search_option .tab-content .tab-pane .height_item {
@@ -8216,5 +8216,8 @@ ol a{
   -webkit-transform: scale(1, 1);
   -ms-transform: scale(1, 1);
   transform: scale(1, 1);
+}
+#white{
+  color: #fff;
 }
 /*# sourceMappingURL=style.css.map */

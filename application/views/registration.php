@@ -62,7 +62,7 @@ include('include/menu.php');
                                                 <div class="registration_form_s form-box aline-center-box">
                                                      <div class="col-sm-2 aline-center-box box">
                                                         <div class="height_item">      
-                                                            <h3>User Details</h3>
+                                                            <h3 id="white">User Details</h3>
                                                         </div>    
                                                      </div>
                                                         <input type="hidden" value="edit" id="popup_mode" />
@@ -180,7 +180,6 @@ include('include/menu.php');
                                                                         <div class="height_item">
                                                                             <div class="datepicker">
                                                                                 <input type='text' class="form-control datetimepicker4" placeholder="Birthday" />
-                                                                                <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
