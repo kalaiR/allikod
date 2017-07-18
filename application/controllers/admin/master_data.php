@@ -674,6 +674,111 @@ class Master_Data extends CI_Controller {
 	}
 
 	/* ===========            Success Stories Controller End       ============ */
+
+	/* ===========            Administration Controller Start       ============ */
+
+	// administration - Add Edit Delete View Functionality
+	public function administration(){
+		if($_POST) {
+			$secure_error = '';
+			// Validate add and update data
+		   	if($this->input->post('action')=='update' || $this->input->post('action')=='save') {
+		   		// Update data
+			   	if($this->input->post('action')=='update' && $this->input->post('rid')) {
+			  		$id = $this->input->post('rid');
+			  		$action_post = $this->input->post('action');
+			   		$validation_rules = array(
+				        array('field'   => 'adm_name','label'   => 'Admin Name','rules'   => 'trim|required|xss_clean|max_length[50]|edit_unique[admin.admin_id.admin_username.'.$id.']' ),
+				        array( 'field'   => 'adm_type','label'   => 'Admin Type','rules'   => 'trim|required|xss_clean|' ),
+				        array( 'field'   => 'adm_status','label'   => 'Admin Status','rules'   => 'trim|required|xss_clean|' ),);
+			    }
+
+			  	// Save data
+		    	else if($this->input->post('action')=='save') {
+		    		$action_post = $this->input->post('action');
+		      		$validation_rules = array(
+		            	array( 'field'   => 'adm_name','label'   => 'Administration Name','rules'   => 'trim|required|xss_clean|max_length[50]|is_unique[admin.admin_username]' ),
+		            	array( 'field'   => 'adm_type','label'   => 'Administration Type','rules'   => 'trim|required|xss_clean|' ),
+				        array( 'field'   => 'adm_status','label'   => 'Administration Status','rules'   => 'trim|required|xss_clean|' ),);
+		      	}
+
+		      	// Error
+		      	else {
+		      		$data['error'] = 1;
+			        $data['status'] = "Something went wrong. Please try again with correct details ";	
+			        $secure_error = 1;
+		      	}
+		      	if($secure_error == '') {
+			   		$this->form_validation->set_rules($validation_rules);
+			      	if ($this->form_validation->run() == FALSE) {   
+				        foreach($validation_rules as $row){
+				        	$field = $row['field']; // getting field name
+				        	$error = form_error($field); // getting error for field name
+				        	if($error){
+				            	$data['error'] = 1;
+				            	$data['status'] = strip_tags($error);
+				            	break;
+				          	}
+				        }
+			      	}
+		      		else {
+			    		$data_values = $this->master_data_model->administration($action_post); 
+			    		$data['error'] = $data_values['error'];
+				        $data['status'] = $data_values['status'];	
+		      		}
+		      	}
+	      	}
+	      	// Delete data
+	    	else if($this->input->post('action')=='delete' && $this->input->post('rid')) {
+	      		$data_values = $this->master_data_model->administration('delete'); 	
+	      		$data['error'] = $data_values['error'];
+			    $data['status'] = $data_values['status'];
+	      	}
+	      	else {
+	      		$data['error'] = 1;
+			    $data['status'] = "Something went wrong. Please try again with correct details ";	
+	      	}
+
+	      	if($data['error']==1) {
+				$result['status'] = $data['status'];
+				$result['error'] = $data['error'];	
+				echo json_encode($result);
+			}
+			else if($data['error']==2) {
+				$data_ajax['admin_values'] = $data_values['admin_values'];
+				$data_ajax['status'] = $data['status'];
+				// $data_ajax['mapped_data'] = $data_values['mapped_data'];
+				$result['error'] = $data['error'];
+				if($this->input->post('action') == 'save')
+					$result['output'] = $this->load->view('admin/add_administration',$data_ajax,true);
+				else if($this->input->post('action') == 'update'){
+					$data_ajax['admin_data'] = $this->master_data_model->administration('edit')['admin_data'];
+					$result['output'] = $this->load->view('admin/edit_administration',$data_ajax,true);
+				}
+				else
+					$result['output'] = $this->load->view('admin/administration',$data_ajax,true);
+				echo json_encode($result);
+			}
+		}
+		else {
+		    $data['status'] = 0;
+	    	$data_values = $this->master_data_model->administration('init');
+			$data['admin_values'] = $data_values['admin_values'];
+			// $data['mapped_data'] = $data_values['mapped_data'];
+			$this->load->view('admin/administration',$data);
+		}
+	}
+	// administration - Load add page
+	public function add_administration(){
+		$this->load->view('admin/add_administration');
+	}
+	// administration - Load Edit page
+	public function edit_administration(){
+		$status['admin_data'] = $this->master_data_model->administration('edit')['admin_data'];
+		$this->load->view('admin/edit_administration',$status);
+	}
+
+	/* ===========            Administration Controller End       ============ */
 }
 /* End of file Master_Data.php */ 
 /* Location: ./application/controllers/Master_Data.php */

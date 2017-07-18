@@ -1,4 +1,4 @@
-<?php if(!$this->input->is_ajax_request()) { ?><?php
+<?php if(!$this->input->is_ajax_request()) { ?>
 <?php 
     include('templates/header.php');
 ?>
