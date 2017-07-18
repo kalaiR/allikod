@@ -29,50 +29,50 @@
 				<a data-rel="tooltip" title="Admin" class="well span3 top-block" href="#">
 					<span class="icon32 icon-red icon-user"></span>
 					<div>Admin</div>
-					<div>507</div>
+					<!-- <div>507</div> -->
 					<!-- <span class="notification">6</span> -->
 				</a>
 
 				<a data-rel="tooltip" title="Report" class="well span3 top-block" href="#">
-					<span class="icon32 icon-color icon-list-alt"></span>
+					<span class="icon32 icon-orange icon-document"></span>
 					<div>Report</div>
-					<div>228</div>
+					<!-- <div>228</div> -->
 					<!-- <span class="notification green">4</span> -->
 				</a>
 
 				<a data-rel="tooltip" title="Customer" class="well span3 top-block" href="#">
-					<span class="icon32 icon-color icon-cart"></span>
+					<span class="icon32 icon-green icon-users"></span>
 					<div>Customer</div>
-					<div>$13320</div>
+					<!-- <div>$13320</div> -->
 					<!-- <span class="notification yellow">$34</span> -->
 				</a>
 				
 				<a data-rel="tooltip" title="Success Story" class="well span3 top-block" href="#">
-					<span class="icon32 icon-color icon-envelope-closed"></span>
+					<span class="icon32 icon-blue icon-book"></span>
 					<div>Success Story</div>
-					<div>25</div>
+					<!-- <div>25</div> -->
 					<!-- <span class="notification red">12</span> -->
 				</a>
 			</div>
 			<div class="sortable row-fluid">
 				<a data-rel="tooltip" title="Mail" class="well span3 top-block" href="#">
-					<span class="icon32 icon-red icon-user"></span>
+					<span class="icon32 icon-blue icon-envelope-closed"></span>
 					<div>Mail</div>
-					<div>507</div>
+					<!-- <div>507</div> -->
 					<!-- <span class="notification">6</span> -->
 				</a>
 
 				<a data-rel="tooltip" title="Photo Gallery" class="well span3 top-block" href="#">
-					<span class="icon32 icon-color icon-star-on"></span>
+					<span class="icon32 icon-green icon-image"></span>
 					<div>Photo Gallry</div>
-					<div>228</div>
+					<!-- <div>228</div> -->
 					<!-- <span class="notification green">4</span> -->
 				</a>
 
 				<a data-rel="tooltip" title="Change Settings" class="well span3 top-block" href="#">
-					<span class="icon32 icon-color icon-cart"></span>
+					<span class="icon32 icon-red icon-gear"></span>
 					<div>Change Settings</div>
-					<div>$13320</div>
+					<!-- <div>$13320</div> -->
 					<!-- <span class="notification yellow">$34</span> -->
 				</a>
 			</div>

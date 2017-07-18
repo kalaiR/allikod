@@ -54,7 +54,7 @@
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
@@ -75,7 +75,7 @@
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
@@ -96,7 +96,7 @@
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
@@ -117,7 +117,7 @@
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
@@ -138,7 +138,7 @@
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
@@ -159,7 +159,7 @@
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
@@ -180,7 +180,7 @@
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
@@ -201,7 +201,7 @@
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
@@ -222,7 +222,7 @@
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
@@ -243,7 +243,7 @@
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
@@ -264,7 +264,7 @@
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
@@ -285,7 +285,7 @@
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
@@ -300,6 +300,21 @@
 	</div>  <!-- span10 end -->
 	<!-- external javascript
 	================================================== -->
+	<hr>
+
+		<div class="modal hide fade" id="myModal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Alert !</h3>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure want to delete?</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+				<a href="#" class="btn btn-danger">Delete</a>
+			</div>
+		</div>
 	<!-- Placed at the end of the document so the pages load faster -->
 
 
