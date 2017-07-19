@@ -37,13 +37,13 @@
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Admin : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="amd_name" value="<?php if(!empty($admin_data)) echo $admin_data['admin_username']; ?>">
+								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="adm_name" value="<?php if(!empty($admin_data)) echo $admin_data['admin_username']; ?>">
 								</div>
 							  </div>
 							  <div class="control-group">
-								<label class="control-label" for="focusedInput">Password : </label>
+								<label class="control-label" for="focusedInput_pwd">Password : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="password" name="amd_password" value="<?php if(!empty($admin_data)) echo $admin_data['admin_pwd']; ?>">
+								  <input class="input-xlarge focused form_inputs" id="focusedInput_pwd" type="password" name="adm_password" value="<?php if(!empty($admin_data)) echo $admin_data['admin_pwd']; ?>">
 								</div>
 							  </div>
 							  <div class="control-group">
@@ -62,7 +62,7 @@
 								  <select class="form_inputs" data-rel="chosen" name="adm_type">
 									<option value="">Select Status</option>
 									<option value="1" <?php if ($admin_data['admin_permission'] == 1) echo "selected"; ?>>Admin</option>
-									<option value="2" <?php if ($admin_data['admin_permission'] == 2) echo "selected"; ?>>Selling Admin</option>
+									<option value="2" <?php if ($admin_data['admin_permission'] == 0) echo "selected"; ?>>Selling Admin</option>
 								  </select>
 								</div>
 							  </div>

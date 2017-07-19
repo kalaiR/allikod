@@ -62,7 +62,7 @@
 								  <select class="form_inputs" data-rel="chosen" name="adm_type">
 									<option value="">Select Status</option>
 									<option value="1">Admin</option>
-									<option value="2">Selling Admin</option>
+									<option value="0">Selling Admin</option>
 								  </select>
 								</div>
 							  </div>

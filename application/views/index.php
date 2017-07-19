@@ -183,86 +183,35 @@
                 </div>
                 <div class="row m0">
                     <div class="blog_grid_inner sticky_slider">
-                        <div class="item">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="<?php echo base_url(); ?>assets/img/blog/stories/stories-1.jpg" alt="">
-                                    <div class="author_name">
-                                        <h4>Maria & Kavin</h4>
+                        <?php //print_r($success_stories); 
+                            if(!empty($success_stories)) :
+                              foreach ($success_stories as $suc) :
+                        ?>
+                            <div class="item">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <!-- <img src="<?php echo base_url(); ?>assets/img/blog/stories/stories-1.jpg" alt=""> -->
+                                        <img src="<?php if(!empty($suc['image'])) echo base_url()."assets/img/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>">
+                                        <div class="author_name">
+                                            <h4><?php echo $suc['male_name']."&". $suc['female_name'] ?></h4>
+                                        </div>
                                     </div>
+                                    <!--<div class="blog_grid_content">
+                                        <h3>Your Blog title here</h3>
+                                        <div class="blog_grid_date">
+                                            <a href="stories.html#">By David</a>
+                                            <a href="stories.html#">03 Sep, 2016</a>
+                                            <a href="stories.html#">Dating</a>
+                                        </div>
+                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
+                                        <a href="stories.html#">Read More <i class="fa fa-angle-double-right"></i></a>
+                                    </div>-->
                                 </div>
-                                <!--<div class="blog_grid_content">
-                                    <h3>Your Blog title here</h3>
-                                    <div class="blog_grid_date">
-                                        <a href="stories.html#">By David</a>
-                                        <a href="stories.html#">03 Sep, 2016</a>
-                                        <a href="stories.html#">Dating</a>
-                                    </div>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                    <a href="stories.html#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>-->
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="<?php echo base_url(); ?>assets/img/blog/stories/stories-2.jpg" alt="">
-                                    <div class="author_name">
-                                        <h4>Rocky Ahmed</h4>
-                                    </div>
-                                </div>
-                                <!--<div class="blog_grid_content">
-                                    <h3>Your Blog title here</h3>
-                                    <div class="blog_grid_date">
-                                        <a href="stories.html#">By David</a>
-                                        <a href="stories.html#">03 Sep, 2016</a>
-                                        <a href="stories.html#">Dating</a>
-                                    </div>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                    <a href="stories.html#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>-->
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="<?php echo base_url(); ?>assets/img/blog/stories/stories-3.jpg" alt="">
-                                    <div class="author_name">
-                                        <h4>Maria & Kavin</h4>
-                                    </div>
-                                </div>
-                                <!--<div class="blog_grid_content">
-                                    <h3>Your Blog title here</h3>
-                                    <div class="blog_grid_date">
-                                        <a href="stories.html#">By David</a>
-                                        <a href="stories.html#">03 Sep, 2016</a>
-                                        <a href="stories.html#">Dating</a>
-                                    </div>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                    <a href="stories.html#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>-->
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="<?php echo base_url(); ?>assets/img/blog/stories/stories-4.jpg" alt="">
-                                    <div class="author_name">
-                                        <h4>Rocky Ahmed</h4>
-                                    </div>
-                                </div>
-                                <!--<div class="blog_grid_content">
-                                    <h3>Your Blog title here</h3>
-                                    <div class="blog_grid_date">
-                                        <a href="stories.html#">By David</a>
-                                        <a href="stories.html#">03 Sep, 2016</a>
-                                        <a href="stories.html#">Dating</a>
-                                    </div>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                    <a href="stories.html#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>-->
-                            </div>
-                        </div>
+                        <?php
+                          endforeach;
+                          endif;
+                        ?>
                     </div>
                 </div>
             </div>
@@ -275,6 +224,63 @@
                     <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
                 <div class="row">
+                <?php //print_r($recent_profile); 
+                    if(!empty($recent_profile)) :
+                      foreach ($recent_profile as $rec) :
+                ?>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product_item">
+                            <div class="product_img">
+                                <img src="<?php if(!empty($rec['images'])) echo base_url()."assets/img/".$rec['images']; else echo base_url()."assets/img/no_image.jpg" ?>">
+                                <!-- <img src="<?php echo base_url(); ?>assets/img/shop/product-1.jpg" alt=""> -->
+                                <div class="hover_icon">
+                                    <ul>
+                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+                    endforeach;
+                  endif;
+                ?>
+                  <!--   <div class="col-md-3 col-sm-6">
+                        <div class="product_item">
+                            <div class="product_img">
+                                <img src="<?php echo base_url(); ?>assets/img/shop/product-2.jpg" alt="">
+                                <div class="hover_icon">
+                                    <ul>
+                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product_item">
+                            <div class="product_img">
+                                <img src="<?php echo base_url(); ?>assets/img/shop/product-3.jpg" alt="">
+                                <div class="hover_icon">
+                                    <ul>
+                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product_item">
+                            <div class="product_img">
+                                <img src="<?php echo base_url(); ?>assets/img/shop/product-4.jpg" alt="">
+                                <div class="hover_icon">
+                                    <ul>
+                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
@@ -322,55 +328,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="<?php echo base_url(); ?>assets/img/shop/product-1.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="<?php echo base_url(); ?>assets/img/shop/product-2.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="<?php echo base_url(); ?>assets/img/shop/product-3.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="<?php echo base_url(); ?>assets/img/shop/product-4.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
                     <!--<div class="pagination_area">
                         <a class="prev" href="#">Previous</a>
                         <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>

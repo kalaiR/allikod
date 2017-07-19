@@ -167,6 +167,17 @@ class User_model extends CI_Model {
       $query = $this->db->get()->result_array();          
       return $query;
   }
+
+  public function get_success_stories_limit(){
+      $condition = "sstories.active_status = 1";
+      $this->db->select('*');
+      $this->db->from('success_stories AS sstories');
+      $this->db->where($condition);      
+      $this->db->order_by('sstories.successstories_id','desc');
+      $this->db->limit(20);
+      $query = $this->db->get()->result_array();          
+      return $query;
+  }
   
   function insert_registration($table1, $data1){
     $this->db->insert($table1, $data1);
@@ -193,6 +204,17 @@ class User_model extends CI_Model {
       $model_data['error'] = 1;
     }
     return $model_data;
+  }
+  public function get_recent_profile(){
+      $condition = "usr.user_active_status = 1";
+      $this->db->select('usr_img.images,usr.userdetail_id');
+      $this->db->from('reg_userdetail AS usr');
+      $this->db->join('user_images AS usr_img','usr_img.reg_user_id=usr.userdetail_id','left');
+      $this->db->where($condition);      
+      $this->db->order_by('usr.userdetail_id','desc');
+      $this->db->limit(8);
+      $query = $this->db->get()->result_array();  
+      return $query;
   }
 
 }
