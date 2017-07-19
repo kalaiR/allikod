@@ -40,7 +40,7 @@ include('include/menu.php');
                             <a href="search.html#vallikodi" aria-controls="vallikodi" role="tab" data-toggle="tab">
                             Education</a>
                         </li>
-                        <li role="presentation" class="#" id="search">
+                        <li role="presentation" class="#" id="com">
                             <a href="search.html#manual-id" aria-controls="manual-id" role="tab" data-toggle="tab">
                             Family</a>
                         </li>
@@ -75,13 +75,13 @@ include('include/menu.php');
                                                                             <h4>Email</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <span id="register_email-error" class="registration-error"></span>
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <div class="form-group">
                                                                                 <input type="text" class="form-control tabfield" id="register_email" placeholder="Email" name="register_email" />
                                                                             </div>
                                                                         </div>
+                                                                         <span id="register_email-error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>                                                  
@@ -95,9 +95,10 @@ include('include/menu.php');
                                                                     <div class="col-sm-8 box">
                                                                         <div class="height_item">
                                                                             <div class="form-group">
-                                                                                <input type="password" class="form-control tabfield" id="reg_pass1" placeholder="Password" name="reg_pass1">
+                                                                                <input type="password" class="form-control tabfield" id="reg_passed" placeholder="Password" name="reg_pass">
                                                                             </div>
                                                                         </div>
+                                                                        <span id="reg_passed_error" class="registration-error"></span>    
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -111,9 +112,10 @@ include('include/menu.php');
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <div class="form-group">
-                                                                                <input type="password" class="form-control" id="reg_con_pass2" name="reg_con_pass2" placeholder="Confirm Password">
+                                                                                <input type="password" class="form-control" id="reg_con_pass" name="reg_con_pass" placeholder="Confirm Password">
                                                                             </div>
                                                                         </div>
+                                                                        <span id="reg_con_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -137,7 +139,9 @@ include('include/menu.php');
                                                                                 ?>
                                                                             </select>
                                                                         </div>
+                                                                        <span id="reg_by_error" class="registration-error"></span>
                                                                     </div>
+
                                                                 </div>        
                                                         </div>
                                                          <div class="col-sm-10  aline-center-box">
@@ -150,9 +154,10 @@ include('include/menu.php');
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <div class="form-group">
-                                                                                <input type="text" class="form-control" id="reg_Name" placeholder="Name" id="reg_Name">
+                                                                                <input type="text" class="form-control" id="reg_Nam" placeholder="Name" >
                                                                             </div>
                                                                         </div>
+                                                                        <span id="reg_nam_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -165,12 +170,13 @@ include('include/menu.php');
                                                                     </div>
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
-                                                                            <select class="form-control customize_plan" name="gender[]">
+                                                                            <select class="form-control customize_plan" name="gender[]" id="gender">
                                                                                 <option value="">Select</option>
                                                                                 <option value="1">Male</option>
                                                                                 <option value="2">Female</option>                                 
                                                                             </select>
                                                                         </div>
+                                                                        <span id="gender_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -200,7 +206,7 @@ include('include/menu.php');
                                                                     </div>
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
-                                                                            <select class="form-control customize_plan" name="marital_status[]">
+                                                                            <select class="form-control customize_plan" name="marital_status[]"id="marital">
                                                                                 <option value="">Select</option>
                                                                                 <?php 
                                                                                     if(!empty($martial_status)) :
@@ -211,6 +217,7 @@ include('include/menu.php');
                                                                                 ?>
                                                                             </select>                         
                                                                         </div>
+                                                                        <span id="marital_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>                                   
@@ -227,11 +234,9 @@ include('include/menu.php');
                                                 <div class="registration_form_s form-box aline-center-box">
                                                      <div class="col-sm-3 aline-center-box box">
                                                         <div class="height_item">      
-                                                            <h3>Ethnicity</h3>
+                                                            <h3 id="white">Ethnicity</h3>
                                                         </div>    
-                                                     </div>
-                                                     
-                                                      
+                                                     </div>                                                     
                                                         <div class="col-sm-10  aline-center-box">
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
@@ -242,9 +247,10 @@ include('include/menu.php');
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <div class="form-group">
-                                                                                <input type="time" class="form-control" id="reg_time2" placeholder="Time of Birth">
+                                                                                <input type="time" class="form-control" id="reg_tim" placeholder="Time of Birth">
                                                                             </div>
                                                                         </div>
+                                                                        <span id="tim_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -257,7 +263,7 @@ include('include/menu.php');
                                                                     </div>
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
-                                                                        <select class="form-control customize_plan" name="mother_tongue[]">
+                                                                        <select class="form-control customize_plan" name="mother_tongue[]" id="mother">
                                                                             <option value="">Select</option>
                                                                                <?php 
                                                                                     if(!empty($mother_tongue)) :
@@ -268,6 +274,7 @@ include('include/menu.php');
                                                                                 ?>
                                                                         </select> 
                                                                         </div>
+                                                                        <span id="mother_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -340,6 +347,7 @@ include('include/menu.php');
                                                                                 ?>
                                                                             </select>
                                                                         </div>
+                                                                        <span id="nakshathra_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -364,6 +372,7 @@ include('include/menu.php');
                                                                                 ?>
                                                                             </select>
                                                                         </div>
+                                                                        <span id="luknam_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div> 
@@ -404,6 +413,7 @@ include('include/menu.php');
                                                                                 ?>
                                                                             </select>
                                                                         </div>
+                                                                         <span id="zodiac_sign_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -421,7 +431,7 @@ include('include/menu.php');
                                                 <div class="registration_form_s form-box aline-center-box">
                                                      <div class="col-sm-3 aline-center-box box">
                                                         <div class="height_item">      
-                                                            <h3>Education</h3>
+                                                            <h3 id="white">Education</h3>
                                                         </div>    
                                                      </div>
                                                      
@@ -485,6 +495,7 @@ include('include/menu.php');
                                                                                 ?>   
                                                                             </select>
                                                                         </div>
+                                                                        <span id="occupation_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -508,6 +519,7 @@ include('include/menu.php');
                                                                                 ?>                                             
                                                                             </select>
                                                                         </div>
+                                                                        <span id="employed_in_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -556,14 +568,14 @@ include('include/menu.php');
                                      </div>                         
                                    </div>
                                  <!-- Tab4 -->                      
-                                   <div role="tabpanel" class="tab-pane fade in" id="search-field" style="display:none;">                                                               
+                                   <div role="tabpanel" class="tab-pane fade in" id="com-field" style="display:none;">                                                               
                                         <div class="registration_form_are">
                                          <div class="row">
                                             <div class="col-sm-12 aline-center-box">
                                                 <div class="registration_form_s form-box aline-center-box">
                                                      <div class="col-sm-3 aline-center-box box">
                                                         <div class="height_item">      
-                                                            <h3>Communication</h3>
+                                                            <h3 id="white">Communication</h3>
                                                         </div>    
                                                      </div>
                                                                                                     
@@ -587,6 +599,7 @@ include('include/menu.php');
                                                                                 ?>    
                                                                             </select>
                                                                         </div>
+                                                                        <span id="resident_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -610,6 +623,7 @@ include('include/menu.php');
                                                                                 ?>    
                                                                             </select>
                                                                         </div>
+                                                                         <span id="cur_country_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -690,12 +704,13 @@ include('include/menu.php');
                                                                                 <input type="text" class="form-control" id="reg_mobile" placeholder="Mobile" name="reg_mobile">
                                                                             </div>
                                                                         </div>
+                                                                         <span id="reg_mobile_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
                                                         <div class="col-sm-3 aline-center-box box">
                                                             <div class="height_item">      
-                                                                <h3>Family</h3>
+                                                                <h3 id="white">Family</h3>
                                                             </div>    
                                                         </div>
                                                         <div class="col-sm-10  aline-center-box">
@@ -782,6 +797,7 @@ include('include/menu.php');
                                                                                 ?>          
                                                                             </select>
                                                                         </div>
+                                                                         <span id="family_status_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -805,6 +821,7 @@ include('include/menu.php');
                                                                                 ?>             
                                                                             </select>
                                                                         </div>
+                                                                        <span id="family_type_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -813,15 +830,15 @@ include('include/menu.php');
                                                             <div class="col-sm-4">
                                                             </div>
                                                             <div class="col-sm-2"> 
-                                                            <label>Elder</label>
+                                                            <label id="white">Elder</label>
                                                             </div> 
                                                             <div class="col-sm-2"> 
-                                                            <label>Younger</label>
+                                                            <label id="white">Younger</label>
                                                             </div>
                                                         </div> 
                                                         <div class="row">
                                                             <div class="col-sm-4">
-                                                            <label>No. of Brothers</label>
+                                                            <label id="white">No. of Brothers</label>
                                                             </div>
                                                             <div class="col-sm-2"> 
                                                                 <div class="form-group">
@@ -836,7 +853,7 @@ include('include/menu.php');
                                                         </div> 
                                                         <div class="row">
                                                             <div class="col-sm-4">
-                                                            <label>No. of Sisters</label>
+                                                            <label id="white">No. of Sisters</label>
                                                             </div>
                                                             <div class="col-sm-2"> 
                                                                 <div class="form-group">
@@ -851,7 +868,7 @@ include('include/menu.php');
                                                         </div>
                                                          <div class="row">
                                                             <div class="col-sm-4">
-                                                            <label>No. of Married Brothers</label>
+                                                            <label id="white">No. of Married Brothers</label>
                                                             </div>
                                                             <div class="col-sm-2"> 
                                                                 <div class="form-group">
@@ -866,7 +883,7 @@ include('include/menu.php');
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-sm-4">
-                                                            <label>No. of Married Sisters</label>
+                                                            <label id="white">No. of Married Sisters</label>
                                                             </div>
                                                             <div class="col-sm-2"> 
                                                                 <div class="form-group">
@@ -909,7 +926,7 @@ include('include/menu.php');
                                                 <div class="registration_form_s form-box aline-center-box">
                                                      <div class="col-sm-3 aline-center-box box">
                                                         <div class="height_item">      
-                                                            <h3>Physical</h3>
+                                                            <h3 id="white">Physical</h3>
                                                         </div>    
                                                      </div>
                                                                                                  
@@ -969,6 +986,7 @@ include('include/menu.php');
                                                                                 ?>     
                                                                             </select>
                                                                         </div>
+                                                                        <span id="body_type_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -992,6 +1010,8 @@ include('include/menu.php');
                                                                                 ?>     
                                                                             </select>
                                                                         </div>
+                                                                        <span id="complexion_error" class="registration-error"></span>
+
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -999,7 +1019,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Physical Status</h4>
+                                                                            <h4 id="white">Physical Status</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -1010,6 +1030,7 @@ include('include/menu.php');
                                                                             <option value="2">Normal</option>               
                                                                             </select>
                                                                         </div>
+                                                                         <span id="physical_status_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -1033,6 +1054,7 @@ include('include/menu.php');
                                                                                 ?>   
                                                                             </select>
                                                                         </div>
+                                                                         <span id="food_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>                                                
@@ -1054,7 +1076,7 @@ include('include/menu.php');
                                                         </div>
                                                         <div class="col-sm-3 aline-center-box box">
                                                             <div class="height_item">      
-                                                                <h3>Search</h3>
+                                                                <h3 id="white">Search</h3>
                                                             </div>    
                                                          </div>                                                
                                                          <div class="col-sm-10  aline-center-box">
@@ -1077,6 +1099,7 @@ include('include/menu.php');
                                                                                 <option value="24">24</option>
                                                                             </select>
                                                                         </div>
+                                                                        <span id="search_age_from_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -1089,15 +1112,15 @@ include('include/menu.php');
                                                                     </div>
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
-                                                                            <label class="checkbox-inline">
+                                                                            <label class="checkbox-inline" id="white">
                                                                             <input type="checkbox" value="marital_status_any" name="marital_status_any" id="marital_status_any">Any</label>
-                                                                            <label class="checkbox-inline">
-                                                                            <input type="checkbox" value="marital_status_single" id="marital_status_single" name="marital_status_single">Single</label>
-                                                                            <label class="checkbox-inline" >
+                                                                            <label class="checkbox-inline" id="white">
+                                                                            <input type="checkbox" value="marital_status_single" id="marital_status_single" name="marital_status_single white">Single</label>
+                                                                            <label class="checkbox-inline"  id="white">
                                                                             <input type="checkbox" value="marital_status_widowed" id="marital_status_windowed" name="marital_status_windowed">Widowed</label>
-                                                                            <label class="checkbox-inline">
-                                                                            <input type="checkbox" value="marital_status_annualled" id="marital_status_annualled" name="marital_status_annualled">Annualled</label>
-                                                                            <label class="checkbox-inline">
+                                                                            <label class="checkbox-inline" id="white">
+                                                                            <input type="checkbox" value="marital_status_annualled" id="marital_status_annualled" name="marital_status_annualled white">Annualled</label>
+                                                                            <label class="checkbox-inline"id="white">
                                                                             <input type="checkbox"  name="marital_status_divorced" id="marital_status_divorced" value="marital_status_divorced">Divorced</label>
                                                                         </div>
                                                                     </div>
@@ -1128,14 +1151,14 @@ include('include/menu.php');
                                                                     </div>
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">                           
-                                                                            <label class="radio-inline">
+                                                                            <label class="radio-inline" id="white">
                                                                             <input type="radio" name="optradio">
                                                                             Vegetarian
                                                                             </label>
-                                                                            <label class="radio-inline">
+                                                                            <label class="radio-inline" id="white">
                                                                             <input type="radio" name="optradio">
                                                                             Non-Vegerarian</label>
-                                                                            <label class="radio-inline">
+                                                                            <label class="radio-inline" id="white">
                                                                             <input type="radio" name="optradio">
                                                                             Eggetarian</label> 
                                                                         </div>
@@ -1180,7 +1203,7 @@ include('include/menu.php');
 
                                                         <div class="col-sm-3 aline-center-box box">
                                                             <div class="height_item">      
-                                                                <h3>Image & Horoscope</h3>
+                                                                <h3 id="white">Image & Horoscope</h3>
                                                             </div>    
                                                         </div>                                      
                                                         <div class="col-sm-10  aline-center-box">
@@ -1207,7 +1230,7 @@ include('include/menu.php');
                                    </div><!-- Tab6 End--> 
                                 </div> 
                                 <div class="search_btn">
-                                    <input class=" btnAction next_angkar_btn pull-right" type="submit" name="back" id="back" value="Back" style="display:none;">
+                                    <input class=" btnAction next_angkar_btn pull-right" type="button" name="back" id="back" value="Back" style="display:none;">
                                     <input class=" btnAction next_angkar_btn pull-right" type="button" name="next" id="next" value="Next" >
                                     <input class="btnAction next_angkar_btn pull-right" type="submit" name="finish" id="finish" value="Finish" style="display:none;">
                                 </div>                    
