@@ -764,7 +764,8 @@
 							<!-- Admin Tab Ends -->
 							<!-- Selling Tab Begins -->
 							<div class="tab-pane" id="selling">
-								<div class="box-content">
+								<div class="box-content">								
+								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
 									<table class="table table-striped table-bordered bootstrap-datatable datatable">
 									  <thead>
 										  <tr>
@@ -1484,6 +1485,7 @@
 								  </table>
 								</div>
 							</div><!-- Selling Tab Ends -->
+							</div>
 						</div>
 					</div><!-- Tab Ends -->
 				</div><!--/span-->

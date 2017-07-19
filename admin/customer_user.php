@@ -147,7 +147,8 @@
 							<!-- View Tab Ends -->
 							<!-- Online Tab Begins -->
 							<div class="tab-pane" id="online">
-								<div class="box-content">
+								<div class="box-content">								
+								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
 									<table class="table table-striped table-bordered bootstrap-datatable datatable">
 									  <thead>
 										  <tr>
@@ -232,11 +233,13 @@
 									  </tbody>
 								  </table>
 								</div>
+								</div>
 							</div>
 							<!-- Online Tab Ends -->
 							<!-- Simple Tab Begins -->
 							<div class="tab-pane" id="simple">
 								<div class="box-content">
+								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
 									<table class="table table-striped table-bordered bootstrap-datatable datatable">
 									  <thead>
 										  <tr>										  
@@ -314,12 +317,14 @@
 										</tr>							
 									  </tbody>
 								  </table>
+								  </div>
 								</div> <!-- End of box content -->
 							</div>
 							<!-- Simple Tab Ends -->
 							<!-- Waiting Tab Begins -->
 							<div class="tab-pane" id="waiting">
-								<div class="box-content">								
+								<div class="box-content">
+								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">								
 									<table class="table table-striped table-bordered bootstrap-datatable datatable">
 									  <thead>
 										  <tr>											  
@@ -403,6 +408,7 @@
 										</tr>							
 									  </tbody>
 								  </table>
+								  </div>
 								</div> <!-- End of box content -->
 							</div>
 							<!-- Waiting Tab Ends -->
