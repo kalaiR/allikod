@@ -2,6 +2,7 @@
 include('include/header.php');
 include('include/menu.php');
 ?> 
+
      <!--================Banner Area =================-->
         <section class="banner_area">
             <div class="container">
@@ -74,11 +75,11 @@ include('include/menu.php');
                                                                             <h4>Email</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <span id="email-error" class="registration-error"></span>
+                                                                    <span id="register_email-error" class="registration-error"></span>
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <div class="form-group">
-                                                                                <input type="email" class="form-control tabfield demoInputBox" id="reg_email" placeholder="Email" name="reg_email" />
+                                                                                <input type="text" class="form-control tabfield" id="register_email" placeholder="Email" name="register_email" />
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -127,9 +128,13 @@ include('include/menu.php');
                                                                         <div class="height_item">
                                                                             <select class="form-control customize_plan" name="register_by[]" id="register_by">
                                                                                 <option value="">Select</option>
-                                                                                <option value="1">Father</option>
-                                                                                <option value="2">Friends</option>
-                                                                                <option value="3">Relative</option>
+                                                                                <?php
+                                                                                if(!empty($register)) :
+                                                                                    foreach ($register as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['registeredby_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -197,10 +202,13 @@ include('include/menu.php');
                                                                         <div class="height_item">
                                                                             <select class="form-control customize_plan" name="marital_status[]">
                                                                                 <option value="">Select</option>
-                                                                                <option value="1">Single</option>
-                                                                                <option value="2">Widowed</option>
-                                                                                <option value="3">Divorced</option>
-                                                                                <option value="4">Annualled</option>
+                                                                                <?php 
+                                                                                    if(!empty($martial_status)) :
+                                                                                    foreach ($martial_status as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['maritalcategory_id'] . "'>" . ucfirst($cls_val['marital_name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
                                                                             </select>                         
                                                                         </div>
                                                                     </div>
@@ -250,9 +258,14 @@ include('include/menu.php');
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                         <select class="form-control customize_plan" name="mother_tongue[]">
-                                                                                <option value="">Select</option>
-                                                                                <option value="1">Tamil</option>
-                                                                                <option value="2">Malayalam</option>
+                                                                            <option value="">Select</option>
+                                                                               <?php 
+                                                                                    if(!empty($mother_tongue)) :
+                                                                                    foreach ($mother_tongue as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
                                                                         </select> 
                                                                         </div>
                                                                     </div>
@@ -300,7 +313,7 @@ include('include/menu.php');
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <div class="form-group">
-                                                                                <input type="text" class="form-control" id="reg_Dhosham" placeholder="Dhosham">
+                                                                                <input type="text" class="form-control" id="reg_Dhosham" name="reg_Dhosham"placeholder="Dhosham">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -317,11 +330,14 @@ include('include/menu.php');
                                                                         <div class="height_item">
                                                                             <select class="form-control" name="nakshathra[]"
                                                                              id="nakshathra">
-                                                                                <option value="">Select</option>
-                                                                                <option value="1">Anuradha / Anusham / Anizham</option>
-                                                                                <option value="2">Ardra / Thiruvathira</option>
-                                                                                <option value="3">Ashlesha / Ayilyam</option>
-                                                                                <option value="4">Ashwini / Ashwathi</option>
+                                                                               <option value="">Select</option>
+                                                                               <?php 
+                                                                                    if(!empty($nakshathra)) :
+                                                                                    foreach ($nakshathra as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['nakshathra_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -339,8 +355,13 @@ include('include/menu.php');
                                                                             <select class="form-control" name="luknam[]"
                                                                              id="luknam">
                                                                                 <option value="">Select</option>
-                                                                                <option value="1">Dhanus (Sagittarius)</option>
-                                                                                <option value="2">Kanni (Virgo)</option>
+                                                                                 <?php 
+                                                                                    if(!empty($luknam)) :
+                                                                                    foreach ($luknam as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['luknam_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -374,8 +395,13 @@ include('include/menu.php');
                                                                         <div class="height_item">
                                                                             <select class="form-control" id="zodiac_sign" name="zodiac_sign[]" >
                                                                                 <option value="">Select</option>
-                                                                                <option value="1">Cancer</option>
-                                                                                <option value="2">Libro</option>
+                                                                               <?php 
+                                                                                    if(!empty($zodiac)) :
+                                                                                    foreach ($zodiac as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['zodiacsign_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -409,10 +435,15 @@ include('include/menu.php');
                                                                     </div>
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
-                                                                            <select class="form-control" name="edication[]" id="education">
+                                                                            <select class="form-control" name="education[]" id="education">
                                                                                 <option value="">Select</option>
-                                                                                <option value="1">BE/B Tech</option>
-                                                                                <option value="2">BCA</option>
+                                                                                <?php 
+                                                                                    if(!empty($education)) :
+                                                                                    foreach ($education as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['education_id'] . "'>" . ucfirst($cls_val['edu_name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -445,9 +476,13 @@ include('include/menu.php');
                                                                         <div class="height_item">
                                                                             <select class="form-control" name="occupation[]"  id="occupation">
                                                                                 <option value="">Select</option>
-                                                                                <option value="1">Executive</option>
-                                                                                <option value="2">Manager</option>
-                                                                                <option value="3">Supervisor</option>    
+                                                                                <?php 
+                                                                                    if(!empty($occupation)) :
+                                                                                    foreach ($occupation as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['occupation_id'] . "'>" . ucfirst($cls_val['occupation_name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>   
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -464,9 +499,13 @@ include('include/menu.php');
                                                                         <div class="height_item">
                                                                             <select class="form-control" name="employed_in[]" id="employed_in">
                                                                                 <option value="">Select</option>
-                                                                                <option value="1">Government</option>
-                                                                                <option value="2">Private</option>
-                                                                                <option value="3">Self</option>                                          
+                                                                                <?php 
+                                                                                    if(!empty($employed_in)) :
+                                                                                        foreach ($employed_in as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['employedin_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                        }
+                                                                                endif;
+                                                                                ?>                                             
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -539,8 +578,13 @@ include('include/menu.php');
                                                                         <div class="height_item">
                                                                             <select class="form-control" name="resident[]" id="resident">
                                                                                 <option value="">Select</option>
-                                                                                <option value="1">India</option>
-                                                                                <option value="2">Sri Lanka</option>
+                                                                                 <?php 
+                                                                                    if(!empty($country)) :
+                                                                                    foreach ($country as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val[' country_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>    
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -557,8 +601,13 @@ include('include/menu.php');
                                                                         <div class="height_item">
                                                                             <select class="form-control" name="cur_country[]" id="cur_country">
                                                                                 <option value="">Select</option>
-                                                                                <option value="1">India</option>
-                                                                                <option value="2">Sri Lanka</option>
+                                                                                <?php 
+                                                                                    if(!empty($country)) :
+                                                                                    foreach ($country as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val[' country_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>    
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -691,7 +740,7 @@ include('include/menu.php');
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <div class="form-group">
-                                                                                <input type="text" class="form-control" id="reg_phone" placeholder="FEmployment" name="reg_phone">
+                                                                                <input type="text" class="form-control" id="reg_femployment" placeholder="FEmployment" name="reg_femployment">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -724,9 +773,13 @@ include('include/menu.php');
                                                                         <div class="height_item">
                                                                             <select class="form-control" id="family_status" name="family_status[]">
                                                                                 <option value="">Select</option>
-                                                                                <option value="1">Middle</option>
-                                                                                <option value="2">Upper Middle</option>
-                                                                                <option value="3">Rich</option>          
+                                                                                 <?php 
+                                                                                    if(!empty($familystatus)) :
+                                                                                    foreach ($familystatus as $cls_val) {
+                                                                            echo "<option value='" . $cls_val['familystatus_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>          
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -743,8 +796,13 @@ include('include/menu.php');
                                                                         <div class="height_item">
                                                                             <select class="form-control" id="family_type" name="family_type[]">
                                                                                 <option value="">Select</option>
-                                                                                <option value="1">Joint</option>
-                                                                                <option value="2">Nuclear</option>          
+                                                                                <?php 
+                                                                                    if(!empty($familytype)) :
+                                                                                    foreach ($familytype as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['familytype_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>             
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -902,9 +960,13 @@ include('include/menu.php');
                                                                         <div class="height_item">
                                                                             <select class="form-control" name="body_type[]" id="body_type">
                                                                                 <option value="">Select</option>
-                                                                                <option value="1">Slim</option>
-                                                                                <option value="2">Heavy</option>
-                                                                                <option value="3">Normal</option>
+                                                                                 <?php 
+                                                                                    if(!empty($bodytype)) :
+                                                                                    foreach ($bodytype as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['bodytype_id'] . "'>" . ucfirst($cls_val['typename']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>     
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -921,9 +983,13 @@ include('include/menu.php');
                                                                         <div class="height_item">
                                                                             <select class="form-control" name="complexion[]" id="complexion" >
                                                                                 <option value="">Select</option>
-                                                                                <option value="1">Fair</option>
-                                                                                <option value="2">Wheatish</option>
-                                                                                <option value="3">Dark</option>
+                                                                                <?php 
+                                                                                    if(!empty($complexion)) :
+                                                                                    foreach ($complexion as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['complexion_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>     
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -957,10 +1023,14 @@ include('include/menu.php');
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <select class="form-control" name="food[]" id="food">
-                                                                                <option value="">Select</option>
-                                                                                <option value="1">Vegetarian</option>
-                                                                                <option value="2">Non-Vegetarian</option>
-                                                                                <option value="3">Egg-Vegetarian</option>
+                                                                               <option value="">Select</option>
+                                                                               <?php 
+                                                                                    if(!empty($food)) :
+                                                                                    foreach ($food as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['food_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>   
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -1043,7 +1113,7 @@ include('include/menu.php');
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <div class="form-group">
-                                                                                <input type="text" class="form-control" id="reg_Education" placeholder="Education">
+                                                                                <input type="text" class="form-control" id="reg_Education" name="reg_Education" placeholder="Education">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1057,10 +1127,17 @@ include('include/menu.php');
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
-                                                                        <div class="height_item">                                                     
-                                                                            <label class="radio-inline"><input type="radio" name="optradio">Vegetarian</label>
-                                                                            <label class="radio-inline"><input type="radio" name="optradio">Non-Vegerarian</label>
-                                                                            <label class="radio-inline"><input type="radio" name="optradio">Eggetarian</label> 
+                                                                        <div class="height_item">                           
+                                                                            <label class="radio-inline">
+                                                                            <input type="radio" name="optradio">
+                                                                            Vegetarian
+                                                                            </label>
+                                                                            <label class="radio-inline">
+                                                                            <input type="radio" name="optradio">
+                                                                            Non-Vegerarian</label>
+                                                                            <label class="radio-inline">
+                                                                            <input type="radio" name="optradio">
+                                                                            Eggetarian</label> 
                                                                         </div>
                                                                     </div>
                                                                 </div>        
@@ -1100,242 +1177,43 @@ include('include/menu.php');
                                          <div class="row">
                                             <div class="col-sm-12 aline-center-box">
                                                 <div class="registration_form_s form-box aline-center-box">
-                                                     <div class="col-sm-3 aline-center-box box">
-                                                        <div class="height_item">      
-                                                            <h3>Physical-horo</h3>
-                                                        </div>    
-                                                     </div>
-                                                                                                 
-                                                        <div class="col-sm-10  aline-center-box">
-                                                               <div class="row">
-                                                                    <div class="col-sm-4 base-box">
-                                                                        <div class="height_item">
-                                                                            <h4>Height in CMs</h4>
-                                                                        </div>    
-                                                                    </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
-                                                                            <select class="selectpicker">
-                                                                                <option>160</option>
-                                                                                <option>165</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>        
-                                                        </div>
-                                                        <div class="col-sm-10  aline-center-box">
-                                                               <div class="row">
-                                                                    <div class="col-sm-4 base-box">
-                                                                        <div class="height_item">
-                                                                            <h4>Weight in KGs</h4>
-                                                                        </div>    
-                                                                    </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
-                                                                            <select class="selectpicker">
-                                                                                <option>45</option>
-                                                                                <option>50</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>        
-                                                        </div>
-                                                        <div class="col-sm-10  aline-center-box">
-                                                               <div class="row">
-                                                                    <div class="col-sm-4 base-box">
-                                                                        <div class="height_item">
-                                                                            <h4>Body Type</h4>
-                                                                        </div>    
-                                                                    </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
-                                                                            <select class="selectpicker">
-                                                                                <option>Slim</option>
-                                                                                <option>Heavy</option>
-                                                                                <option>Normal</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>        
-                                                        </div>
-                                                        <div class="col-sm-10  aline-center-box">
-                                                               <div class="row">
-                                                                    <div class="col-sm-4 base-box">
-                                                                        <div class="height_item">
-                                                                            <h4>Complexion</h4>
-                                                                        </div>    
-                                                                    </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
-                                                                            <select class="selectpicker">
-                                                                                <option>Fair</option>
-                                                                                <option>Wheatish</option>
-                                                                                <option>Dark</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>        
-                                                        </div>
-                                                        <div class="col-sm-10  aline-center-box">
-                                                               <div class="row">
-                                                                    <div class="col-sm-4 base-box">
-                                                                        <div class="height_item">
-                                                                            <h4>Physical Status</h4>
-                                                                        </div>    
-                                                                    </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
-                                                                            <select class="selectpicker">
-                                                                                <option>Physically Challenged</option>
-                                                                                <option>Normal</option>                                                 
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>        
-                                                        </div>
-                                                         <div class="col-sm-10  aline-center-box">
-                                                               <div class="row">
-                                                                    <div class="col-sm-4 base-box">
-                                                                        <div class="height_item">
-                                                                            <h4>Food</h4>
-                                                                        </div>    
-                                                                    </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
-                                                                            <select class="selectpicker">
-                                                                                <option>Vegetarian</option>
-                                                                                <option>Non-Vegetarian</option>
-                                                                                <option>Eggetarian</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>        
-                                                        </div>                                                
-                                                        <div class="col-sm-10  aline-center-box">
-                                                               <div class="row">
-                                                                    <div class="col-sm-4 base-box">
-                                                                        <div class="height_item">
-                                                                            <h4>Your Personality</h4>
-                                                                        </div>    
-                                                                    </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
-                                                                            <div class="form-group">
-                                                                               <textarea class="form-control" rows="5" id="Personality" placeholder="Personality in Detail"></textarea>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>        
-                                                        </div>
+
                                                         <div class="col-sm-3 aline-center-box box">
                                                             <div class="height_item">      
-                                                                <h3>Search</h3>
+                                                                <h3>Image & Horoscope</h3>
                                                             </div>    
-                                                         </div>                                                
-                                                         <div class="col-sm-10  aline-center-box">
-                                                               <div class="row">
-                                                                    <div class="col-sm-4 base-box">
-                                                                        <div class="height_item">
-                                                                            <h4>Age</h4>
-                                                                        </div>    
-                                                                    </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
-                                                                            <select class="selectpicker">
-                                                                                <option>18</option>
-                                                                                <option>20</option>
-                                                                            </select>
-                                                                            <select class="selectpicker">
-                                                                                <option>21</option>
-                                                                                <option>24</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>        
-                                                        </div>
+                                                        </div>                                      
                                                         <div class="col-sm-10  aline-center-box">
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Marital Status</h4>
+                                                                            <h4>Image Uploads</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
-                                                                            <label class="checkbox-inline"><input type="checkbox" value="">Any</label>
-                                                                            <label class="checkbox-inline"><input type="checkbox" value="">Single</label>
-                                                                            <label class="checkbox-inline"><input type="checkbox" value="">Widowed</label>
-                                                                            <label class="checkbox-inline"><input type="checkbox" value="">Annualled</label>
-                                                                            <label class="checkbox-inline"><input type="checkbox" value="">Divorced</label>
-                                                                        </div>
+                                                                    <div class="col-md-6 upload_box">
+                                                                        <span></span>
+                                                                        <p id="msg"></p>
+                                                                        <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" />
+                                                                        <input type="button" id="upload" value="upload" name ="upload">
                                                                     </div>
                                                                 </div>        
                                                         </div>
-                                                        <div class="col-sm-10  aline-center-box">
-                                                               <div class="row">
-                                                                    <div class="col-sm-4 base-box">
-                                                                        <div class="height_item">
-                                                                            <h4>Education</h4>
-                                                                        </div>    
-                                                                    </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
-                                                                            <div class="form-group">
-                                                                                <input type="text" class="form-control" id="reg_Education" placeholder="Education">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>        
-                                                        </div>
-                                                        <div class="col-sm-10  aline-center-box">
-                                                               <div class="row">
-                                                                    <div class="col-sm-4 base-box">
-                                                                        <div class="height_item">
-                                                                            <h4>Diet</h4>
-                                                                        </div>    
-                                                                    </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">                                                     
-                                                                            <label class="radio-inline"><input type="radio" name="optradio">Vegetarian</label>
-                                                                            <label class="radio-inline"><input type="radio" name="optradio">Non-Vegerarian</label>
-                                                                            <label class="radio-inline"><input type="radio" name="optradio">Eggetarian</label> 
-                                                                        </div>
-                                                                    </div>
-                                                                </div>        
-                                                        </div>
-                                                        <div class="col-sm-10  aline-center-box">
-                                                               <div class="row">
-                                                                    <div class="col-sm-4 base-box">
-                                                                        <div class="height_item">
-                                                                            <h4>Expectation about Life Partner</h4>
-                                                                        </div>    
-                                                                    </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
-                                                                            <div class="form-group">
-                                                                               <textarea class="form-control" rows="5" id="Ecpectation" placeholder="Expectation"></textarea>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>        
-                                                        </div>
+
+                                                    </div>                  
                                                 </div>
                                             </div>
-                                         </div>
-                                     </div>                         
-                                   </div>
+                                        </div>
+                                     </div>
+                                   </div><!-- Tab6 End--> 
                                 </div> 
                                 <div class="search_btn">
                                     <input class=" btnAction next_angkar_btn pull-right" type="submit" name="back" id="back" value="Back" style="display:none;">
                                     <input class=" btnAction next_angkar_btn pull-right" type="button" name="next" id="next" value="Next" >
                                     <input class="btnAction next_angkar_btn pull-right" type="submit" name="finish" id="finish" value="Finish" style="display:none;">
-                                </div>
-                                                          
+                                </div>                    
                         </div>
                          <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
                     </form> 
-
-
             </div>   
         </section>  
 <?php 

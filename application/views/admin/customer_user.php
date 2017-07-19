@@ -228,7 +228,7 @@
 													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger btn-setting" href="#">
@@ -329,7 +329,7 @@
 													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger btn-setting" href="#">
@@ -425,7 +425,7 @@
 													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger btn-setting" href="#">

@@ -582,6 +582,11 @@
 {
   padding-top: 20px;
 }
+.text-font
+{
+  font-weight: bold;
+}
+
 #user-id
 {
   color: white;
@@ -619,3 +624,4 @@
 {
   margin-left: 10px;
 }
+
