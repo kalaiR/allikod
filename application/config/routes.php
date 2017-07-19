@@ -68,7 +68,10 @@ $route['myedit'] 							= "base/myedit";
 
 
 
+// $route['admin'] 							= "admin/base/index";
 $route['admin'] 							= "admin/base/index";
+$route['admin/dashboard'] 							= "admin/base/dashboard";
+$route['admin/logout'] 							= "admin/base/admin_logout";
 
 $route['admin/zodiac_sign'] 							= "admin/master_data/zodiac_sign";
 $route['admin/add_zodiac_sign'] 							= "admin/master_data/add_zodiac_sign";
