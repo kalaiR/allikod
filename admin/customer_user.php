@@ -34,7 +34,7 @@
 						<div id="myTabContent" class="tab-content">
 							<!-- View Tab Begins -->
 							<div class="tab-pane active" id="view">
-								<div class="box-content">
+								<div class="box-content row">
 									<a class="btn btn-primary pull-right" id="add" href="add_online_user.php">
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Online User
@@ -43,6 +43,8 @@
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Simple User
 								    </a>
+								</div>
+								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
 									<table class="table table-striped table-bordered bootstrap-datatable datatable">
 									  <thead>
 										  <tr>

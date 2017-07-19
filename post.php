@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form_man">
-                                                <img src="img/registration-man.png" alt="">
+                                                <!-- <img src="img/registration-man.png" alt=""> -->
                                             </div>
                                         </div>
                                         </div>
