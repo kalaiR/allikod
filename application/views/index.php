@@ -1,8 +1,7 @@
 <?php 
     include('include/header.php');
-?>      <?php 
-            include('include/menu.php');
-        ?> 
+    include('include/menu.php');
+?> 
         
         <!--================Slider Reg Area (selva)=================-->
         <section class="slider_area">
@@ -29,67 +28,89 @@
                         <div class="col-sm-6">
                             <div class="registration_form_s">
                                 <h4>Registration</h4>
-                                <form method="post" action="<?php echo base_url();?>registration">
+                                <form method="post" action="index" name="index_reg" id="index_reg">
                                     <div class="form-group">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                <div class="form-group">
+                                                    <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                                     <span data-bind="label">Registered By</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu">
+                                                    </button> -->
+                                                    <!-- <ul class="dropdown-menu" role="menu">
                                                         <li><a href="<?php echo base_url(); ?>#">Self</a></li>
                                                         <li><a href="<?php echo base_url(); ?>#">Friend</a></li>
                                                         <li><a href="<?php echo base_url(); ?>#">Brother</a></li>
                                                         <li><a href="<?php echo base_url(); ?>#">Sister</a></li>
-                                                    </ul>
+                                                    </ul> -->
+                                                    <span data-bind="label" class="text-font">Registered By</span>
+                                                    <select class="form-control customize_plan" name="register_by[]" id="register_by" placeholder="RegisterBy-Name">
+                                                        <option value="">Select</option>
+                                                        <?php
+                                                        if(!empty($register)) :
+                                                            foreach ($register as $cls_val) {
+                                                                echo "<option value='" . $cls_val['registeredby_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                            }
+                                                        endif;
+                                                        ?>
+                                                    </select>
                                                 </div>
                                     </div>
                                     <div class="form-group">
-                                                <input type="text" class="form-control" id="reg_Name" placeholder="Name">
-                                            </div>
-                                        <!--
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" id="reg_con_pass2" placeholder=" Confirm Password">
-                                    </div>-->
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="reg_Religion" placeholder="Religion">
+                                        <input type="text" class="form-control" id="reg_Name" placeholder="Name" name="reg_Name">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="reg_Mobile" placeholder="Mobile">
+                                        <input type="text" class="form-control" id="reg_age" placeholder="Age" name="reg_age">
                                     </div>
+                                        
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="reg_email2" placeholder="Email">
+                                        <!-- <input type="text" class="form-control" id="reg_Religion" name="reg_Religion"placeholder="Religion"> -->
+                                        <span data-bind="label" class="text-font">Marital Status</span>
+                                        <select class="form-control customize_plan" name="marital_status[]">
+                                            <option value="">Select</option>
+                                                <?php 
+                                                if(!empty($martial_status)) :
+                                                foreach ($martial_status as $cls_val) {
+                                                echo "<option value='" . $cls_val['maritalcategory_id'] . "'>" . ucfirst($cls_val['marital_name']) . "</option>";
+                                                }
+                                                endif;
+                                                ?>
+                                        </select>  
+
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <input type="text" class="form-control" id="reg_Mobile" name="reg_Mobile" placeholder="Mobile">
+                                    </div> -->
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="reg_email2" name="reg_email2" placeholder="Email">
                                     </div>
                                     
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="reg_pass2" placeholder="Password">
+                                        <input type="password" class="form-control" id="reg_pass2" name="reg_pass2" placeholder="Password">
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                                    <span data-bind="label">Gender</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu">
-                                                        <li><a href="<?php echo base_url(); ?>#">Male</a></li>
-                                                        <li><a href="<?php echo base_url(); ?>#">Female</a></li>
-                                                    </ul>
-                                                </div>
+                                                <span data-bind="label" class="text-font">Gender</span>
+                                                <select class="form-control customize_plan" name="gender[]" id="gender">
+                                                        <option value="">Select</option>
+                                                        <option value="1">Male</option>
+                                                        <option value="2">Female</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="datepicker">
-                                                    <input type='text' class="form-control datetimepicker4" placeholder="Birthday" />
+                                                    <input type='text' class="form-control datetimepicker4" placeholder="Birthday" name="dob" id="dob" />
                                                     <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
                                     <div class="reg_chose form-group">
                                         <button type="submit" value="LogIn" class="btn form-control login_btn">Register</button>
                                     </div>
+
                                 </form>
                             </div>
                         </div>
