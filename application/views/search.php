@@ -1,17 +1,14 @@
 <?php 
-    include('include/header.php');
+include('include/header.php');
+include('include/menu.php');
 ?> 
-       
-       <?php 
-            include('include/menu.php');
-        ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">Search People Here<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
-                    <!--<a href="index.html">Home</a>
-                    <a href="shop-cart.html">Pricing</a>-->
+                    <h3><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">Search People Here<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt="">
+                    </h3>
+                    
                 </div>
             </div>
         </section>
@@ -42,7 +39,8 @@
                                                     <h3>Basic Search</h3>
                                                 </div>    
                                              </div>
-                        	 	 			 <form method="post" class="box" action="<?php echo base_url(); ?>search_result">                                              
+                                             <!-- Basic Search -->
+                        	 	 			 <form method="post" class="box" action="search_result" id="basic_search" name="basic_search" >                                              
                                                 <div class="col-sm-10  aline-center-box">
                                                        <div class="row">
                                                             <div class="col-sm-4 base-box">
@@ -52,9 +50,10 @@
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>Male</option>
-                                                                        <option>Female</option>
+                                                                    <select class="form-control" name="gender[]" id="gender">
+                                                                        <option value="">Select</option>
+                                                                        <option value="1">Male</option>
+                                                                        <option value="2">Female</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -69,14 +68,17 @@
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>18</option>
-                                                                        <option>20</option>
-                                                                    </select>
-                                                                    <select class="selectpicker">
-                                                                        <option>21</option>
-                                                                        <option>24</option>
-                                                                    </select>
+                                                                <select class="form-control" name="search_age_from[]" id="search_age_from">
+                                                                            <option value="">Select</option>
+                                                                            <option value="18">18</option>
+                                                                            <option value="20">20</option>
+                                                                </select>
+                                                                
+                                                                <select class="form-control" name="search_age_to[]" id="search_age_to">
+                                                                                <option value="">Select</option>
+                                                                                <option value="21">21</option>
+                                                                                <option value="24">24</option>
+                                                                </select>
                                                                 </div>
                                                             </div>
                                                         </div>        
@@ -90,14 +92,16 @@
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>180 Cm</option>
-                                                                        <option>200 Cm</option>
-                                                                    </select>
-                                                                    <select class="selectpicker">
-                                                                        <option>210 Cm</option>
-                                                                        <option>240 Cm</option>
-                                                                    </select>
+                                                                    <select class="form-control" name="height_in_cms[]" id="height_in_cms">
+                                                                                <option value="">Select</option>
+                                                                                <option value="160">160</option>
+                                                                                <option value="165">165</option>
+                                                                            </select>
+                                                                    <select class="form-control" name="height_in_feets[]" id="height_in_feets">
+                                                                                <option value="">Select</option>
+                                                                                <option value="45">45</option>
+                                                                                <option value="50">50</option>
+                                                                            </select>
                                                                 </div>
                                                             </div>
                                                         </div>        
@@ -106,15 +110,21 @@
                                                        <div class="row">
                                                             <div class="col-sm-4 base-box">
                                                                 <div class="height_item">
-                                                                    <h4>Maritel Status</h4>
+                                                                    <h4>Marital Status</h4>
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>Single</option>
-                                                                        <option>Single</option>
-                                                                    </select>
+                                                                     <select class="form-control customize_plan" name="marital_status[]">                    
+                                                                                <option value="">Select</option>
+                                                                                <?php 
+                                                                                    if(!empty($martial_status)) :
+                                                                                    foreach ($martial_status as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['maritalcategory_id'] . "'>" . ucfirst($cls_val['marital_name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
+                                                                     </select>
                                                                 </div>
                                                             </div>
                                                         </div>        
@@ -123,16 +133,21 @@
                                                        <div class="row">
                                                             <div class="col-sm-4 base-box">
                                                                 <div class="height_item">
-                                                                    <h4>Mother Toungue</h4>
+                                                                    <h4>Mother Tongue</h4>
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>Tamil</option>
-                                                                        <option>Telegu</option>
-                                                                        <option>Other</option>
-                                                                    </select>
+                                                                    <select class="form-control customize_plan" name="mother_tongue[]">
+                                                                              <option value="">Select</option>
+                                                                        <?php 
+                                                                                    if(!empty($mother_tongue)) :
+                                                                                    foreach ($mother_tongue as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
+                                                                        </select> 
                                                                 </div>
                                                             </div>
                                                         </div>        
@@ -146,10 +161,15 @@
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>Bachelor of Design and Communication</option>
-                                                                        <option>Bachelor of Music</option>
-                                                                        <option>Other</option>
+                                                                    <select class="form-control" name="education[]" id="education">
+                                                                               <option value="">Select</option>
+                                                                                <?php 
+                                                                                    if(!empty($education)) :
+                                                                                    foreach ($education as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['education_id'] . "'>" . ucfirst($cls_val['edu_name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -164,7 +184,7 @@
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
+                                                                    <select class="form-control" name="">
                                                                         <option>Both</option>
                                                                         <option>With Photo</option>
                                                                         <option>Without Photo</option>
@@ -173,10 +193,13 @@
                                                             </div>
                                                         </div>        
                                                 </div>
+                                                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
+
                                                 <div class="search_btn">
                                                     <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
                                                 </div>
                         	 	 			 </form>
+                                             <!-- Basic Search -End Here--> 
                         	 	 		</div>
                         	 	 	</div>
                         	 	 </div>
@@ -308,14 +331,20 @@
                                                        <div class="row">
                                                             <div class="col-sm-4 base-box">
                                                                 <div class="height_item">
-                                                                    <h4>Maritel Status</h4>
+                                                                    <h4>Marital Status</h4>
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>Single</option>
-                                                                        <option>Single</option>
+                                                                    <select class="form-control">
+                                                                        <option value="">Select</option>
+                                                                                <?php 
+                                                                                    if(!empty($martial_status)) :
+                                                                                    foreach ($martial_status as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['maritalcategory_id'] . "'>" . ucfirst($cls_val['marital_name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -325,15 +354,20 @@
                                                        <div class="row">
                                                             <div class="col-sm-4 base-box">
                                                                 <div class="height_item">
-                                                                    <h4>Mother Toungue</h4>
+                                                                    <h4>Mother Tongue</h4>
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
                                                                     <select class="selectpicker">
-                                                                        <option>Tamil</option>
-                                                                        <option>Telegu</option>
-                                                                        <option>Other</option>
+                                                                     <option value="">Select</option>
+                                                                        <?php 
+                                                                                    if(!empty($mother_tongue)) :
+                                                                                    foreach ($mother_tongue as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -349,9 +383,14 @@
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
                                                                     <select class="selectpicker">
-                                                                        <option>Bachelor of Design and Communication</option>
-                                                                        <option>Bachelor of Music</option>
-                                                                        <option>Other</option>
+                                                                        <option value="">Select</option>
+                                                                                <?php 
+                                                                                    if(!empty($education)) :
+                                                                                    foreach ($education as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['education_id'] . "'>" . ucfirst($cls_val['edu_name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -501,181 +540,7 @@
             </div>        	    
 					 
         </section>           
-                    <!-- Tab panes -->
-            
-             
-                
-           
-        
-        <!--================End Advanced Search Area =================-->
-        
-        <!--================End Advanced Search Area =================-->
-        <!--<section class="active_members">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="active_mem_item">
-                            <ul class="nav navbar-nav">
-                                <li class="dropdown tool_hover">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="<?php echo base_url(); ?>assets/img/members/active-mem/active-mem-1.png" alt=""></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <div class="head_area">
-                                                <h4>Lara Davis</h4>
-                                                <h4>53% Match</h4>
-                                            </div>
-                                            <div class="media">
-                                                <div class="media-left">
-                                                    <img src="<?php echo base_url(); ?>assets/img/photo/people-p/people-drop-3.png" alt="">
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6>29 years old <br> From Derby <br> Single</h6>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <h4>Maria Doe</h4>
-                            <h5>22 years old</h5>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="active_mem_item">
-                            <ul class="nav navbar-nav">
-                                <li class="dropdown tool_hover">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="<?php echo base_url(); ?>assets/img/members/active-mem/active-mem-2.png" alt=""></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <div class="head_area">
-                                                <h4>Lara Davis</h4>
-                                                <h4>53% Match</h4>
-                                            </div>
-                                            <div class="media">
-                                                <div class="media-left">
-                                                    <img src="<?php echo base_url(); ?>assets/img/photo/people-p/people-drop-4.png" alt="">
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6>29 years old <br> From Derby <br> Single</h6>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <h4>Maria Doe</h4>
-                            <h5>22 years old</h5>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="active_mem_item">
-                            <ul class="nav navbar-nav">
-                                <li class="dropdown tool_hover">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="<?php echo base_url(); ?>assets/img/members/active-mem/active-mem-3.png" alt=""></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <div class="head_area">
-                                                <h4>Lara Davis</h4>
-                                                <h4>53% Match</h4>
-                                            </div>
-                                            <div class="media">
-                                                <div class="media-left">
-                                                    <img src="<?php echo base_url(); ?>assets/img/photo/people-p/people-drop-5.png" alt="">
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6>29 years old <br> From Derby <br> Single</h6>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <h4>Maria Doe</h4>
-                            <h5>22 years old</h5>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="active_mem_item">
-                            <ul class="nav navbar-nav">
-                                <li class="dropdown tool_hover">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="<?php echo base_url(); ?>assets/img/members/active-mem/active-mem-4.png" alt=""></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <div class="head_area">
-                                                <h4>Lara Davis</h4>
-                                                <h4>53% Match</h4>
-                                            </div>
-                                            <div class="media">
-                                                <div class="media-left">
-                                                    <img src="<?php echo base_url(); ?>assets/img/photo/people-p/people-drop-6.png" alt="">
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6>29 years old <br> From Derby <br> Single</h6>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <h4>Maria Doe</h4>
-                            <h5>22 years old</h5>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="active_mem_item">
-                            <ul class="nav navbar-nav">
-                                <li class="dropdown tool_hover">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="<?php echo base_url(); ?>assets/img/members/active-mem/active-mem-5.png" alt=""></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <div class="head_area">
-                                                <h4>Lara Davis</h4>
-                                                <h4>53% Match</h4>
-                                            </div>
-                                            <div class="media">
-                                                <div class="media-left">
-                                                    <img src="<?php echo base_url(); ?>assets/img/photo/people-p/people-drop-2.png" alt="">
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6>29 years old <br> From Derby <br> Single</h6>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <h4>Maria Doe</h4>
-                            <h5>22 years old</h5>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="active_mem_item">
-                            <ul class="nav navbar-nav">
-                                <li class="dropdown tool_hover">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="<?php echo base_url(); ?>assets/img/members/active-mem/active-mem-6.png" alt=""></a>
-                                </li>
-                            </ul>
-                            <h4>Maria Doe</h4>
-                            <h5>22 years old</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>-->
-              
-        <!-- <div id="largeContent" style="display:none;">
-            <div class="media tool_content">
-                <div class="media-left">
-                    <img src="<?php echo base_url(); ?>assets/img/map-persion.png" alt="">
-                </div>
-                <div class="media-body">
-                    <h3>Sandi Williams</h3>
-                    <h5>21 years old</h5>
-                    <h5>From Paris</h5>
-                    <h5>Distance 16 km</h5>
-                </div>
-            </div>
-        </div> -->
+                    
 <?php 
     include('include/footer.php');
 ?> 

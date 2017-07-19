@@ -49,20 +49,26 @@ $route['default_controller'] 							= "base/index";
 // $route['login/seeker'] 									= 'job_seeker';
 // $route['login/provider'] 								= 'job_provider';
 // $route['login/featured_job'] 							= 'home/featured_job';
-$route['basic_search'] 							= "base/basic_search";
+$route['index'] 							= "base/index";
+$route['login_ajax'] 						= "base/login_ajax";
 $route['search'] 							= "base/search";
 $route['contact'] 							= "base/contact";
 $route['gallery'] 							= "base/gallery";
 $route['payment'] 							= "base/payment";
-$route['post_success'] 							= "base/post_success";
-$route['registration'] 							= "base/registration";
+$route['post_success'] 						= "base/post_success";
+$route['registration'] 						= "base/registration";
+$route['registration/(:any)']				= "base/registration/$1";
 $route['search'] 							= "base/search";
-$route['search_result'] 							= "base/search_result";
-$route['success_stories'] 							= "base/success_stories";
+$route['search_result'] 					= "base/search_result";
+$route['success_stories'] 					= "base/success_stories";
 $route['vanniyar'] 							= "base/vanniyar";
-$route['full_view'] 							= "base/full_view";
-$route['myprofile'] 							= "base/myprofile";
-$route['mymatches'] 							= "base/mymatches";
+$route['full_view'] 						= "base/full_view";
+$route['myprofile'] 						= "base/myprofile";
+$route['mymatches'] 						= "base/mymatches";
+$route['upload_file'] 						= "base/upload_file";
+$route['logout'] 							= "base/logout";
+
+
 
 
 
