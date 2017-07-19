@@ -14,6 +14,8 @@
 				</ul>
 			</div>
 			<!-- Table -->
+<form method="POST" action="edit_customer_user/<?php echo $customeruser_values['userdetail_id']; ?>" >
+<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
 		<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header well" data-original-title>
@@ -23,14 +25,16 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
+						<!-- <a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Save
-					    </a>
-					    <a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
+					    </a> -->
+					    <button type="submit" class="btn btn-primary pull-right">Save changes</button>
+					    <button type="reset" class="btn btn-primary pull-right">Reset</button>
+					 <!--    <a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Cancel
-					    </a>
+					    </a> -->
     						 <div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
@@ -923,6 +927,7 @@
 				</div><!--/span
 			</div><!--/row-->
 		</div><!--/.fluid-container-->
+</form>
 	</div>  <!-- span10 end -->
 	<!-- external javascript
 	================================================== -->
