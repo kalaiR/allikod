@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="registration_man">
-                        <img src="<?php echo base_url(); ?>assets/img/Registration_man.png" alt="">
+                        <!-- <img src="<?php echo base_url(); ?>assets/img/Registration_man.png" alt=""> -->
                     </div>
                 </div>
                 <div class="col-md-6">
