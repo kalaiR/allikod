@@ -47,6 +47,7 @@
 											  <th>Active Status</th>
 											  <th>Delete Status</th>
 											  <th>Registered Date</th>
+											  <th>Admin Type</th>
 											  <th>Actions</th>
 										  </tr>
 									  </thead>   
@@ -85,14 +86,28 @@
 			                        ?> 
 								</td>
 								<td class="center">
+									<span class="label label-success">
+										<?php 
+				                          if ($adm_val['admin_permission'] == 1) 
+				                            echo "Admin";
+				                          else
+				                            echo "Selling Admin";
+				                        ?>
+									</span>
+								</td>
+								<td class="center">
 									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_administration/<?php echo $adm_val["admin_id"] ?>">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<!-- <a class="btn btn-danger" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
-									</a>
+									</a> -->
+									<a class="btn btn-danger btn-setting delete" href="#myModal1" data-toggle="modal" data-id="<?php echo $adm_val["admin_id"] ?>" title="Delete">
+                        <i class="glyphicon glyphicon-trash icon-white"></i>
+                        Delete
+                   </a>
 								</td>
 							</tr>
 							<?php
@@ -184,644 +199,6 @@
 												</a>
 											</td>
 										</tr>
-										<tr>
-											<td>Muhammad Usman</td>
-											<td class="center">2012/01/01</td>
-											<td class="center">Member</td>
-											<td class="center">
-												<span class="label label-success">Active</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Sheikh Heera</td>
-											<td class="center">2012/02/01</td>
-											<td class="center">Staff</td>
-											<td class="center">
-												<span class="label label-important">Banned</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Helen Garner</td>
-											<td class="center">2012/02/01</td>
-											<td class="center">Staff</td>
-											<td class="center">
-												<span class="label label-important">Banned</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Saruar Ahmed</td>
-											<td class="center">2012/03/01</td>
-											<td class="center">Member</td>
-											<td class="center">
-												<span class="label label-warning">Pending</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Ahemd Saruar</td>
-											<td class="center">2012/03/01</td>
-											<td class="center">Member</td>
-											<td class="center">
-												<span class="label label-warning">Pending</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Habib Rizwan</td>
-											<td class="center">2012/01/21</td>
-											<td class="center">Staff</td>
-											<td class="center">
-												<span class="label label-success">Active</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Rizwan Habib</td>
-											<td class="center">2012/01/21</td>
-											<td class="center">Staff</td>
-											<td class="center">
-												<span class="label label-success">Active</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Amrin Sana</td>
-											<td class="center">2012/08/23</td>
-											<td class="center">Staff</td>
-											<td class="center">
-												<span class="label label-important">Banned</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Sana Amrin</td>
-											<td class="center">2012/08/23</td>
-											<td class="center">Staff</td>
-											<td class="center">
-												<span class="label label-important">Banned</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Ifrah Jannat</td>
-											<td class="center">Admin</td>
-											<td class="center">2012/06/01</td>
-											<td class="center">
-												<span class="label">Inactive</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Jannat Ifrah</td>
-											<td class="center">2012/06/01</td>
-											<td class="center">Admin</td>
-											<td class="center">
-												<span class="label">Inactive</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Robert</td>
-											<td class="center">2012/03/01</td>
-											<td class="center">Member</td>
-											<td class="center">
-												<span class="label label-warning">Pending</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Dave Robert</td>
-											<td class="center">2012/03/01</td>
-											<td class="center">Member</td>
-											<td class="center">
-												<span class="label label-warning">Pending</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Brown Robert</td>
-											<td class="center">2012/03/01</td>
-											<td class="center">Member</td>
-											<td class="center">
-												<span class="label label-warning">Pending</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Usman Muhammad</td>
-											<td class="center">2012/01/01</td>
-											<td class="center">Member</td>
-											<td class="center">
-												<span class="label label-success">Active</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Abdullah</td>
-											<td class="center">2012/02/01</td>
-											<td class="center">Staff</td>
-											<td class="center">
-												<span class="label label-important">Banned</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Dow John</td>
-											<td class="center">2012/02/01</td>
-											<td class="center">Admin</td>
-											<td class="center">
-												<span class="label">Inactive</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>John R</td>
-											<td class="center">2012/02/01</td>
-											<td class="center">Admin</td>
-											<td class="center">
-												<span class="label">Inactive</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Paul Wilson</td>
-											<td class="center">2012/03/01</td>
-											<td class="center">Member</td>
-											<td class="center">
-												<span class="label label-warning">Pending</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Wilson Paul</td>
-											<td class="center">2012/03/01</td>
-											<td class="center">Member</td>
-											<td class="center">
-												<span class="label label-warning">Pending</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Heera Sheikh</td>
-											<td class="center">2012/01/21</td>
-											<td class="center">Staff</td>
-											<td class="center">
-												<span class="label label-success">Active</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Sheikh Heera</td>
-											<td class="center">2012/01/21</td>
-											<td class="center">Staff</td>
-											<td class="center">
-												<span class="label label-success">Active</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Christopher</td>
-											<td class="center">2012/08/23</td>
-											<td class="center">Staff</td>
-											<td class="center">
-												<span class="label label-important">Banned</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Andro Christopher</td>
-											<td class="center">2012/08/23</td>
-											<td class="center">Staff</td>
-											<td class="center">
-												<span class="label label-important">Banned</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Jhon Doe</td>
-											<td class="center">2012/06/01</td>
-											<td class="center">Admin</td>
-											<td class="center">
-												<span class="label">Inactive</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Lorem Ipsum</td>
-											<td class="center">2012/03/01</td>
-											<td class="center">Member</td>
-											<td class="center">
-												<span class="label label-warning">Pending</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Abraham</td>
-											<td class="center">2012/03/01</td>
-											<td class="center">Member</td>
-											<td class="center">
-												<span class="label label-warning">Pending</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Brown Blue</td>
-											<td class="center">2012/03/01</td>
-											<td class="center">Member</td>
-											<td class="center">
-												<span class="label label-warning">Pending</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>Worth Name</td>
-											<td class="center">2012/03/01</td>
-											<td class="center">Member</td>
-											<td class="center">
-												<span class="label label-warning">Pending</span>
-											</td>
-											<td class="center">
-												<!-- <a class="btn btn-success" href="#">
-													<i class="icon-zoom-in icon-white"></i>  
-													View                                            
-												</a> -->
-												<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_administration">
-													<i class="icon-edit icon-white"></i>  
-													Edit                                            
-												</a>
-												<a class="btn btn-danger btn-setting" href="#">
-													<i class="icon-trash icon-white"></i> 
-													Delete
-												</a>
-											</td>
-										</tr>
 									  </tbody>
 								  </table>
 								</div>
@@ -835,23 +212,50 @@
 	<!-- external javascript
 	================================================== -->
 	<hr>
-
-		<div class="modal hide fade" id="myModal">
+		<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">×</button>
+			<input type="hidden" name="delete" id="vId" value=""/>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				<h3>Alert !</h3>
 			</div>
 			<div class="modal-body">
 				<p>Are you sure want to delete?</p>
 			</div>
-			<div class="modal-footer">
-				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-				<a href="#" class="btn btn-danger">Delete</a>
-			</div>
+			<form method="post" action="">
+				<div class="modal-footer">
+				<input type="hidden" name="delete" id="vId" value=""/>
+					<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+					<a href="#" class="btn btn-danger yes_btn_act" value="Delete" id="del_link">Delete</a>
+				</div>
 		</div>
+
+		 <!-- <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body delete_message_style">
+                    <input type="hidden" name="delete" id="vId" value="5"/>
+                        <button type="button" class="close popup_tx" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <center class="popup_tx">
+                            <h5>Are you sure you want to delete this item? </h5>
+                        </center>
+                </div>
+                <div id="delete_btn" class="modal-footer footer_model_button" >
+                    <a name="action" class="btn btn-danger popup_btn yes_btn_act" id="popup_btn1" value="Delete">Yes</a>                
+                    <button type="button" class="btn btn-info popup_btn" id="popup_btn" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>  -->
 	<!-- Placed at the end of the document so the pages load faster -->
 
 
 <?php 
     include('templates/footer.php');
 ?>
+<script type="text/javascript" >
+	$(document).on("click", ".delete", function () {
+	var myId = $(this).data('id');
+	$(".modal-body #vId").val( myId );
+	$("#del_link").prop("href", "<?php echo $adm_val["admin_id"] ?>");
+});
+</script>

@@ -729,6 +729,7 @@ class Master_Data extends CI_Controller {
 			  		$action_post = $this->input->post('action');
 			   		$validation_rules = array(
 				        array('field'   => 'adm_name','label'   => 'Admin Name','rules'   => 'trim|required|xss_clean|max_length[50]|edit_unique[admin.admin_id.admin_username.'.$id.']' ),
+				        array('field'   => 'adm_password','label'   => 'Admin Password','rules'   => 'trim|required|xss_clean|max_length[50]|edit_unique[admin.admin_id.admin_pwd.'.$id.']' ),
 				        array( 'field'   => 'adm_type','label'   => 'Admin Type','rules'   => 'trim|required|xss_clean|' ),
 				        array( 'field'   => 'adm_status','label'   => 'Admin Status','rules'   => 'trim|required|xss_clean|' ),);
 			    }
@@ -737,9 +738,10 @@ class Master_Data extends CI_Controller {
 		    	else if($this->input->post('action')=='save') {
 		    		$action_post = $this->input->post('action');
 		      		$validation_rules = array(
-		            	array( 'field'   => 'adm_name','label'   => 'Administration Name','rules'   => 'trim|required|xss_clean|max_length[50]|is_unique[admin.admin_username]' ),
-		            	array( 'field'   => 'adm_type','label'   => 'Administration Type','rules'   => 'trim|required|xss_clean|' ),
-				        array( 'field'   => 'adm_status','label'   => 'Administration Status','rules'   => 'trim|required|xss_clean|' ),);
+		            	array( 'field'   => 'adm_name','label'   => 'Admin Name','rules'   => 'trim|required|xss_clean|max_length[50]|is_unique[admin.admin_username]' ),
+		            	array( 'field'   => 'adm_password','label'   => 'Admin Password','rules'   => 'trim|required|xss_clean|max_length[50]|is_unique[admin.admin_pwd]' ),
+		            	array( 'field'   => 'adm_type','label'   => 'Admin Type','rules'   => 'trim|required|xss_clean|' ),
+				        array( 'field'   => 'adm_status','label'   => 'Admin Status','rules'   => 'trim|required|xss_clean|' ),);
 		      	}
 
 		      	// Error
