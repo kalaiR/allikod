@@ -36,4 +36,8 @@
     display:none;
     margin-top: 10px !important;
 }
+.admin_status{
+    display: none;
+    color: #ff0000;
+}
 /*===============end===================*/

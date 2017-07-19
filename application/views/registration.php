@@ -62,8 +62,8 @@ include('include/menu.php');
                                             <div class="col-sm-12 aline-center-box">
                                                 <div class="registration_form_s form-box aline-center-box">
                                                      <div class="col-sm-2 aline-center-box box">
-                                                        <div class="height_item">      
-                                                            <h3>User Details</h3>
+                                                        <div class="height_item">
+                                                            <h3 id="white">User Details</h3>
                                                         </div>    
                                                      </div>
                                                         <input type="hidden" value="edit" id="popup_mode" />
@@ -92,7 +92,7 @@ include('include/menu.php');
                                                                             <h4>Password</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <div class="col-sm-6 box">
+                                                                    <div class="col-sm-8 box">
                                                                         <div class="height_item">
                                                                             <div class="form-group">
                                                                                 <input type="password" class="form-control tabfield" id="reg_pass1" placeholder="Password" name="reg_pass1">
@@ -184,8 +184,7 @@ include('include/menu.php');
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <div class="datepicker">
-                                                                                <input type='text' class="form-control datetimepicker4" placeholder="Birthday" id="dob" name="dob"/>
-                                                                                <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                                                                <input type='text' class="form-control datetimepicker4" placeholder="Birthday" />
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1204,16 +1203,14 @@ include('include/menu.php');
                                                 </div>
                                             </div>
                                         </div>
-
-                                     </div>                         
+                                     </div>
                                    </div><!-- Tab6 End--> 
-
                                 </div> 
                                 <div class="search_btn">
-                                    <input class="btnAction" type="button" name="back" id="back" value="Back" style="display:none;">
-                                    <input class="btnAction" type="button" name="next" id="next" value="Next" >
-                                    <input class="btnAction" type="submit" name="finish" id="finish" value="Finish" style="display:none;">
-                                </div>                        
+                                    <input class=" btnAction next_angkar_btn pull-right" type="submit" name="back" id="back" value="Back" style="display:none;">
+                                    <input class=" btnAction next_angkar_btn pull-right" type="button" name="next" id="next" value="Next" >
+                                    <input class="btnAction next_angkar_btn pull-right" type="submit" name="finish" id="finish" value="Finish" style="display:none;">
+                                </div>                    
                         </div>
                          <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
                     </form> 

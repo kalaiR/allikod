@@ -23,7 +23,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/edit_customer_user">
+						<a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $this->uri->segment(3); ?>">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Edit
 					    </a>
@@ -31,48 +31,94 @@
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Cancel
 					    </a> -->
-    						 <div class="row-fluid sortable">
+    						 <!-- <div class="row-fluid sortable">
 								<div class="box span8">
-									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Login Details</h2>
-										<!-- <div class="box-icon">
-											<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
-											<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
-											<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
-										</div> -->
-									</div>
-									<div class="box-content">
-										<!-- <a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
-									        <i class="glyphicon glyphicon-edit icon-white"></i>
-									        Save
-									    </a>
-									    <a class="btn btn-info pull-right" id="add" href="add_successful_story.php">
-									        <i class="glyphicon glyphicon-edit icon-white"></i>
-									        Cancel
-									    </a> -->
+									 <div class="box-header well">
+										<h2></i> Login Details</h2>
+									</div> 
+									 <div class="box-content">
 										<form class="form-horizontal">
 											<fieldset>
 											<div class="control-group">
-												<label class="control-label" for="focusedInput">Owner of registration :  </label>
-												<label class="control-label" for="focusedInput">pondy_admin </label>												
+												<label class="control-label" for="focusedInput">User Type :  </label>
+												<label class="control-label" for="focusedInput"><?php //echo $customeruser_values['user_online_or_simple']; ?> </label>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Your Email : </label>
-												<label class="control-label" for="focusedInput">abc@xyz.com </label></div>
+												<label class="control-label" for="focusedInput">abc@xyz.com </label>
+											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Password : </label>
 												<div class="controls">
 												<label class="control-label" for="focusedInput">*** </label>
-												  <!-- <input class="input-xlarge focused" id="focusedInput" type="Password" value="">-->
 												</div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Confirm Password : </label>
 												<label class="control-label" for="focusedInput">*** </label>
-												<!-- <div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="Password" value="">-->
 												</div> 
 											  </div>										  
+											</fieldset>
+										  </form>
+										</div> 
+									</div>
+								</div> -->
+								<div class="row-fluid sortable">
+								<div class="box span8">
+									<div class="box-header well">
+										<h2><!-- <i class="icon-th"> --></i> Profile Details</h2>	  			
+									</div>
+									<div class="box-content">
+										<form class="form-horizontal">
+											<fieldset>
+											 <!--  <div class="control-group">
+												<label class="control-label" for="focusedInput">Profile No : </label>
+												<label class="control-label" for="focusedInput">0</label>
+											  </div>
+											  <div class="control-group">
+												<label class="control-label" for="focusedInput">File No : </label>
+												<label class="control-label" for="focusedInput">0</label>
+											  </div>	
+											  <div class="control-group">
+												<label class="control-label" for="focusedInput">Profiles Viewed : </label>
+												<label class="control-label" for="focusedInput">0</label>
+											  </div>	 -->
+											  <div class="control-group">
+												<label class="control-label" for="focusedInput">User Type :  </label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['user_online_or_simple']; ?> </label>												
+											  </div>							  
+											  <div class="control-group">
+												<label class="control-label">Registered By : </label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['registered_by_name']; ?></label>
+											  </div>
+											  	<div class="control-group">
+													<label class="control-label" for="focusedInput">Name : </label>
+													<label class="control-label" for="focusedInput"><?php echo $customeruser_values['user_fname']; ?></label>
+											  	</div>
+											  	<div class="control-group">
+												<label class="control-label">Gender : </label>
+												<label class="control-label" for="focusedInput">
+													<?php 
+							                          if ($customeruser_values['user_gender'] == 1) 
+							                            echo "Male";
+							                          else
+							                            echo "Female";
+							                        ?>
+												</label>
+											  </div>
+											  	<div class="control-group">
+												  <label class="control-label" for="date01">Date of Birth </label>
+												  <label class="control-label" for="focusedInput">
+												  	<?php 
+						                            	echo date("d/m/Y", strtotime($customeruser_values['user_dob'])); 
+						                        	?>
+						                          </label>
+												</div>
+												
+											  <div class="control-group">
+												<label class="control-label">Marital Status : </label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['marital_name']; ?></label>
+											  </div> 										  
 											</fieldset>
 										  </form>
 										</div>
@@ -88,74 +134,52 @@
 											<fieldset>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Payment Type : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput">
+													<?php 
+													if(!empty($customeruser_values['payment_type'])):
+														foreach (unserialize(PAYMENT_TYPE) as $key => $val):
+															if($customeruser_values['payment_type'] == $key):
+																echo $val; 
+															endif;
+														endforeach; 
+													else:
+														echo "--";
+													endif;
+													?>
+												</label>
 											  </div>
 											  <div class="control-group">
 													<label class="control-label" for="focusedInput">Period in Months :</label>
-													<label class="control-label" for="focusedInput">0</label>
+													<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['period_in_month'])) echo $customeruser_values['period_in_month']; else echo "--"; ?></label>
 												</div>
 											  	<div class="control-group">
 												  <label class="control-label" for="date01">Starting Date : </label>
-												  <label class="control-label" for="date01">17/05/2017 </label>
+												  <label class="control-label" for="date01"><?php if(!empty($customeruser_values['startdate'])) echo date("d/m/Y", strtotime($customeruser_values['startdate'])); else echo "--"; ?> </label>
 												</div>
 												<div class="control-group">
 												  <label class="control-label" for="date01">Ending Date :</label>
-												  <label class="control-label" for="date01">17/05/2017 </label>
+												  <label class="control-label" for="date01"><?php if(!empty($customeruser_values['startdate'])) echo date("d/m/Y", strtotime($customeruser_values['enddate'])); else echo "--"; ?> </label>
 												</div>
 											  <div class="control-group">
 												<label class="control-label">Payment Active Status : </label>
-												<label class="control-label" for="focusedInput">No</label>
+												<label class="control-label" for="focusedInput">
+													<?php 
+							                          if ($customeruser_values['payment_status'] == 1) 
+							                            echo "Paid";
+							                          else
+							                            echo "Not Paid";
+							                        ?>   </label>
 												</div>
 											   <div class="control-group">
 												<label class="control-label">Profile Active Status : </label>
-												<label class="control-label" for="focusedInput">Active</label>
+												<label class="control-label" for="focusedInput">
+													<?php 
+							                          if ($customeruser_values['user_active_status'] == 1) 
+							                            echo "Activated";
+							                          else
+							                            echo "Not-Activated";
+							                        ?>  </label>
 											  </div>											  
-											</fieldset>
-										  </form>
-										</div>
-									</div>
-								</div>
-								<div class="row-fluid sortable">
-								<div class="box span8">
-									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Profile Details</h2>	  			
-									</div>
-									<div class="box-content">
-										<form class="form-horizontal">
-											<fieldset>
-											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Profile No : </label>
-												<label class="control-label" for="focusedInput">0</label>
-											  </div>
-											  <div class="control-group">
-												<label class="control-label" for="focusedInput">File No : </label>
-												<label class="control-label" for="focusedInput">0</label>
-											  </div>	
-											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Profiles Viewed : </label>
-												<label class="control-label" for="focusedInput">0</label>
-											  </div>								  
-											  <div class="control-group">
-												<label class="control-label">Registered By : </label>
-												<label class="control-label" for="focusedInput"></label>
-											  </div>
-											  	<div class="control-group">
-													<label class="control-label" for="focusedInput">Name : </label>
-													<label class="control-label" for="focusedInput"></label>
-											  	</div>
-											  	<div class="control-group">
-												<label class="control-label">Gender : </label>
-												<label class="control-label" for="focusedInput"></label>
-											  </div>
-											  	<div class="control-group">
-												  <label class="control-label" for="date01">Date of Birth </label>
-												  <label class="control-label" for="focusedInput">00/00/0000</label>
-												</div>
-												
-											  <div class="control-group">
-												<label class="control-label">Marital Status : </label>
-												<label class="control-label" for="focusedInput"></label>
-											  </div> 											  
 											</fieldset>
 										  </form>
 										</div>
@@ -171,39 +195,39 @@
 											<fieldset>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Time of Birth : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['rel_timeofbirth'])) echo $customeruser_values['rel_timeofbirth']; else echo "--"; ?></label>
 											  </div>											  
 											  <div class="control-group">
 												<label class="control-label">Mother Tongue : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['mother_tongue_name'])) echo $customeruser_values['mother_tongue_name']; else echo "--"; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Religion No : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['rel_religion'])) echo $customeruser_values['rel_religion']; else echo "--"; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Caste : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['rel_caste'])) echo $customeruser_values['rel_caste']; else echo "--"; ?></label>
 											  </div>
 											  	<div class="control-group">
 													<label class="control-label" for="focusedInput">Dhosham : </label>
-													<label class="control-label" for="focusedInput"></label>
+													<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; else echo "--"; ?></label>
 											  	</div>
 											  	<div class="control-group">
 												<label class="control-label">Nakshathra : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['nakshathra_name'])) echo $customeruser_values['nakshathra_name']; else echo "--"; ?></label>
 												</div>
 												<div class="control-group">
 												<label class="control-label">Luknam : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['luknam_name'])) echo $customeruser_values['luknam_name']; else echo "--"; ?></label>
 											  </div>
 											  <div class="control-group">
 													<label class="control-label" for="focusedInput">Gothra : </label>
-													<label class="control-label" for="focusedInput"></label>
+													<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['rel_gothra'])) echo $customeruser_values['rel_gothra']; else echo "--"; ?></label>
 											  	</div>
 											  	<div class="control-group">
 												<label class="control-label">Zodiac Sign : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['zodiac_name'])) echo $customeruser_values['zodiac_name']; else echo "--"; ?></label>
 											  </div>							  
 											</fieldset>
 										  </form>
@@ -220,28 +244,28 @@
 											<fieldset>										  
 											  <div class="control-group">
 												<label class="control-label">Education : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['edu_name'])) echo $customeruser_values['edu_name']; else echo "--"; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Education in Detail  : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['edu_educationdetails'])) echo $customeruser_values['edu_educationdetails']; else echo "--"; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Occupation : </label>
-												<label class="control-label" for="focusedInput"></label>
-											  </div>
-											  <div class="control-group">
-												<label class="control-label">Employed In : </label>
-												<label class="control-label" for="focusedInput"></label>
-											  </div>
-											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Monthly Income : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['occupation_name'])) echo $customeruser_values['occupation_name']; else echo "--"; ?></label>
 											  </div>
 											  	<div class="control-group">
 												<label class="control-label" for="focusedInput">Occupation in Detail  : </label>
-												<label class="control-label" for="focusedInput"></label>
-											  </div>							  
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['edu_occupationdetail'])) echo $customeruser_values['edu_occupationdetail']; else echo "--"; ?></label>
+											  </div>
+											  <div class="control-group">
+												<label class="control-label">Employed In : </label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['empin_name'])) echo $customeruser_values['empin_name']; else echo "--"; ?></label>
+											  </div>
+											  <div class="control-group">
+												<label class="control-label" for="focusedInput">Monthly Income : </label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; else echo "--"; ?></label>						  
+											  </div>
 											</fieldset>
 										  </form>
 										</div>

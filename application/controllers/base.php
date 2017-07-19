@@ -301,6 +301,9 @@ class Base extends CI_Controller {
 	public function mymatches(){
 		$this->load->view('mymatches');
 	}
+	public function myedit(){
+		$this->load->view('myedit');
+	}
 	
 
 }

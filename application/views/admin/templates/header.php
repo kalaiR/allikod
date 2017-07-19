@@ -51,7 +51,7 @@
 	<![endif]-->
 
 	<!-- The fav icon -->
-	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/admin/img/favicon.ico">
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/admin/img/fav.ico">
 		
 </head>
 
@@ -90,13 +90,16 @@
 				<!-- user dropdown starts -->
 				<div class="btn-group pull-right" >
 					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-						<i class="icon-user"></i><span class="hidden-phone"> admin</span>
+						<?php
+                            $session_data = $this->session->userdata("admin_login_session");
+                        ?>
+						<i class="icon-user"></i><span class="hidden-phone"> Welcome <?php echo $session_data['adminuser_name']; ?></span>
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
 						<!-- <li><a href="<?php echo base_url(); ?>admin">Profile</a></li> -->
 						<!-- <li class="divider"></li> -->
-						<li><a href="<?php echo base_url(); ?>admin">Logout</a></li>
+						<li><a href="<?php echo base_url(); ?>admin/logout">Logout</a></li>
 					</ul>
 				</div>
 				<!-- user dropdown ends -->
