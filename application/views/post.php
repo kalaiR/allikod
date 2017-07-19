@@ -80,7 +80,7 @@
                                     </form>    
                                             <div class="col-sm-4">
                                                 <div class="form_man">
-                                                    <img src="<?php echo base_url(); ?>assets/img/registration-man.png" alt="">
+                                                    <!-- <img src="<?php echo base_url(); ?>assets/img/registration-man.png" alt=""> -->
                                                 </div>
                                             </div>
                                     </div>

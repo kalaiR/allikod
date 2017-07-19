@@ -17,7 +17,12 @@ class Customeruser_Data extends CI_Controller {
 		$this->load->view('admin/add_customer_user');
 	}
 	public function edit_customer_user(){
-		$this->load->view('admin/edit_customer_user');
+		$id = $this->uri->segment(3);
+		$data_values = $this->customeruser_data_model->customer_user_profile($id);
+		$data['customeruser_values'] = $data_values['customeruser_values'];
+		//Get Selection option data's for edit
+		$data['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
+		$this->load->view('admin/edit_customer_user',$data);
 	}
 	public function view_customer_user(){
 		$id = $this->uri->segment(3);

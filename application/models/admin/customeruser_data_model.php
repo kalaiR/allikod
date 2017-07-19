@@ -116,4 +116,22 @@ class Customeruser_data_model extends CI_Model {
   		// echo "</pre>";
   		return $model_data;
   }
+  public function customer_user_selectiondata(){
+  		$model_data['registeredby_values'] = $this->db->order_by('registeredby_id','asc')->get_where('registered_by')->result_array();
+  		$model_data['maritalstatus_values'] = $this->db->order_by('maritalcategory_id','asc')->get_where('marital_category')->result_array();
+  		$model_data['mothertongue_values'] = $this->db->order_by('mothertongue_id','asc')->get_where('mother_tongue')->result_array();
+  		$model_data['nakshathra_values'] = $this->db->order_by('nakshathra_id','asc')->get_where('nakshathra')->result_array();
+  		$model_data['luknam_values'] = $this->db->order_by('luknam_id','asc')->get_where('luknam')->result_array();
+  		$model_data['zodiac_values'] = $this->db->order_by('zodiacsign_id','asc')->get_where('zodiac_sign')->result_array();
+  		$model_data['education_values'] = $this->db->order_by('education_id','asc')->get_where('education')->result_array();
+  		$model_data['occupation_values'] = $this->db->order_by('occupation_id','asc')->get_where('occupation')->result_array();
+  		$model_data['employedin_values'] = $this->db->order_by('employedin_id','asc')->get_where('employed_in')->result_array();
+  		$model_data['country_values'] = $this->db->order_by('country_id','asc')->get_where('country')->result_array();
+  		$model_data['bodytype_values'] = $this->db->order_by('bodytype_id','asc')->get_where('body_type')->result_array();
+  		$model_data['complexion_values'] = $this->db->order_by('complexion_id','asc')->get_where('complexion')->result_array();
+  		$model_data['food_values'] = $this->db->order_by('food_id','asc')->get_where('food')->result_array();
+  		$model_data['familystatus_values'] = $this->db->order_by('familystatus_id','asc')->get_where('family_status')->result_array();
+  		$model_data['familytype_values'] = $this->db->order_by('familytype_id','asc')->get_where('family_type')->result_array();
+  		return $model_data;
+  }
 }

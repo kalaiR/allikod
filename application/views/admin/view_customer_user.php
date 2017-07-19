@@ -31,7 +31,7 @@
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Cancel
 					    </a> -->
-    						 <!-- <div class="row-fluid sortable">
+    						 <div class="row-fluid sortable">
 								<div class="box span8">
 									 <div class="box-header well">
 										<h2></i> Login Details</h2>
@@ -39,30 +39,24 @@
 									 <div class="box-content">
 										<form class="form-horizontal">
 											<fieldset>
-											<div class="control-group">
+											<!-- <div class="control-group">
 												<label class="control-label" for="focusedInput">User Type :  </label>
 												<label class="control-label" for="focusedInput"><?php //echo $customeruser_values['user_online_or_simple']; ?> </label>												
+											  </div> -->
+											  <div class="control-group">
+												<label class="control-label" for="focusedInput">Customer Email : </label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['user_email']; ?> </label>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Your Email : </label>
-												<label class="control-label" for="focusedInput">abc@xyz.com </label>
+												<label class="control-label" for="focusedInput">Customer Password : </label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['user_pwd']; ?> </label>
 											  </div>
-											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Password : </label>
-												<div class="controls">
-												<label class="control-label" for="focusedInput">*** </label>
-												</div>
-											  </div>
-											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Confirm Password : </label>
-												<label class="control-label" for="focusedInput">*** </label>
-												</div> 
 											  </div>										  
 											</fieldset>
 										  </form>
 										</div> 
 									</div>
-								</div> -->
+								</div>
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
@@ -158,7 +152,7 @@
 												</div>
 												<div class="control-group">
 												  <label class="control-label" for="date01">Ending Date :</label>
-												  <label class="control-label" for="date01"><?php if(!empty($customeruser_values['startdate'])) echo date("d/m/Y", strtotime($customeruser_values['enddate'])); else echo "--"; ?> </label>
+												  <label class="control-label" for="date01"><?php if(!empty($customeruser_values['endate'])) echo date("d/m/Y", strtotime($customeruser_values['endate'])); else echo "--"; ?> </label>
 												</div>
 											  <div class="control-group">
 												<label class="control-label">Payment Active Status : </label>
