@@ -50,10 +50,10 @@
 	                              		<div class="row">
 	                              			<form action="<?php echo base_url(); ?>success_stories"class=" form_inner">
 		                              			<div class="form-group col-md-12 sucess-box">
-	                                    			<textarea id="comment" placeholder="Comment" rows="1"></textarea>
-	                                    			<div class="form-group col-md-5 sucess-box  ">
+	                                    			<textarea id="comment" placeholder="Comment" rows="1" disabled="disabled"></textarea>
+	                                    			<!-- <div class="form-group col-md-5 sucess-box  ">
                                     					<button type="submit" value="LogIn" class="btn form-control login_btn">Submit</button>
-                                					</div>
+                                					</div> -->
 	                                			</div>		
 	                                		</form>	
 	                              		</div>
@@ -83,10 +83,10 @@
 	                              		<div class="row">
 	                              			<form class="form_inner" method="post" action="<?php echo base_url();?>success_stories">
 		                              			<div class="form-group col-md-12 sucess-box">
-	                                    			<textarea id="comment" placeholder="Comment" rows="1"></textarea>
-	                                    			<div class="form-group col-md-5 sucess-box  ">
+	                                    			<textarea id="comment" placeholder="Comment" rows="1" disabled="disabled"></textarea>
+	                                    			<!-- <div class="form-group col-md-5 sucess-box  ">
                                     					<button type="submit" value="LogIn" class="btn form-control login_btn">Submit</button>
-                                					</div>
+                                					</div> -->
 	                                			</div>		
 	                                		</form>	
 	                              		</div>
@@ -116,9 +116,9 @@
 	                              		<div class="row">
 	                              			<form action="<?php echo base_url(); ?>success_stories" class="form_inner">
 		                              			<div class="form-group col-md-12 sucess-box">
-	                                    			<textarea id="comment" placeholder="Comment" rows="1"></textarea>
-	                                    			<div class="form-group col-md-5 sucess-box">
-                                    					<button type="submit" value="LogIn" class="btn form-control login_btn">Submit</button>
+	                                    			<textarea id="comment" placeholder="Comment" rows="1" disabled="disabled"></textarea>
+	                                    			<!-- <div class="form-group col-md-5 sucess-box">
+                                    					<button type="submit" value="LogIn" class="btn form-control login_btn">Submit</button> -->
                                 					</div>
 	                                			</div>		
 	                                		</form>	
