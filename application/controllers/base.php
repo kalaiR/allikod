@@ -29,6 +29,8 @@ class Base extends CI_Controller {
 		}else{
 			$data['register'] = $this->user_model->get_registerid();
 			$data['martial_status'] = $this->user_model->get_martialstatus();
+			$data['success_stories'] = $this->user_model->get_success_stories_limit();
+			$data['recent_profile'] = $this->user_model->get_recent_profile();
 			$this->load->view('index', $data);
 		}
 	}
