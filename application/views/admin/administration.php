@@ -35,11 +35,13 @@
 						<div id="myTabContent" class="tab-content">
 						<!-- Admin Tab Begins -->
 							<div class="tab-pane active" id="admin">
-								<div class="box-content">
+								<div class="box-content row">
 								<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_administration">
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add
 								    </a>
+								</div>
+								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
 									<table class="table table-striped table-bordered bootstrap-datatable datatable">
 									  <thead>
 										  <tr>
@@ -107,6 +109,7 @@
 							<!-- Selling Tab Begins -->
 							<div class="tab-pane" id="selling">
 								<div class="box-content">
+								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
 									<table class="table table-striped table-bordered bootstrap-datatable datatable">
 									  <thead>
 										  <tr>
@@ -824,6 +827,7 @@
 										</tr>
 									  </tbody>
 								  </table>
+								  </div>
 								</div>
 							</div><!-- Selling Tab Ends -->
 						</div>
