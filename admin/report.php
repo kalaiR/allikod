@@ -55,37 +55,37 @@
 					        Add
 					    </a> -->
 						<div class="control-group">
-						  <label class="control-label" for="date01">Click</label>
+						  <!-- <label class="control-label" for="date01">Click</label> -->
 						  <div class="controls">
-							<a class="btn btn-primary pull-left" id="add" href="#">
+							<a class="btn btn-primary pull-left mar" id="add" href="#">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        View
 					    </a>
 						  </div>
 						</div>
 					</div>
-					<div class="box-content span10">
+					<div class="box-content span7 row pull-right">
 					<!-- <a class="btn btn-info pull-right" id="add" href="add_administration.php">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a> -->
 						<div class="control-group">
-							<label class="control-label">Online No. of registration</label>
-							<div class="controls">
+							<label class="control-label">Online No. of registration : 0</label>
+							<!-- <div class="controls">
 							  <span class="input-xlarge uneditable-input span1">0</span>
-							</div>
+							</div> -->
 						</div>
-						<div class="control-group">
-							<label class="control-label">Simple No. of registration</label>
-							<div class="controls">
+						<div class="control-group pad">
+							<label class="control-label">Simple No. of registration : 0</label>
+							<!-- <div class="controls">
 							  <span class="input-xlarge uneditable-input span1">0</span>
-							</div>
+							</div> -->
 						</div>
-						<div class="control-group">
-							<label class="control-label">Total No. of registration</label>
-							<div class="controls">
+						<div class="control-group pad">
+							<label class="control-label">Total No. of registration : 0</label>
+							<!-- <div class="controls">
 							  <span class="input-xlarge uneditable-input span1">0</span>
-							</div>
+							</div> -->
 						</div>
 					</div>
 						         
