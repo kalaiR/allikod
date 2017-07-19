@@ -1,5 +1,6 @@
 <?php 
-    include('templates/header.php');
+	if(!empty($this->session->userdata("admin_login_status"))):
+    	include('templates/header.php');
 ?>
 	<!-- topbar ends -->
 		<div class="container-fluid">
@@ -408,4 +409,7 @@
 
 <?php 
     include('templates/footer.php');
+    else :
+	redirect(base_url().'admin');
+	endif;
 ?>

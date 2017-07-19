@@ -49,25 +49,31 @@ $route['default_controller'] 							= "base/index";
 // $route['login/seeker'] 									= 'job_seeker';
 // $route['login/provider'] 								= 'job_provider';
 // $route['login/featured_job'] 							= 'home/featured_job';
-$route['basic_search'] 							= "base/basic_search";
+$route['index'] 							= "base/index";
+$route['login_ajax'] 						= "base/login_ajax";
 $route['search'] 							= "base/search";
 $route['contact'] 							= "base/contact";
 $route['gallery'] 							= "base/gallery";
 $route['payment'] 							= "base/payment";
-$route['post_success'] 							= "base/post_success";
-$route['registration'] 							= "base/registration";
+$route['post_success'] 						= "base/post_success";
+$route['registration'] 						= "base/registration";
+$route['registration/(:any)']				= "base/registration/$1";
 $route['search'] 							= "base/search";
-$route['search_result'] 							= "base/search_result";
-$route['success_stories'] 							= "base/success_stories";
+$route['search_result'] 					= "base/search_result";
+$route['success_stories'] 					= "base/success_stories";
 $route['vanniyar'] 							= "base/vanniyar";
-$route['full_view'] 							= "base/full_view";
-$route['myprofile'] 							= "base/myprofile";
-$route['mymatches'] 							= "base/mymatches";
+$route['full_view'] 						= "base/full_view";
+$route['myprofile'] 						= "base/myprofile";
+$route['mymatches'] 						= "base/mymatches";
+$route['upload_file'] 						= "base/upload_file";
+$route['logout'] 							= "base/logout";
+$route['myedit'] 							= "base/myedit";
 
 
-
-
+// $route['admin'] 							= "admin/base/index";
 $route['admin'] 							= "admin/base/index";
+$route['admin/dashboard'] 							= "admin/base/dashboard";
+$route['admin/logout'] 							= "admin/base/admin_logout";
 
 $route['admin/zodiac_sign'] 							= "admin/master_data/zodiac_sign";
 $route['admin/add_zodiac_sign'] 							= "admin/master_data/add_zodiac_sign";
@@ -101,9 +107,9 @@ $route['admin/occupation'] 							= "admin/base/occupation";
 $route['admin/add_occupation'] 							= "admin/base/add_occupation";
 $route['admin/edit_occupation'] 							= "admin/base/edit_occupation";
 $route['admin/customer_user'] 							= "admin/customeruser_data/customer_user";
-$route['admin/edit_customer_user'] 							= "admin/customeruser_data/edit_customer_user";
+$route['admin/edit_customer_user/(:any)'] 							= "admin/customeruser_data/edit_customer_user/$1";
 $route['admin/add_customer_user'] 							= "admin/customeruser_data/add_customer_user";
-$route['admin/view_customer_user'] 							= "admin/customeruser_data/view_customer_user";
+$route['admin/view_customer_user/(:any)'] 							= "admin/customeruser_data/view_customer_user/$1";
 $route['admin/add_online_user'] 							= "admin/customeruser_data/add_online_user";
 $route['admin/login'] 							= "admin/base/login";
 $route['admin/gallery_upload'] 							= "admin/base/gallery_upload";

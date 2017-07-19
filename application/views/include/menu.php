@@ -1,10 +1,11 @@
 <div class="login_form_inner zoom-anim-dialog mfp-hide" id="small-dialog">
    <h4>User Login</h4>
-   <form method="post" action="<?php echo base_url(); ?>">
-       <input type="text" placeholder="Username">
-       <input type="password" placeholder="Password">
+   <form method="post" action="login_ajax" name="userlogin" id="userlogin">
+       <p class="admin_status"> </p>
+       <input type="email" placeholder="Username" name="email_id" name="email_id">
+       <input type="password" placeholder="Password" name="password" name="password">
        <div class="login_btn_area">
-           <button type="submit" value="LogIn" class="btn form-control login_btn">LogIn</button>
+           <button type="submit" value="LogIn" class="btn form-control login_btn" name="user-submit" id="user_submit">LogIn</button>
            <div class="login_social">
               <h5>Not yet?</h5>
               <a href="<?php echo base_url(); ?>registration">Register</a>
@@ -14,6 +15,7 @@
                </ul> -->
            </div>
        </div>
+       <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />       
    </form>
    <img class="mfp-close" src="<?php echo base_url(); ?>assets/img/close-btn.png" alt="">
 </div>
@@ -22,13 +24,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="registration_man">
-                        <img src="<?php echo base_url(); ?>assets/img/Registration_man.png" alt="">
+                        <!-- <img src="<?php echo base_url(); ?>assets/img/Registration_man.png" alt=""> -->
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="registration_form_s">
                         <h4>Registration</h4>
-                         <form method="post" action="<?php echo base_url(); ?>registration">
+                         <form method="post" action="login_ajax" name="register_login" id="register_login">
                              <div class="form-group">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -136,19 +138,25 @@
                         <li id="vanniyar"><a href="<?php echo base_url(); ?>vanniyar">My Vanniyar</a></li>
                          <li id="payment"><a href="<?php echo base_url(); ?>payment">Payment</a></li>
                         <li id="contact"><a href="<?php echo base_url(); ?>contact">Contact</a></li>
-                        <!-- <li class="dropdown submenu">
+                        <?php 
+                        if(!empty($this->session->userdata("login_status"))){ ?>
+                        <li class="dropdown submenu">
                             <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, Madhi <i class="fa fa-user-circle" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url(); ?>mymatches">Matches</a></li>
+                                <!--li><a href="<?php echo base_url(); ?>mymatches">Matches</a></li-->
                                 <li><a href="<?php echo base_url(); ?>myprofile">My Profile</a></li>
-                                <li><a href="<?php echo base_url(); ?>">Logout</a></li>
+                                <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
                             </ul>
-                        </li> -->
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li id="login"><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
-                        <li id="register"><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>Registration</a></li>
-                    </ul>
+                        </li>
+                        <?php }else{ ?>
+                                </ul>
+
+                                <ul class="nav navbar-nav navbar-right">
+                                <li id="login"><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
+                                <li id="register"><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>Registration</a></li>
+                                </ul>
+                        <?php } ?>
+                    
                     </div><!-- /.navbar-collapse (selva) -->
                 </div><!-- /.container-fluid  (selva)-->
             </nav>

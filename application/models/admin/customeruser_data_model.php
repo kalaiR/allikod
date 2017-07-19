@@ -91,4 +91,47 @@ class Customeruser_data_model extends CI_Model {
 
 	    return $model_data;
   }
+  public function customer_user_profile($id){
+  		// View by id
+    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name');
+	    $this->db->from('reg_userdetail usr');
+	    $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('reg_communication_family cf','cf.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('reg_physical_expectation pe','pe.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('reg_image_horoscope ih','ih.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('reg_payment pm','pm.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('registered_by rb','rb.registeredby_id=usr.user_registeredby','left');
+	    $this->db->join('marital_category mc','mc.maritalcategory_id=usr.user_maritalstatus','left');
+	    $this->db->join('mother_tongue mt','mt.mothertongue_id=re.rel_mothertongue_id','left');
+	    $this->db->join('nakshathra nak','nak.nakshathra_id=re.rel_nakshathra_id','left');
+	    $this->db->join('luknam luk','luk.luknam_id=re.rel_luknam_id','left');
+	    $this->db->join('zodiac_sign zod','zod.zodiacsign_id=re.rel_zodiacsign_id','left');
+	    $this->db->join('education ed','ed.education_id=eo.edu_education','left');
+	    $this->db->join('occupation occ','occ.occupation_id=eo.edu_occupation','left');
+	    $this->db->join('employed_in ein','ein.employedin_id=eo.edu_employedin','left');
+	    $model_data['customeruser_values'] = $this->db->get()->row_array();
+	   //  echo "<pre>";
+  		// print_r($model_data['customeruser_values']);
+  		// echo "</pre>";
+  		return $model_data;
+  }
+  public function customer_user_selectiondata(){
+  		$model_data['registeredby_values'] = $this->db->order_by('registeredby_id','asc')->get_where('registered_by')->result_array();
+  		$model_data['maritalstatus_values'] = $this->db->order_by('maritalcategory_id','asc')->get_where('marital_category')->result_array();
+  		$model_data['mothertongue_values'] = $this->db->order_by('mothertongue_id','asc')->get_where('mother_tongue')->result_array();
+  		$model_data['nakshathra_values'] = $this->db->order_by('nakshathra_id','asc')->get_where('nakshathra')->result_array();
+  		$model_data['luknam_values'] = $this->db->order_by('luknam_id','asc')->get_where('luknam')->result_array();
+  		$model_data['zodiac_values'] = $this->db->order_by('zodiacsign_id','asc')->get_where('zodiac_sign')->result_array();
+  		$model_data['education_values'] = $this->db->order_by('education_id','asc')->get_where('education')->result_array();
+  		$model_data['occupation_values'] = $this->db->order_by('occupation_id','asc')->get_where('occupation')->result_array();
+  		$model_data['employedin_values'] = $this->db->order_by('employedin_id','asc')->get_where('employed_in')->result_array();
+  		$model_data['country_values'] = $this->db->order_by('country_id','asc')->get_where('country')->result_array();
+  		$model_data['bodytype_values'] = $this->db->order_by('bodytype_id','asc')->get_where('body_type')->result_array();
+  		$model_data['complexion_values'] = $this->db->order_by('complexion_id','asc')->get_where('complexion')->result_array();
+  		$model_data['food_values'] = $this->db->order_by('food_id','asc')->get_where('food')->result_array();
+  		$model_data['familystatus_values'] = $this->db->order_by('familystatus_id','asc')->get_where('family_status')->result_array();
+  		$model_data['familytype_values'] = $this->db->order_by('familytype_id','asc')->get_where('family_type')->result_array();
+  		return $model_data;
+  }
 }

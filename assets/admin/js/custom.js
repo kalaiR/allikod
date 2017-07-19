@@ -116,4 +116,27 @@ $(document).ready(function() {
     //************ End *************
     // $('.update_success_md').
     $('.update_success_md').fadeOut(5000);
+
+
+    /* Admin Login Form Start */
+    $('.admin_login_form').on('submit',function(e) {
+        e.preventDefault();
+        var form_data = $(this).serialize();
+        var this_status = $(this).find('.admin_status');
+        $.ajax({
+            type : "POST",
+            url : $(this).attr('action'),
+            data : form_data+'&'+csrf_name+'='+csfrData[csrf_name] ,
+            success: function(res) {
+                if(res != 'login_success') {
+                    this_status.html("<i class='icon-remove-sign' id='admin_error_login'></i>  "+res);
+                    this_status.fadeIn(500);
+                    // this_status.fadeOut(5000);
+                }
+                else {
+                   window.location.href = admin_baseurl+"dashboard";
+                }
+            }
+        });
+    });
 });

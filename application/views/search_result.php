@@ -1,9 +1,9 @@
 <?php 
-    include('include/header.php');
+
+include('include/header.php');
+include('include/menu.php');
+
 ?> 
-       <?php 
-            include('include/menu.php');
-        ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
             <div class="container">
@@ -39,7 +39,7 @@
                      <div class="col-md-9">
                     <div class="col-md-4 col-sm-6">
                         <img src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="">
-                          <div><a href="#">More Images</a></div> 
+                          <!-- <div><a href="#">More Images</a></div>  -->
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
                       <div class="head-box"><h4>Vallikodi ID : V1234567</h4></div>

@@ -35,10 +35,10 @@
 							<!-- View Tab Begins -->
 							<div class="tab-pane active" id="view">
 								<div class="box-content">
-									<a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/add_online_user">
+									<!-- <a class="btn btn-info pull-right" id="add" href="<?php //echo base_url(); ?>admin/add_online_user">
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Online User
-								    </a>
+								    </a> -->
 								    <a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/add_online_user">
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Simple User
@@ -54,19 +54,20 @@
 											  <th>Name</th>
 											  <th>Mail</th>
 											  <!-- <th>Profile <br>Viewed</th> -->
-											  <th>Reg. <br>By</th>
+											  <!-- <th>Reg. <br>By</th> -->
 											  <th>User <br>Type</th>
 											  <th>Profile Status</th>
 											  <th>Payment Status</th>
-											  <th>Reg. <br>Date</th>
-											  
+											  <th>Reg. <br>Date</th>	  
 											  <th>Action</th>
 										  </tr>
 									  </thead>   
 									  <tbody>
 									  	<?php
 						                      if(!empty($customeruser_values)) :
+						                      // echo "<pre>";
 						                      // print_r($customeruser_values);
+						                      // echo "</pre>";
 						                      $i=0;
 						                      foreach ($customeruser_values as $cus_val) :
 						                      $i++;
@@ -78,9 +79,9 @@
 											<!-- <td class="center">259</td> -->
 											<td class="center"><?php echo $cus_val['user_fname']; ?></td>
 											<td class="center"><?php echo $cus_val['user_email']; ?></td>
-											<td class="center">
-												<?php echo "self"; ?>
-											</td>
+											<!-- <td class="center">
+												<?php //echo "self"; ?>
+											</td> -->
 											<!-- <td class="center">0 / 60</td> -->
 											<td class="center">
 												<span class="label label-success">
@@ -105,10 +106,10 @@
 											<td class="center">
 												<span class="label label-success">
 													<?php 
-							                          // if ($cus_val['payment_status'] == 1) 
-							                          //   echo "Activated";
-							                          // else
-							                          //   echo "Not-Activated";
+							                          if ($cus_val['payment_status'] == 1) 
+							                            echo "Paid";
+							                          else
+							                            echo "Not Paid";
 							                        ?>    	
 				                        		</span>
 											</td>
@@ -119,13 +120,13 @@
 						                        ?>
 											</td>											
 											<td class="center">
-												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user">
+												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="#">
+													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger btn-setting" href="#">
@@ -148,45 +149,82 @@
 									<table class="table table-striped table-bordered bootstrap-datatable datatable">
 									  <thead>
 										  <tr>
+											   <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span>
+											  </th>
 											  <th>No</th>
-											  <th>Profile ID</th>
-											  <th>File ID</th>											  
+											  <th>Vallikodi ID</th>
+											  <!-- <th>Profile ID</th> -->		  
 											  <th>Name</th>
 											  <th>Mail</th>
+											  <!-- <th>Profile <br>Viewed</th> -->
+											  <!-- <th>Reg. <br>By</th> -->
 											  <th>DOB</th>
-											  <th>Created Date</th>
-											  <th>Reg. From</th>											  
-											  <th>Profile</th>
-											  <th>Payment</th>											  
-											  <th>Actions Action</th>
+											  <th>Profile Status</th>
+											  <th>Payment Status</th>
+											  <th>Reg. <br>Date</th>	  
+											  <th>Action</th>
 										  </tr>
 									  </thead>   
 									  <tbody>
+									  	<?php
+					                      if(!empty($customeruser_values)) :
+					                      // echo "<pre>";
+					                      // print_r($customeruser_values);
+					                      // echo "</pre>";
+					                      $i=0;
+					                      foreach ($customeruser_values as $cus_val) :
+					                      	if($cus_val['user_online_or_simple'] == 'online'):
+					                      		$i++;
+			                      	    ?>
 										<tr>											
-											<td class="center">1</td>
-											<td class="center">66699</td>
-											<td class="center">259</td>											
-											<td class="center">Madhivanan</td>
-											<td class="center">v.madhivanan@gmail.com</td>
-											<td class="center">0 / 60</td>
-											<td class="center">21-June-2017</td>
+											<td><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span></td>
+											<td class="center"><?php echo $i; ?></td>
+											<td class="center"><?php echo "VM".$cus_val['userdetail_id']; ?></td>
+											<!-- <td class="center">259</td> -->
+											<td class="center"><?php echo $cus_val['user_fname']; ?></td>
+											<td class="center"><?php echo $cus_val['user_email']; ?></td>
+											<!-- <td class="center">
+												<?php //echo "self"; ?>
+											</td> -->
 											<td class="center">
-												<span class="label label-success">CUSTOMER</span>
+												<?php 
+						                            echo date("d/m/Y", strtotime($cus_val['user_dob'])); 
+						                        ?>
+						                    </td>
+											<td class="center">
+												<span class="label label-success">
+													<?php 
+							                          if ($cus_val['user_active_status'] == 1) 
+							                            echo "Activated";
+							                          else
+							                            echo "Not-Activated";
+							                        ?>    	
+				                        		</span>
 											</td>
 											<td class="center">
-												<span class="label label-danger">Not Activated</span>
+												<span class="label label-success">
+													<?php 
+							                          if ($cus_val['payment_status'] == 1) 
+							                            echo "Paid";
+							                          else
+							                            echo "Not Paid";
+							                        ?>    	
+				                        		</span>
 											</td>
 											<td class="center">
-												<span class="label label-danger">Not Paid</span>
+												<?php 
+						                            $created_datetime = explode(' ', $cus_val['user_added_date']);
+						                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
+						                        ?>
 											</td>										
 											<td class="center">
-												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user">
+												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="#">
+													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger btn-setting" href="#">
@@ -194,38 +232,11 @@
 												</a>
 											</td>
 										</tr>
-										<tr>
-											<td class="center">1</td>
-											<td class="center">66699</td>
-											<td class="center">259</td>											
-											<td class="center">Madhivanan</td>
-											<td class="center">v.madhivanan@gmail.com</td>
-											<td class="center">0 / 60</td>
-											<td class="center">21-June-2017</td>
-											<td class="center">
-												<span class="label label-success">CUSTOMER</span>
-											</td>
-											<td class="center">
-												<span class="label label-danger">Not Activated</span>
-											</td>
-											<td class="center">
-												<span class="label label-danger">Not Paid</span>
-											</td>										
-											<td class="center">
-												<a class="btn btn-warning" href="#">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
-											</td>
-										</tr>							
+										<?php
+											endif;
+					                      endforeach;
+					                      endif;
+					                    ?>							
 									  </tbody>
 								  </table>
 								</div>
@@ -236,43 +247,83 @@
 								<div class="box-content">
 									<table class="table table-striped table-bordered bootstrap-datatable datatable">
 									  <thead>
-										  <tr>										  
+										  <tr>
+											   <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span>
+											  </th>
 											  <th>No</th>
-											  <th>Profile ID</th>
-											  <th>File ID</th>											  
+											  <th>Vallikodi ID</th>
+											  <!-- <th>Profile ID</th> -->		  
 											  <th>Name</th>
 											  <th>Mail</th>
+											  <!-- <th>Profile <br>Viewed</th> -->
+											  <!-- <th>Reg. <br>By</th> -->
 											  <th>DOB</th>
-											  <th>Created Date</th>											  
-											  <th>Profile</th>
-											  <th>Payment</th>											  
+											  <th>Profile Status</th>
+											  <th>Payment Status</th>
+											  <th>Reg. <br>Date</th>	  
 											  <th>Action</th>
-										  </tr>
 										  </tr>
 									  </thead>   
 									  <tbody>
-										<tr>
-											<td class="center">1</td>
-											<td class="center">66699</td>
-											<td class="center">259</td>											
-											<td class="center">Madhivanan</td>
-											<td class="center">v.madhivanan@gmail.com</td>
-											<td class="center">0 / 60</td>
-											<td class="center">21-June-2017</td>
+									  	<?php
+					                      if(!empty($customeruser_values)) :
+					                      // echo "<pre>";
+					                      // print_r($customeruser_values);
+					                      // echo "</pre>";
+					                      $i=0;
+					                      foreach ($customeruser_values as $cus_val) :
+					                      	if($cus_val['user_online_or_simple'] == 'simple'):
+					                      		$i++;
+			                      	    ?>
+										<tr>											
+											<td><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span></td>
+											<td class="center"><?php echo $i; ?></td>
+											<td class="center"><?php echo "VM".$cus_val['userdetail_id']; ?></td>
+											<!-- <td class="center">259</td> -->
+											<td class="center"><?php echo $cus_val['user_fname']; ?></td>
+											<td class="center"><?php echo $cus_val['user_email']; ?></td>
+											<!-- <td class="center">
+												<?php //echo "self"; ?>
+											</td> -->
 											<td class="center">
-												<span class="label label-danger">Not Activated</span>
+												<?php 
+						                            echo date("d/m/Y", strtotime($cus_val['user_dob'])); 
+						                        ?>
+						                    </td>
+											<td class="center">
+												<span class="label label-success">
+													<?php 
+							                          if ($cus_val['user_active_status'] == 1) 
+							                            echo "Activated";
+							                          else
+							                            echo "Not-Activated";
+							                        ?>    	
+				                        		</span>
 											</td>
 											<td class="center">
-												<span class="label label-danger">Not Paid</span>
+												<span class="label label-success">
+													<?php 
+							                          if ($cus_val['payment_status'] == 1) 
+							                            echo "Paid";
+							                          else
+							                            echo "Not Paid";
+							                        ?>    	
+				                        		</span>
+											</td>
+											<td class="center">
+												<?php 
+						                            $created_datetime = explode(' ', $cus_val['user_added_date']);
+						                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
+						                        ?>
 											</td>										
 											<td class="center">
-												<a class="btn btn-warning" href="#">
+												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user">
+													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger btn-setting" href="#">
@@ -280,35 +331,11 @@
 												</a>
 											</td>
 										</tr>
-										<tr>
-											<td class="center">1</td>
-											<td class="center">66699</td>
-											<td class="center">259</td>											
-											<td class="center">Madhivanan</td>
-											<td class="center">v.madhivanan@gmail.com</td>
-											<td class="center">0 / 60</td>
-											<td class="center">21-June-2017</td>
-											<td class="center">
-												<span class="label label-danger">Not Activated</span>
-											</td>
-											<td class="center">
-												<span class="label label-danger">Not Paid</span>
-											</td>										
-											<td class="center">
-												<a class="btn btn-warning" href="#">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
-											</td>
-										</tr>							
+										<?php
+											endif;
+					                      endforeach;
+					                      endif;
+					                    ?>							
 									  </tbody>
 								  </table>
 								</div> <!-- End of box content -->
@@ -319,46 +346,78 @@
 								<div class="box-content">								
 									<table class="table table-striped table-bordered bootstrap-datatable datatable">
 									  <thead>
-										  <tr>											  
+										  <tr>
+											   <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span>
+											  </th>
 											  <th>No</th>
-											  <th>Profile ID</th>
-											  <th>File ID</th>											  
+											  <th>Vallikodi ID</th>
+											  <!-- <th>Profile ID</th> -->		  
 											  <th>Name</th>
 											  <th>Mail</th>
+											  <!-- <th>Profile <br>Viewed</th> -->
+											  <!-- <th>Reg. <br>By</th> -->
 											  <th>DOB</th>
-											  <th>Created Date</th>
-											  <th>User Type</th>											  
-											  <th>Profile</th>
-											  <th>Payment</th>											  
+											  <th>Profile Status</th>
+											  <th>Payment Status</th>
+											  <!-- <th>Reg. <br>Date</th>	   -->
 											  <th>Action</th>
 										  </tr>
 									  </thead>   
 									  <tbody>
+									  	<?php
+					                      if(!empty($customeruser_values)) :
+					                      // echo "<pre>";
+					                      // print_r($customeruser_values);
+					                      // echo "</pre>";
+					                      $i=0;
+					                      foreach ($customeruser_values as $cus_val) :
+					                      	if($cus_val['user_active_status'] == 0):
+					                      		$i++;
+			                      	    ?>
 										<tr>											
-											<td class="center">1</td>
-											<td class="center">66699</td>
-											<td class="center">259</td>											
-											<td class="center">Madhivanan</td>
-											<td class="center">v.madhivanan@gmail.com</td>
-											<td class="center">0 / 60</td>
-											<td class="center">21-June-2017</td>
+											<td><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span></td>
+											<td class="center"><?php echo $i; ?></td>
+											<td class="center"><?php echo "VM".$cus_val['userdetail_id']; ?></td>
+											<!-- <td class="center">259</td> -->
+											<td class="center"><?php echo $cus_val['user_fname']; ?></td>
+											<td class="center"><?php echo $cus_val['user_email']; ?></td>
+											<!-- <td class="center">
+												<?php //echo "self"; ?>
+											</td> -->
 											<td class="center">
-												<span class="label label-success">Online</span>
+												<?php 
+						                            echo date("d/m/Y", strtotime($cus_val['user_dob'])); 
+						                        ?>
+						                    </td>
+											<td class="center">
+												<span class="label label-success">
+													<?php 
+							                          if ($cus_val['user_active_status'] == 1) 
+							                            echo "Activated";
+							                          else
+							                            echo "Not-Activated";
+							                        ?>    	
+				                        		</span>
 											</td>
 											<td class="center">
-												<span class="label label-danger">Not Activated</span>
+												<span class="label label-success">
+													<?php 
+							                          if ($cus_val['payment_status'] == 1) 
+							                            echo "Paid";
+							                          else
+							                            echo "Not Paid";
+							                        ?>    	
+				                        		</span>
 											</td>
+																				
 											<td class="center">
-												<span class="label label-danger">Not Paid</span>
-											</td>										
-											<td class="center">
-												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user">
+												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="#">
+													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger btn-setting" href="#">
@@ -366,38 +425,11 @@
 												</a>
 											</td>
 										</tr>
-										<tr>
-											<td class="center">1</td>
-											<td class="center">66699</td>
-											<td class="center">259</td>											
-											<td class="center">Madhivanan</td>
-											<td class="center">v.madhivanan@gmail.com</td>
-											<td class="center">0 / 60</td>
-											<td class="center">21-June-2017</td>
-											<td class="center">
-												<span class="label label-success">Online</span>
-											</td>
-											<td class="center">
-												<span class="label label-danger">Not Activated</span>
-											</td>
-											<td class="center">
-												<span class="label label-danger">Not Paid</span>
-											</td>										
-											<td class="center">
-												<a class="btn btn-warning" href="#">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
-											</td>
-										</tr>							
+										<?php
+											endif;
+					                      endforeach;
+					                      endif;
+					                    ?>							
 									  </tbody>
 								  </table>
 								</div> <!-- End of box content -->
