@@ -7,7 +7,15 @@ class Base_model extends CI_Model {
     $this->load->database();
   }
   public function get_user_count(){
-  	$result = $this->db->query("call GetUserCount()")->row_array();
+  	// $result = $this->db->query("call GetUserCount()")->row_array();
+    $result = $this->db->query("select count(*) as total_user,(select COUNT(*) FROM reg_userdetail WHERE user_online_or_simple='online') as all_onlineuser, 
+        (select COUNT(*) FROM reg_userdetail WHERE user_online_or_simple='online' AND user_active_status=1) as active_onlineuser,
+        (select COUNT(*) FROM reg_userdetail WHERE user_online_or_simple='online' AND user_active_status=0) as inactive_onlineuser,
+          (select COUNT(*) FROM reg_userdetail WHERE user_online_or_simple='simple') as all_simpleuser, 
+        (select COUNT(*) FROM reg_userdetail WHERE user_online_or_simple='simple' AND user_active_status=1) as active_simpleuser,
+        (select COUNT(*) FROM reg_userdetail WHERE user_online_or_simple='simple' AND user_active_status=0) as inactive_simpleuser,
+        (select COUNT(*) FROM reg_userdetail WHERE user_active_status=1) as total_activeuser,
+        (select COUNT(*) FROM reg_userdetail WHERE user_active_status=0) as total_inactiveuser from reg_userdetail")->row_array();
   	return $result;
   }
 
