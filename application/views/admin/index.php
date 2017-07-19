@@ -1,5 +1,6 @@
 <?php 
-    include('templates/header.php');
+	if(!empty($this->session->userdata("admin_login_status"))):
+    	include('templates/header.php');
 ?>
 	<!-- topbar ends -->
 		<div class="container-fluid">
@@ -25,61 +26,61 @@
 				</ul>
 			</div>
 			<div class="sortable row-fluid">
-				<a data-rel="tooltip" title="6 new members." class="well span3 top-block" href="#">
+				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin/administration">
 					<span class="icon32 icon-red icon-user"></span>
-					<div>Admin</div>
-					<div>507</div>
-					<span class="notification">6</span>
+					<div>Administrator</div>
+					<!-- <div>507</div> -->
+					<!-- <span class="notification">6</span> -->
 				</a>
 
-				<a data-rel="tooltip" title="4 new pro members." class="well span3 top-block" href="#">
-					<span class="icon32 icon-color icon-star-on"></span>
+				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin/report">
+					<span class="icon32 icon-orange icon-document"></span>
 					<div>Report</div>
-					<div>228</div>
-					<span class="notification green">4</span>
+					<!-- <div>228</div> -->
+					<!-- <span class="notification green">4</span> -->
 				</a>
 
-				<a data-rel="tooltip" title="$34 new sales." class="well span3 top-block" href="#">
-					<span class="icon32 icon-color icon-cart"></span>
+				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin/customer_user">
+					<span class="icon32 icon-green icon-users"></span>
 					<div>Customer</div>
-					<div>$13320</div>
-					<span class="notification yellow">$34</span>
+					<!-- <div>$13320</div> -->
+					<!-- <span class="notification yellow">$34</span> -->
 				</a>
 				
-				<a data-rel="tooltip" title="12 new messages." class="well span3 top-block" href="#">
-					<span class="icon32 icon-color icon-envelope-closed"></span>
+				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin/successful_story">
+					<span class="icon32 icon-blue icon-book"></span>
 					<div>Success Story</div>
-					<div>25</div>
-					<span class="notification red">12</span>
+					<!-- <div>25</div> -->
+					<!-- <span class="notification red">12</span> -->
 				</a>
 			</div>
 			<div class="sortable row-fluid">
-				<a data-rel="tooltip" title="6 new members." class="well span3 top-block" href="#">
-					<span class="icon32 icon-red icon-user"></span>
+				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin">
+					<span class="icon32 icon-blue icon-envelope-closed"></span>
 					<div>Mail</div>
-					<div>507</div>
-					<span class="notification">6</span>
+					<!-- <div>507</div> -->
+					<!-- <span class="notification">6</span> -->
 				</a>
 
-				<a data-rel="tooltip" title="4 new pro members." class="well span3 top-block" href="#">
-					<span class="icon32 icon-color icon-star-on"></span>
+				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin">
+					<span class="icon32 icon-green icon-image"></span>
 					<div>Photo Gallry</div>
-					<div>228</div>
-					<span class="notification green">4</span>
+					<!-- <div>228</div> -->
+					<!-- <span class="notification green">4</span> -->
 				</a>
 
-				<a data-rel="tooltip" title="$34 new sales." class="well span3 top-block" href="#">
-					<span class="icon32 icon-color icon-cart"></span>
-					<div>Change Settings</div>
-					<div>$13320</div>
-					<span class="notification yellow">$34</span>
+				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin/zodiac_sign">
+					<span class="icon32 icon-red icon-gear"></span>
+					<div>Master Data Settings</div>
+					<!-- <div>$13320</div> -->
+					<!-- <span class="notification yellow">$34</span> -->
 				</a>
 			</div>
 			
 			<div class="row-fluid">
 				<div class="box span12">
 					<div class="box-header well">
-						<h2><i class="icon-info-sign"></i> Name</h2>
+						<h2><i class="icon-info-sign"></i> User Details</h2>
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
 							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
@@ -87,23 +88,29 @@
 						</div>
 					</div>
 					<div class="box-content">
+					<div class="row-fluid show-grid">
+							<div class="span3" style="color: green;">Name</div>
+							<div class="span3" style="color: green;">All User</div>
+							<div class="span3" style="color: green;">Active</div>
+							<div class="span3" style="color: green;">InActive</div>
+						</div>
 						<div class="row-fluid show-grid">
 							<div class="span3">Online Registration</div>
-							<div class="span3">5698</div>
-							<div class="span3">3256</div>
-							<div class="span3">1858</div>
+							<div class="span3"><?php echo $user_results['all_onlineuser']; ?></div>
+							<div class="span3"><?php echo $user_results['active_onlineuser']; ?></div>
+							<div class="span3"><?php echo $user_results['inactive_onlineuser']; ?></div>
 						</div>
 						<div class="row-fluid show-grid">
 							<div class="span3">Simple Registration</div>
-							<div class="span3">5698</div>
-							<div class="span3">3256</div>
-							<div class="span3">1858</div>
+							<div class="span3"><?php echo $user_results['all_simpleuser']; ?></div>
+							<div class="span3"><?php echo $user_results['active_simpleuser']; ?></div>
+							<div class="span3"><?php echo $user_results['inactive_simpleuser']; ?></div>		
 						</div>
 						<div class="row-fluid show-grid">
 							<div class="span3">Total No. of Registration</div>
-							<div class="span3">11563</div>
-							<div class="span3">6485</div>
-							<div class="span3">3698</div>
+							<div class="span3"><?php echo $user_results['total_user']; ?></div>
+							<div class="span3"><?php echo $user_results['total_activeuser']; ?></div>
+							<div class="span3"><?php echo $user_results['total_inactiveuser']; ?></div>
 						</div>
 						
 						<div class="clearfix"></div>
@@ -402,4 +409,7 @@
 
 <?php 
     include('templates/footer.php');
+    else :
+	redirect(base_url().'admin');
+	endif;
 ?>

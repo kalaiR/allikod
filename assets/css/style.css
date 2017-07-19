@@ -1313,7 +1313,25 @@ p2
   text-align: center;
   line-height: 48px;
 }
-
+.next_angkar_btn {
+  width: 160px;
+  height: 50px;
+  display: block;
+  border-radius: 25px;
+  color: #fff;
+  background-color: #e74c3c;
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none;
+  text-align: center;
+  line-height: 48px;
+  margin-left: 10px;
+}
 .register_angkar_btn:focus {
   outline: none !important;
   box-shadow: none !important;
@@ -2372,7 +2390,7 @@ p2
   font-weight: bold;
   font-size: 30px;
   color: #2f3c44;
-  padding: 50px 0px 22px 0px;
+  padding: 10px 0px 10px 0px;
 }
 
 .registration_form_area .registration_form_s .form-group {
@@ -7189,7 +7207,7 @@ p2
 /* Advanced Search area css
 ============================================================================================ */
 .advanced_search_area {
-  background: #2e3c43;
+  background: #5d8532;
   padding: 80px 0px 50px 0px;
 }
 
@@ -7391,7 +7409,7 @@ p2
 }
 
 .search_option .tab-content .tab-pane {
-  color: #fff;
+  /*color: #fff;*/
 }
 
 .search_option .tab-content .tab-pane .height_item {
@@ -7839,6 +7857,20 @@ p2
 /* End Error area css
 ============================================================================================ */
 /*---------------------------------------------------- */
+
+/* Validation Error*/
+.val_error{
+    color: #ff0000;
+    padding: 8px 20px 0px 14px !important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+    display:none;
+}
+
+.val_status {
+    text-align: center;
+    display: none;
+}
+/* End of Validation Error*/
 /*----------------------------------------------------*/
 /* Footer area css
 ============================================================================================ */
@@ -8114,7 +8146,7 @@ p2
 #hcolor{
   color: #5c7500;
   background-color: #e0e3e5;
-  padding:7px;
+  padding:7px 7px 15px 7px;
 }
 .hbgcolor{
   background-image: url(img/reg_bdy_inner_top.png);
@@ -8141,5 +8173,83 @@ ol a{
 /* End Footer area css
 ============================================================================================ */
 /*---------------------------------------------------- */
+.edit_btn {
+  width: 90px;
+  height: 35px;
+  display: inline-block;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none;
+  background: transparent;
+  margin-bottom: 5px;
+}
 
+.edit_btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.edit_btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #e74c3c;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 25px;
+}
+
+.edit_btn:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid #e74c3c;
+  -webkit-transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+  border-radius: 25px;
+}
+
+.edit_btn:hover {
+  color: #e74c3c;
+}
+
+.edit_btn:hover:before {
+  opacity: 0;
+  -webkit-transform: scale(0.5, 0.5);
+  -ms-transform: scale(0.5, 0.5);
+  transform: scale(0.5, 0.5);
+}
+
+.edit_btn:hover:after {
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+#white{
+  color: #fff;
+}
 /*# sourceMappingURL=style.css.map */

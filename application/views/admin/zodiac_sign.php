@@ -1,4 +1,5 @@
 <?php 
+	if(!empty($this->session->userdata("admin_login_status"))):
     include('templates/header.php');
 ?>
 	<div id="content" class="span11">
@@ -25,7 +26,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/add_zodiac_sign">
+						<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_zodiac_sign">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
@@ -79,11 +80,11 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_zodiac_sign/<?php echo $zod_val["zodiacsign_id"] ?>">
+									<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_zodiac_sign/<?php echo $zod_val["zodiacsign_id"] ?>">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
@@ -102,9 +103,27 @@
 	</div>  <!-- span10 end -->
 	<!-- external javascript
 	================================================== -->
+	<hr>
+
+		<div class="modal hide fade" id="myModal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Alert !</h3>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure want to delete?</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+				<a href="#" class="btn btn-danger">Delete</a>
+			</div>
+		</div>
 	<!-- Placed at the end of the document so the pages load faster -->
 
 
 <?php 
     include('templates/footer.php');
+    else :
+	redirect(base_url().'admin');
+	endif;
 ?>

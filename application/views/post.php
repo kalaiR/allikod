@@ -1,10 +1,7 @@
 <?php 
     include('include/header.php');
+    include('include/menu.php');
 ?> 
-       
-       <?php 
-            include('include/menu.php');
-        ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
             <div class="container">
@@ -26,58 +23,63 @@
                             </div>
                             <div class="registration_form_area" id="registration_form_are">
                                     <div class="row">
-                                    <form action="<?php echo base_url();?>success_stories">
+                                    <form action="success_stories" class="post_success_form" method="post" name="success_stories" id="success_stories" enctype="multipart/form-data">
                                         <div class="col-sm-8">
                                             <div class="registration_form_s" id="registration_form_s">
                                                     <h4>Post Your Story</h4>
+                                                    <span class="val_status" style="display: block;">
+                                    <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
+                                    </span>
                                                     <div class="form-group">
-                                                            <input type="text" class="form-control" id="bride_name" placeholder="Bride Name">      
+                                                            <input type="text" class="form-control form_inputs" id="bride_name" placeholder="Bride Name" name="bride_name">      
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="datepicker">
-                                                            <input type="text" class="form-control" id="groom_name" placeholder="Groom Name">
+                                                            <input type="text" class="form-control form_inputs" id="groom_name" placeholder="Groom Name" name="groom_name">
                                                         </div>    
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" id="vallikodi_id" placeholder="Vallikodi ID">
+                                                        <input type="text" class="form-control form_inputs" id="vallikodi_id" placeholder="Vallikodi ID" name="vallikodi_id">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="email" class="form-control" id="email_id" placeholder="Email">
+                                                        <input type="email" class="form-control form_inputs" id="email_id" placeholder="Email" name="email_id">
                                                     </div>
                                                         <div class="row">
                                                             <div class="col-md-7">
                                                                     <div class="form-group">
                                                                         <div class="datepicker">
-                                                                            <input type='text' class="form-control datetimepicker4" placeholder="Marriage" />
+                                                                            <input type='text' class="form-control form_inputs datetimepicker4" placeholder="Marriage" name="mariage_date" id="mariage_date"/>
                                                                             <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>    
                                                                         </div>      
                                                                     </div>
                                                             </div>
                                                                 <div class="col-md-5 upload_box">
                                                                     <div class="form-group col-md-12">
-                                                                        <button type="file" value="LogIn" class="btn form-control login_btn">Upload Image</button>
+                                                                        <input type="file" id="upload_post" name="upload_post" class="form_inputs"/>
+                                                                        <!-- <input type="button" id="upload_post" value="upload" name ="upload_post"> -->
                                                                     </div>
                                                                 </div>
                                                         </div>
-                                                </form>            
                                                     <div class="comment_form_area">
                                                         <div class="row">
-                                                            <form action="#" class="form_inner">
+                                                           <!--  <form action="#" class="form_inner"> -->
                                                                 <div class="form-group col-md-12">
-                                                                    <textarea id="comment" placeholder="Comment" rows="1"></textarea>
+                                                                    <textarea id="comment" name="comment" placeholder="Comment" rows="3" column="5"></textarea>
                                                                 </div>
-                                                            </form>          
+                                                            <!-- </form> -->          
                                                         </div>
                                                     </div>    
-                                                        <div class="reg_chose form-group">
-                                                            <button type="submit" value="LogIn" class="btn form-control login_btn">Post</button>
-                                                        </div>     
+                                                   <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
+                                                    <div class="reg_chose form-group">
+                                                            <!-- <input type="submit" value="LogIn" id="post_submit" name="post_submit" class="btn form-control login_btn"> -->
+                                                            <button class="btn form-control login_btn" id="post_submit" name="post_submit">Submit</button>
+                                                    </div>     
                                             </div>
-                                        </div>
+                                        </div>                                         
                                     </form>    
                                             <div class="col-sm-4">
                                                 <div class="form_man">
-                                                    <img src="<?php echo base_url(); ?>assets/img/registration-man.png" alt="">
+                                                    <!-- <img src="<?php echo base_url(); ?>assets/img/registration-man.png" alt=""> -->
                                                 </div>
                                             </div>
                                     </div>
@@ -105,6 +107,4 @@
         </div>
 <?php 
     include('include/footer.php');
-?> 
-    </body>
-</html>
+?>

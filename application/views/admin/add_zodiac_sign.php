@@ -32,15 +32,16 @@
 				                    echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
 				                  endif;
 				                ?> 
-				                <p class='val_error'> <p>
+				                <p class='val_error'><p>
 								<fieldset>
 								  <div class="control-group">
 									<label class="control-label" for="focusedInput">Zodiac Sign : </label>
 									<div class="controls">
 									  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="zod_name">
 									</div>
+
 								  </div>
-								  
+
 								  <div class="control-group">
 									<label class="control-label">Active Status : </label>
 									<div class="controls">

@@ -51,7 +51,7 @@
 	<![endif]-->
 
 	<!-- The fav icon -->
-	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/admin/img/favicon.ico">
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/admin/img/fav.ico">
 		
 </head>
 
@@ -90,13 +90,16 @@
 				<!-- user dropdown starts -->
 				<div class="btn-group pull-right" >
 					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-						<i class="icon-user"></i><span class="hidden-phone"> admin</span>
+						<?php
+                            $session_data = $this->session->userdata("admin_login_session");
+                        ?>
+						<i class="icon-user"></i><span class="hidden-phone"> Welcome <?php echo $session_data['adminuser_name']; ?></span>
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url(); ?>admin">Profile</a></li>
-						<li class="divider"></li>
-						<li><a href="<?php echo base_url(); ?>admin">Logout</a></li>
+						<!-- <li><a href="<?php echo base_url(); ?>admin">Profile</a></li> -->
+						<!-- <li class="divider"></li> -->
+						<li><a href="<?php echo base_url(); ?>admin/logout">Logout</a></li>
 					</ul>
 				</div>
 				<!-- user dropdown ends -->
@@ -124,9 +127,9 @@
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 				<li class="nav-header hidden-tablet">Administration</li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/administration"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/selling_admin"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li>
+				<!-- <li><a class="ajax-link" href="<?php echo base_url(); ?>admin/selling_admin"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li> -->
 				<li class="nav-header hidden-tablet">Report</li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/report"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
 				<li class="nav-header hidden-tablet">Customer User</li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/customer_user"><i class="icon-user"></i></i><span class="hidden-tablet">View Customer User</span></a></li>
 				<li class="nav-header hidden-tablet">Successful Story</li>
@@ -136,6 +139,10 @@
 				<!-- <li class="nav-header hidden-tablet">Sample Section</li> -->
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-picture"></i><span class="hidden-tablet"> Send Mail</span></a></li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-calendar"></i><span class="hidden-tablet"> Send SMS</span></a></li>
+				<li class="nav-header hidden-tablet">Gallery</li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/gallery_upload"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery Upload</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/gallery_category"><i class="icon-align-justify"></i><span class="hidden-tablet"> Gallery Category</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/contact_gallery_upload"><i class="icon-calendar"></i><span class="hidden-tablet">Contact Gallery Upload</span></a></li>
 				<li class="nav-header hidden-tablet">Setting</li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/zodiac_sign"><i class="icon-calendar"></i><span class="hidden-tablet"> Zodiac Sign</span></a></li>
 				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/nakshathra"><i class="icon-calendar"></i><span class="hidden-tablet"> Nakshathra</span></a></li>

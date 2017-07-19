@@ -1,3 +1,16 @@
+/*Style for login page*/
+.bgcolor{  
+  background: url("../img/loginbg.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+/*for mandatory field identification*/
+#b{
+  font-weight: bolder;
+  color: #087a02;
+}
 /*style for validation error and success message */
 /*===============start===================*/
 .db_status{
@@ -22,5 +35,9 @@
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     display:none;
     margin-top: 10px !important;
+}
+.admin_status{
+    display: none;
+    color: #ff0000;
 }
 /*===============end===================*/

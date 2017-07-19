@@ -161,4 +161,14 @@
 
         <!--<script src="js/video_player.js"></script>-->
         <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
+
+        <script>
+        //CSRF Protection declaration
+        var csfrData = {};
+        csfrData['<?php echo $this->security->get_csrf_token_name(); ?>'] = '<?php echo $this->security->get_csrf_hash(); ?>';
+        var csrf_name = "<?php echo $this->security->get_csrf_token_name(); ?>";
+
+        //Admin base url declaration (route path)
+        var baseurl = "<?php echo base_url(); ?>/";
+    </script>
    

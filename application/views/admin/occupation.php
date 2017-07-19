@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/add_occupation">
+						<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_occupation">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
@@ -40,7 +40,7 @@
 						  </thead>   
 						  <tbody>
 							<tr>
-								<td>Others</td>
+								<td>IT & Engineering</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -50,18 +50,18 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_occupation">
+									<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_occupation">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
 								</td>
 							</tr>
 							<tr>
-								<td>10th</td>
+								<td>&nbsp&nbsp&nbsp<i class="icon icon-arrowreturn-nw"></i>Hardware Professional</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -71,18 +71,18 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_occupation">
+									<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_occupation">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
 								</td>
 							</tr>
 							<tr>
-								<td>PhD</td>
+								<td>&nbsp&nbsp&nbsp<i class="icon icon-arrowreturn-nw"></i>Software Professional</td>
 								<td class="center">2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
@@ -92,205 +92,16 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_occupation">
+									<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_occupation">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger btn-setting" href="#">
 										<i class="icon-trash icon-white"></i> 
 										Delete
 									</a>
 								</td>
-							</tr>
-							<tr>
-								<td>Rishabam (Taurus)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_occupation">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Mithunam (Gemini)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_occupation">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Mesham (Aries)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_occupation">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Meenam (Pisces)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_occupation">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Makara (Capricorn)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_occupation">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Kumbha (Aquarius)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_occupation">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Katagam (Cancer)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_occupation">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Kanni (Virgo)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_occupation">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Dhanus (Sagittarius)</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<!-- <a class="btn btn-success" href="#">
-										<i class="icon-zoom-in icon-white"></i>  
-										View                                            
-									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_occupation">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
-									</a>
-								</td>
-							</tr>
+							</tr>							
 						  </tbody>
 					  </table>            
 					</div>
@@ -300,6 +111,21 @@
 	</div>  <!-- span10 end -->
 	<!-- external javascript
 	================================================== -->
+	<hr>
+
+		<div class="modal hide fade" id="myModal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Alert !</h3>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure want to delete?</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+				<a href="#" class="btn btn-danger">Delete</a>
+			</div>
+		</div>
 	<!-- Placed at the end of the document so the pages load faster -->
 
 

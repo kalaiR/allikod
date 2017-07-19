@@ -1,65 +1,111 @@
 <?php 
     include('templates/header.php');
 ?>
-<!-- left menu starts -->
-	<div class="span2 main-menu-span">
-		<div class="well nav-collapse sidebar-nav">
-			<ul class="nav nav-tabs nav-stacked main-menu">
-				<li class="nav-header hidden-tablet">Main</li>
-				<li><a class="ajax-link" href="index.html"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
-				<li><a class="ajax-link" href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration</span></a></li>
-				<li><a class="ajax-link" href="form.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Report</span></a></li>
-				<li><a class="ajax-link" href="chart.html"><i class="icon-edit"></i><span class="hidden-tablet"> Customer User</span></a></li>
-				<li><a class="ajax-link" href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Successful Story</span></a></li>
-				<li><a class="ajax-link" href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Mail</span></a></li>
-				<!-- <li class="nav-header hidden-tablet">Sample Section</li> -->
-				<li><a class="ajax-link" href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery Upload</span></a></li>
-				<li><a class="ajax-link" href="calendar.html"><i class="icon-calendar"></i><span class="hidden-tablet"> Settings</span></a></li>
-		</div><!--/.well -->
-	</div><!-- left menu ends -->
-				<div class="box span12">	
-					<div class="box-content">
-						<form class="form-horizontal">
-						  <fieldset>
-							<legend>Report</legend>
-							<div class="control-group">
-							  <label class="control-label" for="date01">From Date</label>
-							  <div class="controls">
-								<input type="text" class="input-xlarge datepicker" id="date01" value="">
-							  </div>
-							</div>
-							<div class="control-group">
-							  <label class="control-label" for="date02">To Date</label>
-							  <div class="controls">
-								<input type="text" class="input-xlarge datepicker" id="date02" value="">
-							  </div>
-							</div>
-							<div class="control-group">
-								<label class="control-label">Online Number of Registration</label>
-								<div class="controls">
-								  <span class="input-xlarge uneditable-input">0</span>
+
+	<div id="content" class="span11">
+			<!-- content starts -->
+			<div>
+				<ul class="breadcrumb">
+					<li>
+						<a href="index.php">Home</a> <span class="divider">/</span>
+					</li>
+					<li>
+						<a href="#">Report</a>
+					</li>
+				</ul>
+			</div>
+			<form method="post" action="<?php echo base_url(); ?>admin/report">
+				<?php
+                  if(!empty($status)) :
+                    echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
+                  endif;
+                ?> 
+				<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+				<!-- Table -->
+				<div class="row-fluid sortable">		
+						<div class="box span12">
+							<div class="box-header well" data-original-title>
+								<h2><i class="icon-user"></i> Report</h2>
+								<div class="box-icon">
+									<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
+									<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+									<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
 								</div>
-							  </div>
-							  <div class="control-group">
-								<label class="control-label">Simple Number of Registration</label>
-								<div class="controls">
-								  <span class="input-xlarge uneditable-input">0</span>
-								</div>
-							  </div>
-							  <div class="control-group">
-								<label class="control-label">Total Number of Registration</label>
-								<div class="controls">
-								  <span class="input-xlarge uneditable-input">0</span>
-								</div>
-							  </div>
-							<div class="form-actions">
-							  <button type="submit" class="btn btn-primary">View</button>
-							  <button type="reset" class="btn">Cancel</button>
 							</div>
-						  </fieldset>
-						</form>   
-					</div>
-				</div><!--/span-->
+							<div class="box-content span4">
+							<!-- <a class="btn btn-info pull-right" id="add" href="add_administration.php">
+							        <i class="glyphicon glyphicon-edit icon-white"></i>
+							        Add
+							    </a> -->
+								<div class="control-group">
+								  <label class="control-label" for="date01">From Date</label>
+								  <div class="controls">
+									<input type="text" class="input-xlarge datepicker" name="report_fromdate">
+								  </div>
+								</div>            
+							</div>
+							<div class="box-content span4">
+							<!-- <a class="btn btn-info pull-right" id="add" href="add_administration.php">
+							        <i class="glyphicon glyphicon-edit icon-white"></i>
+							        Add
+							    </a> -->
+								<div class="control-group">
+								  <label class="control-label" for="date01">To Date</label>
+								  <div class="controls">
+									<input type="text" class="input-xlarge datepicker" name="report_todate">
+								  </div>
+								</div>
+							</div>
+							<div class="box-content span3">
+							<!-- <a class="btn btn-info pull-right" id="add" href="add_administration.php">
+							        <i class="glyphicon glyphicon-edit icon-white"></i>
+							        Add
+							    </a> -->
+								<div class="control-group">
+								  <!-- <label class="control-label" for="date01">Click</label>
+								  <div class="controls">
+									<a class="btn btn-primary pull-left" id="add" href="<?php echo base_url(); ?>admin/report">
+							        	<i class="glyphicon glyphicon-edit icon-white"></i>
+							        View
+							    	</a>
+								  </div> -->
+								  <!-- <div class="form-actions"> -->
+										<button type="submit" class="btn btn-primary">View Report</button>
+								    <!-- </div> -->
+								</div>
+							</div>
+							<div class="box-content span10">
+							<!-- <a class="btn btn-info pull-right" id="add" href="add_administration.php">
+							        <i class="glyphicon glyphicon-edit icon-white"></i>
+							        Add
+							    </a> -->
+								<div class="control-group">
+									<label class="control-label">Online No. of registration</label>
+									<div class="controls">
+									  <!-- <span class="input-xlarge uneditable-input span1"><?php //if(!empty($report_data)) echo $report_data['all_onlineuser']; ?></span> -->
+									  <span class="input-xlarge uneditable-input span1"><?php if(!empty($post_report_data)) echo $post_report_data['all_onlineuser']; else if(!empty($report_data)) echo $report_data['total_onlineuser']; ?></span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">Simple No. of registration</label>
+									<div class="controls">
+									  <span class="input-xlarge uneditable-input span1"><?php if(!empty($post_report_data)) echo $post_report_data['all_simpleuser']; else if(!empty($report_data)) echo $report_data['total_simpleuser']; ?></span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">Total No. of registration</label>
+									<div class="controls">
+									  <span class="input-xlarge uneditable-input span1"><?php if(!empty($post_report_data)) echo $post_report_data['totaluser']; else if(!empty($report_data)) echo $report_data['total']; ?></span>
+									</div>
+								</div>
+							</div>
+								         
+							</div>
+						</div><!--/span-->
+				</form>
+			</div><!--/row-->
+		</div><!--/.fluid-container-->
+	</div>  <!-- span10 end -->
 
 <?php 
     include('templates/footer.php');

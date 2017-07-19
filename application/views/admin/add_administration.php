@@ -1,3 +1,4 @@
+<?php if(!$this->input->is_ajax_request()) { ?>
 <?php 
     include('templates/header.php');
 ?>
@@ -24,50 +25,61 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal">
+						<form class="form-horizontal add_form" method="post" action="administration">
+<?php } ?>						
+							<?php
+			                  if(!empty($status)) :
+			                    echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
+			                  endif;
+			                ?> 
+			                <p class='val_error'> <p>						
 							<fieldset>
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Admin : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="adm_name">
 								</div>
 							  </div>
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Password : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused" id="focusedInput" type="Password" value="">
+								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="password" name="adm_password">
 								</div>
 							  </div>
 							  <div class="control-group">
 								<label class="control-label">Active Status : </label>
 								<div class="controls">
-								  <select data-rel="chosen">
-									<option>Enabled</option>
-									<option>Disabled</option>
+								  <select class="form_inputs" data-rel="chosen" name="adm_status">
+									<option value="">Select Status</option>
+									<option value="1">Enabled</option>
+									<option value="0">Disabled</option>
 								  </select>
 								</div>
 							  </div>
 							   <div class="control-group">
 								<label class="control-label">Admin Type : </label>
 								<div class="controls">
-								  <select data-rel="chosen">
-									<option>Admin</option>
-									<option>Selling Admin</option>
+								  <select class="form_inputs" data-rel="chosen" name="adm_type">
+									<option value="">Select Status</option>
+									<option value="1">Admin</option>
+									<option value="2">Selling Admin</option>
 								  </select>
 								</div>
 							  </div>
 							  <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button class="btn">Cancel</button>
+								<button type="reset" class="btn">Reset</button>
 							  </div>
 							</fieldset>
-						  </form>
-						</div>
-				</div><!--/span-->
-			</div><!--/row-->
-	<!-- content ends -->
-	</div><!--/fluid-row-->
+<?php if(!$this->input->is_ajax_request()) { ?>							
+							  </form>
+							</div>
+					</div><!--/span-->
+				</div><!--/row-->
+		<!-- content ends -->
+		</div><!--/fluid-row-->
 
 <?php 
     include('templates/footer.php');
 ?>
+<?php } ?>

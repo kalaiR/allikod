@@ -213,6 +213,7 @@
 .base-box
 {
   padding-top: 10px;
+  color: #fff;
 }
 .button-box
 {
@@ -233,15 +234,8 @@
   border: 0px;
   border-radius: 0px;
 }
-.selva
-{
-  background-color: red;
 
-}
-.form-box
-{
-  background-color:#2e3c43;
-}
+
 .box
 {
   padding-top: 10px;
@@ -572,10 +566,10 @@
 {
   padding-bottom: 100px;
 }
-.active
+/*.active
 {
   color: #e6701a;
-}
+}*/
 .img-box
 {
  margin-top: 42px;
@@ -588,3 +582,46 @@
 {
   padding-top: 20px;
 }
+.text-font
+{
+  font-weight: bold;
+}
+
+#user-id
+{
+  color: white;
+}
+.detail-box
+{
+  padding-bottom: 70px;
+}
+.text-box-name
+{
+  padding-top: 20px;
+}
+.heads-box
+{
+  background-color:#a0e2a0;
+  padding: 5px 5px;
+}
+.text-boxs
+{
+  padding-top: 10px;
+}
+.names-boxs
+{
+  margin-top: 10px;
+}
+.com-box
+{
+  padding-bottom: 15px;
+}
+.marital-box
+{
+  padding-left: 25px;
+}
+.save-box
+{
+  margin-left: 10px;
+}
+
