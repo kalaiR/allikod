@@ -550,6 +550,7 @@ class Master_data_model extends CI_Model {
         // if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
           $admin_update_data = array( 
                                 'admin_username' => $this->input->post('adm_name'),
+                                'admin_pwd' => $this->input->post('adm_password'),
                                 'admin_permission' => $this->input->post('adm_type'),
                                 'active_status' => $this->input->post('adm_status')
                               ); 
@@ -577,6 +578,7 @@ class Master_data_model extends CI_Model {
     else if($status=='save') {
       $admin_insert_data = array( 
                             'admin_username' => $this->input->post('adm_name'),
+                            'admin_pwd' => $this->input->post('adm_password'),
                             'admin_permission' => $this->input->post('adm_type'),
                             'active_status' => $this->input->post('adm_status')
                           );
@@ -587,6 +589,7 @@ class Master_data_model extends CI_Model {
 
     // Delete data
     else if($status =='delete') {
+      alert(delete);
       if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
         $admin_delete_where = '(admin_id="'.$this->input->post('rid').'")';
         $this->db->delete("admin", $admin_delete_where); 
@@ -594,6 +597,7 @@ class Master_data_model extends CI_Model {
         $model_data['error'] = 2; 
       }
       else {
+        alert("delete_error");
         $model_data['error'] = 1;
         $model_data['status'] = "Something went wrong. Please try again with correct details ";
       }
