@@ -332,15 +332,26 @@
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
-											<fieldset>										  
+											<fieldset>
 											  <div class="control-group">
-												<label class="control-label">Education : </label>
-												<div class="controls">
-												  <select data-rel="chosen">
-													<option>BE/BTech</option>
-													<option>BCA</option>
-												  </select>
-												</div>
+												<label class="control-label">Education<b>*</b> : </label>
+												<div class="control-group">				
+													<div class="controls">
+														<select data-placeholder="Education List" id="selectError2" data-rel="chosen">
+															<option value=""></option>
+															<optgroup label="Bachelors- Engineering">
+															  <option>BE</option>
+															  <option>BTech</option>
+															  <option>BArch</option>
+															</optgroup>
+															<optgroup label="Bachelors- Arts and Science">
+															  <option>BSc</option>
+															  <option>BCom</option>
+															  <option>BCA</option>
+															</optgroup>						
+													  </select>
+													</div>
+												  </div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Education in Detail  : </label>

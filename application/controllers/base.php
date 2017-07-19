@@ -29,6 +29,8 @@ class Base extends CI_Controller {
 		}else{
 			$data['register'] = $this->user_model->get_registerid();
 			$data['martial_status'] = $this->user_model->get_martialstatus();
+			$data['success_stories'] = $this->user_model->get_success_stories_limit();
+			$data['recent_profile'] = $this->user_model->get_recent_profile();
 			$this->load->view('index', $data);
 		}
 	}
@@ -226,13 +228,22 @@ class Base extends CI_Controller {
 	public function search_result(){	
 		if($this->input->post()){	
 			$form_data = $this->input->post();
-			$gender = $form_data['gender'][0];		
-			$age_from = $form_data['search_age_from'][0];
-			$age_to = $form_data['search_age_to'][0];
-			$height_from = $form_data['height_in_cms'][0];		
-			$height_to = $form_data['height_in_feets'][0];
-			$mar_status = $form_data['marital_status'][0];
-			$data['search_results'] = $this->db->query("call BasicSearch(".$gender.",".$age_from.",".$height_from.",".$height_to.",".$mar_status.")")->result_array();
+
+			// Basic Search //
+			if($form_data['search_type'] =='basicsearch'){
+				$gender = $form_data['gender'][0];		
+				$age_from = $form_data['search_age_from'][0];
+				$age_to = $form_data['search_age_to'][0];
+				$height_from = $form_data['height_in_cms'][0];		
+				$height_to = $form_data['height_in_feets'][0];
+				$mar_status = $form_data['marital_status'][0];
+
+				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status);
+				$data['results'] = $this->user_model->get_basicsearch($values);
+			}elseif($form_data['search_type'] =='search_id'){
+				$searchid = $form_data['searchby_id'];
+				$data['results'] = $this->user_model->get_datauserId($searchid);
+			}
 			$this->load->view('search_result',$data);
 		}	
 	}
@@ -292,8 +303,9 @@ class Base extends CI_Controller {
 	public function vanniyar(){
 		$this->load->view('vanniyar');
 	}
-	public function full_view(){
-		$this->load->view('view');
+	public function viewdetail(){
+
+		$this->load->view('viewdetail');
 	}
 	public function myprofile(){
 		$this->load->view('myprofile');
