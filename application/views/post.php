@@ -23,10 +23,13 @@
                             </div>
                             <div class="registration_form_area" id="registration_form_are">
                                     <div class="row">
-                                    <form action="success_stories" method="post" name="success_stories" id="success_stories" enctype="multipart/form-data">
+                                    <form action="success_stories" class="post_success_form" method="post" name="success_stories" id="success_stories" enctype="multipart/form-data">
                                         <div class="col-sm-8">
                                             <div class="registration_form_s" id="registration_form_s">
                                                     <h4>Post Your Story</h4>
+                                                    <span class="val_status" style="display: block;">
+                                    <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
+                                    </span>
                                                     <div class="form-group">
                                                             <input type="text" class="form-control form_inputs" id="bride_name" placeholder="Bride Name" name="bride_name">      
                                                     </div>
@@ -52,25 +55,21 @@
                                                             </div>
                                                                 <div class="col-md-5 upload_box">
                                                                     <div class="form-group col-md-12">
-
-                                                                        <input type="file" id="upload_post" name="upload_post" class="form_inputs" />
-
+                                                                        <input type="file" id="upload_post" name="upload_post" class="form_inputs"/>
                                                                         <!-- <input type="button" id="upload_post" value="upload" name ="upload_post"> -->
-
                                                                     </div>
                                                                 </div>
                                                         </div>
                                                     <div class="comment_form_area">
                                                         <div class="row">
-                                                            <form action="#" class="form_inner">
+                                                           <!--  <form action="#" class="form_inner"> -->
                                                                 <div class="form-group col-md-12">
                                                                     <textarea id="comment" name="comment" placeholder="Comment" rows="3" column="5"></textarea>
                                                                 </div>
-                                                            </form>          
+                                                            <!-- </form> -->          
                                                         </div>
                                                     </div>    
                                                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
-
                                                     <div class="reg_chose form-group">
                                                             <!-- <input type="submit" value="LogIn" id="post_submit" name="post_submit" class="btn form-control login_btn"> -->
                                                             <button class="btn form-control login_btn" id="post_submit" name="post_submit">Submit</button>

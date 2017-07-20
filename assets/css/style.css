@@ -2390,7 +2390,7 @@ p2
   font-weight: bold;
   font-size: 30px;
   color: #2f3c44;
-  padding: 50px 0px 22px 0px;
+  padding: 10px 0px 10px 0px;
 }
 
 .registration_form_area .registration_form_s .form-group {
@@ -7857,6 +7857,20 @@ p2
 /* End Error area css
 ============================================================================================ */
 /*---------------------------------------------------- */
+
+/* Validation Error*/
+.val_error{
+    color: #ff0000;
+    padding: 8px 20px 0px 14px !important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+    display:none;
+}
+
+.val_status {
+    text-align: center;
+    display: none;
+}
+/* End of Validation Error*/
 /*----------------------------------------------------*/
 /* Footer area css
 ============================================================================================ */

@@ -157,7 +157,8 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
         <script src="<?php echo base_url(); ?>assets/js/gmaps.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
-        
+        <script src="<?php echo base_url(); ?>assets/js/custom_validation.js"></script>
+
         <!--<script src="js/video_player.js"></script>-->
         <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
 
