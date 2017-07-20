@@ -139,7 +139,10 @@
                          <li id="payment"><a href="<?php echo base_url(); ?>payment">Payment</a></li>
                         <li id="contact"><a href="<?php echo base_url(); ?>contact">Contact</a></li>
                         <?php 
-                        if(!empty($this->session->userdata("login_status"))){ ?>
+                            // if(!empty($this->session->userdata("login_status"))){ 
+                            $user_session = $this->session->userdata("login_status");
+                            if (!empty($user_session)){
+                        ?>
                         <li class="dropdown submenu">
                             <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, Madhi <i class="fa fa-user-circle" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu">

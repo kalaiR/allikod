@@ -1,5 +1,6 @@
 <?php 
-	if(!empty($this->session->userdata("admin_login_status"))):
+	$user_session = $this->session->userdata("admin_login_status");
+    if (!empty($user_session)):
     	include('templates/header.php');
 ?>
 	<!-- topbar ends -->

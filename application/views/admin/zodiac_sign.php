@@ -1,6 +1,7 @@
 <?php 
-	if(!empty($this->session->userdata("admin_login_status"))):
-    include('templates/header.php');
+	$user_session = $this->session->userdata("admin_login_status");
+    if (!empty($user_session)):
+    	include('templates/header.php');
 ?>
 	<div id="content" class="span11">
 			<!-- content starts -->

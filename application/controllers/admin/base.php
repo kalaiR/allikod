@@ -64,8 +64,10 @@ class Base extends CI_Controller {
 			}
 		}
 		else{
-			if(!empty($this->session->userdata("admin_login_status")))
-			redirect(base_url().'admin/dashboard');
+			// if(!empty($this->session->userdata("admin_login_status")))
+			$user_session = $this->session->userdata("admin_login_status");
+            if (!empty($user_session))
+				redirect(base_url().'admin/dashboard');
 			$this->load->view('admin/login');
 		}		
 	}	
