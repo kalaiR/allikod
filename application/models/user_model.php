@@ -217,6 +217,34 @@ class User_model extends CI_Model {
       return $query;
   }
 
+  /** Basic search **/
+  public function get_basicsearch($values){     
+      $condition = "usr.user_gender = ".$values['gender']." AND usr.user_age >= ".$values['age_from']." AND usr.user_age <= ".$values['age_to']." AND phy.phy_height >= ".$values['height_from']." AND phy.phy_height <= ".$values['height_to']." AND usr.user_maritalstatus = ".$values['mar_status']."";
+      $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation');
+      $join = $this->db->from('reg_userdetail AS usr INNER JOIN reg_religion_ethnicity AS rel ON rel.reg_user_id = usr.userdetail_id
+      INNER JOIN reg_physical_expectation AS phy ON phy.reg_user_id = usr.userdetail_id       
+      INNER JOIN reg_education_occupation AS edu ON edu.reg_user_id = usr.userdetail_id');      
+      $this->db->where($condition);      
+      $this->db->order_by('usr.userdetail_id','desc');
+      $query = $this->db->get()->result_array();          
+      return $query;
+  }
+
+  /** Search by Id **/
+  public function get_datauserId($values){     
+      $condition = "usr.userdetail_id = ".$values."";
+      $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation');
+      $join = $this->db->from('reg_userdetail AS usr INNER JOIN reg_religion_ethnicity AS rel ON rel.reg_user_id = usr.userdetail_id
+      INNER JOIN reg_physical_expectation AS phy ON phy.reg_user_id = usr.userdetail_id       
+      INNER JOIN reg_education_occupation AS edu ON edu.reg_user_id = usr.userdetail_id');      
+      $this->db->where($condition);      
+      $this->db->order_by('usr.userdetail_id','desc');
+      $query = $this->db->get()->result_array();          
+      return $query;
+  }
+
+  
+
 }
 
 /* End of file User_model.php */
