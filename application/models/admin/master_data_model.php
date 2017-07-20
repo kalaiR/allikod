@@ -25,7 +25,8 @@ class Master_data_model extends CI_Model {
 
     // Update data
     if($status=='update') {
-      if(is_numeric($this->input->post('rid')) && !empty($this->db->get_where('zodiac_sign', array('zodiacsign_id' => $this->input->post('rid')))->row_array()))
+      $res = $this->db->get_where('zodiac_sign', array('zodiacsign_id' => $this->input->post('rid')))->row_array();
+      if(is_numeric($this->input->post('rid')) && !empty($res))
       { 
         // if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
           $zodiac_update_data = array( 
@@ -110,7 +111,8 @@ class Master_data_model extends CI_Model {
 
     // Update data
     if($status=='update') {
-      if(is_numeric($this->input->post('rid')) && !empty($this->db->get_where('nakshathra', array('nakshathra_id' => $this->input->post('rid')))->row_array()))
+      $res = $this->db->get_where('nakshathra', array('nakshathra_id' => $this->input->post('rid')))->row_array();
+      if(is_numeric($this->input->post('rid')) && !empty($res))
       { 
         // if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
           $nakshathra_update_data = array( 
@@ -195,7 +197,8 @@ class Master_data_model extends CI_Model {
 
     // Update data
     if($status=='update') {
-      if(is_numeric($this->input->post('rid')) && !empty($this->db->get_where('zodiac_sign', array('zodiacsign_id' => $this->input->post('rid')))->row_array()))
+      $res = $this->db->get_where('zodiac_sign', array('zodiacsign_id' => $this->input->post('rid')))->row_array();
+      if(is_numeric($this->input->post('rid')) && !empty($res))
       { 
         // if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
           $successstory_update_data = array( 
@@ -290,7 +293,8 @@ class Master_data_model extends CI_Model {
 
     // Update data
     if($status=='update') {
-      if(is_numeric($this->input->post('rid')) && !empty($this->db->get_where('mother_tongue', array('mothertongue_id' => $this->input->post('rid')))->row_array()))
+      $res = $this->db->get_where('mother_tongue', array('mothertongue_id' => $this->input->post('rid')))->row_array();
+      if(is_numeric($this->input->post('rid')) && !empty($res))
       { 
         // if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
           $mothertongue_update_data = array( 
@@ -375,7 +379,8 @@ class Master_data_model extends CI_Model {
 
     // Update data
     if($status=='update') {
-      if(is_numeric($this->input->post('rid')) && !empty($this->db->get_where('luknam', array('luknam_id' => $this->input->post('rid')))->row_array()))
+      $res = $this->db->get_where('luknam', array('luknam_id' => $this->input->post('rid')))->row_array();
+      if(is_numeric($this->input->post('rid')) && !empty($res))
       { 
         // if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
           $luknam_update_data = array( 
@@ -460,7 +465,8 @@ class Master_data_model extends CI_Model {
 
     // Update data
     if($status=='update') {
-      if(is_numeric($this->input->post('rid')) && !empty($this->db->get_where('country', array('country_id' => $this->input->post('rid')))->row_array()))
+      $res = $this->db->get_where('country', array('country_id' => $this->input->post('rid')))->row_array();
+      if(is_numeric($this->input->post('rid')) && !empty($res))
       { 
         // if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
           $country_update_data = array( 
@@ -545,7 +551,8 @@ class Master_data_model extends CI_Model {
 
     // Update data
     if($status=='update') {
-      if(is_numeric($this->input->post('rid')) && !empty($this->db->get_where('admin', array('admin_id' => $this->input->post('rid')))->row_array()))
+      $res = $this->db->get_where('admin', array('admin_id' => $this->input->post('rid')))->row_array();
+      if(is_numeric($this->input->post('rid')) && !empty($res))
       { 
         // if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
           $admin_update_data = array( 

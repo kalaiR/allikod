@@ -64,10 +64,20 @@ if($_SERVER['SERVER_ADDR'] === '::1' || $_SERVER['SERVER_ADDR'] === '127.0.0.1')
 // }
 // Live server
 else{
+	// $db['default']['hostname'] = 'mysql1111.ixwebhosting.com';
+	// $db['default']['username'] = 'BBBn3tl_valli123';
+	// $db['default']['password'] = 'Valli123';
+	// $db['default']['database'] = 'BBBn3tl_vallikodinew';
+
+	// $db['default']['hostname'] = 'mysql1111.ixwebhosting.com';
+	// $db['default']['username'] = 'BBBn3tl_vallinew';
+	// $db['default']['password'] = 'Valli123';
+	// $db['default']['database'] = 'BBBn3tl_vallikodinew';
+
 	$db['default']['hostname'] = 'mysql1111.ixwebhosting.com';
-	$db['default']['username'] = 'BBBn3tl_valli123';
+	$db['default']['username'] = 'BBBn3tl_valli';
 	$db['default']['password'] = 'Valli123';
-	$db['default']['database'] = 'BBBn3tl_vallikodinew';
+	$db['default']['database'] = 'BBBn3tl_valli';
 }
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';

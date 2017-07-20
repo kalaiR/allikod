@@ -31,7 +31,6 @@ class Base extends CI_Controller {
 			$data['martial_status'] = $this->user_model->get_martialstatus();
 			$data['success_stories'] = $this->user_model->get_success_stories_limit();
 			$data['recent_profile'] = $this->user_model->get_recent_profile();
-			print_r($data['recent_profile']);
 			$this->load->view('index', $data);
 		}
 	}

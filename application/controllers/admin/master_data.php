@@ -133,7 +133,9 @@ class Master_Data extends CI_Controller {
 				if($this->input->post('action') == 'save')
 					$result['output'] = $this->load->view('admin/add_zodiac_sign',$data_ajax,true);
 				else if($this->input->post('action') == 'update'){
-					$data_ajax['zodiac_data'] = $this->master_data_model->zodiac_sign('edit')['zodiac_data'];
+					// $data_ajax['zodiac_data'] = $this->master_data_model->zodiac_sign('edit')['zodiac_data'];
+					$data_res = $this->master_data_model->zodiac_sign('edit');
+					$data_ajax['zodiac_data'] = $data_res['zodiac_data'];
 					$result['output'] = $this->load->view('admin/edit_zodiac_sign',$data_ajax,true);
 				}
 				else
@@ -155,7 +157,8 @@ class Master_Data extends CI_Controller {
 	}
 	// zodiac_sign - Load Edit page
 	public function edit_zodiac_sign(){
-		$status['zodiac_data'] = $this->master_data_model->zodiac_sign('edit')['zodiac_data'];
+		$data_res = $this->master_data_model->zodiac_sign('edit');
+		$status['zodiac_data'] = $data_res['zodiac_data'];
 		$this->load->view('admin/edit_zodiac_sign',$status);
 	}
 
@@ -237,7 +240,8 @@ class Master_Data extends CI_Controller {
 				if($this->input->post('action') == 'save')
 					$result['output'] = $this->load->view('admin/add_nakshathra',$data_ajax,true);
 				else if($this->input->post('action') == 'update'){
-					$data_ajax['nakshathra_data'] = $this->master_data_model->nakshathra('edit')['nakshathra_data'];
+					$data_res = $this->master_data_model->nakshathra('edit');
+					$data_ajax['nakshathra_data'] = $data_res['nakshathra_data'];
 					$result['output'] = $this->load->view('admin/edit_nakshathra',$data_ajax,true);
 				}
 				else
@@ -259,7 +263,8 @@ class Master_Data extends CI_Controller {
 	}
 	// nakshathra - Load Edit page
 	public function edit_nakshathra(){
-		$status['nakshathra_data'] = $this->master_data_model->nakshathra('edit')['nakshathra_data'];
+		$data_res = $this->master_data_model->nakshathra('edit');
+		$status['nakshathra_data'] = $data_res['nakshathra_data'];
 		$this->load->view('admin/edit_nakshathra',$status);
 	}
 
@@ -340,7 +345,8 @@ class Master_Data extends CI_Controller {
 				if($this->input->post('action') == 'save')
 					$result['output'] = $this->load->view('admin/add_mother_tongue',$data_ajax,true);
 				else if($this->input->post('action') == 'update'){
-					$data_ajax['mothertongue_data'] = $this->master_data_model->mother_tongue('edit')['mothertongue_data'];
+					$data_res = $this->master_data_model->mother_tongue('edit');
+					$data_ajax['mothertongue_data'] = $data_res['mothertongue_data'];
 					$result['output'] = $this->load->view('admin/edit_mother_tongue',$data_ajax,true);
 				}
 				else
@@ -362,7 +368,8 @@ class Master_Data extends CI_Controller {
 	}
 	// mother_tongue - Load Edit page
 	public function edit_mother_tongue(){
-		$status['mothertongue_data'] = $this->master_data_model->mother_tongue('edit')['mothertongue_data'];
+		$data_res = $this->master_data_model->mother_tongue('edit');
+		$status['mothertongue_data'] = $data_res['mothertongue_data'];
 		$this->load->view('admin/edit_mother_tongue',$status);
 	}
 
@@ -443,7 +450,8 @@ class Master_Data extends CI_Controller {
 				if($this->input->post('action') == 'save')
 					$result['output'] = $this->load->view('admin/add_luknam',$data_ajax,true);
 				else if($this->input->post('action') == 'update'){
-					$data_ajax['luknam_data'] = $this->master_data_model->luknam('edit')['luknam_data'];
+					$data_res = $this->master_data_model->luknam('edit');
+					$data_ajax['luknam_data'] = $data_res['luknam_data'];
 					$result['output'] = $this->load->view('admin/edit_luknam',$data_ajax,true);
 				}
 				else
@@ -465,7 +473,8 @@ class Master_Data extends CI_Controller {
 	}
 	// luknam - Load Edit page
 	public function edit_luknam(){
-		$status['luknam_data'] = $this->master_data_model->luknam('edit')['luknam_data'];
+		$data_res = $this->master_data_model->luknam('edit');
+		$status['luknam_data'] = $data_res['luknam_data'];
 		$this->load->view('admin/edit_luknam',$status);
 	}
 
@@ -546,7 +555,8 @@ class Master_Data extends CI_Controller {
 				if($this->input->post('action') == 'save')
 					$result['output'] = $this->load->view('admin/add_country',$data_ajax,true);
 				else if($this->input->post('action') == 'update'){
-					$data_ajax['country_data'] = $this->master_data_model->country('edit')['country_data'];
+					$data_res = $this->master_data_model->country('edit');
+					$data_ajax['country_data'] = $data_res['country_data'];
 					$result['output'] = $this->load->view('admin/edit_country',$data_ajax,true);
 				}
 				else
@@ -568,7 +578,8 @@ class Master_Data extends CI_Controller {
 	}
 	// country - Load Edit page
 	public function edit_country(){
-		$status['country_data'] = $this->master_data_model->country('edit')['country_data'];
+		$data_res = $this->master_data_model->country('edit');
+		$status['country_data'] = $data_res['country_data'];
 		$this->load->view('admin/edit_country',$status);
 	}
 
@@ -687,7 +698,8 @@ class Master_Data extends CI_Controller {
 				if($this->input->post('action') == 'save')
 					$result['output'] = $this->load->view('admin/add_successful_story',$data_ajax,true);
 				else if($this->input->post('action') == 'update'){
-					$data_ajax['successtory_data'] = $this->master_data_model->successful_story('edit')['successtory_data'];
+					$data_res = $this->master_data_model->successful_story('edit');
+					$data_ajax['successtory_data'] = $data_res['successtory_data'];
 					$result['output'] = $this->load->view('admin/edit_successful_story',$data_ajax,true);
 				}
 				else
@@ -709,7 +721,8 @@ class Master_Data extends CI_Controller {
 	}
 	// zodiac_sign - Load Edit page
 	public function edit_successful_story(){
-		$status['successtory_data'] = $this->master_data_model->successful_story('edit')['successtory_data'];
+		$data_res = $this->master_data_model->successful_story('edit');
+		$status['successtory_data'] = $data_res['successtory_data'];
 		$this->load->view('admin/edit_successful_story',$status);
 	}
 
@@ -794,7 +807,8 @@ class Master_Data extends CI_Controller {
 				if($this->input->post('action') == 'save')
 					$result['output'] = $this->load->view('admin/add_administration',$data_ajax,true);
 				else if($this->input->post('action') == 'update'){
-					$data_ajax['admin_data'] = $this->master_data_model->administration('edit')['admin_data'];
+					$data_res = $this->master_data_model->administration('edit');
+					$data_ajax['admin_data'] = $data_res['admin_data'];
 					$result['output'] = $this->load->view('admin/edit_administration',$data_ajax,true);
 				}
 				else
@@ -816,7 +830,8 @@ class Master_Data extends CI_Controller {
 	}
 	// administration - Load Edit page
 	public function edit_administration(){
-		$status['admin_data'] = $this->master_data_model->administration('edit')['admin_data'];
+		$data_res = $this->master_data_model->administration('edit');
+		$status['admin_data'] = $data_res['admin_data'];
 		$this->load->view('admin/edit_administration',$status);
 	}
 

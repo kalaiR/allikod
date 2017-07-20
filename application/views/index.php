@@ -194,7 +194,7 @@
                                 <div class="blog_grid_item">
                                     <div class="blog_grid_img">
                                         <!-- <img src="<?php echo base_url(); ?>assets/img/blog/stories/stories-1.jpg" alt=""> -->
-                                        <img src="<?php if(!empty($suc['image'])) echo base_url()."assets/img/uploads/success".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>">
+                                        <img src="<?php if(!empty($suc['image'])) echo base_url()."assets/img/uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded">
                                         <div class="author_name">
                                             <h4><?php echo $suc['male_name']."&". $suc['female_name'] ?></h4>
                                         </div>
@@ -227,14 +227,14 @@
                     <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
                 <div class="row">
-                <?php print_r($recent_profile); 
+                <?php //print_r($recent_profile); 
                     if(!empty($recent_profile)) :
                       foreach ($recent_profile as $rec) :
                 ?>
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
-                                <img src="<?php if(!empty($rec['images'])) echo base_url()."assets/img/uploads/profile".$rec['images']; else echo base_url()."assets/img/no_image.jpg" ?>">
+                                <img src="<?php if(!empty($rec['images'])) echo base_url()."assets/img/uploads/profile/".$rec['images']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded">
                                 <!-- <img src="<?php echo base_url(); ?>assets/img/shop/product-1.jpg" alt=""> -->
                                 <div class="hover_icon">
                                     <ul>

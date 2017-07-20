@@ -206,14 +206,9 @@ class User_model extends CI_Model {
     return $model_data;
   }
   public function get_recent_profile(){
-      $condition = "usr.user_active_status = 1";
-      $this->db->select('usr_img.images,usr.userdetail_id');
-      $this->db->from('reg_userdetail AS usr');
-      $this->db->join('user_images AS usr_img','usr_img.reg_user_id=usr.userdetail_id','left');
-      $this->db->where($condition);      
-      $this->db->order_by('usr.userdetail_id','desc');
-      $this->db->limit(8);
-      $query = $this->db->get()->result_array();  
+      $query = $this->db->query("select usr.userdetail_id, usr_img.images from reg_userdetail as usr 
+        INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
+        usr.user_active_status =1 AND usr_img.images != '' ORDER BY usr.userdetail_id DESC limit 8")->result_array();
       return $query;
   }
 
