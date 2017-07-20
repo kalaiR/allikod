@@ -190,6 +190,74 @@ $(document).ready(function () {
             return output;
     }
 
+// $("#basic_search").click(function(){            
+//             var output = validate();
+//             if(output) {
+//                 // var current = $(".highlight");
+//                 // var basic_search = $(".highlight").basic_search("li");
+//                 // if(next.length>0) {                
+//                 //     $("#"+current.attr("id")+"-field").hide();
+//                 //     $("#"+basic_search.attr("id")+"-field").show();
+//                 //     $("#back").show();
+//                 //     $("#finish").hide();
+//                 //     $(".highlight").removeClass("highlight");
+//                 //     basic_search.addClass("highlight");                                
+//                 //     if($(".highlight").attr("id") == 'horoscope') {
+//                 //         $("#next").hide();
+//                 //         $("#finish").show();                
+//                 //     }
+//                 // }
+//             }
+//         });
+
+// function validate() {
+//             var output = true;
+//             $(".registration-error").html('');
+//             if($("#base").css('display') != 'none') {
+//                 if(!($("#gender").val())) {
+//                      output = false;
+//                      $("#gender_error").html("Required");
+//                  } 
+//                  if(!($("#search_age_from").val())) {
+//                      output = false;
+//                      $("#search_age_from_error").html("Required");
+//                  }
+//                  if(!($("#height_in_cms").val())) {
+//                      output = false;
+//                      $("#height_in_cms_error").html("Required");
+//                  }
+//                  if(!($("#marital_status").val())) {
+//                      output = false;
+//                      $("#marital_status_error").html("Required");
+//                  }
+//                   if(!($("#mother_tongue").val())) {
+//                      output = false;
+//                      $("#mother_tongue_error").html("Required");
+//                  }
+//                  if(!($("#education").val())) {
+//                      output = false;
+//                      $("#education_error").html("Required");
+//                  }  
+//                  if(!($("#education").val())) {
+//                      output = false;
+//                      $("#education_error").html("Required");
+//                  } 
+//                  if(!($("#show_profile").val())) {
+//                      output = false;
+//                      $("#show_profile_error").html("Required");
+//                  }
+
+//             }
+
+
+
+
+//               return output;
+
+
+//         }
+
+
     $('form#userlogin').submit(function() {
         var formData = new FormData(this);
         var this_status = $(this).find('.admin_status');        
