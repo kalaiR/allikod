@@ -29,10 +29,11 @@
                         <div class="col-sm-6">
                         <form action="registration.php" class="reg_form">
                             <div class="registration_form_s">
+                                
+                                <h4>Registration</h4>
                                 <span class="val_status" style="display: block;">
                                     <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
                                 </span>
-                                <h4>Registration</h4>
                                 <!-- <div class="form-group">
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">

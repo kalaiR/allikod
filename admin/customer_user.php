@@ -72,8 +72,8 @@
 											<td class="center">66699</td>
 											<td class="center">259</td>
 											<td class="center">21-07-2017</td>
-											<td class="center">Madhi</td>
-											<td class="center">Madhi@gmail.com</td>
+											<td class="center">Madhivanan</td>
+											<td class="center">Madhivanan@gmail.com</td>
 											<td class="center">0 / 60</td>
 											<td class="center">
 												<span class="label label-success">CUSTOMER</span>
@@ -88,19 +88,21 @@
 												<span class="label label-success">Paid</span>
 											</td>
 											
-											<td class="center" style="float: left;">
-												<a class="btn btn-warning" href="#">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="view_customer_user.php">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-primary" href="edit_customer_user.php">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
+											<td class="center"  width="150px">
+												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+													<a class="btn btn-warning" href="#">
+														<i class="icon-refresh icon-white" title="Renew"></i>  
+													</a>
+														<a class="btn btn-success" href="view_customer_user.php">
+															<i class="icon-zoom-in icon-white" title="View"></i>  
+													</a>
+														<a class="btn btn-primary" href="edit_customer_user.php">
+															<i class="icon-edit icon-white" title="Edit"></i>  
+													</a>
+														<a class="btn btn-danger btn-setting" href="#">
+															<i class="icon-trash icon-white" title="Delete"></i> 
+													</a>
+												</div>
 											</td>
 										</tr>
 										<tr>
@@ -125,19 +127,21 @@
 												<span class="label label-success">Paid</span>
 											</td>
 											
-											<td class="center">
-												<a class="btn btn-warning" href="#">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="view_customer_user.php">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-primary" href="edit_customer_user.php">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
+											<td class="center"  width="150px">
+												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+													<a class="btn btn-warning" href="#">
+														<i class="icon-refresh icon-white" title="Renew"></i>  
+													</a>
+														<a class="btn btn-success" href="view_customer_user.php">
+															<i class="icon-zoom-in icon-white" title="View"></i>  
+													</a>
+														<a class="btn btn-primary" href="edit_customer_user.php">
+															<i class="icon-edit icon-white" title="Edit"></i>  
+													</a>
+														<a class="btn btn-danger btn-setting" href="#">
+															<i class="icon-trash icon-white" title="Delete"></i> 
+													</a>
+												</div>
 											</td>
 										</tr>							
 									  </tbody>
@@ -183,19 +187,21 @@
 											<td class="center">
 												<span class="label label-danger">Not Paid</span>
 											</td>										
-											<td class="center">
-												<a class="btn btn-warning" href="view_customer_user.php">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="#">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-primary" href="edit_customer_user.php">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
+											<td class="center"  width="150px">
+												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+													<a class="btn btn-warning" href="view_customer_user.php">
+														<i class="icon-refresh icon-white" title="Renew"></i>  
+													</a>
+														<a class="btn btn-success" href="#">
+															<i class="icon-zoom-in icon-white" title="View"></i>  
+													</a>
+														<a class="btn btn-primary" href="edit_customer_user.php">
+															<i class="icon-edit icon-white" title="Edit"></i>  
+													</a>
+														<a class="btn btn-danger btn-setting" href="#">
+															<i class="icon-trash icon-white" title="Delete"></i> 
+													</a>
+												</div>
 											</td>
 										</tr>
 										<tr>
@@ -215,19 +221,21 @@
 											<td class="center">
 												<span class="label label-danger">Not Paid</span>
 											</td>										
-											<td class="center">
-												<a class="btn btn-warning" href="#">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="#">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-primary" href="edit_customer_user.php">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
+											<td class="center"  width="150px">
+												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+													<a class="btn btn-warning" href="#">
+														<i class="icon-refresh icon-white" title="Renew"></i>  
+													</a>
+														<a class="btn btn-success" href="#">
+															<i class="icon-zoom-in icon-white" title="View"></i>  
+													</a>
+														<a class="btn btn-primary" href="edit_customer_user.php">
+															<i class="icon-edit icon-white" title="Edit"></i>  
+													</a>
+														<a class="btn btn-danger btn-setting" href="#">
+															<i class="icon-trash icon-white" title="Delete"></i> 
+													</a>
+												</div>
 											</td>
 										</tr>							
 									  </tbody>
@@ -271,19 +279,21 @@
 											<td class="center">
 												<span class="label label-danger">Not Paid</span>
 											</td>										
-											<td class="center">
-												<a class="btn btn-warning" href="#">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="#">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-primary" href="edit_customer_user.php">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
+											<td class="center"  width="150px">
+												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+													<a class="btn btn-warning" href="#">
+														<i class="icon-refresh icon-white" title="Renew"></i>  
+													</a>
+														<a class="btn btn-success" href="#">
+															<i class="icon-zoom-in icon-white" title="View"></i>  
+													</a>
+														<a class="btn btn-primary" href="edit_customer_user.php">
+															<i class="icon-edit icon-white" title="Edit"></i>  
+													</a>
+														<a class="btn btn-danger btn-setting" href="#">
+															<i class="icon-trash icon-white" title="Delete"></i> 
+													</a>
+												</div>
 											</td>
 										</tr>
 										<tr>
@@ -300,19 +310,21 @@
 											<td class="center">
 												<span class="label label-danger">Not Paid</span>
 											</td>										
-											<td class="center">
-												<a class="btn btn-warning" href="#">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="#">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-primary" href="edit_customer_user.php">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
+											<td class="center"  width="150px">
+												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+													<a class="btn btn-warning" href="#">
+														<i class="icon-refresh icon-white" title="Renew"></i>  
+													</a>
+														<a class="btn btn-success" href="#">
+															<i class="icon-zoom-in icon-white" title="View"></i>  
+													</a>
+														<a class="btn btn-primary" href="edit_customer_user.php">
+															<i class="icon-edit icon-white" title="Edit"></i>  
+													</a>
+														<a class="btn btn-danger btn-setting" href="#">
+															<i class="icon-trash icon-white" title="Delete"></i> 
+													</a>
+												</div>
 											</td>
 										</tr>							
 									  </tbody>
@@ -359,19 +371,21 @@
 											<td class="center">
 												<span class="label label-danger">Not Paid</span>
 											</td>										
-											<td class="center">
-												<a class="btn btn-warning" href="#">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="#">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-primary" href="edit_customer_user.php">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
+											<td class="center"  width="150px">
+												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+													<a class="btn btn-warning" href="#">
+														<i class="icon-refresh icon-white" title="Renew"></i>  
+													</a>
+														<a class="btn btn-success" href="#">
+															<i class="icon-zoom-in icon-white" title="View"></i>  
+													</a>
+														<a class="btn btn-primary" href="edit_customer_user.php">
+															<i class="icon-edit icon-white" title="Edit"></i>  
+													</a>
+														<a class="btn btn-danger btn-setting" href="#">
+															<i class="icon-trash icon-white" title="Delete"></i> 
+													</a>
+												</div>
 											</td>
 										</tr>
 										<tr>

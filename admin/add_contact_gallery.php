@@ -30,6 +30,7 @@
 								<label class="control-label">Category* : </label>
 								<div class="controls">
 								  <select data-rel="chosen">
+								  	<option value="">Category</option>
 									<option>Pondicherry</option>
 									<option>Tindivanam</option>
 									<option>Villupuram</option>
