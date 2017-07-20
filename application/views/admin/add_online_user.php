@@ -467,8 +467,14 @@
 												<label class="control-label">Height : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+													<option value="">In CMs</option>
 													<option>140</option>
 													<option>141</option>
+												  </select>
+												  <select data-rel="chosen">
+													<option value="">In Feet</option>
+													<option>5</option>
+													<option>6</option>
 												  </select>
 												</div>
 											  </div>

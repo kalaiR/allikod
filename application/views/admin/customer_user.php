@@ -121,19 +121,21 @@
 						                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
 						                        ?>
 											</td>											
-											<td class="center">
-												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
+											<td class="center"  width="150px">
+												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+													<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+														<i class="icon-refresh icon-white" title="Renew"></i>  
+													</a>
+														<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+															<i class="icon-zoom-in icon-white" title="View"></i>  
+													</a>
+														<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+															<i class="icon-edit icon-white" title="Edit"></i>  
+													</a>
+														<a class="btn btn-danger btn-setting" href="#">
+															<i class="icon-trash icon-white" title="Delete"></i> 
+													</a>
+												</div>
 											</td>
 										</tr>
 										<?php
@@ -221,19 +223,21 @@
 						                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
 						                        ?>
 											</td>										
-											<td class="center">
-												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
+											<td class="center"  width="150px">
+												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+													<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+														<i class="icon-refresh icon-white" title="Renew"></i>  
+													</a>
+														<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+															<i class="icon-zoom-in icon-white" title="View"></i>  
+													</a>
+														<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+															<i class="icon-edit icon-white" title="Edit"></i>  
+													</a>
+														<a class="btn btn-danger btn-setting" href="#">
+															<i class="icon-trash icon-white" title="Delete"></i> 
+													</a>
+												</div>
 											</td>
 										</tr>
 										<?php
@@ -322,19 +326,21 @@
 						                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
 						                        ?>
 											</td>										
-											<td class="center">
-												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
+											<td class="center"  width="150px">
+												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+													<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+														<i class="icon-refresh icon-white" title="Renew"></i>  
+													</a>
+														<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+															<i class="icon-zoom-in icon-white" title="View"></i>  
+													</a>
+														<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+															<i class="icon-edit icon-white" title="Edit"></i>  
+													</a>
+														<a class="btn btn-danger btn-setting" href="#">
+															<i class="icon-trash icon-white" title="Delete"></i> 
+													</a>
+												</div>
 											</td>
 										</tr>
 										<?php
@@ -418,19 +424,21 @@
 				                        		</span>
 											</td>
 																				
-											<td class="center">
-												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
+											<td class="center"  width="150px">
+												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+													<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+														<i class="icon-refresh icon-white" title="Renew"></i>  
+													</a>
+														<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+															<i class="icon-zoom-in icon-white" title="View"></i>  
+													</a>
+														<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+															<i class="icon-edit icon-white" title="Edit"></i>  
+													</a>
+														<a class="btn btn-danger btn-setting" href="#">
+															<i class="icon-trash icon-white" title="Delete"></i> 
+													</a>
+												</div>
 											</td>
 										</tr>
 										<?php
