@@ -49,7 +49,7 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
+                                                                <div class="col-sm-5 box">
                                                                     <select class="form-control" name="gender[]" id="gender">
                                                                         <option value="">Select</option>
                                                                         <option value="1">Male</option>
@@ -67,19 +67,21 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
+                                                                <div class="col-sm-5 box">
+                                                               
                                                                 <select class="form-control" name="search_age_from[]" id="search_age_from">
                                                                             <option value="">Select</option>
                                                                             <option value="18">18</option>
                                                                             <option value="20">20</option>
                                                                 </select>
-                                                                
+                                                                </div>
+                                                                <div class="col-sm-5 box">
                                                                 <select class="form-control" name="search_age_to[]" id="search_age_to">
                                                                                 <option value="">Select</option>
                                                                                 <option value="21">21</option>
                                                                                 <option value="24">24</option>
                                                                 </select>
-                                                                </div>
+                                                              </div>
                                                             </div>
                                                         </div>        
                                                 </div>
@@ -91,12 +93,14 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
+                                                                <div class="col-sm-5 box">
                                                                     <select class="form-control" name="height_in_cms[]" id="height_in_cms">
                                                                                 <option value="">Select</option>
                                                                                 <option value="160">160</option>
                                                                                 <option value="165">165</option>
                                                                             </select>
+                                                                </div>
+                                                                 <div class="col-sm-5 box">            
                                                                     <select class="form-control" name="height_in_feets[]" id="height_in_feets">
                                                                                 <option value="">Select</option>
                                                                                 <option value="45">45</option>
@@ -114,7 +118,7 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
+                                                                <div class="col-sm-5 box">
                                                                      <select class="form-control customize_plan" name="marital_status[]">                    
                                                                                 <option value="">Select</option>
                                                                                 <?php 
@@ -137,7 +141,7 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
+                                                                 <div class="col-sm-5 box">
                                                                     <select class="form-control customize_plan" name="mother_tongue[]">
                                                                               <option value="">Select</option>
                                                                         <?php 
@@ -160,7 +164,7 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
+                                                                <div class="col-sm-5 box">
                                                                     <select class="form-control" name="education[]" id="education">
                                                                                <option value="">Select</option>
                                                                                 <?php 
@@ -183,7 +187,7 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
+                                                                 <div class="col-sm-5 box">
                                                                     <select class="form-control" name="">
                                                                         <option>Both</option>
                                                                         <option>With Photo</option>
