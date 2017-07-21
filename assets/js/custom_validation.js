@@ -119,10 +119,10 @@
         }
     });
 
-    /*  ===========         Registration Form Validation Start     ===================   */
-     $(document).on('submit','.box,.post_success_form',function(e) {
+    /*  ===========         Basic_Search Form Validation Start     ===================   */
+     $(document).on('submit','.basic_search',function(e) {
         if($(this).find('.bootstrap-select').hasClass('form_inputs')) {
-            $(this).find('.bootstrap-select').removeClass('form_inputs');
+            $(this).find('.bootstrap-select').removeClass(' ');
         }       
         var error = '';
         var error_msg = $(this).find('.val_status');
@@ -199,19 +199,20 @@
        //          }
        //      }
        //  /* Check whether the input and select element has error or not */
-       //  if($(this).find('input,select').hasClass('form-field-error')) {
-       //      if(message == '') {
-       //          message ="Please Provide Valid Information!";
-       //      }
-       //      error_msg.addClass('val_error');
-       //      error_msg.html(message).fadeIn(350);
-       //      return false;
-       //  }
-       //  else {
-       //      error = 0;
-       //      error_msg.fadeOut('fast').html('');
-       //      return true;
-       //  }  
+        if($(this).find('input,select').hasClass('form-field-error')) {
+            if(message == '') {
+                message ="Please Provide Valid Information!";
+            }
+            error_msg.addClass('val_error');
+            error_msg.html(message).fadeIn(350);
+            return false;
+        }
+        else {
+            error = 0;
+            error_msg.fadeOut('fast').html('');
+            // alert("succes");
+            return true;
+        }  
      }); // End document
 
     //      $(".image_act").on('change',function(){
