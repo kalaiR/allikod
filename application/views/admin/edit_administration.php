@@ -60,7 +60,7 @@
 								<label class="control-label">Admin Type : </label>
 								<div class="controls">
 								  <select class="form_inputs" data-rel="chosen" name="adm_type">
-									<option value="">Select Status</option>
+									<option value="">Select Admin Type</option>
 									<option value="1" <?php if ($admin_data['admin_permission'] == 1) echo "selected"; ?>>Admin</option>
 									<option value="2" <?php if ($admin_data['admin_permission'] == 0) echo "selected"; ?>>Selling Admin</option>
 								  </select>
