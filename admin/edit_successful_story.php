@@ -65,6 +65,7 @@
 								<label class="control-label">Status : </label>
 								<div class="controls">
 								  <select data-rel="chosen">
+								  	<option value="">Status</option>
 									<option>Activated</option>
 									<option>Diabled</option>									
 								  </select>

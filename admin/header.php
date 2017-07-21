@@ -43,6 +43,7 @@
 	<link href='css/jquery.iphone.toggle.css' rel='stylesheet'>
 	<link href='css/opa-icons.css' rel='stylesheet'>
 	<link href='css/uploadify.css' rel='stylesheet'>
+	<link href='css/sidebar-menu.css' rel='stylesheet'>
 	
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -118,34 +119,82 @@
 	<!-- left menu starts -->
 	<div class="span2 main-menu-span">
 		<div class="well nav-collapse sidebar-nav">
-			<ul class="nav nav-tabs nav-stacked main-menu">
+			<ul class="nav nav-tabs nav-stacked sidebar-menu main-menu">
 				<!-- <li class="nav-header hidden-tablet">Main</li> -->
-				<li><a class="ajax-link" href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+				
+				<li><a href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+				<li><a class="ajax-link" href="#"><i class="icon-user"></i><span> Administration</a>
+					<ul class="sidebar-submenu">
+						<li><a class="ajax-link" href="administration.php"><i class="icon-eye-open"></i><span> Administration View</span></a></li>
+					</ul>
+				</li>
+				<li class=""><a href="report.php"><i class="icon-list-alt"></i><span> Report</a>
+					<!-- <ul class="sidebar-submenu">
+						<li><a class="ajax-link" href="report.php"><i class="icon-list-alt"></i><span class="hidden-tablet"> Report</span></a></li>
+					</ul> -->
+				</li>
+				<li class=""><a href="customer_user.php"><i class="icon icon-darkgray icon-users"></i><span> Customer User</a>
+					<!-- <ul class="sidebar-submenu" >
+						<li><a class="ajax-link" href="customer_user.php"><i class="icon icon-darkgray icon-users"></i><span class="hidden-tablet"> Customer User</span></a></li>
+					</ul> -->
+				</li>
+				<li class=""><a href="successful_story.php"><i class="icon icon-darkgray icon-book"></i><span> Successful Story</a>
+					<!-- <ul class="sidebar-submenu">
+						<li><a class="ajax-link" href="successful_story.php"><i class="icon icon-darkgray icon-book"></i><span class="hidden-tablet"> Successful Story</span></a></li>
+					</ul> -->
+				</li>
+				<li class=""><a href="#"><i class="icon-envelope"></i><span> Mail</a>
+					<ul class="sidebar-submenu">
+						<li><a class="ajax-link" href="index.php"><i class="icon-envelope"></i><span class="hidden-tablet"> Mail</span></a></li>
+						<li><a class="ajax-link" href="index.php"><i class="icon-envelope"></i><span class="hidden-tablet"> Send Mail</span></a></li>
+						<li><a class="ajax-link" href="index.php"><i class="icon-comment"></i><span class="hidden-tablet">Send SMS</span></a></li>
+					</ul>
+				</li>
+				<li class=""><a href="#"><i class="icon-picture"></i> Gallery</a>
+					<ul class="sidebar-submenu">
+						<li><a class="ajax-link" href="gallery_upload.php"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery Upload</span></a></li>
+						<li><a class="ajax-link" href="gallery_category.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Gallery category</span></a></li>
+						<li><a class="ajax-link" href="contact_gallery_upload.php"><i class="icon-calendar"></i><span class="hidden-tablet">Contact Gallery Upload</span></a></li>
+					</ul>
+				</li>
+				<li class=""><a href="#"><i class="icon-cog"></i> Settings</a>
+					<ul class="sidebar-submenu">
+						<li><a class="ajax-link" href="zodiac_sign.php"><i class="icon-screenshot"></i><span class="hidden-tablet">Zodiac Sign</span></a></li>
+						<li><a class="ajax-link" href="nakshathra.php"><i class="icon-star"></i><span class="hidden-tablet">Nakshathra</span></a></li>
+						<li><a class="ajax-link" href="mother_tongue.php"><i class="icon-font"></i><span class="hidden-tablet">Mother Tongue</span></a></li>
+						<li><a class="ajax-link" href="luknam.php"><i class="icon-folder-open"></i><span class="hidden-tablet">Luknam</span></a></li>
+						<li><a class="ajax-link" href="country.php"><i class="icon-globe"></i><span class="hidden-tablet">Country</span></a></li>
+						<li><a class="ajax-link" href="education.php"><i class="icon-edit"></i><span class="hidden-tablet">Education</span></a></li>
+						<li><a class="ajax-link" href="occupation.php"><i class="icon-briefcase"></i><span class="hidden-tablet">Occupation</span></a></li>
+					</ul>
+				</li>
+				<!-- <li><a class="ajax-link" href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 				<li class="nav-header hidden-tablet">Administration</li>
-				<li><a class="ajax-link" href="administration.php"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
+				<li><a class="ajax-link" href="administration.php"><i class="icon-user"></i><span class="hidden-tablet"> Administration View</span></a></li> -->
 				<!-- <li><a class="ajax-link" href="selling_admin.php"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li> -->
-				<li class="nav-header hidden-tablet">Report</li>				
-				<li><a class="ajax-link" href="report.php"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
+				<!-- <li class="nav-header hidden-tablet">Report</li>				
+				<li><a class="ajax-link" href="report.php"><i class="icon-list-alt"></i><span class="hidden-tablet"> Report</span></a></li>
 				<li class="nav-header hidden-tablet">Customer User</li>
-				<li><a class="ajax-link" href="customer_user.php"><i class="icon-user"></i></i><span class="hidden-tablet">View Customer User</span></a></li>
+				<li><a class="ajax-link" href="customer_user.php"><i class="icon icon-darkgray icon-users"></i></i><span class="hidden-tablet">View Customer User</span></a></li>
 				<li class="nav-header hidden-tablet">Successful Story</li>
-				<li><a class="ajax-link" href="successful_story.php"><i class="icon-font"></i><span class="hidden-tablet"> Successful Story</span></a></li>
+				<li><a class="ajax-link" href="successful_story.php"><i class="icon icon-darkgray icon-book"></i><span class="hidden-tablet"> Successful Story</span></a></li>
 				<li class="nav-header hidden-tablet">Mail</li>
-				<li><a class="ajax-link" href="index.php"><i class="icon-align-justify"></i><span class="hidden-tablet"> Mail</span></a></li>
-				<!-- <li class="nav-header hidden-tablet">Sample Section</li> -->
-				<li><a class="ajax-link" href="index.php"><i class="icon-picture"></i><span class="hidden-tablet"> Send Mail</span></a></li>
-				<li><a class="ajax-link" href="index.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Send SMS</span></a></li>
+				<li><a class="ajax-link" href="index.php"><i class="icon-envelope"></i><span class="hidden-tablet"> Mail</span></a></li>
+				
+				<li><a class="ajax-link" href="index.php"><i class="icon-envelope"></i><span class="hidden-tablet"> Send Mail</span></a></li>
+				<li><a class="ajax-link" href="index.php"><i class="icon-comment"></i><span class="hidden-tablet"> Send SMS</span></a></li>
 				<li class="nav-header hidden-tablet">Gallery</li>
 				<li><a class="ajax-link" href="gallery_upload.php"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery Upload</span></a></li>
 				<li><a class="ajax-link" href="gallery_category.php"><i class="icon-align-justify"></i><span class="hidden-tablet"> Gallery Category</span></a></li>
 				<li><a class="ajax-link" href="contact_gallery_upload.php"><i class="icon-calendar"></i><span class="hidden-tablet">Contact Gallery Upload</span></a></li>
 				<li class="nav-header hidden-tablet">Setting</li>
-				<li><a class="ajax-link" href="zodiac_sign.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Zodiac Sign</span></a></li>
-				<li><a class="ajax-link" href="nakshathra.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Nakshathra</span></a></li>
-				<li><a class="ajax-link" href="mother_tongue.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Mother Tongue</span></a></li>
-				<li><a class="ajax-link" href="luknam.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Luknam</span></a></li>
-				<li><a class="ajax-link" href="country.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Country</span></a></li>
-				<li><a class="ajax-link" href="education.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Education</span></a></li>
-				<li><a class="ajax-link" href="occupation.php"><i class="icon-calendar"></i><span class="hidden-tablet"> Occupation</span></a></li>
+				<li><a class="ajax-link" href="zodiac_sign.php"><i class="icon-screenshot"></i><span class="hidden-tablet"> Zodiac Sign</span></a></li>
+				<li><a class="ajax-link" href="nakshathra.php"><i class="icon-star"></i><span class="hidden-tablet"> Nakshathra</span></a></li>
+				<li><a class="ajax-link" href="mother_tongue.php"><i class="icon-font"></i><span class="hidden-tablet"> Mother Tongue</span></a></li>
+				<li><a class="ajax-link" href="luknam.php"><i class="icon-folder-open"></i><span class="hidden-tablet"> Luknam</span></a></li>
+				<li><a class="ajax-link" href="country.php"><i class="icon-globe"></i><span class="hidden-tablet"> Country</span></a></li>
+				<li><a class="ajax-link" href="education.php"><i class="icon-edit"></i><span class="hidden-tablet"> Education</span></a></li>
+				<li><a class="ajax-link" href="occupation.php"><i class="icon-briefcase"></i><span class="hidden-tablet"> Occupation</span></a></li> -->
+			</ul>
 		</div><!--/.well -->
 	</div><!-- left menu ends -->

@@ -161,6 +161,7 @@
 												<label class="control-label">Payment Active Status : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Payment Active</option>
 													<option>Yes</option>
 													<option>No</option>
 												  </select>
@@ -170,6 +171,7 @@
 												<label class="control-label">Profile Active Status : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Profile Active</option>
 													<option>Active</option>
 													<option>Not Active</option>
 												  </select>
@@ -204,6 +206,7 @@
 												<label class="control-label">Registered By : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Registered By</option>
 													<option>Parents</option>
 													<option>Friend</option>
 												  </select>
@@ -219,6 +222,7 @@
 												<label class="control-label">Gender : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Gender</option>
 													<option>Male</option>
 													<option>Female</option>
 												  </select>
@@ -235,6 +239,7 @@
 												<label class="control-label">Marital Status : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Marital Status</option>
 													<option>Single</option>
 													<option>Widowed</option>
 													<option>Divorced</option>
@@ -265,6 +270,7 @@
 												<label class="control-label">Mother Tongue : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Mother Tongue</option>
 													<option>Tamil</option>
 													<option>Malayalam</option>
 												  </select>
@@ -292,6 +298,7 @@
 												<label class="control-label">Nakshathra<b>*</b> : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Nakshathra</option>
 													<option>Star</option>
 													<option>Sun</option>
 												  </select>
@@ -300,6 +307,7 @@
 												<label class="control-label">Luknam : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Luknam</option>
 													<option>Star</option>
 													<option>Sun</option>
 												  </select>
@@ -315,6 +323,7 @@
 												<label class="control-label">Zodiac Sign<b>*</b> : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Zodiac Sign</option>
 													<option>Virgo</option>
 													<option>Capricon</option>
 												  </select>
@@ -363,6 +372,7 @@
 												<label class="control-label">Occupation<b>*</b> : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Occuoation</option>
 													<option>Admin</option>
 													<option>Manager</option>
 												  </select>
@@ -372,6 +382,7 @@
 												<label class="control-label">Employed In<b>*</b> : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Employed In</option>
 													<option>Government</option>
 													<option>Not Working</option>
 												  </select>
@@ -406,6 +417,7 @@
 												<label class="control-label">Resident of : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Resident of</option>
 													<option>India</option>
 													<option>Sri Lanka</option>
 												  </select>
@@ -415,6 +427,7 @@
 												<label class="control-label">Current Country : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Current Country</option>
 													<option>India</option>
 													<option>Sri Lanka</option>
 												  </select>
@@ -482,6 +495,7 @@
 												<label class="control-label">Weight : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Weight</option>
 													<option>60</option>
 													<option>65</option>
 												  </select>
@@ -491,6 +505,7 @@
 												<label class="control-label">Body Type : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Body Type</option>
 													<option>Slim</option>
 													<option>Heavy</option>
 												  </select>
@@ -500,6 +515,7 @@
 												<label class="control-label">Complexion : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Complexion</option>
 													<option>Wheatish</option>
 													<option>Dark</option>
 												  </select>
@@ -509,6 +525,7 @@
 												<label class="control-label">Physical Status : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Physical Status</option>
 													<option>Normal</option>
 													<option>Phisically Challenged</option>
 												  </select>
@@ -531,6 +548,7 @@
 												<label class="control-label">Food : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Food</option>
 													<option>Vegetarian</option>
 													<option>Non-Vegetarian</option>
 												  </select>
@@ -577,6 +595,7 @@
 												<label class="control-label">Family Status<b>*</b> : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Family Status</option>
 													<option>Middle</option>
 													<option>Upper Middle</option>
 												  </select>
@@ -586,6 +605,7 @@
 												<label class="control-label">Family Type<b>*</b> : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Family Type</option>
 													<option>Nuclear</option>
 													<option>Join</option>
 												  </select>
@@ -702,21 +722,21 @@
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
-											<fieldset>											  
+											<fieldset>									  
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Age : </label>
-												<div class="controls">
-												  <select data-rel="chosen" value="From">
-													<option>20</option>
-													<option>23</option>
-												  </select>
-												</div>
+												<label class="control-label">Age : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+													<option value="">From</option>
 													<option>25</option>
 													<option>26</option>
 												  </select>
-												</div>												
+												  <select data-rel="chosen">
+													<option value="">To</option>
+													<option>35</option>
+													<option>36</option>
+												  </select>
+												</div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Marital Status :</label>
