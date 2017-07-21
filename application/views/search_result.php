@@ -35,9 +35,11 @@ include('include/menu.php');
                         </div>
                      </div>
                  </div>
+                 <div class="row">
+                 <div class="col-md-9">
                 <?php foreach($results as $value) { ?>    
-                <div class="row">
-                     <div class="col-md-9">
+                
+                    
                     <div class="col-md-4 col-sm-6">
                         <img src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="">
                           <!-- <div><a href="#">More Images</a></div>  -->
@@ -89,8 +91,11 @@ include('include/menu.php');
                           </div>  
                         </div>
                     </div>      
-                </div> 
+                     
                 <?php } ?>
+                </div>
+
+                    
                     <div class="col-md-3">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
@@ -108,10 +113,10 @@ include('include/menu.php');
                                         <!-- <a href="#">$50</a>
                                         <a href="#">$350</a> -->
                                     </div>
-                                </div>    
+                                </div>
+                                </aside>    
                         </div>
-                    </div>
-                    <div class="col-md-3">
+                    
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -124,10 +129,10 @@ include('include/menu.php');
                                         <!-- <a href="#">$50</a>
                                         <a href="#">$350</a> -->
                                     </div>
-                                </div>    
+                                </div>  
+                                </aside>  
                         </div>
-                    </div>
-                    <div class="col-md-3">
+                   
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -140,10 +145,10 @@ include('include/menu.php');
                                         <!-- <a href="#">$50</a>
                                         <a href="#">$350</a> -->
                                     </div>
-                                </div>    
+                                </div> 
+                                </aside>   
                         </div>
-                    </div>
-                    <div class="col-md-3">
+                   
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -177,9 +182,9 @@ include('include/menu.php');
                                             Annulled
                                     </label>
                                 </div>
+                                </aside>
                         </div>
-                    </div>
-                    <div class="col-md-3">
+                    
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -213,9 +218,9 @@ include('include/menu.php');
                                             Other
                                     </label>
                                 </div>
+                                </aside>
                         </div>
-                    </div>
-                    <div class="col-md-3">
+                   
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -249,9 +254,9 @@ include('include/menu.php');
                                             Other
                                     </label>
                                 </div>
+                                </aside>
                         </div>
-                    </div>
-                    <div class="col-md-3">
+                    
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -285,9 +290,9 @@ include('include/menu.php');
                                             Other
                                     </label>
                                 </div>
+                                </aside>
                         </div>
-                    </div>
-                    <div class="col-md-3">
+                   
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -314,9 +319,9 @@ include('include/menu.php');
                                             Eggetartion
                                     </label>
                                 </div>
+                                </aside>
                         </div>
-                    </div>
-                    <div class="col-md-3">
+                    
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -350,9 +355,9 @@ include('include/menu.php');
                                            Dark
                                     </label>
                                 </div>
+                                </aside>
                         </div>
-                    </div>
-                    <div class="col-md-3">
+                    
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -386,9 +391,10 @@ include('include/menu.php');
                                            Heavy
                                     </label>
                                 </div>
+                                </aside>
                         </div>
                     </div>
-                </div>
+                </div>              
                 <div class="pagination_area">
                     <a class="prev" href="#">Previous</a>
                     <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>

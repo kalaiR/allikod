@@ -38,10 +38,10 @@
                                                     <span data-bind="label">Registered By</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
                                                     </button> -->
                                                     <!-- <ul class="dropdown-menu" role="menu">
-                                                        <li><a href="<?php echo base_url(); ?>index.php/#">Self</a></li>
-                                                        <li><a href="<?php echo base_url(); ?>index.php/#">Friend</a></li>
-                                                        <li><a href="<?php echo base_url(); ?>index.php/#">Brother</a></li>
-                                                        <li><a href="<?php echo base_url(); ?>index.php/#">Sister</a></li>
+                                                        <li><a href="<?php echo base_url(); ?>#">Self</a></li>
+                                                        <li><a href="<?php echo base_url(); ?>#">Friend</a></li>
+                                                        <li><a href="<?php echo base_url(); ?>#">Brother</a></li>
+                                                        <li><a href="<?php echo base_url(); ?>#">Sister</a></li>
                                                     </ul> -->
                                                     <span data-bind="label" class="text-font">Registered By</span>
                                                     <select class="form-control customize_plan form_inputs" name="register_by[]" id="register_by" placeholder="RegisterBy-Name">
@@ -169,7 +169,7 @@
                      </div>
                         <div class="col-sm-3">
                             <div class="search_btn">
-                                <a href="<?php echo base_url(); ?>index.php/search_result" class="register_angkar_btn">Search</a>
+                                <a href="<?php echo base_url(); ?>search_result" class="register_angkar_btn">Search</a>
                             </div>
                         </div>
                  </div> 
@@ -192,9 +192,9 @@
                         ?>
                             <div class="item">
                                 <div class="blog_grid_item">
-                                    <div class="blog_grid_img product_img">
+                                    <div class="blog_grid_img">
                                         <!-- <img src="<?php echo base_url(); ?>assets/img/blog/stories/stories-1.jpg" alt=""> -->
-                                        <img class="img-pane" src="<?php if(!empty($suc['image'])) echo base_url()."assets/img/uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded">
+                                        <img src="<?php if(!empty($suc['image'])) echo base_url()."assets/img/uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded">
                                         <div class="author_name">
                                             <h4><?php echo $suc['male_name']."&". $suc['female_name'] ?></h4>
                                         </div>
@@ -234,11 +234,11 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
-                                <img class="img-pane" src="<?php if(!empty($rec['images'])) echo base_url()."assets/img/uploads/profile/".$rec['images']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded">
+                                <img src="<?php if(!empty($rec['images'])) echo base_url()."assets/img/profile/".$rec['images']; else echo base_url()."assets/img/no_image.jpg" ?>"  class ="img-pane" alt="Image not loaded">
                                 <!-- <img src="<?php echo base_url(); ?>assets/img/shop/product-1.jpg" alt=""> -->
                                 <div class="hover_icon">
                                     <ul>
-                                        <li><a href="<?php echo base_url(); ?>index.php/view_customer_user/<?php echo $rec['userdetail_id']; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -254,7 +254,7 @@
                                 <img src="<?php echo base_url(); ?>assets/img/shop/product-2.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
-                                        <li><a href="<?php echo base_url(); ?>index.php/full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -266,7 +266,7 @@
                                 <img src="<?php echo base_url(); ?>assets/img/shop/product-3.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
-                                        <li><a href="<?php echo base_url(); ?>index.php/full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -278,7 +278,7 @@
                                 <img src="<?php echo base_url(); ?>assets/img/shop/product-4.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
-                                        <li><a href="<?php echo base_url(); ?>index.php/full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -290,7 +290,7 @@
                                 <img src="<?php echo base_url(); ?>assets/img/shop/product-1.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
-                                        <li><a href="<?php echo base_url(); ?>index.php/full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -302,7 +302,7 @@
                                 <img src="<?php echo base_url(); ?>assets/img/shop/product-2.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
-                                        <li><a href="<?php echo base_url(); ?>index.php/full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -314,7 +314,7 @@
                                 <img src="<?php echo base_url(); ?>assets/img/shop/product-3.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
-                                        <li><a href="<?php echo base_url(); ?>index.php/full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -326,7 +326,7 @@
                                 <img src="<?php echo base_url(); ?>assets/img/shop/product-4.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
-                                        <li><a href="<?php echo base_url(); ?>index.php/full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>

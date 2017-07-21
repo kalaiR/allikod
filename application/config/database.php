@@ -51,8 +51,8 @@ $active_record = TRUE;
 if($_SERVER['SERVER_ADDR'] === '::1' || $_SERVER['SERVER_ADDR'] === '127.0.0.1'){
 	$db['default']['hostname'] = 'localhost';
 	$db['default']['username'] = 'root';
-	$db['default']['password'] = '';
-	$db['default']['database'] = 'vallikodi_new';
+	$db['default']['password'] = 'root';
+	$db['default']['database'] = 'vallikodi_db';
 
 }
 //Local IP address (Testing server)
@@ -74,10 +74,16 @@ else{
 	// $db['default']['password'] = 'Valli123';
 	// $db['default']['database'] = 'BBBn3tl_vallikodinew';
 
-	$db['default']['hostname'] = 'mysql1111.ixwebhosting.com';
-	$db['default']['username'] = 'BBBn3tl_valli';
-	$db['default']['password'] = 'Valli123';
-	$db['default']['database'] = 'BBBn3tl_valli';
+	// $db['default']['hostname'] = 'mysql1111.ixwebhosting.com';
+	// $db['default']['username'] = 'BBBn3tl_valli';
+	// $db['default']['password'] = 'Valli123';
+	// $db['default']['database'] = 'BBBn3tl_valli';
+
+	//Digitalocean server settings
+	$db['default']['hostname'] = 'localhost';
+	$db['default']['username'] = 'root';
+	$db['default']['password'] = 'root';
+	$db['default']['database'] = 'vallikodi';
 }
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';

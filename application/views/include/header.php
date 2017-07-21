@@ -14,9 +14,9 @@
         <link href="<?php echo base_url(); ?>assets/vendors/linears-icon/style.css" rel="stylesheet">
         
         <!-- RS5.0 Layers and Navigation Styles -->
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>index.php/assets/vendors/revolution/css/layers.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>index.php/assets/vendors/revolution/css/navigation.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>index.php/assets/vendors/revolution/css/settings.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/vendors/revolution/css/layers.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/vendors/revolution/css/navigation.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/vendors/revolution/css/settings.css">
         
         <!-- Bootstrap -->
         <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
@@ -34,8 +34,8 @@
         <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/css/style-links.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/css/responsive.css" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>index.php/assets/css/simplePagination.css"/>
-
+        <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/css/simplePagination.css"/>
+        
         <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script> -->
        
         <!-- <script src="<?php echo base_url(); ?>assets/js/map-custome.js"></script> -->

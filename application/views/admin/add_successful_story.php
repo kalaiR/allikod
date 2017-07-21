@@ -74,6 +74,7 @@
 								<label class="control-label">Status : </label>
 								<div class="controls">
 								  <select data-rel="chosen" class="form_inputs" name="suc_status">
+								  	<option value="">Select Status</option>
 									<option value="1">Active</option>
 									<option value="0">Inactive</option>									
 								  </select>

@@ -3,8 +3,7 @@
             <div class="footer_widgets_area">
                 <div class="container">
                     <div class="row">
-                        <!--<div class="col-md-3">
-                            <aside class="f_widget">
+                        <!--<div class="col-md-3"                           <aside class="f_widget">
                                 <div class="vero_widget">
                                     <h4><span>Vero</span>Date</h4>
                                     <p>There are many variations of passag-es of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
@@ -78,7 +77,7 @@
             <div class="copyright">
                 <div class="copyright_left">
                     <div class="copyright_text">
-                        <h4>Copyright © 2012. <a href="<?php echo base_url(); ?>index.php/"> Vallikodi Vanniar Matrimonial.</a> </h4>
+                        <h4>Copyright © 2017. <a href="<?php echo base_url(); ?>index.php/"> Vallikodi Vanniar Matrimonial.</a> </h4>
                     </div>
                 </div>
                 <div class="copyright_right">
@@ -171,4 +170,3 @@
         //Admin base url declaration (route path)
         var baseurl = "<?php echo base_url(); ?>/";
     </script>
-   

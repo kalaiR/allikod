@@ -1,3 +1,144 @@
+function validate() {
+        var output = true;
+        $(".registration-error").html('');
+        if($("#userdetails-field").css('display') != 'none') {
+
+            if(!($("#register_email").val())) {
+                output = false;
+                $("#register_email-error").html("Required");
+            }   
+            if(!$("#register_email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+                $("#register_email-error").html("invalid");
+                output = false;
+            }
+             if(!($("#reg_passed").val())) {
+                 output = false;
+                 $("#reg_passed_error").html("Required");
+             } 
+             if(!($("#reg_con_pass").val())) {
+                 output = false;
+                 $("#reg_con_error").html("Required");
+             } 
+             if(!($("#register_by").val())) {
+                 output = false;
+                 $("#reg_by_error").html("Required");
+             } 
+             if(!($("#reg_Nam").val())) {
+                 output = false;
+                 $("#reg_nam_error").html("Required");
+             } 
+              if(!($("#gender").val())) {
+                 output = false;
+                 $("#gender_error").html("Required");
+             } 
+             if(!($("#marital").val())) {
+                 output = false;
+                 $("#marital_error").html("Required");
+             }
+             
+             
+            
+               
+             
+             
+             
+        }
+        if($("#ethnicity-field").css('display') != 'none') {
+
+            if(!($("#reg_tim").val())) {
+                 output = false;
+                 $("#tim_error").html("Required");
+             }
+              if(!($("#reg_tim").val())) {
+                 output = false;
+                 $("#tim_error").html("Required");
+             }
+              if(!($("#mother").val())) {
+                 output = false;
+                 $("#mother_error").html("Required");
+             }
+             if(!($("#nakshathra").val())) {
+                 output = false;
+                 $("#nakshathra_error").html("Required");
+             }
+             if(!($("#luknam").val())) {
+                 output = false;
+                 $("#luknam_error").html("Required");
+             }
+
+             if(!($("#zodiac_sign").val())) {
+                 output = false;
+                 $("#zodiac_sign_error").html("Required");
+             }
+
+
+        }
+        if($("#education-field").css('display') != 'none') {
+
+             if(!($("#occupation").val())) {
+                 output = false;
+                 $("#occupation_error").html("Required");
+             }  
+             if(!($("#employed_in").val())) {
+                 output = false;
+                 $("#employed_in_error").html("Required");
+             }  
+
+
+        }
+        if($("#com-field").css('display') != 'none') {
+
+            // if(!($("#resident").val())) {
+            //      output = false;
+            //      $("#resident_error").html("Required");
+            //  }
+            // if(!($("#cur_country").val())) {
+            //      output = false;
+            //      $("#cur_country_error").html("Required");
+            //  } 
+             if(!($("#reg_mobile").val())) {
+                 output = false;
+                 $("#reg_mobile_error").html("Required");
+             } 
+             if(!($("#family_status").val())) {
+                 output = false;
+                 $("#family_status_error").html("Required");
+             }
+             if(!($("#family_type").val())) {
+                 output = false;
+                 $("#family_type_error").html("Required");
+             }  
+
+
+
+        }
+        if($("#exceptation-field").css('display') != 'none') {
+
+            if(!($("#body_type").val())) {
+                 output = false;
+                 $("#body_type_error").html("Required");
+             } 
+             if(!($("#complexion").val())) {
+                 output = false;
+                 $("#complexion_error").html("Required");
+             }
+             if(!($("#physical_status").val())) {
+                 output = false;
+                 $("#physical_status_error").html("Required");
+             }
+             if(!($("#food").val())) {
+                 output = false;
+                 $("#food_error").html("Required");
+             }
+             if(!($("#search_age_from").val())) {
+                 output = false;
+                 $("#search_age_from_error").html("Required");
+             }
+
+        }
+
+        return output;
+}
 $(document).ready(function () {
         // $("li").click(function () {
         //     var id = $(this).attr("id");
@@ -48,147 +189,75 @@ $(document).ready(function () {
             }
         });
 
-    function validate() {
-            var output = true;
-            $(".registration-error").html('');
-            if($("#userdetails-field").css('display') != 'none') {
+    
 
-                if(!($("#register_email").val())) {
-                    output = false;
-                    $("#register_email-error").html("Required");
-                }   
-                if(!$("#register_email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
-                    $("#register_email-error").html("invalid");
-                    output = false;
-                }
-                 if(!($("#reg_passed").val())) {
-                     output = false;
-                     $("#reg_passed_error").html("Required");
-                 } 
-                 if(!($("#reg_con_pass").val())) {
-                     output = false;
-                     $("#reg_con_error").html("Required");
-                 } 
-                 if(!($("#register_by").val())) {
-                     output = false;
-                     $("#reg_by_error").html("Required");
-                 } 
-                 if(!($("#reg_Nam").val())) {
-                     output = false;
-                     $("#reg_nam_error").html("Required");
-                 } 
-                  if(!($("#gender").val())) {
-                     output = false;
-                     $("#gender_error").html("Required");
-                 } 
-                 if(!($("#marital").val())) {
-                     output = false;
-                     $("#marital_error").html("Required");
-                 }
-                 
-                 
-                
-                   
-                 
-                 
-                 
-            }
-            if($("#ethnicity-field").css('display') != 'none') {
+// $("#basic_search").click(function(){            
+//             var output = validate();
+//             if(output) {
+//                 var current = $(".highlight");
+//                 var basic_search = $(".highlight").basic_search("li");
+                // if(next.length>0) {                
+                //     $("#"+current.attr("id")+"-field").hide();
+                //     $("#"+basic_search.attr("id")+"-field").show();
+                //     $("#back").show();
+                //     $("#finish").hide();
+                //     $(".highlight").removeClass("highlight");
+                //     basic_search.addClass("highlight");                                
+                //     if($(".highlight").attr("id") == 'horoscope') {
+                //         $("#next").hide();
+                //         $("#finish").show();                
+                //     }
+        //         // }
+        //     }
+        // });
 
-                if(!($("#reg_tim").val())) {
-                     output = false;
-                     $("#tim_error").html("Required");
-                 }
-                  if(!($("#reg_tim").val())) {
-                     output = false;
-                     $("#tim_error").html("Required");
-                 }
-                  if(!($("#mother").val())) {
-                     output = false;
-                     $("#mother_error").html("Required");
-                 }
-                 if(!($("#nakshathra").val())) {
-                     output = false;
-                     $("#nakshathra_error").html("Required");
-                 }
-                 if(!($("#luknam").val())) {
-                     output = false;
-                     $("#luknam_error").html("Required");
-                 }
+// function validate() {
+//             var output = true;
+//             $(".registration-error").html('');
+//             if($("#base").css('display') != 'none') {
+//                 if(!($("#gender").val())) {
+//                      output = false;
+//                      $("#gender_error").html("Required");
+//                  } 
+//                  if(!($("#search_age_from").val())) {
+//                      output = false;
+//                      $("#search_age_from_error").html("Required");
+//                  }
+//                  if(!($("#height_in_cms").val())) {
+//                      output = false;
+//                      $("#height_in_cms_error").html("Required");
+//                  }
+//                  if(!($("#marital_status").val())) {
+//                      output = false;
+//                      $("#marital_status_error").html("Required");
+//                  }
+//                   if(!($("#mother_tongue").val())) {
+//                      output = false;
+//                      $("#mother_tongue_error").html("Required");
+//                  }
+//                  if(!($("#education").val())) {
+//                      output = false;
+//                      $("#education_error").html("Required");
+//                  }  
+//                  if(!($("#education").val())) {
+//                      output = false;
+//                      $("#education_error").html("Required");
+//                  } 
+//                  if(!($("#show_profile").val())) {
+//                      output = false;
+//                      $("#show_profile_error").html("Required");
+//                  }
 
-                 if(!($("#zodiac_sign").val())) {
-                     output = false;
-                     $("#zodiac_sign_error").html("Required");
-                 }
-
-
-            }
-            if($("#education-field").css('display') != 'none') {
-
-                 if(!($("#occupation").val())) {
-                     output = false;
-                     $("#occupation_error").html("Required");
-                 }  
-                 if(!($("#employed_in").val())) {
-                     output = false;
-                     $("#employed_in_error").html("Required");
-                 }  
-
-
-            }
-            if($("#com-field").css('display') != 'none') {
-
-                // if(!($("#resident").val())) {
-                //      output = false;
-                //      $("#resident_error").html("Required");
-                //  }
-                // if(!($("#cur_country").val())) {
-                //      output = false;
-                //      $("#cur_country_error").html("Required");
-                //  } 
-                 if(!($("#reg_mobile").val())) {
-                     output = false;
-                     $("#reg_mobile_error").html("Required");
-                 } 
-                 if(!($("#family_status").val())) {
-                     output = false;
-                     $("#family_status_error").html("Required");
-                 }
-                 if(!($("#family_type").val())) {
-                     output = false;
-                     $("#family_type_error").html("Required");
-                 }  
+//             }
 
 
 
-            }
-            if($("#exceptation-field").css('display') != 'none') {
 
-                if(!($("#body_type").val())) {
-                     output = false;
-                     $("#body_type_error").html("Required");
-                 } 
-                 if(!($("#complexion").val())) {
-                     output = false;
-                     $("#complexion_error").html("Required");
-                 }
-                 if(!($("#physical_status").val())) {
-                     output = false;
-                     $("#physical_status_error").html("Required");
-                 }
-                 if(!($("#food").val())) {
-                     output = false;
-                     $("#food_error").html("Required");
-                 }
-                 if(!($("#search_age_from").val())) {
-                     output = false;
-                     $("#search_age_from_error").html("Required");
-                 }
+//               return output;
 
-            }
 
-            return output;
-    }
+//         }
+
 
     $('form#userlogin').submit(function() {
         var formData = new FormData(this);
@@ -234,6 +303,8 @@ $(document).ready(function () {
 
             
 });
+
+
 
 $(window).load(function(){
   var height = $('.img-pane').height();

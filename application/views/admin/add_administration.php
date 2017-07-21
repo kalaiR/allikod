@@ -57,10 +57,10 @@
 								</div>
 							  </div>
 							   <div class="control-group">
-								<label class="control-label">Admin Type : </label>
+								<label class="control-label">Select Admin Type : </label>
 								<div class="controls">
 								  <select class="form_inputs" data-rel="chosen" name="adm_type">
-									<option value="">Select Status</option>
+									<option value="">Admin Type</option>
 									<option value="1">Admin</option>
 									<option value="0">Selling Admin</option>
 								  </select>
