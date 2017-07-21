@@ -32,14 +32,14 @@ include('include/menu.php');
 	                            <div class="col-sm-4 sucess-box">
 		                             <img src="<?php echo base_url(); ?>assets/img/sucess/stories-4.jpg" class="img-thumbnail image-box " alt="">   
 	                             </div>
-	                             	<div class="col-sm-6 text-box">
-	                                	<div class="col-sm-5 text-box">
+	                             	<div class="col-sm-4 text-box">
+	                                	<div class="col-sm-4 text-box">
 		                                	<p>Vallikodi ID</p>
 		                                	<p>Birde Name </p>
 		                                	<p>Groom Name</p>
 		                                	<p>Marriage date</p>
 	                             		</div>
-	                             		<div class="col-sm-5 text-box">
+	                             		<div class="col-sm-8 text-box">
 		                                	<p> : <?php echo $value['vallikodi_id'];?></p>
 		                                	<p> : <?php echo $value['male_name'];?></p>
 		                                	<p> : <?php echo $value['female_name'];?></p>
