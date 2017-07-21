@@ -56,7 +56,7 @@ include('include/menu.php');
                                                                         <option value="2">Female</option>
                                                                     </select>
                                                                 </div>
-                                                                 <span id="gender_error" class="registration-error"></span>
+                                                                 
                                                             </div>
                                                         </div>        
                                                 </div>	
@@ -91,7 +91,7 @@ include('include/menu.php');
                                                                                         ?>
                                                                         </select>
                                                                     </div>
-                                                                    <span id="search_age_from_error" class="registration-error"></span>
+                                                                    
                                                             </div>
                                                         </div>        
                                                 </div>
@@ -127,7 +127,7 @@ include('include/menu.php');
                                                     ?>
                                                                             </select>
                                                                 </div>
-                                                                 <span id="height_in_cms_error" class="registration-error"></span>
+                                                                
                                                             </div>
                                                         </div>        
                                                 </div>
@@ -151,7 +151,7 @@ include('include/menu.php');
                                                                                 ?>
                                                                      </select>
                                                                 </div>
-                                                                <span id="marital_status_error" class="registration-error"></span>
+                                                                
                                                             </div>
                                                         </div>        
                                                 </div>
@@ -175,7 +175,7 @@ include('include/menu.php');
                                                                                 ?>
                                                                         </select> 
                                                                 </div>
-                                                                <span id="mother_tongue_error" class="registration-error"></span>
+                                                                
                                                             </div>
                                                         </div>        
                                                 </div>
@@ -199,7 +199,7 @@ include('include/menu.php');
                                                                                 ?>
                                                                     </select>
                                                                 </div>
-                                                                <span id="education_error" class="registration-error"></span>
+                                                                
                                                             </div>
                                                         </div>        
                                                 </div>

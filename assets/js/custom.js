@@ -193,22 +193,22 @@ $(document).ready(function () {
 // $("#basic_search").click(function(){            
 //             var output = validate();
 //             if(output) {
-//                 // var current = $(".highlight");
-//                 // var basic_search = $(".highlight").basic_search("li");
-//                 // if(next.length>0) {                
-//                 //     $("#"+current.attr("id")+"-field").hide();
-//                 //     $("#"+basic_search.attr("id")+"-field").show();
-//                 //     $("#back").show();
-//                 //     $("#finish").hide();
-//                 //     $(".highlight").removeClass("highlight");
-//                 //     basic_search.addClass("highlight");                                
-//                 //     if($(".highlight").attr("id") == 'horoscope') {
-//                 //         $("#next").hide();
-//                 //         $("#finish").show();                
-//                 //     }
-//                 // }
-//             }
-//         });
+//                 var current = $(".highlight");
+//                 var basic_search = $(".highlight").basic_search("li");
+                // if(next.length>0) {                
+                //     $("#"+current.attr("id")+"-field").hide();
+                //     $("#"+basic_search.attr("id")+"-field").show();
+                //     $("#back").show();
+                //     $("#finish").hide();
+                //     $(".highlight").removeClass("highlight");
+                //     basic_search.addClass("highlight");                                
+                //     if($(".highlight").attr("id") == 'horoscope') {
+                //         $("#next").hide();
+                //         $("#finish").show();                
+                //     }
+        //         // }
+        //     }
+        // });
 
 // function validate() {
 //             var output = true;
@@ -302,3 +302,15 @@ $(document).ready(function () {
 
             
 });
+
+
+
+$(window).load(function(){
+  var height = $('.img-pane').height();
+     var width = $('.img-pane').width();
+     $('.img-pane').css({
+         'margin-top': -height / 2 + "px",
+         'margin-left': -width / 2 + "px"
+     });
+
+ });
