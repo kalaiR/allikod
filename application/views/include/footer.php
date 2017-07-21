@@ -161,7 +161,6 @@
 
         <!--<script src="js/video_player.js"></script>-->
         <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
-
         <script>
         //CSRF Protection declaration
         var csfrData = {};

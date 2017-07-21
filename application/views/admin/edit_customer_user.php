@@ -165,6 +165,7 @@
 												<label class="control-label">Payment Active Status : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Select Payment Active</option>
 													<option value="1" <?php if ($customeruser_values['payment_status'] == 1) echo "selected"; ?>>Yes</option>
 													<option value="0" <?php if ($customeruser_values['payment_status'] == 0) echo "selected"; ?>>No</option>
 												  </select>
@@ -174,6 +175,7 @@
 												<label class="control-label">Profile Active Status : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Select Status</option>
 													<option value="1" <?php if ($customeruser_values['user_active_status'] == 1) echo "selected"; ?>>Active</option>
 													<option value="0" <?php if ($customeruser_values['user_active_status'] == 0) echo "selected"; ?>>Not Active</option>
 												  </select>
@@ -540,6 +542,7 @@
 												<label class="control-label">Weight : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
+												  	<option value="">Select Weight</option>
 													<option>60</option>
 													<option>65</option>
 												  </select>

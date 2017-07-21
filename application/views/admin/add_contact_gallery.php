@@ -30,6 +30,7 @@
 								<label class="control-label">Category* : </label>
 								<div class="controls">
 								  <select data-rel="chosen">
+								  	<option value="">Category</option>
 									<option>Pondicherry</option>
 									<option>Tindivanam</option>
 									<option>Villupuram</option>
@@ -55,6 +56,7 @@
 								<label class="control-label">Active Status : </label>
 								<div class="controls">
 								  <select data-rel="chosen">
+								  <option value="">Select Status</option>
 									<option>Enabled</option>
 									<option>Disabled</option>
 								  </select>

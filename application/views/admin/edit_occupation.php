@@ -37,6 +37,7 @@
 								<label class="control-label">Parent Category : </label>
 								<div class="controls">
 								  <select data-rel="chosen">
+								  	<option value="">Select Catogory</option>
 									<option>Admin</option>
 									<option>Agriculture</option>
 									<option>CEO</option>
@@ -48,6 +49,7 @@
 								<label class="control-label">Status : </label>
 								<div class="controls">
 								  <select data-rel="chosen">
+								  	<option value="">Select Status</option>
 									<option>Activated</option>
 									<option>Diabled</option>									
 								  </select>
