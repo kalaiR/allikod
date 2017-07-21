@@ -937,14 +937,14 @@ include('include/menu.php');
                                                                             <h4>Height in CMs</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
+                                                                    <div class="col-sm-2 box">
+                                                                        
                                                                             <select class="form-control" name="height_in_cms[]" id="height_in_cms">
                                                                                 <option value="">Select</option>
                                                                                 <option value="160">160</option>
                                                                                 <option value="165">165</option>
                                                                             </select>
-                                                                        </div>
+                                                                        
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -955,14 +955,14 @@ include('include/menu.php');
                                                                             <h4>Weight in KGs</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
+                                                                    <div class="col-sm-2 box">
+                                                                        
                                                                             <select class="form-control" name="weight_in_kgs[]" id="weight_in_kgs">
                                                                                 <option value="">Select</option>
                                                                                 <option value="45">45</option>
                                                                                 <option value="50">50</option>
                                                                             </select>
-                                                                        </div>
+                                                                        
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -973,8 +973,8 @@ include('include/menu.php');
                                                                             <h4>Body Type</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
+                                                                    <div class="col-sm-2 box">
+                                                                        
                                                                             <select class="form-control" name="body_type[]" id="body_type">
                                                                                 <option value="">Select</option>
                                                                                  <?php 
@@ -985,7 +985,7 @@ include('include/menu.php');
                                                                                 endif;
                                                                                 ?>     
                                                                             </select>
-                                                                        </div>
+                                                                       
                                                                         <span id="body_type_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
@@ -997,8 +997,8 @@ include('include/menu.php');
                                                                             <h4>Complexion</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
+                                                                    <div class="col-sm-2 box">
+                                                                       
                                                                             <select class="form-control" name="complexion[]" id="complexion" >
                                                                                 <option value="">Select</option>
                                                                                 <?php 
@@ -1009,7 +1009,7 @@ include('include/menu.php');
                                                                                 endif;
                                                                                 ?>     
                                                                             </select>
-                                                                        </div>
+                                                                        
                                                                         <span id="complexion_error" class="registration-error"></span>
 
                                                                     </div>
@@ -1022,14 +1022,14 @@ include('include/menu.php');
                                                                             <h4 id="white">Physical Status</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
+                                                                    <div class="col-sm-2 box">
+                                                                        
                                                                             <select class="form-control" name="physical_status[]" id="physical_status">
                                                                             <option value="">Select</option>
                                                                             <option value="1">Physically Challenged</option>
                                                                             <option value="2">Normal</option>               
                                                                             </select>
-                                                                        </div>
+                                                                       
                                                                          <span id="physical_status_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
@@ -1041,8 +1041,8 @@ include('include/menu.php');
                                                                             <h4>Food</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
+                                                                    <div class="col-sm-2 box">
+                                                                       
                                                                             <select class="form-control" name="food[]" id="food">
                                                                                <option value="">Select</option>
                                                                                <?php 
@@ -1053,7 +1053,7 @@ include('include/menu.php');
                                                                                 endif;
                                                                                 ?>   
                                                                             </select>
-                                                                        </div>
+                                                                       
                                                                          <span id="food_error" class="registration-error"></span>
                                                                     </div>
                                                                 </div>        
@@ -1065,12 +1065,12 @@ include('include/menu.php');
                                                                             <h4>Your Personality</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
+                                                                    <div class="col-sm-4 box">
+                                                                       
                                                                             <div class="form-group">
                                                                                <textarea class="form-control" rows="5" id="personality" name="personality" placeholder="Personality in Detail"></textarea>
                                                                             </div>
-                                                                        </div>
+                                                                       
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -1087,12 +1087,14 @@ include('include/menu.php');
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
-                                                                        <div class="height_item">
+                                                                        <div class="col-sm-5 box">
                                                                             <select class="form-control" name="search_age_from[]" id="search_age_from">
                                                                                 <option value="">Select</option>
                                                                                 <option value="18">18</option>
                                                                                 <option value="20">20</option>
                                                                             </select>
+                                                                        </div>
+                                                                         <div class="col-sm-5 box">    
                                                                             <select class="form-control" name="search_age_to[]" id="search_age_to">
                                                                                 <option value="">Select</option>
                                                                                 <option value="21">21</option>
@@ -1111,7 +1113,7 @@ include('include/menu.php');
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
-                                                                        <div class="height_item">
+                                                                        
                                                                             <label class="checkbox-inline" id="white">
                                                                             <input type="checkbox" value="marital_status_any" name="marital_status_any" id="marital_status_any">Any</label>
                                                                             <label class="checkbox-inline" id="white">
@@ -1122,7 +1124,7 @@ include('include/menu.php');
                                                                             <input type="checkbox" value="marital_status_annualled" id="marital_status_annualled" name="marital_status_annualled white">Annualled</label>
                                                                             <label class="checkbox-inline"id="white">
                                                                             <input type="checkbox"  name="marital_status_divorced" id="marital_status_divorced" value="marital_status_divorced">Divorced</label>
-                                                                        </div>
+                                                                       
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -1133,12 +1135,12 @@ include('include/menu.php');
                                                                             <h4>Education</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <div class="col-sm-6 box">
-                                                                        <div class="height_item">
+                                                                    <div class="col-sm-4 box">
+                                                                        
                                                                             <div class="form-group">
                                                                                 <input type="text" class="form-control" id="reg_Education" name="reg_Education" placeholder="Education">
                                                                             </div>
-                                                                        </div>
+                                                                        
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -1150,7 +1152,7 @@ include('include/menu.php');
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
-                                                                        <div class="height_item">                           
+                                                                                                  
                                                                             <label class="radio-inline" id="white">
                                                                             <input type="radio" name="optradio">
                                                                             Vegetarian
@@ -1161,7 +1163,7 @@ include('include/menu.php');
                                                                             <label class="radio-inline" id="white">
                                                                             <input type="radio" name="optradio">
                                                                             Eggetarian</label> 
-                                                                        </div>
+                                                                       
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -1173,11 +1175,11 @@ include('include/menu.php');
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
-                                                                        <div class="height_item">
+                                                                      
                                                                             <div class="form-group">
                                                                                <textarea class="form-control" rows="5" id="expectation" placeholder="Expectation" name="expectation" id="expectation"></textarea>
                                                                             </div>
-                                                                        </div>
+                                                                       
                                                                     </div>
                                                                 </div>        
                                                         </div>
@@ -1208,12 +1210,12 @@ include('include/menu.php');
                                                         </div>                                      
                                                         <div class="col-sm-10  aline-center-box">
                                                                <div class="row">
-                                                                    <div class="col-sm-4 base-box">
+                                                                    <div class="col-sm-6 base-box hr-box">
                                                                         <div class="height_item">
                                                                             <h4>Image Uploads</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <div class="col-md-6 upload_box">
+                                                                    <div class="col-md-6 upload_box hr-box">
                                                                         <span></span>
                                                                         <p id="msg"></p>
                                                                         <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" />
