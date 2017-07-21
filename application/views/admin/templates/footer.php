@@ -89,7 +89,10 @@
 	<script src="<?php echo base_url(); ?>assets/admin/js/charisma.js"></script>
 	<!-- Custom.js for functionality -->
 	<script src="<?php echo base_url(); ?>assets/admin/js/custom.js"></script>
-
+	<script src="<?php echo base_url(); ?>assets/admin/js/sidebar-menu.js"></script>
+    <script>
+        $.sidebarMenu($('.sidebar-menu'))
+    </script>
 	<script>
 		//CSRF Protection declaration
         var csfrData = {};

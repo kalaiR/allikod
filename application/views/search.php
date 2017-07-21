@@ -22,7 +22,7 @@ include('include/menu.php');
                 <div class="search_option">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="search.html#base" aria-controls="base" role="tab" data-toggle="tab">Basic Search</a></li>
+                        <li role="presentation" class="active"><a href="search.html#base" aria-controls="bases" role="tab" data-toggle="tab">Basic Search</a></li>
                          <li role="presentation" class="#"><a href="search.html#advanced-search" aria-controls="advanced-search" role="tab" data-toggle="tab">Advanced Search</a></li>
                         <li role="presentation" class="#"><a href="search.html#vallikodi" aria-controls="vallikodi" role="tab" data-toggle="tab">Search By Vallikodi ID</a></li>
                         <li role="presentation" class="#"><a href="search.html#manual-id" aria-controls="manual-id" role="tab" data-toggle="tab"> Search By Manual ID</a></li>
@@ -40,7 +40,10 @@ include('include/menu.php');
                                                 </div>    
                                              </div>
                                              <!-- Basic Search -->
-                        	 	 			 <form method="post" class="box" action="search_result" id="basic_search" name="basic_search" >                                              
+                        	 	 			 <form method="post" class="box basic_search" action="search_result" id="basic_search" name="basic_search" >
+                                             <span class="val_status" style="display: block;">
+                                    <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
+                                </span>
                                                 <div class="col-sm-10  aline-center-box">
                                                        <div class="row">
                                                             <div class="col-sm-4 base-box">
@@ -49,13 +52,14 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control" name="gender[]" id="gender">
+                                                                <div class="col-sm-5 box">
+                                                                    <select class="form-control form_inputs" name="gender[]" id="gender">
                                                                         <option value="">Select</option>
                                                                         <option value="1">Male</option>
                                                                         <option value="2">Female</option>
                                                                     </select>
                                                                 </div>
+                                                                 
                                                             </div>
                                                         </div>        
                                                 </div>	
@@ -67,27 +71,30 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
-                                                                <select class="form-control" name="search_age_from[]" id="search_age_from">
-                                                                            <option value="">Select</option>
-                                                                            <?php 
-                                                                            for($i=18;$i<=60;$i++){ ?>
-                                                                            <option <?php if($i==18){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                                            <?php
-                                                                            } ?>
-                                                                            </select>
-                                                                
-                                                                <select class="form-control" name="search_age_to[]" id="search_age_to">
+                                                                <div class="col-sm-5 box">
+                                                                   
+                                                                    <select class="form-control form_inputs" name="search_age_from[]" id="search_age_from">
                                                                                 <option value="">Select</option>
                                                                                 <?php 
-                                                                                for($i=18;$i<=60;$i++){
-                                                                                ?>
-                                                                                <option  <?php if($i==34){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                                for($i=18;$i<=60;$i++){ ?>
+                                                                                <option <?php if($i==18){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                                                                 <?php
-                                                                                }
-                                                                                ?>
-                                                                </select>
-                                                                </div>
+                                                                                } ?>
+                                                                                </select>
+                                                                    </div>
+                                                                    <div class="col-sm-5 box">            
+                                                                        <select class="form-control form_inputs" name="search_age_to[]" id="search_age_to">
+                                                                                        <option value="">Select</option>
+                                                                                        <?php 
+                                                                                        for($i=18;$i<=60;$i++){
+                                                                                        ?>
+                                                                                        <option  <?php if($i==34){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                                        <?php
+                                                                                        }
+                                                                                        ?>
+                                                                        </select>
+                                                                    </div>
+                                                                    
                                                             </div>
                                                         </div>        
                                                 </div>
@@ -99,8 +106,8 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control" name="height_in_cms[]" id="height_in_cms">
+                                                                <div class="col-sm-5 box">
+                                                                    <select class="form-control form_inputs" name="height_in_cms[]" id="height_in_cms">
                                                                                 <option value="">Select</option>
                                                                                 <?php 
                                                     for($i=137;$i<=213;$i++){
@@ -110,7 +117,9 @@ include('include/menu.php');
                                                     }
                                                     ?>
                                                                             </select>
-                                                                    <select class="form-control" name="height_in_feets[]" id="height_in_feets">
+                                                                </div>
+                                                                 <div class="col-sm-5 box">            
+                                                                    <select class="form-control form_inputs" name="height_in_feets[]" id="height_in_feets">
                                                                                 <option value="">Select</option>
                                                                                <?php 
                                                     for($i=137;$i<=213;$i++){
@@ -121,6 +130,7 @@ include('include/menu.php');
                                                     ?>
                                                                             </select>
                                                                 </div>
+                                                                
                                                             </div>
                                                         </div>        
                                                 </div>
@@ -132,8 +142,8 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
-                                                                     <select class="form-control customize_plan" name="marital_status[]">                    
+                                                                <div class="col-sm-5 box">
+                                                                     <select class="form-control form_inputs customize_plan" name="marital_status[]" id="marital_status">                    
                                                                                 <option value="">Select</option>
                                                                                 <?php 
                                                                                     if(!empty($martial_status)) :
@@ -144,6 +154,7 @@ include('include/menu.php');
                                                                                 ?>
                                                                      </select>
                                                                 </div>
+                                                                
                                                             </div>
                                                         </div>        
                                                 </div>
@@ -155,8 +166,8 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control customize_plan" name="mother_tongue[]">
+                                                                 <div class="col-sm-5 box">
+                                                                    <select class="form-control form_inputs customize_plan" name="mother_tongue[]" id="mother_tongue">
                                                                               <option value="">Select</option>
                                                                         <?php 
                                                                                     if(!empty($mother_tongue)) :
@@ -167,6 +178,7 @@ include('include/menu.php');
                                                                                 ?>
                                                                         </select> 
                                                                 </div>
+                                                                
                                                             </div>
                                                         </div>        
                                                 </div>
@@ -178,7 +190,7 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
+                                                                <div class="col-sm-5 box">
                                                                     <select class="form-control" name="education[]" id="education">
                                                                                <option value="">Select</option>
                                                                                 <?php 
@@ -190,6 +202,7 @@ include('include/menu.php');
                                                                                 ?>
                                                                     </select>
                                                                 </div>
+                                                                
                                                             </div>
                                                         </div>        
                                                 </div>
@@ -201,14 +214,15 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control" name="">
+                                                                 <div class="col-sm-5 box">
+                                                                    <select class="form-control" name="" id="show_profile">
                                                                         <option value="">Select</option>
                                                                         <option value="both">Both</option>
                                                                         <option value="with_photo">With Photo</option>
                                                                         <option value="without_photo">Without Photo</option>
                                                                     </select>
                                                                 </div>
+                                                                <span id="show_profile_error" class="registration-error"></span>
                                                             </div>
                                                         </div>        
                                                 </div>
@@ -216,9 +230,10 @@ include('include/menu.php');
                                                 <input type="hidden" name="search_type" value="basicsearch" id="search_type"/>
 
                                                 <div class="search_btn">
-                                                    <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
+                                                    <button type="submit" value="LogIn" class="btn form-control login_btn" id="basic_search">Search</button>
                                                 </div>
                         	 	 			 </form>
+                                            
                                              <!-- Basic Search -End Here--> 
                         	 	 		</div>
                         	 	 	</div>

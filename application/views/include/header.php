@@ -35,7 +35,7 @@
         <link href="<?php echo base_url(); ?>assets/css/style-links.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/css/responsive.css" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/css/simplePagination.css"/>
-
+        
         <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script> -->
        
         <!-- <script src="<?php echo base_url(); ?>assets/js/map-custome.js"></script> -->

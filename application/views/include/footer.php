@@ -78,7 +78,7 @@
             <div class="copyright">
                 <div class="copyright_left">
                     <div class="copyright_text">
-                        <h4>Copyright © 2012. <a href="<?php echo base_url(); ?>"> Vallikodi Vanniar Matrimonial.</a> </h4>
+                        <h4>Copyright © 2017. <a href="<?php echo base_url(); ?>"> Vallikodi Vanniar Matrimonial.</a> </h4>
                     </div>
                 </div>
                 <div class="copyright_right">
@@ -161,7 +161,6 @@
 
         <!--<script src="js/video_player.js"></script>-->
         <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
-
         <script>
         //CSRF Protection declaration
         var csfrData = {};

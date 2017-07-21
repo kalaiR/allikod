@@ -234,7 +234,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
-                                <img src="<?php if(!empty($rec['images'])) echo base_url()."assets/img/uploads/profile/".$rec['images']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded">
+                                <img src="<?php if(!empty($rec['images'])) echo base_url()."assets/img/profile/".$rec['images']; else echo base_url()."assets/img/no_image.jpg" ?>"  class ="img-pane" alt="Image not loaded">
                                 <!-- <img src="<?php echo base_url(); ?>assets/img/shop/product-1.jpg" alt=""> -->
                                 <div class="hover_icon">
                                     <ul>
