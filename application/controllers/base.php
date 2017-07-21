@@ -41,7 +41,7 @@ class Base extends CI_Controller {
 				$data['status'] = $data_values['status'];
 				$data['error'] = $data_values['error'];	
 				echo $data['status'];
-				redirect(base_url().'index');
+				redirect(base_url().'index.php/index');
 			}else{
 				// Session
 	        	$this->session->set_userdata("login_status",1);
@@ -55,7 +55,7 @@ class Base extends CI_Controller {
 	public function logout() {
   		$this->session->unset_userdata("login_status");
         $this->session->unset_userdata("login_session");
-        redirect(base_url().'index');
+        redirect(base_url().'index.php/index');
   	}
 
 	public function search(){

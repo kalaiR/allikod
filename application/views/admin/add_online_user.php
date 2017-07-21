@@ -6,7 +6,7 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>index.php/admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">View Customer User</a>
@@ -27,7 +27,7 @@
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Save
 					    </a>
-					    <a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/customer_user">
+					    <a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>index.php/admin/customer_user">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Cancel
 					    </a>

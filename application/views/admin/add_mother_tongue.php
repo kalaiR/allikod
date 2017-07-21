@@ -7,10 +7,10 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="<?php echo base_url(); ?>admin/index">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>index.php/admin/index">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>admin/mother_tongue">Mother Tongue</a>
+						<a href="<?php echo base_url(); ?>index.php/admin/mother_tongue">Mother Tongue</a>
 					</li>
 				</ul>
 			</div>

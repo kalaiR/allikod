@@ -195,6 +195,6 @@ if(!empty($this->session->userdata("admin_login_status"))):
 <?php } ?>
 <?php
 else :
-redirect(base_url().'main');
+redirect(base_url().'index.php/main');
 endif;
 ?>

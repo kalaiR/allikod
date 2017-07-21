@@ -97,7 +97,7 @@
         var csrf_name = "<?php echo $this->security->get_csrf_token_name(); ?>";
 
         //Admin base url declaration (route path)
-        var admin_baseurl = "<?php echo base_url(); ?>admin/";
+        var admin_baseurl = "<?php echo base_url(); ?>index.php/admin/";
     </script>
 	
 		

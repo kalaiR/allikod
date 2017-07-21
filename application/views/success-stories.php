@@ -70,8 +70,8 @@ include('include/menu.php');
             				<div class="pagination_area">
 	                            <a class="prev" href="<?php echo base_url();?>success_stories">Previous</a>
 	                            <a class="arrow_left" href="<?php echo base_url();?>success_stories"><i class="fa fa-angle-left"></i></a>
-	                            <a class="arrow_right" href="<?php echo base_url(); ?>success_stories"><i class="fa fa-angle-right"></i></a>
-	                            <a class="next" href="<?php echo base_url(); ?>success_stories">Next</a>
+	                            <a class="arrow_right" href="<?php echo base_url(); ?>index.php/success_stories"><i class="fa fa-angle-right"></i></a>
+	                            <a class="next" href="<?php echo base_url(); ?>index.php/success_stories">Next</a>
                         	</div>
             			</div> -->
             	</div>	

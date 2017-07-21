@@ -62,14 +62,14 @@
                         </div>-->
                         <div class="col-sm-9 col-xs-20 footer_links">
                         <ul id="footer_list">
-                            <li id="links_list"><a href="<?php echo base_url(); ?>">Home</a></li>
-                            <li id="links_list"><a href="<?php echo base_url(); ?>registration">Registration</a></li>
-                            <li id="links_list"><a href="<?php echo base_url(); ?>search">Search</a></li>
-                            <li id="links_list"><a href="<?php echo base_url(); ?>gallery">Gallery</a></li>
-                            <li id="links_list"><a href="<?php echo base_url(); ?>success_stories">Success Stories</a></li>
-                            <li id="links_list"><a href="<?php echo base_url(); ?>vanniyar">My Vanniyar</a></li>
-                            <li id="links_list"><a href="<?php echo base_url(); ?>payment">Payments</a></li>
-                            <li id="links_list"><a href="<?php echo base_url(); ?>contact">Contact</a></li>
+                            <li id="links_list"><a href="<?php echo base_url(); ?>index.php/">Home</a></li>
+                            <li id="links_list"><a href="<?php echo base_url(); ?>index.php/registration">Registration</a></li>
+                            <li id="links_list"><a href="<?php echo base_url(); ?>index.php/search">Search</a></li>
+                            <li id="links_list"><a href="<?php echo base_url(); ?>index.php/gallery">Gallery</a></li>
+                            <li id="links_list"><a href="<?php echo base_url(); ?>index.php/success_stories">Success Stories</a></li>
+                            <li id="links_list"><a href="<?php echo base_url(); ?>index.php/vanniyar">My Vanniyar</a></li>
+                            <li id="links_list"><a href="<?php echo base_url(); ?>index.php/payment">Payments</a></li>
+                            <li id="links_list"><a href="<?php echo base_url(); ?>index.php/contact">Contact</a></li>
                         </ul>
                         </div>
                     </div>
@@ -78,21 +78,21 @@
             <div class="copyright">
                 <div class="copyright_left">
                     <div class="copyright_text">
-                        <h4>Copyright © 2012. <a href="<?php echo base_url(); ?>"> Vallikodi Vanniar Matrimonial.</a> </h4>
+                        <h4>Copyright © 2012. <a href="<?php echo base_url(); ?>index.php/"> Vallikodi Vanniar Matrimonial.</a> </h4>
                     </div>
                 </div>
                 <div class="copyright_right">
                     <div class="copyright_social">
                         <div class="copyright_social">
                         <ul>
-                            <li><a href="<?php echo base_url(); ?>" class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/" class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                     </div>

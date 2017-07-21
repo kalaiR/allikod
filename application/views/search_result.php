@@ -31,7 +31,7 @@ include('include/menu.php');
                  <div class="row">
                      <div class="col-md-9 aline-center-box ">
                         <div class="search_btn back-box">
-                                <a href="<?php echo base_url(); ?>search" class="register_angkar_btn">Back</a>
+                                <a href="<?php echo base_url(); ?>index.php/search" class="register_angkar_btn">Back</a>
                         </div>
                      </div>
                  </div>

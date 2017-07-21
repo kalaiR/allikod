@@ -51,7 +51,7 @@
 	<![endif]-->
 
 	<!-- The fav icon -->
-	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/admin/img/fav.ico">
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>index.php/assets/admin/img/fav.ico">
 		
 </head>
 
@@ -65,7 +65,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="<?php echo base_url(); ?>admin/"> <img alt="Vallikodi Logo" src="<?php echo base_url(); ?>assets/admin/img/logo1.png" /></a>
+				<a class="brand" href="<?php echo base_url(); ?>index.php/admin/"> <img alt="Vallikodi Logo" src="<?php echo base_url(); ?>assets/admin/img/logo1.png" /></a>
 				
 				<!-- theme selector starts -->
 				<!-- <div class="btn-group pull-right theme-container" >
@@ -97,16 +97,16 @@
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<!-- <li><a href="<?php echo base_url(); ?>admin">Profile</a></li> -->
+						<!-- <li><a href="<?php echo base_url(); ?>index.php/admin">Profile</a></li> -->
 						<!-- <li class="divider"></li> -->
-						<li><a href="<?php echo base_url(); ?>admin/logout">Logout</a></li>
+						<li><a href="<?php echo base_url(); ?>index.php/admin/logout">Logout</a></li>
 					</ul>
 				</div>
 				<!-- user dropdown ends -->
 				
 				<div class="top-nav nav-collapse">
 					<ul class="nav">
-						<li><a href="<?php echo base_url(); ?>">Visit Site</a></li>
+						<li><a href="<?php echo base_url(); ?>index.php/">Visit Site</a></li>
 						<li>
 							<form class="navbar-search pull-left">
 								<input placeholder="Search" class="search-query span2" name="query" type="text">
@@ -124,32 +124,32 @@
 		<div class="well nav-collapse sidebar-nav">
 			<ul class="nav nav-tabs nav-stacked main-menu">
 				<!-- <li class="nav-header hidden-tablet">Main</li> -->
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 				<li class="nav-header hidden-tablet">Administration</li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/administration"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
-				<!-- <li><a class="ajax-link" href="<?php echo base_url(); ?>admin/selling_admin"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li> -->
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/administration"><i class="icon-eye-open"></i><span class="hidden-tablet"> Administration View</span></a></li>
+				<!-- <li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/selling_admin"><i class="icon-list-alt"></i><span class="hidden-tablet"> Selling Administration View</span></a></li> -->
 				<li class="nav-header hidden-tablet">Report</li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/report"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/report"><i class="icon-edit"></i><span class="hidden-tablet"> Report</span></a></li>
 				<li class="nav-header hidden-tablet">Customer User</li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/customer_user"><i class="icon-user"></i></i><span class="hidden-tablet">View Customer User</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/customer_user"><i class="icon-user"></i></i><span class="hidden-tablet">View Customer User</span></a></li>
 				<li class="nav-header hidden-tablet">Successful Story</li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/successful_story"><i class="icon-font"></i><span class="hidden-tablet"> Successful Story</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/successful_story"><i class="icon-font"></i><span class="hidden-tablet"> Successful Story</span></a></li>
 				<li class="nav-header hidden-tablet">Mail</li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-align-justify"></i><span class="hidden-tablet"> Mail</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin"><i class="icon-align-justify"></i><span class="hidden-tablet"> Mail</span></a></li>
 				<!-- <li class="nav-header hidden-tablet">Sample Section</li> -->
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-picture"></i><span class="hidden-tablet"> Send Mail</span></a></li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin"><i class="icon-calendar"></i><span class="hidden-tablet"> Send SMS</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin"><i class="icon-picture"></i><span class="hidden-tablet"> Send Mail</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin"><i class="icon-calendar"></i><span class="hidden-tablet"> Send SMS</span></a></li>
 				<li class="nav-header hidden-tablet">Gallery</li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/gallery_upload"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery Upload</span></a></li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/gallery_category"><i class="icon-align-justify"></i><span class="hidden-tablet"> Gallery Category</span></a></li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/contact_gallery_upload"><i class="icon-calendar"></i><span class="hidden-tablet">Contact Gallery Upload</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/gallery_upload"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery Upload</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/gallery_category"><i class="icon-align-justify"></i><span class="hidden-tablet"> Gallery Category</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/contact_gallery_upload"><i class="icon-calendar"></i><span class="hidden-tablet">Contact Gallery Upload</span></a></li>
 				<li class="nav-header hidden-tablet">Setting</li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/zodiac_sign"><i class="icon-calendar"></i><span class="hidden-tablet"> Zodiac Sign</span></a></li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/nakshathra"><i class="icon-calendar"></i><span class="hidden-tablet"> Nakshathra</span></a></li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/mother_tongue"><i class="icon-calendar"></i><span class="hidden-tablet"> Mother Tongue</span></a></li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/luknam"><i class="icon-calendar"></i><span class="hidden-tablet"> Luknam</span></a></li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/country"><i class="icon-calendar"></i><span class="hidden-tablet"> Country</span></a></li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/education"><i class="icon-calendar"></i><span class="hidden-tablet"> Education</span></a></li>
-				<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/occupation"><i class="icon-calendar"></i><span class="hidden-tablet"> Occupation</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/zodiac_sign"><i class="icon-calendar"></i><span class="hidden-tablet"> Zodiac Sign</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/nakshathra"><i class="icon-calendar"></i><span class="hidden-tablet"> Nakshathra</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/mother_tongue"><i class="icon-calendar"></i><span class="hidden-tablet"> Mother Tongue</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/luknam"><i class="icon-calendar"></i><span class="hidden-tablet"> Luknam</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/country"><i class="icon-calendar"></i><span class="hidden-tablet"> Country</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/education"><i class="icon-calendar"></i><span class="hidden-tablet"> Education</span></a></li>
+				<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/occupation"><i class="icon-calendar"></i><span class="hidden-tablet"> Occupation</span></a></li>
 		</div><!--/.well -->
 	</div><!-- left menu ends -->

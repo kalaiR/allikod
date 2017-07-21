@@ -10,8 +10,8 @@
             <div class="container">
                 <div class="banner_content">
                     <h3 title="Contact us"><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">Contact us<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
-                    <a href="<?php echo base_url(); ?>">Home</a>
-                    <a href="<?php echo base_url(); ?>contact">Contact us</a>
+                    <a href="<?php echo base_url(); ?>index.php/">Home</a>
+                    <a href="<?php echo base_url(); ?>index.php/contact">Contact us</a>
                 </div>
             </div>
         </section>

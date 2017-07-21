@@ -8,7 +8,7 @@
            <button type="submit" value="LogIn" class="btn form-control login_btn" name="user-submit" id="user_submit">LogIn</button>
            <div class="login_social">
               <h5>Not yet?</h5>
-              <a href="<?php echo base_url(); ?>registration">Register</a>
+              <a href="<?php echo base_url(); ?>index.php/registration">Register</a>
                <!-- <ul>  
                    <li><a href="index.html"><i class="fa fa-facebook"></i></a></li>
                    <li><a href="index.html"><i class="fa fa-google-plus"></i></a></li>
@@ -37,10 +37,10 @@
                                     <span data-bind="label">Registered By</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="<?php echo base_url(); ?>#">Self</a></li>
-                                        <li><a href="<?php echo base_url(); ?>#">Friend</a></li>
-                                        <li><a href="<?php echo base_url(); ?>#">Brother</a></li>
-                                        <li><a href="<?php echo base_url(); ?>#">Sister</a></li>
+                                        <li><a href="<?php echo base_url(); ?>index.php/#">Self</a></li>
+                                        <li><a href="<?php echo base_url(); ?>index.php/#">Friend</a></li>
+                                        <li><a href="<?php echo base_url(); ?>index.php/#">Brother</a></li>
+                                        <li><a href="<?php echo base_url(); ?>index.php/#">Sister</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -71,8 +71,8 @@
                                             <span data-bind="label">Gender</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
                                             </button>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="<?php echo base_url(); ?>#">Male</a></li>
-                                                <li><a href="<?php echo base_url(); ?>#">Female</a></li>
+                                                <li><a href="<?php echo base_url(); ?>index.php/#">Male</a></li>
+                                                <li><a href="<?php echo base_url(); ?>index.php/#">Female</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -113,21 +113,21 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo1.png" alt=""></a>
+                    <a class="navbar-brand" href="<?php echo base_url(); ?>index.php/"><img src="<?php echo base_url(); ?>assets/img/logo1.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling (selva) -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li id="home"><a href="<?php echo base_url(); ?>">Home</a></li>
+                        <li id="home"><a href="<?php echo base_url(); ?>index.php/">Home</a></li>
                             
-                        <li id="reg"><a href="<?php echo base_url(); ?>registration">Registration</a></li>
-                         <li id="search"><a href="<?php echo base_url(); ?>search">Search</a></li>
-                         <li id="gallery"><a href="<?php echo base_url(); ?>gallery">Gallery</a></li>
+                        <li id="reg"><a href="<?php echo base_url(); ?>index.php/registration">Registration</a></li>
+                         <li id="search"><a href="<?php echo base_url(); ?>index.php/search">Search</a></li>
+                         <li id="gallery"><a href="<?php echo base_url(); ?>index.php/gallery">Gallery</a></li>
                          <li id="stories" class="dropdown submenu">
-                            <a href="<?php echo base_url(); ?>success_stories">Success Stories</a>
+                            <a href="<?php echo base_url(); ?>index.php/success_stories">Success Stories</a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url(); ?>post_success">Post Your Story</a></li>
+                                <li><a href="<?php echo base_url(); ?>index.php/post_success">Post Your Story</a></li>
                                 <!-- <li><a href="http://shtheme.com/html/verodate/shop-left.html">Shop Left</a></li>
                                 <li><a href="http://shtheme.com/html/verodate/shop-right.html">Shop Right</a></li>
                                 <li><a href="http://shtheme.com/html/verodate/product-details.html">Product Details</a></li>
@@ -135,9 +135,9 @@
                                 <li><a href="http://shtheme.com/html/verodate/checkout.html">Checkout</a></li> -->
                             </ul>
                         </li>
-                        <li id="vanniyar"><a href="<?php echo base_url(); ?>vanniyar">My Vanniyar</a></li>
-                         <li id="payment"><a href="<?php echo base_url(); ?>payment">Payment</a></li>
-                        <li id="contact"><a href="<?php echo base_url(); ?>contact">Contact</a></li>
+                        <li id="vanniyar"><a href="<?php echo base_url(); ?>index.php/vanniyar">My Vanniyar</a></li>
+                         <li id="payment"><a href="<?php echo base_url(); ?>index.php/payment">Payment</a></li>
+                        <li id="contact"><a href="<?php echo base_url(); ?>index.php/contact">Contact</a></li>
                         <?php 
                             // if(!empty($this->session->userdata("login_status"))){ 
                             $user_session = $this->session->userdata("login_status");
@@ -146,9 +146,9 @@
                         <li class="dropdown submenu">
                             <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, Madhi <i class="fa fa-user-circle" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu">
-                                <!--li><a href="<?php echo base_url(); ?>mymatches">Matches</a></li-->
-                                <li><a href="<?php echo base_url(); ?>myprofile">My Profile</a></li>
-                                <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
+                                <!--li><a href="<?php echo base_url(); ?>index.php/mymatches">Matches</a></li-->
+                                <li><a href="<?php echo base_url(); ?>index.php/myprofile">My Profile</a></li>
+                                <li><a href="<?php echo base_url(); ?>index.php/logout">Logout</a></li>
                             </ul>
                         </li>
                         <?php }else{ ?>

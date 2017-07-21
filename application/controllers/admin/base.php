@@ -60,14 +60,14 @@ class Base extends CI_Controller {
 				echo $data['status'];
 			}
 			else if($data['error']==1) {
-				redirect(base_url().'main/admin_error');
+				redirect(base_url().'index.php/main/admin_error');
 			}
 		}
 		else{
 			// if(!empty($this->session->userdata("admin_login_status")))
 			$user_session = $this->session->userdata("admin_login_status");
             if (!empty($user_session))
-				redirect(base_url().'admin/dashboard');
+				redirect(base_url().'index.php/admin/dashboard');
 			$this->load->view('admin/login');
 		}		
 	}	
@@ -221,7 +221,7 @@ class Base extends CI_Controller {
   	public function admin_logout() {
   		$this->session->unset_userdata("admin_login_status");
         $this->session->unset_userdata("admin_login_session");
-        redirect(base_url().'admin');
+        redirect(base_url().'index.php/admin');
   	}
 
 }
