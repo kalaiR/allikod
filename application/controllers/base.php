@@ -246,6 +246,10 @@ class Base extends CI_Controller {
 			}
 			$this->load->view('search_result',$data);
 		}	
+		// echo "out";
+		$values = array();
+		$data['results'] = $this->user_model->get_basicsearch($values);
+		$this->load->view('search_result',$data);
 	}
 	public function success_stories(){
 
@@ -304,8 +308,11 @@ class Base extends CI_Controller {
 		$this->load->view('vanniyar');
 	}
 	public function viewdetail(){
-
-		$this->load->view('viewdetail');
+		//To get last value of the url after slash (instead of this we can use $this->uri->segment(3),but this is not working here only, in admin working well)
+		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);
+		$id = $values[0];
+		$data['results'] = $this->user_model->get_viewdetails_byid($id);
+		$this->load->view('viewdetail',$data);
 	}
 	public function myprofile(){
 		$this->load->view('myprofile');

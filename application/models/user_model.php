@@ -169,8 +169,8 @@ class User_model extends CI_Model {
   }
 
   public function get_success_stories_limit(){
-      $condition = "sstories.active_status = 1";
-      $this->db->select('*');
+      $condition = "sstories.active_status = 1 AND image !=''";
+      $this->db->select('successstories_id,image,male_name,female_name');
       $this->db->from('success_stories AS sstories');
       $this->db->where($condition);      
       $this->db->order_by('sstories.successstories_id','desc');
@@ -213,15 +213,49 @@ class User_model extends CI_Model {
   }
 
   /** Basic search **/
-  public function get_basicsearch($values){     
-      $condition = "usr.user_gender = ".$values['gender']." AND usr.user_age >= ".$values['age_from']." AND usr.user_age <= ".$values['age_to']." AND phy.phy_height >= ".$values['height_from']." AND phy.phy_height <= ".$values['height_to']." AND usr.user_maritalstatus = ".$values['mar_status']."";
-      $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation');
-      $join = $this->db->from('reg_userdetail AS usr INNER JOIN reg_religion_ethnicity AS rel ON rel.reg_user_id = usr.userdetail_id
-      INNER JOIN reg_physical_expectation AS phy ON phy.reg_user_id = usr.userdetail_id       
-      INNER JOIN reg_education_occupation AS edu ON edu.reg_user_id = usr.userdetail_id');      
-      $this->db->where($condition);      
-      $this->db->order_by('usr.userdetail_id','desc');
-      $query = $this->db->get()->result_array();          
+  // public function get_basicsearch($values){     
+  //     $condition = "usr.user_gender = ".$values['gender']." AND usr.user_age >= ".$values['age_from']." AND usr.user_age <= ".$values['age_to']." AND phy.phy_height >= ".$values['height_from']." AND phy.phy_height <= ".$values['height_to']." AND usr.user_maritalstatus = ".$values['mar_status']."";
+  //     $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation');
+  //     $join = $this->db->from('reg_userdetail AS usr INNER JOIN reg_religion_ethnicity AS rel ON rel.reg_user_id = usr.userdetail_id
+  //     INNER JOIN reg_physical_expectation AS phy ON phy.reg_user_id = usr.userdetail_id       
+  //     INNER JOIN reg_education_occupation AS edu ON edu.reg_user_id = usr.userdetail_id');      
+  //     $this->db->where($condition);      
+  //     $this->db->order_by('usr.userdetail_id','desc');
+  //     $query = $this->db->get()->result_array(); 
+  //     // $this->db->last_query();
+  //     // print_r($query);        
+  //     return $query;
+  // }
+
+  //Changed by Kalai due to syntax error when empty data passed
+  public function get_basicsearch($values){ 
+      if(!empty($values)) { 
+        // $condition = "usr.user_gender = '".$values['gender']."' AND usr.user_age >= '".$values['age_from']."' AND usr.user_age <= '".$values['age_to']."' AND phy.phy_height >= '".$values['height_from']."' AND phy.phy_height <= '".$values['height_to']."' AND usr.user_maritalstatus = '".$values['mar_status']."'";
+        // $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation,img.images');
+        // $join = $this->db->from('reg_userdetail AS usr INNER JOIN reg_religion_ethnicity AS rel ON rel.reg_user_id = usr.userdetail_id
+        // INNER JOIN reg_physical_expectation AS phy ON phy.reg_user_id = usr.userdetail_id       
+        // INNER JOIN reg_education_occupation AS edu ON edu.reg_user_id = usr.userdetail_id
+        // LEFT JOIN user_images AS img ON img.reg_user_id = usr.userdetail_id');  
+        $condition = "usr.user_gender = '".$values['gender']."' AND usr.user_age >= '".$values['age_from']."' AND usr.user_age <= '".$values['age_to']."' AND phy.phy_height >= '".$values['height_from']."' AND phy.phy_height <= '".$values['height_to']."' AND usr.user_maritalstatus = '".$values['mar_status']."'";
+        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation');
+        $join = $this->db->from('reg_userdetail AS usr INNER JOIN reg_religion_ethnicity AS rel ON rel.reg_user_id = usr.userdetail_id
+        INNER JOIN reg_physical_expectation AS phy ON phy.reg_user_id = usr.userdetail_id       
+        INNER JOIN reg_education_occupation AS edu ON edu.reg_user_id = usr.userdetail_id');     
+        $this->db->where($condition);      
+        $this->db->order_by('usr.userdetail_id','desc');
+        $query = $this->db->get()->result_array(); 
+      }  
+      // $this->db->last_query();
+      // print_r($query);
+      if(empty($query) || empty($values)){
+        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation');
+        $join = $this->db->from('reg_userdetail AS usr INNER JOIN reg_religion_ethnicity AS rel ON rel.reg_user_id = usr.userdetail_id
+        INNER JOIN reg_physical_expectation AS phy ON phy.reg_user_id = usr.userdetail_id       
+        INNER JOIN reg_education_occupation AS edu ON edu.reg_user_id = usr.userdetail_id');  
+        $this->db->order_by('usr.userdetail_id','desc');
+        $this->db->limit(100);
+        $query = $this->db->get()->result_array();
+      }
       return $query;
   }
 
@@ -235,6 +269,31 @@ class User_model extends CI_Model {
       $this->db->where($condition);      
       $this->db->order_by('usr.userdetail_id','desc');
       $query = $this->db->get()->result_array();          
+      return $query;
+  }
+  public function get_viewdetails_byid($id){
+      // View by id
+      $condition = "usr.userdetail_id = ".$id."";
+      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name');
+      $this->db->from('reg_userdetail usr');
+      $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_communication_family cf','cf.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_physical_expectation pe','pe.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_image_horoscope ih','ih.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_payment pm','pm.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('user_images img','img.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('registered_by rb','rb.registeredby_id=usr.user_registeredby','left');
+      $this->db->join('marital_category mc','mc.maritalcategory_id=usr.user_maritalstatus','left');
+      $this->db->join('mother_tongue mt','mt.mothertongue_id=re.rel_mothertongue_id','left');
+      $this->db->join('nakshathra nak','nak.nakshathra_id=re.rel_nakshathra_id','left');
+      $this->db->join('luknam luk','luk.luknam_id=re.rel_luknam_id','left');
+      $this->db->join('zodiac_sign zod','zod.zodiacsign_id=re.rel_zodiacsign_id','left');
+      $this->db->join('education ed','ed.education_id=eo.edu_education','left');
+      $this->db->join('occupation occ','occ.occupation_id=eo.edu_occupation','left');
+      $this->db->join('employed_in ein','ein.employedin_id=eo.edu_employedin','left');
+      $this->db->where($condition); 
+      $query = $this->db->get()->row_array();
       return $query;
   }
 

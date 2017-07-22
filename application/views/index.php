@@ -169,7 +169,7 @@
                      </div>
                         <div class="col-sm-3">
                             <div class="search_btn">
-                                <a href="<?php echo base_url(); ?>search_result" class="register_angkar_btn">Search</a>
+                                <a href="<?php echo base_url(); ?>index.php/search_result" class="register_angkar_btn">Search</a>
                             </div>
                         </div>
                  </div> 
@@ -192,7 +192,7 @@
                         ?>
                             <div class="item">
                                 <div class="blog_grid_item">
-                                    <div class="blog_grid_img">
+                                    <div class="blog_grid_img product_img">
                                         <!-- <img src="<?php echo base_url(); ?>assets/img/blog/stories/stories-1.jpg" alt=""> -->
                                         <img src="<?php if(!empty($suc['image'])) echo base_url()."assets/img/uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded">
                                         <div class="author_name">
@@ -234,13 +234,13 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
-                                <img src="<?php if(!empty($rec['images'])) echo base_url()."assets/img/profile/".$rec['images']; else echo base_url()."assets/img/no_image.jpg" ?>"  class ="img-pane" alt="Image not loaded">
+                                <img src="<?php if(!empty($rec['images'])) echo base_url()."assets/img/uploads/profile/".$rec['images']; else echo base_url()."assets/img/no_image.jpg" ?>"  class ="img-pane" alt="Image not loaded">
                                 <!-- <img src="<?php echo base_url(); ?>assets/img/shop/product-1.jpg" alt=""> -->
-                                <div class="hover_icon">
+                                <!-- <div class="hover_icon">
                                     <ul>
-                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                        <li><a href="<?php //echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

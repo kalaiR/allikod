@@ -33,7 +33,7 @@
                                 <!-- <div class="profile_list"> -->
                                 <div class="profile_list">                                    
                                         
-                                          <img src="<?php echo base_url(); ?>assets/img/view/img1.png" alt="Durga" style="vertical-align:bottom;">
+                                          <img src="<?php if(!empty($results['image'])) echo base_url()."assets/img/uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No Image" style="vertical-align:bottom;width:170px;height:170px;">
                                             
                                             <ul>
                                             <li><a href="#">Name</a></li>
@@ -46,8 +46,8 @@
                                             <li><a href="#">Work as</a></li> -->
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Durga</a></li>
-                                            <li><a href="#">26</a></li>
+                                            <li><a href="#"><?php echo $results['user_fname']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['userdetail_id']; ?></a></li>
                                             <!-- <li><a href="#">22-05-2017</a></li>
                                             <li><a href="#">22-05-2018</a></li>
                                             <li><a href="#">16 December 1990</a></li>
@@ -94,14 +94,13 @@
                                     </div> -->
                                                             
                                 </div>
-                                <div class="members_about_box">
+                                <!-- <div class="members_about_box">
                                     
                                     <h3 id="hcolor">Communication Detail</h3>
                                     <div class="profile_list"> 
                                     <p><b>Click the button to view the contact details</b>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" value="View" class="btn form-control login_btn">View</button></p>
-                                    <!-- <a href="search.html" class="register_angkar_btn">View</a> -->
                                     </div>                                                                          
-                                </div>
+                                </div> -->
                             <!-- <ul class="nav nav-tabs profile_menu" role="tablist">
                                 <li role="presentation"><a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">Activity</a></li>
                                 <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
