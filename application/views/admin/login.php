@@ -68,7 +68,7 @@
 			
 			<div class="row-fluid">
 				<div class="well span5 center login-box">
-					<form class="form-horizontal admin_login_form" action="<?php echo base_url(); ?>admin" method="post">					
+					<form class="form-horizontal admin_login_form" action="<?php echo base_url(); ?>index.php/admin" method="post">					
 <?php } ?>
 						<div class="alert alert-info admin_status"></div>
 						<fieldset>
@@ -181,7 +181,7 @@
         var csrf_name = "<?php echo $this->security->get_csrf_token_name(); ?>";
 
         //Admin base url declaration (route path)
-        var admin_baseurl = "<?php echo base_url(); ?>admin/";
+        var admin_baseurl = "<?php echo base_url(); ?>index.php/admin/";
     </script>
 
 </body>

@@ -1,6 +1,6 @@
 <div class="login_form_inner zoom-anim-dialog mfp-hide" id="small-dialog">
    <h4>User Login</h4>
-   <form method="post" action="login_ajax" name="userlogin" id="userlogin">
+   <form method="post" action="<?php echo base_url(); ?>index.php/login_ajax" name="userlogin" id="userlogin">
        <p class="admin_status"> </p>
        <input type="email" placeholder="Username" name="email_id" name="email_id">
        <input type="password" placeholder="Password" name="password" name="password">
@@ -30,7 +30,8 @@
                 <div class="col-md-6">
                     <div class="registration_form_s">
                         <h4>Registration</h4>
-                         <form method="post" action="login_ajax" name="register_login" id="register_login">
+                         <form method="post" action="index.php/index" name="register_login" id="register_login">
+                         <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                              <div class="form-group">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">

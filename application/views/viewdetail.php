@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="pad">
-                            <a href="<?php echo base_url();?>search" class="register_angkar_btn login_btn pull-right">Back</a>
+                            <a href="<?php echo base_url();?>index.php/search_result" class="register_angkar_btn login_btn pull-right">Back</a>
                         </div> 
                     <div class="members_profile_inners">
                             <div class="members_about_box">
