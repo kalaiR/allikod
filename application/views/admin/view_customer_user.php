@@ -43,6 +43,11 @@
 												<label class="control-label" for="focusedInput">User Type :  </label>
 												<label class="control-label" for="focusedInput"><?php //echo $customeruser_values['user_online_or_simple']; ?> </label>												
 											  </div> -->
+											  <?php 
+											  // echo "<pre>";
+											  // print_r($customeruser_values); 
+											  // echo "<pre>";
+											  ?>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Customer Email : </label>
 												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['user_email']; ?> </label>

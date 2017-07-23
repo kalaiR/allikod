@@ -144,7 +144,13 @@
 													</div>
 												</div>
 											  	<div class="control-group">
-													<label class="control-label" for="focusedInput">No. of profile : </label>
+													<label class="control-label" for="focusedInput">Total No. of profile: </label>
+													<div class="controls">
+													  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['totalno_of_profile'])) echo $customeruser_values['totalno_of_profile'];  ?>">
+													</div>
+											  	</div>
+											  	<div class="control-group">
+													<label class="control-label" for="focusedInput">No. of profile Viewed: </label>
 													<div class="controls">
 													  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['no_of_profiles_viewed'])) echo $customeruser_values['no_of_profiles_viewed'];  ?>">
 													</div>
@@ -917,7 +923,7 @@
 												<label class="control-label">Image Active :</label>
 												<div class="controls">
 												  <label class="radio">
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">					
+													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" <?php if($customeruser_values['image_active_status'] == '1') echo "checked"; ?>>					
 												  </label>
 												</div>												
 											  </div>  					  							  

@@ -86,6 +86,7 @@ class Customeruser_data_model extends CI_Model {
 	    $this->db->from('reg_userdetail usr');
 	    $this->db->join('reg_payment pm','pm.reg_user_id=usr.userdetail_id','left');
 	    $this->db->order_by('usr.userdetail_id desc');
+	    $this->db->limit(1000);
 	    $model_data['customeruser_values'] = $this->db->get()->result_array();
 	    // print_r($model_data['customeruser_values']);
 
@@ -113,7 +114,8 @@ class Customeruser_data_model extends CI_Model {
 	    $this->db->join('occupation occ','occ.occupation_id=eo.edu_occupation','left');
 	    $this->db->join('employed_in ein','ein.employedin_id=eo.edu_employedin','left');
 	    $this->db->where($condition); 
-	    $model_data['customeruser_values'] = $this->db->get()->result_array();
+	    $model_data['customeruser_values'] = $this->db->get()->row_array();
+	   //  echo $this->db->last_query();
 	   //  echo "<pre>";
   		// print_r($model_data['customeruser_values']);
   		// echo "</pre>";
