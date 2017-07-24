@@ -41,13 +41,26 @@ include('include/menu.php');
                     // echo $value['images']."<br>";
                     // echo base_url()."uploads/profile/".$value['images'];
                     // echo "image_status"."<br>".file_exists(base_url()."uploads/profile/".$value['images'])."<br>";
-                    if(file_exists(FCPATH."uploads/profile/".$value['images'])){
+                    $prefix_one = 'th_';
+                    $prefix_two = 'new_';
+                    $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$value['images']);
+                    $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$value['images']);
+                    // if(file_exists(FCPATH."uploads/profile/".$value['images'])){
                 ?>                        
                     <div class="col-md-4 col-sm-6">
-                        <?php //echo FCPATH."uploads/profile/".$value['images']; ?>
-                        <!-- <img src="<?php //echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt=""> -->
-                        <!-- <img src="<?php //if(!empty($suc['image'])) echo base_url()."uploads/profile".$value['images']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No image" style="width:170px;height:170px;"> -->
-                        <img src="<?php if(!empty($value['images'])) echo base_url()."uploads/profile/".$value['images']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded" style="width:170px;height:170px;">
+                        <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                            if($prefix_one_status)
+                                $prefix = $prefix_one;
+                            else if($prefix_two_status)
+                                $prefix = $prefix_two;
+                        ?>
+                        <img src="<?php 
+                            if(!empty($value['images'])): 
+                                echo base_url()."uploads/profile/".$prefix.$value['images']; 
+                            else:
+                                echo base_url()."assets/img/no_image.jpg"; 
+                            endif; 
+                        ?>" alt="Image not loaded" style="width:170px;height:170px;">
                           <!-- <div><a href="#">More Images</a></div>  -->
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
@@ -98,7 +111,7 @@ include('include/menu.php');
                         </div>
                     </div>      
                      
-                <?php }} ?>
+                <?php } ?>
                 </div>
 
                     
