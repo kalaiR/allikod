@@ -88,8 +88,8 @@
 												<span class="label label-success">Paid</span>
 											</td>
 											
-											<td class="center"  width="150px">
-												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+											<td class="center">
+												<div style="width: 160px; ">
 													<a class="btn btn-warning" href="#">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
@@ -127,8 +127,8 @@
 												<span class="label label-success">Paid</span>
 											</td>
 											
-											<td class="center"  width="150px">
-												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+											<td class="center">
+												<div style="width: 160px;">
 													<a class="btn btn-warning" href="#">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
@@ -187,8 +187,8 @@
 											<td class="center">
 												<span class="label label-danger">Not Paid</span>
 											</td>										
-											<td class="center"  width="150px">
-												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+											<td class="center">
+												<div style="width: 160px;">
 													<a class="btn btn-warning" href="view_customer_user.php">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
@@ -221,8 +221,8 @@
 											<td class="center">
 												<span class="label label-danger">Not Paid</span>
 											</td>										
-											<td class="center"  width="150px">
-												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+											<td class="center">
+												<div style="width: 160px;">
 													<a class="btn btn-warning" href="#">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
@@ -279,8 +279,8 @@
 											<td class="center">
 												<span class="label label-danger">Not Paid</span>
 											</td>										
-											<td class="center"  width="150px">
-												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+											<td class="center">
+												<div style="width: 160px;">
 													<a class="btn btn-warning" href="#">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
@@ -310,8 +310,8 @@
 											<td class="center">
 												<span class="label label-danger">Not Paid</span>
 											</td>										
-											<td class="center"  width="150px">
-												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+											<td class="center">
+												<div style="width: 160px;">
 													<a class="btn btn-warning" href="#">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
@@ -371,8 +371,8 @@
 											<td class="center">
 												<span class="label label-danger">Not Paid</span>
 											</td>										
-											<td class="center"  width="150px">
-												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+											<td class="center">
+												<div style="width: 160px;">
 													<a class="btn btn-warning" href="#">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
