@@ -122,42 +122,42 @@
 			<ul class="nav nav-tabs nav-stacked sidebar-menu main-menu">
 				<!-- <li class="nav-header hidden-tablet">Main</li> -->
 				
-				<li><a href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
-				<li><a class="ajax-link" href="#"><i class="icon-user"></i><span> Administration</a>
+				<li id="dashboard"><a href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+				<li id="administration"><a class="ajax-link" href="#"><i class="icon-user"></i><span> Administration</a>
 					<ul class="sidebar-submenu">
 						<li><a class="ajax-link" href="administration.php"><i class="icon-eye-open"></i><span> Administration View</span></a></li>
 					</ul>
 				</li>
-				<li class=""><a href="report.php"><i class="icon-list-alt"></i><span> Report</a>
+				<li class="" id="report"><a href="report.php"><i class="icon-list-alt"></i><span> Report</a>
 					<!-- <ul class="sidebar-submenu">
 						<li><a class="ajax-link" href="report.php"><i class="icon-list-alt"></i><span class="hidden-tablet"> Report</span></a></li>
 					</ul> -->
 				</li>
-				<li class=""><a href="customer_user.php"><i class="icon icon-darkgray icon-users"></i><span> Customer User</a>
+				<li class="" id="customer_user"><a href="customer_user.php"><i class="icon icon-darkgray icon-users"></i><span> Customer User</a>
 					<!-- <ul class="sidebar-submenu" >
 						<li><a class="ajax-link" href="customer_user.php"><i class="icon icon-darkgray icon-users"></i><span class="hidden-tablet"> Customer User</span></a></li>
 					</ul> -->
 				</li>
-				<li class=""><a href="successful_story.php"><i class="icon icon-darkgray icon-book"></i><span> Successful Story</a>
+				<li class="" id="successful_story"><a href="successful_story.php"><i class="icon icon-darkgray icon-book"></i><span> Successful Story</a>
 					<!-- <ul class="sidebar-submenu">
 						<li><a class="ajax-link" href="successful_story.php"><i class="icon icon-darkgray icon-book"></i><span class="hidden-tablet"> Successful Story</span></a></li>
 					</ul> -->
 				</li>
-				<li class=""><a href="#"><i class="icon-envelope"></i><span> Mail</a>
+				<li class="" id="mail"><a href="#"><i class="icon-envelope"></i><span> Mail</a>
 					<ul class="sidebar-submenu">
 						<li><a class="ajax-link" href="index.php"><i class="icon-envelope"></i><span class="hidden-tablet"> Mail</span></a></li>
 						<li><a class="ajax-link" href="index.php"><i class="icon-envelope"></i><span class="hidden-tablet"> Send Mail</span></a></li>
 						<li><a class="ajax-link" href="index.php"><i class="icon-comment"></i><span class="hidden-tablet">Send SMS</span></a></li>
 					</ul>
 				</li>
-				<li class=""><a href="#"><i class="icon-picture"></i> Gallery</a>
+				<li class="" id="gallery"><a href="#"><i class="icon-picture"></i> Gallery</a>
 					<ul class="sidebar-submenu">
 						<li><a class="ajax-link" href="gallery_upload.php"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery Upload</span></a></li>
 						<li><a class="ajax-link" href="gallery_category.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Gallery category</span></a></li>
 						<li><a class="ajax-link" href="contact_gallery_upload.php"><i class="icon-calendar"></i><span class="hidden-tablet">Contact Gallery Upload</span></a></li>
 					</ul>
 				</li>
-				<li class=""><a href="#"><i class="icon-cog"></i> Settings</a>
+				<li class="" id="settings"><a href="#"><i class="icon-cog"></i> Settings</a>
 					<ul class="sidebar-submenu">
 						<li><a class="ajax-link" href="zodiac_sign.php"><i class="icon-screenshot"></i><span class="hidden-tablet">Zodiac Sign</span></a></li>
 						<li><a class="ajax-link" href="nakshathra.php"><i class="icon-star"></i><span class="hidden-tablet">Nakshathra</span></a></li>
