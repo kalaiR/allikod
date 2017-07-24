@@ -26,44 +26,99 @@
 	                            </div>    
 	                        </div>        
 	                    </div>            
-				            <div class="row sucess">        
-	                            <div class="col-sm-4 sucess-box">
-		                             <img src="img/sucess/stories-4.jpg" class="img-thumbnail image-box " alt="">   
-	                             </div>
-	                             	<div class="col-sm-4 text-box">
-	                                	<div class="col-sm-5 text-box">
-		                                	<p>Vallikodi ID</p>
-		                                	<p>Birde Name </p>
-		                                	<p>Groom Name</p>
-		                                	<p>Marriage date</p>
-	                             		</div>
-	                             		<div class="col-sm-5 text-box">
-		                                	<p> : 123</p>
-		                                	<p> : Sharmila</p>
-		                                	<p> : Ramachandran</p>
-		                                	<p> : 2017-02-12</p>
-	                             		</div>
-	                             	</div>
-	                             <div class="col-sm-4">
-	                              	<div class="comment_form_area">
-	                              		<div class="row">
-	                              			<form action="#" class="form_inner">
-		                              			<div class="form-group col-md-12 sucess-box">
-	                                    			<textarea id="comment" placeholder="Comment" rows="1" disabled="disabled"></textarea>
-	                                    			<!-- <div class="form-group col-md-5 sucess-box  ">
-                                    					<button type="submit" value="LogIn" class="btn form-control login_btn">Submit</button>
-                                					</div> -->
-	                                			</div>		
-	                                		</form>	
-	                              		</div>
-	                             	</div>	
-	                        	</div>
+				            <div class="row sucess">
+				            	<div class="col-sm-12">        
+		                            <div class="col-sm-3 sucess-box">
+			                             <img src="img/sucess/stories-4.jpg" class="img-thumbnail image-box " alt="">   
+		                             </div>
+		                             	<div class="col-sm-5 text-box">
+		                                	<div class="col-sm-4 col-xs-6">
+			                                	<p>Vallikodi ID</p>
+			                                </div>
+			                                <div class="col-sm-6 col-xs-6">
+			                                	<p>: 123</p>
+			                                </div>
+			                                <div class="col-sm-4 col-xs-6">		
+			                                	<p>Bride Name </p>
+			                                </div>
+			                                <div class="col-sm-6 col-xs-6">
+			                                <p>: Sharmila</p>
+			                                </div>
+			                                <div class="col-sm-4 col-xs-6">	
+			                                	<p>Groom Name</p>
+			                                </div>
+			                                 <div class="col-sm-6 col-xs-6">	
+			                                	<p>: selva kumar ADIBHA adibha</p>
+		                             		</div>
+		                             		<div class="col-sm-4 col-xs-6">
+			                                	<p>Marriage Date</p>
+		                             		</div>
+		                             		<div class="col-sm-6 col-xs-6">
+			                                	<p>: </p>
+		                             		</div>
+		                             	</div>
+		                             <div class="col-sm-4 text-box">
+		                              	<div class="comment_form_area">
+		                              		<div class="row">
+		                              			<form action="#" class="form_inner">
+			                              			<div class="form-group col-md-12 sucess-box">
+		                                    			<textarea id="comment" placeholder="Comment" rows="1" disabled="disabled"></textarea>
+		                                    			
+		                                			</div>		
+		                                		</form>	
+		                              		</div>
+		                             	</div>	
+		                        	</div>
+		                        </div>
+		                        <div class="col-sm-12">        
+		                            <div class="col-sm-3 sucess-box">
+			                             <img src="img/sucess/stories-4.jpg" class="img-thumbnail image-box " alt="">   
+		                             </div>
+		                             	<div class="col-sm-5 text-box">
+		                                	<div class="col-sm-4 col-xs-6">
+			                                	<p>Vallikodi ID</p>
+			                                </div>
+			                                <div class="col-sm-6 col-xs-6">
+			                                	<p>: 123</p>
+			                                </div>
+			                                <div class="col-sm-4 col-xs-6">		
+			                                	<p>Bride Name </p>
+			                                </div>
+			                                <div class="col-sm-6 col-xs-6">
+			                                <p>: Sharmila</p>
+			                                </div>
+			                                <div class="col-sm-4 col-xs-6">	
+			                                	<p>Groom Name</p>
+			                                </div>
+			                                 <div class="col-sm-6 col-xs-6">	
+			                                	<p>: Veeraraghavan@sudhakar</p>
+		                             		</div>
+		                             		<div class="col-sm-4 col-xs-6">
+			                                	<p>Marriage Date</p>
+		                             		</div>
+		                             		<div class="col-sm-6 col-xs-6">
+			                                	<p>: </p>
+		                             		</div>
+		                             	</div>
+		                             <div class="col-sm-4 text-box">
+		                              	<div class="comment_form_area">
+		                              		<div class="row">
+		                              			<form action="#" class="form_inner">
+			                              			<div class="form-group col-md-12 sucess-box">
+		                                    			<textarea id="comment" placeholder="Comment" rows="1" disabled="disabled"></textarea>
+		                                    			
+		                                			</div>		
+		                                		</form>	
+		                              		</div>
+		                             	</div>	
+		                        	</div>
+		                        </div>	
 	                		</div>
-	                		<div class="row sucess-box">        
-	                            <div class="col-sm-4 sucess-box">
+	                		<!-- <div class="row sucess-box">        
+	                            <div class="col-sm-3 sucess-box">
 	                                <img src="img/sucess/stories-5.jpg" class="img-thumbnail image-box "  alt="">
 	                             </div>
-	                             	<div class="col-sm-4 text-box">
+	                             	<div class="col-sm-5 text-box">
 	                                	<div class="col-sm-5 text-box">
 		                                	<p>Vallikodi ID</p>
 		                                	<p>Birde Name </p>
@@ -83,20 +138,17 @@
 	                              			<form action="#" class="form_inner">
 		                              			<div class="form-group col-md-12 sucess-box">
 	                                    			<textarea id="comment" placeholder="Comment" rows="1" disabled="disabled"></textarea>
-	                                    			<!-- <div class="form-group col-md-5 sucess-box  ">
-                                    					<button type="submit" value="LogIn" class="btn form-control login_btn">Submit</button> -->
-                                					</div>
 	                                			</div>		
 	                                		</form>	
 	                              		</div>
 	                             	</div>	
 	                        	</div>
-	                		</div>
-	                		<div class="row sucess-box">        
-	                            <div class="col-sm-4 sucess-box">
+	                		</div> -->
+	                		<!-- <div class="row sucess-box">        
+	                            <div class="col-sm-3 sucess-box">
 	                                <img src="img/sucess/stories-4.jpg" class="img-thumbnail image-box " alt="">
 	                             </div>
-	                             	<div class="col-sm-4 text-box">
+	                             	<div class="col-sm-5 text-box">
 	                                	<div class="col-sm-5 text-box">
 		                                	<p>Vallikodi ID</p>
 		                                	<p>Birde Name </p>
@@ -116,15 +168,12 @@
 	                              			<form action="#" class="form_inner">
 		                              			<div class="form-group col-md-12 sucess-box">
 	                                    			<textarea id="comment" placeholder="Comment" rows="1" disabled="disabled"></textarea>
-	                                    			<!-- <div class="form-group col-md-5 sucess-box  ">
-                                    					<button type="submit" value="LogIn" class="btn form-control login_btn">Submit</button> -->
-                                					</div>
 	                                			</div>		
 	                                		</form>	
 	                              		</div>
 	                             	</div>	
 	                        	</div>
-	                		</div>   		
+	                		</div>  -->  		
             		</div>
             			<div class="row">
             				<div class="pagination_area">
