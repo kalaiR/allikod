@@ -37,12 +37,17 @@ include('include/menu.php');
                  </div>
                  <div class="row">
                  <div class="col-md-9">
-                <?php foreach($results as $value) { ?>    
-                
-                    
+                <?php foreach($results as $value) { 
+                    // echo $value['images']."<br>";
+                    // echo base_url()."uploads/profile/".$value['images'];
+                    // echo "image_status"."<br>".file_exists(base_url()."uploads/profile/".$value['images'])."<br>";
+                    if(file_exists(FCPATH."uploads/profile/".$value['images'])){
+                ?>                        
                     <div class="col-md-4 col-sm-6">
-                        <!-- <img src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt=""> -->
-                        <img src="<?php if(!empty($suc['image'])) echo base_url()."uploads/profile".$value['images']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No image" style="width:170px;height:170px;">
+                        <?php //echo FCPATH."uploads/profile/".$value['images']; ?>
+                        <!-- <img src="<?php //echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt=""> -->
+                        <!-- <img src="<?php //if(!empty($suc['image'])) echo base_url()."uploads/profile".$value['images']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No image" style="width:170px;height:170px;"> -->
+                        <img src="<?php if(!empty($value['images'])) echo base_url()."uploads/profile/".$value['images']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded" style="width:170px;height:170px;">
                           <!-- <div><a href="#">More Images</a></div>  -->
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
@@ -93,7 +98,7 @@ include('include/menu.php');
                         </div>
                     </div>      
                      
-                <?php } ?>
+                <?php }} ?>
                 </div>
 
                     
