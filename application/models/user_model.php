@@ -249,7 +249,7 @@ class User_model extends CI_Model {
       // $this->db->last_query();
       // print_r($query);
       if(empty($query) || empty($values)){
-         $condition ="usr.user_active_status = 1 AND img.images!=''";
+        $condition ="usr.user_active_status = 1 AND img.images!=''";
         $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation,img.images');
         $join = $this->db->from('reg_userdetail AS usr INNER JOIN reg_religion_ethnicity AS rel ON rel.reg_user_id = usr.userdetail_id
         INNER JOIN reg_physical_expectation AS phy ON phy.reg_user_id = usr.userdetail_id       
@@ -257,8 +257,9 @@ class User_model extends CI_Model {
         INNER JOIN user_images AS img ON img.reg_user_id = usr.userdetail_id');     
         $this->db->where($condition);    
         $this->db->order_by('usr.userdetail_id','desc');
-        $this->db->limit(100);
+        $this->db->limit(1000);
         $query = $this->db->get()->result_array();
+        // echo $this->db->last_query();
       }
       // echo "<pre>";
       // print_r($query);

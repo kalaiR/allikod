@@ -179,7 +179,7 @@
 					                      // echo "</pre>";
 					                      $i=0;
 					                      foreach ($customeruser_values as $cus_val) :
-					                      	if($cus_val['user_online_or_simple'] == 'online'):
+					                      	if(strtolower($cus_val['user_online_or_simple']) == 'online'):
 					                      		$i++;
 			                      	    ?>
 										<tr>											
@@ -282,7 +282,7 @@
 					                      // echo "</pre>";
 					                      $i=0;
 					                      foreach ($customeruser_values as $cus_val) :
-					                      	if($cus_val['user_online_or_simple'] == 'simple'):
+					                      	if(strtolower($cus_val['user_online_or_simple']) == 'simple'):
 					                      		$i++;
 			                      	    ?>
 										<tr>											
