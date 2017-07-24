@@ -28,13 +28,32 @@ class User_model extends CI_Model {
       return $query;
   }
 
-   public function get_mothertongue(){
-      $condition = "mother.active_status = 1";
-      $this->db->select('*');
-      $this->db->from('mother_tongue AS mother');
-      $this->db->where($condition);      
-      $this->db->order_by('mother.mothertongue_id','desc');
-      $query = $this->db->get()->result_array();          
+   public function get_mothertongue($userid="", $motherid=""){       
+      if($userid!=''){
+        // UserId based mother tongue search    
+        $condition = "mt.active_status = 1 And re.reg_user_id = ".$id."";
+        $this->db->select('mt.name as mother_tongue_name');
+        $this->db->from('reg_religion_ethnicity re');
+        $this->db->join('reg_userdetail user','re.reg_user_id=user.userdetail_id','left');
+        $this->db->join('mother_tongue mt','re.rel_mothertongue_id=mt.mothertongue_id','left');
+        $this->db->where($condition);      
+        $query = $this->db->get()->result_array(); 
+      }elseif($motherid!=''){
+        // Mother tongue Id based mother tongue search    
+        $condition = "mother.active_status = 1 AND mother.mothertongue_id = ".$motherid."";  
+        $this->db->select('*');
+        $this->db->from('mother_tongue AS mother');
+        $this->db->where($condition);      
+        $this->db->order_by('mother.mothertongue_id','desc');
+        $query = $this->db->get()->result_array();          
+      }else{
+        $condition = "mother.active_status = 1";  
+        $this->db->select('*');
+        $this->db->from('mother_tongue AS mother');
+        $this->db->where($condition);      
+        $this->db->order_by('mother.mothertongue_id','desc');
+        $query = $this->db->get()->result_array();          
+      }
       return $query;
   }
 
