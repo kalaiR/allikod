@@ -35,6 +35,7 @@
                                         <?php //echo "<pre>";print_r($results);echo "</pre>"; ?>
                                           <!-- <img src="<?php //if(!empty($results['image'])) echo base_url()."assets/img/uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No Image" style="vertical-align:bottom;width:170px;height:170px;"> -->
                                             <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                                                $prefix = '';
                                                 $prefix_one = 'th_';
                                                 $prefix_two = 'new_';
                                                 $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$results['images']);

@@ -41,6 +41,7 @@ include('include/menu.php');
                     // echo $value['images']."<br>";
                     // echo base_url()."uploads/profile/".$value['images'];
                     // echo "image_status"."<br>".file_exists(base_url()."uploads/profile/".$value['images'])."<br>";
+                    $prefix = '';
                     $prefix_one = 'th_';
                     $prefix_two = 'new_';
                     $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$value['images']);
