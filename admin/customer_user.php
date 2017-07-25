@@ -18,7 +18,6 @@
 					<div class="box-header well" data-original-title>
 						<h2><i class="icon-zoom-in"></i> Search</h2>
 						<div class="box-icon">
-							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
 							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
 							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
 						</div>
@@ -82,11 +81,11 @@
 									</div>
 								  </div>
 								  <div class="control-group">
-									<label class="control-label" for="focusedInput">DOB</label>
-									<div class="controls">
-									  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px">
+									  <label class="control-label" for="date01">DOB</label>
+									  <div class="controls">
+										<input type="text" class="input-xlarge datepicker" id="date01" style="width: 150px" value="02/16/12">
+									  </div>
 									</div>
-								  </div>
 								 </fieldset>
 							</form>
                         </div>
@@ -140,7 +139,6 @@ $(".slidingDiv").slideToggle();
 					<div class="box-header well">
 						<h2><i class="icon-user"></i> Customer User</h2>
 						<div class="box-icon">
-							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
 							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
 							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
 						</div>
