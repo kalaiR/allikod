@@ -2,7 +2,9 @@
 
 include('include/header.php');
 include('include/menu.php');
-
+// echo '<pre>';
+// print_r($results);
+// echo '</pre>';
 ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
@@ -34,10 +36,12 @@ include('include/menu.php');
                                 <a href="<?php echo base_url(); ?>index.php/search" class="register_angkar_btn">Back</a>
                         </div>
                      </div>
-                 </div>
-                 <div class="row">
-                 <div class="col-md-9">
-                <?php foreach($results as $value) { 
+                </div>
+                <div class="row">
+                <div class="col-md-9">
+                <?php
+                if(!empty($results)){
+                foreach($results as $value) { 
                     // echo $value['images']."<br>";
                     // echo base_url()."uploads/profile/".$value['images'];
                     // echo "image_status"."<br>".file_exists(base_url()."uploads/profile/".$value['images'])."<br>";
@@ -111,11 +115,14 @@ include('include/menu.php');
                           </div>  
                         </div>
                     </div>      
-                     
-                <?php } ?>
+                <?php } 
+                }else{?>
+                     <div class="text-box-name" align="center">
+                        <p>No Record Found</p>
+                     </div>
+                <?php }
+                ?>
                 </div>
-
-                    
                     <div class="col-md-3">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
@@ -415,12 +422,17 @@ include('include/menu.php');
                         </div>
                     </div>
                 </div>              
-                <div class="pagination_area">
+                <!-- <div class="pagination>                    
                     <a class="prev" href="#">Previous</a>
                     <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
                     <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
                     <a class="next" href="#">Next</a>
-                </div>
+                </div> -->
+                <?php
+                if(!empty($links)) :
+                            echo "<div class='col-md-12 col-sm-12 col-xs-12 nopadding'><div class='pagination-box clearfix'>" .$links . "</div></div>";
+                        endif;
+                ?> 
             </div>
         </section>
         <!--================End search_reslut grid Area =================-->               
@@ -441,5 +453,4 @@ include('include/menu.php');
 <?php 
     include('include/footer.php');
 ?> 
-    </body>
-</html>
+

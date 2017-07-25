@@ -135,6 +135,7 @@
                     <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
                     
                 </div>
+                <form method="post" class="box basic_search" action="search_result" id="quick_search" name="quick_search" >
                 <div class="row">
                     <div class="col-sm-9">
                             <div class="search_option">
@@ -142,37 +143,46 @@
                                     <div role="tabpanel" class="tab-pane active" id="home">
                                         <div class="height_item">
                                             <h4>Looking for a</h4>
-                                            <select class="selectpicker">
-                                                <option>Bride</option>
-                                                <option>Groom</option>
+                                            <select class="selectpicker" name="gender[]" id="gender" >
+                                                <option value="1">Bride</option>
+                                                <option value="2">Groom</option>
                                             </select>
                                         </div>
                                         <div class="height_item">
                                             <h4>From (age)</h4>
-                                                <select class="selectpicker">
-                                                    <option>18</option>
-                                                    <option>19</option>
-                                                    <option>20</option>
-                                                </select>
+                                                <select class="selectpicker" name="search_age_from[]" id="search_age_from">
+                                                                                <?php 
+                                                                                for($i=18;$i<=60;$i++){ ?>
+                                                                                <option <?php if($i==18){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                                <?php
+                                                                                } ?>
+                                                                                </select>
                                         </div>
                                         <div class="height_item">
                                             <h4>To (age)</h4>
-                                            <select class="selectpicker">
-                                                <option>21</option>
-                                                <option>22</option>
-                                                <option>23</option>
-                                            </select>     
+                                            <select class="selectpicker" name="search_age_to[]" id="search_age_to">
+                                                                                        <?php 
+                                                                                        for($i=18;$i<=60;$i++){
+                                                                                        ?>
+                                                                                        <option  <?php if($i==34){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                                        <?php
+                                                                                        }
+                                                                                        ?>
+                                                                        </select>     
                                         </div>
                                     </div> 
                                  </div>
                             </div>
                      </div>
+                     <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
+                     <input type="hidden" name="search_type" value="quick_search" id="quick_search"/>
                         <div class="col-sm-3">
-                            <div class="search_btn">
-                                <a href="<?php echo base_url(); ?>index.php/search_result" class="register_angkar_btn">Search</a>
+                            <div class="search_btn">                                
+                                <button type="submit" value="" class="btn form-control login_btn">Search</button>
                             </div>
                         </div>
                  </div> 
+                 </form>
             </div>               
         </section>
         <!--================End Advanced Search Area (selva)=================-->
