@@ -44,15 +44,17 @@ include('include/menu.php');
                     $prefix = '';
                     $prefix_one = 'th_';
                     $prefix_two = 'new_';
-                    $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$value['images']);
-                    $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$value['images']);
+                    if(!empty($value['images'])){
+                        $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$value['images']);
+                        $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$value['images']);
+                    }
                     // if(file_exists(FCPATH."uploads/profile/".$value['images'])){
                 ?>                        
                     <div class="col-md-4 col-sm-6">
                          <?php //echo FCPATH."uploads/profile/".$value['images']; 
-                            if($prefix_one_status)
+                            if(!empty($prefix_one_status))
                                 $prefix = $prefix_one;
-                            else if($prefix_two_status)
+                            else if(!empty($prefix_two_status))
                                 $prefix = $prefix_two;
                         ?>
                         <img src="<?php 
