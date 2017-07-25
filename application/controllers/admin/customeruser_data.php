@@ -120,4 +120,8 @@ class Customeruser_Data extends CI_Controller {
 	public function add_online_user(){
 		$this->load->view('admin/add_online_user');
 	}
+	function cd_list() {
+        $results = $this->customeruser_data_model->get_cd_list();
+        echo json_encode($results);
+    }
 }
