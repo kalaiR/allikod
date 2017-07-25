@@ -148,7 +148,7 @@ class User_model extends CI_Model {
   }
 
   public function get_familystatus($family_statusid=""){
-       if($edu_id!=''){
+       if($family_statusid!=''){
         // Education Id Id based search    
         $condition = "fstatus.active_status = 1 AND fstatus.familystatus_id = ".$family_statusid."";  
         $this->db->select('*');
@@ -159,7 +159,7 @@ class User_model extends CI_Model {
       }else{
         $condition = "fstatus.active_status = 1";  
         $this->db->select('*');
-        $this->db->from('familystatus_id AS fstatus');
+        $this->db->from('family_status AS fstatus');
         $this->db->where($condition);      
         $this->db->order_by('fstatus.familystatus_id','asc');
         $query = $this->db->get()->result_array();          
