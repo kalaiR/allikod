@@ -456,6 +456,7 @@ height:120px;
 }
 .pull-left{
 float:left !important;
+margin-left: 20px;
 }
 .pull-right{
 float:right !important;
