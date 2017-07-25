@@ -50,9 +50,9 @@ include('include/menu.php');
                                             ?>
                                             <img src="<?php 
                                                 if(!empty($results['images'])): 
-                                                    echo base_url()."uploads/profile/".$prefix.$results['images']; 
+                                                    echo media_url()."uploads/profile/".$prefix.$results['images']; 
                                                 else:
-                                                    echo base_url()."assets/img/no_image.jpg"; 
+                                                    echo media_url()."assets/img/no_image.jpg"; 
                                                 endif; 
                                             ?>" alt="Image not loaded" style="width:170px;height:170px;">
                                             <ul>

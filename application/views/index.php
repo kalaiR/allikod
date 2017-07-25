@@ -243,9 +243,9 @@
                         $prefix = '';
                         $prefix_one = 'th_';
                         $prefix_two = 'new_';
-                        if(!empty($value['images'])){
-                            $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$value['images']);
-                            $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$value['images']);
+                        if(!empty($rec['images'])){
+                            $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$rec['images']);
+                            $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$rec['images']);
                         }
                 ?>
                     <div class="col-md-3 col-sm-6">
