@@ -6,7 +6,7 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="<?php echo base_url(); ?>index.php/admin">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">Luknam</a>
@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>index.php/admin/add_luknam">
+						<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_luknam">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
@@ -75,7 +75,7 @@
 			                        ?> 
 								</td>
 								<td class="center">
-									<a class="btn btn-info" href="<?php echo base_url(); ?>index.php/admin/edit_luknam/<?php echo $luk_val["luknam_id"] ?>">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_luknam/<?php echo $luk_val["luknam_id"] ?>">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>

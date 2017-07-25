@@ -6,7 +6,7 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="<?php echo base_url(); ?>index.php/admin">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">Contact Galley Upload</a>
@@ -25,7 +25,7 @@
 						</div>
 					</div>
 						<div class="box-content row">
-							<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>index.php/admin/add_contact_gallery">
+							<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_contact_gallery">
 							        <i class="glyphicon glyphicon-edit icon-white"></i>
 							        Add
 							    </a>
@@ -42,13 +42,13 @@
 								  </thead>   
 								  <tbody>
 									<tr>
-										<td><img alt="Vallikodi" src="<?php echo base_url(); ?>assets/admin/img/valli/contact.jpg" style="width: 50px;height: 50px;" /></td>
+										<td><img alt="Vallikodi" src="<?php echo media_url(); ?>assets/admin/img/valli/contact.jpg" style="width: 50px;height: 50px;" /></td>
 										<td>15/02/2017</td>
 										<td class="center">
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_contact_gallery">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_contact_gallery">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -59,13 +59,13 @@
 										</td>
 									</tr>
 									<tr>
-										<td><img alt="Vallikodi" src="<?php echo base_url(); ?>assets/admin/img/valli/contact.jpg" style="width: 50px;height: 50px;" /></td>
+										<td><img alt="Vallikodi" src="<?php echo media_url(); ?>assets/admin/img/valli/contact.jpg" style="width: 50px;height: 50px;" /></td>
 										<td>15/02/2017</td>
 										<td class="center">
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_contact_gallery">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_contact_gallery">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -76,13 +76,13 @@
 										</td>
 									</tr>
 									<tr>
-										<td><img alt="Vallikodi" src="<?php echo base_url(); ?>assets/admin/img/valli/contact.jpg" style="width: 50px;height: 50px;" /></td>
+										<td><img alt="Vallikodi" src="<?php echo media_url(); ?>assets/admin/img/valli/contact.jpg" style="width: 50px;height: 50px;" /></td>
 										<td>15/02/2017</td>
 										<td class="center">
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_contact_gallery">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_contact_gallery">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -93,13 +93,13 @@
 										</td>
 									</tr>
 									<tr>
-										<td><img alt="Vallikodi" src="<?php echo base_url(); ?>assets/admin/img/valli/contact.jpg" style="width: 50px;height: 50px;" /></td>
+										<td><img alt="Vallikodi" src="<?php echo media_url(); ?>assets/admin/img/valli/contact.jpg" style="width: 50px;height: 50px;" /></td>
 										<td>15/02/2017</td>
 										<td class="center">
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_contact_gallery">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_contact_gallery">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -110,13 +110,13 @@
 										</td>
 									</tr>
 									<tr>
-										<td><img alt="Vallikodi" src="<?php echo base_url(); ?>assets/admin/img/valli/contact.jpg" style="width: 50px;height: 50px;" /></td>
+										<td><img alt="Vallikodi" src="<?php echo media_url(); ?>assets/admin/img/valli/contact.jpg" style="width: 50px;height: 50px;" /></td>
 										<td>15/02/2017</td>
 										<td class="center">
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_contact_gallery">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_contact_gallery">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>

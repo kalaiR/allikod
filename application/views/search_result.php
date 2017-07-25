@@ -6,7 +6,7 @@ include('include/menu.php');
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">Search Result<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
+                    <h3><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Search Result<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
                     <!--<a href="index.html">Home</a>
                     <a href="shop-cart.html">Pricing</a>-->
                 </div>
@@ -21,7 +21,7 @@ include('include/menu.php');
                         <div class="col-md-4 head-box">
                             <div class="welcome_title">
                                 <h3>Search Result</h3>
-                                 <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
+                                 <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                             </div>
                         </div>   
                     </div>    
@@ -29,7 +29,7 @@ include('include/menu.php');
                  <div class="row">
                      <div class="col-md-9 aline-center-box ">
                         <div class="search_btn back-box">
-                                <a href="<?php echo base_url(); ?>index.php/search" class="register_angkar_btn">Back</a>
+                                <a href="<?php echo base_url(); ?>search" class="register_angkar_btn">Back</a>
                         </div>
                      </div>
                 </div>
@@ -59,9 +59,9 @@ include('include/menu.php');
                         ?>
                         <img src="<?php 
                             if(!empty($value['images'])): 
-                                echo base_url()."uploads/profile/".$prefix.$value['images']; 
+                                echo media_url()."uploads/profile/".$prefix.$value['images']; 
                             else:
-                                echo base_url()."assets/img/no_image.jpg"; 
+                                echo media_url()."assets/img/no_image.jpg"; 
                             endif; 
                         ?>" alt="Image not loaded" style="width:170px;height:170px;">
                           <!-- <div><a href="#">More Images</a></div>  -->
@@ -80,7 +80,7 @@ include('include/menu.php');
                                   </ol>
                                   <div class="carousel-inner">
                                     <div class="item active">
-                                      <img class="lig-box"src="img/search-result-page/img1.jpg" alt="First slide">
+                                      <img class="lig-box" src="img/search-result-page/img1.jpg" alt="First slide">
                                     </div>
                                     <div class="item">
                                       <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Second slide">
@@ -152,7 +152,7 @@ include('include/menu.php');
                         </div>
                         <div class="text-box-name">
                           <div class="col-md-6 head-box">
-                            <p><a href="<?php echo base_url().'index.php/viewdetail/'.$value['userdetail_id'];?>" target="_blank">View Full Details</a></p>
+                            <p><a href="<?php echo base_url().'viewdetail/'.$value['userdetail_id'];?>" target="_blank">View Full Details</a></p>
                           </div>  
                         </div>
                     </div>      
@@ -169,10 +169,10 @@ include('include/menu.php');
                             <aside class="s_widget categories_widget">
                                 <div class="s_title">
                                     <h4>Searching Options</h4>
-                                    <img src="<?php echo base_url(); ?>assets/img/widget-title-border.png" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/widget-title-border.png" alt="">
                                 </div>
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Age Limit</b></a></li>
+                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Age Limit</b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="price_select"></div>
@@ -188,7 +188,7 @@ include('include/menu.php');
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Height Limit</b></a></li>
+                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Height Limit</b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="height_select"></div>
@@ -204,7 +204,7 @@ include('include/menu.php');
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Weight Limit</b></a></li>
+                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Weight Limit</b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="weight_select"></div>
@@ -220,7 +220,7 @@ include('include/menu.php');
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Marital Status</b></a></li>
+                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Marital Status</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -256,7 +256,7 @@ include('include/menu.php');
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Occupation</b></a></li>
+                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Occupation</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -292,7 +292,7 @@ include('include/menu.php');
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Education</b></a></li>
+                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Education</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -328,7 +328,7 @@ include('include/menu.php');
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Employed In</b></a></li>
+                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Employed In</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -364,7 +364,7 @@ include('include/menu.php');
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Food</b></a></li>
+                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Food</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -393,7 +393,7 @@ include('include/menu.php');
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Complexion</b></a></li>
+                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Complexion</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -429,7 +429,7 @@ include('include/menu.php');
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo base_url(); ?>assets/img/categories-list.png" alt=""><b>Body Type</b></a></li>
+                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Body Type</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -481,7 +481,7 @@ include('include/menu.php');
        <!--  <div id="largeContent" style="display:none;">
             <div class="media tool_content">
                 <div class="media-left">
-                    <img src="<?php echo base_url(); ?>assets/img/map-persion.png" alt="">
+                    <img src="<?php echo media_url(); ?>assets/img/map-persion.png" alt="">
                 </div>
                 <div class="media-body">
                     <h3>Sandi Williams</h3>

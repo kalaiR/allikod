@@ -7,7 +7,7 @@ include('include/menu.php');
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3 title="Register Here"><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">Register Here<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>                    
+                    <h3 title="Register Here"><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Register Here<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>                    
                 </div>
             </div>
         </section>
@@ -16,7 +16,7 @@ include('include/menu.php');
             <div class="container">
                 <div class="welcome_white_title">
                     <h3>Register Here</h3>
-                    <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
+                    <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
                 <div class="search_option">
                     <!-- Nav tabs -->

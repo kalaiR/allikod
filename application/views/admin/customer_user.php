@@ -6,7 +6,7 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="<?php echo base_url(); ?>index.php/admin">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">Customer User</a>
@@ -146,7 +146,7 @@
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Online User
 								    </a> -->
-								    <a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>index.php/admin/add_online_user">
+								    <a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_online_user">
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Online User
 								    </a>
@@ -244,13 +244,13 @@
 											</td>											
 											<td class="center">
 												<div style="width: 160px;">
-													<a class="btn btn-warning" href="<?php echo base_url(); ?>index.php/admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+													<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
-														<a class="btn btn-success" href="<?php echo base_url(); ?>index.php/admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+														<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 															<i class="icon-zoom-in icon-white" title="View"></i>  
 													</a>
-														<a class="btn btn-info" href="<?php echo base_url(); ?>index.php/admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+														<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 															<i class="icon-edit icon-white" title="Edit"></i>  
 													</a>
 														<a class="btn btn-danger btn-setting" href="#">
@@ -346,13 +346,13 @@
 											</td>										
 											<td class="center">
 											<div style="width: 160px;">
-												<a class="btn btn-warning" href="<?php echo base_url(); ?>index.php/admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>index.php/admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>index.php/admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger btn-setting" href="#">
@@ -449,13 +449,13 @@
 											</td>										
 											<td class="center">
 											<div style="width: 160px;">
-												<a class="btn btn-warning" href="<?php echo base_url(); ?>index.php/admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>index.php/admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>index.php/admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger btn-setting" href="#">
@@ -547,13 +547,13 @@
 																				
 											<td class="center">
 											<div style="width: 160px;">
-												<a class="btn btn-warning" href="<?php echo base_url(); ?>index.php/admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>index.php/admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>index.php/admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-edit icon-white" title="Edit"></i>  
 												</a>
 													<a class="btn btn-danger btn-setting" href="#">

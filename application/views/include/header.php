@@ -9,36 +9,36 @@
         <title>Vallikodi</title>
 
         <!-- Icon css link -->
-        <link href="<?php echo base_url(); ?>assets/vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/css/font-awesome.min.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/linears-icon/style.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/css/font-awesome.min.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/vendors/linears-icon/style.css" rel="stylesheet">
         
         <!-- RS5.0 Layers and Navigation Styles -->
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/vendors/revolution/css/layers.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/vendors/revolution/css/navigation.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/vendors/revolution/css/settings.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo media_url(); ?>assets/vendors/revolution/css/layers.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo media_url(); ?>assets/vendors/revolution/css/navigation.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo media_url(); ?>assets/vendors/revolution/css/settings.css">
         
         <!-- Bootstrap -->
-        <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/image-dropdown/dd.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/image-dropdown/flags.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/image-dropdown/skin2.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/magnific-popup/magnific-popup.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/bootstrap-selector/bootstrap-select.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/animate-css/animate.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/bs-tooltip/jquery.webui-popover.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/jquery-ui/jquery-ui.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/vendors/image-dropdown/dd.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/vendors/image-dropdown/flags.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/vendors/image-dropdown/skin2.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/vendors/magnific-popup/magnific-popup.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/vendors/bootstrap-selector/bootstrap-select.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/vendors/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/vendors/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/vendors/animate-css/animate.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/vendors/bs-tooltip/jquery.webui-popover.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/vendors/jquery-ui/jquery-ui.css" rel="stylesheet">
         
-        <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/css/style-links.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/css/responsive.css" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/css/simplePagination.css"/>
+        <link href="<?php echo media_url(); ?>assets/css/style.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/css/style-links.css" rel="stylesheet">
+        <link href="<?php echo media_url(); ?>assets/css/responsive.css" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="<?php echo media_url(); ?>assets/css/simplePagination.css"/>
         
         <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script> -->
        
-        <!-- <script src="<?php echo base_url(); ?>assets/js/map-custome.js"></script> -->
+        <!-- <script src="<?php echo media_url(); ?>assets/js/map-custome.js"></script> -->
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

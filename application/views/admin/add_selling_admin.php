@@ -6,10 +6,10 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="<?php echo base_url(); ?>index.php/admin">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>index.php/admin/selling_admin">Selling Admin</a>
+						<a href="<?php echo base_url(); ?>admin/selling_admin">Selling Admin</a>
 					</li>
 				</ul>
 			</div>
