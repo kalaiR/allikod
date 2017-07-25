@@ -36,80 +36,93 @@ include('include/menu.php');
                                 <a href="<?php echo base_url(); ?>index.php/search" class="register_angkar_btn">Back</a>
                         </div>
                      </div>
-                 </div>
-                 <div class="row">
-                 <div class="col-md-9">
+                </div>
+                <div class="row">
+                <div class="col-md-9">
                 <?php
-                    if(!empty($results)){
-                            foreach($results as $value) {                    
-                            // echo base_url()."uploads/profile/".$value['images'];
-                            // echo "image_status"."<br>".file_exists(base_url()."uploads/profile/".$value['images'])."<br>";
-                            //if(file_exists(FCPATH."uploads/profile/".$value['images'])){
-                            ?>                        
-                            <div class="col-md-4 col-sm-6">
-                                <?php //echo FCPATH."uploads/profile/".$value['images']; ?>
-                                <!-- <img src="<?php //echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt=""> -->
-                                <!-- <img src="<?php //if(!empty($suc['image'])) echo base_url()."uploads/profile".$value['images']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No image" style="width:170px;height:170px;"> -->
-                                <img src="<?php if(!empty($value['images'])) echo base_url()."uploads/profile/".$value['images']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded" style="width:170px; height:170px;">
-                                  <!-- <div><a href="#">More Images</a></div>  -->
+                if(!empty($results)){
+                foreach($results as $value) { 
+                    // echo $value['images']."<br>";
+                    // echo base_url()."uploads/profile/".$value['images'];
+                    // echo "image_status"."<br>".file_exists(base_url()."uploads/profile/".$value['images'])."<br>";
+                    $prefix = '';
+                    $prefix_one = 'th_';
+                    $prefix_two = 'new_';
+                    $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$value['images']);
+                    $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$value['images']);
+                    // if(file_exists(FCPATH."uploads/profile/".$value['images'])){
+                ?>                        
+                    <div class="col-md-4 col-sm-6">
+                        <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                            if($prefix_one_status)
+                                $prefix = $prefix_one;
+                            else if($prefix_two_status)
+                                $prefix = $prefix_two;
+                        ?>
+                        <img src="<?php 
+                            if(!empty($value['images'])): 
+                                echo base_url()."uploads/profile/".$prefix.$value['images']; 
+                            else:
+                                echo base_url()."assets/img/no_image.jpg"; 
+                            endif; 
+                        ?>" alt="Image not loaded" style="width:170px;height:170px;">
+                          <!-- <div><a href="#">More Images</a></div>  -->
+                    </div>
+                    <div class="col-md-6 col-sm-6 detail-box">
+                      <div class="head-box"><h4>Vallikodi ID : V1
+                      <?php if(!empty($value['userdetail_id'])){ echo $value['userdetail_id'];}?></h4></div>
+                        <div class="text-box-name">
+                          <div class="col-md-5 col-xs-6 name-box">
+                            <p><b>Name</b></p>
+                          </div>
+                          <div class="col-md-6 ">
+                              <p> : <?php if(!empty($value['user_fname'])){ echo $value['user_fname'];}?></p>
                             </div>
-                            <div class="col-md-6 col-sm-6 detail-box">
-                              <div class="head-box"><h4>Vallikodi ID : V1
-                              <?php if(!empty($value['userdetail_id'])){ echo $value['userdetail_id'];}?></h4></div>
-                                <div class="text-box-name">
-                                  <div class="col-md-5 col-xs-6 name-box">
-                                    <p><b>Name</b></p>
-                                  </div>
-                                  <div class="col-md-6 ">
-                                      <p> : <?php if(!empty($value['user_fname'])){ echo $value['user_fname'];}?></p>
-                                    </div>
-                                </div>    
-                                <div class="col-md-5 col-xs-6 name-box">
-                                  <p><b>DOB / Age</b></p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>: <?php if(!empty($value['user_dob'])){ echo $value['user_dob'];}?></p>
-                                </div>
-                                <div class="col-md-5 col-xs-6 name-box">
-                                    <p><b>Star</b></p>
-                                </div>
-                                <div class="col-md-7">
-                                  <p> : <?php if(!empty($value['rel_nakshathra_id'])){ echo $value['rel_nakshathra_id'];}?></p>
-                                </div>
-                                <div class="col-md-5 col-md-5 col-xs-6 name-box">
-                                  <p><b>Religion</b></p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>: <?php if(!empty($value['rel_religion'])){ echo $value['rel_religion'];}?></p>
-                                </div>
-                                <div class="col-md-5 col-md-5 col-xs-6 name-box">
-                                  <p><b>Education</b></p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>: <?php if(!empty($value['edu_education'])){ echo $value['edu_education'];}?></p>
-                                </div>
-                                <div class="col-md-5 col-md-5 col-xs-6 name-box">
-                                  <p><b>Occupation</b></p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>: <?php if(!empty($value['edu_occupation'])){ echo $value['edu_occupation'];}?> </p>
-                                </div>
-                                <div class="text-box-name">
-                                  <div class="col-md-6 head-box">
-                                    <p><a href="<?php echo base_url().'index.php/viewdetail/'.$value['userdetail_id'];?>">View Full Details</a></p>
-                                  </div>  
-                                </div>
-                            </div>
-                        <?php 
-                    }                
+                        </div>    
+                        <div class="col-md-5 col-xs-6 name-box">
+                          <p><b>DOB / Age</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: <?php if(!empty($value['user_dob'])){ echo $value['user_dob'];}?></p>
+                        </div>
+                        <div class="col-md-5 col-xs-6 name-box">
+                            <p><b>Star</b></p>
+                        </div>
+                        <div class="col-md-7">
+                          <p> : <?php if(!empty($value['rel_nakshathra_id'])){ echo $value['rel_nakshathra_id'];}?></p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Religion</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: <?php if(!empty($value['rel_religion'])){ echo $value['rel_religion'];}?></p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Education</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: <?php if(!empty($value['edu_education'])){ echo $value['edu_education'];}?></p>
+                        </div>
+                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                          <p><b>Occupation</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>: <?php if(!empty($value['edu_occupation'])){ echo $value['edu_occupation'];}?> </p>
+                        </div>
+                        <div class="text-box-name">
+                          <div class="col-md-6 head-box">
+                            <p><a href="<?php echo base_url().'index.php/viewdetail/'.$value['userdetail_id'];?>">View Full Details</a></p>
+                          </div>  
+                        </div>
+                    </div>      
+                <?php } 
                 }else{?>
-                <div class="text-box-name" align="center">
-                    <p>No Record found</p>
+                     <div class="text-box-name" align="center">
+                        <p>No Record Found</p>
+                     </div>
+                <?php }
+                ?>
                 </div>
-                <?php } ?>
-                </div>
-
-                    
                     <div class="col-md-3">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">

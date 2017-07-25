@@ -32,9 +32,26 @@
                                 <!-- <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know extremely painful.</p> -->
                                 <!-- <div class="profile_list"> -->
                                 <div class="profile_list">                                    
-                                        
-                                          <img src="<?php if(!empty($results['image'])) echo base_url()."assets/img/uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No Image" style="vertical-align:bottom;width:170px;height:170px;">
-                                            
+                                        <?php //echo "<pre>";print_r($results);echo "</pre>"; ?>
+                                          <!-- <img src="<?php //if(!empty($results['image'])) echo base_url()."assets/img/uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No Image" style="vertical-align:bottom;width:170px;height:170px;"> -->
+                                            <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                                                $prefix = '';
+                                                $prefix_one = 'th_';
+                                                $prefix_two = 'new_';
+                                                $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$results['images']);
+                                                $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$results['images']);
+                                                if($prefix_one_status)
+                                                    $prefix = $prefix_one;
+                                                else if($prefix_two_status)
+                                                    $prefix = $prefix_two;
+                                            ?>
+                                            <img src="<?php 
+                                                if(!empty($results['images'])): 
+                                                    echo base_url()."uploads/profile/".$prefix.$results['images']; 
+                                                else:
+                                                    echo base_url()."assets/img/no_image.jpg"; 
+                                                endif; 
+                                            ?>" alt="Image not loaded" style="width:170px;height:170px;">
                                             <ul>
                                             <li><a href="#">Name</a></li>
                                             <li><a href="#">Vallikodi ID</a></li>
