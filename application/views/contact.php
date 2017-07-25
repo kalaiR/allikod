@@ -108,13 +108,13 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>No:10,First Floor,</p> 
+                            <p>Guna Complex,</p>
+                            <p>Near Gandhi Silai,</p>
+                            <p>Thirukovilur.</p>
+                            <br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734463</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -139,13 +139,11 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>No.193, Fathima Thirumana Nilayam Opp,</p>
+                            <p>Thiruvannamalai Road,</p>
+                            <p>Gingee-604 202.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734467</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -170,13 +168,12 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>No: 51, Amir Complex, Vandi gate,</p>
+                            <p>Buvanagiri Main Road,</p>
+                            <p>Opp to Old Petrol Bunk,</p>
+                            <p>Chidambaram.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734459</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -184,6 +181,35 @@
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
                                 <div id="googleMap7" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                        </div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-sm-3">
+                        <div class="address_item">
+                            <h3>Chengalpattu Branch</h3>
+                        </div>
+                           <div class="address_item">
+                                <img src="<?php echo base_url(); ?>assets/img/branch/Chengalpatu.jpg" alt="">
+                            </div>
+                    </div>                    
+                    <div class="col-sm-3">
+                        <div class="address_item">
+                            <h3>Address</h3>
+                        </div>
+                        <div class="address_item">
+                            <p>No.10/B-53 1st floor Gst Road,</p>
+                            <p>( K.R.C. Ground Opst),</p>
+                            <p>Chengalpattu</p><br>
+                            <p><b>Phone</b></h3>
+                            <p>7397734472</p>       
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="address_item">
+                            <h3>Location</h3>                            
+        <!--================Map Area =================-->
+                               <div id="googleMap8" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -201,20 +227,18 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>No. 632-A, Kanchi Main Road,</p>
+                            <p>(Opposite Eduku Pillaiyar Kovil)</p>
+                            <p>Thiruvannamalai.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734468</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                               <div id="googleMap8" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                               <div id="googleMap9" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -232,20 +256,20 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>No. 26-F. IInd Floor,</p>
+                            <p>Barath Complex,</p>
+                            <p>(Opposite Girls Higher Secondary School),</p>
+                            <p>Panruti Road,</p>
+                            <p>Ulundurpet.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734462</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                               <div id="googleMap9" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                               <div id="googleMap10" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -263,20 +287,18 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>No:36,Mariyamman Koil st,</p>
+                            <p>(Near Marakathambigai Higher Secondary School),</p>
+                            <p>Thindivanam.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734465</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                               <div id="googleMap10" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                               <div id="googleMap11" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -294,20 +316,21 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>No.38/8-D, Kandasamy Layout,</p>
+                            <p>First Cross,</p>
+                            <p>(Near by Old Bus Stand back side),</p>
+                            <p>Opp: Poonthottam Mariamman Koil,</p>
+                            <p>K.K Road,</p>
+                            <p>Villupuram - 602 605.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734464</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                                <div id="googleMap11" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                                <div id="googleMap12" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -325,20 +348,20 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>No.8/A, Peadaree Amman Koil Street,</p>
+                            <p>(Near by Padaleeswarar temple),</p>
+                            <p>Kambiayampet via,</p>
+                            <p>Thirupapulliur,</p>
+                            <p>Cuddalore -2.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734456</p>      
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                                <div id="googleMap12" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                                <div id="googleMap13" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -356,20 +379,20 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>Lakshmi complex,</p>
+                            <p>Police line,</p>
+                            <p>4th Cross, (Near by Bus stand),</p>
+                            <p>L.S. Eye Hospital upstairs,</p>
+                            <p>Panrutti - 8.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734457</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                                <div id="googleMap13" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                                <div id="googleMap14" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -387,20 +410,18 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>No:11A/2, First Floor,Jhon Lawyer,</p>
+                            <p>Karukinil Amarnthaval kovil st,</p>
+                            <p>Kanchipuram-2.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734466</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                                <div id="googleMap14" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                                <div id="googleMap0" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -418,13 +439,12 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>Ilango st Kadaperi,
+Railway Mambalam,</p>
+                            <p>Soonampedu Street,</p>
+                            <p>Maduranthakam-6.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734473</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -449,20 +469,18 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>No:10, First Floor, Paakkukara st,</p>
+                            <p>Annapurani Hotel (opp),</p>
+                            <p>Vandavasi</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734470</p>      
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                                <div id="googleMap24" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                                <div id="googleMap0" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                                 <!--<div id="mapBox" class="mapBox row m0" 
                                     data-lat="12.225525" 
                                     data-lon="79.074697" 
@@ -489,20 +507,19 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>P.G.S Complex,Panruti Road,</p>
+                            <p>Near Jayapriya Hotel,</p>
+                            <p>Vadalur</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734458</p>
+                            <p>0413 - 2272438</p>        
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                            <div id="googleMap1" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                            <div id="googleMap0" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                                 <!--<div id="mapBox" class="mapBox row m0" 
                                     data-lat="12.225525" 
                                     data-lon="79.074697" 
@@ -529,13 +546,12 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>Opposite to Kamarajar Arts College,</p>
+                            <p>Thirukkanur Main Road,</p>
+                            <p>Kalitheerthalkuppam,</p>
+                            <p>Mathagatipet.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734478</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -560,20 +576,18 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>No:240,Cuddalore Main Road,</p>
+                            <p>(Near Co-Operative Bank),</p>
+                            <p>Thavalakuppam.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734476</p>      
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                               <div id="googleMap1" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                               <div id="googleMap35" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -591,20 +605,18 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                             <p>Vengadachalapathy Street(Near Bus Stand),</p>
+                            <p>Pazhampettai,</p>
+                            <p>Chethpet(Chethupattu)-606801.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734469</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                               <div id="googleMap35" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                               <div id="googleMap19" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -622,20 +634,17 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                             <p>Sanathi Street(Near Perumal Kovil),</p>
+                            <p>Uthiramerur.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734471</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                                <div id="googleMap19" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                                <div id="googleMap20" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -653,20 +662,18 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>Anna Nagar(Near Sivasakthi Mahal ),</p>
+                            <p>Udaiyar Complex(First Floor),</p>
+                            <p>Kallakuruchi.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734461</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                                <div id="googleMap20" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                                <div id="googleMap21" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -684,20 +691,18 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>Near BVM School (OMR Road),</p>
+                            <p>Chandroar Street, </p>
+                            <p>Thiruporur-603110.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734474</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                                <div id="googleMap21" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                                <div id="googleMap22" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -715,44 +720,12 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <p>HDFC Bank & Pentocostal Church Opposite,</p>
+                            <p>Vittilapuram Road,</p>
+                            <p>Puthupattinam,</p>
+                            <p>Kalpakkam-603 102.</p><br>
                             <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="address_item">
-                            <h3>Location</h3>                            
-        <!--================Map Area =================-->
-                                <div id="googleMap22" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
-                        </div>
-                    </div>
-            </div>  
-            <div class="row">
-                    <div class="col-sm-3">
-                        <div class="address_item">
-                            <h3>Panruti Branch</h3>
-                        </div>
-                           <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Pandruti.jpg" alt="">
-                            </div>
-                    </div>                    
-                    <div class="col-sm-3">
-                        <div class="address_item">
-                            <h3>Address</h3>
-                        </div>
-                        <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
-                            <p><b>Phone</b></h3>
-                            <p>7397734477</p>
-                            <p>0413 - 2272438</p>       
+                            <p>7397734475</p>       
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -762,15 +735,10 @@
                                 <div id="googleMap23" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
-            </div>
-
-           
+            </div>  
+            
         </section>
         <!--================End Contact Address Area =================-->
-        
-        <!--================Map Area =================-->
-      
-        <!--================End Map Area =================-->
         
         <!--================Contact From Area =================-->
         <section class="contact_form_area">

@@ -1,5 +1,19 @@
 $(document).ready(function() {
 
+    // Active menu
+ $("li").click(function () {
+            var id = $(this).attr("id");
+            $('#' + id).siblings().find(".active").removeClass("active");
+            $('#' + id).addClass("active");
+            localStorage.setItem("selectedolditem", id);
+        });
+
+        var selectedolditem = localStorage.getItem('selectedolditem');
+
+        if (selectedolditem != null) {
+            $('#' + selectedolditem).siblings().find(".active").removeClass("active");
+            $('#' + selectedolditem).addClass("active");
+        }
     //commented this code on plugin file charisma.js and overwrite some logic here
     $('.datatable').dataTable({
       "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span12'i><'span12 center'p>>",
@@ -220,3 +234,4 @@ $(document).ready(function() {
     /*Admin customer user edit form End*/
 
 });
+

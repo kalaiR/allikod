@@ -59,7 +59,7 @@
                                 </div>
                             </aside>
                         </div>-->
-                        <div class="col-sm-9 col-xs-20 footer_links">
+                        <div class="col-sm-9 col-xs-13 footer_links">
                         <ul id="footer_list">
                             <li id="links_list"><a href="<?php echo base_url(); ?>index.php/">Home</a></li>
                             <li id="links_list"><a href="<?php echo base_url(); ?>index.php/registration">Registration</a></li>

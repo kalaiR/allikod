@@ -125,42 +125,42 @@
 		<div class="well nav-collapse sidebar-nav">
 			<ul class="nav nav-tabs nav-stacked sidebar-menu main-menu">
 				<!-- New Menu List With Dropdown Begins -->
-				<li><a href="<?php echo base_url(); ?>index.php/admin/"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
-				<li><a class="ajax-link" href="#"><i class="icon-user"></i><span> Administration</a>
+				<li id="dashboard"><a href="<?php echo base_url(); ?>index.php/admin/"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+				<li id="administration"><a class="ajax-link" href="#"><i class="icon-user"></i><span> Administration</a>
 					<ul class="sidebar-submenu">
 						<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/administration"><i class="icon-eye-open"></i><span> Administration View</span></a></li>
 					</ul>
 				</li>
-				<li class=""><a href="<?php echo base_url(); ?>index.php/admin/report"><i class="icon-list-alt"></i><span> Report</a>
+				<li class="" id="report"><a href="<?php echo base_url(); ?>index.php/admin/report"><i class="icon-list-alt"></i><span> Report</a>
 					<!-- <ul class="sidebar-submenu">
 						<li><a class="ajax-link" href="report.php"><i class="icon-list-alt"></i><span class="hidden-tablet"> Report</span></a></li>
 					</ul> -->
 				</li>
-				<li class=""><a href="<?php echo base_url(); ?>index.php/admin/customer_user"><i class="icon icon-darkgray icon-users"></i><span> Customer User</a>
+				<li class="" id="customer_user"><a href="<?php echo base_url(); ?>index.php/admin/customer_user"><i class="icon icon-darkgray icon-users"></i><span> Customer User</a>
 					<!-- <ul class="sidebar-submenu" >
 						<li><a class="ajax-link" href="customer_user.php"><i class="icon icon-darkgray icon-users"></i><span class="hidden-tablet"> Customer User</span></a></li>
 					</ul> -->
 				</li>
-				<li class=""><a href="<?php echo base_url(); ?>index.php/admin/successful_story"><i class="icon icon-darkgray icon-book"></i><span> Successful Story</a>
+				<li class="" id="successful_story"><a href="<?php echo base_url(); ?>index.php/admin/successful_story"><i class="icon icon-darkgray icon-book"></i><span> Successful Story</a>
 					<!-- <ul class="sidebar-submenu">
 						<li><a class="ajax-link" href="successful_story.php"><i class="icon icon-darkgray icon-book"></i><span class="hidden-tablet"> Successful Story</span></a></li>
 					</ul> -->
 				</li>
-				<li class=""><a href="#"><i class="icon-envelope"></i><span> Mail</a>
+				<li class="" id="mail"><a href="#"><i class="icon-envelope"></i><span> Mail</a>
 					<ul class="sidebar-submenu">
 						<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/"><i class="icon-envelope"></i><span class="hidden-tablet"> Mail</span></a></li>
 						<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/"><i class="icon-envelope"></i><span class="hidden-tablet"> Send Mail</span></a></li>
 						<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/"><i class="icon-comment"></i><span class="hidden-tablet">Send SMS</span></a></li>
 					</ul>
 				</li>
-				<li class=""><a href="#"><i class="icon-picture"></i> Gallery</a>
+				<li class="" id="gallery"><a href="#"><i class="icon-picture"></i> Gallery</a>
 					<ul class="sidebar-submenu">
 						<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/gallery_upload"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery Upload</span></a></li>
 						<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/gallery_category"><i class="icon-align-justify"></i><span class="hidden-tablet">Gallery category</span></a></li>
 						<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/contact_gallery_upload"><i class="icon-calendar"></i><span class="hidden-tablet">Contact Gallery Upload</span></a></li>
 					</ul>
 				</li>
-				<li class=""><a href="#"><i class="icon-cog"></i> Settings</a>
+				<li class="" id="settings"><a href="#"><i class="icon-cog"></i> Settings</a>
 					<ul class="sidebar-submenu">
 						<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/zodiac_sign"><i class="icon-screenshot"></i><span class="hidden-tablet">Zodiac Sign</span></a></li>
 						<li><a class="ajax-link" href="<?php echo base_url(); ?>index.php/admin/nakshathra"><i class="icon-star"></i><span class="hidden-tablet">Nakshathra</span></a></li>

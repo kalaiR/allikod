@@ -49,7 +49,7 @@ include('include/menu.php');
                     // if(file_exists(FCPATH."uploads/profile/".$value['images'])){
                 ?>                        
                     <div class="col-md-4 col-sm-6">
-                        <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                         <?php //echo FCPATH."uploads/profile/".$value['images']; 
                             if($prefix_one_status)
                                 $prefix = $prefix_one;
                             else if($prefix_two_status)
@@ -63,6 +63,39 @@ include('include/menu.php');
                             endif; 
                         ?>" alt="Image not loaded" style="width:170px;height:170px;">
                           <!-- <div><a href="#">More Images</a></div>  -->
+                          <div>
+                           <ul class="">
+                              <li><a href="#lightbox" data-toggle="modal">More Images</a></li>
+                            </ul>
+                          </div> 
+                          <div class="modal fade and carousel slide lig" id="lightbox">
+                           <div class="modal-dialog ">
+                              <div class="modal-body">
+                                  <ol class="carousel-indicators">
+                                    <li data-target="#lightbox" data-slide-to="0" class="active"></li>
+                                    <li data-target="#lightbox" data-slide-to="1"></li>
+                                    <li data-target="#lightbox" data-slide-to="2"></li>
+                                  </ol>
+                                  <div class="carousel-inner">
+                                    <div class="item active">
+                                      <img class="lig-box"src="img/search-result-page/img1.jpg" alt="First slide">
+                                    </div>
+                                    <div class="item">
+                                      <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Second slide">
+                                    </div>
+                                    <div class="item">
+                                      <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Third slide">
+                                    </div>
+                                  </div>
+                                  <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                  </a>
+                                  <a class="right carousel-control" href="#lightbox" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                  </a>
+                              </div>
+                           </div>
+                        </div>
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
                       <div class="head-box"><h4>Vallikodi ID : V1

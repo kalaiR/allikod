@@ -121,8 +121,8 @@
 						                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
 						                        ?>
 											</td>											
-											<td class="center" width="150px">
-												<div style="overflow: auto; width: 150px; white-space: nowrap;">
+											<td class="center">
+												<div style="width: 160px;">
 													<a class="btn btn-warning" href="<?php echo base_url(); ?>index.php/admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
@@ -223,8 +223,8 @@
 						                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
 						                        ?>
 											</td>										
-											<td class="center" width="150px">
-											<div style="overflow: auto; width: 150px; white-space: nowrap;">
+											<td class="center">
+											<div style="width: 160px;">
 												<a class="btn btn-warning" href="<?php echo base_url(); ?>index.php/admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
@@ -326,8 +326,8 @@
 						                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
 						                        ?>
 											</td>										
-											<td class="center" width="150px">
-											<div style="overflow: auto; width: 150px; white-space: nowrap;">
+											<td class="center">
+											<div style="width: 160px;">
 												<a class="btn btn-warning" href="<?php echo base_url(); ?>index.php/admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
@@ -424,8 +424,8 @@
 				                        		</span>
 											</td>
 																				
-											<td class="center" width="150px">
-											<div style="overflow: auto; width: 150px; white-space: nowrap;">
+											<td class="center">
+											<div style="width: 160px;">
 												<a class="btn btn-warning" href="<?php echo base_url(); ?>index.php/admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 													<i class="icon-refresh icon-white" title="Renew"></i>  
 												</a>
