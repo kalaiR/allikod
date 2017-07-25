@@ -226,11 +226,22 @@ class Base extends CI_Controller {
 	}
 
 	public function search_result(){	
+		$per_page = 10;
+		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);
+		if($values[0]){	$offset = $values[0] * $per_page; }else{ $offset = ""; }		
+
+		$search_inputs = array();	
+
 		if($this->input->post()){	
 			$form_data = $this->input->post();
+			// print_r($form_data);
+			// exit();
+			$this->session->unset_userdata("search_inputs");
+			$this->session->unset_userdata("search_inputs_id");
+			$this->session->unset_userdata("searchmanual_id");			
 
-			// Basic Search //
 			if($form_data['search_type'] =='basicsearch'){
+				// Basic Search //	
 				$gender = $form_data['gender'][0];		
 				$age_from = $form_data['search_age_from'][0];
 				$age_to = $form_data['search_age_to'][0];
@@ -239,17 +250,91 @@ class Base extends CI_Controller {
 				$mar_status = $form_data['marital_status'][0];
 
 				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status);
-				$data['results'] = $this->user_model->get_basicsearch($values);
+				$data = $this->user_model->get_basicsearch($values, $per_page, $offset);				
+
+				// $inputs = array('gender' => $gender,'age_from' => $age_from,'age_to' => $age_to,'height_from' => $height_from,'height_to' => $height_to,'mar_status' => $mar_status);
+				$this->session->set_userdata('search_inputs',$values);
+
 			}elseif($form_data['search_type'] =='search_id'){
-				$searchid = $form_data['searchby_id'];
-				$data['results'] = $this->user_model->get_datauserId($searchid);
+				// Search by Vallikodi ID //
+				$searchid = $form_data['searchby_id'];				
+				$data = $this->user_model->get_datauserId($searchid, $per_page, $offset);
+				$this->session->set_userdata('search_inputs_id',$searchid);
+				$search_inputs_ids = $this->session->userdata('search_inputs_id');
+			}elseif($form_data['search_type'] =='search_manual_type'){
+				// Search by Manual ID //
+				$searchmanual_id = $form_data['search_manual_id'];				
+				$data = $this->user_model->get_datauser_manualId($searchmanual_id, $per_page, $offset);
+				$this->session->set_userdata('searchmanual_id',$searchmanual_id);				
+				$searchmanual_id = $this->session->userdata('searchmanual_id');
+			}else{
+				// Search by HomePage-QuickSearch //				
+				$values = array('gender' => $form_data['gender'][0], 'age_from' => $form_data['search_age_from'][0], 'age_to' => $form_data['search_age_to'][0]);
+				$data = $this->user_model->get_quicksearch($values, $per_page, $offset);
+				$this->session->set_userdata('search_quick',$values);					
 			}
-			$this->load->view('search_result',$data);
-		}	
-		// echo "out";
-		$values = array();
-		$data['results'] = $this->user_model->get_basicsearch($values);
+		}else{		
+			// Pagination Session Data
+			$search_inputs = $this->session->userdata('search_inputs');
+			$search_quick = $this->session->userdata('search_quick');
+
+			if(!empty($search_inputs)){
+				$data = $this->user_model->get_basicsearch($search_inputs, $per_page, $offset);	
+			}elseif(!empty($search_quick)){
+				$data = $this->user_model->get_quicksearch($search_quick, $per_page, $offset);				
+			}
+			// print_r($data);
+			// exit();
+		}
+
+		//pagination
+		$this->load->library('pagination');
+
+		// Pagination configuration
+  		$config['base_url'] = base_url().'search_result';
+		$config['per_page'] = $per_page;		
+		if((isset($search_inputs_ids))||(isset($searchmanual_id)))
+		{
+		 	$config['total_rows'] = 1;
+		}else{
+			$config['total_rows'] = $data['total_rows'];
+		}
+		$config['uri_segment'] = 2;
+		$config['num_links'] = 4;
+		$config['use_page_numbers'] = TRUE;
+
+    	// Custom Configuration
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active"><a>';
+		$config['cur_tag_close'] = '</a></li>';
+		$config['next_link'] = 'Next';
+		$config['prev_link'] = 'Prev';
+		$config['first_link'] = 'First';
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_link'] = 'Last';
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+
+		// Pagination Inititalization
+		$this->pagination->initialize($config);
+
+		// Navigation Links
+		$pagination_links = $this->pagination->create_links();
+		$data["links"] = $pagination_links;			
+		// echo '<pre>';
+		// print_r($data);
+		// echo '</pre>';
+		// exit();
 		$this->load->view('search_result',$data);
+		
 	}
 	public function success_stories(){
 

@@ -166,7 +166,7 @@
 									</div>
 								</div>
 								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
-									<table class="table table-striped table-bordered bootstrap-datatable datatable">
+									<table class="table table-striped table-bordered bootstrap-datatable" id="cd-grid">
 									  <thead>
 										  <tr>
 											  <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span>
@@ -600,3 +600,12 @@
 <?php 
     include('templates/footer.php');
 ?>
+<script type= 'text/javascript'>
+    // $(document).ready(function () {
+    //     $('#cd-grid').DataTable({
+    //         "processing": true,
+    //         "serverSide": true,
+    //         "ajax": admin_baseurl."cd_list"
+    //     });
+    // });
+</script>

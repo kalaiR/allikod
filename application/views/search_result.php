@@ -1,8 +1,6 @@
 <?php 
-
 include('include/header.php');
 include('include/menu.php');
-
 ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
@@ -34,21 +32,70 @@ include('include/menu.php');
                                 <a href="<?php echo base_url(); ?>index.php/search" class="register_angkar_btn">Back</a>
                         </div>
                      </div>
-                 </div>
-                 <div class="row">
-                 <div class="col-md-9">
-                <?php foreach($results as $value) { 
+                </div>
+                <div class="row">
+                <div class="col-md-9">
+                <?php
+                if(!empty($results)){
+                foreach($results as $value) { 
                     // echo $value['images']."<br>";
                     // echo base_url()."uploads/profile/".$value['images'];
                     // echo "image_status"."<br>".file_exists(base_url()."uploads/profile/".$value['images'])."<br>";
-                    if(file_exists(FCPATH."uploads/profile/".$value['images'])){
+                    $prefix = '';
+                    $prefix_one = 'th_';
+                    $prefix_two = 'new_';
+                    $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$value['images']);
+                    $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$value['images']);
+                    // if(file_exists(FCPATH."uploads/profile/".$value['images'])){
                 ?>                        
                     <div class="col-md-4 col-sm-6">
-                        <?php //echo FCPATH."uploads/profile/".$value['images']; ?>
-                        <!-- <img src="<?php //echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt=""> -->
-                        <!-- <img src="<?php //if(!empty($suc['image'])) echo base_url()."uploads/profile".$value['images']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No image" style="width:170px;height:170px;"> -->
-                        <img src="<?php if(!empty($value['images'])) echo base_url()."uploads/profile/".$value['images']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded" style="width:170px;height:170px;">
+                         <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                            if($prefix_one_status)
+                                $prefix = $prefix_one;
+                            else if($prefix_two_status)
+                                $prefix = $prefix_two;
+                        ?>
+                        <img src="<?php 
+                            if(!empty($value['images'])): 
+                                echo base_url()."uploads/profile/".$prefix.$value['images']; 
+                            else:
+                                echo base_url()."assets/img/no_image.jpg"; 
+                            endif; 
+                        ?>" alt="Image not loaded" style="width:170px;height:170px;">
                           <!-- <div><a href="#">More Images</a></div>  -->
+                          <div>
+                           <ul class="">
+                              <li><a href="#lightbox" data-toggle="modal">More Images</a></li>
+                            </ul>
+                          </div> 
+                          <div class="modal fade and carousel slide lig" id="lightbox">
+                           <div class="modal-dialog ">
+                              <div class="modal-body">
+                                  <ol class="carousel-indicators">
+                                    <li data-target="#lightbox" data-slide-to="0" class="active"></li>
+                                    <li data-target="#lightbox" data-slide-to="1"></li>
+                                    <li data-target="#lightbox" data-slide-to="2"></li>
+                                  </ol>
+                                  <div class="carousel-inner">
+                                    <div class="item active">
+                                      <img class="lig-box"src="img/search-result-page/img1.jpg" alt="First slide">
+                                    </div>
+                                    <div class="item">
+                                      <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Second slide">
+                                    </div>
+                                    <div class="item">
+                                      <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Third slide">
+                                    </div>
+                                  </div>
+                                  <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                  </a>
+                                  <a class="right carousel-control" href="#lightbox" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                  </a>
+                              </div>
+                           </div>
+                        </div>
                     </div>
                     <div class="col-md-6 col-sm-6 detail-box">
                       <div class="head-box"><h4>Vallikodi ID : V1
@@ -83,25 +130,38 @@ include('include/menu.php');
                           <p><b>Education</b></p>
                         </div>
                         <div class="col-md-6">
-                            <p>: <?php if(!empty($value['edu_education'])){ echo $value['edu_education'];}?></p>
+                            <p>:
+                            <?php if(!empty($value['edu_education'])){ 
+                                $val = $this->user_model->get_education($value['edu_education']);
+                                echo $val['edu_name'];
+                                }?>
+                            </p>
                         </div>
                         <div class="col-md-5 col-md-5 col-xs-6 name-box">
                           <p><b>Occupation</b></p>
                         </div>
                         <div class="col-md-6">
-                            <p>: <?php if(!empty($value['edu_occupation'])){ echo $value['edu_occupation'];}?> </p>
+                            <p>:
+                                <?php if(!empty($value['edu_occupation'])){ 
+                                $val = $this->user_model->get_occupation($value['edu_occupation']);
+                                echo $val['occupation_name'];
+                                }?>
+                            </p>
                         </div>
                         <div class="text-box-name">
                           <div class="col-md-6 head-box">
-                            <p><a href="<?php echo base_url().'index.php/viewdetail/'.$value['userdetail_id'];?>">View Full Details</a></p>
+                            <p><a href="<?php echo base_url().'index.php/viewdetail/'.$value['userdetail_id'];?>" target="_blank">View Full Details</a></p>
                           </div>  
                         </div>
                     </div>      
-                     
-                <?php }} ?>
+                <?php } 
+                }else{?>
+                     <div class="text-box-name" align="center">
+                        <p>No Record Found</p>
+                     </div>
+                <?php }
+                ?>
                 </div>
-
-                    
                     <div class="col-md-3">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
@@ -401,12 +461,17 @@ include('include/menu.php');
                         </div>
                     </div>
                 </div>              
-                <div class="pagination_area">
+                <!-- <div class="pagination>                    
                     <a class="prev" href="#">Previous</a>
                     <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
                     <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
                     <a class="next" href="#">Next</a>
-                </div>
+                </div> -->
+                <?php
+                if(!empty($links)) :
+                            echo "<div class='col-md-12 col-sm-12 col-xs-12 nopadding'><div class='pagination-box clearfix'>" .$links . "</div></div>";
+                        endif;
+                ?> 
             </div>
         </section>
         <!--================End search_reslut grid Area =================-->               
@@ -427,5 +492,4 @@ include('include/menu.php');
 <?php 
     include('include/footer.php');
 ?> 
-    </body>
-</html>
+

@@ -60,6 +60,7 @@ $route['registration'] 						= "base/registration";
 $route['registration/(:any)']				= "base/registration/$1";
 $route['search'] 							= "base/search";
 $route['search_result'] 					= "base/search_result";
+$route['search_result/(:any)'] 				= "base/search_result/$1";
 $route['success_stories'] 					= "base/success_stories";
 $route['vanniyar'] 							= "base/vanniyar";
 $route['viewdetail/(:any)'] 				= "base/viewdetail/$1";
@@ -121,6 +122,7 @@ $route['admin/edit_gallery_category'] 				= "admin/base/edit_gallery_category";
 $route['admin/contact_gallery_upload'] 				= "admin/base/contact_gallery_upload";
 $route['admin/add_contact_gallery'] 					= "admin/base/add_contact_gallery";
 $route['admin/edit_contact_gallery'] 					= "admin/base/edit_contact_gallery";
+$route['admin/cd_list'] 					= "admin/customeruser_data/cd_list";
 
 
 

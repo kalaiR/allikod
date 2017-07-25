@@ -92,7 +92,7 @@ include('include/menu.php');
                                                                             <h4>Password</h4>
                                                                         </div>    
                                                                     </div>
-                                                                    <div class="col-sm-8 box">
+                                                                    <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <div class="form-group">
                                                                                 <input type="password" class="form-control tabfield" id="reg_passed" placeholder="Password" name="reg_pass">
@@ -1230,12 +1230,14 @@ include('include/menu.php');
                                         </div>
                                      </div>
                                    </div><!-- Tab6 End--> 
-                                </div> 
-                                <div class="search_btn">
-                                    <input class=" btnAction next_angkar_btn pull-right" type="button" name="back" id="back" value="Back" style="display:none;">
-                                    <input class=" btnAction next_angkar_btn pull-right" type="button" name="next" id="next" value="Next" >
-                                    <input class="btnAction next_angkar_btn pull-right" type="submit" name="finish" id="finish" value="Finish" style="display:none;">
-                                </div>                    
+                                </div>
+                                <div class="col-sm-4 pull-right next-box"> 
+                                    <div class="search_btn">
+                                        <input class=" btnAction next_angkar_btn pull-right" type="button" name="back" id="back" value="Back" style="display:none;">
+                                        <input class=" btnAction next_angkar_btn pull-right" type="button" name="next" id="next" value="Next" >
+                                        <input class="btnAction next_angkar_btn pull-right" type="submit" name="finish" id="finish" value="Finish" style="display:none;">
+                                    </div>
+                                </div>                        
                         </div>
                          <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
                     </form> 
