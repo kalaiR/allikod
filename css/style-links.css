@@ -601,3 +601,16 @@
 {
   padding-left: 25px;
 }
+.modal.and.carousel 
+{
+  position: fixed; 
+}
+.lig-box
+{
+  float: none;
+  margin: auto;
+}
+.lig
+{
+  padding-top: 10%;
+}

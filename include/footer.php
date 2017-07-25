@@ -153,29 +153,35 @@
         <script src="js/snap.svg-min.js"></script>
         <script src="js/astrochart.js"></script>
         <script language="JavaScript">
-        var dywidth = 100 + '%';
-        var options = {'title':['Rasi' , '11/04/2014 07:00AM' ,'Erode, Tamil Nadu, India'],
-            'showHouseNumbers' : true,
-            'width':300,
-            'height':400};
+            var dywidth = 100 + '%';
+            var options = {'title':['Rasi' , '11/04/2014 07:00AM' ,'Erode, Tamil Nadu, India'],
+                'showHouseNumbers' : true,
+                'width':300,
+                'height':400};
 
-        var astroChart = new AstroChart("#chart");
-     //   var astroChart2 = new AstroChart("#chart2");
-        astroChart.draw({1:["Su"], 2:["Su", "Asc"], 12:["Su", "Mo", "Ve", "Me", "Ra", "Ke", "Asc", "Ma", "Sa~R"]}, options);
-       // astroChart2.draw(["Su", "Mo"], options);
+            var astroChart = new AstroChart("#chart");
+         //   var astroChart2 = new AstroChart("#chart2");
+            astroChart.draw({1:["Su"], 2:["Su", "Asc"], 12:["Su", "Mo", "Ve", "Me", "Ra", "Ke", "Asc", "Ma", "Sa~R"]}, options);
+           // astroChart2.draw(["Su", "Mo"], options);
 
-        var svg = document.querySelector( "#chart" );
-        var svgData = new XMLSerializer().serializeToString( svg );
+            var svg = document.querySelector( "#chart" );
+            var svgData = new XMLSerializer().serializeToString( svg );
 
-        var canvas = document.createElement( "canvas" );
-        var ctx = canvas.getContext( "2d" );
+            var canvas = document.createElement( "canvas" );
+            var ctx = canvas.getContext( "2d" );
 
-        var img = document.createElement( "img" );
-        img.setAttribute( "src", "data:image/svg+xml;base64," + btoa( svgData ) );
-        console.log(svgData);
-      //  img.onload = function() {
-            ctx.drawImage( img, 0, 0 );
-// Now is done
-            console.log( canvas.toDataURL( "image/png" ) );
-        //};
+            var img = document.createElement( "img" );
+            img.setAttribute( "src", "data:image/svg+xml;base64," + btoa( svgData ) );
+            console.log(svgData);
+          //  img.onload = function() {
+                ctx.drawImage( img, 0, 0 );
+    // Now is done
+                console.log( canvas.toDataURL( "image/png" ) );
+            //};
+
+
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+        });
      </script>
+

@@ -32,7 +32,8 @@
                                             <div class="registration_form_s" id="registration_form_s">
                                                     <h4>Post Your Story</h4> 
                                                     <div class="form-group">
-                                                            <input type="text" name="bride" class="form-control form_inputs" id="bride_name" placeholder="Bride Name">     
+                                                            <input type="text" name="bride" class="form-control form_inputs" id="bride_name" placeholder="Bride Name" > 
+
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="datepicker">
