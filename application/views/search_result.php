@@ -1,10 +1,6 @@
 <?php 
-
 include('include/header.php');
 include('include/menu.php');
-// echo '<pre>';
-// print_r($results);
-// echo '</pre>';
 ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
@@ -101,17 +97,27 @@ include('include/menu.php');
                           <p><b>Education</b></p>
                         </div>
                         <div class="col-md-6">
-                            <p>: <?php if(!empty($value['edu_education'])){ echo $value['edu_education'];}?></p>
+                            <p>:
+                            <?php if(!empty($value['edu_education'])){ 
+                                $val = $this->user_model->get_education($value['edu_education']);
+                                echo $val['edu_name'];
+                                }?>
+                            </p>
                         </div>
                         <div class="col-md-5 col-md-5 col-xs-6 name-box">
                           <p><b>Occupation</b></p>
                         </div>
                         <div class="col-md-6">
-                            <p>: <?php if(!empty($value['edu_occupation'])){ echo $value['edu_occupation'];}?> </p>
+                            <p>:
+                                <?php if(!empty($value['edu_occupation'])){ 
+                                $val = $this->user_model->get_occupation($value['edu_occupation']);
+                                echo $val['occupation_name'];
+                                }?>
+                            </p>
                         </div>
                         <div class="text-box-name">
                           <div class="col-md-6 head-box">
-                            <p><a href="<?php echo base_url().'index.php/viewdetail/'.$value['userdetail_id'];?>">View Full Details</a></p>
+                            <p><a href="<?php echo base_url().'index.php/viewdetail/'.$value['userdetail_id'];?>" target="_blank">View Full Details</a></p>
                           </div>  
                         </div>
                     </div>      

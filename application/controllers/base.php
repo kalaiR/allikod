@@ -333,7 +333,6 @@ class Base extends CI_Controller {
 		// print_r($data);
 		// echo '</pre>';
 		// exit();
-
 		$this->load->view('search_result',$data);
 		
 	}

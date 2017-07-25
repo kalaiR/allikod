@@ -1,9 +1,12 @@
 <?php 
-    include('include/header.php');
+include('include/header.php');
+include('include/menu.php');
+
+// echo '<pre>';
+// print_r($results);
+// echo '</pre>';
+// exit();
 ?> 
-    <?php 
-            include('include/menu.php');
-        ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
             <div class="container">
@@ -55,389 +58,36 @@
                                             <ul>
                                             <li><a href="#">Name</a></li>
                                             <li><a href="#">Vallikodi ID</a></li>
-                                            <!-- <li><a href="#">Starting Date</a></li>
-                                            <li><a href="#">Ending Date</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li> -->
                                         </ul>
                                         <ul>
                                             <li><a href="#"><?php echo $results['user_fname']; ?></a></li>
                                             <li><a href="#"><?php echo $results['userdetail_id']; ?></a></li>
-                                            <!-- <li><a href="#">22-05-2017</a></li>
-                                            <li><a href="#">22-05-2018</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li> -->
-                                        </ul>
-                                        <!-- <ul>
-                                            <li><a href="#">Total No. of Profiles</a></li>
-                                            <li><a href="#">No. of profiles viewed</a></li>
-                                            <li><a href="#">Remine Profile to View</a></li>
-                                            <li><a href="#"></a>- </li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#"></a></li>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#"></a>- </li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul> -->
-                                    </div>
-                                   <!--  <div class="row">
-                                        
-                                            <div class="col-md-3 col-sm-6 col"><p>Vallikodi ID</p></div>
-                                            <div class="col-md-3 col-sm-6 col"><p>Profile ID</p></div>
-                                            <div class="col-md-3 col-sm-6 col"><p>Vallikodi ID</p></div>
-                                            <div class="col-md-3 col-sm-6 col"><p>Profile ID</p></div>
-                                         </div>
-
-                                    <div class="row">
-                                        
-                                        <div class="col-md-3 col-sm-6 col">562</div>
-                                        <div class="col-md-3 col-sm-6 col">66</div>
-                                        <div class="col-md-3 col-sm-6 col">562</div>
-                                        <div class="col-md-3 col-sm-6 col">66</div>
-                                    </div> -->
-                                                            
+                                        </ul>                                        
+                                    </div>                  
                                 </div>
-                                <!-- <div class="members_about_box">
-                                    
-                                    <h3 id="hcolor">Communication Detail</h3>
-                                    <div class="profile_list"> 
-                                    <p><b>Click the button to view the contact details</b>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" value="View" class="btn form-control login_btn">View</button></p>
-                                    </div>                                                                          
-                                </div> -->
-                            <!-- <ul class="nav nav-tabs profile_menu" role="tablist">
-                                <li role="presentation"><a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">Activity</a></li>
-                                <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-                                <li role="presentation"><a href="#sites" aria-controls="sites" role="tab" data-toggle="tab">Sites</a></li>
-                                <li role="presentation"><a href="#friend" aria-controls="friend" role="tab" data-toggle="tab">Friend (260)</a></li>
-                                <li role="presentation"><a href="#group" aria-controls="group" role="tab" data-toggle="tab">Groups (3)</a></li>
-                                <li role="presentation"><a href="#forums" aria-controls="forums" role="tab" data-toggle="tab">Forums</a></li>
-                            </ul> -->
-                            <!-- <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade" id="activity">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div></div>
-                                <div role="tabpanel" class="tab-pane active fade in" id="profile">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="sites">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="friend">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="group">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="forums">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div> -->                       
+                                                   
                                 <div class="members_about_box">
                                 <div id="">
                                 <h3 id="hcolor">Profile Details</h3>
                                 </div>
-                                <!-- <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know extremely painful.</p> -->
+                                
                                 <!-- <div class="profile_list"> -->
                                 <div class="profile_list">                                    
                                         <ul>
                                             <li><a href="#">Registered By</a></li>
                                             <li><a href="#">Gender</a></li>
-                                            <!-- <li><a href="#">Current City</a></li>
-                                            <li><a href="#">Current District</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li> -->
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Parent</a></li>
-                                            <li><a href="#">Male</a></li>
-                                            <!-- <li><a href="#">Pondicherry</a></li>
-                                            <li><a href="#">Pondicherry</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li> -->
+                                            <li><a href="#"><?php echo $results['registered_by_name']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['user_gender'] != 2 ? 'Male':'Female'; ?></a></li>
                                         </ul>
                                         <ul>
                                             <li><a href="#">Date of Birth/ Age</a></li>
                                             <li><a href="#">Marital Status</a></li>
-                                            <!-- <li><a href="#">Address</a></li>
-                                            <li><a href="#"></a>- </li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li> -->
                                         </ul>
                                         <ul>
-                                            <li><a href="#">03-04-1986/ 30</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <!-- <li><a href="#">9, first street, NG nagar, Pondicherry, 605111.</a></li>
-                                            <li><a href="#"></a>-</li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li> -->
+                                            <li><a href="#"><?php echo $results['user_dob']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['marital_name']; ?></a></li>
                                         </ul>
                                     </div>                                             
                                 </div>
@@ -452,44 +102,23 @@
                                             <li><a href="#">TIme of Birth</a></li>
                                             <li><a href="#">Mother Tongue</a></li>
                                             <li><a href="#">Dhosham</a></li>
-                                            <li><a href="#">Nakshathra</a></li>
-                                            <!-- <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li> -->
+                                            <li><a href="#">Nakshathra</a></li>                                            
                                         </ul>
                                         <ul>
-                                            <li><a href="#">12:12 AM</a></li>
-                                            <li><a href="#">Tamil</a></li>
-                                            <li><a href="#">Any</a></li>
-                                            <li><a href="#">Uthrandam</a></li>
-                                            <!-- <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li> -->
+                                            <li><a href="#"><?php echo $results['rel_timeofbirth']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['mother_tongue_name']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['rel_dhosham']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['nakshathra_name']; ?></a></li>
                                         </ul>
                                         <ul>
                                             <li><a href="#">Luknam</a></li>
                                             <li><a href="#">Gothra</a></li>
                                             <li><a href="#">Zodiac Sign</a></li>
-                                            <li><a href="#">-</a></li>
-                                            <!-- <li><a href="#"></a>- </li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li> -->
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Any</a></li>
-                                            <li><a href="#">Mahasri</a></li>
-                                            <li><a href="#">Capricon</a></li>
-                                            <li><a href="#">-</a></li>            
-                                            <!-- <li><a href="#">9, first street, NG nagar, Pondicherry, 605111.</a></li>
-                                            <li><a href="#"></a>-</li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li> -->
+                                             <li><a href="#"><?php echo $results['rel_dhosham']; ?></a></li>
+                                             <li><a href="#"><?php echo $results['rel_gothra']; ?></a></li>
+                                             <li><a href="#"><?php echo $results['zodiac_name']; ?></a></li>
                                         </ul>
                                     </div>                                             
                                 </div>
@@ -497,47 +126,27 @@
                                 <div id="">
                                 <h3 id="hcolor">Education & Occupation</h3>
                                 </div>
-                                <!-- <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know extremely painful.</p> -->
-                                <!-- <div class="profile_list"> -->
                                 <div class="profile_list">                                    
                                         <ul>
                                             <li><a href="#">Education</a></li>
                                             <li><a href="#">Education in Detail</a></li>
                                             <li><a href="#">Occupation</a></li>
-                                            <!-- <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li> -->
                                         </ul>
                                         <ul>
-                                            <li><a href="#">B.E/B.Tech</a></li>
-                                            <li><a href="#">Degree completed in 2008</a></li>
-                                            <li><a href="#">Software Proffesional</a></li>
-                                            <!-- <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li> -->
+                                            <li><a href="#"><?php echo $results['edu_name']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['edu_educationdetails']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['occupation_name']; ?></a></li>
                                         </ul>
                                         <ul>
                                             <li><a href="#">Employed In</a></li>
                                             <li><a href="#">Monthly Income (<i class="fa fa-inr" aria-hidden="true"></i>)</a></li>
                                             <li><a href="#">Occupation in Detail</a></li>
-                                            <!-- <li><a href="#"></a>- </li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li> -->
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Private</a></li>
-                                            <li><a href="#">20000</a></li>
-                                            <li><a href="#">Project Coordinator</a></li>           
-                                            <!-- <li><a href="#">9, first street, NG nagar, Pondicherry, 605111.</a></li>
-                                            <li><a href="#"></a>-</li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li> -->
+                                            <li><a href="#"><?php echo $results['empin_name']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['edu_montlyincome']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['edu_occupationdetail']; ?></a></li>           
+                                            
                                         </ul>
                                     </div>                                             
                                 </div>
@@ -556,15 +165,14 @@
                                             <!-- <li><a href="#">Work as</a></li> -->
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Vadivel</a></li>
-                                            <li><a href="#">Kalaiselvi</a></li>
-                                            <li><a href="#">Retired</a></li>
-                                            <li><a href="#">Housewife</a></li>
-                                            <li><a href="#">Upper Middle Class</a></li>
-                                            <li><a href="#">Nuclear</a></li>
+                                            <li><a href="#"><?php echo $results['comm_father_name']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['comm_mother_name']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['comm_father_employment']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['comm_mother_employment']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['family_statusname']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['family_typename']; ?></a></li>
                                             <!-- <li><a href="#">Designer</a></li> -->
                                         </ul>
-
                                         <ul>
                                             <li><a href="#">-</a></li>
                                             <li><a href="#">No. of Brothers</a></li>
@@ -573,73 +181,43 @@
                                             <li><a href="#">No. of Sisters Married</a></li>                           
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Elder</a></li>
-                                            <li><a href="#">1</a></li>
-                                            <li><a href="#">0</a></li>
-                                            <li><a href="#">1</a></li>
-                                            <li><a href="#">0</a></li>
-                                            <!-- <li><a href="#">Designer</a></li> -->
+                                           <li><a href="#">Elder</a></li>
+                                           <li><a href="#"><?php echo $results['comm_number_of_brothers_el']; ?></a></li>
+                                           <li><a href="#"><?php echo $results['comm_number_of_sisters_el']; ?></a></li>
+                                           <li><a href="#"><?php echo $results['comm_number_of_brothers_el_mar']; ?></a></li>
+                                           <li><a href="#"><?php echo $results['comm_number_of_sisters_el_mar']; ?></a></li> 
                                         </ul>
                                         <ul>
                                             <li><a href="#">younger</a></li>
-                                            <li><a href="#">1</a></li>
-                                            <li><a href="#">0</a></li>
-                                            <li><a href="#">1</a></li>
-                                            <li><a href="#">0</a></li>
-                                            <!-- <li><a href="#">Designer</a></li> -->
+                                            <li><a href="#"><?php echo $results['comm_number_of_brothers_yo']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['comm_number_of_sisters_yo']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['comm_number_of_brothers_yo_mar']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['comm_number_of_sisters_yo_mar']; ?></a></li>
                                         </ul>
                                     </div>                                             
                                 </div>
-                                <!-- <div class="members_about_box">
-                                    <div id="">
-                                    <h3 id="hcolor">More About Family</h3>
-                                    <div class="profile_list"> 
-                                    </div>
-                                    </div>                                                         
-                                </div> -->
                                 <div class="members_about_box">
-                                <div id="">
-                                <h3 id="hcolor">Physical Attributes</h3>
-                                </div>                                
+                                    <div id="">
+                                        <h3 id="hcolor">Physical Attributes</h3>
+                                    </div>                                
                                 <div class="profile_list">                                    
                                         <ul>
                                             <li><a href="#">Height</a></li>
                                             <li><a href="#">Weight</a></li>
                                             <li><a href="#">Body Type</a></li>
-                                            <!-- <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li> -->
                                         </ul>
                                         <ul>
-                                            <li><a href="#">180</a></li>
-                                            <li><a href="#">75</a></li>
-                                            <li><a href="#">Average</a></li>
-                                            <!-- <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li> -->
+                                            <li><a href="#"><?php echo $results['phy_height']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['phy_weight']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['body_typename']; ?></a></li>
                                         </ul>
                                         <ul>
                                             <li><a href="#">Complexion</a></li>
                                             <li><a href="#">Physical Status</a></li>
-                                            <!-- <li><a href="#">Occupation in Detail</a></li> -->
-                                            <!-- <li><a href="#"></a>- </li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li> -->
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Wheatish brown</a></li>
-                                            <li><a href="#">Normal</a></li>
-                                            <!-- <li><a href="#">Project Coordinator</a></li>            -->
-                                            <!-- <li><a href="#">9, first street, NG nagar, Pondicherry, 605111.</a></li>
-                                            <li><a href="#"></a>-</li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li> -->
+                                            <li><a href="#"><?php echo $results['complexion_typename']; ?></a></li>
+                                            <li><a href="#"><?php echo $results['phy_physicalstatus']; ?></a></li>
                                         </ul>
                                     </div>
                                 </div> 
@@ -652,7 +230,7 @@
                                                 <li><a href="#">Food</a></li>                                     
                                             </ul>
                                             <ul>
-                                                <li><a href="#">Non-Vegeterian</a></li>                                     
+                                                <li><a href="#"><?php echo $results['food_name']; ?></a></li>                                     
                                             </ul>                                                                   
                                         </div> 
                                 </div>                               
@@ -662,13 +240,7 @@
                                     </div> 
                                         <div class="profile_list">                                    
                                             <ul>
-                                                <li><a href="#">Simple</a></li>
-                                                <!-- <li><a href="#">Mother's Name</a></li>
-                                                <li><a href="#">Father's Occupation</a></li>
-                                                <li><a href="#">Mother's Occupation</a></li>
-                                                <li><a href="#">Family Status</a></li>
-                                                <li><a href="#">Family Type</a></li>
- -->                                                <!-- <li><a href="#">Work as</a></li> -->
+                                                <li><a href="#"><?php echo $results['phy_yourpersonality']; ?></a></li>
                                             </ul>                                                                 
                                         </div> 
                                 </div>
@@ -681,7 +253,7 @@
                                                 <li><a href="#">Age</a></li>                                      
                                             </ul> 
                                             <ul>
-                                                <li><a href="#">From 24 To 28</a></li>                                    
+                                                <li><a href="#"><?php echo $results['phy_searchage_from']; ?> - <?php echo $results['phy_searchage_to']; ?></a></li>                                    
                                             </ul>                                                                 
                                         </div> 
                                 </div>
@@ -694,7 +266,7 @@
                                                 <li><a href="#">Education</a></li>                                      
                                             </ul> 
                                             <ul>
-                                                <li><a href="#">Any</a></li>                                    
+                                                <li><a href="#"><?php echo $results['phy_searchedu_status']; ?></a></li>                                    
                                             </ul>                                                                 
                                         </div> 
                                 </div>
@@ -707,23 +279,8 @@
                                                 <li><a href="#">Marital Status</a></li>                                      
                                             </ul> 
                                             <ul>
-                                                <li>  
-                                                    <div class="checkbox-inline">
-                                                      <label><input type="checkbox" value="">Single</label>
-                                                    </div>
-                                                    <div class="checkbox-inline">
-                                                      <label><input type="checkbox" value="">Widowed</label>
-                                                    </div>
-                                                    <div class="checkbox-inline">
-                                                      <label><input type="checkbox" value="">Annualled</label>
-                                                    </div>
-                                                    <div class="checkbox-inline">
-                                                      <label><input type="checkbox" value="">Divorced</label>
-                                                    </div>
-                                                  <!-- <label class="checkbox-inline"><input type="checkbox" value="">Single</label>
-                                                        <label class="checkbox-inline"><input type="checkbox" value="">Widowed</label>
-                                                        <label class="checkbox-inline"><input type="checkbox" value="">Annualled</label>
-                                                        <label class="checkbox-inline"><input type="checkbox" value="">Divorced</label> -->
+                                                <li>                                                     
+                                                    <?php echo $results['maritalname']; ?>
                                                 </li>                                    
                                             </ul>                                                                 
                                         </div> 
@@ -737,23 +294,21 @@
                                                 <li><a href="#">Diet</a></li>                                      
                                             </ul> 
                                             <ul>
-                                                <li><div class="radio-inline">
-                                                      <label><input type="radio" name="Vegetarian">Vegetarian</label>
-                                                    </div>
-                                                    <div class="radio-inline">
-                                                      <label><input type="radio" name="Non-Vegetarian">Non-Vegetarian</label>
-                                                    </div>
-                                                    <div class="radio-inline">
-                                                      <label><input type="radio" name="Eggetarian">Eggetarian</label>
-                                                    </div>
-                                                </li>                                    
+                                             <?php echo $results['food_name']; ?>                              
                                             </ul>                                                                 
                                         </div> 
                                 </div>
                                 <div class="members_about_box">
                                     <div id="">
                                     <h3 id="hcolor">Expectation About Life Partner</h3>
-                                    <div class="profile_list"> 
+                                    <div class="profile_list">
+                                    <ul>
+                                                <li><a href="#"></a></li>                                      
+                                            </ul>
+                                    <ul>
+                                             <?php echo $results['phy_expectationabout_lifepartner']; ?>                              
+                                            </ul> 
+
                                     </div>
                                     </div>                                                                  
                                 </div>                                                          
