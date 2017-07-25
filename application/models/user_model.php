@@ -272,7 +272,7 @@ class User_model extends CI_Model {
         INNER JOIN reg_education_occupation AS edu ON edu.reg_user_id = usr.userdetail_id 
         INNER JOIN user_images AS img ON img.reg_user_id = usr.userdetail_id) 
         WHERE usr.user_gender = '".$values['gender']."' AND usr.user_age >= '".$values['age_from']."' AND usr.user_age <= '".$values['age_to']."' AND phy.phy_height >= '".$values['height_from']."' AND phy.phy_height <= '".$values['height_to']."' AND usr.user_maritalstatus = '".$values['mar_status']."' AND img.images!='' 
-        ORDER BY 'usr.userdetail_id' desc LIMIT ".$start.",".$limit."")->result_array();        
+        ORDER BY usr.userdetail_id desc LIMIT ".$start.",".$limit."")->result_array();        
         // echo $this->db->last_query();
 
         

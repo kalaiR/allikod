@@ -240,11 +240,30 @@
                 <?php //print_r($recent_profile); 
                     if(!empty($recent_profile)) :
                       foreach ($recent_profile as $rec) :
+                        $prefix = '';
+                        $prefix_one = 'th_';
+                        $prefix_two = 'new_';
+                        if(!empty($value['images'])){
+                            $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$value['images']);
+                            $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$value['images']);
+                        }
                 ?>
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
-                                <img src="<?php if(!empty($rec['images'])) echo media_url()."assets/img/uploads/profile/".$rec['images']; else echo media_url()."assets/img/no_image.jpg" ?>"  class ="img-pane" alt="Image not loaded">
+                                <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                                    if(!empty($prefix_one_status))
+                                        $prefix = $prefix_one;
+                                    else if(!empty($prefix_two_status))
+                                        $prefix = $prefix_two;
+                                ?>
+                                <img src="<?php 
+                                    if(!empty($rec['images'])): 
+                                        echo media_url()."uploads/profile/".$prefix.$rec['images']; 
+                                    else:
+                                        echo media_url()."assets/img/no_image.jpg"; 
+                                    endif; 
+                                ?>" alt="Image not loaded" class ="img-pane">
                                 <!-- <img src="<?php echo media_url(); ?>assets/img/shop/product-1.jpg" alt=""> -->
                                 <!-- <div class="hover_icon">
                                     <ul>
