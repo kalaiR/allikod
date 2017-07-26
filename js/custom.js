@@ -15,4 +15,16 @@ $(document).ready(function () {
         //                                        ^ you forgot this
         $('#' + selectedolditem).addClass("active");
     }
+
+// Show and Hide Search Div
+    $(".slidingDiv").hide();
+    $(".show_hide").show();
+
+    $('.show_hide').click(function(){
+    $(".slidingDiv").slideToggle();
 });
+    
+});
+
+
+

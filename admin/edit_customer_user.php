@@ -173,7 +173,7 @@
 												  <select data-rel="chosen">
 												  	<option value="">Profile Active</option>
 													<option>Active</option>
-													<option>Not Active</option>
+													<option>Inactive</option>
 												  </select>
 												</div>
 											  </div>											  
@@ -843,10 +843,12 @@
 											  <div class="control-group">
 												<label class="control-label">Image Active :</label>
 												<div class="controls">
-												  <label class="radio">
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">					
-												  </label>
-												</div>												
+												  <select data-rel="chosen">
+												  	<option value="">Select Active Status</option>
+													<option>Active</option>
+													<option>Inactive</option>
+												  </select>
+												</div>											
 											  </div>  					  							  
 											</fieldset>
 										  </form>
