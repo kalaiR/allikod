@@ -156,9 +156,11 @@ $(document).ready(function () {
 
         // Show and Hide Search Div
     $(".slidingDiv").hide();
-    $(".show_hide").show();
+    $(".view_communication").show();
 
-    $('.show_hide').click(function(){
+    $('.view_communication').click(function(){
+        if($('.slidingDiv').length == 0)
+            alert("please pay at vallikodimatrimonial.in");
     $(".slidingDiv").slideToggle();
 });
 

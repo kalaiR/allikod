@@ -68,8 +68,13 @@ include('include/menu.php');
                                  <div class="members_about_box">                                    
                                     <h3 id="hcolor">Communication Detail</h3>
                                     <div class="profile_list"> 
-                                    <p><b>Click the button to view the contact details</b>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" value="View" class="btn form-control login_btn show_hide">View</button></p><br>
+                                    <p><b>Click the button to view the contact details</b>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" value="View" class="btn form-control login_btn view_communication">View</button></p><br>
                                     <!-- <a href="search.html" class="register_angkar_btn">View</a> -->
+                                    <?php 
+                                        $user_session = $this->session->userdata("login_session");
+                                        // print_r($user_session);  
+                                        if($user_session['payment_status'] == 1 && $user_session['no_of_profiles_viewed'] < $user_session['totalno_of_profile']):
+                                    ?>
                                         <div class="slidingDiv">                                    
                                             <ul>
                                                 <li><a href="#">Residence</a></li>
@@ -78,24 +83,25 @@ include('include/menu.php');
                                                 <li><a href="#">Current District</a></li>
                                             </ul>
                                             <ul>
-                                                <li><a href="#">India</a></li>
-                                                <li><a href="#">India</a></li>
-                                                <li><a href="#">Villupuram</a></li>
-                                                <li><a href="#">Villupuram</a></li>
+                                                <li><a href="#"><?php if(!empty($results['comm_residence'])) echo $results['comm_residence']; else echo "--"; ?></a></li>
+                                                <li><a href="#"><?php if(!empty($results['comm_current_countrycountry'])) echo $results['comm_current_countrycountry']; else echo "--"; ?></a></li>
+                                                <li><a href="#"><?php if(!empty($results['comm_current_city'])) echo $results['comm_current_city']; else echo "--"; ?></a></li>
+                                                <li><a href="#"><?php if(!empty($results['comm_current_district'])) echo $results['comm_current_district']; else echo "--"; ?></a></li>
                                             </ul>
                                             <ul>
                                                 <li><a href="#">Communication Address</a></li>
                                                 <li><a href="#">Phone Number</a></li>
                                                 <li><a href="#">Mobile Number</a></li>
-                                                <li><a href="#">-</a></li>
+                                                <!-- <li><a href="#">-</a></li> -->
                                             </ul>
                                             <ul>
-                                                <li><a href="#">9, first street, NG nagar, Pondicherry, 605111.</a></li>
-                                                <li><a href="#">28569896</a></li>
-                                                <li><a href="#">9865324712</a></li>
-                                                <li><a href="#">-</a></li>                             
+                                                <li><a href="#"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></a></li>
+                                                <li><a href="#"><?php if(!empty($results['comm_phone_no'])) echo $results['comm_phone_no']; else echo "--"; ?></a></li>
+                                                <li><a href="#"><?php if(!empty($results['comm_mobile_no'])) echo $results['comm_mobile_no']; else echo "--"; ?></a></li>
+                                                <li><a></a></li>                             
                                             </ul>
                                         </div> 
+                                    <?php endif; ?>
                                     </div>                                                           
                                 </div>                  
                                 <div class="members_about_box">
@@ -148,7 +154,7 @@ include('include/menu.php');
                                             <li><a href="#">Zodiac Sign</a></li>
                                         </ul>
                                         <ul>
-                                             <li><a href="#"><?php echo $results['rel_dhosham']; ?></a></li>
+                                             <li><a href="#"><?php echo $results['lukhnam_name']; ?></a></li>
                                              <li><a href="#"><?php echo $results['rel_gothra']; ?></a></li>
                                              <li><a href="#"><?php echo $results['zodiac_name']; ?></a></li>
                                         </ul>
