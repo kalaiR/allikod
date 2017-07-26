@@ -347,6 +347,31 @@ include('include/menu.php');
                                 <div class="members_about_box">
                                     <h3 id="hcolor">Horoscope</h3>
                                     <div class="profile_list"> 
+                                            <!-- Rasi Horoscope - Start -->
+                                            <div id="horo_container">
+                                                <div class="horo_row" id="product">
+                                                    <div class="third-row" data-id="box_1" id="box_1">1</div>
+                                                    <div class="third-row" data-id="box_2" id="box_2">2</div>
+                                                    <div class="third-row" data-id="box_3" id="box_3">3</div>
+                                                    <div class="third-row" data-id="box_4" id="box_4">4</div>
+
+                                                    <div class="third-row" data-id="box_12" id="box_12">12</div>
+                                                    <div class="third-row" data-id="box_15" id="box_15">-</div>
+                                                    <div class="third-row" data-id="box_16" id="box_16">-</div>
+                                                    <div class="third-row" data-id="box_5"  id="box_5">5</div>
+
+                                                    <div class="third-row" data-id="box_11" id="box_11">11</div>
+                                                    <div class="third-row" data-id="box_13" id="box_13">-</div>
+                                                    <div class="third-row" data-id="box_14" id="box_14">-</div>
+                                                    <div class="third-row" data-id="box_6"  id="box_6">6</div>
+
+                                                    <div class="third-row" data-id="box_10" id="box_10">10</div>
+                                                    <div class="third-row" data-id="box_9" id="box_9">9</div>
+                                                    <div class="third-row" data-id="box_8" id="box_8">8</div>
+                                                    <div class="third-row" data-id="box_7" id="box_7">7</div>
+                                                </div>
+                                            </div>
+                                            <!-- Rasi Horoscope - End -->
                                     </div>
                                 </div>
                             </div>
@@ -424,7 +449,25 @@ include('include/menu.php');
             </div>
         </div>
 <?php 
-    include('include/footer.php');
-?> 
-    </body>
-</html>
+include('include/footer.php');
+// echo '<pre>';
+// print_r($rasi);
+// echo '</pre>';
+// $value  = array('r_1'=>1, 'r_2'=>10, 'r_3'=>10, 'r_4'=>10, 'r_5'=>2, 'r_6'=>12,'r_7'=>10, 'r_8'=>10, 'r_9'=>10, 'r_10'=>10);
+?>
+<script type="text/javascript">
+$(document).ready(function () {
+   var arr = <?php echo json_encode($rasi); ?>     
+   $('.horo_row #box_6, #box_7, #box_10, #box_11').attr('readonly', 'readonly');   
+   $.each(arr, function( i, val ) {    
+     $('.third-row').each(function(){
+        var id=$(this).data('id');
+        var res = id.split("_");          
+        if(res[1]==val){
+            img='<?php echo media_url(); ?>'+'assets/img/rasi/'+i+'.png';             
+            $("#"+id).append("<img src="+img+" />");
+        }
+      });  
+   }); 
+});    
+</script>

@@ -432,7 +432,25 @@ class User_model extends CI_Model {
       $this->db->where($condition); 
       $query = $this->db->get()->row_array();
       return $query;
-  }   
+  } 
+
+  /** Search by getrasi_viewdetails_by Id **/
+  public function getrasi_viewdetails_byid($userid){
+        if(!empty($userid)){
+        $user_where = '(userdetail_id="'.$userid.'")';
+        $this->db->select('horo.r_1,horo.r_2,horo.r_3,horo.r_4,horo.r_5,horo.r_6,horo.r_7,horo.r_8,horo.r_9,horo.r_10');
+        $this->db->from('reg_userdetail usr');
+        $this->db->join('reg_image_horoscope horo','horo.reg_user_id = usr.userdetail_id','inner');
+        $this->db->where($user_where);
+        $this->db->order_by('usr.userdetail_id','desc');
+        $model_data = $this->db->get()->row_array();
+        return $model_data;
+      }else{
+        return;
+      }
+  }
+
+    
 }
 
 /* End of file User_model.php */
