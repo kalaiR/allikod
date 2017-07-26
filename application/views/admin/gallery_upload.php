@@ -6,7 +6,7 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="<?php echo base_url(); ?>index.php/admin">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">Galley Upload</a>
@@ -19,19 +19,16 @@
 					<div class="box-header well" data-original-title>
 						<h2><i class="icon-user"></i> Galley Upload</h2>
 						<div class="box-icon">
-							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
 							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
 							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
 						</div>
 					</div>
-						<div class="box-content row">
+						<div class="box-content">
 							<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>index.php/admin/add_gallery">
 							        <i class="glyphicon glyphicon-edit icon-white"></i>
 							        Add
 							    </a>
-						</div>
-						<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:10px;margin-left: 10px; padding-bottom: 15px;display:block;">
-								<table class="table table-striped table-bordered bootstrap-datatable datatable">
+						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 								  <thead>
 									  <tr>
 										  <th>Image</th>
@@ -43,14 +40,14 @@
 								  </thead>   
 								  <tbody>
 									<tr>
-										<td><img alt="Vallikodi" src="<?php echo base_url(); ?>assets/admin/img/valli/new_84IMG_20141002_110125.jpg" style="width: 50px;height: 50px;" /></td>
+										<td><img alt="Vallikodi" src="<?php echo media_url(); ?>assets/admin/img/valli/new_84IMG_20141002_110125.jpg" style="width: 50px;height: 50px;" /></td>
 										<td>Pondicherry</td>
 										<td>15/02/2017</td>
 										<td class="center">
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_gallery_upload">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_gallery_upload">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -61,14 +58,14 @@
 										</td>
 									</tr>
 									<tr>
-										<td><img alt="Vallikodi" src="<?php echo base_url(); ?>assets/admin/img/valli/new_7481IMG_2002.jpg" style="width: 50px;height: 50px;" /></td>
+										<td><img alt="Vallikodi" src="<?php echo media_url(); ?>assets/admin/img/valli/new_7481IMG_2002.jpg" style="width: 50px;height: 50px;" /></td>
 										<td>Pondicherry</td>
 										<td>15/02/2017</td>
 										<td class="center">
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_gallery_upload">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_gallery_upload">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -79,14 +76,14 @@
 										</td>
 									</tr>
 									<tr>
-										<td><img alt="Vallikodi" src="<?php echo base_url(); ?>assets/admin/img/valli/new_9651Image-(14).jpg" style="width: 50px;height: 50px;" /></td>
+										<td><img alt="Vallikodi" src="<?php echo media_url(); ?>assets/admin/img/valli/new_9651Image-(14).jpg" style="width: 50px;height: 50px;" /></td>
 										<td>Pondicherry</td>
 										<td>15/02/2017</td>
 										<td class="center">
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_gallery_upload">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_gallery_upload">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -97,14 +94,14 @@
 										</td>
 									</tr>
 									<tr>
-										<td><img alt="Vallikodi" src="<?php echo base_url(); ?>assets/admin/img/valli/new_2407IMG_1676.jpg" style="width: 50px;height: 50px;" /></td>
+										<td><img alt="Vallikodi" src="<?php echo media_url(); ?>assets/admin/img/valli/new_2407IMG_1676.jpg" style="width: 50px;height: 50px;" /></td>
 										<td>Pondicherry</td>
 										<td>15/02/2017</td>
 										<td class="center">
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_gallery_upload">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_gallery_upload">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -115,14 +112,14 @@
 										</td>
 									</tr>
 									<tr>
-										<td><img alt="Vallikodi" src="<?php echo base_url(); ?>assets/admin/img/valli/new_2276IMG_3857.jpg" style="width: 50px;height: 50px;" /></td>
+										<td><img alt="Vallikodi" src="<?php echo media_url(); ?>assets/admin/img/valli/new_2276IMG_3857.jpg" style="width: 50px;height: 50px;" /></td>
 										<td>Pondicherry</td>
 										<td>15/02/2017</td>
 										<td class="center">
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_gallery_upload">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_gallery_upload">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -133,14 +130,14 @@
 										</td>
 									</tr>
 									<tr>
-										<td><img alt="Vallikodi" src="<?php echo base_url(); ?>assets/admin/img/valli/new_1327IMG_3868.jpg" style="width: 50px;height: 50px;" /></td>
+										<td><img alt="Vallikodi" src="<?php echo media_url(); ?>assets/admin/img/valli/new_1327IMG_3868.jpg" style="width: 50px;height: 50px;" /></td>
 										<td>Pondicherry</td>
 										<td>15/02/2017</td>
 										<td class="center">
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_gallery_upload">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_gallery_upload">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -151,14 +148,14 @@
 										</td>
 									</tr>
 									<tr>
-										<td><img alt="Vallikodi" src="<?php echo base_url(); ?>assets/admin/img/valli/new_588Image-(6).jpg" style="width: 50px;height: 50px;" /></td>
+										<td><img alt="Vallikodi" src="<?php echo media_url(); ?>assets/admin/img/valli/new_588Image-(6).jpg" style="width: 50px;height: 50px;" /></td>
 										<td>Pondicherry</td>
 										<td>15/02/2017</td>
 										<td class="center">
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_gallery_upload">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_gallery_upload">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>

@@ -10,7 +10,7 @@
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3 title="Gallery"><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">Gallery<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
+                    <h3 title="Gallery"><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Gallery<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
                     <a href="#">Home</a>
                     <a href="#">Gallery</a>
                     <a href="#">Gallery Full Width</a>
@@ -26,7 +26,7 @@
             <div class="container">
                 <div class="welcome_title">
                     <h3> Our Galley</h3>
-                    <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
+                    <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
                 <div class="row">  
                     <form>
@@ -51,56 +51,56 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo base_url(); ?>assets/img/valli/new_84IMG_20141002_110125.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_84IMG_20141002_110125.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                        <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo base_url(); ?>assets/img/valli/new_2301IMG_0842.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_2301IMG_0842.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo base_url(); ?>assets/img/valli/new_2407IMG_1676.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_2407IMG_1676.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo base_url(); ?>assets/img/valli/new_6060IMG_0879.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_6060IMG_0879.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo base_url(); ?>assets/img/valli/new_6628IMG_0823.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_6628IMG_0823.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img class="lightbox" src="<?php echo base_url(); ?>assets/img/valli/new_7436IMG_0814.jpg" alt="">
+                                    <img class="lightbox" src="<?php echo media_url(); ?>assets/img/valli/new_7436IMG_0814.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo base_url(); ?>assets/img/valli/new_7481IMG_2002.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_7481IMG_2002.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo base_url(); ?>assets/img/valli/new_8953IMG_1121.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_8953IMG_1121.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
 <?php 
     include('include/footer.php');
 ?> 
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.simplePagination.js"></script>
+    <script type="text/javascript" src="<?php echo media_url(); ?>assets/js/jquery.simplePagination.js"></script>
     <script type="text/javascript">
         $(function() {
         $('#pagination_are').pagination({

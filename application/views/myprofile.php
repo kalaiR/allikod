@@ -8,7 +8,7 @@
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3 title="My Profile"><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">My Profile<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
+                    <h3 title="My Profile"><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">My Profile<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
                     <!--<a href="index.html">Home</a>
                     <a href="shop-cart.html">Pricing</a>-->
                 </div>
@@ -521,7 +521,7 @@
        <!-- <div id="largeContent" style="display:none;">
             <div class="media tool_content">
                 <div class="media-left">
-                    <img src="<?php echo base_url(); ?>assets/img/map-persion.png" alt="">
+                    <img src="<?php echo media_url(); ?>assets/img/map-persion.png" alt="">
                 </div>
                 <div class="media-body">
                     <h3>Sandi Williams</h3>

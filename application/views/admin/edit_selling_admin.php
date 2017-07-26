@@ -6,10 +6,10 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="<?php echo base_url(); ?>index.php/admin">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>index.php/admin/selling_admin">Selling Admin</a>
+						<a href="<?php echo base_url(); ?>admin/selling_admin">Selling Admin</a>
 					</li>
 				</ul>
 			</div>
@@ -18,7 +18,6 @@
 					<div class="box-header well" data-original-title>
 						<h2><i class="icon-edit"></i> Edit</h2>
 						<div class="box-icon">
-							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
 							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
 							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
 						</div>

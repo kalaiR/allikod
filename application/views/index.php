@@ -10,12 +10,12 @@
                     <ul> 
                        <li data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="600" data-rotate="0" data-saveperformance="off">
                             <!-- MAIN IMAGE -->
-                            <img src="<?php echo base_url(); ?>assets/img/slider-img/slider-1.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                            <img src="<?php echo media_url(); ?>assets/img/slider-img/slider-1.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
                         </li>
                         <li data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="600" data-rotate="0" data-saveperformance="off">
                             <!-- MAIN IMAGE -->
-                            <img src="<?php echo base_url(); ?>assets/img/slider-img/slider-2.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                            <img src="<?php echo media_url(); ?>assets/img/slider-img/slider-2.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
                         </li>
                         
@@ -119,7 +119,7 @@
                         </div>
                         <!--<div class="col-sm-6">
                             <div class="form_man">
-                                <img src="<?php echo base_url(); ?>assets/img/registration-man.png" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/registration-man.png" alt="">
                             </div>
                         </div>-->
                     </div>
@@ -132,7 +132,7 @@
             <div class="container">
                 <div class="welcome_title">
                     <h3>Quick Search</h3>
-                    <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
+                    <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                     
                 </div>
                 <form method="post" class="box basic_search" action="search_result" id="quick_search" name="quick_search" >
@@ -192,7 +192,7 @@
             <div class="container">
                 <div class="welcome_title">
                     <h3>Success Stories</h3>
-                    <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
+                    <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
                 <div class="row m0">
                     <div class="blog_grid_inner sticky_slider">
@@ -203,8 +203,8 @@
                             <div class="item">
                                 <div class="blog_grid_item">
                                     <div class="blog_grid_img product_img">
-                                        <!-- <img src="<?php echo base_url(); ?>assets/img/blog/stories/stories-1.jpg" alt=""> -->
-                                        <img src="<?php if(!empty($suc['image'])) echo base_url()."assets/img/uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded">
+                                        <!-- <img src="<?php echo media_url(); ?>assets/img/blog/stories/stories-1.jpg" alt=""> -->
+                                        <img src="<?php if(!empty($suc['image'])) echo media_url()."assets/img/uploads/success/".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded">
                                         <div class="author_name">
                                             <h4><?php echo $suc['male_name']."&". $suc['female_name'] ?></h4>
                                         </div>
@@ -234,18 +234,37 @@
             <div class="container">
                 <div class="welcome_title">
                     <h3> Featured Profiles</h3>
-                    <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
+                    <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
                 <div class="row">
                 <?php //print_r($recent_profile); 
                     if(!empty($recent_profile)) :
                       foreach ($recent_profile as $rec) :
+                        $prefix = '';
+                        $prefix_one = 'th_';
+                        $prefix_two = 'new_';
+                        if(!empty($rec['images'])){
+                            $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$rec['images']);
+                            $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$rec['images']);
+                        }
                 ?>
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
-                                <img src="<?php if(!empty($rec['images'])) echo base_url()."asset/img/uploads/profile/".$rec['images']; else echo base_url()."assets/img/no_image.jpg" ?>"  class ="img-pane" alt="Image not loaded">
-                                <!-- <img src="<?php echo base_url(); ?>assets/img/shop/product-1.jpg" alt=""> -->
+                                <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                                    if(!empty($prefix_one_status))
+                                        $prefix = $prefix_one;
+                                    else if(!empty($prefix_two_status))
+                                        $prefix = $prefix_two;
+                                ?>
+                                <img src="<?php 
+                                    if(!empty($rec['images'])): 
+                                        echo media_url()."uploads/profile/".$prefix.$rec['images']; 
+                                    else:
+                                        echo media_url()."assets/img/no_image.jpg"; 
+                                    endif; 
+                                ?>" alt="Image not loaded" class ="img-pane">
+                                <!-- <img src="<?php echo media_url(); ?>assets/img/shop/product-1.jpg" alt=""> -->
                                 <!-- <div class="hover_icon">
                                     <ul>
                                         <li><a href="<?php //echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
@@ -261,7 +280,7 @@
                   <!--   <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
-                                <img src="<?php echo base_url(); ?>assets/img/shop/product-2.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/shop/product-2.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
                                         <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
@@ -273,7 +292,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
-                                <img src="<?php echo base_url(); ?>assets/img/shop/product-3.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/shop/product-3.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
                                         <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
@@ -285,7 +304,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
-                                <img src="<?php echo base_url(); ?>assets/img/shop/product-4.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/shop/product-4.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
                                         <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
@@ -297,7 +316,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
-                                <img src="<?php echo base_url(); ?>assets/img/shop/product-1.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/shop/product-1.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
                                         <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
@@ -309,7 +328,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
-                                <img src="<?php echo base_url(); ?>assets/img/shop/product-2.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/shop/product-2.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
                                         <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
@@ -321,7 +340,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
-                                <img src="<?php echo base_url(); ?>assets/img/shop/product-3.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/shop/product-3.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
                                         <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
@@ -333,7 +352,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
                             <div class="product_img">
-                                <img src="<?php echo base_url(); ?>assets/img/shop/product-4.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/shop/product-4.jpg" alt="">
                                 <div class="hover_icon">
                                     <ul>
                                         <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>

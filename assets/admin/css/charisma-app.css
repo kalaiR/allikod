@@ -240,7 +240,8 @@ border: 1px solid #EBEBEB;
 }
 
 #prependedInput,#appendedPrependedInput,#appendedInputButtons,#appendedInputButton{
-width:200px;
+width:100px;
+margin-top: 5px;
 }
 #appendedInput{
 width:75px;
@@ -457,6 +458,7 @@ height:120px;
 }
 .pull-left{
 float:left !important;
+margin-left: 20px;
 }
 .pull-right{
 float:right !important;

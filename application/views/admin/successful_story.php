@@ -6,7 +6,7 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="<?php echo base_url(); ?>index.php/admin">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">Successful Story</a>
@@ -19,13 +19,12 @@
 					<div class="box-header well" data-original-title>
 						<h2><i class="icon-user"></i> Successful Story</h2>
 						<div class="box-icon">
-							<a href="#" class="btn b tn-setting btn-round"><i class="icon-cog"></i></a>
 							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
 							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>index.php/admin/add_successful_story">
+						<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_successful_story">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
@@ -80,7 +79,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-info" href="<?php echo base_url(); ?>index.php/admin/edit_successful_story/<?php echo $suc_val["successstories_id"] ?>">
+									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story/<?php echo $suc_val["successstories_id"] ?>">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>

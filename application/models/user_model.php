@@ -87,23 +87,43 @@ class User_model extends CI_Model {
       return $query;
   }
   
-  public function get_education(){
-      $condition = "edu.active_status = 1";
-      $this->db->select('*');
-      $this->db->from('education AS edu');
-      $this->db->where($condition);      
-      $this->db->order_by('edu.education_id','asc');
-      $query = $this->db->get()->result_array();          
+  public function get_education($edu_id=""){
+      if($edu_id!=''){
+        // Education Id Id based search    
+        $condition = "edu.active_status = 1 AND edu.education_id = ".$edu_id."";  
+        $this->db->select('*');
+        $this->db->from('education AS edu');
+        $this->db->where($condition);      
+        $this->db->order_by('edu.education_id','asc');
+        $query = $this->db->get()->row_array();          
+      }else{
+        $condition = "edu.active_status = 1";  
+        $this->db->select('*');
+        $this->db->from('education AS edu');
+        $this->db->where($condition);      
+        $this->db->order_by('edu.education_id','asc');
+        $query = $this->db->get()->result_array();          
+      }
       return $query;
   }
 
-  public function get_occupation(){
-      $condition = "occ.active_status = 1";
-      $this->db->select('*');
-      $this->db->from('occupation AS occ');
-      $this->db->where($condition);      
-      $this->db->order_by('occ.occupation_id','asc');
-      $query = $this->db->get()->result_array();          
+  public function get_occupation($occ_id=""){
+      if($occ_id!=''){
+        // Occupation Id Id based search    
+        $condition = "occ.active_status = 1 AND occ.occupation_id = ".$occ_id."";  
+        $this->db->select('*');
+        $this->db->from('occupation AS occ');
+        $this->db->where($condition);      
+        $this->db->order_by('occ.occupation_id','asc');
+        $query = $this->db->get()->row_array();          
+      }else{
+        $condition = "occ.active_status = 1";  
+        $this->db->select('*');
+        $this->db->from('occupation AS occ');
+        $this->db->where($condition);      
+        $this->db->order_by('occ.occupation_id','asc');
+        $query = $this->db->get()->result_array();          
+      }
       return $query;
   }
 
@@ -127,13 +147,23 @@ class User_model extends CI_Model {
       return $query;
   }
 
-  public function get_familystatus(){
-      $condition = "fstatus.active_status = 1";
-      $this->db->select('*');
-      $this->db->from('family_status AS fstatus');
-      $this->db->where($condition);      
-      $this->db->order_by('fstatus.familystatus_id','desc');
-      $query = $this->db->get()->result_array();          
+  public function get_familystatus($family_statusid=""){
+       if($family_statusid!=''){
+        // Education Id Id based search    
+        $condition = "fstatus.active_status = 1 AND fstatus.familystatus_id = ".$family_statusid."";  
+        $this->db->select('*');
+        $this->db->from('family_status AS fstatus');
+        $this->db->where($condition);      
+        $this->db->order_by('fstatus.familystatus_id','asc');
+        $query = $this->db->get()->row_array();          
+      }else{
+        $condition = "fstatus.active_status = 1";  
+        $this->db->select('*');
+        $this->db->from('family_status AS fstatus');
+        $this->db->where($condition);      
+        $this->db->order_by('fstatus.familystatus_id','asc');
+        $query = $this->db->get()->result_array();          
+      }
       return $query;
   }
 
@@ -242,7 +272,7 @@ class User_model extends CI_Model {
         INNER JOIN reg_education_occupation AS edu ON edu.reg_user_id = usr.userdetail_id 
         INNER JOIN user_images AS img ON img.reg_user_id = usr.userdetail_id) 
         WHERE usr.user_gender = '".$values['gender']."' AND usr.user_age >= '".$values['age_from']."' AND usr.user_age <= '".$values['age_to']."' AND phy.phy_height >= '".$values['height_from']."' AND phy.phy_height <= '".$values['height_to']."' AND usr.user_maritalstatus = '".$values['mar_status']."' AND img.images!='' 
-        ORDER BY 'usr.userdetail_id' desc LIMIT ".$start.",".$limit."")->result_array();        
+        ORDER BY usr.userdetail_id desc LIMIT ".$start.",".$limit."")->result_array();        
         // echo $this->db->last_query();
 
         
@@ -376,7 +406,7 @@ class User_model extends CI_Model {
   public function get_viewdetails_byid($id){
       // View by id
       $condition = "usr.userdetail_id = ".$id."";
-      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name');
+      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name, zod.name as zodiac_name, famst.name as family_statusname, famtype.name as family_typename, bdy_type.typename as body_typename, comp.name as complexion_typename, fod.name as food_name, mc.marital_name as maritalname');
       $this->db->from('reg_userdetail usr');
       $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
       $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
@@ -394,11 +424,49 @@ class User_model extends CI_Model {
       $this->db->join('education ed','ed.education_id=eo.edu_education','left');
       $this->db->join('occupation occ','occ.occupation_id=eo.edu_occupation','left');
       $this->db->join('employed_in ein','ein.employedin_id=eo.edu_employedin','left');
+      $this->db->join('family_status famst','famst.familystatus_id=cf.comm_family_status','left');
+      $this->db->join('family_type famtype','famtype.familytype_id=cf.comm_family_type','left');
+      $this->db->join('body_type bdy_type','bdy_type.bodytype_id=pe.phy_bodytype','left');
+      $this->db->join('complexion comp','comp.complexion_id=pe.phy_complexion','left');
+      $this->db->join('food fod','fod.food_id=pe.phy_food','left');
       $this->db->where($condition); 
       $query = $this->db->get()->row_array();
       return $query;
-  }   
-}
+  } 
 
+  /** Search by getrasi_viewdetails_by Id **/
+  public function getrasi_viewdetails_byid($userid){
+        if(!empty($userid)){
+        $user_where = '(userdetail_id="'.$userid.'")';
+        $this->db->select('horo.r_1,horo.r_2,horo.r_3,horo.r_4,horo.r_5,horo.r_6,horo.r_7,horo.r_8,horo.r_9,horo.r_10');
+        $this->db->from('reg_userdetail usr');
+        $this->db->join('reg_image_horoscope horo','horo.reg_user_id = usr.userdetail_id','inner');
+        $this->db->where($user_where);
+        $this->db->order_by('usr.userdetail_id','desc');
+        $model_data = $this->db->get()->row_array();
+        return $model_data;
+      }else{
+        return;
+      }
+  }
+  
+  /** Search by getamsham_viewdetails_by Id **/
+  public function getamsham_viewdetails_byid($userid){
+    if(!empty($userid)){
+        $user_where = '(userdetail_id="'.$userid.'")';
+        $this->db->select('horo.a_1,horo.a_2,horo.a_3,horo.a_4,horo.a_5,horo.a_6,horo.a_7,horo.a_8,horo.a_9,horo.a_10');
+        $this->db->from('reg_userdetail usr');
+        $this->db->join('reg_image_horoscope horo','horo.reg_user_id = usr.userdetail_id','inner');
+        $this->db->where($user_where);
+        $this->db->order_by('usr.userdetail_id','desc');
+        $model_data = $this->db->get()->row_array();
+        return $model_data;
+      }else{
+        return;
+      }
+
+  }
+  
+}
 /* End of file User_model.php */
 /* Location: ./application/controllers/base.php */

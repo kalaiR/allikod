@@ -154,6 +154,14 @@ $(document).ready(function () {
         //     $('#' + selectedolditem).addClass("active");
         // }
 
+        // Show and Hide Search Div
+    $(".slidingDiv").hide();
+    $(".show_hide").show();
+
+    $('.show_hide').click(function(){
+    $(".slidingDiv").slideToggle();
+});
+
         $("#next").click(function(){            
             var output = validate();
             if(output) {
