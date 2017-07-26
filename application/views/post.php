@@ -24,46 +24,57 @@
                             <div class="registration_form_area" id="registration_form_are">
                                     <div class="row">
                                     <form action="success_stories" class="post_success_form" method="post" name="success_stories" id="success_stories" enctype="multipart/form-data">
-                                        <div class="col-sm-8">
+                                        <div class="col-md-8">
                                             <div class="registration_form_s" id="registration_form_s">
                                                     <h4>Post Your Story</h4>
                                                     <span class="val_status" style="display: block;">
                                     <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
                                     </span>
                                                     <div class="form-group">
-                                                            <input type="text" class="form-control form_inputs" id="bride_name" placeholder="Bride Name" name="bride_name">      
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control form_inputs" id="bride_name" placeholder="Bride Name" name="bride_name">
+                                                        </div>
+                                                        <!--  <span class="val_status" style="display: inline-block;">
+                                                            <i class="fa fa-info-circle text-box"></i>
+                                                        </span> -->
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="datepicker">
+                                                        <div class="col-md-10 next-box">
                                                             <input type="text" class="form-control form_inputs" id="groom_name" placeholder="Groom Name" name="groom_name">
                                                         </div>    
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control form_inputs" id="vallikodi_id" placeholder="Vallikodi ID" name="vallikodi_id">
+                                                        <div class="col-md-10 next-box">
+                                                            <input type="text" class="form-control form_inputs" id="vallikodi_id" placeholder="Vallikodi ID" name="vallikodi_id">
+                                                        </div>    
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="email" class="form-control form_inputs" id="email_id" placeholder="Email" name="email_id">
+                                                        <div class="col-md-10 next-box">
+                                                            <input type="email" class="form-control form_inputs" id="email_id" placeholder="Email" name="email_id">
+                                                        </div>    
                                                     </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <div class="datepicker">
-                                                                            <input type='text' class="form-control form_inputs datetimepicker4" placeholder="Marriage" name="mariage_date" id="mariage_date"/>
-                                                                            <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>    
-                                                                        </div>      
+                                                                        <div class="col-md-12 next-box">
+                                                                            <div class="datepicker">
+                                                                                <input type='text' class="form-control form_inputs datetimepicker4" placeholder="Marriage" name="mariage_date" id="mariage_date"/>
+                                                                                <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>    
+                                                                            </div>
+                                                                        </div>          
                                                                     </div>
                                                             </div>
-                                                                <div class="col-md-5 upload_box">
-                                                                    <div>
-                                                                        <input type="file" id="upload_post" name="upload_post" class="form_inputs"/>
+                                                                <div class="col-md-6 upload_box next-box">
+                                                                   <div>
+                                                                        <input type="file" id="upload_post" name="upload_post" class="form_inputs" class="next-box" />
                                                                         <!-- <input type="button" id="upload_post" value="upload" name ="upload_post"> -->
                                                                     </div>
                                                                 </div>
                                                         </div>
                                                     <div class="comment_form_area next-box">
                                                         <div class="row">
-                                                                <div class="form-group col-md-12">
-                                                                    <textarea id="comment" name="comment" placeholder="Comment" rows="3" cols="20"></textarea>
+                                                                <div class="form-group">
+                                                                    <textarea id="comment" class="form-control" name="comment" placeholder="Comment" rows="5"></textarea>
                                                                 </div>          
                                                         </div>
                                                     </div>    

@@ -80,13 +80,16 @@ include('include/menu.php');
                                   </ol>
                                   <div class="carousel-inner">
                                     <div class="item active">
-                                      <img class="lig-box" src="img/search-result-page/img1.jpg" alt="First slide">
+                                        <div class="numbertext">1 / 3</div>
+                                      <img class="lig-box"src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="First slide">
                                     </div>
                                     <div class="item">
-                                      <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Second slide">
+                                        <div class="numbertext">2 / 3</div>
+                                      <img class="lig-box" src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="Second slide">
                                     </div>
                                     <div class="item">
-                                      <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Third slide">
+                                         <div class="numbertext">3 / 3</div>
+                                      <img class="lig-box" src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="Third slide">
                                     </div>
                                   </div>
                                   <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev">
@@ -471,7 +474,10 @@ include('include/menu.php');
                 </div> -->
                 <?php
                 if(!empty($links)) :
-                            echo "<div class='col-md-12 col-sm-12 col-xs-12 nopadding'><div class='pagination-box clearfix'>" .$links . "</div></div>";
+                            echo "<div class='col-md-8 nopadding pull-right '>
+                                    <div class='pagination-box clearfix'>" .$links . "
+                                        </div>
+                                    </div>";
                         endif;
                 ?> 
             </div>
