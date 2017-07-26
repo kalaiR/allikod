@@ -378,64 +378,37 @@ include('include/menu.php');
                                                 </div>
                                             </div>
                                             <!-- Rasi Horoscope - End -->
+
+                                            <!-- Asham Horoscope - start -->
+                                            <div id="asham_horo_container">
+                                                <div class="asham_horo_row" id="product">
+                                                <div class="asham-row" data-id="abox_1" id="abox_1">1</div>
+                                                <div class="asham-row" data-id="abox_2" id="abox_2">2</div>
+                                                <div class="asham-row" data-id="abox_3" id="abox_3">3</div>
+                                                <div class="asham-row" data-id="abox_4" id="abox_4">4</div>
+
+                                                <div class="asham-row" data-id="abox_12" id="abox_12">12</div>
+                                                <div class="asham-row" data-id="abox_15" id="abox_15">-</div>
+                                                <div class="asham-row" data-id="abox_16" id="abox_16">-</div>
+                                                <div class="asham-row" data-id="abox_5"  id="abox_5">5</div>
+
+                                                <div class="asham-row" data-id="abox_11" id="abox_11">11</div>
+                                                <div class="asham-row" data-id="abox_13" id="abox_13">-</div>
+                                                <div class="asham-row" data-id="abox_14" id="abox_14">-</div>
+                                                <div class="asham-row" data-id="abox_6"  id="abox_6">6</div>
+
+                                                <div class="asham-row" data-id="abox_10" id="abox_10">10</div>
+                                                <div class="asham-row" data-id="abox_9" id="abox_9">9</div>
+                                                <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
+                                                <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
+
+                                                </div>
+                                            </div>
+                                            <!-- Asham Horoscope - end -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <!-- <div class="col-md-3">
-                        <div class="right_sidebar_area">
-                            <aside class="s_widget people_widget">
-                                <div class="s_title">
-                                    <h4>People You Might Like</h4>
-                                    <img src="img/widget-title-border.png" alt="">
-                                </div>
-                                <ul class="nav navbar-nav">
-                                    <li class="dropdown tool_hover">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="img/photo/people-p/people-1.png" alt=""></a>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <div class="head_area">
-                                                    <h4>Lara Davis</h4>
-                                                    <h4>53% Match</h4>
-                                                </div>
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <img src="img/photo/people-p/people-drop-1.png" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h6>29 years old <br /> From Derby <br /> Single</h6>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#"><img class="img-circle" src="img/photo/people-p/people-2.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-circle" src="img/photo/people-p/people-3.png" alt=""></a></li>
-                                    <li class="dropdown tool_hover">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="img/photo/people-p/people-4.png" alt=""></a>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <div class="head_area">
-                                                    <h4>Lara Davis</h4>
-                                                    <h4>53% Match</h4>
-                                                </div>
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <img src="img/photo/people-p/people-drop-1.png" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h6>29 years old <br /> From Derby <br /> Single</h6>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#"><img class="img-circle" src="img/photo/people-p/people-5.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-circle" src="img/photo/people-p/people-6.png" alt=""></a></li>
-                                </ul>
-                            </aside>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </section>
@@ -463,6 +436,7 @@ include('include/footer.php');
 ?>
 <script type="text/javascript">
 $(document).ready(function () {
+
    var arr = <?php echo json_encode($rasi); ?>     
    $('.horo_row #box_6, #box_7, #box_10, #box_11').attr('readonly', 'readonly');   
    $.each(arr, function( i, val ) {    
@@ -475,5 +449,20 @@ $(document).ready(function () {
         }
       });  
    }); 
+
+   var asham_arr = <?php echo json_encode($amsham); ?>    
+   $('.asham_horo_row #abox_6, #abox_7, #abox_10, #abox_11').attr('readonly', 'readonly');
+   $.each(asham_arr, function( i, val ) {    
+     $('.asham-row').each(function(){
+        var id=$(this).data('id');
+        var res = id.split("_");          
+        if(res[1]==val){
+            img='<?php echo media_url(); ?>'+'assets/img/rasi/'+i+'.png';             
+            $("#"+id).append("<img src="+img+" />");
+        }
+      });  
+   }); 
+
 });    
 </script>
+
