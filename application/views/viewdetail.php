@@ -347,58 +347,65 @@ include('include/menu.php');
                                 <div class="members_about_box">
                                     <h3 id="hcolor">Horoscope</h3>
                                     <div class="profile_list"> 
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
                                             <!-- Rasi Horoscope - Start -->
-                                            <div id="horo_container">
-                                                <div class="horo_row" id="product">
-                                                    <div class="third-row" data-id="box_1" id="box_1">1</div>
-                                                    <div class="third-row" data-id="box_2" id="box_2">2</div>
-                                                    <div class="third-row" data-id="box_3" id="box_3">3</div>
-                                                    <div class="third-row" data-id="box_4" id="box_4">4</div>
+                                                    <div id="horo_container">
+                                                        <div class="horo_row" id="product">
+                                                            <div class="third-row" data-id="box_1" id="box_1">1</div>
+                                                            <div class="third-row" data-id="box_2" id="box_2">2</div>
+                                                            <div class="third-row" data-id="box_3" id="box_3">3</div>
+                                                            <div class="third-row" data-id="box_4" id="box_4">4</div>
 
-                                                    <div class="third-row" data-id="box_12" id="box_12">12</div>
-                                                    <div class="third-row" data-id="box_15" id="box_15">-</div>
-                                                    <div class="third-row" data-id="box_16" id="box_16">-</div>
-                                                    <div class="third-row" data-id="box_5"  id="box_5">5</div>
+                                                            <div class="third-row" data-id="box_12" id="box_12">12</div>
+                                                            <div class="third-row" data-id="box_15" id="box_15">-</div>
+                                                            <div class="third-row" data-id="box_16" id="box_16">-</div>
+                                                            <div class="third-row" data-id="box_5"  id="box_5">5</div>
 
-                                                    <div class="third-row" data-id="box_11" id="box_11">11</div>
-                                                    <div class="third-row" data-id="box_13" id="box_13">-</div>
-                                                    <div class="third-row" data-id="box_14" id="box_14">-</div>
-                                                    <div class="third-row" data-id="box_6"  id="box_6">6</div>
+                                                            <div class="third-row" data-id="box_11" id="box_11">11</div>
+                                                            <div class="third-row" data-id="box_13" id="box_13">-</div>
+                                                            <div class="third-row" data-id="box_14" id="box_14">-</div>
+                                                            <div class="third-row" data-id="box_6"  id="box_6">6</div>
 
-                                                    <div class="third-row" data-id="box_10" id="box_10">10</div>
-                                                    <div class="third-row" data-id="box_9" id="box_9">9</div>
-                                                    <div class="third-row" data-id="box_8" id="box_8">8</div>
-                                                    <div class="third-row" data-id="box_7" id="box_7">7</div>
-                                                </div>
-                                            </div>
-                                            <!-- Rasi Horoscope - End -->
+                                                            <div class="third-row" data-id="box_10" id="box_10">10</div>
+                                                            <div class="third-row" data-id="box_9" id="box_9">9</div>
+                                                            <div class="third-row" data-id="box_8" id="box_8">8</div>
+                                                            <div class="third-row" data-id="box_7" id="box_7">7</div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Rasi Horoscope - End -->
+                                                </div>  <!-- row col 6 ends -->
+                                                <div class="col-md-6">
+                                                    <!-- Asham Horoscope - start -->
+                                                    <div id="asham_horo_container">
+                                                        <div class="asham_horo_row" id="product">
+                                                        <div class="asham-row" data-id="abox_1" id="abox_1">1</div>
+                                                        <div class="asham-row" data-id="abox_2" id="abox_2">2</div>
+                                                        <div class="asham-row" data-id="abox_3" id="abox_3">3</div>
+                                                        <div class="asham-row" data-id="abox_4" id="abox_4">4</div>
 
-                                            <!-- Asham Horoscope - start -->
-                                            <div id="asham_horo_container">
-                                                <div class="asham_horo_row" id="product">
-                                                <div class="asham-row" data-id="abox_1" id="abox_1">1</div>
-                                                <div class="asham-row" data-id="abox_2" id="abox_2">2</div>
-                                                <div class="asham-row" data-id="abox_3" id="abox_3">3</div>
-                                                <div class="asham-row" data-id="abox_4" id="abox_4">4</div>
+                                                        <div class="asham-row" data-id="abox_12" id="abox_12">12</div>
+                                                        <div class="asham-row" data-id="abox_15" id="abox_15">-</div>
+                                                        <div class="asham-row" data-id="abox_16" id="abox_16">-</div>
+                                                        <div class="asham-row" data-id="abox_5"  id="abox_5">5</div>
 
-                                                <div class="asham-row" data-id="abox_12" id="abox_12">12</div>
-                                                <div class="asham-row" data-id="abox_15" id="abox_15">-</div>
-                                                <div class="asham-row" data-id="abox_16" id="abox_16">-</div>
-                                                <div class="asham-row" data-id="abox_5"  id="abox_5">5</div>
+                                                        <div class="asham-row" data-id="abox_11" id="abox_11">11</div>
+                                                        <div class="asham-row" data-id="abox_13" id="abox_13">-</div>
+                                                        <div class="asham-row" data-id="abox_14" id="abox_14">-</div>
+                                                        <div class="asham-row" data-id="abox_6"  id="abox_6">6</div>
 
-                                                <div class="asham-row" data-id="abox_11" id="abox_11">11</div>
-                                                <div class="asham-row" data-id="abox_13" id="abox_13">-</div>
-                                                <div class="asham-row" data-id="abox_14" id="abox_14">-</div>
-                                                <div class="asham-row" data-id="abox_6"  id="abox_6">6</div>
+                                                        <div class="asham-row" data-id="abox_10" id="abox_10">10</div>
+                                                        <div class="asham-row" data-id="abox_9" id="abox_9">9</div>
+                                                        <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
+                                                        <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
 
-                                                <div class="asham-row" data-id="abox_10" id="abox_10">10</div>
-                                                <div class="asham-row" data-id="abox_9" id="abox_9">9</div>
-                                                <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
-                                                <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
-
-                                                </div>
-                                            </div>
-                                            <!-- Asham Horoscope - end -->
+                                                        </div>
+                                                    </div>
+                                                    <!-- Asham Horoscope - end -->
+                                                </div> <!-- col 6 ends -->
+                                            </div> <!-- col 12 ends -->
+                                        </div> <!-- row ends -->
                                     </div>
                                 </div>
                             </div>
