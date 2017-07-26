@@ -241,7 +241,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Time</h4>
+                                                                            <h4>Time *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -258,7 +258,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Mother Tongue</h4>
+                                                                            <h4>Mother Tongue *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -330,7 +330,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Nakshathra</h4>
+                                                                            <h4>Nakshathra *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -397,7 +397,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Zodiac Sign</h4>
+                                                                            <h4>Zodiac Sign *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -440,7 +440,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Education</h4>
+                                                                            <h4>Education *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -463,7 +463,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Education in Detail</h4>
+                                                                            <h4>Education in Detail *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -479,7 +479,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Occupation</h4>
+                                                                            <h4>Occupation *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -503,7 +503,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Employed In</h4>
+                                                                            <h4>Employed In *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -527,7 +527,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Monthly Income</h4>
+                                                                            <h4>Monthly Income *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -543,7 +543,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Employment in Detail</h4>
+                                                                            <h4>Employment in Detail *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -717,7 +717,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Father's Name</h4>
+                                                                            <h4>Father's Name *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -733,7 +733,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Mother's Name</h4>
+                                                                            <h4>Mother's Name *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -749,7 +749,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Father's Employment</h4>
+                                                                            <h4>Father's Employment *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -765,7 +765,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Mother's Employment</h4>
+                                                                            <h4>Mother's Employment *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -781,7 +781,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Family Status</h4>
+                                                                            <h4>Family Status *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -805,7 +805,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Family Type</h4>
+                                                                            <h4>Family Type *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -1038,7 +1038,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Food</h4>
+                                                                            <h4>Food *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-2 box">
@@ -1083,7 +1083,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Age</h4>
+                                                                            <h4>Age *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -1109,7 +1109,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Marital Status</h4>
+                                                                            <h4>Marital Status *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">
@@ -1132,7 +1132,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Education</h4>
+                                                                            <h4>Education *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-4 box">
@@ -1148,7 +1148,7 @@ include('include/menu.php');
                                                                <div class="row">
                                                                     <div class="col-sm-4 base-box">
                                                                         <div class="height_item">
-                                                                            <h4>Diet</h4>
+                                                                            <h4>Diet *</h4>
                                                                         </div>    
                                                                     </div>
                                                                     <div class="col-sm-6 box">

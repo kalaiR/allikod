@@ -13,12 +13,117 @@
 					</li>
 				</ul>
 			</div>
+			<!-- Hidden Search Div Begins -->
+			<div class="row-fluid sortable slidingDiv">
+				<div class="box span12">
+					<div class="box-header well" data-original-title>
+						<h2><i class="icon-zoom-in"></i> Search</h2>
+						<div class="box-icon">
+							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+                  	<div class="row-fluid">
+                        <div class="span4">
+                        	<form class="form-horizontal">
+								<fieldset>
+									<div class="control-group">
+										<label class="control-label">Gender</label>
+										<div class="controls">
+										  <label class="radio">
+											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+											Male
+										  </label>
+										  <div style="clear:both"></div>
+										  <label class="radio">
+											<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+											Female
+										  </label>
+										</div>
+								  </div>	  
+								  <div class="control-group">
+									<label class="control-label">Age : </label>
+									<div class="controls">
+									  <select data-rel="chosen" style="width: 75px">
+										<option value="">From</option>
+										<option>25</option>
+										<option>26</option>
+									  </select>
+									  <select data-rel="chosen" style="width: 75px">
+										<option value="">To</option>
+										<option>35</option>
+										<option>36</option>
+									  </select>
+									</div>
+								  </div>
+								  <div class="control-group">
+									<label class="control-label" for="focusedInput">Vallikodi ID</label>
+									<div class="controls">
+									  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px">
+									</div>
+								  </div>
+								 </fieldset>
+							</form>
+                        </div>
+                        <div class="span4">
+                        	<form class="form-horizontal">
+								<fieldset>
+									<div class="control-group">
+									<label class="control-label" for="focusedInput">Name</label>
+									<div class="controls">
+									  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px">
+									</div>
+								  </div>
+								  <div class="control-group">
+									<label class="control-label" for="focusedInput">Reg ID</label>
+									<div class="controls">
+									  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px">
+									</div>
+								  </div>
+								  <div class="control-group">
+									  <label class="control-label" for="date01">DOB</label>
+									  <div class="controls">
+										<input type="text" class="input-xlarge datepicker" id="date01" style="width: 150px" value="02/16/12">
+									  </div>
+									</div>
+								 </fieldset>
+							</form>
+                        </div>
+                        <div class="span4">
+                        	<form class="form-horizontal">
+								<fieldset>
+									<div class="control-group">
+									<label class="control-label" for="focusedInput">Profile</label>
+									<div class="controls">
+									  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px">
+									</div>
+								  </div>
+								  <div class="control-group">
+									<label class="control-label" for="focusedInput">File No ID</label>
+									<div class="controls">
+									  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px">
+									</div>
+								  </div>
+								  <div class="control-group">
+									<a class="btn btn-primary pull-right" id="add" href="#">
+								        <i class="glyphicon glyphicon-edit icon-white"></i>
+								        Search
+								    </a>
+								  </div>
+								 </fieldset>
+							</form>
+                        </div>
+                    </div>                   
+                  </div>
+				</div><!--/span-->
+			</div><!--/row-->
+			<!-- Hidden Search Div Begins -->
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header well">
 						<h2><i class="icon-user"></i> Customer User</h2>
 						<div class="box-icon">
-							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
 							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
 							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
 						</div>
@@ -39,13 +144,27 @@
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Online User
 								    </a> -->
-								    <a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>index.php/admin/add_online_user">
+								    <a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>index.php/admin/add_online_user">
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
-								        Add Simple User
+								        Add Online User
 								    </a>
+								    <div class="control-group pull-left">
+										<label class="control-label" for="selectError3"></label>
+										<div class="controls">
+										  <select id="selectError3" style="float: left; width: 80px">
+											<option>Active</option>
+											<option>Inactive</option>
+											<option>Delete</option>
+										</select>
+										  	<a class="btn btn-primary show_hide" id="search" href="#" style="float: left; margin-left: 5px;">
+									        <i class="glyphicon glyphicon-edit icon-white"></i>
+									        Search
+									    	</a>
+										</div>										
+									</div>
 								</div>
 								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
-									<table class="table table-striped table-bordered bootstrap-datatable" id="cd-grid">
+									<table class="table table-striped table-bordered bootstrap-datatable datatable" id="cd-grid">
 									  <thead>
 										  <tr>
 											  <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span>

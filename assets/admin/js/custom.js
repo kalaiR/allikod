@@ -1,5 +1,11 @@
 $(document).ready(function() {
+  // Show and Hide search Div
+    $(".slidingDiv").hide();
+$(".show_hide").show();
 
+$('.show_hide').click(function(){
+$(".slidingDiv").slideToggle();
+});
     // Active menu
  $("li").click(function () {
             var id = $(this).attr("id");

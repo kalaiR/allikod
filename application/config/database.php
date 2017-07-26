@@ -51,7 +51,11 @@ $active_record = TRUE;
 if($_SERVER['SERVER_ADDR'] === '::1' || $_SERVER['SERVER_ADDR'] === '127.0.0.1'){
 	$db['default']['hostname'] = 'localhost';
 	$db['default']['username'] = 'root';
-	$db['default']['password'] = '';
+<<<<<<< HEAD
+	$db['default']['password'] = 'root';
+=======
+	$db['default']['password'] = 'root';
+>>>>>>> a40947413b22225f49a2838c8284639bd49e557a
 	$db['default']['database'] = 'vallikodi_server';
 
 }
