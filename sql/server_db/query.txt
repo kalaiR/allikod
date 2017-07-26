@@ -1,0 +1,28 @@
+26/07/17:
+ALTER TABLE `user_images` ADD `image_active_status` TINYINT( 1 ) NOT NULL DEFAULT '0' AFTER `user_profile_id` ;
+ALTER TABLE `renew_detail` CHANGE `ending_date` `ending_date` TIMESTAMP NULL DEFAULT NULL;
+ALTER TABLE `renew_detail` CHANGE `totalno_of_profile` `totalno_of_profile` INT( 11 ) NOT NULL DEFAULT '60';
+ALTER TABLE `reg_payment` CHANGE `enddate` `enddate` TIMESTAMP NULL DEFAULT NULL;
+ALTER TABLE `reg_payment` ADD `totalno_of_profile` INT(11) NOT NULL DEFAULT '60' AFTER `period_in_month`;
+
+
+update reg_payment set totalno_of_profile = 60 where period_in_month = 3;
+update reg_payment set totalno_of_profile = 120 where period_in_month = 6;
+UPDATE reg_userdetail SET user_online_or_simple =  'online' WHERE userdetail_profile_id =0;
+UPDATE reg_userdetail SET user_online_or_simple =  'simple' WHERE userdetail_profile_id !=0;
+
+
+
+
+
+
+
+no need to run(just for reference)
+Query to generate report of active online user from the year 2014 to 2017:
+SELECT * FROM reg_userdetail as usr INNER JOIN reg_payment as pay ON pay.reg_user_id = usr.userdetail_id where user_online_or_simple = 'online' AND user_active_status = 1 AND EXTRACT(YEAR FROM usr.user_added_date) >= '2014' ORDER BY usr.user_added_date DESC;
+
+old db check report:
+SELECT * FROM `user_detail` WHERE profile_id=0 AND active_status = 1 AND EXTRACT(YEAR FROM created_date) >= '2014' ORDER BY id DESC
+
+
+
