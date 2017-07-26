@@ -6,7 +6,7 @@
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">Success Stories<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
+                    <h3><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Success Stories<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
                     <!--<a href="index.html">Home</a>
                     <a href="shop-cart.html">Pricing</a>-->
                 </div>
@@ -88,7 +88,7 @@
                                     </form>    
                                             <div class="col-sm-4">
                                                 <div class="form_man">
-                                                    <!-- <img src="<?php echo base_url(); ?>assets/img/registration-man.png" alt=""> -->
+                                                    <!-- <img src="<?php echo media_url(); ?>assets/img/registration-man.png" alt=""> -->
                                                 </div>
                                             </div>
                                     </div>
@@ -104,7 +104,7 @@
         <div id="largeContent" style="display:none;">
             <div class="media tool_content">
                 <div class="media-left">
-                    <img src="<?php echo base_url(); ?>assets/img/map-persion.png" alt="">
+                    <img src="<?php echo media_url(); ?>assets/img/map-persion.png" alt="">
                 </div>
                 <div class="media-body">
                     <h3>Sandi Williams</h3>

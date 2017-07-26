@@ -372,6 +372,21 @@ class CI_Config {
 			}
 		}
 	}
+
+	// -------------------------------------------------------------
+
+	/**
+	 * Media URL
+	 * Returns base_url [. uri_string]
+	 *
+	 * @access public
+	 * @param string $uri
+	 * @return string
+	 */
+	function media_url($uri = '')
+	{
+		return $this->slash_item('media_url').ltrim($this->_uri_string($uri), '/');
+	}
 }
 
 // END CI_Config class

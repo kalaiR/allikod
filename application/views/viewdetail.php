@@ -11,7 +11,7 @@ include('include/menu.php');
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">View<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
+                    <h3><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">View<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
                     <!--<a href="index.html">Home</a>
                     <a href="shop-cart.html">Pricing</a>-->
                 </div>
@@ -24,7 +24,7 @@ include('include/menu.php');
                 <div class="row">
                     <div class="col-md-12">
                         <div class="pad">
-                            <a href="<?php echo base_url();?>index.php/search_result" class="register_angkar_btn login_btn pull-right">Back</a>
+                            <a href="<?php echo base_url();?>search_result" class="register_angkar_btn login_btn pull-right">Back</a>
                         </div> 
                     <div class="members_profile_inners">
                             <div class="members_about_box">
@@ -50,9 +50,9 @@ include('include/menu.php');
                                             ?>
                                             <img src="<?php 
                                                 if(!empty($results['images'])): 
-                                                    echo base_url()."uploads/profile/".$prefix.$results['images']; 
+                                                    echo media_url()."uploads/profile/".$prefix.$results['images']; 
                                                 else:
-                                                    echo base_url()."assets/img/no_image.jpg"; 
+                                                    echo media_url()."assets/img/no_image.jpg"; 
                                                 endif; 
                                             ?>" alt="Image not loaded" style="width:170px;height:170px;">
                                             <ul>
@@ -413,7 +413,7 @@ include('include/menu.php');
         <div id="largeContent" style="display:none;">
             <div class="media tool_content">
                 <div class="media-left">
-                    <img src="<?php echo base_url(); ?>assets/img/map-persion.png" alt="">
+                    <img src="<?php echo media_url(); ?>assets/img/map-persion.png" alt="">
                 </div>
                 <div class="media-body">
                     <h3>Sandi Williams</h3>

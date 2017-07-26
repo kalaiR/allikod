@@ -148,7 +148,7 @@ class User_model extends CI_Model {
   }
 
   public function get_familystatus($family_statusid=""){
-       if($edu_id!=''){
+       if($family_statusid!=''){
         // Education Id Id based search    
         $condition = "fstatus.active_status = 1 AND fstatus.familystatus_id = ".$family_statusid."";  
         $this->db->select('*');
@@ -159,7 +159,7 @@ class User_model extends CI_Model {
       }else{
         $condition = "fstatus.active_status = 1";  
         $this->db->select('*');
-        $this->db->from('familystatus_id AS fstatus');
+        $this->db->from('family_status AS fstatus');
         $this->db->where($condition);      
         $this->db->order_by('fstatus.familystatus_id','asc');
         $query = $this->db->get()->result_array();          
@@ -272,7 +272,7 @@ class User_model extends CI_Model {
         INNER JOIN reg_education_occupation AS edu ON edu.reg_user_id = usr.userdetail_id 
         INNER JOIN user_images AS img ON img.reg_user_id = usr.userdetail_id) 
         WHERE usr.user_gender = '".$values['gender']."' AND usr.user_age >= '".$values['age_from']."' AND usr.user_age <= '".$values['age_to']."' AND phy.phy_height >= '".$values['height_from']."' AND phy.phy_height <= '".$values['height_to']."' AND usr.user_maritalstatus = '".$values['mar_status']."' AND img.images!='' 
-        ORDER BY 'usr.userdetail_id' desc LIMIT ".$start.",".$limit."")->result_array();        
+        ORDER BY usr.userdetail_id desc LIMIT ".$start.",".$limit."")->result_array();        
         // echo $this->db->last_query();
 
         

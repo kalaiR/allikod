@@ -6,7 +6,7 @@ include('include/menu.php');
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">Success Stories<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
+                    <h3><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Success Stories<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
                     <!--<a href="index.html">Home</a>
                     <a href="shop-cart.html">Pricing</a>-->
                 </div>
@@ -31,7 +31,7 @@ include('include/menu.php');
 				            <div class="row sucess"> 
 				            	<div class="col-sm-12">        
 		                            <div class="col-sm-3 col-xs-12 sucess-box">
-			                             <img src="<?php echo base_url(); ?>assets/img/sucess/stories-4.jpg" class="img-thumbnail image-box " alt="">   
+			                             <img src="<?php echo media_url(); ?>assets/img/sucess/stories-4.jpg" class="img-thumbnail image-box " alt="">   
 		                             </div>
 		                             	<div class="col-sm-5 text-box">
 		                                	<div class="col-sm-4 col-xs-6">
@@ -85,8 +85,8 @@ include('include/menu.php');
             				<div class="pagination_area">
 	                            <a class="prev" href="<?php echo base_url();?>success_stories">Previous</a>
 	                            <a class="arrow_left" href="<?php echo base_url();?>success_stories"><i class="fa fa-angle-left"></i></a>
-	                            <a class="arrow_right" href="<?php echo base_url(); ?>index.php/success_stories"><i class="fa fa-angle-right"></i></a>
-	                            <a class="next" href="<?php echo base_url(); ?>index.php/success_stories">Next</a>
+	                            <a class="arrow_right" href="<?php echo base_url(); ?>success_stories"><i class="fa fa-angle-right"></i></a>
+	                            <a class="next" href="<?php echo base_url(); ?>success_stories">Next</a>
                         	</div>
             			</div> -->
             	</div>	

@@ -25,3 +25,25 @@
 // 		return $out;
 // 	}
 // }
+
+// ------------------------------------------------------------------------
+
+/**
+ * Media URL
+ * 
+ * Create a local URL based on your basepath.
+ * Segments can be passed in as a string or an array, same as site_url
+ * or a URL to a file can be passed in, e.g. to an image file.
+ *
+ * @access	public
+ * @param string
+ * @return	string
+ */
+if ( ! function_exists('media_url'))
+{
+	function media_url($uri = '')
+	{
+		$CI =& get_instance();
+		return $CI->config->media_url($uri);
+	}
+}

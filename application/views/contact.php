@@ -9,9 +9,9 @@
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3 title="Contact us"><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">Contact us<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
-                    <a href="<?php echo base_url(); ?>index.php/">Home</a>
-                    <a href="<?php echo base_url(); ?>index.php/contact">Contact us</a>
+                    <h3 title="Contact us"><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Contact us<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
+                    <a href="<?php echo base_url(); ?>">Home</a>
+                    <a href="<?php echo base_url(); ?>contact">Contact us</a>
                 </div>
             </div>
         </section>
@@ -26,7 +26,7 @@
                             <h3>Pondicherry Head Office</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Puducherry.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Puducherry.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -58,7 +58,7 @@
                             <h3>Viruthachalam Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Viruthachalam.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Viruthachalam.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -100,7 +100,7 @@
                             <h3>Thirukovilur Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Thirukovilur.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Thirukovilur.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -131,7 +131,7 @@
                             <h3>Gingee Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Gingee.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Gingee.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -160,7 +160,7 @@
                             <h3>Chidambram Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Chidambaram.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Chidambaram.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -190,7 +190,7 @@
                             <h3>Chengalpattu Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Chengalpatu.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Chengalpatu.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -219,7 +219,7 @@
                             <h3>Thiruvannamalai Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Thiruvannamalai.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Thiruvannamalai.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -248,7 +248,7 @@
                             <h3>Ulundurpet Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/ulundurpet.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/ulundurpet.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -279,7 +279,7 @@
                             <h3>Tindivanam Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Tindivanam.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Tindivanam.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -308,7 +308,7 @@
                             <h3>Villupuram Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Villupuram.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Villupuram.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -340,7 +340,7 @@
                             <h3>Cuddalore Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Cuddalore.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Cuddalore.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -371,7 +371,7 @@
                             <h3>Panruti Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Pandruti.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Pandruti.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -402,7 +402,7 @@
                             <h3>Kanchipuram Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Kanchipuram.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Kanchipuram.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -431,7 +431,7 @@
                             <h3>Madhuranthagam Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Madhuranthagam.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Madhuranthagam.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -461,7 +461,7 @@ Railway Mambalam,</p>
                             <h3>Vandavasi Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Vandavasi.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Vandavasi.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -499,7 +499,7 @@ Railway Mambalam,</p>
                             <h3>Vadalur Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/vadalur.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/vadalur.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -538,7 +538,7 @@ Railway Mambalam,</p>
                             <h3>Madhagadipet Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Madhagadipet.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Madhagadipet.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -568,7 +568,7 @@ Railway Mambalam,</p>
                             <h3>Thavalakuppam Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Thavalakuppam.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Thavalakuppam.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -597,7 +597,7 @@ Railway Mambalam,</p>
                             <h3>Chethpet Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Chethpet.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Chethpet.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -626,7 +626,7 @@ Railway Mambalam,</p>
                             <h3>Uthiramerur Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Uthiramerur.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Uthiramerur.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -654,7 +654,7 @@ Railway Mambalam,</p>
                             <h3>Kalakurichi Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Kalakurichi.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Kalakurichi.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -683,7 +683,7 @@ Railway Mambalam,</p>
                             <h3>Thiruporur Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Thiruporur.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Thiruporur.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -712,7 +712,7 @@ Railway Mambalam,</p>
                             <h3>Kalpakkam Branch</h3>
                         </div>
                            <div class="address_item">
-                                <img src="<?php echo base_url(); ?>assets/img/branch/Kalpakkam.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/branch/Kalpakkam.jpg" alt="">
                             </div>
                     </div>                    
                     <div class="col-sm-3">
@@ -745,7 +745,7 @@ Railway Mambalam,</p>
             <div class="container">
                 <div class="welcome_title">
                     <h3>Get in Touch With us</h3>
-                    <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
+                    <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
                 <div class="row">
                     <form action="<?php echo base_url(); ?>contact" method="post" id="contactForm" class="form_inner">

@@ -6,7 +6,7 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="<?php echo base_url(); ?>index.php/admin">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">Galley Category</a>
@@ -43,7 +43,7 @@
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_gallery_category">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_gallery_category">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -59,7 +59,7 @@
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_gallery_category">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_gallery_category">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -75,7 +75,7 @@
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_gallery_category">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_gallery_category">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -91,7 +91,7 @@
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_gallery_category">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_gallery_category">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
@@ -107,7 +107,7 @@
 											<span class="label label-success">Activated</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_gallery_category">
+											<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_gallery_category">
 												<i class="icon-edit icon-white"></i>  
 												Edit                                  
 											</a>
