@@ -943,15 +943,17 @@
 												</div>
 												<div class="box-content">
 													<div class="form-horizontal">
-														<fieldset>											  
+														<fieldset>			  
 														  <div class="control-group">
 															<label class="control-label">Image Active :</label>
 															<div class="controls">
-															  <label class="radio">
-																<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" <?php if($customeruser_values['image_active_status'] == '1') echo "checked"; ?> name="cus_imagestatus">					
-															  </label>
-															</div>												
-														  </div>  					  							  
+															  <select data-rel="chosen">
+															  	<option value="">Select Active Status</option>
+																<option>Active</option>
+																<option>Inactive</option>
+															  </select>
+															</div>		
+														  </div> 							  
 														</fieldset>
 													  </div>
 													</div>
