@@ -159,13 +159,13 @@
 															<div class="control-group">
 																<label class="control-label" for="focusedInput">Bill Number </label>
 																<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="radio" value="<?php if(!empty($customeruser_values['bill_number'])) echo $customeruser_values['bill_number'];  ?>" name="cus_billnumber">
+																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['bill_number'])) echo $customeruser_values['bill_number'];  ?>" name="cus_billnumber">
 																</div>
 															</div>
 															<div class="control-group">
 																<label class="control-label" for="focusedInput">Amount </label>
 																<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="radio" value="<?php if(!empty($customeruser_values['amount'])) echo $customeruser_values['amount'];  ?>" name="cus_amount">
+																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['amount'])) echo $customeruser_values['amount'];  ?>" name="cus_amount">
 																</div>
 															</div>
 														  	<div class="control-group">
