@@ -397,6 +397,8 @@ class Base extends CI_Controller {
 		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);
 		$id = $values[0];
 		$data['results'] = $this->user_model->get_viewdetails_byid($id);
+		$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
+		$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
 		$this->load->view('viewdetail',$data);
 	}
 	public function myprofile(){
