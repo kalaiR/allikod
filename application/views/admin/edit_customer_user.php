@@ -613,8 +613,8 @@
 															<label class="control-label">Physical Status : </label>
 															<div class="controls">
 															  <select data-rel="chosen" name="cus_phystatus">
-															  <option value="">Select Payment Status</option>
-															  <?php foreach (unserialize(PAYMENT_TYPE) as $key => $val): ?>
+															  <option value="">Select Physical Status</option>
+															  <?php foreach (unserialize(PHYSICAL_STATUS) as $key => $val): ?>
 																<option value="<?php echo $key; ?>" <?php if($customeruser_values['phy_physicalstatus'] == $key) echo "selected"; ?>><?php echo $val; ?></option>
 															  <?php endforeach; ?>
 															  </select>
