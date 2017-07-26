@@ -52,13 +52,17 @@
                                     <li data-target="#lightbox" data-slide-to="2"></li>
                                   </ol>
                                   <div class="carousel-inner">
+                                   
                                     <div class="item active">
+                                       <div class="numbertext">1 / 3</div>
                                       <img class="lig-box"src="img/search-result-page/img1.jpg" alt="First slide">
                                     </div>
                                     <div class="item">
+                                      <div class="numbertext">2 / 3</div>
                                       <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Second slide">
                                     </div>
                                     <div class="item">
+                                     <div class="numbertext">3 / 3</div>
                                       <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Third slide">
                                     </div>
                                   </div>

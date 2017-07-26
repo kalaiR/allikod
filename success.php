@@ -32,25 +32,25 @@
 			                             <img src="img/sucess/stories-4.jpg" class="img-thumbnail image-box " alt="">   
 		                             </div>
 		                             	<div class="col-sm-5 text-box">
-		                                	<div class="col-sm-4 col-xs-6">
+		                                	<div class="col-sm-6 col-xs-6">
 			                                	<p>Vallikodi ID</p>
 			                                </div>
 			                                <div class="col-sm-6 col-xs-6">
 			                                	<p>: 123</p>
 			                                </div>
-			                                <div class="col-sm-4 col-xs-6">		
+			                                <div class="col-sm-6 col-xs-6">		
 			                                	<p>Bride Name </p>
 			                                </div>
 			                                <div class="col-sm-6 col-xs-6">
 			                                <p>: Sharmila</p>
 			                                </div>
-			                                <div class="col-sm-4 col-xs-6">	
+			                                <div class="col-sm-6 col-xs-6">	
 			                                	<p>Groom Name</p>
 			                                </div>
 			                                 <div class="col-sm-6 col-xs-6">	
 			                                	<p>: selva kumar ADIBHA adibha</p>
 		                             		</div>
-		                             		<div class="col-sm-4 col-xs-6">
+		                             		<div class="col-sm-6 col-xs-6">
 			                                	<p>Marriage Date</p>
 		                             		</div>
 		                             		<div class="col-sm-6 col-xs-6">
@@ -75,25 +75,25 @@
 			                             <img src="img/sucess/stories-4.jpg" class="img-thumbnail image-box " alt="">   
 		                             </div>
 		                             	<div class="col-sm-5 text-box">
-		                                	<div class="col-sm-4 col-xs-6">
+		                                	<div class="col-sm-6 col-xs-6">
 			                                	<p>Vallikodi ID</p>
 			                                </div>
 			                                <div class="col-sm-6 col-xs-6">
 			                                	<p>: 123</p>
 			                                </div>
-			                                <div class="col-sm-4 col-xs-6">		
+			                                <div class="col-sm-6 col-xs-6">		
 			                                	<p>Bride Name </p>
 			                                </div>
 			                                <div class="col-sm-6 col-xs-6">
 			                                <p>: Sharmila</p>
 			                                </div>
-			                                <div class="col-sm-4 col-xs-6">	
+			                                <div class="col-sm-6 col-xs-6">	
 			                                	<p>Groom Name</p>
 			                                </div>
 			                                 <div class="col-sm-6 col-xs-6">	
 			                                	<p>: Veeraraghavan@sudhakar</p>
 		                             		</div>
-		                             		<div class="col-sm-4 col-xs-6">
+		                             		<div class="col-sm-6 col-xs-6">
 			                                	<p>Marriage Date</p>
 		                             		</div>
 		                             		<div class="col-sm-6 col-xs-6">
