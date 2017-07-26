@@ -240,7 +240,8 @@ border: 1px solid #EBEBEB;
 }
 
 #prependedInput,#appendedPrependedInput,#appendedInputButtons,#appendedInputButton{
-width:200px;
+width:100px;
+margin-top: 5px;
 }
 #appendedInput{
 width:75px;

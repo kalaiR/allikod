@@ -717,40 +717,40 @@
 														  </div>
 
 														  <div class="control-group">
-															<label class="control-label" for="focusedInput">No. of Brothers : </label>
+															<label class="control-label" for="prependedInput">No. of Brothers :</label>
 															<div class="controls">
-																  <input class="span4" id="focusedInput"  type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el'])) echo $customeruser_values['comm_number_of_brothers_el']; ?>" placeholder="Elder" name="cus_broelder">
-															</div>
-															<div class="controls">
-																  <input class="span4" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el'])) echo $customeruser_values['comm_number_of_brothers_el']; ?>" placeholder="Younger" name="cus_broyoung">
-															</div>												
+																<div class="input-prepend">
+																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el'])) echo $customeruser_values['comm_number_of_brothers_el']; ?>" name="cus_broelder">
+																  <span class="add-on">Younger</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el'])) echo $customeruser_values['comm_number_of_brothers_el']; ?>" name="cus_broyoung">
+																</div>
+															</div>								
 														  </div>
 														  <div class="control-group">
-															<label class="control-label" for="focusedInput">No. of Sisters : </label>
+															<label class="control-label" for="prependedInput">No. of Sisters : </label>
 															<div class="controls">
-																  <input class="span4" id="focusedInput"  type="text" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el'])) echo $customeruser_values['comm_number_of_sisters_el_mar']; ?>" placeholder="Elder" name="cus_siselder">
-															</div>
-															<div class="controls">
-																  <input class="span4" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_yo'])) echo $customeruser_values['comm_number_of_sisters_yo']; ?>" placeholder="Younger" name="cus_sisyoung">
-															</div>												
+																<div class="input-prepend">
+																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el'])) echo $customeruser_values['comm_number_of_sisters_el_mar']; ?>" name="cus_siselder">
+																   <span class="add-on">Younger</span><input class="span4" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_yo'])) echo $customeruser_values['comm_number_of_sisters_yo']; ?>" name="cus_sisyoung">
+																  </div>
+															</div>								
 														  </div>
 														  <div class="control-group">
-															<label class="control-label" for="focusedInput">No. of Married Brothers : </label>
+															<label class="control-label" for="prependedInput">No. of Married Brothers : </label>
 															<div class="controls">
-																  <input class="span4" id="focusedInput"  type="text" value="<?php if(!empty($customeruser_values['	comm_number_of_brothers_el_mar'])) echo $customeruser_values['	comm_number_of_brothers_el_mar']; ?>" placeholder="Elder" name="cus_broeldermar">
-															</div>
-															<div class="controls">
-																  <input class="span4" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['	comm_number_of_brothers_yo_mar'])) echo $customeruser_values['	comm_number_of_brothers_yo_mar']; ?>" placeholder="Younger" name="cus_broyoungmar">
-															</div>												
+																<div class="input-prepend">
+																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['	comm_number_of_brothers_el_mar'])) echo $customeruser_values['	comm_number_of_brothers_el_mar']; ?>" name="cus_broeldermar">
+																  <span class="add-on">Younger</span><input class="span4" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['	comm_number_of_brothers_yo_mar'])) echo $customeruser_values['	comm_number_of_brothers_yo_mar']; ?>" name="cus_broyoungmar">
+																 </div>
+															</div>								
 														  </div>
 														  <div class="control-group">
-															<label class="control-label" for="focusedInput">No. of Married Sisters : </label>
+															<label class="control-label" for="prependedInput">No. of Married Sisters : </label>
 															<div class="controls">
-																  <input class="span4" id="focusedInput"  type="text" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el_mar'])) echo $customeruser_values['comm_number_of_sisters_el_mar']; ?>" placeholder="Elder" name="cus_siseldermar">
-															</div>
-															<div class="controls">
-																  <input class="span4" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['	comm_number_of_sisters_yo_mar'])) echo $customeruser_values['	comm_number_of_sisters_yo_mar']; ?>" placeholder="Younger" name="cus_sisyoungmar">
-															</div>												
+																<div class="input-prepend">
+																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el_mar'])) echo $customeruser_values['comm_number_of_sisters_el_mar']; ?>" name="cus_siseldermar">
+																  <span class="add-on">younger</span><input class="span4" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['	comm_number_of_sisters_yo_mar'])) echo $customeruser_values['	comm_number_of_sisters_yo_mar']; ?>" name="cus_sisyoungmar">
+																 </div>
+															</div>								
 														  </div>
 														  <!-- <div class="control-group">
 															<label class="control-label"> </label>
