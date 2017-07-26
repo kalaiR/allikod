@@ -173,7 +173,7 @@
 												  <select data-rel="chosen">
 												  	<option value="">Profile Active</option>
 													<option>Active</option>
-													<option>Not Active</option>
+													<option>Inactive</option>
 												  </select>
 												</div>
 											  </div>											  
@@ -613,39 +613,39 @@
 											  </div>
 
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">No. of Brothers : </label>
+												<label class="control-label" for="prependedInput">No. of Brothers :</label>
 												<div class="controls">
-													  <input class="span4" id="focusedInput"  type="text" value="Yelder" >
+												  <div class="input-prepend">
+													<span class="add-on">Yelder</span><input class="span4" id="prependedInput" type="text" style="width: 100px">
+													<span class="add-on">Younger</span><input class="span4"  id="prependedInput" type="text" style="width: 90px">
+												  </div>
 												</div>
+											  </div>
+											  <div class="control-group">
+												<label class="control-label" for="prependedInput">No. of Sisters :</label>
 												<div class="controls">
-													  <input class="span4" id="focusedInput" type="text" value="Younger" >
+												  <div class="input-prepend">
+													<span class="add-on">Yelder</span><input class="span4" id="prependedInput" type="text" style="width: 100px">
+													<span class="add-on">Younger</span><input class="span4"  id="prependedInput" type="text" style="width: 90px">
+												  </div>
+												</div>
+											  </div>
+											  <div class="control-group">
+												<label class="control-label" for="prependedInput">No. of Married Brothers:</label>
+												<div class="controls">
+												  <div class="input-prepend">
+													<span class="add-on">Yelder</span><input class="span4" id="prependedInput" type="text" style="width: 100px">
+													<span class="add-on">Younger</span><input class="span4"  id="prependedInput" type="text" style="width: 90px">
+												  </div>
 												</div>												
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">No. of Sisters : </label>
+												<label class="control-label" for="prependedInput">No. of Married Sisters:</label>
 												<div class="controls">
-													  <input class="span4" id="focusedInput"  type="text" value="Yelder" >
-												</div>
-												<div class="controls">
-													  <input class="span4" id="focusedInput" type="text" value="Younger" >
-												</div>												
-											  </div>
-											  <div class="control-group">
-												<label class="control-label" for="focusedInput">No. of Married Brothers : </label>
-												<div class="controls">
-													  <input class="span4" id="focusedInput"  type="text" value="Yelder" >
-												</div>
-												<div class="controls">
-													  <input class="span4" id="focusedInput" type="text" value="Younger" >
-												</div>												
-											  </div>
-											  <div class="control-group">
-												<label class="control-label" for="focusedInput">No. of Married Sisters : </label>
-												<div class="controls">
-													  <input class="span4" id="focusedInput"  type="text" value="Yelder" >
-												</div>
-												<div class="controls">
-													  <input class="span4" id="focusedInput" type="text" value="Younger" >
+												  <div class="input-prepend">
+													<span class="add-on">Yelder</span><input class="span4" id="prependedInput" type="text" style="width: 100px">
+													<span class="add-on">Younger</span><input class="span4"  id="prependedInput" type="text" style="width: 90px">
+												  </div>
 												</div>												
 											  </div>
 											  <!-- <div class="control-group">
@@ -843,10 +843,12 @@
 											  <div class="control-group">
 												<label class="control-label">Image Active :</label>
 												<div class="controls">
-												  <label class="radio">
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">					
-												  </label>
-												</div>												
+												  <select data-rel="chosen">
+												  	<option value="">Select Active Status</option>
+													<option>Active</option>
+													<option>Inactive</option>
+												  </select>
+												</div>											
 											  </div>  					  							  
 											</fieldset>
 										  </form>

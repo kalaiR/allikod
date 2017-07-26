@@ -227,8 +227,34 @@
                                     
                                     <h3 id="hcolor">Communication Detail</h3>
                                     <div class="profile_list"> 
-                                    <p><b>Click the button to view the contact details</b>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" value="View" class="btn form-control login_btn">View</button></p>
+                                    <p><b>Click the button to view the contact details</b>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" value="View" class="btn form-control login_btn show_hide">View</button></p><br>
                                     <!-- <a href="search.html" class="register_angkar_btn">View</a> -->
+                                        <div class="slidingDiv">                                    
+                                            <ul>
+                                                <li><a href="#">Residence</a></li>
+                                                <li><a href="#">Current Country</a></li>
+                                                <li><a href="#">Current City</a></li>
+                                                <li><a href="#">Current District</a></li>
+                                            </ul>
+                                            <ul>
+                                                <li><a href="#">India</a></li>
+                                                <li><a href="#">India</a></li>
+                                                <li><a href="#">Villupuram</a></li>
+                                                <li><a href="#">Villupuram</a></li>
+                                            </ul>
+                                            <ul>
+                                                <li><a href="#">Communication Address</a></li>
+                                                <li><a href="#">Phone Number</a></li>
+                                                <li><a href="#">Mobile Number</a></li>
+                                                <li><a href="#">-</a></li>
+                                            </ul>
+                                            <ul>
+                                                <li><a href="#">9, first street, NG nagar, Pondicherry, 605111.</a></li>
+                                                <li><a href="#">28569896</a></li>
+                                                <li><a href="#">9865324712</a></li>
+                                                <li><a href="#">-</a></li>                             
+                                            </ul>
+                                        </div> 
                                     </div>                                                                          
                                 </div>
                             <!-- <ul class="nav nav-tabs profile_menu" role="tablist">
@@ -562,7 +588,7 @@
                                 <!-- <div class="profile_list"> -->
                                 <div class="profile_list">                                    
                                         <ul>
-                                            <li><a href="#">TIme of Birth</a></li>
+                                            <li><a href="#">Time of Birth</a></li>
                                             <li><a href="#">Mother Tongue</a></li>
                                             <li><a href="#">Dhosham</a></li>
                                             <li><a href="#">Nakshathra</a></li>
