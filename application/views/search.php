@@ -34,7 +34,7 @@ include('include/menu.php');
                         	 	 <div class="row">
                         	 	 	<div class="col-sm-12 aline-center-box">
                         	 	 		<div class="registration_form_s form-box aline-center-box">
-                        	 	 			 <div class="col-sm-2 aline-center-box box">
+                        	 	 			 <div class="col-sm-3 aline-center-box box">
                                                 <div class="height_item">      
                                                     <h3 id="white">Basic Search</h3>
                                                 </div>    
@@ -70,7 +70,7 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="col-sm-5 box">
+                                                                <div class="col-sm-6 box">
                                                                    
                                                                     <select class="form-control" name="search_age_from[]" id="search_age_from">
                                                                                 <?php 
@@ -80,7 +80,7 @@ include('include/menu.php');
                                                                                 } ?>
                                                                                 </select>
                                                                     </div>
-                                                                    <div class="col-sm-5 box">            
+                                                                    <div class="col-sm-6 box">            
                                                                         <select class="form-control" name="search_age_to[]" id="search_age_to">
                                                                                         <?php 
                                                                                         for($i=18;$i<=60;$i++){
@@ -103,7 +103,7 @@ include('include/menu.php');
                                                                 </div>    
                                                             </div>
                                                             <div class="col-sm-6 box">
-                                                                <div class="col-sm-5 box">
+                                                                <div class="col-sm-6 box">
                                                                     <select class="form-control" name="height_in_cms[]" id="height_in_cms">
                                                                                 <?php 
                                                     for($i=137;$i<=213;$i++){
@@ -114,7 +114,7 @@ include('include/menu.php');
                                                     ?>
                                                                             </select>
                                                                 </div>
-                                                                 <div class="col-sm-5 box">            
+                                                                 <div class="col-sm-6 box">            
                                                                     <select class="form-control" name="height_in_feets[]" id="height_in_feets">
                                                                                <?php 
                                                     for($i=137;$i<=213;$i++){
@@ -318,7 +318,7 @@ include('include/menu.php');
                                                                     <h4>Age</h4>
                                                                 </div>    
                                                             </div>
-                                                            <div class="col-sm-6 box">
+                                                            <div class="col-sm-8 box">
                                                                 <div class="height_item">
                                                                     <select class="selectpicker">
                                                                         <option>18</option>
@@ -339,7 +339,7 @@ include('include/menu.php');
                                                                     <h4>Height</h4>
                                                                 </div>    
                                                             </div>
-                                                            <div class="col-sm-6 box">
+                                                            <div class="col-sm-8 box">
                                                                 <div class="height_item">
                                                                     <select class="selectpicker">
                                                                         <option>180 Cm</option>
@@ -360,7 +360,7 @@ include('include/menu.php');
                                                                     <h4>Marital Status</h4>
                                                                 </div>    
                                                             </div>
-                                                            <div class="col-sm-6 box">
+                                                            <div class="col-sm-5 box">
                                                                 <div class="height_item">
                                                                     <select class="form-control">
                                                                         <option value="">Select</option>
