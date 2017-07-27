@@ -408,6 +408,9 @@ class Base extends CI_Controller {
 	public function myedit(){
 		$this->load->view('myedit');
 	}
+	public function newreg(){
+		$this->load->view('newreg');
+	}
 	
 
 }

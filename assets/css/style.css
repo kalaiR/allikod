@@ -1331,6 +1331,7 @@ p2
   text-align: center;
   line-height: 48px;
   margin-left: 10px;
+  margin-top: 10px;
 }
 .register_angkar_btn:focus {
   outline: none !important;
