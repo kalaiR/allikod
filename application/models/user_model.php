@@ -241,7 +241,7 @@ class User_model extends CI_Model {
       $this->db->select('usr.*,pay.payment_status,pay.totalno_of_profile,pay.no_of_profiles_viewed');
       $this->db->join('reg_payment pay','pay.reg_user_id = usr.userdetail_id','inner');
       $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where);      
-        if($userdata_get->num_rows() == 1) {
+        if($userdata_get->num_rows()) {
           $model_data['status'] = "login_success";
           $model_data['login_values'] = $userdata_get->row_array();
         }
