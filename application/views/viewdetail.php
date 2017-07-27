@@ -11,7 +11,7 @@ include('include/menu.php');
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">View<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
+                    <h3><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">View<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
                     <!--<a href="index.html">Home</a>
                     <a href="shop-cart.html">Pricing</a>-->
                 </div>
@@ -24,7 +24,7 @@ include('include/menu.php');
                 <div class="row">
                     <div class="col-md-12">
                         <div class="pad">
-                            <a href="<?php echo base_url();?>index.php/search_result" class="register_angkar_btn login_btn pull-right">Back</a>
+                            <a href="<?php echo base_url();?>search_result" class="register_angkar_btn login_btn pull-right">Back</a>
                         </div> 
                     <div class="members_profile_inners">
                             <div class="members_about_box">
@@ -50,9 +50,9 @@ include('include/menu.php');
                                             ?>
                                             <img src="<?php 
                                                 if(!empty($results['images'])): 
-                                                    echo base_url()."uploads/profile/".$prefix.$results['images']; 
+                                                    echo media_url()."uploads/profile/".$prefix.$results['images']; 
                                                 else:
-                                                    echo base_url()."assets/img/no_image.jpg"; 
+                                                    echo media_url()."assets/img/no_image.jpg"; 
                                                 endif; 
                                             ?>" alt="Image not loaded" style="width:170px;height:170px;">
                                             <ul>
@@ -65,7 +65,45 @@ include('include/menu.php');
                                         </ul>                                        
                                     </div>                  
                                 </div>
-                                                   
+                                 <div class="members_about_box">                                    
+                                    <h3 id="hcolor">Communication Detail</h3>
+                                    <div class="profile_list"> 
+                                    <p><b>Click the button to view the contact details</b>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" value="View" class="btn form-control login_btn view_communication">View</button></p><br>
+                                    <!-- <a href="search.html" class="register_angkar_btn">View</a> -->
+                                    <?php 
+                                        $user_session = $this->session->userdata("login_session");
+                                        // print_r($user_session);  
+                                        if($user_session['payment_status'] == 1 && $user_session['no_of_profiles_viewed'] < $user_session['totalno_of_profile']):
+                                    ?>
+                                        <div class="slidingDiv">                                    
+                                            <ul>
+                                                <li><a href="#">Residence</a></li>
+                                                <li><a href="#">Current Country</a></li>
+                                                <li><a href="#">Current City</a></li>
+                                                <li><a href="#">Current District</a></li>
+                                            </ul>
+                                            <ul>
+                                                <li><a href="#"><?php if(!empty($results['comm_residence'])) echo $results['comm_residence']; else echo "--"; ?></a></li>
+                                                <li><a href="#"><?php if(!empty($results['comm_current_countrycountry'])) echo $results['comm_current_countrycountry']; else echo "--"; ?></a></li>
+                                                <li><a href="#"><?php if(!empty($results['comm_current_city'])) echo $results['comm_current_city']; else echo "--"; ?></a></li>
+                                                <li><a href="#"><?php if(!empty($results['comm_current_district'])) echo $results['comm_current_district']; else echo "--"; ?></a></li>
+                                            </ul>
+                                            <ul>
+                                                <li><a href="#">Communication Address</a></li>
+                                                <li><a href="#">Phone Number</a></li>
+                                                <li><a href="#">Mobile Number</a></li>
+                                                <!-- <li><a href="#">-</a></li> -->
+                                            </ul>
+                                            <ul>
+                                                <li><a href="#"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></a></li>
+                                                <li><a href="#"><?php if(!empty($results['comm_phone_no'])) echo $results['comm_phone_no']; else echo "--"; ?></a></li>
+                                                <li><a href="#"><?php if(!empty($results['comm_mobile_no'])) echo $results['comm_mobile_no']; else echo "--"; ?></a></li>
+                                                <li><a></a></li>                             
+                                            </ul>
+                                        </div> 
+                                    <?php endif; ?>
+                                    </div>                                                           
+                                </div>                  
                                 <div class="members_about_box">
                                 <div id="">
                                 <h3 id="hcolor">Profile Details</h3>
@@ -116,7 +154,7 @@ include('include/menu.php');
                                             <li><a href="#">Zodiac Sign</a></li>
                                         </ul>
                                         <ul>
-                                             <li><a href="#"><?php echo $results['rel_dhosham']; ?></a></li>
+                                             <li><a href="#"><?php echo $results['lukhnam_name']; ?></a></li>
                                              <li><a href="#"><?php echo $results['rel_gothra']; ?></a></li>
                                              <li><a href="#"><?php echo $results['zodiac_name']; ?></a></li>
                                         </ul>
@@ -315,64 +353,69 @@ include('include/menu.php');
                                 <div class="members_about_box">
                                     <h3 id="hcolor">Horoscope</h3>
                                     <div class="profile_list"> 
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                            <!-- Rasi Horoscope - Start -->
+                                                    <div id="horo_container">
+                                                        <div class="horo_row" id="product">
+                                                            <div class="third-row" data-id="box_1" id="box_1">1</div>
+                                                            <div class="third-row" data-id="box_2" id="box_2">2</div>
+                                                            <div class="third-row" data-id="box_3" id="box_3">3</div>
+                                                            <div class="third-row" data-id="box_4" id="box_4">4</div>
+
+                                                            <div class="third-row" data-id="box_12" id="box_12">12</div>
+                                                            <div class="third-row" data-id="box_15" id="box_15">-</div>
+                                                            <div class="third-row" data-id="box_16" id="box_16">-</div>
+                                                            <div class="third-row" data-id="box_5"  id="box_5">5</div>
+
+                                                            <div class="third-row" data-id="box_11" id="box_11">11</div>
+                                                            <div class="third-row" data-id="box_13" id="box_13">-</div>
+                                                            <div class="third-row" data-id="box_14" id="box_14">-</div>
+                                                            <div class="third-row" data-id="box_6"  id="box_6">6</div>
+
+                                                            <div class="third-row" data-id="box_10" id="box_10">10</div>
+                                                            <div class="third-row" data-id="box_9" id="box_9">9</div>
+                                                            <div class="third-row" data-id="box_8" id="box_8">8</div>
+                                                            <div class="third-row" data-id="box_7" id="box_7">7</div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Rasi Horoscope - End -->
+                                                </div>  <!-- row col 6 ends -->
+                                                <div class="col-md-6">
+                                                    <!-- Asham Horoscope - start -->
+                                                    <div id="asham_horo_container">
+                                                        <div class="asham_horo_row" id="product">
+                                                        <div class="asham-row" data-id="abox_1" id="abox_1">1</div>
+                                                        <div class="asham-row" data-id="abox_2" id="abox_2">2</div>
+                                                        <div class="asham-row" data-id="abox_3" id="abox_3">3</div>
+                                                        <div class="asham-row" data-id="abox_4" id="abox_4">4</div>
+
+                                                        <div class="asham-row" data-id="abox_12" id="abox_12">12</div>
+                                                        <div class="asham-row" data-id="abox_15" id="abox_15">-</div>
+                                                        <div class="asham-row" data-id="abox_16" id="abox_16">-</div>
+                                                        <div class="asham-row" data-id="abox_5"  id="abox_5">5</div>
+
+                                                        <div class="asham-row" data-id="abox_11" id="abox_11">11</div>
+                                                        <div class="asham-row" data-id="abox_13" id="abox_13">-</div>
+                                                        <div class="asham-row" data-id="abox_14" id="abox_14">-</div>
+                                                        <div class="asham-row" data-id="abox_6"  id="abox_6">6</div>
+
+                                                        <div class="asham-row" data-id="abox_10" id="abox_10">10</div>
+                                                        <div class="asham-row" data-id="abox_9" id="abox_9">9</div>
+                                                        <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
+                                                        <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Asham Horoscope - end -->
+                                                </div> <!-- col 6 ends -->
+                                            </div> <!-- col 12 ends -->
+                                        </div> <!-- row ends -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <!-- <div class="col-md-3">
-                        <div class="right_sidebar_area">
-                            <aside class="s_widget people_widget">
-                                <div class="s_title">
-                                    <h4>People You Might Like</h4>
-                                    <img src="img/widget-title-border.png" alt="">
-                                </div>
-                                <ul class="nav navbar-nav">
-                                    <li class="dropdown tool_hover">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="img/photo/people-p/people-1.png" alt=""></a>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <div class="head_area">
-                                                    <h4>Lara Davis</h4>
-                                                    <h4>53% Match</h4>
-                                                </div>
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <img src="img/photo/people-p/people-drop-1.png" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h6>29 years old <br /> From Derby <br /> Single</h6>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#"><img class="img-circle" src="img/photo/people-p/people-2.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-circle" src="img/photo/people-p/people-3.png" alt=""></a></li>
-                                    <li class="dropdown tool_hover">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="img/photo/people-p/people-4.png" alt=""></a>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <div class="head_area">
-                                                    <h4>Lara Davis</h4>
-                                                    <h4>53% Match</h4>
-                                                </div>
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <img src="img/photo/people-p/people-drop-1.png" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h6>29 years old <br /> From Derby <br /> Single</h6>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#"><img class="img-circle" src="img/photo/people-p/people-5.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-circle" src="img/photo/people-p/people-6.png" alt=""></a></li>
-                                </ul>
-                            </aside>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </section>
@@ -381,7 +424,7 @@ include('include/menu.php');
         <div id="largeContent" style="display:none;">
             <div class="media tool_content">
                 <div class="media-left">
-                    <img src="<?php echo base_url(); ?>assets/img/map-persion.png" alt="">
+                    <img src="<?php echo media_url(); ?>assets/img/map-persion.png" alt="">
                 </div>
                 <div class="media-body">
                     <h3>Sandi Williams</h3>
@@ -392,7 +435,41 @@ include('include/menu.php');
             </div>
         </div>
 <?php 
-    include('include/footer.php');
-?> 
-    </body>
-</html>
+include('include/footer.php');
+// echo '<pre>';
+// print_r($rasi);
+// echo '</pre>';
+// $value  = array('r_1'=>1, 'r_2'=>10, 'r_3'=>10, 'r_4'=>10, 'r_5'=>2, 'r_6'=>12,'r_7'=>10, 'r_8'=>10, 'r_9'=>10, 'r_10'=>10);
+?>
+<script type="text/javascript">
+$(document).ready(function () {
+
+   var arr = <?php echo json_encode($rasi); ?>     
+   $('.horo_row #box_6, #box_7, #box_10, #box_11').attr('readonly', 'readonly');   
+   $.each(arr, function( i, val ) {    
+     $('.third-row').each(function(){
+        var id=$(this).data('id');
+        var res = id.split("_");          
+        if(res[1]==val){
+            img='<?php echo media_url(); ?>'+'assets/img/rasi/'+i+'.png';             
+            $("#"+id).append("<img src="+img+" />");
+        }
+      });  
+   }); 
+
+   var asham_arr = <?php echo json_encode($amsham); ?>    
+   $('.asham_horo_row #abox_6, #abox_7, #abox_10, #abox_11').attr('readonly', 'readonly');
+   $.each(asham_arr, function( i, val ) {    
+     $('.asham-row').each(function(){
+        var id=$(this).data('id');
+        var res = id.split("_");          
+        if(res[1]==val){
+            img='<?php echo media_url(); ?>'+'assets/img/rasi/'+i+'.png';             
+            $("#"+id).append("<img src="+img+" />");
+        }
+      });  
+   }); 
+
+});    
+</script>
+

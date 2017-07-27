@@ -8,7 +8,7 @@
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">Payments<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
+                    <h3><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Payments<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
                     <!--<a href="index.html">Home</a>
                     <a href="shop-cart.html">Pricing</a>-->
                 </div>
@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="welcome_title">
                     <h3>Payment Details</h3>
-                    <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
+                    <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
                 <!--<div class="plan_inner">
                     <div class="pricing_topic">
@@ -79,7 +79,7 @@
                                         Gr.Flr., # 360 M.G.Road,<br>Puducherry Opp.Petit Seminare School M.G.Road,Pondicherry - 605001<br>Pondicherry <br>india</p><br>
                                     </div>
                                         <div class="col-sm-3 aline-center-box image-box">
-                                             <img src="<?php echo base_url(); ?>assets/img/bank/hdfc.png" alt="bank">
+                                             <img src="<?php echo media_url(); ?>assets/img/bank/hdfc.png" alt="bank">
                                         </div>            
                                 </div>    
                             </div>               	          
@@ -95,10 +95,10 @@
                                             <p>C/O VALLIKODI V SHATHRIYA THIRUMANA<br>NO-98 VAZHUDAVOOR ROAD<br>V V P NAGAR<br>PONDICHERRY 605009,India.<br>off: 2272438<br>Mobile:+91 9655332217, 7397734480</p><br>
                                         </div>
                                         <div class="col-sm-3 aline-center-box image-box">
-                                            <img src="<?php echo base_url(); ?>assets/img/bank/cash.png" alt="bank">
+                                            <img src="<?php echo media_url(); ?>assets/img/bank/cash.png" alt="bank">
                                         </div>
                                         <div class="col-sm-4 aline-center-box image-box">
-                                            <img src="<?php echo base_url(); ?>assets/img/bank/cheque.png" alt="bank">
+                                            <img src="<?php echo media_url(); ?>assets/img/bank/cheque.png" alt="bank">
                                         </div>              
                                     </div>
                                 </div>   
@@ -118,7 +118,7 @@
        <!-- <div id="largeContent" style="display:none;">
             <div class="media tool_content">
                 <div class="media-left">
-                    <img src="<?php echo base_url(); ?>assets/img/map-persion.png" alt="">
+                    <img src="<?php echo media_url(); ?>assets/img/map-persion.png" alt="">
                 </div>
                 <div class="media-body">
                     <h3>Sandi Williams</h3>

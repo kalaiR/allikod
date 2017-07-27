@@ -6,7 +6,7 @@
 			<div>
 				<ul class="breadcrumb">
 					<li>
-						<a href="<?php echo base_url(); ?>index.php/admin">Home</a> <span class="divider">/</span>
+						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
 					</li>
 					<li>
 						<a href="#">Education</a>
@@ -23,15 +23,12 @@
 							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
 						</div>
 					</div>
-					<div class="box-content row">
-						<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>index.php/admin/add_education">
+					<div class="box-content">
+						<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_education">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
-					</div>
-					<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:10px;margin-left: 10px; padding-bottom: 15px;display:block;">
-    						<table class="table table-striped table-bordered bootstrap-datatable datatable">
-						  <thead>
+					  <thead>
 							  <tr>
 								  <th>Education</th>
 								  <th>Added Date</th>
@@ -51,7 +48,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_education">
+									<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_education">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -72,7 +69,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_education">
+									<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_education">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -93,7 +90,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_education">
+									<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_education">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>
@@ -114,7 +111,7 @@
 										<i class="icon-zoom-in icon-white"></i>  
 										View                                            
 									</a> -->
-									<a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/admin/edit_education">
+									<a class="btn btn-primary" href="<?php echo base_url(); ?>admin/edit_education">
 										<i class="icon-edit icon-white"></i>  
 										Edit                                            
 									</a>

@@ -26,7 +26,9 @@ date_default_timezone_set('Asia/Kolkata');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = APP_URL;
+$config['base_url'] = APP_URL."index.php";
+
+$config['media_url'] = APP_URL;
 
 /*
 |--------------------------------------------------------------------------

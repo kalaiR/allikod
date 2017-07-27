@@ -148,7 +148,7 @@ class User_model extends CI_Model {
   }
 
   public function get_familystatus($family_statusid=""){
-       if($edu_id!=''){
+       if($family_statusid!=''){
         // Education Id Id based search    
         $condition = "fstatus.active_status = 1 AND fstatus.familystatus_id = ".$family_statusid."";  
         $this->db->select('*');
@@ -159,7 +159,7 @@ class User_model extends CI_Model {
       }else{
         $condition = "fstatus.active_status = 1";  
         $this->db->select('*');
-        $this->db->from('familystatus_id AS fstatus');
+        $this->db->from('family_status AS fstatus');
         $this->db->where($condition);      
         $this->db->order_by('fstatus.familystatus_id','asc');
         $query = $this->db->get()->result_array();          
@@ -238,8 +238,9 @@ class User_model extends CI_Model {
     $model_data['error'] = 0;
     if($this->input->post('email_id')) {
       $login_where = '(user_email="'.$this->input->post('email_id').'" and user_pwd="'.$this->input->post('password').'" and user_active_status=1)';
-      $this->db->select('*');
-      $userdata_get = $this->db->get_where('reg_userdetail',$login_where);      
+      $this->db->select('usr.*,pay.payment_status,pay.totalno_of_profile,pay.no_of_profiles_viewed');
+      $this->db->join('reg_payment pay','pay.reg_user_id = usr.userdetail_id','inner');
+      $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where);      
         if($userdata_get->num_rows() == 1) {
           $model_data['status'] = "login_success";
           $model_data['login_values'] = $userdata_get->row_array();
@@ -272,7 +273,7 @@ class User_model extends CI_Model {
         INNER JOIN reg_education_occupation AS edu ON edu.reg_user_id = usr.userdetail_id 
         INNER JOIN user_images AS img ON img.reg_user_id = usr.userdetail_id) 
         WHERE usr.user_gender = '".$values['gender']."' AND usr.user_age >= '".$values['age_from']."' AND usr.user_age <= '".$values['age_to']."' AND phy.phy_height >= '".$values['height_from']."' AND phy.phy_height <= '".$values['height_to']."' AND usr.user_maritalstatus = '".$values['mar_status']."' AND img.images!='' 
-        ORDER BY 'usr.userdetail_id' desc LIMIT ".$start.",".$limit."")->result_array();        
+        ORDER BY usr.userdetail_id desc LIMIT ".$start.",".$limit."")->result_array();        
         // echo $this->db->last_query();
 
         
@@ -406,7 +407,7 @@ class User_model extends CI_Model {
   public function get_viewdetails_byid($id){
       // View by id
       $condition = "usr.userdetail_id = ".$id."";
-      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name, zod.name as zodiac_name, famst.name as family_statusname, famtype.name as family_typename, bdy_type.typename as body_typename, comp.name as complexion_typename, fod.name as food_name, mc.marital_name as maritalname');
+      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name, zod.name as zodiac_name, famst.name as family_statusname, famtype.name as family_typename, bdy_type.typename as body_typename, comp.name as complexion_typename, fod.name as food_name, mc.marital_name as maritalname,luk.name as lukhnam_name');
       $this->db->from('reg_userdetail usr');
       $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
       $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
@@ -432,8 +433,41 @@ class User_model extends CI_Model {
       $this->db->where($condition); 
       $query = $this->db->get()->row_array();
       return $query;
-  }   
-}
+  } 
 
+  /** Search by getrasi_viewdetails_by Id **/
+  public function getrasi_viewdetails_byid($userid){
+        if(!empty($userid)){
+        $user_where = '(userdetail_id="'.$userid.'")';
+        $this->db->select('horo.r_1,horo.r_2,horo.r_3,horo.r_4,horo.r_5,horo.r_6,horo.r_7,horo.r_8,horo.r_9,horo.r_10');
+        $this->db->from('reg_userdetail usr');
+        $this->db->join('reg_image_horoscope horo','horo.reg_user_id = usr.userdetail_id','inner');
+        $this->db->where($user_where);
+        $this->db->order_by('usr.userdetail_id','desc');
+        $model_data = $this->db->get()->row_array();
+        return $model_data;
+      }else{
+        return;
+      }
+  }
+  
+  /** Search by getamsham_viewdetails_by Id **/
+  public function getamsham_viewdetails_byid($userid){
+    if(!empty($userid)){
+        $user_where = '(userdetail_id="'.$userid.'")';
+        $this->db->select('horo.a_1,horo.a_2,horo.a_3,horo.a_4,horo.a_5,horo.a_6,horo.a_7,horo.a_8,horo.a_9,horo.a_10');
+        $this->db->from('reg_userdetail usr');
+        $this->db->join('reg_image_horoscope horo','horo.reg_user_id = usr.userdetail_id','inner');
+        $this->db->where($user_where);
+        $this->db->order_by('usr.userdetail_id','desc');
+        $model_data = $this->db->get()->row_array();
+        return $model_data;
+      }else{
+        return;
+      }
+
+  }
+  
+}
 /* End of file User_model.php */
 /* Location: ./application/controllers/base.php */

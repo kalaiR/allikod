@@ -41,7 +41,7 @@ class Base extends CI_Controller {
 				$data['status'] = $data_values['status'];
 				$data['error'] = $data_values['error'];	
 				echo $data['status'];
-				redirect(base_url().'index.php/index');
+				redirect(base_url().'index');
 			}else{
 				// Session
 	        	$this->session->set_userdata("login_status",1);
@@ -55,7 +55,7 @@ class Base extends CI_Controller {
 	public function logout() {
   		$this->session->unset_userdata("login_status");
         $this->session->unset_userdata("login_session");
-        redirect(base_url().'index.php/index');
+        redirect(base_url().'index');
   	}
 
 	public function search(){
@@ -397,6 +397,8 @@ class Base extends CI_Controller {
 		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);
 		$id = $values[0];
 		$data['results'] = $this->user_model->get_viewdetails_byid($id);
+		$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
+		$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
 		$this->load->view('viewdetail',$data);
 	}
 	public function myprofile(){

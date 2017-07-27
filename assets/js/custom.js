@@ -160,6 +160,16 @@ $(document).ready(function () {
         //     $('#' + selectedolditem).addClass("active");
         // }
 
+        // Show and Hide Search Div
+    $(".slidingDiv").hide();
+    $(".view_communication").show();
+
+    $('.view_communication').click(function(){
+        if($('.slidingDiv').length == 0)
+            alert("please pay at vallikodimatrimonial.in");
+    $(".slidingDiv").slideToggle();
+});
+
         $("#next").click(function(){            
             var output = validate();
             if(output) {
