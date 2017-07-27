@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // alert("ready");
     $("li").click(function () {
         var id = $(this).attr("id");
 
@@ -9,22 +10,29 @@ $(document).ready(function () {
     });
 
     var selectedolditem = localStorage.getItem('selectedolditem');
-
     if (selectedolditem != null) {
         $('#' + selectedolditem).siblings().find(".active").removeClass("active");
         //                                        ^ you forgot this
         $('#' + selectedolditem).addClass("active");
     }
 
-// Show and Hide Search Div
+    // Show and Hide Search Div
     $(".slidingDiv").hide();
     $(".show_hide").show();
 
     $('.show_hide').click(function(){
-    $(".slidingDiv").slideToggle();
-});
+        $(".slidingDiv").slideToggle();
+    });
     
 });
+
+$(window).load(function(){
+    if($('.text_short').length >=1){
+        // alert("text_short");
+        .s
+    }
+});
+
 
 
 
