@@ -11,10 +11,11 @@ class Base extends CI_Controller {
 	}
 	public function index(){
 		if($this->input->post()){
-			$form_data = $this->input->post();
+			$form_data = $this->input->post();			
+			$userdetail_profile_id = ($form_data['userdetail_profile_id']) ? $form_data['userdetail_profile_id'] : NULL;
 			$data = array(
 					'userdetail_id'=>'',
-					'userdetail_profile_id'=>200,
+					'userdetail_profile_id'=>$userdetail_profile_id,
 					'user_email'=>$form_data['reg_email2'],
 					'user_pwd'=>$form_data['reg_pass2'],
 					'user_fname'=>$form_data['reg_Name'],
@@ -271,7 +272,8 @@ class Base extends CI_Controller {
 				// Search by HomePage-QuickSearch //				
 				$values = array('gender' => $form_data['gender'][0], 'age_from' => $form_data['search_age_from'][0], 'age_to' => $form_data['search_age_to'][0]);
 				$data = $this->user_model->get_quicksearch($values, $per_page, $offset);
-				$this->session->set_userdata('search_quick',$values);					
+				$this->session->set_userdata('search_quick',$values);
+				$search_quick = $this->session->userdata('search_quick');					
 			}
 		}else{		
 			// Pagination Session Data
@@ -282,9 +284,7 @@ class Base extends CI_Controller {
 				$data = $this->user_model->get_basicsearch($search_inputs, $per_page, $offset);	
 			}elseif(!empty($search_quick)){
 				$data = $this->user_model->get_quicksearch($search_quick, $per_page, $offset);				
-			}
-			// print_r($data);
-			// exit();
+			}			
 		}
 
 		//pagination
@@ -297,7 +297,7 @@ class Base extends CI_Controller {
 		{
 		 	$config['total_rows'] = 1;
 		}else{
-			$config['total_rows'] = $data['total_rows'];
+			echo $config['total_rows'] = $data['total_rows'];
 		}
 		$config['uri_segment'] = 2;
 		$config['num_links'] = 4;
