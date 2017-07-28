@@ -67,7 +67,7 @@
                                          </div>
                                         <div class="col-md-6">  
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs" id="reg_Name" placeholder="" name="reg_Name">
+                                                <input type="text" class="form-control form_inputs" id="reg_Name" placeholder="Your Name" name="reg_Name">
                                             </div>
                                         </div>    
                                     </div>    
@@ -77,7 +77,7 @@
                                          </div>
                                         <div class="col-md-6">     
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs" id="reg_age" placeholder="" name="reg_age">
+                                                <input type="text" class="form-control form_inputs" id="reg_age" placeholder="Your Age" name="reg_age">
                                             </div>
                                         </div>    
                                     </div>    
@@ -87,10 +87,16 @@
                                          </div>
                                         <div class="col-md-6">    
                                             <div class="form-group">
-                                                <select class="form-control customize_plan form_inputs" name="Country">
-                                                    <option value="">Select</option>
-                                                    <option value="1">Other</option>
-                                                </select>  
+                                                <select class="form-control customize_plan form_inputs" name="country[]" id="country" placeholder="Country Name">
+                                                        <option value="">Select</option>
+                                                        <?php
+                                                        if(!empty($country)) :
+                                                            foreach ($country as $cls_val) {
+                                                                echo "<option value='" . $cls_val['country_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                            }
+                                                        endif;
+                                                        ?>
+                                                    </select>
                                             </div>
                                         </div>    
                                     </div>
@@ -99,13 +105,17 @@
                                            <span data-bind="label" class="text-font">Mother Tongue *</span>
                                          </div>
                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                <!-- <input type="text" class="form-control" id="reg_Religion" name="reg_Religion"placeholder="Religion"> -->
-                                                
-                                                <select class="form-control customize_plan form_inputs" name="Country">
-                                                    <option value="">Select</option>
-                                                    <option value="1">Other</option>
-                                                </select>
+                                            <div class="form-group">                                                
+                                                <select class="form-control customize_plan form_inputs" name="mother_tongue[]" id="mother_tongue" placeholder="MotherTongue">
+                                                        <option value="">Select</option>
+                                                        <?php
+                                                        if(!empty($mother_tongue)) :
+                                                            foreach ($mother_tongue as $cls_val) {
+                                                                echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                            }
+                                                        endif;
+                                                        ?>
+                                                    </select>
                                             </div>
                                         </div>         
                                     </div>
@@ -115,7 +125,7 @@
                                          </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="reg_Mobile" name="reg_Mobile" placeholder="">
+                                                <input type="text" class="form-control" id="reg_Mobile" name="reg_Mobile" placeholder="Mobile Number">
                                             </div>
                                         </div>
                                     </div>    
@@ -125,7 +135,7 @@
                                          </div>
                                          <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="email" class="form-control form_inputs" id="reg_email2" name="reg_email2" placeholder="">
+                                                <input type="email" class="form-control form_inputs" id="reg_email2" name="reg_email2" placeholder="Email Id">
                                             </div>
                                          </div>   
                                     </div>    
@@ -135,7 +145,7 @@
                                          </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="password" class="form-control form_inputs" id="reg_pass2" name="reg_pass2" placeholder="">
+                                                <input type="password" class="form-control form_inputs" id="reg_pass2" name="reg_pass2" placeholder="Password">
                                             </div>
                                         </div>   
                                     </div>    

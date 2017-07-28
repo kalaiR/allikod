@@ -11,27 +11,41 @@ class Base extends CI_Controller {
 	}
 	public function index(){
 		if($this->input->post()){
-			$form_data = $this->input->post();			
-			$userdetail_profile_id = ($form_data['userdetail_profile_id']) ? $form_data['userdetail_profile_id'] : NULL;
+			$form_data = $this->input->post();									
+			// $userdetail_profile_id = ($form_data['userdetail_profile_id']) ? $form_data['userdetail_profile_id'] : NULL;
 			$data = array(
 					'userdetail_id'=>'',
-					'userdetail_profile_id'=>$userdetail_profile_id,
+					'userdetail_profile_id'=>NULL,
 					'user_email'=>$form_data['reg_email2'],
 					'user_pwd'=>$form_data['reg_pass2'],
 					'user_fname'=>$form_data['reg_Name'],
 					'user_gender'=>$form_data['gender'][0],					
-					'user_age'=>$form_data['reg_age'],
-					'user_dob'=>$form_data['dob'],
-					'user_maritalstatus'=>$form_data['marital_status'][0],
-					'user_registeredby'=>$form_data['register_by'][0]					
+					'user_age'=>$form_data['reg_age'],					
+					'user_online_or_simple'=>'Online',
+					'user_registeredby'=>$form_data['register_by'][0]
 				);
-		  		$id_userdetails = $this->user_model->insert_registration('reg_userdetail',$data);		  		
+		  		$id_userdetails = $this->user_model->insert_registration('reg_userdetail',$data);
+		  		$data_communication = array(
+		  			'communicationfamily_id'=>'',
+		  			'reg_user_id'=>$id_userdetails,	
+		  			'comm_current_countrycountry'=>$form_data['country'][0],					
+					'comm_mobile_no'=>$form_data['reg_Mobile']
+				);	
+		  		$this->user_model->insert_registration('reg_communication_family', $data_communication);
+		  		$data_religion = array(
+		  			'religionethnicity_id'=>'',
+		  			'reg_user_id'=>$id_userdetails,			  			
+					'rel_mothertongue_id'=>$form_data['mother_tongue'][0]
+				);	
+		  		$this->user_model->insert_registration('reg_religion_ethnicity', $data_religion);
 		  		redirect('registration/'.$id_userdetails);
 		}else{
 			$data['register'] = $this->user_model->get_registerid();
 			$data['martial_status'] = $this->user_model->get_martialstatus();
 			$data['success_stories'] = $this->user_model->get_success_stories_limit();
 			$data['recent_profile'] = $this->user_model->get_recent_profile();
+			$data['mother_tongue'] = $this->user_model->get_mothertongue();
+			$data['country'] = $this->user_model->get_country();
 			$this->load->view('index', $data);
 		}
 	}
@@ -122,7 +136,7 @@ class Base extends CI_Controller {
 					'userdetail_profile_id'=>100,
 					'user_email'=>$form_data['register_email'],
 					'user_pwd'=>$form_data['reg_pass1'],
-					'user_fname'=>$form_data['reg_con_pass2'],
+					'user_fname'=>$form_data['reg_name'],
 					'user_gender'=>$form_data['gender'][0],					
 					'user_age'=>'25',
 					'user_dob'=>'2017-07-10',					
@@ -207,6 +221,10 @@ class Base extends CI_Controller {
 		  		$this->load->view('registration');
 
 		  	}else{
+		  		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);		  		
+		  		if($values[0]){
+		  			$data['registered_data'] = $this->user_model->get_registerdata($values[0]);		  							
+		  		}
 		  		$data['register'] = $this->user_model->get_registerid();		  							
 		  		$data['martial_status'] = $this->user_model->get_martialstatus();
 		  		$data['mother_tongue'] = $this->user_model->get_mothertongue();
@@ -223,6 +241,7 @@ class Base extends CI_Controller {
 		  		$data['complexion'] = $this->user_model->get_complexion();		  		
 		  		$data['food'] = $this->user_model->get_food();
 				$this->load->view('registration',$data);
+
 		  	}		
 	}
 

@@ -272,7 +272,7 @@ class User_model extends CI_Model {
         INNER JOIN reg_physical_expectation AS phy ON phy.reg_user_id = usr.userdetail_id 
         INNER JOIN reg_education_occupation AS edu ON edu.reg_user_id = usr.userdetail_id 
         INNER JOIN user_images AS img ON img.reg_user_id = usr.userdetail_id) 
-        WHERE usr.user_gender = '".$values['gender']."' AND usr.user_age >= '".$values['age_from']."' AND usr.user_age <= '".$values['age_to']."' AND phy.phy_height >= '".$values['height_from']."' AND phy.phy_height <= '".$values['height_to']."' AND usr.user_maritalstatus = '".$values['mar_status']."' AND img.images!='' 
+        WHERE usr.user_gender = '".$values['gender']."' AND usr.user_age >= '".$values['age_from']."' AND usr.user_age <= '".$values['age_to']."' AND phy.phy_height >= '".$values['height_from']."' AND phy.phy_height <= '".$values['height_to']."' AND usr.user_maritalstatus = '".$values['mar_status']."' AND img.images!='' AND usr.user_gender !='3'
         ORDER BY usr.userdetail_id desc LIMIT ".$start.",".$limit."")->result_array();        
         // echo $this->db->last_query();
 
@@ -334,7 +334,7 @@ class User_model extends CI_Model {
         INNER JOIN reg_physical_expectation AS phy ON phy.reg_user_id = usr.userdetail_id 
         INNER JOIN reg_education_occupation AS edu ON edu.reg_user_id = usr.userdetail_id 
         INNER JOIN user_images AS img ON img.reg_user_id = usr.userdetail_id) 
-        WHERE usr.user_gender = '".$values['gender']."' AND usr.user_age >= '".$values['age_from']."' AND usr.user_age <= '".$values['age_to']."'
+        WHERE usr.user_gender = '".$values['gender']."' AND usr.user_age >= '".$values['age_from']."' AND usr.user_age <= '".$values['age_to']."' AND usr.user_gender !='3'
         ORDER BY usr.userdetail_id desc LIMIT ".$start.",".$limit."")->result_array();        
         // echo $this->db->last_query();
         
@@ -465,8 +465,23 @@ class User_model extends CI_Model {
       }else{
         return;
       }
-
   }
+  public function get_registerdata($userid){
+     if(!empty($userid)){
+        $user_where = '(userdetail_id="'.$userid.'")';
+        $this->db->select('usr.user_registeredby, usr.user_email, usr.user_pwd, usr.user_fname, usr.user_gender, usr.user_age, comm.comm_current_countrycountry, comm.comm_mobile_no, rel.rel_mothertongue_id');
+        $this->db->from('reg_userdetail usr');
+        $this->db->join('reg_communication_family comm','comm.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
+        $this->db->where($user_where);
+        $this->db->order_by('usr.userdetail_id','desc');
+        $model_data = $this->db->get()->row_array();
+        // echo $this->db->last_query();
+        return $model_data;
+     }else{
+        return;
+     }
+ }    
   
 }
 /* End of file User_model.php */
