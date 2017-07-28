@@ -1,6 +1,6 @@
 function validate() {
-        var output = true;
-        $(".registration-error").html('');
+    var output = true;
+    $(".registration-error").html('');
         if($("#userdetails-field").css('display') != 'none') {
 
             if(!($("#register_email").val())) {
@@ -8,21 +8,29 @@ function validate() {
                 $("#register_email-error").html("Required");
             }   
             if(!$("#register_email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
-                $("#register_email-error").html("invalid");
+                $("#register_email-error").html("Invalid");
                 output = false;
             }
-             if(!($("#reg_passed").val())) {
+             if(!($("#reg_pass1").val())) {
                  output = false;
                  $("#reg_passed_error").html("Required");
              } 
-             if(!($("#reg_con_pass").val())) {
+             if(!($("#reg_con_pass2").val())) {
                  output = false;
                  $("#reg_con_error").html("Required");
-             } 
+             }    
+                if($("#reg_pass1").val() != $("#reg_con_pass2").val()) {
+                 output = false;
+                   $("#reg_con_error").html("Password doesn't match");
+                  
+                }
+           
+              
              if(!($("#register_by").val())) {
                  output = false;
-                 $("#reg_by_error").html("Required");
-             } 
+                 $("#reg_error").html("Required");
+             }
+
              if(!($("#reg_Nam").val())) {
                  output = false;
                  $("#reg_nam_error").html("Required");
@@ -35,13 +43,7 @@ function validate() {
                  output = false;
                  $("#marital_error").html("Required");
              }
-             
-             
-            
-               
-             
-             
-             
+      
         }
         if($("#ethnicity-field").css('display') != 'none') {
 
@@ -61,20 +63,21 @@ function validate() {
                  output = false;
                  $("#nakshathra_error").html("Required");
              }
-             if(!($("#luknam").val())) {
-                 output = false;
-                 $("#luknam_error").html("Required");
-             }
-
              if(!($("#zodiac_sign").val())) {
                  output = false;
                  $("#zodiac_sign_error").html("Required");
              }
-
-
         }
         if($("#education-field").css('display') != 'none') {
 
+             if(!($("#edu").val())) {
+                 output = false;
+                 $("#edu_error").html("Required");
+             } 
+             if(!($("#education_detail").val())) {
+                 output = false;
+                 $("#education_detail_error").html("Required");
+             } 
              if(!($("#occupation").val())) {
                  output = false;
                  $("#occupation_error").html("Required");
@@ -82,24 +85,34 @@ function validate() {
              if(!($("#employed_in").val())) {
                  output = false;
                  $("#employed_in_error").html("Required");
-             }  
-
-
-        }
-        if($("#com-field").css('display') != 'none') {
-
-            // if(!($("#resident").val())) {
-            //      output = false;
-            //      $("#resident_error").html("Required");
-            //  }
-            // if(!($("#cur_country").val())) {
-            //      output = false;
-            //      $("#cur_country_error").html("Required");
-            //  } 
-             if(!($("#reg_mobile").val())) {
+             }
+             if(!($("#reg_income").val())) {
                  output = false;
-                 $("#reg_mobile_error").html("Required");
+                 $("#reg_income_error").html("Required");
+             }  
+        }
+    if($("#com-field").css('display') != 'none') {
+        var mobile =$("#reg_mobile").val();
+        if(!(/^([0-9-+]{10})+$/.test(mobile)) && mobile.length!=10){
+            output = false;
+            $("#reg_mobile_error").html("Invalid Number");
+        }       
+             if(!($("#reg_fname").val())) {
+                 output = false;
+                 $("#reg_fname_error").html("Required");
+             }
+             if(!($("#reg_mname").val())) {
+                 output = false;
+                 $("#reg_mname_error").html("Required");
+             }
+             if(!($("#reg_femployment").val())) {
+                 output = false;
+                 $("#reg_femployment_error").html("Required");
              } 
+             if(!($("#reg_memployment").val())) {
+                 output = false;
+                 $("#reg_memployment_error").html("Required");
+             }   
              if(!($("#family_status").val())) {
                  output = false;
                  $("#family_status_error").html("Required");
@@ -109,23 +122,9 @@ function validate() {
                  $("#family_type_error").html("Required");
              }  
 
-
-
         }
         if($("#exceptation-field").css('display') != 'none') {
 
-            if(!($("#body_type").val())) {
-                 output = false;
-                 $("#body_type_error").html("Required");
-             } 
-             if(!($("#complexion").val())) {
-                 output = false;
-                 $("#complexion_error").html("Required");
-             }
-             if(!($("#physical_status").val())) {
-                 output = false;
-                 $("#physical_status_error").html("Required");
-             }
              if(!($("#food").val())) {
                  output = false;
                  $("#food_error").html("Required");
@@ -136,6 +135,13 @@ function validate() {
              }
 
         }
+    // if($("#horoscope-field").css('display') != 'none') {
+       
+    //    if(!($("#upload").val())) {
+    //              output = false;
+    //              $("#upload_error").html("Required");
+    //          }
+    // }
 
         return output;
 }
@@ -160,9 +166,11 @@ $(document).ready(function () {
 
         // Show and Hide Search Div
     $(".slidingDiv").hide();
-    $(".show_hide").show();
+    $(".view_communication").show();
 
-    $('.show_hide').click(function(){
+    $('.view_communication').click(function(){
+        if($('.slidingDiv').length == 0)
+            alert("please pay at vallikodimatrimonial.in");
     $(".slidingDiv").slideToggle();
 });
 
@@ -200,76 +208,6 @@ $(document).ready(function () {
                 }
             }
         });
-
-    
-
-// $("#basic_search").click(function(){            
-//             var output = validate();
-//             if(output) {
-//                 var current = $(".highlight");
-//                 var basic_search = $(".highlight").basic_search("li");
-                // if(next.length>0) {                
-                //     $("#"+current.attr("id")+"-field").hide();
-                //     $("#"+basic_search.attr("id")+"-field").show();
-                //     $("#back").show();
-                //     $("#finish").hide();
-                //     $(".highlight").removeClass("highlight");
-                //     basic_search.addClass("highlight");                                
-                //     if($(".highlight").attr("id") == 'horoscope') {
-                //         $("#next").hide();
-                //         $("#finish").show();                
-                //     }
-        //         // }
-        //     }
-        // });
-
-// function validate() {
-//             var output = true;
-//             $(".registration-error").html('');
-//             if($("#base").css('display') != 'none') {
-//                 if(!($("#gender").val())) {
-//                      output = false;
-//                      $("#gender_error").html("Required");
-//                  } 
-//                  if(!($("#search_age_from").val())) {
-//                      output = false;
-//                      $("#search_age_from_error").html("Required");
-//                  }
-//                  if(!($("#height_in_cms").val())) {
-//                      output = false;
-//                      $("#height_in_cms_error").html("Required");
-//                  }
-//                  if(!($("#marital_status").val())) {
-//                      output = false;
-//                      $("#marital_status_error").html("Required");
-//                  }
-//                   if(!($("#mother_tongue").val())) {
-//                      output = false;
-//                      $("#mother_tongue_error").html("Required");
-//                  }
-//                  if(!($("#education").val())) {
-//                      output = false;
-//                      $("#education_error").html("Required");
-//                  }  
-//                  if(!($("#education").val())) {
-//                      output = false;
-//                      $("#education_error").html("Required");
-//                  } 
-//                  if(!($("#show_profile").val())) {
-//                      output = false;
-//                      $("#show_profile_error").html("Required");
-//                  }
-
-//             }
-
-
-
-
-//               return output;
-
-
-//         }
-
 
     $('form#userlogin').submit(function() {
         var formData = new FormData(this);

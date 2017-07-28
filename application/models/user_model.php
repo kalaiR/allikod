@@ -238,9 +238,10 @@ class User_model extends CI_Model {
     $model_data['error'] = 0;
     if($this->input->post('email_id')) {
       $login_where = '(user_email="'.$this->input->post('email_id').'" and user_pwd="'.$this->input->post('password').'" and user_active_status=1)';
-      $this->db->select('*');
-      $userdata_get = $this->db->get_where('reg_userdetail',$login_where);      
-        if($userdata_get->num_rows() == 1) {
+      $this->db->select('usr.*,pay.payment_status,pay.totalno_of_profile,pay.no_of_profiles_viewed');
+      $this->db->join('reg_payment pay','pay.reg_user_id = usr.userdetail_id','inner');
+      $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where);      
+        if($userdata_get->num_rows()) {
           $model_data['status'] = "login_success";
           $model_data['login_values'] = $userdata_get->row_array();
         }
@@ -406,7 +407,7 @@ class User_model extends CI_Model {
   public function get_viewdetails_byid($id){
       // View by id
       $condition = "usr.userdetail_id = ".$id."";
-      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name, zod.name as zodiac_name, famst.name as family_statusname, famtype.name as family_typename, bdy_type.typename as body_typename, comp.name as complexion_typename, fod.name as food_name, mc.marital_name as maritalname');
+      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name, zod.name as zodiac_name, famst.name as family_statusname, famtype.name as family_typename, bdy_type.typename as body_typename, comp.name as complexion_typename, fod.name as food_name, mc.marital_name as maritalname,luk.name as lukhnam_name');
       $this->db->from('reg_userdetail usr');
       $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
       $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');

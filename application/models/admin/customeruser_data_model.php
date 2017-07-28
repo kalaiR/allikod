@@ -22,76 +22,155 @@ class Customeruser_data_model extends CI_Model {
 
 	    // Update data
 	    if($status=='update') {
+	    	// echo $this->input->post('cus_dob');
 	      $res = $this->db->get_where('reg_userdetail', array('userdetail_id' => $this->input->post('rid')))->row_array();
 	      if(is_numeric($this->input->post('rid')) && !empty($res))
 	      { 
 	        // if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
-	          $user_update_data = array( 
-	                                'name' => $this->input->post('cus_email'),
-	                                'active_status' => $this->input->post('cus_password'),
+	      	// Login Detials Update
+	            	$userdetail_update_data = array(
+	            					'user_email' => $this->input->post('cus_email'),
+	                                'user_pwd' => $this->input->post('cus_password'),
+	                                'user_fname' => $this->input->post('cus_fname'),
+	                                'user_gender' => $this->input->post('cus_gender'),
+	                                'user_dob' => date('Y-m-d',strtotime($this->input->post('cus_dob'))),
+	                                'user_active_status' => $this->input->post('cus_profileactivestatus'),
+	                                'user_maritalstatus' => $this->input->post('cus_marstatus'),
+	                                'user_registeredby' => ($this->input->post('cus_regby')) ? $this->input->post('cus_regby') : NULL,
+	                                );
+	            	// print_r($userdetail_update_data);
+	            	$paymentdetail_update_data = array(
+	            					'payment_type' => $this->input->post('cus_paymenttype'),
+	            					'bill_number' => $this->input->post('cus_billnumber'),
+	            					'amount' => $this->input->post('cus_amount'),
+	            					'period_in_month' => $this->input->post('cus_period'),
+	            					'payment_status' => $this->input->post('cus_paymentactivestatus'),
+	            					'startdate' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
+	            					'enddate' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
+	                                );
+	            	// print_r($paymentdetail_update_data);
+	            	$religion_ethnicity_update_data = array(
+	            					'rel_mothertongue_id' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
+	            					'rel_religion' => $this->input->post('cus_religion'),
+	            					'rel_caste' => $this->input->post('cus_caste'),
+	            					'rel_dhosham' => $this->input->post('cus_dosham'),
+	            					'rel_nakshathra_id' => ($this->input->post('cus_nakshathra')) ? $this->input->post('cus_nakshathra') : NULL,
+	            					'rel_luknam_id' => ($this->input->post('cus_lukhnam')) ? $this->input->post('cus_lukhnam') : NULL,
+	            					'rel_gothra' => $this->input->post('cus_gothra'),
+	            					'rel_zodiacsign_id' => ($this->input->post('cus_zodiac')) ? $this->input->post('cus_zodiac') : NULL,
+	                                );
+	            	// print_r($religion_ethnicity_update_data);
+	            	$education_occupation_update_data = array(
+	            					'edu_education' => ($this->input->post('cus_education')) ? $this->input->post('cus_education') : NULL,
+	            					'edu_educationdetails' => $this->input->post('cus_edudetail'),
+	            					'edu_occupation' => ($this->input->post('cus_occupation')) ? $this->input->post('cus_occupation') : NULL,
+	            					'edu_employedin' => ($this->input->post('cus_empin')) ? $this->input->post('cus_empin') : NULL,
+	            					'edu_montlyincome' => $this->input->post('cus_moninc'),
+	            					);
+	            	// print_r($education_occupation_update_data);
+	            	$communication_update_data = array(
+	            					'comm_residence' => $this->input->post('cus_resident'),
+	            					'comm_current_countrycountry' => ($this->input->post('cus_curcountry')) ? $this->input->post('cus_curcountry') : NULL,
+	            					'comm_current_city' => $this->input->post('cus_curcity'),
+	            					'comm_current_district' => $this->input->post('cus_curdistrict'),
+	            					'comm_communication_address' => $this->input->post('cus_address'),
+	            					'comm_phone_no' => $this->input->post('cus_phone'),
+	            					'comm_mobile_no' => $this->input->post('cus_mobile'),
+	            					'comm_father_name' => $this->input->post('cus_fathername'),
+	            					'comm_mother_name' => $this->input->post('cus_mothername'),
+	            					'comm_father_employment' => $this->input->post('cus_fatheremp'),
+	            					'comm_mother_employment' => $this->input->post('cus_motheremp'),
+	            					'comm_family_status' => $this->input->post('cus_familystatus'),
+	            					'comm_family_type' => $this->input->post('cus_familytype'),
+	            					'comm_number_of_brothers_el' => $this->input->post('cus_broelder'),
+	            					'comm_number_of_brothers_yo' => $this->input->post('cus_broyoung'),
+	            					'comm_number_of_brothers_el_mar' => $this->input->post('cus_broeldermar'),
+	            					'comm_number_of_brothers_yo_mar' => $this->input->post('cus_broyoungmar'),
+	            					'comm_number_of_sisters_el' => $this->input->post('cus_siselder'),
+	            					'comm_number_of_sisters_yo' => $this->input->post('cus_sisyoung'),
+	                                'comm_number_of_sisters_el_mar' => $this->input->post('cus_siseldermar'),
+	                                'comm_number_of_sisters_yo_mar' => $this->input->post('cus_sisyoungmar'),
+	                                'comm_about_family' => $this->input->post('cus_abtfamily'),
+	            					);
+	            	// print_r($communication_update_data);
+	                $physicalattributes_update_data = array(
+	                				'phy_height' => $this->input->post('cus_heightcms'),
+	                                'phy_weight' => $this->input->post('cus_weight'),
+	                                'phy_bodytype' => $this->input->post('cus_bodytype'),
+	                                'phy_complexion' => $this->input->post('cus_complexion'),
+	                                'phy_physicalstatus' => $this->input->post('cus_phystatus'),
+	                                'phy_food' => $this->input->post('cus_food'),
+	                                'phy_yourpersonality' => $this->input->post('cus_personality'),
+	                                'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
+	                                );
+	                // print_r($physicalattributes_update_data);
+	                $profileimage_update_data = array(
+	                				'images' => $this->input->post('cus_profileimage'),	
+	                            	// 'name' => $this->input->post('cus_email'),
+	                                // 'active_status' => $this->input->post('cus_password'),
+	                                // 'payment_type' => $this->input->post('cus_paymenttype'),
+	                                // 'period_in_month' => $this->input->post('cus_period'),
+	                                // 'bill_number' => $this->input->post('cus_billnumber'),
+	                                // 'amount' => $this->input->post('cus_amount'),
+	                                // 'startdate' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))), 
+	                                // 'enddate' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))), 
+	                                // 'payment_status' => $this->input->post('cus_paymentactivestatus'),
+	                                // 'name' => $this->input->post('cus_profileactivestatus'),
 
-	                                'name' => $this->input->post('cus_paymenttype'),
-	                                'active_status' => $this->input->post('cus_period'),
-	                                'name' => $this->input->post('cus_billnumber'),
-	                                'name' => $this->input->post('cus_amount'),
-	                                'active_status' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))), 
-	                                'name' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))), 
-	                                'active_status' => $this->input->post('cus_paymentactivestatus'),
-	                                'name' => $this->input->post('cus_profileactivestatus'),
+	                                // 'user_registeredby' => ($this->input->post('cus_regby')) ? $this->input->post('cus_regby') : NULL,
+	                                // 'name' => $this->input->post('cus_fname'),
+	                                // 'active_status' => $this->input->post('cus_gender'),
+	                                // 'name' => date('Y-m-d',strtotime($this->input->post('cus_dob'))),
+	                                // 'user_maritalstatus' => $this->input->post('cus_marstatus'),
+	                                // 'name' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
+	                                // 'rel_religion' => $this->input->post('cus_religion'),
+	                                // 'rel_caste' => $this->input->post('cus_caste'),
+	                                // 'rel_dhosham' => $this->input->post('cus_dosham'),
+	                                // 'name' => ($this->input->post('cus_nakshathra')) ? $this->input->post('cus_nakshathra') : NULL,
+	                                // 'active_status' => ($this->input->post('cus_lukhnam')) ? $this->input->post('cus_lukhnam') : NULL,
+	                                // 'rel_gothra' => $this->input->post('cus_gothra'),                               
+	                                // 'name' => ($this->input->post('cus_zodiac')) ? $this->input->post('cus_zodiac') : NULL,
 
-	                                'active_status' => ($this->input->post('cus_regby')) ? $this->input->post('cus_regby') : NULL,
-	                                'name' => $this->input->post('cus_fname'),
-	                                'active_status' => $this->input->post('cus_gender'),
-	                                'name' => date('Y-m-d',strtotime($this->input->post('cus_dob'))),
-	                                'active_status' => $this->input->post('cus_marstatus'),
-	                                'name' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
-	                                'active_status' => $this->input->post('cus_religion'),
-	                                'name' => $this->input->post('cus_caste'),
-	                                'active_status' => $this->input->post('cus_dosham'),
-	                                'name' => ($this->input->post('cus_nakshathra')) ? $this->input->post('cus_nakshathra') : NULL,
-	                                'active_status' => ($this->input->post('cus_lukhnam')) ? $this->input->post('cus_lukhnam') : NULL,
-	                                'name' => $this->input->post('cus_gothra'),                               
-	                                'active_status' => ($this->input->post('cus_zodiac')) ? $this->input->post('cus_zodiac') : NULL,
+	                                // 'edu_education' => ($this->input->post('cus_education')) ? $this->input->post('cus_education') : NULL,
+	                                // 'edu_educationdetails' => $this->input->post('cus_edudetail'),
+	                                // 'edu_occupation' => ($this->input->post('cus_occupation')) ? $this->input->post('cus_occupation') : NULL,
+	                                // 'edu_employedin' => ($this->input->post('cus_empin')) ? $this->input->post('cus_empin') : NULL,
+	                                // 'edu_montlyincome' => $this->input->post('cus_moninc'),
+	                                // 'comm_residence' => $this->input->post('cus_resident'),
+	                                // 'comm_current_countrycountry' => ($this->input->post('cus_curcountry')) ? $this->input->post('cus_curcountry') : NULL,
+	                                // 'comm_current_city' => $this->input->post('cus_curcity'),
+	                                // 'comm_current_district' => $this->input->post('cus_curdistrict'),
+	                                // 'comm_communication_address' => $this->input->post('cus_curaddress'),
+	                                // 'comm_phone_no' => $this->input->post('cus_curphone'),
+	                                // 'comm_mobile_no' => $this->input->post('cus_curmobile'),
 
-	                                'name' => ($this->input->post('cus_education')) ? $this->input->post('cus_education') : NULL,
-	                                'active_status' => $this->input->post('cus_edudetail'),
-	                                'name' => ($this->input->post('cus_occupation')) ? $this->input->post('cus_occupation') : NULL,
-	                                'active_status' => ($this->input->post('cus_empin')) ? $this->input->post('cus_empin') : NULL,
-	                                'name' => $this->input->post('cus_moninc'),
-	                                'active_status' => $this->input->post('cus_resident'),
-	                                'active_status' => ($this->input->post('cus_curcountry')) ? $this->input->post('cus_curcountry') : NULL,
-	                                'name' => $this->input->post('cus_curcity'),
-	                                'active_status' => $this->input->post('cus_curdistrict'),
-	                                'active_status' => $this->input->post('cus_curaddress'),
-	                                'active_status' => $this->input->post('cus_curphone'),
-	                                'active_status' => $this->input->post('cus_curmobile'),
+	                                // 'phy_height' => $this->input->post('cus_heightcms'),
+	                                // 'active_status' => $this->input->post('cus_weight'),
+	                                // 'active_status' => $this->input->post('cus_bodytype'),
+	                                // 'active_status' => $this->input->post('cus_complexion'),
+	                                // 'active_status' => $this->input->post('cus_phystatus'),
 
-	                                'active_status' => $this->input->post('cus_heightcms'),
-	                                'active_status' => $this->input->post('cus_weight'),
-	                                'active_status' => $this->input->post('cus_bodytype'),
-	                                'active_status' => $this->input->post('cus_complexion'),
-	                                'active_status' => $this->input->post('cus_phystatus'),
-
-	                                'active_status' => $this->input->post('cus_food'),
-	                                'active_status' => $this->input->post('cus_fathername'),
-	                                'active_status' => $this->input->post('cus_fatheremp'),
-	                                'active_status' => $this->input->post('cus_mothername'),
-	                                'active_status' => $this->input->post('cus_motheremp'),
-	                                'active_status' => $this->input->post('cus_familystatus'),
-	                                'active_status' => $this->input->post('cus_familytype'),
-	                                'active_status' => $this->input->post('cus_broelder'),
-	                                'active_status' => $this->input->post('cus_broyoung'),
-	                                'active_status' => $this->input->post('cus_siselder'),
-	                                'active_status' => $this->input->post('cus_sisyoung'),
-	                                'active_status' => $this->input->post('cus_broeldermar'),
-	                                'active_status' => $this->input->post('cus_broyoungmar'),
-	                                'active_status' => $this->input->post('cus_siseldermar'),
-	                                'active_status' => $this->input->post('cus_sisyoungmar'),
-	                                'active_status' => $this->input->post('cus_abtfamily'),
-	                                'active_status' => $this->input->post('cus_personality'),
-	                                'active_status' => $this->input->post('cus_expect'),
-	                                'active_status' => $this->input->post('cus_profileimage'),
-	                              ); 
+	                                // 'phy_food' => $this->input->post('cus_food'),
+	                                // 'comm_father_name' => $this->input->post('cus_fathername'),
+	                                // 'comm_father_employment' => $this->input->post('cus_fatheremp'),
+	                                // 'comm_mother_name' => $this->input->post('cus_mothername'),
+	                                // 'comm_mother_employment' => $this->input->post('cus_motheremp'),
+	                                // 'comm_family_status' => $this->input->post('cus_familystatus'),
+	                                // 'comm_family_type' => $this->input->post('cus_familytype'),
+	                                // 'comm_number_of_brothers_el' => $this->input->post('cus_broelder'),
+	                                // 'comm_number_of_brothers_yo' => $this->input->post('cus_broyoung'),
+	                                // 'comm_number_of_sisters_el' => $this->input->post('cus_siselder'),
+	                                // 'active_status' => $this->input->post('cus_sisyoung'),
+	                                // 'comm_number_of_brothers_el_mar' => $this->input->post('cus_broeldermar'),
+	                                // 'comm_number_of_brothers_yo_mar' => $this->input->post('cus_broyoungmar'),
+	                                // 'active_status' => $this->input->post('cus_siseldermar'),
+	                                // 'active_status' => $this->input->post('cus_sisyoungmar'),
+	                                // 'comm_about_family' => $this->input->post('cus_abtfamily'),
+	                                // 'active_status' => $this->input->post('cus_personality'),
+	                                // 'active_status' => $this->input->post('cus_expect'),
+	                                // 'active_status' => $this->input->post('cus_profileimage'),
+	                              );
+								  // print_r($profileimage_update_data);
 	        // }
 	        // else {
 	        //   $zodiac_update_data = array( 
@@ -102,6 +181,42 @@ class Customeruser_data_model extends CI_Model {
 	        // $this->db->set($zodiac_update_data); 
 	        // $this->db->where($zodiac_update_where);
 	        // $this->db->update("zodiac_sign", $zodiac_update_data);
+
+			$userdetail_update_where = '(userdetail_id="'.$this->input->post('rid').'")'; 
+	        $this->db->set($userdetail_update_data); 
+	        $this->db->where($userdetail_update_where);
+	        $this->db->update("reg_userdetail", $userdetail_update_data);
+
+	        $paymentdetail_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+	        $this->db->set($paymentdetail_update_data); 
+	        $this->db->where($paymentdetail_update_where);
+	        $this->db->update("reg_payment", $paymentdetail_update_data);
+
+	        $religion_ethnicity_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+	        $this->db->set($religion_ethnicity_update_data); 
+	        $this->db->where($religion_ethnicity_update_where);
+	        $this->db->update("reg_religion_ethnicity", $religion_ethnicity_update_data);
+
+	        $education_occupation_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+	        $this->db->set($education_occupation_update_data); 
+	        $this->db->where($education_occupation_update_where);
+	        $this->db->update("reg_education_occupation", $education_occupation_update_data);
+
+	        $communication_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+	        $this->db->set($communication_update_data); 
+	        $this->db->where($communication_update_where);
+	        $this->db->update("reg_communication_family", $communication_update_data);
+
+	        $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+	        $this->db->set($physicalattributes_update_data); 
+	        $this->db->where($physicalattributes_update_where);
+	        $this->db->update("reg_physical_expectation", $physicalattributes_update_data);
+
+	        $profileimage_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+	        $this->db->set($profileimage_update_data); 
+	        $this->db->where($profileimage_update_where);
+	        $this->db->update("user_images", $profileimage_update_data);
+
 	        // echo $this->db->last_query(); 
 	        $model_data['status'] = "Updated Successfully";
 	        $model_data['error'] = 2;

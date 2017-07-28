@@ -1218,7 +1218,7 @@ include('include/menu.php');
                                                                     <div class="col-md-6 upload_box hr-box">
                                                                         <span></span>
                                                                         <p id="msg"></p>
-                                                                        <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" />
+                                                                        <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" /><br>
                                                                         <input type="button" id="upload" value="upload" name ="upload">
                                                                     </div>
                                                                 </div>        

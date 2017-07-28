@@ -69,6 +69,7 @@ $route['mymatches'] 						= "base/mymatches";
 $route['upload_file'] 						= "base/upload_file";
 $route['logout'] 							= "base/logout";
 $route['myedit'] 							= "base/myedit";
+$route['newreg'] 							= "base/newreg";
 
 
 // $route['admin'] 							= "admin/base/index";
