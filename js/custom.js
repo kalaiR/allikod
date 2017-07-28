@@ -18,20 +18,19 @@ $(document).ready(function () {
 
     // Show and Hide Search Div
     $(".slidingDiv").hide();
-    $(".show_hide").show();
-
-    $('.show_hide').click(function(){
-        $(".slidingDiv").slideToggle();
+    
+    $('.view_communication').click(function(){
+          $(".slidingDiv").slideToggle();
     });
     
 });
 
-$(window).load(function(){
-    if($('.text_short').length >=1){
-        // alert("text_short");
-        .s
-    }
-});
+// $(window).load(function(){
+//     if($('.text_short').length >=1){
+        
+        
+//     }
+// });
 
 
 
