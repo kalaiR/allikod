@@ -402,7 +402,19 @@ class Base extends CI_Controller {
 		$this->load->view('viewdetail',$data);
 	}
 	public function myprofile(){
-		$this->load->view('myprofile');
+		// echo "test";
+		// if(!empty($this->session->userdata("login_status"))){ 
+        $login_session = $this->session->userdata("login_session");
+        // print_r($login_session);
+		$id = $login_session['userdetail_id'];
+		$data['results'] = $this->user_model->get_viewdetails_byid($id);
+		$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
+		$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
+		$this->load->view('myprofile',$data);
+		// echo $id;
+		// echo '<pre>';
+		// print_r($data);
+		// echo '</pre>';
 	}
 	public function mymatches(){
 		$this->load->view('mymatches');

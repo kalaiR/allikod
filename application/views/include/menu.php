@@ -142,10 +142,11 @@
                         <?php 
                             // if(!empty($this->session->userdata("login_status"))){ 
                             $user_session = $this->session->userdata("login_status");
+                            $user_session_data = $this->session->userdata("login_session");
                             if (!empty($user_session)){
                         ?>
                         <li class="dropdown submenu">
-                            <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, Madhi <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                            <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome,<?php echo $user_session_data['user_fname']; ?><i class="fa fa-user-circle" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu">
                                 <!--li><a href="<?php echo base_url(); ?>mymatches">Matches</a></li-->
                                 <li><a href="<?php echo base_url(); ?>myprofile">My Profile</a></li>
