@@ -28,7 +28,7 @@
                         <div class="col-sm-6">
                             <div class="registration_form_s">
                                 <h4>Registration</h4>
-                                <form method="post" action="index" name="index_reg" id="index_reg" class="reg_form">
+                                <form method="post" action="<?php echo base_url(); ?>index" name="index_reg" id="index_reg" class="reg_form">
                                 <span class="val_status" style="display: block;">
                                     <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
                                 </span>
@@ -135,7 +135,7 @@
                     <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                     
                 </div>
-                <form method="post" class="box basic_search" action="search_result" id="quick_search" name="quick_search" >
+                <form method="post" class="box basic_search" action="<?php echo base_url(); ?>search_result" id="quick_search" name="quick_search" >
                 <div class="row">
                     <div class="col-sm-9">
                             <div class="search_option">
