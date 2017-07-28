@@ -6,9 +6,7 @@ include('include/menu.php');
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Search People Here<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt="">
-                    </h3>
-                    
+                    <h3 title="Search People"><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Search People Here<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>                    
                 </div>
             </div>
         </section>
@@ -186,9 +184,13 @@ include('include/menu.php');
                                                                 <div class="col-sm-5 box">
                                                                     <select class="form-control" name="education[]" id="education">
                                                                     <?php 
-                                                                        if(!empty($education)) :
+                                                                    if(!empty($education)) :
                                                                         foreach ($education as $cls_val) {
-                                                                        echo "<option value='" . $cls_val['education_id'] . "'>" . ucfirst($cls_val['edu_name']) . "</option>";
+                                                                            if($cls_val['education_id'] == '51') {
+                                                                                echo "<option value='" . $cls_val['education_id'] . "' selected>" . ucfirst($cls_val['edu_name']) . "</option>";
+                                                                            }else{ 
+                                                                            echo "<option value='" . $cls_val['education_id'] . "'>" . ucfirst($cls_val['edu_name']) . "</option>";
+                                                                            }
                                                                         }
                                                                     endif;
                                                                     ?>

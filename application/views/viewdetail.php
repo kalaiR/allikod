@@ -69,6 +69,7 @@ include('include/menu.php');
                                     <h3 id="hcolor">Communication Detail</h3>
                                     <div class="profile_list"> 
                                     <p><b>Click the button to view the contact details</b>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" value="View" class="btn form-control login_btn view_communication">View</button></p><br>
+                                    <input type="hidden" class="check_payment_status" value="<?php echo $this->session->userdata("login_status"); ?>">
                                     <!-- <a href="search.html" class="register_angkar_btn">View</a> -->
                                     <?php 
                                         $user_session = $this->session->userdata("login_session");

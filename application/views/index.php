@@ -28,12 +28,16 @@
                         <div class="col-sm-6">
                             <div class="registration_form_s">
                                 <h4>Registration</h4>
-                                <form method="post" action="index" name="index_reg" id="index_reg" class="reg_form">
+                                <form method="post" action="<?php echo base_url(); ?>index" name="index_reg" id="index_reg" class="reg_form">
                                 <span class="val_status" style="display: block;">
                                     <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
                                 </span>
-                                    <div class="form-group">
-                                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span data-bind="label" class="text-font">Registered By *</span>
+                                         </div>
+                                        <div class="col-md-6">  
+                                            <div class="form-group">
                                                     <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                                     <span data-bind="label">Registered By</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
                                                     </button> -->
@@ -43,7 +47,7 @@
                                                         <li><a href="<?php echo base_url(); ?>#">Brother</a></li>
                                                         <li><a href="<?php echo base_url(); ?>#">Sister</a></li>
                                                     </ul> -->
-                                                    <span data-bind="label" class="text-font">Registered By</span>
+                                                    
                                                     <select class="form-control customize_plan form_inputs" name="register_by[]" id="register_by" placeholder="RegisterBy-Name">
                                                         <option value="">Select</option>
                                                         <?php
@@ -55,44 +59,92 @@
                                                         ?>
                                                     </select>
                                                 </div>
+                                            </div>    
                                     </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form_inputs" id="reg_Name" placeholder="Name" name="reg_Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form_inputs" id="reg_age" placeholder="Age" name="reg_age">
-                                    </div>
-                                        
-                                    <div class="form-group">
-                                        <!-- <input type="text" class="form-control" id="reg_Religion" name="reg_Religion"placeholder="Religion"> -->
-                                        <span data-bind="label" class="text-font">Marital Status</span>
-                                        <select class="form-control customize_plan form_inputs" name="marital_status[]">
-                                            <option value="">Select</option>
-                                                <?php 
-                                                if(!empty($martial_status)) :
-                                                foreach ($martial_status as $cls_val) {
-                                                echo "<option value='" . $cls_val['maritalcategory_id'] . "'>" . ucfirst($cls_val['marital_name']) . "</option>";
-                                                }
-                                                endif;
-                                                ?>
-                                        </select>  
-
-                                    </div>
-                                    <!-- <div class="form-group">
-                                        <input type="text" class="form-control" id="reg_Mobile" name="reg_Mobile" placeholder="Mobile">
-                                    </div> -->
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form_inputs" id="reg_email2" name="reg_email2" placeholder="Email">
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form_inputs" id="reg_pass2" name="reg_pass2" placeholder="Password">
-                                    </div>
-
                                     <div class="row">
+                                        <div class="col-sm-6 box">
+                                            <span data-bind="label" class="text-font">Name *</span>
+                                         </div>
+                                        <div class="col-md-6">  
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form_inputs" id="reg_Name" placeholder="" name="reg_Name">
+                                            </div>
+                                        </div>    
+                                    </div>    
+                                    <div class="row">
+                                        <div class="col-sm-6 box">
+                                            <span data-bind="label" class="text-font">Age *</span>
+                                         </div>
+                                        <div class="col-md-6">     
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form_inputs" id="reg_age" placeholder="" name="reg_age">
+                                            </div>
+                                        </div>    
+                                    </div>    
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span data-bind="label" class="text-font">Country *</span>
+                                         </div>
+                                        <div class="col-md-6">    
+                                            <div class="form-group">
+                                                <select class="form-control customize_plan form_inputs" name="Country">
+                                                    <option value="">Select</option>
+                                                    <option value="1">Other</option>
+                                                </select>  
+                                            </div>
+                                        </div>    
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 box">
+                                           <span data-bind="label" class="text-font">Mother Tongue *</span>
+                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <span data-bind="label" class="text-font">Gender</span>
+                                                <!-- <input type="text" class="form-control" id="reg_Religion" name="reg_Religion"placeholder="Religion"> -->
+                                                
+                                                <select class="form-control customize_plan form_inputs" name="Country">
+                                                    <option value="">Select</option>
+                                                    <option value="1">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>         
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 box">
+                                            <span data-bind="label" class="text-font">Mobile *</span>
+                                         </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="reg_Mobile" name="reg_Mobile" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>    
+                                    <div class="row">
+                                         <div class="col-sm-6 box">
+                                            <span data-bind="label" class="text-font">Email *</span>
+                                         </div>
+                                         <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control form_inputs" id="reg_email2" name="reg_email2" placeholder="">
+                                            </div>
+                                         </div>   
+                                    </div>    
+                                    <div class="row">
+                                        <div class="col-sm-6 box">
+                                            <span data-bind="label" class="text-font"> Password *</span>
+                                         </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="password" class="form-control form_inputs" id="reg_pass2" name="reg_pass2" placeholder="">
+                                            </div>
+                                        </div>   
+                                    </div>    
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span data-bind="label" class="text-font">Gender *</span>
+                                         </div>
+                                         <div class="col-md-6">
+                                            <div class="form-group">
                                                 <select class="form-control customize_plan form_inputs" name="gender[]" id="gender">
                                                         <option value="">Select</option>
                                                         <option value="1">Male</option>
@@ -100,14 +152,14 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <!-- <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="datepicker">
                                                     <input type='text' class="form-control datetimepicker4 form_inputs" placeholder="Birthday" name="dob" id="dob" />
                                                     <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
                                     <div class="reg_chose form-group">
@@ -135,7 +187,7 @@
                     <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                     
                 </div>
-                <form method="post" class="box basic_search" action="search_result" id="quick_search" name="quick_search" >
+                <form method="post" class="box basic_search" action="<?php echo base_url(); ?>search_result" id="quick_search" name="quick_search" >
                 <div class="row">
                     <div class="col-sm-9">
                             <div class="search_option">
