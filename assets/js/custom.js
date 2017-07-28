@@ -160,14 +160,9 @@ $(document).ready(function () {
         //     $('#' + selectedolditem).addClass("active");
         // }
 
-        //Tooltip
-    $('[data-toggle="tooltip"]').tooltips(); 
-
-
         // Show and Hide Search Div
     $(".slidingDiv").hide();
-    $(".view_communication").show();
-
+    
     $('.view_communication').click(function(){
         if($('.slidingDiv').length == 0)
             alert("please pay at vallikodimatrimonial.in");

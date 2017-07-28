@@ -8265,22 +8265,70 @@ ol a{
  width:200px;
 }
 
+/*Columns of user*/
+.dark{
+  font-weight: bold;
+  color: #334249;
+}
+p{
+    padding: 10px;
+}
 
+/*Text Crunch Lines*/
+.clips{
+  white-space: nowrap; 
+    width: 100px; 
+    overflow: hidden;
+    text-overflow: clip;
+}
+.text_short{
+  white-space: nowrap; 
+    width: 10em; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 /*Tooltip*/
-/*.tooltips{position:absolute;z-index:1070;display:block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:12px;font-style:normal;font-weight:400;line-height:1.42857143;text-align:left;text-align:start;text-decoration:none;text-shadow:none;text-transform:none;letter-spacing:normal;word-break:normal;word-spacing:normal;word-wrap:normal;white-space:normal;filter:alpha(opacity=0);opacity:0;line-break:auto;}
-.tooltips.in{filter:alpha(opacity=90);opacity:.9}
-.tooltips.top{padding:5px 0;margin-top:-3px}
-.tooltips.right{padding:0 5px;margin-left:3px}
-.tooltips.bottom{padding:5px 0;margin-top:3px}
-.tooltips.left{padding:0 5px;margin-left:-3px}
-.tooltips-inner{max-width:200px;padding:3px 8px;color:#fff;text-align:center;background-color:#000;border-radius:4px}
-.tooltips-arrow{position:absolute;width:0;height:0;border-color:transparent;border-style:solid}
-.tooltips.top .tooltips-arrow{bottom:0;left:50%;margin-left:-5px;border-width:5px 5px 0;border-top-color:#000}
-.tooltips.top-left .tooltips-arrow{right:5px;bottom:0;margin-bottom:-5px;border-width:5px 5px 0;border-top-color:#000}
-.tooltips.top-right .tooltips-arrow{bottom:0;left:5px;margin-bottom:-5px;border-width:5px 5px 0;border-top-color:#000}
-.tooltips.right .tooltips-arrow{top:50%;left:0;margin-top:-5px;border-width:5px 5px 5px 0;border-right-color:#000}
-.tooltips.left .tooltips-arrow{top:50%;right:0;margin-top:-5px;border-width:5px 0 5px 5px;border-left-color:#000}
-.tooltips.bottom .tooltips-arrow{top:0;left:50%;margin-left:-5px;border-width:0 5px 5px;border-bottom-color:#000}
-.tooltips.bottom-left .tooltips-arrow{top:0;right:5px;margin-top:-5px;border-width:0 5px 5px;border-bottom-color:#000}
-.tooltips.bottom-right .tooltips-arrow{top:0;left:5px;margin-top:-5px;border-width:0 5px 5px;border-bottom-color:#000}
-*/
+.tooltips {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltips .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltips .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltips:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*Show and Hide*/
+.slidingDiv {
+}
+
+.view_communication {
+}

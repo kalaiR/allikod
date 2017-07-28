@@ -75,32 +75,59 @@ include('include/menu.php');
                                         // print_r($user_session);  
                                         if($user_session['payment_status'] == 1 && $user_session['no_of_profiles_viewed'] < $user_session['totalno_of_profile']):
                                     ?>
-                                        <div class="slidingDiv">                                    
-                                            <ul>
-                                                <li><a href="#">Residence</a></li>
-                                                <li><a href="#">Current Country</a></li>
-                                                <li><a href="#">Current City</a></li>
-                                                <li><a href="#">Current District</a></li>
-                                            </ul>
-                                            <ul>
-                                                <li><a href="#"><?php if(!empty($results['comm_residence'])) echo $results['comm_residence']; else echo "--"; ?></a></li>
-                                                <li><a href="#"><?php if(!empty($results['comm_current_countrycountry'])) echo $results['comm_current_countrycountry']; else echo "--"; ?></a></li>
-                                                <li><a href="#"><?php if(!empty($results['comm_current_city'])) echo $results['comm_current_city']; else echo "--"; ?></a></li>
-                                                <li><a href="#"><?php if(!empty($results['comm_current_district'])) echo $results['comm_current_district']; else echo "--"; ?></a></li>
-                                            </ul>
-                                            <ul>
-                                                <li><a href="#">Communication Address</a></li>
-                                                <li><a href="#">Phone Number</a></li>
-                                                <li><a href="#">Mobile Number</a></li>
-                                                <!-- <li><a href="#">-</a></li> -->
-                                            </ul>
-                                            <ul>
-                                                <li><a href="#"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></a></li>
-                                                <li><a href="#"><?php if(!empty($results['comm_phone_no'])) echo $results['comm_phone_no']; else echo "--"; ?></a></li>
-                                                <li><a href="#"><?php if(!empty($results['comm_mobile_no'])) echo $results['comm_mobile_no']; else echo "--"; ?></a></li>
-                                                <li><a></a></li>                             
-                                            </ul>
-                                        </div> 
+                                        <div class="slidingDiv">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Residence</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php if(!empty($results['comm_residence'])) echo $results['comm_residence']; else echo "--"; ?></p>
+                                                    </div>
+                                                    <div  class="col-md-6 col-xs-6">
+                                                    <p>Current Country</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php if(!empty($results['comm_current_countrycountry'])) echo $results['comm_current_countrycountry']; else echo "--"; ?></p>
+                                                    </div >
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Current City</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php if(!empty($results['comm_current_city'])) echo $results['comm_current_city']; else echo "--"; ?></p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 ">
+                                                    <p>District</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php if(!empty($results['comm_current_district'])) echo $results['comm_current_district']; else echo "--"; ?></p>
+                                                    </div>                          
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="col-md-6 col-xs-6 ">
+                                                    <p>Communication Address</p>
+                                                    </div>
+                                                    <div class="col-md-4  dark">
+                                                        <p class="text_short"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></p>
+                                                    </div>
+                                                    <div class="col-md-1 tooltips">
+                                                        <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></span>
+                                                    </div>
+                                                    <div  class="col-md-6 col-xs-6 ">
+                                                    <p>Phone Number</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php if(!empty($results['comm_phone_no'])) echo $results['comm_phone_no']; else echo "--"; ?></p>
+                                                    </div >
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Phone Number</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php if(!empty($results['comm_mobile_no'])) echo $results['comm_mobile_no']; else echo "--"; ?></p>
+                                                    </div>                                     
+                                                </div>
+                                            </div>  <!-- row ends -->             
+                                         </div> 
                                     <?php endif; ?>
                                     </div>                                                           
                                 </div>                  
@@ -164,76 +191,156 @@ include('include/menu.php');
                                 <div id="">
                                 <h3 id="hcolor">Education & Occupation</h3>
                                 </div>
-                                <div class="profile_list">                                    
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Education in Detail</a></li>
-                                            <li><a href="#">Occupation</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#"><?php echo $results['edu_name']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['edu_educationdetails']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['occupation_name']; ?></a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Employed In</a></li>
-                                            <li><a href="#">Monthly Income (<i class="fa fa-inr" aria-hidden="true"></i>)</a></li>
-                                            <li><a href="#">Occupation in Detail</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#"><?php echo $results['empin_name']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['edu_montlyincome']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['edu_occupationdetail']; ?></a></li>           
-                                            
-                                        </ul>
+                                <div class="profile_list">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Education</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p><?php echo $results['edu_name']; ?></p>
+                                            </div >
+                                            <div class="col-md-6 col-xs-6 ">
+                                            <p>Education in Detail</p>
+                                            </div>
+                                            <div class="col-md-4  dark">
+                                                <p class="text_short"><?php echo $results['edu_educationdetails']; ?></p>
+                                            </div>
+                                            <div class="col-md-1 tooltips">
+                                                <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['edu_educationdetails']; ?></span>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Occupation</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p><?php echo $results['occupation_name']; ?></p>
+                                            </div>                                 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="col-md-6 col-xs-6 ">
+                                            <p>Occupation in Detail</p>
+                                            </div>
+                                            <div class="col-md-4  dark">
+                                                <p class="text_short"><?php echo $results['edu_occupationdetail']; ?></p>
+                                            </div>
+                                            <div class="col-md-1 tooltips">
+                                                <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['edu_occupationdetail']; ?></span>
+                                            </div>
+                                            <div  class="col-md-6 col-xs-6 ">
+                                            <p>Employed In</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p><?php echo $results['empin_name']; ?></p>
+                                            </div >
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Monthly Income</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p><?php echo $results['edu_montlyincome']; ?></p>
+                                            </div>                                     
+                                        </div>
+                                    </div>                                 
                                     </div>                                             
                                 </div>
                                 <div class="members_about_box">
                                 <div id="">
                                 <h3 id="hcolor">Family</h3>
                                 </div>                            
-                                <div class="profile_list">                                    
-                                        <ul>
-                                            <li><a href="#">Father's Name</a></li>
-                                            <li><a href="#">Mother's Name</a></li>
-                                            <li><a href="#">Father's Occupation</a></li>
-                                            <li><a href="#">Mother's Occupation</a></li>
-                                            <li><a href="#">Family Status</a></li>
-                                            <li><a href="#">Family Type</a></li>
-                                            <!-- <li><a href="#">Work as</a></li> -->
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#"><?php echo $results['comm_father_name']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['comm_mother_name']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['comm_father_employment']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['comm_mother_employment']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['family_statusname']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['family_typename']; ?></a></li>
-                                            <!-- <li><a href="#">Designer</a></li> -->
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">-</a></li>
-                                            <li><a href="#">No. of Brothers</a></li>
-                                            <li><a href="#">No. of Sisters</a></li>
-                                            <li><a href="#">No. of Brothers Married</a></li>
-                                            <li><a href="#">No. of Sisters Married</a></li>                           
-                                        </ul>
-                                        <ul>
-                                           <li><a href="#">Elder</a></li>
-                                           <li><a href="#"><?php echo $results['comm_number_of_brothers_el']; ?></a></li>
-                                           <li><a href="#"><?php echo $results['comm_number_of_sisters_el']; ?></a></li>
-                                           <li><a href="#"><?php echo $results['comm_number_of_brothers_el_mar']; ?></a></li>
-                                           <li><a href="#"><?php echo $results['comm_number_of_sisters_el_mar']; ?></a></li> 
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">younger</a></li>
-                                            <li><a href="#"><?php echo $results['comm_number_of_brothers_yo']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['comm_number_of_sisters_yo']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['comm_number_of_brothers_yo_mar']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['comm_number_of_sisters_yo_mar']; ?></a></li>
-                                        </ul>
-                                    </div>                                             
-                                </div>
+                                <div class="profile_list">    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Father's Name</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p><?php echo $results['comm_father_name']; ?></p>
+                                            </div>
+                                            <div  class="col-md-6 col-xs-6 ">
+                                            <p>Mothers Name</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p><?php echo $results['comm_mother_name']; ?></p>
+                                            </div >
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Father's Occupation</p>
+                                            </div>
+                                            <div class="col-md-4 col-xs-6 dark">
+                                                <p class="text_short"><?php echo $results['comm_father_employment']; ?></p>
+                                            </div>
+                                            <div class="col-md-1 col-xs-1 tooltips">
+                                                <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['comm_father_employment']; ?></span>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Mothers's Occupation</p>
+                                            </div>
+                                            <div class="col-md-4 col-xs-6 dark">
+                                                <p class="text_short"><?php echo $results['comm_mother_employment']; ?></p>
+                                            </div>
+                                            <div class="col-md-1 col-xs-1 tooltips">
+                                                <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['comm_mother_employment']; ?></span>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Family Status</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p><?php echo $results['family_statusname']; ?></p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Family Type</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p><?php echo $results['family_typename']; ?></p>
+                                            </div>                                                
+                                        </div>
+                                        <div class="col-md-6">              
+                                            <div  class="col-md-6 col-xs-6">
+                                            <p></p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 dark">
+                                                <p>Elder</p>
+                                            </div >
+                                            <div class="col-md-3 col-xs-3 dark">
+                                            <p>Younger</p>
+                                            </div>
+                                            <div  class="col-md-6 col-xs-6">
+                                            <p>No.of Brothers</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 dark">
+                                                <p><?php echo $results['comm_number_of_brothers_el']; ?></p>
+                                            </div >
+                                            <div class="col-md-3 col-xs-3 dark">
+                                            <p><?php echo $results['comm_number_of_brothers_yo']; ?></p>
+                                            </div>
+                                            <div  class="col-md-6 col-xs-6">
+                                            <p>No.of Sisters</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 dark">
+                                                <p><?php echo $results['comm_number_of_sisters_el']; ?></p>
+                                            </div >
+                                            <div class="col-md-3 col-xs-3 dark">
+                                            <p><?php echo $results['comm_number_of_sisters_yo']; ?></p>
+                                            </div>
+                                            <div  class="col-md-6 col-xs-6">
+                                            <p>No.of Married Brothers</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 dark">
+                                                <p><?php echo $results['comm_number_of_brothers_el_mar']; ?></p>
+                                            </div >
+                                            <div class="col-md-3 col-xs-3 dark">
+                                            <p><?php echo $results['comm_number_of_brothers_yo_mar']; ?></p>
+                                            </div>
+                                            <div  class="col-md-6 col-xs-6">
+                                            <p>No.of Married Sisters</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 dark">
+                                                <p><?php echo $results['comm_number_of_sisters_yo_mar']; ?></p>
+                                            </div >
+                                            <div class="col-md-3 col-xs-3 dark">
+                                            <p><?php echo $results['comm_number_of_sisters_yo_mar']; ?></p>
+                                            </div>                         
+                                        </div>
+                                    </div>                                
+                                </div>                                             
+                            </div>
                                 <div class="members_about_box">
                                     <div id="">
                                         <h3 id="hcolor">Physical Attributes</h3>

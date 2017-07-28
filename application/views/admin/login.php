@@ -73,12 +73,12 @@
 						<div class="alert alert-info admin_status"></div>
 						<fieldset>
 							<div class="input-prepend" title="Username" data-rel="tooltip">
-								<span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10 form_inputs" name="username" id="username" type="text" placeholder="Username" autocomplete="off"/>
+								<span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10 form_inputs" name="username" id="username" type="text" placeholder="Username" autocomplete="off" style="margin-top: 5px" />
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend" title="Password" data-rel="tooltip">
-								<span class="add-on"><i class="icon-lock"></i></span><input class="input-large span10 form_inputs" name="password" id="password" type="password" placeholder="Password" autocomplete="off"/>
+								<span class="add-on"><i class="icon-lock"></i></span><input class="input-large span10 form_inputs" name="password" id="password" type="password" placeholder="Password" autocomplete="off" style="margin-top: 5px"/>
 							</div>
 							<div class="clearfix"></div>
 
