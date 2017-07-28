@@ -12,6 +12,9 @@ UPDATE reg_userdetail SET user_online_or_simple =  'online' WHERE userdetail_pro
 UPDATE reg_userdetail SET user_online_or_simple =  'simple' WHERE userdetail_profile_id !=0;
 
 
+ALTER TABLE `reg_userdetail` DROP INDEX `userdetail_profile_id` 
+
+
 
 
 

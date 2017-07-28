@@ -11,9 +11,9 @@
             <div class="container">
                 <div class="banner_content">
                     <h3 title="Gallery"><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Gallery<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
-                    <a href="#">Home</a>
+                    <!-- <a href="#">Home</a>
                     <a href="#">Gallery</a>
-                    <a href="#">Gallery Full Width</a>
+                    <a href="#">Gallery Full Width</a> -->
                 </div>
             </div>
         </section>
