@@ -1,11 +1,11 @@
 $(document).ready(function() {
-  // Show and Hide search Div
-    $(".slidingDiv").hide();
-$(".show_hide").show();
+  // Show and Hide Search Div
 
-$('.show_hide').click(function(){
-$(".slidingDiv").slideToggle();
-});
+        $(".slidingDiv").hide();
+        $('.search_customer').click(function(){
+        $(".slidingDiv").slideToggle();
+        });
+
     // Active menu
  $("li").click(function () {
             var id = $(this).attr("id");
