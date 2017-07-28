@@ -7,7 +7,7 @@ include('include/menu.php');
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3 title="Register Here"><img class="left_img" src="<?php echo base_url(); ?>assets/img/banner/t-left-img.png" alt="">Register Here<img class="right_img" src="<?php echo base_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>                    
+                    <h3 title="Register Here"><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Register Here<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>                    
                 </div>
             </div>
         </section>
@@ -16,7 +16,7 @@ include('include/menu.php');
             <div class="container">
                 <div class="welcome_white_title">
                     <h3>Register Here</h3>
-                    <img src="<?php echo base_url(); ?>assets/img/w-title-b.png" alt="">
+                    <img src="<?php echo media_url();?>assets/img/w-title-b.png" alt="">
                 </div>
                 <div class="search_option">
                     <!-- Nav tabs -->
@@ -88,7 +88,7 @@ include('include/menu.php');
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                               <input type="password" class="form-control" id="reg_con_pass" name="reg_con_pass2" placeholder="Confirm Password">
+                                               <input type="password" class="form-control" id="reg_con_pass2" name="reg_con_pass2" placeholder="Confirm Password">
                                             </div>
                                             <div class="col-sm-4 box">
                                                 <span id="reg_con_error" class="registration-error"></span>
@@ -948,8 +948,9 @@ include('include/menu.php');
                                             <div class="col-md-6 upload_box hr-box">
                                                 <span></span>
                                                 <p id="msg"></p>
-                                                <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" /><br> <span id="uploadedfile_error" class="registration-error"></span>
+                                                <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" /><br>
                                                 <input type="button" class="btnAction next_angkar_btn" id="upload" value="upload" name ="upload">
+                                                 <span id="upload_error" class="registration-error"></span>
                                             </div>
                                         </div>        
                                     </div>
