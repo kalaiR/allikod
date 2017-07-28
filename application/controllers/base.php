@@ -23,7 +23,7 @@ class Base extends CI_Controller {
 					'user_age'=>$form_data['reg_age'],
 					'user_dob'=>$form_data['dob'],
 					'user_maritalstatus'=>$form_data['marital_status'][0],
-					'user_registeredby'=>$form_data['register_by'][0]
+					'user_registeredby'=>$form_data['register_by'][0]					
 				);
 		  		$id_userdetails = $this->user_model->insert_registration('reg_userdetail',$data);		  		
 		  		redirect('registration/'.$id_userdetails);
@@ -297,7 +297,7 @@ class Base extends CI_Controller {
 		{
 		 	$config['total_rows'] = 1;
 		}else{
-			echo $config['total_rows'] = $data['total_rows'];
+			$config['total_rows'] = $data['total_rows'];
 		}
 		$config['uri_segment'] = 2;
 		$config['num_links'] = 4;
