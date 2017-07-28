@@ -154,6 +154,10 @@ $(document).ready(function () {
         //     $('#' + selectedolditem).addClass("active");
         // }
 
+        //Tooltip
+    $('[data-toggle="tooltip"]').tooltips(); 
+
+
         // Show and Hide Search Div
     $(".slidingDiv").hide();
     $(".show_hide").show();
