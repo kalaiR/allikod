@@ -165,8 +165,12 @@ $(document).ready(function () {
     $(".view_communication").show();
 
     $('.view_communication').click(function(){
-        if($('.slidingDiv').length == 0)
-            alert("please pay at vallikodimatrimonial.in");
+        if($('.slidingDiv').length == 0){
+            if($('.check_payment_status').val() == 1)
+                alert("Please renew your account at vallikodimatrimonial.in");
+            else
+                alert("Please pay at vallikodimatrimonial.in");
+        }
     $(".slidingDiv").slideToggle();
 });
 
