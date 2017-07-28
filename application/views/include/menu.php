@@ -158,7 +158,7 @@
 
                                 <ul class="nav navbar-nav navbar-right">
                                 <li id="login"><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
-                                <li id="register"><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>Registration</a></li>
+                                <li id="register"><a href="#register_form" class="#"><i class="fa fa-user-plus"></i>Registration</a></li>
                                 </ul>
                         <?php } ?>
                     
