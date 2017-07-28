@@ -18,14 +18,14 @@ $(document).ready(function () {
 
 
 
-// Show and Hide Search Div
+        // Show and Hide Search Div
 
-$(".slidingDiv").hide();
-$(".show_hide").show();
+        $(".slidingDiv").hide();
 
-$('.show_hide').click(function(){
-$(".slidingDiv").slideToggle();
-});
+
+        $('.search_customer').click(function(){
+        $(".slidingDiv").slideToggle();
+        });
 
 });
 

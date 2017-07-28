@@ -218,6 +218,7 @@
                                                     </div>                          
                                                 </div>
                                                 <div class="col-md-6">
+                                                    <div class="com_adr">
                                                     <div class="col-md-6 col-xs-6 ">
                                                     <p>Communication Address</p>
                                                     </div>
@@ -225,7 +226,8 @@
                                                         <p class="text_short">9, first street, NG nagar, Pondicherry, 605111.</p>
                                                     </div>
                                                     <div class="col-md-1 tooltips">
-                                                        <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext">9, first street, NG nagar, Pondicherry, 605111.</span>
+                                                        <i class="fa fa-eye view_icon" aria-hidden="true"></i><span class="tooltiptext">9, first street, NG nagar, Pondicherry, 605111.</span>
+                                                    </div>
                                                     </div>
                                                     <div  class="col-md-6 col-xs-6 ">
                                                     <p>Phone Number</p>
