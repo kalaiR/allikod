@@ -6,9 +6,7 @@ include('include/menu.php');
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Search People Here<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt="">
-                    </h3>
-                    
+                    <h3 title="Search People"><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Search People Here<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>                    
                 </div>
             </div>
         </section>
