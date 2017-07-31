@@ -34,7 +34,7 @@
     						 <div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Login Details</h2>
+										<h2><!-- <i class="icon-th"> -->Login Details</h2>
 										<!-- <div class="box-icon">
 											<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
 											<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
@@ -100,7 +100,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Payment Details</h2>	  			
+										<h2><!-- <i class="icon-th"> -->Payment Details</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -185,7 +185,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Profile Details</h2>	  			
+										<h2><!-- <i class="icon-th"> -->Profile Details</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -255,7 +255,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Religion & Ethnicity</h2>	  			
+										<h2><!-- <i class="icon-th"> -->Religion & Ethnicity</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -337,7 +337,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Education & Occupation</h2>	  			
+										<h2><!-- <i class="icon-th"> -->Education & Occupation</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -408,7 +408,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Communication details</h2>	  			
+										<h2><!-- <i class="icon-th"> -->Communication details</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -471,7 +471,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Physical Attributes</h2>	  			
+										<h2><!-- <i class="icon-th"> -->Physical Attributes</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -539,7 +539,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Habitat</h2>	  			
+										<h2><!-- <i class="icon-th"> -->Habitat</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -562,7 +562,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Family Profile</h2>	  			
+										<h2><!-- <i class="icon-th"> --> Family Profile</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -699,7 +699,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Your Personality</h2>	  			
+										<h2><!-- <i class="icon-th"> --> Your Personality</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -718,7 +718,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Search (Expectation/Looking for</h2>	  			
+										<h2><!-- <i class="icon-th"> --> Search (Expectation/Looking for</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -794,7 +794,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Expectation About Life Partner</h2>	  			
+										<h2><!-- <i class="icon-th"> --> Expectation About Life Partner</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -813,7 +813,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Your Personality</h2>	  			
+										<h2><!-- <i class="icon-th"> --> Your Personality</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -835,7 +835,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Image Activation</h2>	  			
+										<h2><!-- <i class="icon-th"> --> Image Activation</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -856,15 +856,65 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Horoscope</h2>	  			
+										<h2><!-- <i class="icon-th"> --> Horoscope</h2>	  			
 									</div>
 									<div class="box-content">
-										<form class="form-horizontal">
-											<fieldset>											  
-											  					  							  
-											</fieldset>
-										  </form>
-										</div>
+											<div class="col-md-12 col-xs-12">	
+												<!-- <div class="col-md-6">			 -->
+											<!-- Rasi Horoscope - Start -->
+                                                    <div id="horo_container">
+                                                        <div class="horo_row" id="product">
+                                                            <div class="third-row" data-id="box_1" id="box_1">1</div>
+                                                            <div class="third-row" data-id="box_2" id="box_2">2</div>
+                                                            <div class="third-row" data-id="box_3" id="box_3">3</div>
+                                                            <div class="third-row" data-id="box_4" id="box_4">4</div>
+
+                                                            <div class="third-row" data-id="box_12" id="box_12">12</div>
+                                                            <div class="third-row" data-id="box_15" id="box_15">-</div>
+                                                            <div class="third-row" data-id="box_16" id="box_16">-</div>
+                                                            <div class="third-row" data-id="box_5"  id="box_5">5</div>
+
+                                                            <div class="third-row" data-id="box_11" id="box_11">11</div>
+                                                            <div class="third-row" data-id="box_13" id="box_13">-</div>
+                                                            <div class="third-row" data-id="box_14" id="box_14">-</div>
+                                                            <div class="third-row" data-id="box_6"  id="box_6">6</div>
+
+                                                            <div class="third-row" data-id="box_10" id="box_10">10</div>
+                                                            <div class="third-row" data-id="box_9" id="box_9">9</div>
+                                                            <div class="third-row" data-id="box_8" id="box_8">8</div>
+                                                            <div class="third-row" data-id="box_7" id="box_7">7</div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Rasi Horoscope - End -->
+                                                <!-- </div> -->  <!-- row col 6 ends -->
+                                                <!-- <div class="col-md-6"> -->
+                                                    <!-- Asham Horoscope - start -->
+                                                <!-- <div id="asham_horo_container"> -->
+                                                    <div class="asham_horo_row" id="product">
+	                                                    <div class="asham-row" data-id="abox_1" id="abox_1">1</div>
+	                                                    <div class="asham-row" data-id="abox_2" id="abox_2">2</div>
+	                                                    <div class="asham-row" data-id="abox_3" id="abox_3">3</div>
+	                                                    <div class="asham-row" data-id="abox_4" id="abox_4">4</div>
+
+	                                                    <div class="asham-row" data-id="abox_12" id="abox_12">12</div>
+	                                                    <div class="asham-row" data-id="abox_15" id="abox_15">-</div>
+	                                                    <div class="asham-row" data-id="abox_16" id="abox_16">-</div>
+	                                                    <div class="asham-row" data-id="abox_5"  id="abox_5">5</div>
+
+	                                                    <div class="asham-row" data-id="abox_11" id="abox_11">11</div>
+	                                                    <div class="asham-row" data-id="abox_13" id="abox_13">-</div>
+	                                                    <div class="asham-row" data-id="abox_14" id="abox_14">-</div>
+	                                                    <div class="asham-row" data-id="abox_6"  id="abox_6">6</div>
+
+	                                                    <div class="asham-row" data-id="abox_10" id="abox_10">10</div>
+	                                                    <div class="asham-row" data-id="abox_9" id="abox_9">9</div>
+	                                                    <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
+	                                                    <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
+                                                	</div>
+                                              <!-- </div> --><!-- Asham Horoscope - end -->
+                                              <!-- </div>  -->
+                                             </div>     
+										</div> <!-- box content Ends -->
 									</div>
 								</div>
 								<div class="form-actions">
