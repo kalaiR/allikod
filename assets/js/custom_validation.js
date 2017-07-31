@@ -19,7 +19,7 @@
             if(this_val == '') {
                 // alert($(this).attr('name'));
                 error = 1;
-                message ="Please Provide Valid Information!";
+                message ="Please Provide All Mandatory Field !";
                 $(this).addClass('form-field-error');
                 if(tag_name == "select") {
                      $(this).addClass('form-field-error');
@@ -84,7 +84,7 @@
         /* Check whether the input and select element has error or not */
         if($(this).find('input,select').hasClass('form-field-error')) {
             if(message == '') {
-                message ="Please Provide Valid Information!";
+                message ="Please Provide All Mandatory Field !";
             }
             error_msg.addClass('val_error');
             error_msg.html(message).fadeIn(350);
@@ -201,7 +201,7 @@
        //  /* Check whether the input and select element has error or not */
         if($(this).find('input,select').hasClass('form-field-error')) {
             if(message == '') {
-                message ="Please Provide Valid Information!";
+                message ="Please Provide All Mandatory Field !";
             }
             error_msg.addClass('val_error');
             error_msg.html(message).fadeIn(350);

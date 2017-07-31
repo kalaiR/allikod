@@ -1,11 +1,22 @@
 $(document).ready(function() {
-  // Show and Hide search Div
-    $(".slidingDiv").hide();
-$(".show_hide").show();
+  // Show and Hide Search Div
 
-$('.show_hide').click(function(){
-$(".slidingDiv").slideToggle();
-});
+        $(".slidingDiv").hide();
+        $('.search_customer').click(function(){
+        $(".slidingDiv").slideToggle();
+        });
+
+        // Nosorting
+        $('.nosorting').dataTable({
+            "bDestroy": true,
+            "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span12'i><'span12 center'p>>",
+            "sPaginationType": "bootstrap",
+            "oLanguage": {
+            "sLengthMenu": "_MENU_ records per page",
+            },
+            "bSort": false           
+        });
+
     // Active menu
  $("li").click(function () {
             var id = $(this).attr("id");

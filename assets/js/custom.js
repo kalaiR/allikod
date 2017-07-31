@@ -162,8 +162,7 @@ $(document).ready(function () {
 
         // Show and Hide Search Div
     $(".slidingDiv").hide();
-    $(".view_communication").show();
-
+    
     $('.view_communication').click(function(){
         if($('.slidingDiv').length == 0){
             if($('.check_payment_status').val() == 1)

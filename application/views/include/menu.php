@@ -122,7 +122,7 @@
                     <ul class="nav navbar-nav">
                         <li id="home"><a href="<?php echo base_url(); ?>">Home</a></li>
                             
-                        <li id="reg"><a href="<?php echo base_url(); ?>registration">Registration</a></li>
+                        <!-- <li id="reg"><a href="<?php echo base_url(); ?>registration">Registration</a></li> -->
                          <li id="search"><a href="<?php echo base_url(); ?>search">Search</a></li>
                          <li id="gallery"><a href="<?php echo base_url(); ?>gallery">Gallery</a></li>
                          <li id="stories" class="dropdown submenu">
@@ -146,7 +146,7 @@
                             if (!empty($user_session)){
                         ?>
                         <li class="dropdown submenu">
-                            <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome,<?php echo $user_session_data['user_fname']; ?><i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                            <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome,&nbsp&nbsp<?php echo $user_session_data['user_fname']; ?>&nbsp&nbsp<i class="fa fa-user-circle" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu">
                                 <!--li><a href="<?php echo base_url(); ?>mymatches">Matches</a></li-->
                                 <li><a href="<?php echo base_url(); ?>myprofile">My Profile</a></li>
@@ -158,7 +158,7 @@
 
                                 <ul class="nav navbar-nav navbar-right">
                                 <li id="login"><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
-                                <li id="register"><a href="#register_form" class="#"><i class="fa fa-user-plus"></i>Registration</a></li>
+                                <li id="register"><a href="<?php echo base_url(); ?>registration"><i class="fa fa-user-plus"></i>Registration</a></li>
                                 </ul>
                         <?php } ?>
                     
