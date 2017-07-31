@@ -30,33 +30,45 @@
                                     </span>
                                                     <div class="form-group">
                                                         <div class="col-md-10">
-                                                            <input type="text" class="form-control form_inputs" id="bride_name" placeholder="Bride Name" name="bride_name">
+                                                            <input type="text" class="form-control form_inputs" id="bride_name" placeholder="Bride Name (Female) *" name="bride_name">
                                                         </div>
+                                                         <span class="val_status" style="display: inline-block;">
+                                                            <i class="fa fa-info-circle text-box" data-toggle="tooltip" title="Type the name of the Girl"></i>
+                                                        </span>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-md-10 next-box">
-                                                            <input type="text" class="form-control form_inputs" id="groom_name" placeholder="Groom Name" name="groom_name">
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control form_inputs" id="groom_name" placeholder="Groom Name (Male) *" name="groom_name">
                                                         </div>    
+                                                        <span class="val_status" style="display: inline-block;">
+                                                            <i class="fa fa-info-circle text-box" data-toggle="tooltip" title="Type the name of the Boy"></i>
+                                                        </span>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-md-10 next-box">
+                                                        <div class="col-md-10">
                                                             <input type="text" class="form-control form_inputs" id="vallikodi_id" placeholder="Vallikodi ID" name="vallikodi_id">
-                                                        </div>    
+                                                        </div>   
+                                                        <span class="val_status" style="display: inline-block;">
+                                                            <i class="fa fa-info-circle text-box" data-toggle="tooltip" title="Mention the Vallikodi id of the Bride or Groom"></i>
+                                                        </span> 
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-md-10 next-box">
+                                                        <div class="col-md-10">
                                                             <input type="email" class="form-control form_inputs" id="email_id" placeholder="Email" name="email_id">
-                                                        </div>    
+                                                        </div>
+                                                        <span class="val_status" style="display: inline-block;">
+                                                            <i class="fa fa-info-circle text-box" data-toggle="tooltip" title="Enter your E-mail ID"></i>
+                                                        </span>    
                                                     </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <div class="col-md-12 next-box">
+                                                                        <div class="col-md-12">
                                                                             <div class="datepicker">
                                                                                 <input type='text' class="form-control form_inputs datetimepicker4" placeholder="Marriage" name="mariage_date" id="mariage_date"/>
                                                                                 <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>    
                                                                             </div>
-                                                                        </div>          
+                                                                        </div>         
                                                                     </div>
                                                             </div>
                                                                 <div class="col-md-6 upload_box next-box">

@@ -184,9 +184,13 @@ include('include/menu.php');
                                                                 <div class="col-sm-5 box">
                                                                     <select class="form-control" name="education[]" id="education">
                                                                     <?php 
-                                                                        if(!empty($education)) :
+                                                                    if(!empty($education)) :
                                                                         foreach ($education as $cls_val) {
-                                                                        echo "<option value='" . $cls_val['education_id'] . "'>" . ucfirst($cls_val['edu_name']) . "</option>";
+                                                                            if($cls_val['education_id'] == '51') {
+                                                                                echo "<option value='" . $cls_val['education_id'] . "' selected>" . ucfirst($cls_val['edu_name']) . "</option>";
+                                                                            }else{ 
+                                                                            echo "<option value='" . $cls_val['education_id'] . "'>" . ucfirst($cls_val['edu_name']) . "</option>";
+                                                                            }
                                                                         }
                                                                     endif;
                                                                     ?>
