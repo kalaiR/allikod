@@ -29,7 +29,7 @@
     padding:5px;
     width:282px;
     height:282px;
-    display:block;   
+    display:inline-block;   
 }
 
 .horo_row{
@@ -62,10 +62,11 @@
     background-color:white;
     margin-left:auto;
     margin-right:auto;
-    padding:2%;    
+    /*padding:2%;    */
     background-image: url("../img/rasi/amsam1.png");
     background-repeat: no-repeat;
     background-position: right top;
+    display: inline-block;
 }
 .asham-row{
     display:inline-block;
