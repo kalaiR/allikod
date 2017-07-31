@@ -1273,7 +1273,7 @@ if(!empty($registered_data)){
 <script type="text/javascript">
 function sendMsg(msg,no){
     no = no;
-    alert('test');
+    // alert('test');
     $.ajax(
         {
             type: 'GET',

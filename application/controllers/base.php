@@ -44,6 +44,14 @@ class Base extends CI_Controller {
 			$data['martial_status'] = $this->user_model->get_martialstatus();
 			$data['success_stories'] = $this->user_model->get_success_stories_limit();
 			$data['recent_profile'] = $this->user_model->get_recent_profile();
+			// foreach ($data['recent_profile'] as $key => $value) {
+			// 	if(($value['user_gender']!='1')&&(count($featured_images['female'])<4))){					
+			// 		$featured_images['female'] = $value['images'];
+			// 	}else{
+			// 		$featured_images['male'] = $value['images'];
+			// 	}
+			// }
+
 			$data['mother_tongue'] = $this->user_model->get_mothertongue();
 			$data['country'] = $this->user_model->get_country();
 			$this->load->view('index', $data);
@@ -78,6 +86,12 @@ class Base extends CI_Controller {
 		$data['mother_tongue'] = $this->user_model->get_mothertongue();	
 		$data['education'] = $this->user_model->get_education();
 		$data['education_category'] = $this->user_model->get_educationcategory();
+		$data['country'] = $this->user_model->get_country();
+		$data['occupation'] = $this->user_model->get_occupation();
+		$data['occupation_category'] = $this->user_model->get_occupationcategory();
+		$data['bodytype'] = $this->user_model->get_bodytype();
+		$data['martial_status'] = $this->user_model->get_martialstatus();
+		$data['mother_tongue'] = $this->user_model->get_mothertongue();
 		$this->load->view('search', $data);
 	}
 	public function contact(){
@@ -255,17 +269,17 @@ class Base extends CI_Controller {
 		 	$offset = 0;
 		}	
 
-		$search_inputs = array();	
+		$search_inputs = array();
+		$advance_search = array();	
 
 		if($this->input->post()){	
-			$form_data = $this->input->post();
-			// print_r($form_data);
-			// exit();
+			$form_data = $this->input->post();			
 			$this->session->unset_userdata("search_inputs");
 			$this->session->unset_userdata("search_inputs_id");
 			$this->session->unset_userdata("searchmanual_id");
 			$this->session->unset_userdata("search_dhoshamid");	
-			$this->session->unset_userdata("search_quick");			
+			$this->session->unset_userdata("search_quick");	
+			$this->session->unset_userdata("advance_search_sess");			
 
 			if($form_data['search_type'] =='basicsearch'){
 				// Basic Search //	
@@ -282,6 +296,36 @@ class Base extends CI_Controller {
 				$data = $this->user_model->get_basicsearch($values, $per_page, $offset);
 				$this->session->set_userdata('search_inputs',$values);
 
+			}elseif($form_data['search_type'] =='advance_search'){
+				// Search by Advance Search //
+				$gender = $form_data['gender'][0];	
+				$country = $form_data['country'][0];
+				// $occupation = $form_data['occupation'][0];	
+				$physical_status = $form_data['phy_status'][0];					
+				$age_from = $form_data['search_age_from'][0];
+				$age_to = $form_data['search_age_to'][0];
+				$height_from = $form_data['height_in_cms'][0];		
+				$height_to = $form_data['height_in_feets'][0];
+				$mar_status = $form_data['martial_status'][0];
+				$mother_tongue = $form_data['mother_tongue'][0];
+				// $education = $form_data['education_category'][0];
+				$show_profile = $form_data['images'][0];
+
+				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'show_profile'=>$show_profile, 'country'=>$country, 'physical_status'=>$physical_status, );
+
+				if(!empty($form_data['education_category'][0])){					
+					$values['education_category'] = $form_data['education_category'][0];
+				}
+
+				if(!empty($form_data['occupation'][0])){
+					$values['occupation_catagory'] = $form_data['occupation'][0];
+
+				}
+				$data = $this->user_model->get_advancesearch($values, $per_page, $offset);				
+				$this->session->set_userdata('advance_search_sess',$values);				
+				$advance_search = $this->session->userdata('advance_search_sess');
+				
+				
 			}elseif($form_data['search_type'] =='search_id'){
 				// Search by Vallikodi ID //
 				$searchid = $form_data['searchby_id'];				
@@ -303,7 +347,7 @@ class Base extends CI_Controller {
 			}else{
 				// Search by HomePage-QuickSearch //				
 				$values = array('gender' => $form_data['gender'][0], 'age_from' => $form_data['search_age_from'][0], 'age_to' => $form_data['search_age_to'][0]);
-				$data = $this->user_model->get_quicksearch($values, $per_page, $offset);
+				$data = $this->user_model->get_quicksearch($values, $per_page, $offset);				
 				$this->session->set_userdata('search_quick',$values);
 				$search_quick = $this->session->userdata('search_quick');					
 			}
@@ -312,6 +356,7 @@ class Base extends CI_Controller {
 			$search_inputs = $this->session->userdata('search_inputs');
 			$search_quick = $this->session->userdata('search_quick');
 			$search_dhosham = $this->session->userdata('search_dhoshamid');
+			$advance_search = $this->session->userdata('advance_search_sess');						
 
 			if(!empty($search_inputs)){
 				$data = $this->user_model->get_basicsearch($search_inputs, $per_page, $offset);	
@@ -319,6 +364,8 @@ class Base extends CI_Controller {
 				$data = $this->user_model->get_quicksearch($search_quick, $per_page, $offset);				
 			}elseif(!empty($search_dhosham)){
 				$data = $this->user_model->get_dhoshamsearch($search_dhosham, $per_page, $offset);
+			}elseif(!empty($advance_search)){
+				$data = $this->user_model->get_advancesearch($advance_search, $per_page, $offset);
 			}			
 		}
 
