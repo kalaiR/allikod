@@ -1,12 +1,7 @@
 $(document).ready(function () {
-<<<<<<< HEAD
+
     // $("li").click(function () {
     //     var id = $(this).attr("id");
-=======
-    // alert("ready");
-    $("li").click(function () {
-        var id = $(this).attr("id");
->>>>>>> b1a8b60a7bd862281489d3668ab61b6422d528f7
 
     //     $('#' + id).siblings().find(".active").removeClass("active");
     //         //                       ^ you forgot this
@@ -14,7 +9,6 @@ $(document).ready(function () {
     //     localStorage.setItem("selectedolditem", id);
     // });
 
-<<<<<<< HEAD
     // var selectedolditem = localStorage.getItem('selectedolditem');
 
     // if (selectedolditem != null) {
@@ -22,14 +16,7 @@ $(document).ready(function () {
     //     //                                        ^ you forgot this
     //     $('#' + selectedolditem).addClass("active");
     // }
-=======
-    var selectedolditem = localStorage.getItem('selectedolditem');
-    if (selectedolditem != null) {
-        $('#' + selectedolditem).siblings().find(".active").removeClass("active");
-        //                                        ^ you forgot this
-        $('#' + selectedolditem).addClass("active");
-    }
->>>>>>> b1a8b60a7bd862281489d3668ab61b6422d528f7
+
 
     // Show and Hide Search Div
     $(".slidingDiv").hide();
@@ -309,19 +296,29 @@ $(window).load(function(){
  });
 
 $(window).load(function(){
-    if($('.text_short').length >0){
-        $( ".text_short" ).each(function() {
-  $( this ).parent( "com_adr" );
-});
-       shorttext_val = $(".text_short").text();
-       alert(shorttext_val.length);
-       if(shorttext_val.length>=10){
-        alert("test");
-            $(".view_icon").show();
-       }
+  //   if($('.text_short').length >0){
+  //       $( ".text_short" ).each(function() {
+  // // $( this ).parent( "com_adr" );
+  // //   });
+  //      shorttext_val = $(".text_short").text();
+  //      // alert(shorttext_val.length);
+  //      if(shorttext_val.length>=10){
+  //           $('.tooltips').show();
+  //       // if(!$('shorttext_val').val()){
+  //           // $('.tooltips').hide();
+  //       }
+  //       else {
+  //           $('.tooltips').hide();
+  //       }
+        
+      $( ".text_short" ).each(function() {
+        var text =$(".text_short").val();
+           $( this ).parent( '.selva');
+           if(text.length>=10)
+           {
+             $('.tooltips').hide();
+           }
 
-        
-        
-    }
+      });
 });
 

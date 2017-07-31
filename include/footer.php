@@ -151,7 +151,7 @@
         <!--<script src="js/video_player.js"></script>-->
         <script src="js/theme.js"></script>
         <script src="js/snap.svg-min.js"></script>
-        <script src="js/astrochart.js"></script>
+        <!-- <script src="js/astrochart.js"></script> -->
         <script language="JavaScript">
             var dywidth = 100 + '%';
             var options = {'title':['Rasi' , '11/04/2014 07:00AM' ,'Erode, Tamil Nadu, India'],

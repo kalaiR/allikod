@@ -387,14 +387,16 @@
                                             <div class="col-md-6 col-xs-6 dark">
                                                 <p>B.E/B.Tech</p>
                                             </div >
-                                            <div class="col-md-6 col-xs-6 ">
-                                            <p>Education in Detail</p>
-                                            </div>
-                                            <div class="col-md-4  dark">
-                                                <p class="text_short">Degree completed in 2008</p>
-                                            </div>
-                                            <div class="col-md-1 tooltips">
-                                                <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext">Degree completed in 2008</span>
+                                            <div class="selva">
+                                                <div class="col-md-6 col-xs-6 ">
+                                                <p>Education in Detail</p>
+                                                </div>
+                                                <div class="col-md-4  dark">
+                                                    <p class="text_short">Degree completed in 2008</p>
+                                                </div>
+                                                <div class="col-md-1 tooltips">
+                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext">Degree completed in 2008</span>
+                                                </div>
                                             </div>
                                             <div class="col-md-6 col-xs-6">
                                             <p>Occupation</p>
