@@ -184,12 +184,12 @@ include('include/menu.php');
                                                                 <div class="col-sm-5 box">
                                                                     <select class="form-control" name="education[]" id="education">
                                                                     <?php 
-                                                                    if(!empty($education)) :
-                                                                        foreach ($education as $cls_val) {
-                                                                            if($cls_val['education_id'] == '51') {
-                                                                                echo "<option value='" . $cls_val['education_id'] . "' selected>" . ucfirst($cls_val['edu_name']) . "</option>";
+                                                                    if(!empty($education_category)) :
+                                                                        foreach ($education_category as $cls_val) {
+                                                                            if($cls_val['educationcategory_id'] == '13') {
+                                                                                echo "<option value='" . $cls_val['educationcategory_id'] . "' selected>" . ucfirst($cls_val['cat_name']) . "</option>";
                                                                             }else{ 
-                                                                            echo "<option value='" . $cls_val['education_id'] . "'>" . ucfirst($cls_val['edu_name']) . "</option>";
+                                                                                echo "<option value='" . $cls_val['educationcategory_id'] . "'>" . ucfirst($cls_val['cat_name']) . "</option>";
                                                                             }
                                                                         }
                                                                     endif;
@@ -209,7 +209,7 @@ include('include/menu.php');
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                  <div class="col-sm-5 box">
-                                                                    <select class="form-control" name="" id="show_profile">
+                                                                    <select class="form-control" id="show_profile" name="images[]">
                                                                         <option value="both">Both</option>
                                                                         <option value="with_photo">With Photo</option>
                                                                         <option value="without_photo">Without Photo</option>
@@ -541,17 +541,17 @@ include('include/menu.php');
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <form  action="<?php echo base_url(); ?>search_result">
+                                    <form action="<?php echo base_url(); ?>search_result" class="box basic_search" method="post" id="search_dhosham" name="search_dhosham">
                                         <div class="col-sm-6 aline-center-box ">
                                             <div class="col-sm-6 ">
                                                 <div class="registration_form_area form-box" id="registration_form_are_box">
                                                     <div class="registration_form_s_box" id="registration_form_s_box">
                                                              <div class="col-sm-6 ">
                                                                     <div class="height_item">
-                                                                        <select class="selectpicker">
-                                                                            <option>Naga Dhosam</option>
-                                                                            <option>Chevvai Dhosam</option>
-                                                                            <option>Raghu Kedhu Dhosam</option>
+                                                                        <select class="selectpicker" name="dhosham[]" id="dhosham">
+                                                                            <option value="1">Naga Dhosam</option>
+                                                                            <option value="2">Chevvai Dhosam</option>
+                                                                            <option value="3">Raghu Kedhu Dhosam</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>     
@@ -565,6 +565,8 @@ include('include/menu.php');
                                                 </div>
                                             </div>                                           
                                         </div> 
+                                        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
+                                        <input type="hidden" name="search_type" id="search_dhosham" value="search_dhosham" />
                                     </form>       
                                 </div>     
                            </div>

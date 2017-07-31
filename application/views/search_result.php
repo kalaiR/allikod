@@ -121,7 +121,10 @@ include('include/menu.php');
                             <p><b>Star</b></p>
                         </div>
                         <div class="col-md-7">
-                          <p> : <?php if(!empty($value['rel_nakshathra_id'])){ echo $value['rel_nakshathra_id'];}?></p>
+                          <p> : <?php if(!empty($value['rel_nakshathra_id'])){                             
+                            $val = $this->user_model->get_nakshathra($value['rel_nakshathra_id']);
+                            echo $val['name'];
+                            }?></p>
                         </div>
                         <div class="col-md-5 col-md-5 col-xs-6 name-box">
                           <p><b>Religion</b></p>

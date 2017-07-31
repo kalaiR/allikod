@@ -79,16 +79,14 @@
                                                                 </div>
                                                         </div>
                                                     <div class="comment_form_area next-box">
-                                                        <div class="row">
-                                                                <div class="form-group">
-                                                                    <textarea id="comment" class="form-control" name="comment" placeholder="Comment" rows="5"></textarea>
-                                                                </div>          
-                                                        </div>
+                                                        <textarea id="comment" class="form-control" name="comment" placeholder="Comment" rows="5"></textarea>
                                                     </div>    
                                                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
                                                     <div class="reg_chose form-group">
                                                             <!-- <input type="submit" value="LogIn" id="post_submit" name="post_submit" class="btn form-control login_btn"> -->
-                                                            <button class="btn form-control login_btn" id="post_submit" name="post_submit">Post</button>
+                                                        <div class="reg_chose form-group">
+                                                            <button type="submit" herf="#" value="LogIn" class="btn form-control login_btn">Post</button>
+                                                        </div> 
                                                     </div>     
                                             </div>
                                         </div>                                         

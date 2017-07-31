@@ -74,9 +74,9 @@
   font-weight: 500;
 }
 
-#registration_form_are .registration_form_s .form-group input:focus {
+/*#registration_form_are .registration_form_s .form-group input:focus {
   border: 1px solid #e74c3c;
-}
+}*/
 
 #registration_form_are .registration_form_s .form-group .btn-group {
   width: 100%;
@@ -315,7 +315,7 @@
 }
 
 #registration_form_are_box .registration_form_s_box .form-group input:focus {
-  border: 1px solid #e74c3c;
+  /*border: 1px solid #e74c3c;*/
 }
 
 #registration_form_are_box .registration_form_s_box .form-group .btn-group {
