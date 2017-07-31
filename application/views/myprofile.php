@@ -159,7 +159,7 @@
                                         </ul>
                                         <ul>
                                             <li><a><?php echo $results['registered_by_name']; ?></a></li>
-                                            <li><a><?php echo $results['user_gender']; ?></a></li>
+                                            <li><a><?php echo $results['user_gender'] != 2 ? 'Male':'Female'; ?></a></li>
                                             <!-- <li><a>Pondicherry</a></li>
                                             <li><a>Pondicherry</a></li>
                                             <li><a>16 December 1990</a></li>
@@ -308,8 +308,8 @@
                                             <li><a><?php echo $results['comm_mother_name']; ?></a></li>
                                             <li><a><?php echo $results['comm_father_employment']; ?></a></li>
                                             <li><a><?php echo $results['comm_mother_employment']; ?></a></li>
-                                            <li><a><?php echo $results['comm_family_status']; ?></a></li>
-                                            <li><a><?php echo $results['comm_family_type']; ?></a></li>
+                                            <li><a><?php echo $results['family_statusname']; ?></a></li>
+                                            <li><a><?php echo $results['family_typename']; ?></a></li>
                                             <!-- <li><a>Designer</a></li> -->
                                         </ul>
 
@@ -362,7 +362,7 @@
                                         <ul>
                                             <li><a><?php echo $results['phy_height']; ?></a></li>
                                             <li><a><?php echo $results['phy_weight']; ?></a></li>
-                                            <li><a><?php echo $results['phy_bodytype']; ?></a></li>
+                                            <li><a><?php echo $results['body_typename']; ?></a></li>
                                             <!-- <li><a>16 December 1990</a></li>
                                             <li><a>Single</a></li>
                                             <li><a>Man</a></li>
@@ -509,7 +509,7 @@
                                                 <li><a>Expectation Food</a></li>
                                             </ul>
                                             <ul>
-                                                <li><a><?php echo $results['phy_expectationfood']; ?></a></li>
+                                                <li><a><?php echo $results['phy_expectationfood_name']; ?></a></li>
                                             </ul>
                                         </div>  
 

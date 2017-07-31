@@ -77,8 +77,12 @@ include('include/menu.php');
                                                                     </div>
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
-                                                                            <div class="form-group">
-                                                                                <input type="text" class="form-control tabfield" id="register_email" placeholder="Email" name="register_email" />
+                                                                            <div class="form-group">  
+                                                                            <input 
+                                                                            type="text" 
+                                                                            class="form-control tabfield" id="register_email" placeholder="Email" 
+                                                                            name="register_email" 
+                                                                            value="<?php if(!empty($registered_data)) echo $registered_data['user_email']; ?>" />
                                                                             </div>
                                                                         </div>
                                                                          <span id="register_email-error" class="registration-error"></span>
@@ -95,7 +99,7 @@ include('include/menu.php');
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <div class="form-group">
-                                                                                <input type="password" class="form-control tabfield" id="reg_passed" placeholder="Password" name="reg_pass">
+                                                                                <input type="password" class="form-control tabfield" id="reg_passed" placeholder="Password" name="reg_pass1" value="<?php if(!empty($registered_data)) echo $registered_data['user_pwd']; ?>">
                                                                             </div>
                                                                         </div>
                                                                         <span id="reg_passed_error" class="registration-error"></span>    
@@ -132,9 +136,13 @@ include('include/menu.php');
                                                                                 <option value="">Select</option>
                                                                                 <?php
                                                                                 if(!empty($register)) :
-                                                                                    foreach ($register as $cls_val) {
+                                                                                foreach ($register as $cls_val) {
+                                                                                    if($registered_data['user_registeredby']==$cls_val['registeredby_id']){
+                                                                                         echo "<option value='" . $cls_val['registeredby_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }else{    
                                                                                     echo "<option value='" . $cls_val['registeredby_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
                                                                                     }
+                                                                                   } 
                                                                                 endif;
                                                                                 ?>
                                                                             </select>
@@ -154,7 +162,7 @@ include('include/menu.php');
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <div class="form-group">
-                                                                                <input type="text" class="form-control" id="reg_Nam" placeholder="Name" >
+                                                                                <input type="text" class="form-control" id="reg_Nam" name="reg_name" placeholder="Name" value="<?php if(!empty($registered_data)) echo $registered_data['user_fname']; ?>">
                                                                             </div>
                                                                         </div>
                                                                         <span id="reg_nam_error" class="registration-error"></span>
@@ -171,9 +179,17 @@ include('include/menu.php');
                                                                     <div class="col-sm-6 box">
                                                                         <div class="height_item">
                                                                             <select class="form-control customize_plan" name="gender[]" id="gender">
-                                                                                <option value="">Select</option>
-                                                                                <option value="1">Male</option>
-                                                                                <option value="2">Female</option>                                 
+                                                                                <!-- <option value="">Select</option> -->
+                                                                                <?php if(!empty($registered_data) && $registered_data['user_gender']!=1){
+                                                                                    echo "<option value='" . $registered_data['user_gender'] . "' selected>Female</option>";
+                                                                                   }elseif(!empty($registered_data) && $registered_data['user_gender']!=2){
+                                                                                    echo "<option value='" . $registered_data['user_gender'] . "'>Male</option>";
+                                                                                   }else{
+                                                                                    echo "<option value=''>Select</option>"; 
+                                                                                    echo "<option value='1'>Male</option>";    
+                                                                                    echo "<option value='1'>Female</option>";
+                                                                                   }
+                                                                                ?>                     
                                                                             </select>
                                                                         </div>
                                                                         <span id="gender_error" class="registration-error"></span>
@@ -268,8 +284,12 @@ include('include/menu.php');
                                                                                <?php 
                                                                                     if(!empty($mother_tongue)) :
                                                                                     foreach ($mother_tongue as $cls_val) {
-                                                                                    echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                if($registered_data['rel_mothertongue_id']==$cls_val['registeredby_id']){
+                                                                                echo "<option value='" . $cls_val['mothertongue_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                }else{
+                                                                                echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
                                                                                     }
+                                                                                }
                                                                                 endif;
                                                                                 ?>
                                                                         </select> 
@@ -1244,5 +1264,25 @@ include('include/menu.php');
             </div>   
         </section>  
 <?php 
-    include('include/footer.php');
-?>
+include('include/footer.php');
+if(!empty($registered_data)){
+    $msg = 'Dear Customer Thanks for registering with us in vallikodivanniarmatrimonial.in';
+    $sms_mobileno = $registered_data['comm_mobile_no'];
+}?>
+<!-- SMS Script for Vallikodi for Home Register process - Start -->
+<script type="text/javascript">
+function sendMsg(msg,no){
+    no = no;
+    alert('test');
+    $.ajax(
+        {
+            type: 'GET',
+            url:'http://dnd.blackholesolution.com/api/sendmsg.php?user=VALLIK&pass=abcd1234&sender=VALLIK&phone='+no+'&text='+msg+'&priority=ndnd&stype=normal',
+            data:'',
+            success: function(data){
+            },
+        });
+}
+sendMsg('<?php echo $msg ;?>','<?php echo $sms_mobileno;?>');
+</script> 
+<!-- SMS Script for Vallikodi for Home Register process - End -->
