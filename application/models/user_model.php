@@ -269,7 +269,7 @@ class User_model extends CI_Model {
   public function get_recent_profile(){
       $query = $this->db->query("select usr.userdetail_id, usr_img.images, usr.user_gender from reg_userdetail as usr 
         INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
-        usr.user_active_status =1 AND usr_img.images != '' ORDER BY usr.userdetail_id DESC limit 50")->result_array();
+        usr.user_active_status =1 AND usr_img.images != '' ORDER BY usr.userdetail_id DESC limit 8")->result_array();
       return $query;
   }
 
