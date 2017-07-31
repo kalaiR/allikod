@@ -11,12 +11,44 @@ update reg_payment set totalno_of_profile = 120 where period_in_month = 6;
 UPDATE reg_userdetail SET user_online_or_simple =  'online' WHERE userdetail_profile_id =0;
 UPDATE reg_userdetail SET user_online_or_simple =  'simple' WHERE userdetail_profile_id !=0;
 
-
-ALTER TABLE `reg_userdetail` DROP INDEX `userdetail_profile_id` 
-
-
+ALTER TABLE `reg_userdetail` CHANGE `userdetail_profile_id` `userdetail_profile_id` INT(11) NULL DEFAULT NULL;
+ALTER TABLE `reg_userdetail` DROP INDEX `userdetail_profile_id`;
 
 
+30/07/17:
+ALTER TABLE `reg_userdetail` CHANGE `user_maritalstatus` `user_maritalstatus` INT(11) NULL DEFAULT NULL;
+
+ALTER TABLE `reg_communication_family` CHANGE `comm_residence` `comm_residence` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL, CHANGE `comm_current_countrycountry` `comm_current_countrycountry` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
+
+
+31/07/17:
+Default Image Male and Female update based on gender:
+UPDATE  user_images img
+        INNER JOIN reg_userdetail usr
+            ON img.reg_user_id = usr.userdetail_id
+SET img.images = 'defalt_male.jpg' where usr.user_gender = 1 AND img.images = ''; 
+
+Updated : 9405 rows affected
+
+UPDATE  user_images img
+        INNER JOIN reg_userdetail usr
+            ON img.reg_user_id = usr.userdetail_id
+SET img.images = 'defalt_female.jpg' where usr.user_gender = 2 AND img.images = ''; 
+
+Updated : 4360 rows affected
+
+
+Find age and update by date of birth: (total : 33185 updated for age 0)
+
+UPDATE `reg_userdetail` 
+SET user_age =((DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(`user_dob`, '%Y')) - 
+    (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(`user_dob`, '00-%m-%d'))) where user_age = 0;
+
+Migration query:
+
+INSERT INTO vallikodi_server.user_images(`reg_user_id`,`images`,`user_profile_id`) SELECT user_id,image,user_profile from BBBn3tl_test.ict_image where image != '';
+
+DROP TABLE user_images;
 
 
 
@@ -26,6 +58,24 @@ SELECT * FROM reg_userdetail as usr INNER JOIN reg_payment as pay ON pay.reg_use
 
 old db check report:
 SELECT * FROM `user_detail` WHERE profile_id=0 AND active_status = 1 AND EXTRACT(YEAR FROM created_date) >= '2014' ORDER BY id DESC
+
+
+
+total:42289
+male: 16395
+female: 7930
+non-gender: 17964
+
+SELECT userdetail_id,userdetail_profile_id,user_gender,user_fname,user_email,user_added_date FROM `reg_userdetail` WHERE user_gender = 1 ORDER BY userdetail_id desc ;
+
+
+
+defalt_male = 9405
+defalt_female = 4360
+
+no image = 13765
+total male and female records = 24325
+
 
 
 

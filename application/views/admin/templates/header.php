@@ -45,6 +45,7 @@
 	<link href='<?php echo media_url(); ?>assets/admin/css/uploadify.css' rel='stylesheet'>
 	<link href='<?php echo media_url(); ?>assets/admin/css/style.css' rel='stylesheet'>
 	<link href='<?php echo media_url(); ?>assets/admin/css/sidebar-menu.css' rel='stylesheet'>
+	<link href='<?php echo media_url(); ?>assets/admin/css/style.css' rel='stylesheet'>
 
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
