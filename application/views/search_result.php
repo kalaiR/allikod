@@ -5,10 +5,8 @@ include('include/menu.php');
      <!--================Banner Area =================-->
         <section class="banner_area">
             <div class="container">
-                <div class="banner_content">
-                    <h3><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Search Result<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
-                    <!--<a href="index.html">Home</a>
-                    <a href="shop-cart.html">Pricing</a>-->
+                 <div class="banner_content">
+                    <h3 title="Search Result"><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Search Result<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>                    
                 </div>
             </div>
         </section>
@@ -123,7 +121,10 @@ include('include/menu.php');
                             <p><b>Star</b></p>
                         </div>
                         <div class="col-md-7">
-                          <p> : <?php if(!empty($value['rel_nakshathra_id'])){ echo $value['rel_nakshathra_id'];}?></p>
+                          <p> : <?php if(!empty($value['rel_nakshathra_id'])){                             
+                            $val = $this->user_model->get_nakshathra($value['rel_nakshathra_id']);
+                            echo $val['name'];
+                            }?></p>
                         </div>
                         <div class="col-md-5 col-md-5 col-xs-6 name-box">
                           <p><b>Religion</b></p>

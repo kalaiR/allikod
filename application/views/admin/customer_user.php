@@ -156,7 +156,7 @@
 											<option>Inactive</option>
 											<option>Delete</option>
 										</select>
-										  	<a class="btn btn-primary show_hide" id="search" href="#" style="float: left; margin-left: 5px;">
+										  	<a class="btn btn-primary search_customer" id="search" href="#" style="float: left; margin-left: 5px;">
 									        <i class="glyphicon glyphicon-edit icon-white"></i>
 									        Search
 									    	</a>

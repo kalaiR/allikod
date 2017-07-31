@@ -1113,10 +1113,10 @@ p2
   font-weight: 500;
 }
 
-.register_form_inner .registration_form_s .form-group input:focus {
+/*.register_form_inner .registration_form_s .form-group input:focus {
   border: 1px solid #e74c3c;
 }
-
+*/
 .register_form_inner .registration_form_s .form-group .btn-group {
   width: 100%;
   text-align: left;
@@ -2376,13 +2376,13 @@ p2
 }
 
 .registration_form_area .registration_form_s {
-  max-width: 370px;
+  max-width: 450px;
   background: #fff;
   padding: 0px 30px;
   border: 1px solid #e0e0e0;
   border-radius: 3px;
   position: relative;
-  top: 20px;
+  top:2px;
 }
 
 .registration_form_area .registration_form_s h4 {
@@ -2402,7 +2402,7 @@ p2
   width: 100%;
   height: 46px;
   box-shadow: none;
-  border: 1px solid #f4f4f4;
+  border: 1px solid #ccc;
   border-radius: 3px;
   background: #f4f4f4;
   padding: 0px 20px;
@@ -2444,7 +2444,7 @@ p2
 }
 
 .registration_form_area .registration_form_s .form-group input:focus {
-  border: 1px solid #e74c3c;
+  /*border: 1px solid #e74c3c;*/
 }
 
 .registration_form_area .registration_form_s .form-group .btn-group {
@@ -8264,4 +8264,71 @@ ol a{
  height:200px;
  width:200px;
 }
-/*# sourceMappingURL=style.css.map */
+
+/*Columns of user*/
+.dark{
+  font-weight: bold;
+  color: #334249;
+}
+p{
+    padding: 10px;
+}
+
+/*Text Crunch Lines*/
+.clips{
+  white-space: nowrap; 
+    width: 100px; 
+    overflow: hidden;
+    text-overflow: clip;
+}
+.text_short{
+  white-space: nowrap; 
+    width: 10em; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*Tooltip*/
+.tooltips {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltips .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltips .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltips:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*Show and Hide*/
+.slidingDiv {
+}
+
+.view_communication {
+}

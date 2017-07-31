@@ -11,9 +11,9 @@
             <div class="container">
                 <div class="banner_content">
                     <h3 title="Gallery"><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">Gallery<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
-                    <a href="#">Home</a>
+                    <!-- <a href="#">Home</a>
                     <a href="#">Gallery</a>
-                    <a href="#">Gallery Full Width</a>
+                    <a href="#">Gallery Full Width</a> -->
                 </div>
             </div>
         </section>
@@ -107,11 +107,11 @@
                         
                     </div>
                 </div><br>
-                <div id="pagination_are" class="pagination pull-right">
-                    <!-- <a class="prev" href="stories.html#">Previous</a>
+                <div class="pagination pull-right">
+                    <a class="prev" href="stories.html#">Previous</a>
                     <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
                     <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
-                    <a class="next" href="gallery_2page.html">Next</a> -->
+                    <a class="next" href="#">Next</a>
                 </div>
             </div>
         </section>
@@ -120,15 +120,15 @@
 <?php 
     include('include/footer.php');
 ?> 
-    <script type="text/javascript" src="<?php echo media_url(); ?>assets/js/jquery.simplePagination.js"></script>
+   <!--  <script type="text/javascript" src="<?php echo media_url(); ?>assets/js/jquery.simplePagination.js"></script>
     <script type="text/javascript">
-        $(function() {
-        $('#pagination_are').pagination({
-            items: 16,
-            itemsOnPage : 8,
-            cssStyle: 'light-theme'
-        });
-    });
-    </script>
+               $(function() {
+            $(selector).pagination({
+                items: 16,
+                itemsOnPage:8,
+                cssStyle: 'light-theme'
+            });
+        })
+    </script> -->
     </body>
 </html>
