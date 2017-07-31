@@ -35,7 +35,7 @@
                                                     <div class="form-group">
                                                         <div class="col-sm-8 text-box">
                                                             <input type="text" name="bride" class="form-control form_inputs" id="bride_name" placeholder="Bride Name" >
-                                                        </div>   <span data-toggle="tooltip" data-placement="top" title="Hooray!">Top</span></li>  
+                                                        </div>  
                                                     </div>                
                                                 </div>
                                                  <div class="col-sm-8 text-box">       

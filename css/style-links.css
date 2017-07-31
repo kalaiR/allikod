@@ -621,3 +621,7 @@
   position: absolute;
   top: 0;
 }
+.registration-error
+{
+  color: #840707;
+}
