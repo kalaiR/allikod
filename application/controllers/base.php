@@ -14,8 +14,8 @@ class Base extends CI_Controller {
 			$form_data = $this->input->post();									
 			// $userdetail_profile_id = ($form_data['userdetail_profile_id']) ? $form_data['userdetail_profile_id'] : NULL;
 			$data = array(
-					'userdetail_id'=>'',
-					'userdetail_profile_id'=>NULL,
+					// 'userdetail_id'=>'',
+					// 'userdetail_profile_id'=>NULL,
 					'user_email'=>$form_data['reg_email2'],
 					'user_pwd'=>$form_data['reg_pass2'],
 					'user_fname'=>$form_data['reg_Name'],
@@ -26,14 +26,14 @@ class Base extends CI_Controller {
 				);
 		  		$id_userdetails = $this->user_model->insert_registration('reg_userdetail',$data);
 		  		$data_communication = array(
-		  			'communicationfamily_id'=>'',
+		  			// 'communicationfamily_id'=>'',
 		  			'reg_user_id'=>$id_userdetails,	
 		  			'comm_current_countrycountry'=>$form_data['country'][0],					
 					'comm_mobile_no'=>$form_data['reg_Mobile']
 				);	
 		  		$this->user_model->insert_registration('reg_communication_family', $data_communication);
 		  		$data_religion = array(
-		  			'religionethnicity_id'=>'',
+		  			// 'religionethnicity_id'=>'',
 		  			'reg_user_id'=>$id_userdetails,			  			
 					'rel_mothertongue_id'=>$form_data['mother_tongue'][0]
 				);	
@@ -77,6 +77,7 @@ class Base extends CI_Controller {
 		$data['martial_status'] = $this->user_model->get_martialstatus();
 		$data['mother_tongue'] = $this->user_model->get_mothertongue();	
 		$data['education'] = $this->user_model->get_education();
+		$data['education_category'] = $this->user_model->get_educationcategory();
 		$this->load->view('search', $data);
 	}
 	public function contact(){
@@ -247,8 +248,12 @@ class Base extends CI_Controller {
 
 	public function search_result(){	
 		$per_page = 10;
-		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);
-		if($values[0]){	$offset = $values[0] * $per_page; }else{ $offset = ""; }		
+		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);		
+		if($values[0]){	
+			$offset = (($values[0]-1)*$per_page); 
+		}else{
+		 	$offset = 0;
+		}	
 
 		$search_inputs = array();	
 
@@ -258,7 +263,9 @@ class Base extends CI_Controller {
 			// exit();
 			$this->session->unset_userdata("search_inputs");
 			$this->session->unset_userdata("search_inputs_id");
-			$this->session->unset_userdata("searchmanual_id");			
+			$this->session->unset_userdata("searchmanual_id");
+			$this->session->unset_userdata("search_dhoshamid");	
+			$this->session->unset_userdata("search_quick");			
 
 			if($form_data['search_type'] =='basicsearch'){
 				// Basic Search //	
@@ -268,11 +275,11 @@ class Base extends CI_Controller {
 				$height_from = $form_data['height_in_cms'][0];		
 				$height_to = $form_data['height_in_feets'][0];
 				$mar_status = $form_data['marital_status'][0];
-
-				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status);
-				$data = $this->user_model->get_basicsearch($values, $per_page, $offset);				
-
-				// $inputs = array('gender' => $gender,'age_from' => $age_from,'age_to' => $age_to,'height_from' => $height_from,'height_to' => $height_to,'mar_status' => $mar_status);
+				$mother_tongue = $form_data['mother_tongue'][0];
+				$education = $form_data['education'][0];
+				$show_profile = $form_data['images'][0];
+				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'education'=>$education, 'show_profile'=>$show_profile);
+				$data = $this->user_model->get_basicsearch($values, $per_page, $offset);
 				$this->session->set_userdata('search_inputs',$values);
 
 			}elseif($form_data['search_type'] =='search_id'){
@@ -287,6 +294,12 @@ class Base extends CI_Controller {
 				$data = $this->user_model->get_datauser_manualId($searchmanual_id, $per_page, $offset);
 				$this->session->set_userdata('searchmanual_id',$searchmanual_id);				
 				$searchmanual_id = $this->session->userdata('searchmanual_id');
+			}elseif($form_data['search_type'] =='search_dhosham'){
+				// Search by Dhosham ID //
+				$search_dhoshamid = $form_data['dhosham'][0];				
+				$data = $this->user_model->get_dhoshamsearch($search_dhoshamid, $per_page, $offset);
+				$this->session->set_userdata('search_dhoshamid',$search_dhoshamid);				
+				$search_dhoshamid = $this->session->userdata('search_dhoshamid');
 			}else{
 				// Search by HomePage-QuickSearch //				
 				$values = array('gender' => $form_data['gender'][0], 'age_from' => $form_data['search_age_from'][0], 'age_to' => $form_data['search_age_to'][0]);
@@ -298,11 +311,14 @@ class Base extends CI_Controller {
 			// Pagination Session Data
 			$search_inputs = $this->session->userdata('search_inputs');
 			$search_quick = $this->session->userdata('search_quick');
+			$search_dhosham = $this->session->userdata('search_dhoshamid');
 
 			if(!empty($search_inputs)){
 				$data = $this->user_model->get_basicsearch($search_inputs, $per_page, $offset);	
 			}elseif(!empty($search_quick)){
 				$data = $this->user_model->get_quicksearch($search_quick, $per_page, $offset);				
+			}elseif(!empty($search_dhosham)){
+				$data = $this->user_model->get_dhoshamsearch($search_dhosham, $per_page, $offset);
 			}			
 		}
 
@@ -316,7 +332,9 @@ class Base extends CI_Controller {
 		{
 		 	$config['total_rows'] = 1;
 		}else{
-			$config['total_rows'] = $data['total_rows'];
+			if(!empty($data['total_rows'])){
+				$config['total_rows'] = $data['total_rows'];
+			}
 		}
 		$config['uri_segment'] = 2;
 		$config['num_links'] = 4;
@@ -426,14 +444,12 @@ class Base extends CI_Controller {
         $login_session = $this->session->userdata("login_session");
         // print_r($login_session);
 		$id = $login_session['userdetail_id'];
-		$data['results'] = $this->user_model->get_viewdetails_byid($id);
-		$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
-		$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
-		$this->load->view('myprofile',$data);
-		// echo $id;
-		// echo '<pre>';
-		// print_r($data);
-		// echo '</pre>';
+		if(!empty($id)){
+			$data['results'] = $this->user_model->get_viewdetails_byid($id);
+			$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
+			$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
+			$this->load->view('myprofile',$data);
+		}
 	}
 	public function mymatches(){
 		$this->load->view('mymatches');
@@ -444,6 +460,4 @@ class Base extends CI_Controller {
 	public function newreg(){
 		$this->load->view('newreg');
 	}
-	
-
 }
