@@ -177,360 +177,100 @@
                                         <ul>
                                             <li><a href="#">Durga</a></li>
                                             <li><a href="#">26</a></li>
-                                            <!-- <li><a href="#">22-05-2017</a></li>
-                                            <li><a href="#">22-05-2018</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li> -->
-                                        </ul>
-                                        <!-- <ul>
-                                            <li><a href="#">Total No. of Profiles</a></li>
-                                            <li><a href="#">No. of profiles viewed</a></li>
-                                            <li><a href="#">Remine Profile to View</a></li>
-                                            <li><a href="#"></a>- </li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#"></a></li>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#"></a>- </li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul> -->
-                                    </div>
-                                   <!--  <div class="row">
-                                        
-                                            <div class="col-md-3 col-sm-6 col"><p>Vallikodi ID</p></div>
-                                            <div class="col-md-3 col-sm-6 col"><p>Profile ID</p></div>
-                                            <div class="col-md-3 col-sm-6 col"><p>Vallikodi ID</p></div>
-                                            <div class="col-md-3 col-sm-6 col"><p>Profile ID</p></div>
-                                         </div>
-
-                                    <div class="row">
-                                        
-                                        <div class="col-md-3 col-sm-6 col">562</div>
-                                        <div class="col-md-3 col-sm-6 col">66</div>
-                                        <div class="col-md-3 col-sm-6 col">562</div>
-                                        <div class="col-md-3 col-sm-6 col">66</div>
-                                    </div> -->
+                                        </ul>                                        
+                                    </div>                                 
                                                             
                                 </div>
                                 <div class="members_about_box">
-                                    
+                                    <div>
                                     <h3 id="hcolor">Communication Detail</h3>
-                                    <div class="profile_list"> 
-                                    <p><b>Click the button to view the contact details</b>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" value="View" class="btn form-control login_btn show_hide">View</button></p><br>
+                                    </div>
+                                    <div class="profile_list" > 
+                                    <p><b>Click the button to view the contact details</b>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" value="View" class="btn form-control login_btn view_communication">View</button></p><br>
+
                                     <!-- <a href="search.html" class="register_angkar_btn">View</a> -->
-                                        <div class="slidingDiv">                                    
-                                            <ul>
-                                                <li><a href="#">Residence</a></li>
-                                                <li><a href="#">Current Country</a></li>
-                                                <li><a href="#">Current City</a></li>
-                                                <li><a href="#">Current District</a></li>
-                                            </ul>
-                                            <ul>
-                                                <li><a href="#">India</a></li>
-                                                <li><a href="#">India</a></li>
-                                                <li><a href="#">Villupuram</a></li>
-                                                <li><a href="#">Villupuram</a></li>
-                                            </ul>
-                                            <ul>
-                                                <li><a href="#">Communication Address</a></li>
-                                                <li><a href="#">Phone Number</a></li>
-                                                <li><a href="#">Mobile Number</a></li>
-                                                <li><a href="#">-</a></li>
-                                            </ul>
-                                            <ul>
-                                                <li><a href="#">9, first street, NG nagar, Pondicherry, 605111.</a></li>
-                                                <li><a href="#">28569896</a></li>
-                                                <li><a href="#">9865324712</a></li>
-                                                <li><a href="#">-</a></li>                             
-                                            </ul>
-                                        </div> 
-                                    </div>                                                                          
+                                        <div class="slidingDiv">      
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Residence</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p>India</p>
+                                                    </div>
+                                                    <div  class="col-md-6 col-xs-6">
+                                                    <p>Current Country</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p>India</p>
+                                                    </div >
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Current City</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p>Villupuram</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 ">
+                                                    <p>District</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p>Villupuram</p>
+                                                    </div>                          
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="com_adr">
+                                                    <div class="col-md-6 col-xs-6 ">
+                                                    <p>Communication Address</p>
+                                                    </div>
+                                                    <div class="col-md-4  dark">
+                                                        <p class="text_short">9, first street, NG nagar, Pondicherry, 605111.</p>
+                                                    </div>
+                                                    <div class="col-md-1 tooltips">
+                                                        <i class="fa fa-eye view_icon" aria-hidden="true"></i><span class="tooltiptext">9, first street, NG nagar, Pondicherry, 605111.</span>
+                                                    </div>
+                                                    </div>
+                                                    <div  class="col-md-6 col-xs-6 ">
+                                                    <p>Phone Number</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p>4589632</p>
+                                                    </div >
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Phone Number</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p>9865324170</p>
+                                                    </div>                                     
+                                                </div>
+                                            </div>  <!-- row ends -->                            
+                                                <!-- <ul>
+                                                    <li><a href="#">Residence</a></li>
+                                                    <li><a href="#">Current Country</a></li>
+                                                    <li><a href="#">Current City</a></li>
+                                                    <li><a href="#">Current District</a></li>
+                                                </ul>
+                                                <ul>
+                                                    <li><a href="#">India</a></li>
+                                                    <li><a href="#">India</a></li>
+                                                    <li><a href="#">Villupuram</a></li>
+                                                    <li><a href="#">Villupuram</a></li>
+                                                </ul>
+                                                <ul>
+                                                    <li>Communication Address</li>
+                                                    <li><a href="#">Phone Number</a></li>
+                                                    <li><a href="#">Mobile Number</a></li>
+                                                    
+                                                </ul>
+                                                <ul>
+                                                    <li ><div class="text_short" title="9, first street, NG nagar, Pondicherry, 605111.9, first street, NG nagar, Pondicherry, 605111.9, first street, NG nagar, Pondicherry, 605111." style="width:300px;">9, first street, NG nagar, Pondicherry, 605111.9, first street, NG nagar, Pondicherry, 605111.9, first street, NG nagar, Pondicherry, 605111.<span>asdfasdf</span></div></li>
+                                                    <li><a href="#">28569896</a></li>
+                                                    <li><a href="#">9865324712</a></li>
+                                                                                 
+                                                </ul> -->
+                                        </div> <!-- Slidwing ends -->
+                                    </div>                                                 
                                 </div>
-                            <!-- <ul class="nav nav-tabs profile_menu" role="tablist">
-                                <li role="presentation"><a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">Activity</a></li>
-                                <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-                                <li role="presentation"><a href="#sites" aria-controls="sites" role="tab" data-toggle="tab">Sites</a></li>
-                                <li role="presentation"><a href="#friend" aria-controls="friend" role="tab" data-toggle="tab">Friend (260)</a></li>
-                                <li role="presentation"><a href="#group" aria-controls="group" role="tab" data-toggle="tab">Groups (3)</a></li>
-                                <li role="presentation"><a href="#forums" aria-controls="forums" role="tab" data-toggle="tab">Forums</a></li>
-                            </ul> -->
-                            <!-- <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade" id="activity">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div></div>
-                                <div role="tabpanel" class="tab-pane active fade in" id="profile">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="sites">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="friend">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="group">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="forums">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div> -->                       
+                                            
                                 <div class="members_about_box">
                                 <div id="">
                                 <h3 id="hcolor">Profile Details</h3>
@@ -638,61 +378,185 @@
                                 </div>
                                 <!-- <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know extremely painful.</p> -->
                                 <!-- <div class="profile_list"> -->
-                                <div class="profile_list">                                    
-                                        <ul>
+                                <div class="profile_list">         
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Education</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p>B.E/B.Tech</p>
+                                            </div >
+                                            <div class="col-md-6 col-xs-6 ">
+                                            <p>Education in Detail</p>
+                                            </div>
+                                            <div class="col-md-4  dark">
+                                                <p class="text_short">Degree completed in 2008</p>
+                                            </div>
+                                            <div class="col-md-1 tooltips">
+                                                <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext">Degree completed in 2008</span>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Occupation</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p>Networking</p>
+                                            </div>                                 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="col-md-6 col-xs-6 ">
+                                            <p>Occupation in Detail</p>
+                                            </div>
+                                            <div class="col-md-4  dark">
+                                                <p class="text_short">
+Currently Not Working. For 6 years she has worked as an Assistant Professor in Engineering Colleges and she is willing to work in future.</p>
+                                            </div>
+                                            <div class="col-md-1 tooltips">
+                                                <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext">
+Currently Not Working. For 6 years she has worked as an Assistant Professor in Engineering Colleges and she is willing to work in future.</span>
+                                            </div>
+                                            <div  class="col-md-6 col-xs-6 ">
+                                            <p>Employed In</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p>Private</p>
+                                            </div >
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Monthly Income</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p>40,000</p>
+                                            </div>                                     
+                                        </div>
+                                    </div>                            
+                                        <!-- <ul>
                                             <li><a href="#">Education</a></li>
                                             <li><a href="#">Education in Detail</a></li>
                                             <li><a href="#">Occupation</a></li>
-                                            <!-- <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li> -->
                                         </ul>
                                         <ul>
                                             <li><a href="#">B.E/B.Tech</a></li>
                                             <li><a href="#">Degree completed in 2008</a></li>
                                             <li><a href="#">Software Proffesional</a></li>
-                                            <!-- <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li> -->
                                         </ul>
                                         <ul>
                                             <li><a href="#">Employed In</a></li>
                                             <li><a href="#">Monthly Income (<i class="fa fa-inr" aria-hidden="true"></i>)</a></li>
                                             <li><a href="#">Occupation in Detail</a></li>
-                                            <!-- <li><a href="#"></a>- </li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li> -->
                                         </ul>
                                         <ul>
                                             <li><a href="#">Private</a></li>
                                             <li><a href="#">20000</a></li>
-                                            <li><a href="#">Project Coordinator</a></li>           
-                                            <!-- <li><a href="#">9, first street, NG nagar, Pondicherry, 605111.</a></li>
-                                            <li><a href="#"></a>-</li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li> -->
-                                        </ul>
+                                            <li><a href="#">Project Coordinator</a></li>
+                                        </ul> -->
                                     </div>                                             
                                 </div>
                                 <div class="members_about_box">
                                 <div id="">
                                 <h3 id="hcolor">Family</h3>
                                 </div>                            
-                                <div class="profile_list">                                    
-                                        <ul>
+                                <div class="profile_list">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Father's Name</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p>Srinivasan</p>
+                                            </div>
+                                            <div  class="col-md-6 col-xs-6 ">
+                                            <p>Mothers Name</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p>Renuka</p>
+                                            </div >
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Father's Occupation</p>
+                                            </div>
+                                            <div class="col-md-4 col-xs-6 dark">
+                                                <p class="text_short">Professor Rtd., Alagappa Government Arts College, Karaikudi.</p>
+                                            </div>
+                                            <div class="col-md-1 col-xs-1 tooltips">
+                                                <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext">Professor Rtd., Alagappa Government Arts College, Karaikudi.</span>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Mothers's Occupation</p>
+                                            </div>
+                                            <div class="col-md-4 col-xs-6 dark">
+                                                <p class="text_short">Professor Rtd., Alagappa Government Arts College, Karaikudi.</p>
+                                            </div>
+                                            <div class="col-md-1 col-xs-1 tooltips">
+                                                <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext">Professor Rtd., Alagappa Government Arts College, Karaikudi.</span>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Family Status</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p>Middle</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6">
+                                            <p>Family Type</p>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6 dark">
+                                                <p>Nuclear</p>
+                                            </div>                                                
+                                        </div>
+                                        <div class="col-md-6">              
+                                            <div  class="col-md-6 col-xs-6">
+                                            <p></p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 dark">
+                                                <p>Elder</p>
+                                            </div >
+                                            <div class="col-md-3 col-xs-3 dark">
+                                            <p>Younger</p>
+                                            </div>
+                                            <div  class="col-md-6 col-xs-6">
+                                            <p>No.of Brothers</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 dark">
+                                                <p>1</p>
+                                            </div >
+                                            <div class="col-md-3 col-xs-3 dark">
+                                            <p>2</p>
+                                            </div>
+                                            <div  class="col-md-6 col-xs-6">
+                                            <p>No.of Sisters</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 dark">
+                                                <p>1</p>
+                                            </div >
+                                            <div class="col-md-3 col-xs-3 dark">
+                                            <p>0</p>
+                                            </div>
+                                            <div  class="col-md-6 col-xs-6">
+                                            <p>No.of Married Brothers</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 dark">
+                                                <p>0</p>
+                                            </div >
+                                            <div class="col-md-3 col-xs-3 dark">
+                                            <p>0</p>
+                                            </div>
+                                            <div  class="col-md-6 col-xs-6">
+                                            <p>No.of Married Sisters</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 dark">
+                                                <p>0</p>
+                                            </div >
+                                            <div class="col-md-3 col-xs-3 dark">
+                                            <p>0</p>
+                                            </div>                         
+                                        </div>
+                                    </div>
+                                                                                
+                                        <!-- <ul>
                                             <li><a href="#">Father's Name</a></li>
                                             <li><a href="#">Mother's Name</a></li>
                                             <li><a href="#">Father's Occupation</a></li>
                                             <li><a href="#">Mother's Occupation</a></li>
                                             <li><a href="#">Family Status</a></li>
                                             <li><a href="#">Family Type</a></li>
-                                            <!-- <li><a href="#">Work as</a></li> -->
                                         </ul>
                                         <ul>
                                             <li><a href="#">Vadivel</a></li>
@@ -701,7 +565,6 @@
                                             <li><a href="#">Housewife</a></li>
                                             <li><a href="#">Upper Middle Class</a></li>
                                             <li><a href="#">Nuclear</a></li>
-                                            <!-- <li><a href="#">Designer</a></li> -->
                                         </ul>
 
                                         <ul>
@@ -717,7 +580,6 @@
                                             <li><a href="#">0</a></li>
                                             <li><a href="#">1</a></li>
                                             <li><a href="#">0</a></li>
-                                            <!-- <li><a href="#">Designer</a></li> -->
                                         </ul>
                                         <ul>
                                             <li><a href="#">younger</a></li>
@@ -725,17 +587,16 @@
                                             <li><a href="#">0</a></li>
                                             <li><a href="#">1</a></li>
                                             <li><a href="#">0</a></li>
-                                            <!-- <li><a href="#">Designer</a></li> -->
-                                        </ul>
+                                        </ul> -->
                                     </div>                                             
                                 </div>
-                                <!-- <div class="members_about_box">
+                                <div class="members_about_box">
                                     <div id="">
                                     <h3 id="hcolor">More About Family</h3>
                                     <div class="profile_list"> 
                                     </div>
                                     </div>                                                         
-                                </div> -->
+                                </div>
                                 <div class="members_about_box">
                                 <div id="">
                                 <h3 id="hcolor">Physical Attributes</h3>
@@ -899,6 +760,65 @@
                                 <div class="members_about_box">
                                     <h3 id="hcolor">Horoscope</h3>
                                     <div class="profile_list"> 
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                            <!-- Rasi Horoscope - Start -->
+                                                    <div id="horo_container">
+                                                        <div class="horo_row" id="product">
+                                                            <div class="third-row" data-id="box_1" id="box_1">1</div>
+                                                            <div class="third-row" data-id="box_2" id="box_2">2</div>
+                                                            <div class="third-row" data-id="box_3" id="box_3">3</div>
+                                                            <div class="third-row" data-id="box_4" id="box_4">4</div>
+
+                                                            <div class="third-row" data-id="box_12" id="box_12">12</div>
+                                                            <div class="third-row" data-id="box_15" id="box_15">-</div>
+                                                            <div class="third-row" data-id="box_16" id="box_16">-</div>
+                                                            <div class="third-row" data-id="box_5"  id="box_5">5</div>
+
+                                                            <div class="third-row" data-id="box_11" id="box_11">11</div>
+                                                            <div class="third-row" data-id="box_13" id="box_13">-</div>
+                                                            <div class="third-row" data-id="box_14" id="box_14">-</div>
+                                                            <div class="third-row" data-id="box_6"  id="box_6">6</div>
+
+                                                            <div class="third-row" data-id="box_10" id="box_10">10</div>
+                                                            <div class="third-row" data-id="box_9" id="box_9">9</div>
+                                                            <div class="third-row" data-id="box_8" id="box_8">8</div>
+                                                            <div class="third-row" data-id="box_7" id="box_7">7</div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Rasi Horoscope - End -->
+                                                </div>  <!-- row col 6 ends -->
+                                                <div class="col-md-6">
+                                                    <!-- Asham Horoscope - start -->
+                                                    <div id="asham_horo_container">
+                                                        <div class="asham_horo_row" id="product">
+                                                        <div class="asham-row" data-id="abox_1" id="abox_1">1</div>
+                                                        <div class="asham-row" data-id="abox_2" id="abox_2">2</div>
+                                                        <div class="asham-row" data-id="abox_3" id="abox_3">3</div>
+                                                        <div class="asham-row" data-id="abox_4" id="abox_4">4</div>
+
+                                                        <div class="asham-row" data-id="abox_12" id="abox_12">12</div>
+                                                        <div class="asham-row" data-id="abox_15" id="abox_15">-</div>
+                                                        <div class="asham-row" data-id="abox_16" id="abox_16">-</div>
+                                                        <div class="asham-row" data-id="abox_5"  id="abox_5">5</div>
+
+                                                        <div class="asham-row" data-id="abox_11" id="abox_11">11</div>
+                                                        <div class="asham-row" data-id="abox_13" id="abox_13">-</div>
+                                                        <div class="asham-row" data-id="abox_14" id="abox_14">-</div>
+                                                        <div class="asham-row" data-id="abox_6"  id="abox_6">6</div>
+
+                                                        <div class="asham-row" data-id="abox_10" id="abox_10">10</div>
+                                                        <div class="asham-row" data-id="abox_9" id="abox_9">9</div>
+                                                        <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
+                                                        <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Asham Horoscope - end -->
+                                                </div> <!-- col 6 ends -->
+                                            </div> <!-- col 12 ends -->
+                                        </div> <!-- row ends -->
                                     </div>
                                 </div>
                             </div>

@@ -117,22 +117,7 @@
                   </div>
 				</div><!--/span-->
 			</div><!--/row-->
-<!-- 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript">
 
-$(document).ready(function(){
-
-$(".slidingDiv").hide();
-$(".show_hide").show();
-
-$('.show_hide').click(function(){
-$(".slidingDiv").slideToggle();
-});
-
-});
-
-</script> -->
 
 			<div class="row-fluid sortable">				
 				<div class="box span12">
@@ -172,7 +157,7 @@ $(".slidingDiv").slideToggle();
 											<option>Inactive</option>
 											<option>Delete</option>
 										</select>
-										  	<a class="btn btn-primary show_hide" id="search" href="#" style="float: left; margin-left: 5px;">
+										  	<a class="btn btn-primary search_customer" id="search" href="#" style="float: left; margin-left: 5px;">
 									        <i class="glyphicon glyphicon-edit icon-white"></i>
 									        Search
 									    	</a>

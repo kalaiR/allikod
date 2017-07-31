@@ -28,7 +28,7 @@
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a>
-					<table class="table table-striped table-bordered bootstrap-datatable datatable">
+					<table class="table table-striped table-bordered bootstrap-datatable datatable nosorting">
 						  <thead>
 							  <tr>
 								  <th>Education</th>

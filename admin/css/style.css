@@ -19,13 +19,58 @@
 }
 /*Style For Hide and Show*/
 .slidingDiv {
-height:300px;
-background-color: #99CCFF;
-padding:20px;
-margin-top:10px;
-border-bottom:5px solid #3399FF;
 }
 
-.show_hide {
-display:none;
+.search_customer {
+}
+
+/* View Details - Horoscope*/
+#horo_container{
+    padding:5px;
+    width:282px;
+    height:282px;
+    display:block;   
+}
+
+.horo_row{
+    font-size: 0px; /*Remove extra margins!*/
+    min-height:282px;
+   /* margin-top:25px;*/
+    width:282px;
+    background-color:white;
+    margin-left:auto;
+    margin-right:auto;
+    /*padding:2%;    */
+    background-image: url("../img/rasi/raasi1.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+.third-row{
+    display:inline-block;
+    width:23%;
+    margin:1%;
+    height:65px;
+    font-family:Courier; color:white; font-size: 20px;
+}
+
+.asham_horo_row{
+    font-size: 0px; /*Remove extra margins!*/
+    min-height:282px;
+   /* margin-top:25px;*/
+    width:282px;
+    background-color:white;
+    margin-left:auto;
+    margin-right:auto;
+    padding:2%;    
+    background-image: url("../img/rasi/amsam1.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+.asham-row{
+    display:inline-block;
+    width:23%;
+    margin:1%;
+    height:65px;
+    font-family:Courier; color:white; font-size: 20px;
 }
