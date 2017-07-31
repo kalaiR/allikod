@@ -1113,10 +1113,10 @@ p2
   font-weight: 500;
 }
 
-.register_form_inner .registration_form_s .form-group input:focus {
+/*.register_form_inner .registration_form_s .form-group input:focus {
   border: 1px solid #e74c3c;
 }
-
+*/
 .register_form_inner .registration_form_s .form-group .btn-group {
   width: 100%;
   text-align: left;
@@ -2444,7 +2444,7 @@ p2
 }
 
 .registration_form_area .registration_form_s .form-group input:focus {
-  border: 1px solid #e74c3c;
+  /*border: 1px solid #e74c3c;*/
 }
 
 .registration_form_area .registration_form_s .form-group .btn-group {
