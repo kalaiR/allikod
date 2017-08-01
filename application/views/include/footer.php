@@ -153,8 +153,8 @@
         <script src="<?php echo media_url(); ?>assets/js/contact.js"></script>
         
         <!--gmaps Js-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-        <script src="<?php echo media_url(); ?>assets/js/gmaps.min.js"></script>
+       <!--  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+        <script src="<?php echo media_url(); ?>assets/js/gmaps.min.js"></script> -->
         <script src="<?php echo media_url(); ?>assets/js/custom.js"></script>
         <script src="<?php echo media_url(); ?>assets/js/custom_validation.js"></script>
 
@@ -168,5 +168,6 @@
         var csrf_name = "<?php echo $this->security->get_csrf_token_name(); ?>";
 
         //Admin base url declaration (route path)
-        var baseurl = "<?php echo base_url(); ?>/";
+        var baseurl = "<?php echo base_url(); ?>/";        
+        var media_url = "<?php echo media_url(); ?>"; 
     </script>
