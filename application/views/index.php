@@ -125,7 +125,7 @@
                                          </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="reg_Mobile" name="reg_Mobile" placeholder="Mobile Number">
+                                                <input type="text" class="form-control form_inputs" id="reg_Mobile" name="reg_Mobile" placeholder="Mobile Number">
                                             </div>
                                         </div>
                                     </div>    
