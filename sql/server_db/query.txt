@@ -51,6 +51,23 @@ INSERT INTO vallikodi_server.user_images(`reg_user_id`,`images`,`user_profile_id
 DROP TABLE user_images;
 
 
+TRUNCATE food;
+INSERT INTO vallikodi_server.food(name,active_status,delete_status,added_date) SELECT name,active_status,delete_status,added_date from BBBn3tl_test.food;
+
+
+01/08/17:
+1345812014.jpg
+1378442592.jpg
+1378442464.jpg
+
+UPDATE `success_stories` SET `active_status` = '0' WHERE `success_stories`.`successstories_id` = 32; UPDATE `success_stories` SET `active_status` = '0' WHERE `success_stories`.`successstories_id` = 36; UPDATE `success_stories` SET `active_status` = '0' WHERE `success_stories`.`successstories_id` = 37;
+
+update reg_userdetail set user_gender = 2 where userdetail_id='66951' OR userdetail_id='67279' OR userdetail_id='66160' OR userdetail_id='65420' OR userdetail_id='67797';
+
+ALTER TABLE `reg_payment` CHANGE `no_of_profiles_viewed` `no_of_profiles_viewed` INT( 5 ) NOT NULL DEFAULT '0';
+
+
+
 
 no need to run(just for reference)
 Query to generate report of active online user from the year 2014 to 2017:

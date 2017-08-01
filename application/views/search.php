@@ -243,7 +243,7 @@ include('include/menu.php');
                                                     <h3  id="white">Advanced Search</h3>
                                                 </div>    
                                              </div>
-                                             <form class="box" action="<?php echo base_url(); ?>search_result">
+                                             <form method="post" class="box basic_search" action="<?php echo base_url();?>search_result" id="advance_search_form" name="advance_search_form" >
                                               
                                                 <div class="col-sm-10  aline-center-box">
                                                        <div class="row">
@@ -254,9 +254,9 @@ include('include/menu.php');
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>Male</option>
-                                                                        <option>Female</option>
+                                                                    <select class="form-control" name="gender[]" id="gender">
+                                                                        <option value="2">Female</option>
+                                                                        <option value="1">Male</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -271,9 +271,19 @@ include('include/menu.php');
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>India</option>
-                                                                        <option>Other</option>
+                                                                    <select class="form-control customize_plan form_inputs" name="country[]" id="country" placeholder="Country Name">
+                                                                    <option value="">Select</option>
+                                                                    <?php
+                                                                    if(!empty($country)) :
+                                                                    foreach ($country as $cls_val) {
+                                                                        if($cls_val['country_id']=='93'){
+                                                                        echo "<option value='".$cls_val['country_id']."' selected>". ucfirst($cls_val['name'])."</option>";  
+                                                                        }else{
+                                                                        echo "<option value='" . $cls_val['country_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                        }            
+                                                                    }
+                                                                    endif;
+                                                                    ?>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -288,10 +298,16 @@ include('include/menu.php');
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>Admin</option>
-                                                                        <option>Other</option>
-                                                                    </select>
+                                                                    <select class="form-control" name="occupation[]"  id="occupation">
+                                                                                <option value="">Select</option>
+                                                                                <?php 
+                                                                                    if(!empty($occupation_category)) :
+                                                                                    foreach ($occupation_category as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['occ_category_id'] . "'>" . ucfirst($cls_val['occupation_name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>   
+                                                                            </select>
                                                                 </div>
                                                             </div>
                                                         </div>        
@@ -305,9 +321,9 @@ include('include/menu.php');
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>Normal</option>
-                                                                        <option>Other</option>
+                                                                    <select class="form-control" name="phy_status[]" id="phy_status">                    
+                                                                        <option value="1" selected>Normal</option>
+                                                                        <option value="2">Physically challenged</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -322,14 +338,22 @@ include('include/menu.php');
                                                             </div>
                                                             <div class="col-sm-8 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>18</option>
-                                                                        <option>20</option>
-                                                                    </select>
-                                                                    <select class="selectpicker">
-                                                                        <option>21</option>
-                                                                        <option>24</option>
-                                                                    </select>
+                                                                    <select class="form-control" name="search_age_from[]" id="search_age_from">
+                                                                                <?php 
+                                                                                for($i=18;$i<=60;$i++){ ?>
+                                                                                <option <?php if($i==18){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                                <?php
+                                                                                } ?>
+                                                                                </select>
+                                                                    <select class="form-control" name="search_age_to[]" id="search_age_to">
+                                                                                        <?php 
+                                                                                        for($i=18;$i<=60;$i++){
+                                                                                        ?>
+                                                                                        <option  <?php if($i==34){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                                        <?php
+                                                                                        }
+                                                                                        ?>
+                                                                        </select>
                                                                 </div>
                                                             </div>
                                                         </div>        
@@ -343,13 +367,16 @@ include('include/menu.php');
                                                             </div>
                                                             <div class="col-sm-8 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>180 Cm</option>
-                                                                        <option>200 Cm</option>
+                                                                    <select class="form-control" name="height_in_cms[]" id="height_in_cms">
+                                                                    <?php for($i=137;$i<=213;$i++){?>
+                                                                    <option  <?php if($i==137){?> selected="selected" <?php } ?>  value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                    <?php } ?>
                                                                     </select>
-                                                                    <select class="selectpicker">
-                                                                        <option>210 Cm</option>
-                                                                        <option>240 Cm</option>
+
+                                                                    <select class="form-control" name="height_in_feets[]" id="height_in_feets">
+                                                                    <?php for($i=137;$i<=213;$i++){?>
+                                                                    <option  <?php if($i==213){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                    <?php } ?>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -364,12 +391,16 @@ include('include/menu.php');
                                                             </div>
                                                             <div class="col-sm-5 box">
                                                                 <div class="height_item">
-                                                                    <select class="form-control">
-                                                                        <option value="">Select</option>
+                                                                    <select class="form-control" name="martial_status[]" id="martial_status">           
                                                                                 <?php 
                                                                                     if(!empty($martial_status)) :
                                                                                     foreach ($martial_status as $cls_val) {
-                                                                                    echo "<option value='" . $cls_val['maritalcategory_id'] . "'>" . ucfirst($cls_val['marital_name']) . "</option>";
+                                                                                        if($cls_val['maritalcategory_id']=='1'){
+                                                                                            echo "<option value='" . $cls_val['maritalcategory_id'] . "' selected>" . ucfirst($cls_val['marital_name']) . "</option>";
+
+                                                                                        }else{
+                                                                                            echo "<option value='" . $cls_val['maritalcategory_id'] . "'>" . ucfirst($cls_val['marital_name']) . "</option>";
+                                                                                        }
                                                                                     }
                                                                                 endif;
                                                                                 ?>
@@ -387,15 +418,18 @@ include('include/menu.php');
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                     <option value="">Select</option>
+                                                                    <select class="form-control" name="mother_tongue[]" id="mother_tongue">           
                                                                         <?php 
-                                                                                    if(!empty($mother_tongue)) :
-                                                                                    foreach ($mother_tongue as $cls_val) {
-                                                                                    echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
-                                                                                    }
-                                                                                endif;
-                                                                                ?>
+                                                                            if(!empty($mother_tongue)) :
+                                                                            foreach ($mother_tongue as $cls_val) {
+                                                                                if($cls_val['mothertongue_id']=='1'){
+                                                                                    echo "<option value='" . $cls_val['mothertongue_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                }else{
+                                                                                echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                }
+                                                                            }
+                                                                            endif;
+                                                                        ?>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -410,12 +444,12 @@ include('include/menu.php');
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
+                                                                    <select class="form-control" name="education_category[]" id="education_category">
                                                                         <option value="">Select</option>
                                                                                 <?php 
-                                                                                    if(!empty($education)) :
-                                                                                    foreach ($education as $cls_val) {
-                                                                                    echo "<option value='" . $cls_val['education_id'] . "'>" . ucfirst($cls_val['edu_name']) . "</option>";
+                                                                                    if(!empty($education_category)) :
+                                                                                    foreach ($education_category as $cls_val) {
+                                                                                    echo "<option value='" . $cls_val['educationcategory_id'] . "'>" . ucfirst($cls_val['cat_name']) . "</option>";
                                                                                     }
                                                                                 endif;
                                                                                 ?>
@@ -433,18 +467,19 @@ include('include/menu.php');
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>Both</option>
-                                                                        <option>With Photo</option>
-                                                                        <option>Without Photo</option>
+                                                                    <select class="form-control" id="show_profile" name="images[]">
+                                                                        <option value="both">Both</option>
+                                                                        <option value="with_photo">With Photo</option>
+                                                                        <option value="without_photo">Without Photo</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                         </div>        
                                                 </div>
-                                                    <div class="search_btn">
-                                                        <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
-                                                    </div>
+                                            <input type="hidden" name="search_type" value="advance_search" id="search_type"/>
+                                            <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" /> <div class="search_btn">
+                                            <button type="submit" value="LogIn" class="btn form-control login_btn" id="search_type" name="" value="search_type">Search</button>
+                                                    </div>                                                   
                                              </form>
                                         </div>
                                     </div>

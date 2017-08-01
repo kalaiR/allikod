@@ -42,7 +42,7 @@ include('include/menu.php');
                             <a href="search.html#dh-id" aria-controls="dh-id" role="tab" data-toggle="tab">Image &amp;Horoscope</a>
                         </li>
                     </ul>
-                <form name="frmRegistration" id="registration-form" method="post" action="registration">    
+                <form name="frmRegistration" id="registration-form" method="post" action="registration" enctype="multipart/form-data">    
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="userdetails-field">
                             <div class="row">
@@ -75,7 +75,7 @@ include('include/menu.php');
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4 ">
-                                                <input type="password" class="form-control tabfield" id="reg_pass1" placeholder="Password" name="reg_pass" value="<?php if(!empty($registered_data)) echo $registered_data['user_pwd']; ?>"/>
+                                                <input type="password" class="form-control tabfield" id="reg_pass1" name="reg_pass1" placeholder="Password" name="reg_pass" value="<?php if(!empty($registered_data)) echo $registered_data['user_pwd']; ?>"/>
                                             </div>
                                             <div class="col-sm-4 box">
                                                 <span id="reg_passed_error" class="registration-error"></span>
@@ -127,7 +127,7 @@ include('include/menu.php');
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                               <input type="text" class="form-control" id="reg_Nam" placeholder="Name" value="<?php if(!empty($registered_data)) echo $registered_data['user_fname']; ?>"/>
+                                               <input type="text" class="form-control" id="reg_Nam" placeholder="Name" name="reg_name" value="<?php if(!empty($registered_data)) echo $registered_data['user_fname']; ?>"/>
                                             </div>
                                             <div class="col-sm-4 box">
                                                 <span id="reg_nam_error" class="registration-error"></span>
@@ -165,7 +165,7 @@ include('include/menu.php');
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                                <input type='text' class="form-control datetimepicker4" placeholder="Birthday" /> 
+                                                <input type='text' class="form-control datetimepicker4" name="dob" id="dob" placeholder="Birthday" /> 
                                             </div>    
                                                 <div class="col-sm-4 box">
                                                     <span id="gender_error" class="registration-error"></span>
@@ -216,7 +216,7 @@ include('include/menu.php');
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                                 <input type="time" class="form-control" id="reg_tim" placeholder="Time of Birth">
+                                                 <input type="time" name="reg_tim" class="form-control" id="reg_tim" placeholder="Time of Birth">
                                             </div>
                                             <div class="col-sm-4 box">
                                                <span id="tim_error" class="registration-error"></span>
@@ -268,7 +268,7 @@ include('include/menu.php');
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                               <input type="text" class="form-control" id="reg_caste" name="reg_religion"placeholder="Caste">
+                                               <input type="text" class="form-control" id="reg_caste" name="reg_caste"placeholder="Caste">
                                             </div>
                                             <!-- <div class="col-sm-4 box">
                                                <span id="mother_error" class="registration-error"></span>
@@ -473,6 +473,19 @@ include('include/menu.php');
                                                   <span id="reg_income_error" class="registration-error"></span>
                                                 </div>     
                                             </div>
+                                            <div class="row base-box">
+                                                <div class="col-sm-4">
+                                                    <div class="height_item">
+                                                        <h4>Occupation in Detail *</h4>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-sm-4">
+                                                     <textarea class="form-control" rows="5" id="occupationdetail" placeholder="Education in detail" name="occupationdetail"></textarea>
+                                                </div>
+                                                <div class="col-sm-4 box">
+                                                   <span id="occupationdetail_error" class="registration-error"></span>
+                                                </div>     
+                                            </div>
                                         </div>                          
                                 </div>
                             </div>
@@ -550,7 +563,7 @@ include('include/menu.php');
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4 box">
-                                                    <input type="text" class="form-control" id="reg_district" placeholder="District" id="reg_district">
+                                                    <input type="text" class="form-control" id="reg_district" placeholder="District" name="reg_district">
                                                 </div>
                                                 <!-- <div class="col-sm-4 box">
                                                   <span id="cur_country_error" class="registration-error"></span>
@@ -980,6 +993,28 @@ include('include/menu.php');
                                             </div>     
                                     </div>
                                     <div class="row base-box">
+                                                <div class="col-sm-4">
+                                                    <div class="height_item">
+                                                       <h4>Education *</h4>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-sm-4">
+                                                     <select class="form-control" name="reg_Education[]" id="reg_Education">
+                                                            <option value="">Select</option>
+                                                            <?php 
+                                                                if(!empty($education)) :
+                                                                foreach ($education as $cls_val) {
+                                                                echo "<option value='" . $cls_val['education_id'] . "'>" . ucfirst($cls_val['edu_name']) . "</option>";
+                                                                }
+                                                                endif;
+                                                            ?>
+                                                     </select>
+                                                </div>
+                                                <div class="col-sm-4 box">
+                                                   <span id="edu_error" class="registration-error"></span>
+                                                </div>     
+                                            </div>
+                                    <div class="row base-box">
                                             <div class="col-sm-4 box">
                                                 <div class="height_item">
                                                     <h4>Diet *</h4>
@@ -987,14 +1022,15 @@ include('include/menu.php');
                                             </div>
                                             <div class="col-sm-6">
                                                 <label class="radio-inline" id="white">
-                                                <input type="radio" name="optradio">
-                                                Vegetarian
+                                                <input type="radio" name="diet_veg" id="diet_veg" value="1">
+                                                    Vegetarian
                                                 </label>
                                                 <label class="radio-inline" id="white">
-                                                <input type="radio" name="optradio">
-                                                Non-Vegerarian</label>
-                                                <label class="radio-inline" id="white">
-                                                <input type="radio" name="optradio">
+                                                <input type="radio" name="diet_nonveg" id="diet_nonveg" value="2">
+                                                    Non-Vegerarian
+                                                </label>
+                                                <label class="radio-inline" id="white">         
+                                                <input type="radio" name="diet_egg" id="diet_egg" value="3">
                                                 Eggetarian</label> 
                                             </div>
                                             <!-- <div class="col-sm-4 box">
@@ -1037,13 +1073,119 @@ include('include/menu.php');
                                                 <span></span>
                                                 <p id="msg"></p>
                                                 <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" /><br>
-                                                <input type="button" class="btnAction next_angkar_btn" id="upload" value="upload" name ="upload">
+                                                <!-- <input type="button" class="btnAction next_angkar_btn" id="upload" value="upload" name ="upload"> -->
                                                  <span id="upload_error" class="registration-error"></span>
                                             </div>
                                         </div>        
                                     </div>
                             </div>
                         </div>
+                        <!-- Horo Scope Start -->
+                        <div class="row">
+                            <div class="col-sm-12 aline-center-box">
+                                     <div class="col-sm-3 aline-center-box box">
+                                        <div class="height_item">      
+                                            <h3 id="white">Image</h3>.
+                                        </div>    
+                                     </div>
+                                    <div class="col-sm-10  aline-center-box">
+
+                                     <!-- Horo Scope Start -->
+
+                                    <div id="horo_container">
+                                        <div class="horo_row" id="product">
+                                        <div class="third-row" data-id="box_1" id="box_1">1</div>
+                                        <div class="third-row" data-id="box_2" id="box_2">2</div>
+                                        <div class="third-row" data-id="box_3" id="box_3">3</div>
+                                        <div class="third-row" data-id="box_4" id="box_4">4</div>
+
+                                        <div class="third-row" data-id="box_12" id="box_12">12</div>
+                                        <div class="third-row" data-id="box_15" id="box_15">-</div>
+                                        <div class="third-row" data-id="box_16" id="box_16">-</div>
+                                        <div class="third-row" data-id="box_5"  id="box_5">5</div>
+
+                                        <div class="third-row" data-id="box_11" id="box_11">11</div>
+                                        <div class="third-row" data-id="box_13" id="box_13">-</div>
+                                        <div class="third-row" data-id="box_14" id="box_14">-</div>
+                                        <div class="third-row" data-id="box_6"  id="box_6">6</div>
+
+                                        <div class="third-row" data-id="box_10" id="box_10">10</div>
+                                        <div class="third-row" data-id="box_9" id="box_9">9</div>
+                                        <div class="third-row" data-id="box_8" id="box_8">8</div>
+                                        <div class="third-row" data-id="box_7" id="box_7">7</div>
+
+                                        </div>
+                                    </div>
+                                    </br>
+                                    </br>
+                                    <div id="cont">
+                                        <select id="rasi_name" style="width:300px; display: block;" name="rasi_name">    
+                                            <option value="r_1">&#2994;&#2965;&#3021;</option> 
+                                            <option value="r_2">&#2992;&#3006;&#2965;&#3009;</option>
+                                            <option value="r_3">&#2970;&#2984;&#3021;</option>   
+                                            <option value="r_4">&#2965;&#3015;&#2980;&#3009;</option>
+                                            <option value="r_5">&#2970;&#2985;&#3007;</option>
+                                            <option value="r_6">&#2970;&#3014;&#2997;&#3021; </option>
+                                            <option value="r_7"> &#2965;&#3009;&#2992;&#3009;</option>
+                                            <option value="r_8"> &#2970;&#3009;&#2965;&#3021;</option>
+                                            <option value="r_9">&#2970;&#3010;&#2992;&#3007;</option>
+                                            <option value="r_10"> &#2986;&#3009;&#2980;&#2985;&#3021;</option> 
+                                        </select>
+
+                                        <select id="box_id" style="width:300px; display: block;">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option> 
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option> 
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+
+                                            <input type="button" id="add_rasi" value="ADD" name="add_rasi" />
+                                            <select id="crasi_name" style="width:300px; display: block;" name="crasi_name">
+                                            </select>    
+                                            <input type="button" id="remove_rasi" value="Remove" name="add_rasi" />
+                                    </div>
+
+                                    <!-- ASHAM -->
+                                    <div id="asham_horo_container">
+                                        <div class="asham_horo_row" id="product">
+                                        <div class="asham-row" data-id="abox_1" id="abox_1">1</div>
+                                        <div class="asham-row" data-id="abox_2" id="abox_2">2</div>
+                                        <div class="asham-row" data-id="abox_3" id="abox_3">3</div>
+                                        <div class="asham-row" data-id="abox_4" id="abox_4">4</div>
+
+                                        <div class="asham-row" data-id="abox_12" id="abox_12">12</div>
+                                        <div class="asham-row" data-id="abox_15" id="abox_15">-</div>
+                                        <div class="asham-row" data-id="abox_16" id="abox_16">-</div>
+                                        <div class="asham-row" data-id="abox_5"  id="abox_5">5</div>
+
+                                        <div class="asham-row" data-id="abox_11" id="abox_11">11</div>
+                                        <div class="asham-row" data-id="abox_13" id="abox_13">-</div>
+                                        <div class="asham-row" data-id="abox_14" id="abox_14">-</div>
+                                        <div class="asham-row" data-id="abox_6"  id="abox_6">6</div>
+
+                                        <div class="asham-row" data-id="abox_10" id="abox_10">10</div>
+                                        <div class="asham-row" data-id="abox_9" id="abox_9">9</div>
+                                        <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
+                                        <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
+
+                                        </div>
+                                    </div>
+
+
+                                      <!-- Horo Scope End -->
+                                              
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- Horo Scope End -->
                         </div>
                         <div class="col-sm-4 pull-right next-box"> 
                             <div class="search_btn">
@@ -1059,5 +1201,24 @@ include('include/menu.php');
                      
         </section>  
 <?php 
-    include('include/footer.php');
-?>
+include('include/footer.php');
+if(!empty($registered_data)){
+    $msg = 'Dear Customer Thanks for registering with us in vallikodivanniarmatrimonial.in';
+    $sms_mobileno = $registered_data['comm_mobile_no'];
+}?>
+<!-- SMS Script for Vallikodi for Home Register process - Start -->
+<script type="text/javascript">
+function sendMsg(msg,no){
+    no = no;
+    // alert('test');
+    $.ajax(
+        {
+            type: 'GET',
+            url:'http://dnd.blackholesolution.com/api/sendmsg.php?user=VALLIK&pass=abcd1234&sender=VALLIK&phone='+no+'&text='+msg+'&priority=ndnd&stype=normal',
+            data:'',
+            success: function(data){
+            },
+        });
+}
+sendMsg('<?php echo $msg ;?>','<?php echo $sms_mobileno;?>');
+</script>
