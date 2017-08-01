@@ -267,9 +267,9 @@ class User_model extends CI_Model {
     return $model_data;
   }
   public function get_recent_profile(){
-      $query = $this->db->query("select usr.userdetail_id, usr_img.images from reg_userdetail as usr 
+      $query = $this->db->query("select usr.userdetail_id, usr_img.images, usr.user_gender from reg_userdetail as usr 
         INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
-        usr.user_active_status =1 AND usr_img.images != '' ORDER BY usr.userdetail_id DESC limit 8")->result_array();
+        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' ORDER BY usr.userdetail_id DESC limit 8")->result_array();
       return $query;
   }
 
@@ -428,6 +428,7 @@ class User_model extends CI_Model {
       $this->db->join('food fode','fode.food_id=pe.phy_expectationfood','left');
       $this->db->where($condition); 
       $query = $this->db->get()->row_array();
+      //echo $this->db->last_query();
       return $query;
   } 
 
@@ -514,7 +515,7 @@ class User_model extends CI_Model {
         return;
      }
  }
-
+ 
    /** Search by dhoshamsearch Id **/
   public function get_dhoshamsearch($values, $limit, $start){     
 
@@ -542,7 +543,186 @@ class User_model extends CI_Model {
         $model_data['total_rows'] = $this->db->get()->num_rows();         
 
     return $model_data;
-  }   
+  }
+
+  // Get Occupation Category //
+  public function get_occupationcategory($occcat_id=""){
+      if($occcat_id!=''){
+        // Education Id Id based search    
+        $condition = "occ.active_status = 1 AND occ.occ_category_id = ".$occcat_id."";  
+        $this->db->select('*');
+        $this->db->from('occupation_category AS occ');
+        $this->db->where($condition);      
+        $this->db->order_by('occ.occ_category_id','asc');
+        $query = $this->db->get()->row_array();          
+      }else{
+        $condition = "occ.active_status = 1";  
+        $this->db->select('*');
+        $this->db->from('occupation_category AS occ');
+        $this->db->where($condition);      
+        $this->db->order_by('occ.occ_category_id','asc');
+        $query = $this->db->get()->result_array();          
+      }
+      return $query;
+  }
+
+  // select Occupation category based occupation //
+  public function get_catgoryoccupation($catocc_id){
+     if(!empty($catocc_id)){
+        $user_where = '(occcat.occ_category_id="'.$catocc_id.'")';
+        $this->db->select('*');
+        $this->db->from('occupation_category occcat');
+        $this->db->join('occupation occ','occ.occupation_catid = occcat.occ_category_id','left');
+        $this->db->where($user_where);
+        $this->db->order_by('occcat.occ_category_id','desc');
+        $model_data = $this->db->get()->result_array();
+        // echo $this->db->last_query();        
+        return $model_data;
+     }else{
+        return;
+     }
+ } 
+
+// Advance Search Query //
+ public function get_advancesearch($values, $limit, $start){
+  if(!empty($values)) {
+
+        // With Photo - Without photo //
+        if(!empty($values['show_profile'])) {
+            if($values['show_profile'] =='with_photo'){
+               $show_profile = '(img.images!="" AND img.images!="defalt_male.jpg" AND img.images!="defalt_female.jpg")';
+            }elseif($values['show_profile'] =='without_photo') {
+               $show_profile = '(img.images ="" OR img.images ="defalt_male.jpg" OR img.images="defalt_female.jpg")';
+            }else{
+               $show_profile = '(img.images ="" OR img.images!="" OR img.images ="defalt_male.jpg" AND img.images="defalt_female.jpg")';
+            } 
+        } 
+
+        // With Education Category Based Education //
+        if(!empty($values['education_category'])) {
+          $catedu = $this->get_catgoryeducation($values['education_category']);
+          $val =1;
+          $like_where1 = "(";
+            foreach ($catedu as $key => $value) {          
+              if($val!= count($catedu)){
+                $like_where1 .= 'edu.edu_education = "'.$value['education_id'].'" OR ';
+              }else{
+                $like_where1 .= 'edu.edu_education = "'.$value['education_id'].'"';
+              }           
+              $val++;          
+            }  
+          $like_where1 .= ")";          
+
+          $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND rel.rel_mothertongue_id = "'.$values['mother_tongue'].'" AND '.$show_profile.' AND '.$like_where1.' AND usr.user_delete_status!=1)';
+        } 
+
+        // With Occupation Category Based Occupation //
+        if(!empty($values['occupation_catagory'])) {
+          $cateocc = $this->get_catgoryoccupation($values['occupation_catagory']);                 
+          $val =1;
+          $like_where = "(";
+            foreach ($cateocc as $key => $value) {          
+              if($val!= count($cateocc)){
+                $like_where .= 'edu.edu_occupation = "'.$value['occupation_id'].'" OR ';
+              }else{
+                $like_where .= 'edu.edu_occupation = "'.$value['occupation_id'].'"';
+              }           
+              $val++;          
+            }  
+          $like_where .= ")";  
+          $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND rel.rel_mothertongue_id = "'.$values['mother_tongue'].'" AND '.$show_profile.' AND '.$like_where.' AND usr.user_delete_status!=1)'; 
+        }
+
+        $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND rel.rel_mothertongue_id = "'.$values['mother_tongue'].'" AND '.$show_profile.' AND usr.user_delete_status!=1)';
+
+        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_gender, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images');
+        $this->db->from('reg_userdetail usr');
+        $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');
+        $this->db->limit($limit,$start);        
+        $this->db->where($user_where);       
+        $this->db->order_by('usr.userdetail_id','desc');
+        $query['results'] = $this->db->get()->result_array(); 
+        // echo $this->db->last_query();
+        // exit();
+
+        $this->db->select('*');
+        $this->db->from('reg_userdetail usr');
+        $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');
+        $this->db->where($user_where);        
+        $this->db->order_by('usr.userdetail_id','desc');
+        $query['total_rows'] = $this->db->get()->num_rows();
+        // echo $this->db->last_query();
+      }  
+      // print_r($query);
+      // exit();
+
+      return $query;
+
+ }  
+
+ public function customer_user_profile($id){
+      // View by id
+      $condition = "usr.userdetail_id = ".$id."";
+      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name');
+      $this->db->from('reg_userdetail usr');
+      $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_communication_family cf','cf.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_physical_expectation pe','pe.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_image_horoscope ih','ih.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_payment pm','pm.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('user_images img','img.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('registered_by rb','rb.registeredby_id=usr.user_registeredby','left');
+      $this->db->join('marital_category mc','mc.maritalcategory_id=usr.user_maritalstatus','left');
+      $this->db->join('mother_tongue mt','mt.mothertongue_id=re.rel_mothertongue_id','left');
+      $this->db->join('nakshathra nak','nak.nakshathra_id=re.rel_nakshathra_id','left');
+      $this->db->join('luknam luk','luk.luknam_id=re.rel_luknam_id','left');
+      $this->db->join('zodiac_sign zod','zod.zodiacsign_id=re.rel_zodiacsign_id','left');
+      $this->db->join('education ed','ed.education_id=eo.edu_education','left');
+      $this->db->join('occupation occ','occ.occupation_id=eo.edu_occupation','left');
+      $this->db->join('employed_in ein','ein.employedin_id=eo.edu_employedin','left');
+      $this->db->where($condition); 
+      $model_data['customeruser_values'] = $this->db->get()->row_array();
+     //  echo $this->db->last_query();
+     //  echo "<pre>";
+      // print_r($model_data['customeruser_values']);
+      // echo "</pre>";
+      return $model_data;
+  }
+  public function customer_user_selectiondata(){
+      $model_data['registeredby_values'] = $this->db->order_by('registeredby_id','asc')->get_where('registered_by',array('active_status'=>1))->result_array();
+      $model_data['maritalstatus_values'] = $this->db->order_by('maritalcategory_id','asc')->get_where('marital_category',array('active_status'=>1))->result_array();
+      $model_data['mothertongue_values'] = $this->db->order_by('mothertongue_id','asc')->get_where('mother_tongue',array('active_status'=>1))->result_array();
+      $model_data['nakshathra_values'] = $this->db->order_by('nakshathra_id','asc')->get_where('nakshathra',array('active_status'=>1))->result_array();
+      $model_data['luknam_values'] = $this->db->order_by('luknam_id','asc')->get_where('luknam',array('active_status'=>1))->result_array();
+      $model_data['zodiac_values'] = $this->db->order_by('zodiacsign_id','asc')->get_where('zodiac_sign',array('active_status'=>1))->result_array();
+      $model_data['employedin_values'] = $this->db->order_by('employedin_id','asc')->get_where('employed_in',array('active_status'=>1))->result_array();
+      $model_data['country_values'] = $this->db->order_by('country_id','asc')->get_where('country',array('active_status'=>1))->result_array();
+      $model_data['bodytype_values'] = $this->db->order_by('bodytype_id','asc')->get_where('body_type')->result_array();
+      $model_data['complexion_values'] = $this->db->order_by('complexion_id','asc')->get_where('complexion',array('active_status'=>1))->result_array();
+      $model_data['food_values'] = $this->db->order_by('food_id','asc')->get_where('food',array('active_status'=>1))->result_array();
+      $model_data['familystatus_values'] = $this->db->order_by('familystatus_id','asc')->get_where('family_status',array('active_status'=>1))->result_array();
+      $model_data['familytype_values'] = $this->db->order_by('familytype_id','asc')->get_where('family_type',array('active_status'=>1))->result_array();
+
+      //Category and Subcategory values
+      // $model_data['education_values'] = $this->db->order_by('education_id','asc')->get_where('education')->result_array();
+      // $model_data['occupation_values'] = $this->db->order_by('occupation_id','asc')->get_where('occupation')->result_array();
+      
+      $condition = "edu.active_status = 1";
+      $this->db->select('edu.education_id,edu.edu_name,edu_cat.cat_name,edu.edu_categoryid');
+      $this->db->from('education edu');
+      $this->db->join('education_category edu_cat','edu_cat.educationcategory_id=edu.edu_categoryid','inner');
+      $this->db->where($condition);
+      // $this->db->group_by('edu_cat.cat_name');
+      $model_data['education_values'] = $this->db->get()->result_array();
+      return $model_data;
+  }
   
 }
 /* End of file User_model.php */

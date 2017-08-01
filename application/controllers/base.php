@@ -7,6 +7,7 @@ class Base extends CI_Controller {
 		parent::__construct();
 		$this->load->model('user_model');
 		$this->load->library(array('form_validation', 'session')); 
+		$this->load->library('upload');
 		session_start();
 	}
 	public function index(){
@@ -44,12 +45,46 @@ class Base extends CI_Controller {
 			$data['martial_status'] = $this->user_model->get_martialstatus();
 			$data['success_stories'] = $this->user_model->get_success_stories_limit();
 			$data['recent_profile'] = $this->user_model->get_recent_profile();
+			// foreach ($data['recent_profile'] as $key => $value) {
+			// 	if(($value['user_gender']!='1')&&(count($featured_images['female'])<4))){					
+			// 		$featured_images['female'] = $value['images'];
+			// 	}else{
+			// 		$featured_images['male'] = $value['images'];
+			// 	}
+			// }
+
 			$data['mother_tongue'] = $this->user_model->get_mothertongue();
 			$data['country'] = $this->user_model->get_country();
 			$this->load->view('index', $data);
 		}
 	}
+	// public function login_ajax(){
+	// 	if($this->input->post()){
+	// 		$data_values = $this->user_model->user_login(); 
+	// 		if($data_values['status']!=='login_success'){
+	// 			$data['status'] = $data_values['status'];
+	// 			$data['error'] = $data_values['error'];	
+	// 			echo $data['status'];
+	// 			redirect(base_url().'index');
+	// 		}else{
+	// 			// Session
+	//         	$this->session->set_userdata("login_status",1);
+ //    	    	$this->session->set_userdata("login_session",$data_values['login_values']);
+ //    	    	$data['login_user'] = $data_values['login_values'];
+	// 			$this->load->view('index', $data);
+	// 		}
+	// 	}
+	// }
+
+
+	//Changed the above login ajax function temporarily by kalai as per vinoth request(don't allow user to login,only one specified user can login for testing purporse)
 	public function login_ajax(){
+		$data['register'] = $this->user_model->get_registerid();
+		$data['martial_status'] = $this->user_model->get_martialstatus();
+		$data['success_stories'] = $this->user_model->get_success_stories_limit();
+		$data['recent_profile'] = $this->user_model->get_recent_profile();
+		$data['mother_tongue'] = $this->user_model->get_mothertongue();
+		$data['country'] = $this->user_model->get_country();
 		if($this->input->post()){
 			$data_values = $this->user_model->user_login(); 
 			if($data_values['status']!=='login_success'){
@@ -58,10 +93,12 @@ class Base extends CI_Controller {
 				echo $data['status'];
 				redirect(base_url().'index');
 			}else{
-				// Session
-	        	$this->session->set_userdata("login_status",1);
-    	    	$this->session->set_userdata("login_session",$data_values['login_values']);
-    	    	$data['login_user'] = $data_values['login_values'];
+				if($_POST['email_id'] == 'sample21@gmail.com'){
+					// Session
+		        	$this->session->set_userdata("login_status",1);
+	    	    	$this->session->set_userdata("login_session",$data_values['login_values']);
+	    	    	$data['login_user'] = $data_values['login_values'];
+				}	
 				$this->load->view('index', $data);
 			}
 		}
@@ -78,6 +115,12 @@ class Base extends CI_Controller {
 		$data['mother_tongue'] = $this->user_model->get_mothertongue();	
 		$data['education'] = $this->user_model->get_education();
 		$data['education_category'] = $this->user_model->get_educationcategory();
+		$data['country'] = $this->user_model->get_country();
+		$data['occupation'] = $this->user_model->get_occupation();
+		$data['occupation_category'] = $this->user_model->get_occupationcategory();
+		$data['bodytype'] = $this->user_model->get_bodytype();
+		$data['martial_status'] = $this->user_model->get_martialstatus();
+		$data['mother_tongue'] = $this->user_model->get_mothertongue();
 		$this->load->view('search', $data);
 	}
 	public function contact(){
@@ -128,10 +171,10 @@ class Base extends CI_Controller {
 		if($this->input->post()){
 			$form_data = $this->input->post();
 				// echo '<pre>';
+				// print_r($_FILES);
 				// print_r($form_data);
 				// echo '</pre>';
 				// exit();
-
 				$data = array(
 					'userdetail_id'=>'',
 					'userdetail_profile_id'=>100,
@@ -144,22 +187,37 @@ class Base extends CI_Controller {
 					'user_maritalstatus'=>$form_data['marital_status'][0],
 					'user_registeredby'=>$form_data['register_by'][0]
 				);
-		  		$id_userdetails = $this->user_model->insert_registration('reg_userdetail',$data);
+		  		$id_userdetails = $this->user_model->insert_registration('reg_userdetail',$data);		  		
+
 
 		  		$data_reg = array(
 						'religionethnicity_id'=>'',
 						'reg_user_id'=>$id_userdetails,
 						'rel_timeofbirth'=>'2017-07-10',
 						'rel_mothertongue_id'=>$form_data['mother_tongue'][0],
-						'rel_religion'=>$form_data['reg_religion'],
-						'rel_caste'=>$form_data['gender'][0],					
-						'rel_dhosham'=>$form_data['reg_Dhosham'],
 						'rel_nakshathra_id'=>$form_data['nakshathra'][0],
-						'rel_luknam_id'=>$form_data['luknam'][0],
-						'rel_gothra'=>$form_data['reg_gothra'],
 						'rel_zodiacsign_id'=>$form_data['zodiac_sign'][0]
 				);
+		  		if(!empty($form_data['reg_religion'])){
+					$data_reg['rel_religion']= $form_data['reg_religion'];
+				}
+				if(!empty($form_data['reg_caste'])){
+					$data_reg['reg_caste']= $form_data['reg_caste'];
+				}
+				if(!empty($form_data['reg_Dhosham'])){
+					$data_reg['reg_Dhosham']= $form_data['reg_Dhosham'];
+				}
+				if(!empty($form_data['reg_religion'])){
+					$data_reg['rel_religion']= $form_data['reg_religion'];
+				}
+				if(!empty($form_data['luknam'][0])){
+					$data_reg['luknam']= $form_data['luknam'][0];
+				}
+				if(!empty($form_data['reg_gothra'])){
+					$data_reg['reg_gothra']= $form_data['reg_gothra'];
+				}
 		  		$id_userreg = $this->user_model->insert_registration('reg_religion_ethnicity',$data_reg);
+
 
 		  		$data_regedu = array(
 						'educationoccupation_id'=>'',
@@ -169,56 +227,182 @@ class Base extends CI_Controller {
 						'edu_occupation'=>$form_data['occupation'][0],
 						'edu_employedin'=>$form_data['employed_in'][0],					
 						'edu_montlyincome'=>$form_data['reg_income'],
-						'edu_occupationdetail'=>$form_data['employe_in_detail']	
+						'edu_occupationdetail'=>$form_data['occupationdetail']	
 				);
 		  		$id_user_edu = $this->user_model->insert_registration('reg_education_occupation',$data_regedu);
+
 		  		
 		  		$data_reg_com = array(
 						'communicationfamily_id'=>'',
-						'reg_user_id'=>$id_userdetails,
-						'comm_residence'=>$form_data['resident'][0],
-						'comm_current_countrycountry'=>$form_data['cur_country'][0],
-						'comm_current_city'=>$form_data['reg_city'],
-						'comm_current_district'=>$form_data['employed_in'][0],					
-						'comm_communication_address'=>$form_data['comm_address'],
-						'comm_phone_no'=>$form_data['reg_phone'],	
+						'reg_user_id'=>$id_userdetails,						
 						'comm_mobile_no'=>$form_data['reg_mobile'],
 						'comm_father_name'=>$form_data['reg_fname'],
 						'comm_mother_name'=>$form_data['reg_mname'],
 						'comm_father_employment'=>$form_data['reg_femployment'],
 						'comm_mother_employment'=>$form_data['reg_memployment'],
 						'comm_family_status'=>$form_data['family_status'][0],
-						'comm_family_type'=>$form_data['family_type'][0],
-						'comm_number_of_brothers_el'=>$form_data['reg_EBrother'],
-						'comm_number_of_brothers_yo'=>$form_data['reg_YBrother'],
-						'comm_number_of_brothers_el_mar'=>$form_data['reg_MEBrother'],
-						'comm_number_of_brothers_yo_mar'=>$form_data['reg_MYBrother'],
-						'comm_number_of_sisters_el'=>$form_data['reg_ESister'],
-						'comm_number_of_sisters_yo'=>$form_data['reg_YSister'],
-						'comm_number_of_sisters_el_mar'=>$form_data['reg_MESister'],
-						'comm_number_of_sisters_yo_mar'=>$form_data['reg_MYSister'],
-						'comm_about_family'=>$form_data['more_abt_family']
-				);				
+						'comm_family_type'=>$form_data['family_type'][0]
+				);	
+
+				if(!empty($form_data['resident'][0])){
+					$data_reg_com['comm_residence']= $form_data['resident'][0];
+				}
+
+				if(!empty($form_data['cur_country'][0])){
+					$data_reg_com['comm_current_countrycountry']= $form_data['cur_country'][0];
+				}
+
+				if(!empty($form_data['reg_city'])){
+					$data_reg_com['comm_current_city']= $form_data['reg_city'];
+				}
+
+				if(!empty($form_data['reg_district'])){
+					$data_reg_com['comm_current_district']= $form_data['reg_district'];
+				}
+
+				if(!empty($form_data['comm_address'])){
+					$data_reg_com['comm_communication_address']= $form_data['comm_address'];
+				}
+
+				if(!empty($form_data['reg_phone'])){
+					$data_reg_com['comm_phone_no']= $form_data['reg_phone'];
+				}
+
+				if(!empty($form_data['reg_EBrother'])){
+					$data_reg_com['comm_number_of_brothers_el']= $form_data['reg_EBrother'];
+				}
+
+				if(!empty($form_data['reg_YBrother'])){
+					$data_reg_com['comm_number_of_brothers_yo']= $form_data['reg_YBrother'];
+				}
+
+				if(!empty($form_data['reg_MEBrother'])){
+					$data_reg_com['comm_number_of_brothers_el_mar']= $form_data['reg_MEBrother'];
+				}
+
+				if(!empty($form_data['reg_MYBrother'])){
+					$data_reg_com['comm_number_of_brothers_yo_mar']= $form_data['reg_MYBrother'];
+				}
+
+				if(!empty($form_data['reg_ESister'])){
+					$data_reg_com['comm_number_of_sisters_el']= $form_data['reg_ESister'];
+				}
+
+				if(!empty($form_data['reg_YSister'])){
+					$data_reg_com['comm_number_of_sisters_yo']= $form_data['reg_YSister'];
+				}
+
+				if(!empty($form_data['reg_MESister'])){
+					$data_reg_com['comm_number_of_sisters_el_mar']= $form_data['reg_MESister'];
+				}
+
+				if(!empty($form_data['reg_MYSister'])){
+					$data_reg_com['comm_number_of_sisters_yo_mar']= $form_data['reg_MYSister'];
+				}
+
+				if(!empty($form_data['more_abt_family'])){
+					$data_reg_com['comm_about_family']= $form_data['more_abt_family'];
+				}
+						
+				// 'comm_residence'=>$form_data['resident'][0],
+				// 'comm_current_countrycountry'=>$form_data['cur_country'][0],
+				// 'comm_current_city'=>$form_data['reg_city'],
+				// 'comm_current_district'=>$form_data['reg_district'],					
+				// 'comm_communication_address'=>$form_data['comm_address'],
+				// 'comm_phone_no'=>$form_data['reg_phone'],
+				// 'comm_number_of_brothers_el'=>$form_data['reg_EBrother'],
+				// 'comm_number_of_brothers_yo'=>$form_data['reg_YBrother'],
+				// 'comm_number_of_brothers_el_mar'=>$form_data['reg_MEBrother'],
+				// 'comm_number_of_brothers_yo_mar'=>$form_data['reg_MYBrother'],
+				// 'comm_number_of_sisters_el'=>$form_data['reg_ESister'],
+				// 'comm_number_of_sisters_yo'=>$form_data['reg_YSister'],
+				// 'comm_number_of_sisters_el_mar'=>$form_data['reg_MESister'],
+				// 'comm_number_of_sisters_yo_mar'=>$form_data['reg_MYSister'],
+				// 'comm_about_family'=>$form_data['more_abt_family']	
+
 		  		$id_user_com = $this->user_model->insert_registration('reg_communication_family',$data_reg_com);
+
+
 
 		  		$data_reg_phy = array(
 						'physicalexpectation_id'=>'',
-						'reg_user_id'=>$id_userdetails,
-						'phy_height'=>$form_data['height_in_cms'][0],
-						'phy_weight'=>$form_data['weight_in_kgs'][0],
-						'phy_bodytype'=>$form_data['body_type'][0],
-						'phy_complexion'=>$form_data['complexion'][0],					
-						'phy_physicalstatus'=>$form_data['physical_status'][0],
-						'phy_food'=>$form_data['food'][0],	
-						'phy_yourpersonality'=>$form_data['personality'],
+						'reg_user_id'=>$id_userdetails,						
+						'phy_food'=>$form_data['food'][0],							
 						'phy_searchage_from'=>$form_data['search_age_from'][0],
 						'phy_searchage_to'=>$form_data['search_age_to'][0],
 						'phy_searchmarital_status'=>'single',
-						'phy_searchedu_status'=>$form_data['reg_Education'],
-						'phy_expectationfood'=>2,
-						'phy_expectationabout_lifepartner'=>$form_data['expectation']
+						'phy_searchedu_status'=>$form_data['reg_Education'][0],
+						'phy_expectationfood'=>2
+						
 				);
+				if(!empty($form_data['height_in_cms'][0])){
+					$data_reg_phy['phy_height']= $form_data['height_in_cms'][0];
+				}
+				if(!empty($form_data['weight_in_kgs'][0])){
+					$data_reg_phy['phy_weight']= $form_data['weight_in_kgs'][0];
+				}
+				if(!empty($form_data['body_type'][0])){
+					$data_reg_phy['phy_bodytype']= $form_data['body_type'][0];
+				}
+				if(!empty($form_data['complexion'][0])){
+					$data_reg_phy['phy_complexion']= $form_data['complexion'][0];
+				}
+				if(!empty($form_data['physical_status'][0])){
+					$data_reg_phy['phy_physicalstatus']= $form_data['physical_status'][0];
+				}
+				if(!empty($form_data['personality'])){
+					$data_reg_phy['phy_yourpersonality']= $form_data['personality'];
+				}
+				if(!empty($form_data['expectation'])){
+					$data_reg_phy['phy_expectationabout_lifepartner']= $form_data['expectation'];
+				}
+
+				// 'phy_height'=>$form_data['height_in_cms'][0],
+				// 'phy_weight'=>$form_data['weight_in_kgs'][0],
+				// 'phy_bodytype'=>$form_data['body_type'][0],
+				// 'phy_complexion'=>$form_data['complexion'][0],					
+				// 'phy_physicalstatus'=>$form_data['physical_status'][0],
+				// 'phy_yourpersonality'=>$form_data['personality'],
+				// 'phy_expectationabout_lifepartner'=>$form_data['expectation']
 		  		$id_user_phy = $this->user_model->insert_registration('reg_physical_expectation',$data_reg_phy);
+
+				if(!empty($_FILES['uploadedfile']['name']))
+        		{	   	
+        			$config['upload_path'] = FCPATH.USER_PROFILE_PATH; 
+        			// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
+			        $config['allowed_types'] = 'jpg|jpeg|png'; // Allowed tupes
+			        $config['encrypt_name'] = TRUE; // Encrypted file name for security purpose
+			        $personnal_logo['file_ext_tolower'] 	= TRUE;
+			        $config['max_size']    = '20480'; // Maximum size - 1MB
+			    	$config['max_width']  = '10240'; // Maximumm width - 1024px
+			    	$config['max_height']  = '76800'; // Maximum height - 768px
+			        $this->upload->initialize($config); // Initialize the configuration		
+           			if($this->upload->do_upload('uploadedfile'))
+            		{
+                		$upload_data = $this->upload->data(); 
+                		$_POST['uploadedfile'] = $upload_data['file_name']; 
+                		$targetfile_details = $upload_data['file_name'];
+  	            	}
+    		      	else
+            		{
+	                	$data['status'] = $this->upload->display_errors(); 
+	                	$upload_error = 1;
+	                	$data['error'] = 1;
+                	}
+
+                	if(isset($data['error'])&&($data['error']!=1)){	
+						$data_images = array(
+								'userimages_id'=>'',
+								'reg_user_id'=>$id_userdetails,						
+								'images'=>$targetfile_details
+						);	
+						$id_images = $this->user_model->insert_registration('user_images',$data_images);
+					}
+                }
+				print_r($data);
+				//print_r($data_images);
+				exit();
+
 		  		$this->load->view('registration');
 
 		  	}else{
@@ -255,17 +439,17 @@ class Base extends CI_Controller {
 		 	$offset = 0;
 		}	
 
-		$search_inputs = array();	
+		$search_inputs = array();
+		$advance_search = array();	
 
 		if($this->input->post()){	
-			$form_data = $this->input->post();
-			// print_r($form_data);
-			// exit();
+			$form_data = $this->input->post();			
 			$this->session->unset_userdata("search_inputs");
 			$this->session->unset_userdata("search_inputs_id");
 			$this->session->unset_userdata("searchmanual_id");
 			$this->session->unset_userdata("search_dhoshamid");	
-			$this->session->unset_userdata("search_quick");			
+			$this->session->unset_userdata("search_quick");	
+			$this->session->unset_userdata("advance_search_sess");			
 
 			if($form_data['search_type'] =='basicsearch'){
 				// Basic Search //	
@@ -282,6 +466,36 @@ class Base extends CI_Controller {
 				$data = $this->user_model->get_basicsearch($values, $per_page, $offset);
 				$this->session->set_userdata('search_inputs',$values);
 
+			}elseif($form_data['search_type'] =='advance_search'){
+				// Search by Advance Search //
+				$gender = $form_data['gender'][0];	
+				$country = $form_data['country'][0];
+				// $occupation = $form_data['occupation'][0];	
+				$physical_status = $form_data['phy_status'][0];					
+				$age_from = $form_data['search_age_from'][0];
+				$age_to = $form_data['search_age_to'][0];
+				$height_from = $form_data['height_in_cms'][0];		
+				$height_to = $form_data['height_in_feets'][0];
+				$mar_status = $form_data['martial_status'][0];
+				$mother_tongue = $form_data['mother_tongue'][0];
+				// $education = $form_data['education_category'][0];
+				$show_profile = $form_data['images'][0];
+
+				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'show_profile'=>$show_profile, 'country'=>$country, 'physical_status'=>$physical_status, );
+
+				if(!empty($form_data['education_category'][0])){					
+					$values['education_category'] = $form_data['education_category'][0];
+				}
+
+				if(!empty($form_data['occupation'][0])){
+					$values['occupation_catagory'] = $form_data['occupation'][0];
+
+				}
+				$data = $this->user_model->get_advancesearch($values, $per_page, $offset);				
+				$this->session->set_userdata('advance_search_sess',$values);				
+				$advance_search = $this->session->userdata('advance_search_sess');
+				
+				
 			}elseif($form_data['search_type'] =='search_id'){
 				// Search by Vallikodi ID //
 				$searchid = $form_data['searchby_id'];				
@@ -303,7 +517,7 @@ class Base extends CI_Controller {
 			}else{
 				// Search by HomePage-QuickSearch //				
 				$values = array('gender' => $form_data['gender'][0], 'age_from' => $form_data['search_age_from'][0], 'age_to' => $form_data['search_age_to'][0]);
-				$data = $this->user_model->get_quicksearch($values, $per_page, $offset);
+				$data = $this->user_model->get_quicksearch($values, $per_page, $offset);				
 				$this->session->set_userdata('search_quick',$values);
 				$search_quick = $this->session->userdata('search_quick');					
 			}
@@ -312,6 +526,7 @@ class Base extends CI_Controller {
 			$search_inputs = $this->session->userdata('search_inputs');
 			$search_quick = $this->session->userdata('search_quick');
 			$search_dhosham = $this->session->userdata('search_dhoshamid');
+			$advance_search = $this->session->userdata('advance_search_sess');						
 
 			if(!empty($search_inputs)){
 				$data = $this->user_model->get_basicsearch($search_inputs, $per_page, $offset);	
@@ -319,6 +534,8 @@ class Base extends CI_Controller {
 				$data = $this->user_model->get_quicksearch($search_quick, $per_page, $offset);				
 			}elseif(!empty($search_dhosham)){
 				$data = $this->user_model->get_dhoshamsearch($search_dhosham, $per_page, $offset);
+			}elseif(!empty($advance_search)){
+				$data = $this->user_model->get_advancesearch($advance_search, $per_page, $offset);
 			}			
 		}
 
@@ -455,7 +672,20 @@ class Base extends CI_Controller {
 		$this->load->view('mymatches');
 	}
 	public function myedit(){
-		$this->load->view('myedit');
+		//Get current login user id from session
+		$login_session = $this->session->userdata("login_session");
+		$id = $login_session['userdetail_id'];
+		if(!empty($id)){
+			$data_values = $this->user_model->customer_user_profile($id);
+			$data['customeruser_values'] = $data_values['customeruser_values'];
+			//Get Selection option data's for edit
+			$data['selection_values'] = $this->user_model->customer_user_selectiondata();
+			// echo "<pre>";
+			// print_r($data['selection_values']);
+			// echo "</pre>";
+			$this->load->view('myedit',$data);
+		}
+		// $this->load->view('myedit');
 	}
 	public function newreg(){
 		$this->load->view('newreg');

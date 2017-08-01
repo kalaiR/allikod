@@ -23,7 +23,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-info pull-right" id="add" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $this->uri->segment(3); ?>">
+						<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $this->uri->segment(3); ?>">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Edit
 					    </a>

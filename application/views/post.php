@@ -32,33 +32,33 @@
                                                         <div class="col-md-10">
                                                             <input type="text" class="form-control form_inputs" id="bride_name" placeholder="Bride Name (Female) *" name="bride_name">
                                                         </div>
-                                                         <span class="val_status" style="display: inline-block;">
-                                                            <i class="fa fa-info-circle text-box" data-toggle="tooltip" title="Type the name of the Girl"></i>
-                                                        </span>
+                                                         <div class="val_status tooltips" style="display: inline-block;">
+                                                         <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Type the name of the Girl</span>
+                                                        </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-10">
                                                             <input type="text" class="form-control form_inputs" id="groom_name" placeholder="Groom Name (Male) *" name="groom_name">
                                                         </div>    
-                                                        <span class="val_status" style="display: inline-block;">
-                                                            <i class="fa fa-info-circle text-box" data-toggle="tooltip" title="Type the name of the Boy"></i>
-                                                        </span>
+                                                        <div class="val_status tooltips" style="display: inline-block;">
+                                                            <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Type the name of the Boy</span>
+                                                        </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-10">
                                                             <input type="text" class="form-control form_inputs" id="vallikodi_id" placeholder="Vallikodi ID" name="vallikodi_id">
                                                         </div>   
-                                                        <span class="val_status" style="display: inline-block;">
-                                                            <i class="fa fa-info-circle text-box" data-toggle="tooltip" title="Mention the Vallikodi id of the Bride or Groom"></i>
-                                                        </span> 
+                                                        <div class="val_status tooltips" style="display: inline-block;">
+                                                            <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Mention the Vallikodi ID of the Bride or Groom</span>
+                                                        </div> 
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-10">
                                                             <input type="email" class="form-control form_inputs" id="email_id" placeholder="Email" name="email_id">
                                                         </div>
-                                                        <span class="val_status" style="display: inline-block;">
-                                                            <i class="fa fa-info-circle text-box" data-toggle="tooltip" title="Enter your E-mail ID"></i>
-                                                        </span>    
+                                                        <div class="val_status tooltips" style="display: inline-block;">
+                                                            <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Enter your E-mail ID</span>
+                                                        </div>    
                                                     </div>
                                                         <div class="row">
                                                             <div class="col-md-6">

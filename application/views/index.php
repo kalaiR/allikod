@@ -204,8 +204,8 @@
                                         <div class="height_item">
                                             <h4>Looking for a</h4>
                                             <select class="selectpicker" name="gender[]" id="gender" >
-                                                <option value="1">Bride</option>
-                                                <option value="2">Groom</option>
+                                                <option value="2">Bride</option>
+                                                <option value="1">Groom</option>
                                             </select>
                                         </div>
                                         <div class="height_item">
