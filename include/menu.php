@@ -119,7 +119,7 @@
                     <ul class="nav navbar-nav">
                         <li id="home"><a href="index.php">Home</a></li>
                             
-                        <li id="reg"><a href="registration.php">Registration</a></li>
+                        <!-- <li id="reg"><a href="registration.php">Registration</a></li> -->
                          <li id="search"><a href="search.php">Search</a></li>
                          <li id="gallery"><a href="gallery.php">Gallery</a></li>
                          <li id="stories" class="dropdown submenu">
@@ -147,7 +147,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li id="login"><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
-                        <li id="register"><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>Registration</a></li>
+                        <li id="register"><a href="registration.php"><i class="fa fa-user-plus"></i>Registration</a></li>
                     </ul>
                     </div><!-- /.navbar-collapse (selva) -->
                 </div><!-- /.container-fluid  (selva)-->

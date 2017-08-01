@@ -8269,7 +8269,26 @@ ol a{
 #white{
   color: #fff;
 }
-
+.next_angkar_btn {
+  width: 160px;
+  height: 50px;
+  display: block;
+  border-radius: 25px;
+  color: #fff;
+  background-color: #e74c3c;
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none;
+  text-align: center;
+  line-height: 48px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
 /*Columns of user*/
 .dark{
   font-weight: bold;

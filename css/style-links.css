@@ -622,6 +622,11 @@
   top: 0;
 }
 
+.registration-error
+{
+  color: #840707;
+}
+
 /* View Details - Horoscope*/
 #horo_container{
     padding:5px;
