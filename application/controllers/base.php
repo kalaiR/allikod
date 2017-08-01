@@ -167,9 +167,7 @@ class Base extends CI_Controller {
 			$form_data = $this->input->post();
 				// echo '<pre>';
 				// print_r($_FILES);
-				// print_r($form_data);
-				// echo '</pre>';
-				// exit();
+				// echo '<pre>';				
 				$data = array(
 					'userdetail_id'=>'',
 					'userdetail_profile_id'=>100,
@@ -325,9 +323,11 @@ class Base extends CI_Controller {
 						'phy_food'=>$form_data['food'][0],							
 						'phy_searchage_from'=>$form_data['search_age_from'][0],
 						'phy_searchage_to'=>$form_data['search_age_to'][0],
-						'phy_searchmarital_status'=>'single',
+						// 'phy_searchmarital_status'=>form_data['marital_status_any'],
+						'phy_searchmarital_status'=>'Single',
 						'phy_searchedu_status'=>$form_data['reg_Education'][0],
-						'phy_expectationfood'=>2
+						// 'phy_expectationfood'=>$form_data['diet_nonveg']
+						'phy_expectationfood'=>'2'
 						
 				);
 				if(!empty($form_data['height_in_cms'][0])){
@@ -394,10 +394,18 @@ class Base extends CI_Controller {
 						$id_images = $this->user_model->insert_registration('user_images',$data_images);
 					}
                 }
-				print_r($data);
-				//print_r($data_images);
-				exit();
 
+                // Insert Horoscope // 
+                if(!empty($form_data['result_horoscope'])) {
+                	$tempData = html_entity_decode($form_data['result_horoscope']);
+					$cleanData = json_decode($tempData);		
+					foreach ($cleanData as $key => $value) {
+						$data_images[$value->key]= $value->value;
+					}
+					$data_images['imagehoroscope_id'] = '';
+					$data_images['reg_user_id'] = $id_userdetails;
+				}				
+				$id_images = $this->user_model->insert_registration('reg_image_horoscope',$data_images);
 		  		$this->load->view('registration');
 
 		  	}else{
@@ -421,7 +429,6 @@ class Base extends CI_Controller {
 		  		$data['complexion'] = $this->user_model->get_complexion();		  		
 		  		$data['food'] = $this->user_model->get_food();
 				$this->load->view('registration',$data);
-
 		  	}		
 	}
 

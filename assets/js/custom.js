@@ -1,140 +1,140 @@
 function validate() {
     var output = true;
     $(".registration-error").html('');
-        if($("#userdetails-field").css('display') != 'none') {
+    //     if($("#userdetails-field").css('display') != 'none') {
 
-            if(!($("#register_email").val())) {
-                output = false;
-                $("#register_email-error").html("Required");
-            }   
-            if(!$("#register_email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
-                $("#register_email-error").html("Invalid");
-                output = false;
-            }
-             if(!($("#reg_pass1").val())) {
-                 output = false;
-                 $("#reg_passed_error").html("Required");
-             } 
-             if(!($("#reg_con_pass2").val())) {
-                 output = false;
-                 $("#reg_con_error").html("Required");
-             }    
-                if($("#reg_pass1").val() != $("#reg_con_pass2").val()) {
-                 output = false;
-                   $("#reg_con_error").html("Password doesn't match");
+    //         if(!($("#register_email").val())) {
+    //             output = false;
+    //             $("#register_email-error").html("Required");
+    //         }   
+    //         if(!$("#register_email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+    //             $("#register_email-error").html("Invalid");
+    //             output = false;
+    //         }
+    //          if(!($("#reg_pass1").val())) {
+    //              output = false;
+    //              $("#reg_passed_error").html("Required");
+    //          } 
+    //          if(!($("#reg_con_pass2").val())) {
+    //              output = false;
+    //              $("#reg_con_error").html("Required");
+    //          }    
+    //             if($("#reg_pass1").val() != $("#reg_con_pass2").val()) {
+    //              output = false;
+    //                $("#reg_con_error").html("Password doesn't match");
                   
-                }
+    //             }
            
               
-             if(!($("#register_by").val())) {
-                 output = false;
-                 $("#reg_error").html("Required");
-             }
+    //          if(!($("#register_by").val())) {
+    //              output = false;
+    //              $("#reg_error").html("Required");
+    //          }
 
-             if(!($("#reg_Nam").val())) {
-                 output = false;
-                 $("#reg_nam_error").html("Required");
-             } 
-              if(!($("#gender").val())) {
-                 output = false;
-                 $("#gender_error").html("Required");
-             } 
-             if(!($("#marital").val())) {
-                 output = false;
-                 $("#marital_error").html("Required");
-             }
+    //          if(!($("#reg_Nam").val())) {
+    //              output = false;
+    //              $("#reg_nam_error").html("Required");
+    //          } 
+    //           if(!($("#gender").val())) {
+    //              output = false;
+    //              $("#gender_error").html("Required");
+    //          } 
+    //          if(!($("#marital").val())) {
+    //              output = false;
+    //              $("#marital_error").html("Required");
+    //          }
       
-        }
-        if($("#ethnicity-field").css('display') != 'none') {
+    //     }
+    //     if($("#ethnicity-field").css('display') != 'none') {
 
-            if(!($("#reg_tim").val())) {
-                 output = false;
-                 $("#tim_error").html("Required");
-             }
-              if(!($("#reg_tim").val())) {
-                 output = false;
-                 $("#tim_error").html("Required");
-             }
-              if(!($("#mother").val())) {
-                 output = false;
-                 $("#mother_error").html("Required");
-             }
-             if(!($("#nakshathra").val())) {
-                 output = false;
-                 $("#nakshathra_error").html("Required");
-             }
-             if(!($("#zodiac_sign").val())) {
-                 output = false;
-                 $("#zodiac_sign_error").html("Required");
-             }
-        }
-        if($("#education-field").css('display') != 'none') {
+    //         if(!($("#reg_tim").val())) {
+    //              output = false;
+    //              $("#tim_error").html("Required");
+    //          }
+    //           if(!($("#reg_tim").val())) {
+    //              output = false;
+    //              $("#tim_error").html("Required");
+    //          }
+    //           if(!($("#mother").val())) {
+    //              output = false;
+    //              $("#mother_error").html("Required");
+    //          }
+    //          if(!($("#nakshathra").val())) {
+    //              output = false;
+    //              $("#nakshathra_error").html("Required");
+    //          }
+    //          if(!($("#zodiac_sign").val())) {
+    //              output = false;
+    //              $("#zodiac_sign_error").html("Required");
+    //          }
+    //     }
+    //     if($("#education-field").css('display') != 'none') {
 
-             if(!($("#edu").val())) {
-                 output = false;
-                 $("#edu_error").html("Required");
-             } 
-             if(!($("#education_detail").val())) {
-                 output = false;
-                 $("#education_detail_error").html("Required");
-             } 
-             if(!($("#occupation").val())) {
-                 output = false;
-                 $("#occupation_error").html("Required");
-             }  
-             if(!($("#employed_in").val())) {
-                 output = false;
-                 $("#employed_in_error").html("Required");
-             }
-             if(!($("#reg_income").val())) {
-                 output = false;
-                 $("#reg_income_error").html("Required");
-             }  
-        }
-    if($("#com-field").css('display') != 'none') {
-        var mobile =$("#reg_mobile").val();
-        if(!(/^([0-9-+]{10})+$/.test(mobile)) && mobile.length!=10){
-            output = false;
-            $("#reg_mobile_error").html("Invalid Number");
-        }       
-             if(!($("#reg_fname").val())) {
-                 output = false;
-                 $("#reg_fname_error").html("Required");
-             }
-             if(!($("#reg_mname").val())) {
-                 output = false;
-                 $("#reg_mname_error").html("Required");
-             }
-             if(!($("#reg_femployment").val())) {
-                 output = false;
-                 $("#reg_femployment_error").html("Required");
-             } 
-             if(!($("#reg_memployment").val())) {
-                 output = false;
-                 $("#reg_memployment_error").html("Required");
-             }   
-             if(!($("#family_status").val())) {
-                 output = false;
-                 $("#family_status_error").html("Required");
-             }
-             if(!($("#family_type").val())) {
-                 output = false;
-                 $("#family_type_error").html("Required");
-             }  
+    //          if(!($("#edu").val())) {
+    //              output = false;
+    //              $("#edu_error").html("Required");
+    //          } 
+    //          if(!($("#education_detail").val())) {
+    //              output = false;
+    //              $("#education_detail_error").html("Required");
+    //          } 
+    //          if(!($("#occupation").val())) {
+    //              output = false;
+    //              $("#occupation_error").html("Required");
+    //          }  
+    //          if(!($("#employed_in").val())) {
+    //              output = false;
+    //              $("#employed_in_error").html("Required");
+    //          }
+    //          if(!($("#reg_income").val())) {
+    //              output = false;
+    //              $("#reg_income_error").html("Required");
+    //          }  
+    //     }
+    // if($("#com-field").css('display') != 'none') {
+    //     var mobile =$("#reg_mobile").val();
+    //     if(!(/^([0-9-+]{10})+$/.test(mobile)) && mobile.length!=10){
+    //         output = false;
+    //         $("#reg_mobile_error").html("Invalid Number");
+    //     }       
+    //          if(!($("#reg_fname").val())) {
+    //              output = false;
+    //              $("#reg_fname_error").html("Required");
+    //          }
+    //          if(!($("#reg_mname").val())) {
+    //              output = false;
+    //              $("#reg_mname_error").html("Required");
+    //          }
+    //          if(!($("#reg_femployment").val())) {
+    //              output = false;
+    //              $("#reg_femployment_error").html("Required");
+    //          } 
+    //          if(!($("#reg_memployment").val())) {
+    //              output = false;
+    //              $("#reg_memployment_error").html("Required");
+    //          }   
+    //          if(!($("#family_status").val())) {
+    //              output = false;
+    //              $("#family_status_error").html("Required");
+    //          }
+    //          if(!($("#family_type").val())) {
+    //              output = false;
+    //              $("#family_type_error").html("Required");
+    //          }  
 
-        }
-        if($("#exceptation-field").css('display') != 'none') {
+    //     }
+    //     if($("#exceptation-field").css('display') != 'none') {
 
-             if(!($("#food").val())) {
-                 output = false;
-                 $("#food_error").html("Required");
-             }
-             if(!($("#search_age_from").val())) {
-                 output = false;
-                 $("#search_age_from_error").html("Required");
-             }
+    //          if(!($("#food").val())) {
+    //              output = false;
+    //              $("#food_error").html("Required");
+    //          }
+    //          if(!($("#search_age_from").val())) {
+    //              output = false;
+    //              $("#search_age_from_error").html("Required");
+    //          }
 
-        }
+    //     }
     // if($("#horoscope-field").css('display') != 'none') {
        
     //    if(!($("#upload").val())) {
@@ -156,10 +156,11 @@ function remove(array, property, value) {
     }
 }
 
-$(document).ready(function () {
+$(document).ready(function(){
 
     var results_array = [];  
-    // Add the Rasi on registration Page               
+    // Add the Rasi on registration Page 
+
     $('#cont').on('click', '#add_rasi', function(){
             var srasi_val = $('#rasi_name :selected').val();
             var srasi_text = $('#rasi_name :selected').text();
@@ -169,7 +170,7 @@ $(document).ready(function () {
                     var id=$(this).data('id');
                     var res = id.split("_");                                              
                         if(res[1]==sres){                            
-                            img='http://localhost/test/rasi/'+srasi_val+'.png';             
+                            img=media_url+'assets/img/rasi/'+srasi_val+'.png';             
                             $("#"+id).append("<img src="+img+" data-id="+srasi_val+" />");
                             data.key = srasi_val;
                             data.value = res[1];
@@ -184,10 +185,10 @@ $(document).ready(function () {
     });
 
     // Remove the Rasi from Registration Page
-    $('#cont').on('click', '#remove_rasi', function(){
+    $('#cont').on('click', '#remove_rasi', function(){            
             var crasi_name = $('#crasi_name :selected').data('id');
             var crasi_val = $('#crasi_name :selected').val();  
-            alert(crasi_val);
+            // alert(crasi_val);
 
             var cres = crasi_name.split("_");
             var removeid;          
@@ -199,7 +200,7 @@ $(document).ready(function () {
                     var res = id.split("_");                                                       
                     if(cres[1] == res[1]){  
                         // alert($("#"+id).find('[data-id=r_' + res[1] + ']').attr('src'));
-                        $("#"+id).find('[data-id=r_' + res[1] + ']').remove();  
+                        $("#"+id).find('[data-id='+crasi_val+']').remove();  
                         removeid = crasi_val;                                     
                         // data.key = crasi_name;
                         // data.value = res[1];
@@ -210,11 +211,9 @@ $(document).ready(function () {
                 // alert('remove'+removeid)
                 remove(results_array, "key", removeid);
                     //});
-            // alert(JSON.stringify(results_array)); 
+            // alert(JSON.stringify(results_array));             
             // results_array.push(data); 
     });
-
-
         // $("li").click(function () {
         //     var id = $(this).attr("id");
         //     $('#' + id).siblings().find(".active").removeClass("active");
@@ -228,6 +227,9 @@ $(document).ready(function () {
         //     $('#' + selectedolditem).siblings().find(".active").removeClass("active");
         //     $('#' + selectedolditem).addClass("active");
         // }
+$('.search_btn').on('click', '#finish', function(){
+        $("#result_horoscope").val(JSON.stringify(results_array));
+});        
 
 $("#dob").blur(function(){
     // dob =  $('#dob').val();
@@ -253,17 +255,17 @@ $("#dob").blur(function(){
 
 });
 
-        // Show and Hide Search Div
-    $(".slidingDiv").hide();
-    
-    $('.view_communication').click(function(){
-        if($('.slidingDiv').length == 0){
-            if($('.check_payment_status').val() == 1)
-                alert("Please renew your account at vallikodimatrimonial.in");
-            else
-                alert("Please pay at vallikodimatrimonial.in");
-        }
-    $(".slidingDiv").slideToggle();
+    // Show and Hide Search Div
+$(".slidingDiv").hide();
+
+$('.view_communication').click(function(){
+    if($('.slidingDiv').length == 0){
+        if($('.check_payment_status').val() == 1)
+            alert("Please renew your account at vallikodimatrimonial.in");
+        else
+            alert("Please pay at vallikodimatrimonial.in");
+    }
+$(".slidingDiv").slideToggle();
 });
 
         $("#next").click(function(){            
@@ -341,12 +343,8 @@ $("#dob").blur(function(){
         });
         return false;
     });
-
-
             
 });
-
-
 
 $(window).load(function(){
   var height = $('.img-pane').height();

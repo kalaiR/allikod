@@ -517,7 +517,11 @@ class User_model extends CI_Model {
  }
  
    /** Search by dhoshamsearch Id **/
-  public function get_dhoshamsearch($values, $limit, $start){     
+  public function get_dhoshamsearch($values, $limit, $start){ 
+
+        // if($values == 1){
+        //   $dhosham_1 = "and ((`dhosham` LIKE '%nag%') or (`dhosham` LIKE 'n%g%') or(`dhosham` LIKE '%nak%')) and ((`dhosham` LIKE '%n%ga%')or (`dhosham` LIKE '%n%ka%')or (`dhosham` LIKE '%n%ha%') or (`dhosham` LIKE '%n%gha%') or (`dhosham` LIKE '%n%kha%') or (`dhosham` LIKE '%nah%') or (`dhosham` LIKE '%aga%') or (`dhosham` LIKE '%a%g%') or (`dhosham` LIKE '%na%ga%'))";
+        // }    
 
         $user_where = '(rel.rel_dhosham='.$values.' AND usr.user_delete_status!=1 AND usr.user_gender !=3)';
         $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_gender, usr.user_active_status, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images');
