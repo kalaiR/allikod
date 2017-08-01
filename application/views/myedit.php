@@ -407,7 +407,7 @@
                                     <div class="col-md-6 text-boxs">
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Time Of Birth</b></p>
+                                                <p><b>Time Of Birth *</b></p>
                                             </div>
                                             <div class="col-md-1">       
                                                 <select>
@@ -430,7 +430,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Mother Tongue</b></p>
+                                                <p><b>Mother Tongue *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                 <select class="selectpicker">
@@ -449,7 +449,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Nakshathra</b></p>
+                                                <p><b>Nakshathra *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                 <select class="selectpicker">
@@ -481,7 +481,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-4">
-                                                <p><b>Zodiac Sign</b></p>
+                                                <p><b>Zodiac Sign *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                 <select class="selectpicker">
@@ -501,7 +501,7 @@
                                     <div class="col-md-6 text-boxs">
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Education</b></p>
+                                                <p><b>Education *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                 <select class="selectpicker">
@@ -512,7 +512,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Education In Detail</b></p>
+                                                <p><b>Education In Detail *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                   <textarea id="comment" placeholder="" rows="3" cols="25"></textarea>
@@ -520,7 +520,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Occupation</b></p>
+                                                <p><b>Occupation *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                   <select class="selectpicker">
@@ -533,7 +533,7 @@
                                     <div class="col-md-6 text-boxs">
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Employed In</b></p>
+                                                <p><b>Employed In *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                 <select class="selectpicker">
@@ -544,7 +544,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Monthly Income(In Indian-Rs)</b></p>
+                                                <p><b>Monthly Income(In Indian-Rs) *</b></p>
                                             </div>
                                             <div class="col-md-5">       
                                                 <input type="text" class="form-control" id="reg_Name" placeholder="" >
@@ -552,7 +552,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Occupation In Detail</b></p>
+                                                <p><b>Occupation In Detail *</b></p>
                                             </div>
                                             <div class="col-md-5">       
                                                 <textarea id="comment" placeholder="" rows="4" cols="25"></textarea>
@@ -569,31 +569,31 @@
                                     <div class="col-md-6 text-boxs">
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Father's Name</b></p>
+                                                <p><b>Father's Name *</b></p>
                                             </div>
                                             <div class="col-md-5">        
-                                                <input type="text" class="form-control" id="reg_Name" placeholder="Vadivel" disabled="disabled">
+                                                <input type="text" class="form-control" id="reg_Name" placeholder="Vadivel">
                                             </div>
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Mother's Name</b></p>
+                                                <p><b>Mother's Name *</b></p>
                                             </div>
                                             <div class="col-md-5">        
-                                                <input type="text" class="form-control" id="reg_Name" placeholder="Kalaiselvi" disabled="disabled">
+                                                <input type="text" class="form-control" id="reg_Name" placeholder="Kalaiselvi">
                                             </div>
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Father's Employment</b></p>
+                                                <p><b>Father's Employment *</b></p>
                                             </div>
                                             <div class="col-md-5">        
-                                                <input type="text" class="form-control" id="reg_Name" placeholder="Retired" disabled="disabled">
+                                                <input type="text" class="form-control" id="reg_Name" placeholder="Retired">
                                             </div>
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Mother's Employment</b></p>
+                                                <p><b>Mother's Employment *</b></p>
                                             </div>
                                             <div class="col-md-5">        
                                                 <input type="text" class="form-control" id="reg_Name" placeholder="Housewife" >
@@ -601,7 +601,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Family Status</b></p>
+                                                <p><b>Family Status *</b></p>
                                             </div>
                                             <div class="col-md-5">        
                                                 <select class="selectpicker">
@@ -612,7 +612,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Family Type</b></p>
+                                                <p><b>Family Type *</b></p>
                                             </div>
                                             <div class="col-md-5">        
                                                 <select class="selectpicker">
@@ -766,7 +766,7 @@
                                     <div class="col-md-6 text-boxs">
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Food</b></p>
+                                                <p><b>Food *</b></p>
                                             </div>
                                             <div class="col-md-5">        
                                                 <select class="selectpicker">
@@ -853,10 +853,24 @@
                                                 <p><b>Education</b></p>
                                             </div>
                                             <div class="col-md-6">       
-                                                <select class="selectpicker">
-                                                    <option>Any</option>
-                                                    <option>Other</option>
-                                                </select>     
+                                                <div class="control-group">                     
+                                                    <div class="controls">
+                                                        <select multiple>
+                                                            <option value="">Select</option>
+                                                            <optgroup class="a" label="Bachelors - Engineering/ Computers"></optgroup>
+                                                            <option  selected="selected"  value="1">BE/B Tech</option>
+                                                            <option  value="2">BCA</option>
+                                                            <option  value="3">Aeronautical Engineering</option>
+                                                            <option  value="4">B Arch</option>
+                                                            <option  value="5">B Plan</option>
+                                                            <optgroup class="a" label="Masters - Engineering/ Computers"></optgroup>
+                                                            <option  value="6">MCA/PGDCA</option>
+                                                            <option  value="7">ME/M Tech</option>
+                                                            <option  value="8">MS (Engg.)</option>
+                                                            <option  value="9">M Arch</option>
+                                                        </select>
+                                                    </div>
+                                                </div>     
                                              </div>
                                         </div>
                                         <div class="row com-box">
