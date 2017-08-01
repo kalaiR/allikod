@@ -269,7 +269,7 @@ class User_model extends CI_Model {
   public function get_recent_profile(){
       $query = $this->db->query("select usr.userdetail_id, usr_img.images, usr.user_gender from reg_userdetail as usr 
         INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
-        usr.user_active_status =1 AND usr_img.images != '' ORDER BY usr.userdetail_id DESC limit 8")->result_array();
+        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' ORDER BY usr.userdetail_id DESC limit 8")->result_array();
       return $query;
   }
 
@@ -665,6 +665,64 @@ class User_model extends CI_Model {
       return $query;
 
  }  
+
+ public function customer_user_profile($id){
+      // View by id
+      $condition = "usr.userdetail_id = ".$id."";
+      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name');
+      $this->db->from('reg_userdetail usr');
+      $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_communication_family cf','cf.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_physical_expectation pe','pe.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_image_horoscope ih','ih.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('reg_payment pm','pm.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('user_images img','img.reg_user_id=usr.userdetail_id','left');
+      $this->db->join('registered_by rb','rb.registeredby_id=usr.user_registeredby','left');
+      $this->db->join('marital_category mc','mc.maritalcategory_id=usr.user_maritalstatus','left');
+      $this->db->join('mother_tongue mt','mt.mothertongue_id=re.rel_mothertongue_id','left');
+      $this->db->join('nakshathra nak','nak.nakshathra_id=re.rel_nakshathra_id','left');
+      $this->db->join('luknam luk','luk.luknam_id=re.rel_luknam_id','left');
+      $this->db->join('zodiac_sign zod','zod.zodiacsign_id=re.rel_zodiacsign_id','left');
+      $this->db->join('education ed','ed.education_id=eo.edu_education','left');
+      $this->db->join('occupation occ','occ.occupation_id=eo.edu_occupation','left');
+      $this->db->join('employed_in ein','ein.employedin_id=eo.edu_employedin','left');
+      $this->db->where($condition); 
+      $model_data['customeruser_values'] = $this->db->get()->row_array();
+     //  echo $this->db->last_query();
+     //  echo "<pre>";
+      // print_r($model_data['customeruser_values']);
+      // echo "</pre>";
+      return $model_data;
+  }
+  public function customer_user_selectiondata(){
+      $model_data['registeredby_values'] = $this->db->order_by('registeredby_id','asc')->get_where('registered_by',array('active_status'=>1))->result_array();
+      $model_data['maritalstatus_values'] = $this->db->order_by('maritalcategory_id','asc')->get_where('marital_category',array('active_status'=>1))->result_array();
+      $model_data['mothertongue_values'] = $this->db->order_by('mothertongue_id','asc')->get_where('mother_tongue',array('active_status'=>1))->result_array();
+      $model_data['nakshathra_values'] = $this->db->order_by('nakshathra_id','asc')->get_where('nakshathra',array('active_status'=>1))->result_array();
+      $model_data['luknam_values'] = $this->db->order_by('luknam_id','asc')->get_where('luknam',array('active_status'=>1))->result_array();
+      $model_data['zodiac_values'] = $this->db->order_by('zodiacsign_id','asc')->get_where('zodiac_sign',array('active_status'=>1))->result_array();
+      $model_data['employedin_values'] = $this->db->order_by('employedin_id','asc')->get_where('employed_in',array('active_status'=>1))->result_array();
+      $model_data['country_values'] = $this->db->order_by('country_id','asc')->get_where('country',array('active_status'=>1))->result_array();
+      $model_data['bodytype_values'] = $this->db->order_by('bodytype_id','asc')->get_where('body_type')->result_array();
+      $model_data['complexion_values'] = $this->db->order_by('complexion_id','asc')->get_where('complexion',array('active_status'=>1))->result_array();
+      $model_data['food_values'] = $this->db->order_by('food_id','asc')->get_where('food',array('active_status'=>1))->result_array();
+      $model_data['familystatus_values'] = $this->db->order_by('familystatus_id','asc')->get_where('family_status',array('active_status'=>1))->result_array();
+      $model_data['familytype_values'] = $this->db->order_by('familytype_id','asc')->get_where('family_type',array('active_status'=>1))->result_array();
+
+      //Category and Subcategory values
+      // $model_data['education_values'] = $this->db->order_by('education_id','asc')->get_where('education')->result_array();
+      // $model_data['occupation_values'] = $this->db->order_by('occupation_id','asc')->get_where('occupation')->result_array();
+      
+      $condition = "edu.active_status = 1";
+      $this->db->select('edu.education_id,edu.edu_name,edu_cat.cat_name,edu.edu_categoryid');
+      $this->db->from('education edu');
+      $this->db->join('education_category edu_cat','edu_cat.educationcategory_id=edu.edu_categoryid','inner');
+      $this->db->where($condition);
+      // $this->db->group_by('edu_cat.cat_name');
+      $model_data['education_values'] = $this->db->get()->result_array();
+      return $model_data;
+  }
   
 }
 /* End of file User_model.php */

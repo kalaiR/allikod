@@ -157,7 +157,7 @@
                                     <h3 class="text-box" id="hcolor">Name</h3>
                                 </div>    
                                 <div class="col-md-4 names-boxs">
-                                   <input type="text" class="form-control" id="reg_email2" placeholder="Adibha">
+                                   <input type="text" class="form-control" id="reg_email2" placeholder="Username" value="<?php if(!empty($customeruser_values['user_fname'])) echo $customeruser_values['user_fname']; ?>" name="cus_fname">
                                 </div>
                             </div>
                             <div class="col-md-4 pull-right">
@@ -177,23 +177,23 @@
                                             <p><b>Vallikodi ID</b></p>
                                         </div>
                                         <div class="col-md-3">       
-                                            <p> : 00017</p>                                            
+                                            <p> : <?php echo $customeruser_values['userdetail_id']; ?></p>                                            
                                         </div>
                                     </div> 
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-md-3">
                                             <p><b>profile ID</b></p>
                                         </div>
                                         <div class="col-md-3">       
                                             <p> : 0</p>                                            
                                         </div>
-                                    </div>  
+                                    </div>   -->
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <p><b>Srating Date</b></p>
+                                            <p><b>Starting Date</b></p>
                                         </div>
                                         <div class="col-md-3">       
-                                            <p> : </p>                                            
+                                            <p> : <?php if(!empty($customeruser_values['startdate'])) echo date("d/m/Y", strtotime($customeruser_values['startdate'])); ?> </p>                                            
                                         </div>
                                     </div> 
                                     <div class="row">
@@ -201,7 +201,7 @@
                                             <p><b>Ending Date</b></p>
                                         </div>
                                         <div class="col-md-3">       
-                                            <p> : </p>                            
+                                            <p> : <?php if(!empty($customeruser_values['enddate'])) echo date("d/m/Y", strtotime($customeruser_values['enddate'])); ?></p>                            
                                         </div>
                                     </div>     
                                 </div>
@@ -212,7 +212,7 @@
                                             <p><b>Total Number Of Profile</b></p>
                                         </div>
                                         <div class="col-md-3">       
-                                            <p> : 0</p>                                            
+                                            <p> : <?php if(!empty($customeruser_values['totalno_of_profile'])) echo $customeruser_values['totalno_of_profile'];  ?></p>                                            
                                         </div>
                                     </div> 
                                     <div class="row">
@@ -220,15 +220,18 @@
                                             <p><b>Number Of Profile Viewed</b></p>
                                         </div>
                                         <div class="col-md-3">       
-                                            <p> : 0</p>                                            
+                                            <p> : <?php echo $customeruser_values['no_of_profiles_viewed']; ?></p>                                            
                                         </div>
                                     </div>  
                                     <div class="row">
                                         <div class="col-md-5">
                                             <p><b>Remine Profile To View</b></p>
                                         </div>
-                                        <div class="col-md-3">       
-                                            <p> : </p>                                            
+                                        <div class="col-md-3">    
+                                            <?php
+                                                $remaining_profile= $customeruser_values['totalno_of_profile'] - $customeruser_values['no_of_profiles_viewed'];
+                                            ?>   
+                                            <p> : <?php echo $remaining_profile; ?></a> </p>
                                         </div>
                                     </div>    
                                 </div>
@@ -267,9 +270,15 @@
                                                 <p><b>Resident Of</b></p>
                                             </div>
                                             <div class="col-md-3">       
-                                                <select class="selectpicker">
-                                                    <option>India</option>
-                                                    <option>Other</option>
+                                                <select class="selectpicker" name="cus_resident">
+                                                    <option value="">Select Resident</option>
+                                                      <?php 
+                                                        foreach ($selection_values['country_values'] as $con_val):      
+                                                            if($con_val['name'] == $customeruser_values['comm_residence'])  
+                                                                echo "<option selected value='".$con_val['name']."'>".$con_val['name']."</option>";
+                                                            else
+                                                                echo "<option value='".$con_val['name']."'>".$con_val['name']."</option>";                       
+                                                        endforeach; ?>
                                                 </select>                                         
                                             </div>
                                         </div> 
@@ -277,10 +286,16 @@
                                             <div class="col-md-5">
                                                 <p><b>Current Country</b></p>
                                             </div>
-                                            <div class="col-md-3">       
-                                                <select class="selectpicker">
-                                                    <option>India</option>
-                                                    <option>Other</option>
+                                            <div class="col-md-3">      
+                                                <select class="selectpicker" name="cus_curcountry">
+                                                    <option value="">Select Country</option>
+                                                      <?php 
+                                                        foreach ($selection_values['country_values'] as $con_val):      
+                                                            if($con_val['name'] == $customeruser_values['comm_residence'])  
+                                                                echo "<option selected value='".$con_val['name']."'>".$con_val['name']."</option>";
+                                                            else
+                                                                echo "<option value='".$con_val['name']."'>".$con_val['name']."</option>";                       
+                                                        endforeach; ?>
                                                 </select>                                         
                                             </div>
                                         </div>
@@ -288,22 +303,16 @@
                                             <div class="col-md-5">
                                                 <p><b>Current City</b></p>
                                             </div>
-                                            <div class="col-md-3">       
-                                                <select class="selectpicker">
-                                                    <option>Pondicherry</option>
-                                                    <option>Cuddalore</option>
-                                                </select>                                         
+                                            <div class="col-md-5">       
+                                                <input type="text" class="form-control" id="reg_Name" placeholder="Current City" value="<?php if(!empty($customeruser_values['comm_current_city'])) echo $customeruser_values['comm_current_city']; ?>" name="cus_curcity">   
                                             </div>
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
                                                 <p><b>Current District</b></p>
                                             </div>
-                                            <div class="col-md-3">       
-                                                <select class="selectpicker">
-                                                    <option>Pondicherry</option>
-                                                    <option>Cuddalore</option>
-                                                </select>                                         
+                                            <div class="col-md-5">       
+                                                <input type="text" class="form-control" id="reg_Name" placeholder="Current District" value="<?php if(!empty($customeruser_values['comm_current_district'])) echo $customeruser_values['comm_current_district']; ?>" name="cus_curdistrict">                                       
                                             </div>
                                         </div> 
                                     </div>    
@@ -313,7 +322,7 @@
                                                 <p><b>Phone Number</b></p>
                                              </div>
                                             <div class="col-md-4">        
-                                                 <input type="text" class="form-control" id="reg_Name" placeholder="">                                            
+                                                 <input type="text" class="form-control" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['comm_phone_no'])) echo $customeruser_values['comm_phone_no']; ?>" name="cus_phone">                                            
                                             </div>
                                         </div>
                                         <div class="row com-box">
@@ -321,7 +330,7 @@
                                                 <p><b>Mobile Number</b></p>
                                              </div>
                                             <div class="col-md-4">        
-                                                 <input type="text" class="form-control" id="reg_Name" placeholder="">                                            
+                                                 <input type="text" class="form-control" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['comm_mobile_no'])) echo $customeruser_values['comm_mobile_no']; ?>" name="cus_mobile">                                            
                                             </div>
                                         </div>
                                         <div class="row com-box">
@@ -329,7 +338,7 @@
                                                 <p><b>Communication Address</b></p>
                                              </div>
                                             <div class="col-md-4">        
-                                                 <textarea id="comment" placeholder="" rows="4"></textarea>                                            
+                                                 <textarea id="comment" placeholder="" rows="4"><?php if(!empty($customeruser_values['comm_communication_address'])) echo $customeruser_values['comm_communication_address']; ?></textarea>                                            
                                             </div>
                                         </div>   
                                     </div>      
