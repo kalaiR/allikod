@@ -8333,3 +8333,11 @@ p{
 
 .view_communication {
 }
+.drop_horo{
+  
+  margin: 15px 5px 0px 5px;
+  display: inline-block;
+  line-height: 20px;
+  font-size: 15px;
+  width: 60px;
+}

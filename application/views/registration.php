@@ -1085,7 +1085,7 @@ include('include/menu.php');
                             <div class="col-sm-12 aline-center-box">
                                      <div class="col-sm-3 aline-center-box box">
                                         <div class="height_item">      
-                                            <h3 id="white">Image</h3>.
+                                            <h3 id="white">Horoscope</h3>.
                                         </div>    
                                      </div>
                                     <div class="col-sm-10  aline-center-box">
