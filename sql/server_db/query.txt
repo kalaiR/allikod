@@ -51,6 +51,9 @@ INSERT INTO vallikodi_server.user_images(`reg_user_id`,`images`,`user_profile_id
 DROP TABLE user_images;
 
 
+TRUNCATE food;
+INSERT INTO vallikodi_server.food(name,active_status,delete_status,added_date) SELECT name,active_status,delete_status,added_date from BBBn3tl_test.food;
+
 
 no need to run(just for reference)
 Query to generate report of active online user from the year 2014 to 2017:

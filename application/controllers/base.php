@@ -49,6 +49,26 @@ class Base extends CI_Controller {
 			$this->load->view('index', $data);
 		}
 	}
+	// public function login_ajax(){
+	// 	if($this->input->post()){
+	// 		$data_values = $this->user_model->user_login(); 
+	// 		if($data_values['status']!=='login_success'){
+	// 			$data['status'] = $data_values['status'];
+	// 			$data['error'] = $data_values['error'];	
+	// 			echo $data['status'];
+	// 			redirect(base_url().'index');
+	// 		}else{
+	// 			// Session
+	//         	$this->session->set_userdata("login_status",1);
+ //    	    	$this->session->set_userdata("login_session",$data_values['login_values']);
+ //    	    	$data['login_user'] = $data_values['login_values'];
+	// 			$this->load->view('index', $data);
+	// 		}
+	// 	}
+	// }
+
+
+	//Changed the above login ajax function temporarily by kalai as per vinoth request(don't allow user to login,only one specified user can login for testing purporse)
 	public function login_ajax(){
 		if($this->input->post()){
 			$data_values = $this->user_model->user_login(); 
@@ -58,11 +78,14 @@ class Base extends CI_Controller {
 				echo $data['status'];
 				redirect(base_url().'index');
 			}else{
-				// Session
-	        	$this->session->set_userdata("login_status",1);
-    	    	$this->session->set_userdata("login_session",$data_values['login_values']);
-    	    	$data['login_user'] = $data_values['login_values'];
-				$this->load->view('index', $data);
+				if($_POST['email_id'] == 'Rajeswari17rajendran@gmail.com'){
+					// Session
+		        	$this->session->set_userdata("login_status",1);
+	    	    	$this->session->set_userdata("login_session",$data_values['login_values']);
+	    	    	$data['login_user'] = $data_values['login_values'];
+					$this->load->view('index', $data);
+				}				
+				$this->load->view('index');
 			}
 		}
 	}
