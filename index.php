@@ -120,7 +120,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="datepicker">
-                                                    <input type='text' name="birthday" class="form-control datetimepicker4 form_inputs" placeholder="Birthday" />
+                                                    <input data-format="yyyy/MM/dd hh:mm" type='text' name="birthday" class="form-control datetimepicker4 form_inputs" placeholder="Birthday" />
                                                     <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                                 </div>
                                             </div>
