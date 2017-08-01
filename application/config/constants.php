@@ -39,6 +39,7 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 //Custom constants
 define('ADMIN_MEDIA_PATH','assets/admin/img/');
 define('ADMIN_UPLOAD_MEDIA_PATH','assets/admin/img/uploads/');
+define('USER_PROFILE_PATH','uploads/profile/');
 define('FILETYPE_ALLOWED','jpg|jpeg|png|gif');
 
 //array to get payment type
