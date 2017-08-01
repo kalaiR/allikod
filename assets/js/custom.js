@@ -160,6 +160,16 @@ $(document).ready(function () {
         //     $('#' + selectedolditem).addClass("active");
         // }
 
+        $(".featured").owlCarousel({
+      autoplay: 3000, //Set AutoPlay to 3 seconds
+      autoplay:true,
+      loop:true,
+      items :4,
+      itemsDesktop : [1199,3],
+      itemsDesktopSmall : [979,3]
+ 
+     });
+
         // Show and Hide Search Div
     $(".slidingDiv").hide();
     
@@ -255,12 +265,22 @@ $(document).ready(function () {
 
 
 
-$(window).load(function(){
-  var height = $('.img-pane').height();
-     var width = $('.img-pane').width();
-     $('.img-pane').css({
-         'margin-top': -height / 2 + "px",
-         'margin-left': -width / 2 + "px"
-     });
+// $(window).load(function(){
+//   var height = $('.img-pane').height();
+//      var width = $('.img-pane').width();
+//      $('.img-pane').css({
+//          'margin-top': -height / 2 + "px",
+//          'margin-left': -width / 2 + "px"
+//      });
 
- });
+//  });
+
+$(window).load(function(){
+        var height = $('.img_div').height();
+        var width = $('.img_div').width();
+        $('.img_div').css({
+            'margin-top': -height / 2 + "px",
+            'margin-left': -width / 2 + "px"
+        });
+
+    });

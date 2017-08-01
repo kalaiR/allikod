@@ -85,7 +85,7 @@
                                                     <div class="reg_chose form-group">
                                                             <!-- <input type="submit" value="LogIn" id="post_submit" name="post_submit" class="btn form-control login_btn"> -->
                                                         <div class="reg_chose form-group">
-                                                            <button type="submit" herf="#" value="LogIn" class="btn form-control login_btn">Post</button>
+                                                            <button type="submit" value="LogIn" class="btn login_btn">Post</button>
                                                         </div> 
                                                     </div>     
                                             </div>

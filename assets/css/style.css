@@ -8333,3 +8333,30 @@ p{
 
 .view_communication {
 }
+/*Show and End*/
+
+.featured .item{
+  margin: 3px;
+}
+.featured .item img{
+  display: block;
+  margin-top: 2px;
+  width: 100%;
+ height: auto;
+ background:#f4d742;
+}
+.product_div{
+  position: relative;
+  background :gray;
+  height:188px;
+  width:191px;
+  margin: 5px;
+}
+.success_div{
+  position: relative;
+  background :gray;
+  height:350px;
+  width:300px;
+  margin: 5px;
+}
+
