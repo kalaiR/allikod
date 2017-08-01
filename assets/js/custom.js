@@ -231,6 +231,17 @@ $('.search_btn').on('click', '#finish', function(){
         $("#result_horoscope").val(JSON.stringify(results_array));
 });        
 
+
+     //    $(".featured").owlCarousel({
+     //  autoplay: 3000, //Set AutoPlay to 3 seconds
+     //  autoplay:true,
+     //  loop:true,
+     //  items :4,
+     //  itemsDesktop : [1199,3],
+     //  itemsDesktopSmall : [979,3]
+ 
+     // });
+
 $("#dob").blur(function(){
     // dob =  $('#dob').val();
     // var today = new Date();    
@@ -255,17 +266,19 @@ $("#dob").blur(function(){
 
 });
 
-    // Show and Hide Search Div
-$(".slidingDiv").hide();
 
-$('.view_communication').click(function(){
-    if($('.slidingDiv').length == 0){
-        if($('.check_payment_status').val() == 1)
-            alert("Please renew your account at vallikodimatrimonial.in");
-        else
-            alert("Please pay at vallikodimatrimonial.in");
-    }
-$(".slidingDiv").slideToggle();
+        // Show and Hide Search Div
+    $(".slidingDiv").hide();
+    
+    $('.view_communication').click(function(){
+        if($('.slidingDiv').length == 0){
+            if($('.check_payment_status').val() == 1)
+                alert("Please renew your account at vallikodimatrimonial.in");
+            else
+                alert("Please pay at vallikodimatrimonial.in");
+        }
+    $(".slidingDiv").slideToggle();
+
 });
 
         $("#next").click(function(){            
@@ -346,12 +359,22 @@ $(".slidingDiv").slideToggle();
             
 });
 
-$(window).load(function(){
-  var height = $('.img-pane').height();
-     var width = $('.img-pane').width();
-     $('.img-pane').css({
-         'margin-top': -height / 2 + "px",
-         'margin-left': -width / 2 + "px"
-     });
+// $(window).load(function(){
+//   var height = $('.img-pane').height();
+//      var width = $('.img-pane').width();
+//      $('.img-pane').css({
+//          'margin-top': -height / 2 + "px",
+//          'margin-left': -width / 2 + "px"
+//      });
 
- });
+//  });
+
+$(window).load(function(){
+        var height = $('.img_div').height();
+        var width = $('.img_div').width();
+        $('.img_div').css({
+            'margin-top': -height / 2 + "px",
+            'margin-left': -width / 2 + "px"
+        });
+
+    });

@@ -79,6 +79,12 @@ class Base extends CI_Controller {
 
 	//Changed the above login ajax function temporarily by kalai as per vinoth request(don't allow user to login,only one specified user can login for testing purporse)
 	public function login_ajax(){
+		$data['register'] = $this->user_model->get_registerid();
+		$data['martial_status'] = $this->user_model->get_martialstatus();
+		$data['success_stories'] = $this->user_model->get_success_stories_limit();
+		$data['recent_profile'] = $this->user_model->get_recent_profile();
+		$data['mother_tongue'] = $this->user_model->get_mothertongue();
+		$data['country'] = $this->user_model->get_country();
 		if($this->input->post()){
 			$data_values = $this->user_model->user_login(); 
 			if($data_values['status']!=='login_success'){
@@ -87,14 +93,13 @@ class Base extends CI_Controller {
 				echo $data['status'];
 				redirect(base_url().'index');
 			}else{
-				if($_POST['email_id'] == 'Rajeswari17rajendran@gmail.com'){
+				if($_POST['email_id'] == 'sample21@gmail.com'){
 					// Session
 		        	$this->session->set_userdata("login_status",1);
 	    	    	$this->session->set_userdata("login_session",$data_values['login_values']);
 	    	    	$data['login_user'] = $data_values['login_values'];
-					$this->load->view('index', $data);
-				}				
-				$this->load->view('index');
+				}	
+				$this->load->view('index', $data);
 			}
 		}
 	}
@@ -674,7 +679,20 @@ class Base extends CI_Controller {
 		$this->load->view('mymatches');
 	}
 	public function myedit(){
-		$this->load->view('myedit');
+		//Get current login user id from session
+		$login_session = $this->session->userdata("login_session");
+		$id = $login_session['userdetail_id'];
+		if(!empty($id)){
+			$data_values = $this->user_model->customer_user_profile($id);
+			$data['customeruser_values'] = $data_values['customeruser_values'];
+			//Get Selection option data's for edit
+			$data['selection_values'] = $this->user_model->customer_user_selectiondata();
+			// echo "<pre>";
+			// print_r($data['selection_values']);
+			// echo "</pre>";
+			$this->load->view('myedit',$data);
+		}
+		// $this->load->view('myedit');
 	}
 	public function newreg(){
 		$this->load->view('newreg');
