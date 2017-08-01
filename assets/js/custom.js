@@ -145,7 +145,76 @@ function validate() {
 
         return output;
 }
+
+function remove(array, property, value) {
+    var i, j, cur;
+    for (i = array.length - 1; i >= 0; i--) {
+        cur = array[i];
+        if (cur[property] === value) {
+            array.splice(i, 1);
+        }
+    }
+}
+
 $(document).ready(function () {
+
+    var results_array = [];  
+    // Add the Rasi on registration Page               
+    $('#cont').on('click', '#add_rasi', function(){
+            var srasi_val = $('#rasi_name :selected').val();
+            var srasi_text = $('#rasi_name :selected').text();
+            var sres = $('#box_id :selected').val(); 
+            var data={};
+              $('.third-row').each(function(){
+                    var id=$(this).data('id');
+                    var res = id.split("_");                                              
+                        if(res[1]==sres){                            
+                            img='http://localhost/test/rasi/'+srasi_val+'.png';             
+                            $("#"+id).append("<img src="+img+" data-id="+srasi_val+" />");
+                            data.key = srasi_val;
+                            data.value = res[1];
+                            data.text = srasi_text;
+                            data.boxid = id;
+                        }                    
+              });
+            results_array.push(data); 
+            $("#rasi_name option[value='"+srasi_val+"']").remove();            
+            $("#crasi_name").append('<option value="' + data.key + '" data-id="'+data.boxid+'">' + data.text + '</option>');
+            // alert(JSON.stringify(results_array));    
+    });
+
+    // Remove the Rasi from Registration Page
+    $('#cont').on('click', '#remove_rasi', function(){
+            var crasi_name = $('#crasi_name :selected').data('id');
+            var crasi_val = $('#crasi_name :selected').val();  
+            alert(crasi_val);
+
+            var cres = crasi_name.split("_");
+            var removeid;          
+            //var data={};
+            // alert(JSON.stringify(results_array)); 
+            //results_array.forEach(function(e){  
+                $('.third-row').each(function(){
+                    var id=$(this).data('id');
+                    var res = id.split("_");                                                       
+                    if(cres[1] == res[1]){  
+                        // alert($("#"+id).find('[data-id=r_' + res[1] + ']').attr('src'));
+                        $("#"+id).find('[data-id=r_' + res[1] + ']').remove();  
+                        removeid = crasi_val;                                     
+                        // data.key = crasi_name;
+                        // data.value = res[1];
+                        // data.text = srasi_text;
+                        // data.boxid = id;                                    
+                    }
+                });                                
+                // alert('remove'+removeid)
+                remove(results_array, "key", removeid);
+                    //});
+            // alert(JSON.stringify(results_array)); 
+            // results_array.push(data); 
+    });
+
+
         // $("li").click(function () {
         //     var id = $(this).attr("id");
         //     $('#' + id).siblings().find(".active").removeClass("active");
@@ -159,6 +228,30 @@ $(document).ready(function () {
         //     $('#' + selectedolditem).siblings().find(".active").removeClass("active");
         //     $('#' + selectedolditem).addClass("active");
         // }
+
+$("#dob").blur(function(){
+    // dob =  $('#dob').val();
+    // var today = new Date();    
+    // var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
+    // $('#age').html(age+' years old');
+
+    // var today = new Date(), // today date object
+    //   birthday_val = $("#dob").val().split('/'), // input value
+    //   birthday = new Date(birthday_val[2],birthday_val[0]-1,birthday_val[1]), // birthday date object
+    //   todayYear = today.getFullYear(), // today year
+    //   todayMonth = today.getMonth(), // today month
+    //   todayDay = today.getDate(), // today day of month
+    //   birthdayYear = birthday.getFullYear(), // birthday year
+    //   birthdayMonth = birthday.getMonth(), // birthday month
+    //   birthdayDay = birthday.getDate(), // birthday day of month
+    //   // calculate age
+    //   age = (todayMonth == birthdayMonth && todayDay > birthdayDay) ? 
+    //         todayYear - birthdayYear : (todayMonth > birthdayMonth) ? 
+    //               todayYear - birthdayYear : todayYear - birthdayYear-1;
+
+    // alert("Age: " + age);
+
+});
 
         // Show and Hide Search Div
     $(".slidingDiv").hide();
