@@ -682,15 +682,67 @@ class Base extends CI_Controller {
 		//Get current login user id from session
 		$login_session = $this->session->userdata("login_session");
 		$id = $login_session['userdetail_id'];
-		if(!empty($id)){
-			$data_values = $this->user_model->customer_user_profile($id);
-			$data['customeruser_values'] = $data_values['customeruser_values'];
-			//Get Selection option data's for edit
-			$data['selection_values'] = $this->user_model->customer_user_selectiondata();
-			// echo "<pre>";
-			// print_r($data['selection_values']);
-			// echo "</pre>";
-			$this->load->view('myedit',$data);
+		if($_POST){
+	   		// Update data
+	   		// $validation_rules = array(
+   			// 	// array('field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|required|xss_clean|max_length[50]|edit_unique[reg_userdetail.userdetail_id.user_email.'.$id.']' ),
+   			// );
+	   		// $this->form_validation->set_rules($validation_rules);
+	  //     	if ($this->form_validation->run() == FALSE) {   
+	  //     		echo "if";
+		 //        foreach($validation_rules as $row){
+		 //        	$field = $row['field']; // getting field name
+		 //        	$error = form_error($field); // getting error for field name
+		 //        	if($error){
+		 //            	$data['error'] = 1;
+		 //            	$data['status'] = strip_tags($error);
+		 //            	break;
+		 //          	}
+		 //        }
+	  //     	}
+   //    		else {
+   //    			echo "else";
+	    		$data_values = $this->user_model->update_customer_user($id); 
+	    		$data['error'] = $data_values['error'];
+		        $data['status'] = $data_values['status'];	
+		        print_r($data_values);
+   //    		}
+   //    		echo "after if else";
+	  //     	if($data['error']==1) {
+			// 	$result['status'] = $data['status'];
+			// 	$result['error'] = $data['error'];	
+			// 	echo json_encode($result);
+			// }
+			// else if($data['error']==2) {
+				// $data_ajax['customeruser_values'] = $data_values['customeruser_values'];
+				// $data_ajax['status'] = $data['status'];
+				// // $data_ajax['mapped_data'] = $data_values['mapped_data'];
+				// $result['error'] = $data['error'];
+				// if($this->input->post('action') == 'save')
+				// 	$result['output'] = $this->load->view('admin/add_customer_user',$data_ajax,true);
+				// else if($this->input->post('action') == 'update'){
+				// 	// $data_ajax['zodiac_data'] = $this->master_data_model->zodiac_sign('edit')['zodiac_data'];
+				// 	$data_res = $this->customeruser_data_model->customer_user('edit');
+				// 	$data_ajax['customeruser_values'] = $data_res['customeruser_values'];
+				// 	$data_ajax['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
+				// 	$result['output'] = $this->load->view('admin/edit_customer_user',$data_ajax,true);
+				// }
+				// else
+				// 	$result['output'] = $this->load->view('admin/zodiac_sign',$data_ajax,true);
+				// echo json_encode($result);
+			// }
+		}
+		else{
+			if(!empty($id)){
+				$data_values = $this->user_model->customer_user_profile($id);
+				$data['customeruser_values'] = $data_values['customeruser_values'];
+				//Get Selection option data's for edit
+				$data['selection_values'] = $this->user_model->customer_user_selectiondata();
+				// echo "<pre>";
+				// print_r($data['selection_values']);
+				// echo "</pre>";
+				$this->load->view('myedit',$data);
+			}
 		}
 		// $this->load->view('myedit');
 	}

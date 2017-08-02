@@ -342,6 +342,84 @@ $("#dob").blur(function(){
         return false;
     });
 
+    /*Admin customer user edit form Start*/
+    $('.customer_edit_form').on('submit',function(e) {
+        e.preventDefault();
+        // var error = '';
+        var error_msg = $(this).find('.val_error');
+        var message = '';
+        // /* Validate Input and Select element */
+        // // $(this).find('.form_inputs').each(function() {
+        // //     var this_val = $.trim($(this).val()); 
+        // //     // alert(this_val);           
+        // //     if(this_val == '') {
+        // //         // alert($(this).attr('name'));
+        // //         error = 1;
+        // //         message ="Please fill all mandatory fields";
+        // //         $(this).addClass('form-field-error');
+        // //     }
+        // //      else {            
+        // //         $(this).removeClass('form-field-error');
+        // //     }
+        // // });
+        // // Validate Password comparison
+        // if(error == '' ) {
+        //       if($("#new_pass").val() != $("#confirm_pass").val()) {
+        //           error = 1;
+        //           message = "Confirm password didnot match with new password";
+        //           $("#confirm_pass").addClass("form-field-error");
+        //       }
+        //       else {
+        //          $("#confirm_pass").removeClass("form-field-error"); 
+        //       } 
+        // }
+        // /* Check whether the input and select element has error or not */
+        // if($(this).find('input,select').hasClass('form-field-error')) {
+        //     if(message == '') {
+        //         message ="Please fill all mandatory fields";
+        //     }
+        //     $('html, body').animate({scrollTop:0},500);
+        //     error_msg.html(message).fadeIn(350);
+        //     return false;
+        // }
+        // else {
+            error = 0;
+            error_msg.fadeOut('fast').html('');
+            var formData = new FormData($(this)[0]);
+            // formData[csrf_name] = csfrData[csrf_name];
+            formData.append(csrf_name,csfrData[csrf_name]);
+            formData.append('action',"update");
+            formData.append('rid', $(this).data('id'));
+            // var formData = $(this).serialize();
+            // alert(JSON.stringify(formData)); // It returns empty when stringify json data, but data has been passed
+            $.ajax({
+               type: "POST",
+               url: baseurl+$(this).attr('action'),
+               data: formData,
+               async: false,
+               contentType: false,
+               processData: false,
+               dataType: 'json', 
+               success: function(res) {  
+                  if(res.error==1) {
+                      $('.val_error').html("<i class='icon-remove-sign'></i>  "+res.status);
+                      $('html, body').animate({scrollTop:0},500);
+                      $('.val_error').fadeIn(500);
+                      $('.val_error').fadeOut(5000);
+                  }
+                    else if(res.error==2) {
+                      // alert("no error");
+                      $('.val_error').html();
+                      $(this).html(res.output);
+                      $('html, body').animate({scrollTop:0},500);
+                      // $('.db_status').fadeOut(10000);
+                  }
+                }
+            });
+        // }
+    });
+
+    /*Admin customer user edit form End*/
 
             
 });

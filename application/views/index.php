@@ -307,6 +307,7 @@
                             $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$rec['images']);
                             $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$rec['images']);
                         }
+                        if($prefix_one_status || $prefix_two_status):
                 ?>
                     <div class="col-md-3 col-sm-6">
                         <div class="product_item">
@@ -334,6 +335,7 @@
                         </div>
                     </div>
                 <?php
+                        endif;
                     endforeach;
                   endif;
                 ?>

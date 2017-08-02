@@ -269,7 +269,7 @@ class User_model extends CI_Model {
   public function get_recent_profile(){
       $query = $this->db->query("select usr.userdetail_id, usr_img.images, usr.user_gender from reg_userdetail as usr 
         INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
-        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' ORDER BY usr.userdetail_id DESC limit 8")->result_array();
+        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' ORDER BY usr.userdetail_id DESC limit 9")->result_array();
       return $query;
   }
 
@@ -713,6 +713,7 @@ class User_model extends CI_Model {
       $model_data['food_values'] = $this->db->order_by('food_id','asc')->get_where('food',array('active_status'=>1))->result_array();
       $model_data['familystatus_values'] = $this->db->order_by('familystatus_id','asc')->get_where('family_status',array('active_status'=>1))->result_array();
       $model_data['familytype_values'] = $this->db->order_by('familytype_id','asc')->get_where('family_type',array('active_status'=>1))->result_array();
+      $model_data['height_values'] = $this->db->order_by('heightrelation_id','asc')->get_where('height_relation')->result_array();
 
       //Category and Subcategory values
       // $model_data['education_values'] = $this->db->order_by('education_id','asc')->get_where('education')->result_array();
@@ -725,6 +726,123 @@ class User_model extends CI_Model {
       $this->db->where($condition);
       // $this->db->group_by('edu_cat.cat_name');
       $model_data['education_values'] = $this->db->get()->result_array();
+      return $model_data;
+  }
+
+  public function update_customer_user($id){
+      echo "update_customer_user";
+      $res = $this->db->get_where('reg_userdetail', array('userdetail_id' => $id))->row_array();
+      if(is_numeric($id) && !empty($res))
+      { 
+            $userdetail_update_data = array(
+                              // 'user_email' => $this->input->post('cus_email'),
+                              // 'user_pwd' => $this->input->post('cus_password'),
+                              'user_fname' => $this->input->post('cus_fname'),
+                              'user_gender' => $this->input->post('cus_gender'),
+                              'user_dob' => date('Y-m-d',strtotime($this->input->post('cus_dob'))),
+                              'user_age' => $this->input->post('cus_age'),
+                              // 'user_active_status' => $this->input->post('cus_profileactivestatus'),
+                              'user_maritalstatus' => $this->input->post('cus_marstatus'),
+                              'user_registeredby' => ($this->input->post('cus_regby')) ? $this->input->post('cus_regby') : NULL,
+                              );
+            print_r($userdetail_update_data);
+            $religion_ethnicity_update_data = array(
+                    'rel_timeofbirth' => $this->input->post('cus_birthhours')."-".$this->input->post('cus_birthmins')."-".$this->input->post('cus_birthmer'),
+                    'rel_mothertongue_id' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
+                    // 'rel_religion' => $this->input->post('cus_religion'),
+                    // 'rel_caste' => $this->input->post('cus_caste'),
+                    'rel_dhosham' => $this->input->post('cus_dosham'),
+                    'rel_nakshathra_id' => ($this->input->post('cus_nakshathra')) ? $this->input->post('cus_nakshathra') : NULL,
+                    'rel_luknam_id' => ($this->input->post('cus_lukhnam')) ? $this->input->post('cus_lukhnam') : NULL,
+                    'rel_gothra' => $this->input->post('cus_gothra'),
+                    'rel_zodiacsign_id' => ($this->input->post('cus_zodiac')) ? $this->input->post('cus_zodiac') : NULL,
+                              );
+            print_r($religion_ethnicity_update_data);
+            $education_occupation_update_data = array(
+                    'edu_education' => ($this->input->post('cus_education')) ? $this->input->post('cus_education') : NULL,
+                    'edu_educationdetails' => $this->input->post('cus_edudetail'),
+                    'edu_occupation' => ($this->input->post('cus_occupation')) ? $this->input->post('cus_occupation') : NULL,
+                    'edu_employedin' => ($this->input->post('cus_empin')) ? $this->input->post('cus_empin') : NULL,
+                    'edu_montlyincome' => $this->input->post('cus_moninc'),
+                    'edu_occupationdetail' => $this->input->post('cus_ocudetail'),
+                    );
+            print_r($education_occupation_update_data);
+            $communication_update_data = array(
+                    'comm_residence' => $this->input->post('cus_resident'),
+                    'comm_current_countrycountry' => ($this->input->post('cus_curcountry')) ? $this->input->post('cus_curcountry') : NULL,
+                    'comm_current_city' => $this->input->post('cus_curcity'),
+                    'comm_current_district' => $this->input->post('cus_curdistrict'),
+                    'comm_communication_address' => $this->input->post('cus_address'),
+                    'comm_phone_no' => $this->input->post('cus_phone'),
+                    'comm_mobile_no' => $this->input->post('cus_mobile'),
+                    'comm_father_name' => $this->input->post('cus_fathername'),
+                    'comm_mother_name' => $this->input->post('cus_mothername'),
+                    'comm_father_employment' => $this->input->post('cus_fatheremp'),
+                    'comm_mother_employment' => $this->input->post('cus_motheremp'),
+                    'comm_family_status' => $this->input->post('cus_familystatus'),
+                    'comm_family_type' => $this->input->post('cus_familytype'),
+                    'comm_number_of_brothers_el' => $this->input->post('cus_broelder'),
+                    'comm_number_of_brothers_yo' => $this->input->post('cus_broyoung'),
+                    'comm_number_of_brothers_el_mar' => $this->input->post('cus_broeldermar'),
+                    'comm_number_of_brothers_yo_mar' => $this->input->post('cus_broyoungmar'),
+                    'comm_number_of_sisters_el' => $this->input->post('cus_siselder'),
+                    'comm_number_of_sisters_yo' => $this->input->post('cus_sisyoung'),
+                    'comm_number_of_sisters_el_mar' => $this->input->post('cus_siseldermar'),
+                    'comm_number_of_sisters_yo_mar' => $this->input->post('cus_sisyoungmar'),
+                    'comm_about_family' => $this->input->post('cus_abtfamily'),
+                    );
+            print_r($communication_update_data);
+            $physicalattributes_update_data = array(
+                    'phy_height' => $this->input->post('cus_heightcms'),
+                    'phy_weight' => $this->input->post('cus_weight'),
+                    'phy_bodytype' => $this->input->post('cus_bodytype'),
+                    'phy_complexion' => $this->input->post('cus_complexion'),
+                    'phy_physicalstatus' => $this->input->post('cus_phystatus'),
+                    'phy_food' => $this->input->post('cus_food'),
+                    'phy_yourpersonality' => $this->input->post('cus_personality'),
+                    'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
+            );
+            $profileimage_update_data = array(
+                        'images' => $this->input->post('cus_profileimage'), 
+            );
+            $userdetail_update_where = '(userdetail_id="'.$this->input->post('rid').'")'; 
+            $this->db->set($userdetail_update_data); 
+            $this->db->where($userdetail_update_where);
+            $this->db->update("reg_userdetail", $userdetail_update_data);
+
+            $communication_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+            $this->db->set($communication_update_data); 
+            $this->db->where($communication_update_where);
+            $this->db->update("reg_communication_family", $communication_update_data);
+
+            $religion_ethnicity_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+            $this->db->set($religion_ethnicity_update_data); 
+            $this->db->where($religion_ethnicity_update_where);
+            $this->db->update("reg_religion_ethnicity", $religion_ethnicity_update_data);
+
+            $education_occupation_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+            $this->db->set($education_occupation_update_data); 
+            $this->db->where($education_occupation_update_where);
+            $this->db->update("reg_education_occupation", $education_occupation_update_data);
+
+            $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+            $this->db->set($physicalattributes_update_data); 
+            $this->db->where($physicalattributes_update_where);
+            $this->db->update("reg_physical_expectation", $physicalattributes_update_data);
+
+            // $profileimage_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+            // $this->db->set($profileimage_update_data); 
+            // $this->db->where($profileimage_update_where);
+            // $this->db->update("user_images", $profileimage_update_data);
+
+            // echo $this->db->last_query(); 
+            $model_data['status'] = "Updated Successfully";
+            $model_data['error'] = 2;
+      }
+      else{
+            $model_data['error'] = 1;
+            $model_data['status'] = "Something went wrong. You may entered incorrect ID";
+      }
       return $model_data;
   }
   
