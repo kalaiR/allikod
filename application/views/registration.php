@@ -1083,107 +1083,112 @@ include('include/menu.php');
                         <!-- Horo Scope Start -->
                         <div class="row">
                             <div class="col-sm-12 aline-center-box">
-                                     <div class="col-sm-3 aline-center-box box">
-                                        <div class="height_item">      
-                                            <h3 id="white">Horoscope</h3>.
-                                        </div>    
-                                     </div>
-                                    <div class="col-sm-10  aline-center-box">
+                             <div class="col-sm-3 aline-center-box box">
+                                <div class="height_item">      
+                                    <h3 id="white">Horoscope</h3>.
+                                </div>    
+                            </div>
+                                <div class="col-sm-10  aline-center-box">
 
                                      <!-- Horo Scope Start -->
 
-                                    <div id="horo_container">
-                                        <div class="horo_row" id="product">
-                                        <div class="third-row" data-id="box_1" id="box_1">1</div>
-                                        <div class="third-row" data-id="box_2" id="box_2">2</div>
-                                        <div class="third-row" data-id="box_3" id="box_3">3</div>
-                                        <div class="third-row" data-id="box_4" id="box_4">4</div>
+                                    <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                            <!-- Rasi Horoscope - Start -->
+                                                    <div id="horo_container">
+                                                        <div class="horo_row" id="product">
+                                                            <div class="third-row" data-id="box_1" id="box_1">1</div>
+                                                            <div class="third-row" data-id="box_2" id="box_2">2</div>
+                                                            <div class="third-row" data-id="box_3" id="box_3">3</div>
+                                                            <div class="third-row" data-id="box_4" id="box_4">4</div>
 
-                                        <div class="third-row" data-id="box_12" id="box_12">12</div>
-                                        <div class="third-row" data-id="box_15" id="box_15">-</div>
-                                        <div class="third-row" data-id="box_16" id="box_16">-</div>
-                                        <div class="third-row" data-id="box_5"  id="box_5">5</div>
+                                                            <div class="third-row" data-id="box_12" id="box_12">12</div>
+                                                            <div class="third-row" data-id="box_15" id="box_15">-</div>
+                                                            <div class="third-row" data-id="box_16" id="box_16">-</div>
+                                                            <div class="third-row" data-id="box_5"  id="box_5">5</div>
 
-                                        <div class="third-row" data-id="box_11" id="box_11">11</div>
-                                        <div class="third-row" data-id="box_13" id="box_13">-</div>
-                                        <div class="third-row" data-id="box_14" id="box_14">-</div>
-                                        <div class="third-row" data-id="box_6"  id="box_6">6</div>
+                                                            <div class="third-row" data-id="box_11" id="box_11">11</div>
+                                                            <div class="third-row" data-id="box_13" id="box_13">-</div>
+                                                            <div class="third-row" data-id="box_14" id="box_14">-</div>
+                                                            <div class="third-row" data-id="box_6"  id="box_6">6</div>
 
-                                        <div class="third-row" data-id="box_10" id="box_10">10</div>
-                                        <div class="third-row" data-id="box_9" id="box_9">9</div>
-                                        <div class="third-row" data-id="box_8" id="box_8">8</div>
-                                        <div class="third-row" data-id="box_7" id="box_7">7</div>
+                                                            <div class="third-row" data-id="box_10" id="box_10">10</div>
+                                                            <div class="third-row" data-id="box_9" id="box_9">9</div>
+                                                            <div class="third-row" data-id="box_8" id="box_8">8</div>
+                                                            <div class="third-row" data-id="box_7" id="box_7">7</div>
+                                                        </div>
+                                                    </div> <!-- Rasi Horoscope - End -->
+                                                    <div id="cont">
+                                                        <select style="width: 70px" id="rasi_name" class="drop_horo styled-select blue semi-square" name="rasi_name">    
+                                                            <option value="r_1">&#2994;&#2965;&#3021;</option> 
+                                                            <option value="r_2">&#2992;&#3006;&#2965;&#3009;</option>
+                                                            <option value="r_3">&#2970;&#2984;&#3021;</option>   
+                                                            <option value="r_4">&#2965;&#3015;&#2980;&#3009;</option>
+                                                            <option value="r_5">&#2970;&#2985;&#3007;</option>
+                                                            <option value="r_6">&#2970;&#3014;&#2997;&#3021; </option>
+                                                            <option value="r_7"> &#2965;&#3009;&#2992;&#3009;</option>
+                                                            <option value="r_8"> &#2970;&#3009;&#2965;&#3021;</option>
+                                                            <option value="r_9">&#2970;&#3010;&#2992;&#3007;</option>
+                                                            <option value="r_10"> &#2986;&#3009;&#2980;&#2985;&#3021;</option> 
+                                                        </select>
 
-                                        </div>
-                                    </div>
-                                    </br>
-                                    </br>
-                                    <div id="cont">
-                                        <select id="rasi_name" style="width:300px; display: block;" name="rasi_name">    
-                                            <option value="r_1">&#2994;&#2965;&#3021;</option> 
-                                            <option value="r_2">&#2992;&#3006;&#2965;&#3009;</option>
-                                            <option value="r_3">&#2970;&#2984;&#3021;</option>   
-                                            <option value="r_4">&#2965;&#3015;&#2980;&#3009;</option>
-                                            <option value="r_5">&#2970;&#2985;&#3007;</option>
-                                            <option value="r_6">&#2970;&#3014;&#2997;&#3021; </option>
-                                            <option value="r_7"> &#2965;&#3009;&#2992;&#3009;</option>
-                                            <option value="r_8"> &#2970;&#3009;&#2965;&#3021;</option>
-                                            <option value="r_9">&#2970;&#3010;&#2992;&#3007;</option>
-                                            <option value="r_10"> &#2986;&#3009;&#2980;&#2985;&#3021;</option> 
-                                        </select>
+                                                        <select id="box_id" style="width: 70px" class="drop_horo styled-select blue semi-square" >
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option> 
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option> 
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                        </select>
 
-                                        <select id="box_id" style="width:300px; display: block;">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option> 
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option> 
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
+                                                            <!-- <img src="assets/img/add.png" type="button" id="add_rasi" value="ADD" name="add_rasi" /> -->
+                                                            <i class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_rasi" name="add_rasi"></i>
+                                                            <select style="width: 70px" id="crasi_name" class="drop_horo styled-select blue semi-square" name="crasi_name">
+                                                            </select>    
+                                                            <i class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_rasi" name="add_rasi"></i>
+                                                    </div> 
+                                                </div>  <!-- row col 6 ends -->
+                                                <div class="col-md-6">
+                                                    <!-- Asham Horoscope - start -->
+                                                    <div id="asham_horo_container">
+                                                        <div class="asham_horo_row" id="product">
+                                                        <div class="asham-row" data-id="abox_1" id="abox_1">1</div>
+                                                        <div class="asham-row" data-id="abox_2" id="abox_2">2</div>
+                                                        <div class="asham-row" data-id="abox_3" id="abox_3">3</div>
+                                                        <div class="asham-row" data-id="abox_4" id="abox_4">4</div>
 
-                                            <input type="button" id="add_rasi" value="ADD" name="add_rasi" />
-                                            <select id="crasi_name" style="width:300px; display: block;" name="crasi_name">
-                                            </select>    
-                                            <input type="button" id="remove_rasi" value="Remove" name="add_rasi" />
-                                    </div>
+                                                        <div class="asham-row" data-id="abox_12" id="abox_12">12</div>
+                                                        <div class="asham-row" data-id="abox_15" id="abox_15">-</div>
+                                                        <div class="asham-row" data-id="abox_16" id="abox_16">-</div>
+                                                        <div class="asham-row" data-id="abox_5"  id="abox_5">5</div>
 
-                                    <!-- ASHAM -->
-                                    <div id="asham_horo_container">
-                                        <div class="asham_horo_row" id="product">
-                                        <div class="asham-row" data-id="abox_1" id="abox_1">1</div>
-                                        <div class="asham-row" data-id="abox_2" id="abox_2">2</div>
-                                        <div class="asham-row" data-id="abox_3" id="abox_3">3</div>
-                                        <div class="asham-row" data-id="abox_4" id="abox_4">4</div>
+                                                        <div class="asham-row" data-id="abox_11" id="abox_11">11</div>
+                                                        <div class="asham-row" data-id="abox_13" id="abox_13">-</div>
+                                                        <div class="asham-row" data-id="abox_14" id="abox_14">-</div>
+                                                        <div class="asham-row" data-id="abox_6"  id="abox_6">6</div>
 
-                                        <div class="asham-row" data-id="abox_12" id="abox_12">12</div>
-                                        <div class="asham-row" data-id="abox_15" id="abox_15">-</div>
-                                        <div class="asham-row" data-id="abox_16" id="abox_16">-</div>
-                                        <div class="asham-row" data-id="abox_5"  id="abox_5">5</div>
+                                                        <div class="asham-row" data-id="abox_10" id="abox_10">10</div>
+                                                        <div class="asham-row" data-id="abox_9" id="abox_9">9</div>
+                                                        <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
+                                                        <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
 
-                                        <div class="asham-row" data-id="abox_11" id="abox_11">11</div>
-                                        <div class="asham-row" data-id="abox_13" id="abox_13">-</div>
-                                        <div class="asham-row" data-id="abox_14" id="abox_14">-</div>
-                                        <div class="asham-row" data-id="abox_6"  id="abox_6">6</div>
-
-                                        <div class="asham-row" data-id="abox_10" id="abox_10">10</div>
-                                        <div class="asham-row" data-id="abox_9" id="abox_9">9</div>
-                                        <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
-                                        <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
-
-                                        </div>
-                                    </div>
-
+                                                        </div>
+                                                    </div> <!-- Asham Horoscope - end -->                       
+                                                </div> <!-- col 6 ends -->
+                                            </div> <!-- col 12 ends -->
+                                        </div> <!-- row ends -->
 
                                       <!-- Horo Scope End -->
                                               
-                                    </div>
                             </div>
+                        </div>
                         </div>
                         <!-- Horo Scope End -->
                         </div>
