@@ -952,14 +952,14 @@ include('include/menu.php');
                                                  <h4>Age *</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-3 box">
+                                            <div class="col-sm-4 box">
                                                 <select class="form-control" name="search_age_from[]" id="search_age_from">
                                                     <option value="">Select</option>
                                                     <option value="18">18</option>
                                                     <option value="20">20</option>
                                                 </select>
                                             </div>
-                                            <div class="col-sm-3 box">
+                                            <div class="col-sm-4 box">
                                                 <select class="form-control" name="search_age_to[]" id="search_age_to">
                                                         <option value="">Select</option>
                                                         <option value="21">21</option>
@@ -999,7 +999,7 @@ include('include/menu.php');
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4">
-                                                     <select class="form-control" name="reg_Education[]" id="reg_Education">
+                                                     <select multiple="multiple" class="form-control" name="reg_Education[]" id="reg_Education">
                                                             <option value="">Select</option>
                                                             <?php 
                                                                 if(!empty($education)) :
