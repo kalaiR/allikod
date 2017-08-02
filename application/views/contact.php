@@ -34,10 +34,7 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.79, Vazhudavur Road,</p>
-                            <p>V.V.P Nagar,Gounderpalayam</p>
-                            <p>(Near by Employment Exchange),</p>
-                            <p>Puducherry - 605 009.</p><br>
+                            <br>No.79, Vazhudavur Road, V.V.P Nagar, Gounderpalayam(Near by Employment Exchange), Puducherry - 605 009.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734477</p>
                             <p>0413 - 2272438</p>       
@@ -70,8 +67,7 @@
                             <p>Senthil Clinic Near.</p>
                             <p>Viruthachalam</p>        
                             <p><b>Phone</b></p>
-                            <p>7397734460</p>
-                                   
+                            <p>7397734460</p>                                   
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -112,7 +108,6 @@
                             <p>Guna Complex,</p>
                             <p>Near Gandhi Silai,</p>
                             <p>Thirukovilur.</p>
-                            <br>
                             <p><b>Phone</b></h3>
                             <p>7397734463</p>       
                         </div>
@@ -141,7 +136,7 @@
                         <div class="address_item">
                             <p>No.193, Fathima Thirumana Nilayam Opp,</p>
                             <p>Thiruvannamalai Road,</p>
-                            <p>Gingee-604 202.</p><br>
+                            <p>Gingee-604 202.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734467</p>       
                         </div>
@@ -171,7 +166,7 @@
                             <p>No: 51, Amir Complex, Vandi gate,</p>
                             <p>Buvanagiri Main Road,</p>
                             <p>Opp to Old Petrol Bunk,</p>
-                            <p>Chidambaram.</p><br>
+                            <p>Chidambaram.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734459</p>       
                         </div>
@@ -200,7 +195,7 @@
                         <div class="address_item">
                             <p>No.10/B-53 1st floor Gst Road,</p>
                             <p>( K.R.C. Ground Opst),</p>
-                            <p>Chengalpattu</p><br>
+                            <p>Chengalpattu</p>
                             <p><b>Phone</b></h3>
                             <p>7397734472</p>       
                         </div>
@@ -229,7 +224,7 @@
                         <div class="address_item">
                             <p>No. 632-A, Kanchi Main Road,</p>
                             <p>(Opposite Eduku Pillaiyar Kovil)</p>
-                            <p>Thiruvannamalai.</p><br>
+                            <p>Thiruvannamalai.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734468</p>       
                         </div>
@@ -259,8 +254,7 @@
                             <p>No. 26-F. IInd Floor,</p>
                             <p>Barath Complex,</p>
                             <p>(Opposite Girls Higher Secondary School),</p>
-                            <p>Panruti Road,</p>
-                            <p>Ulundurpet.</p><br>
+                            <p>Panruti Road,Ulundurpet.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734462</p>       
                         </div>
@@ -289,7 +283,7 @@
                         <div class="address_item">
                             <p>No:36,Mariyamman Koil st,</p>
                             <p>(Near Marakathambigai Higher Secondary School),</p>
-                            <p>Thindivanam.</p><br>
+                            <p>Thindivanam.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734465</p>       
                         </div>
@@ -316,12 +310,10 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No.38/8-D, Kandasamy Layout,</p>
-                            <p>First Cross,</p>
-                            <p>(Near by Old Bus Stand back side),</p>
-                            <p>Opp: Poonthottam Mariamman Koil,</p>
-                            <p>K.K Road,</p>
-                            <p>Villupuram - 602 605.</p><br>
+                            <p>No.13,First Cross Street,</p>
+                            <p>K.K Road,Kandasamy Layout,</p>
+                            <p>(Central Bank Upstairs),</p>
+                            <p>Villupuram - 602 605.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734464</p>       
                         </div>
@@ -352,7 +344,7 @@
                             <p>(Near by Padaleeswarar temple),</p>
                             <p>Kambiayampet via,</p>
                             <p>Thirupapulliur,</p>
-                            <p>Cuddalore -2.</p><br>
+                            <p>Cuddalore -2.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734456</p>      
                         </div>
@@ -379,11 +371,10 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>Lakshmi complex,</p>
-                            <p>Police line,</p>
+                            <p>Lakshmi complex,Police line,</p>
                             <p>4th Cross, (Near by Bus stand),</p>
                             <p>L.S. Eye Hospital upstairs,</p>
-                            <p>Panrutti - 8.</p><br>
+                            <p>Panrutti - 8.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734457</p>       
                         </div>
@@ -412,7 +403,7 @@
                         <div class="address_item">
                             <p>No:11A/2, First Floor,Jhon Lawyer,</p>
                             <p>Karukinil Amarnthaval kovil st,</p>
-                            <p>Kanchipuram-2.</p><br>
+                            <p>Kanchipuram-2.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734466</p>       
                         </div>
@@ -439,10 +430,9 @@
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>Ilango st Kadaperi,
-Railway Mambalam,</p>
+                            <p>Ilango st Kadaperi,Railway Mambalam,</p>
                             <p>Soonampedu Street,</p>
-                            <p>Maduranthakam-6.</p><br>
+                            <p>Maduranthakam-6.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734473</p>       
                         </div>
@@ -471,7 +461,7 @@ Railway Mambalam,</p>
                         <div class="address_item">
                             <p>No:10, First Floor, Paakkukara st,</p>
                             <p>Annapurani Hotel (opp),</p>
-                            <p>Vandavasi</p><br>
+                            <p>Vandavasi</p>
                             <p><b>Phone</b></h3>
                             <p>7397734470</p>      
                         </div>
@@ -509,7 +499,7 @@ Railway Mambalam,</p>
                         <div class="address_item">
                             <p>P.G.S Complex,Panruti Road,</p>
                             <p>Near Jayapriya Hotel,</p>
-                            <p>Vadalur</p><br>
+                            <p>Vadalur</p>
                             <p><b>Phone</b></h3>
                             <p>7397734458</p>
                             <p>0413 - 2272438</p>        
@@ -546,10 +536,7 @@ Railway Mambalam,</p>
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>Opposite to Kamarajar Arts College,</p>
-                            <p>Thirukkanur Main Road,</p>
-                            <p>Kalitheerthalkuppam,</p>
-                            <p>Mathagatipet.</p><br>
+                            <p>Opposite to Kamarajar Arts College, Thirukkanur Main Road,       Kalitheerthalkuppam,Mathagatipet.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734478</p>       
                         </div>
@@ -576,9 +563,7 @@ Railway Mambalam,</p>
                             <h3>Address</h3>
                         </div>
                         <div class="address_item">
-                            <p>No:240,Cuddalore Main Road,</p>
-                            <p>(Near Co-Operative Bank),</p>
-                            <p>Thavalakuppam.</p><br>
+                            <p>No:240,Cuddalore Main Road,(Near Co-Operative Bank),Thavalakuppam.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734476</p>      
                         </div>
@@ -607,7 +592,7 @@ Railway Mambalam,</p>
                         <div class="address_item">
                              <p>Vengadachalapathy Street(Near Bus Stand),</p>
                             <p>Pazhampettai,</p>
-                            <p>Chethpet(Chethupattu)-606801.</p><br>
+                            <p>Chethpet(Chethupattu)-606801.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734469</p>       
                         </div>
@@ -635,7 +620,7 @@ Railway Mambalam,</p>
                         </div>
                         <div class="address_item">
                              <p>Sanathi Street(Near Perumal Kovil),</p>
-                            <p>Uthiramerur.</p><br>
+                            <p>Uthiramerur.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734471</p>       
                         </div>
@@ -664,7 +649,7 @@ Railway Mambalam,</p>
                         <div class="address_item">
                             <p>Anna Nagar(Near Sivasakthi Mahal ),</p>
                             <p>Udaiyar Complex(First Floor),</p>
-                            <p>Kallakuruchi.</p><br>
+                            <p>Kallakuruchi.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734461</p>       
                         </div>
@@ -693,7 +678,7 @@ Railway Mambalam,</p>
                         <div class="address_item">
                             <p>Near BVM School (OMR Road),</p>
                             <p>Chandroar Street, </p>
-                            <p>Thiruporur-603110.</p><br>
+                            <p>Thiruporur-603110.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734474</p>       
                         </div>
@@ -723,7 +708,7 @@ Railway Mambalam,</p>
                             <p>HDFC Bank & Pentocostal Church Opposite,</p>
                             <p>Vittilapuram Road,</p>
                             <p>Puthupattinam,</p>
-                            <p>Kalpakkam-603 102.</p><br>
+                            <p>Kalpakkam-603 102.</p>
                             <p><b>Phone</b></h3>
                             <p>7397734475</p>       
                         </div>

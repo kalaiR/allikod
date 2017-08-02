@@ -29,463 +29,478 @@ include('include/menu.php');
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="base">
                             <div class="registration_form_are">
-                        	 	 <div class="row">
-                        	 	 	<div class="col-sm-12 aline-center-box">
-                        	 	 		<div class="registration_form_s form-box aline-center-box">
-                        	 	 			 <div class="col-sm-3 aline-center-box box">
+                                <div class="row">
+                                    <div class="col-sm-12 aline-center-box">
+                                        <div class="registration_form_s form-box aline-center-box">
+                                            <div class="col-sm-3 aline-center-box box">
                                                 <div class="height_item">      
-                                                    <h3 id="white">Basic Search</h3>
+                                                <h3 id="white">Basic Search</h3>
                                                 </div>    
-                                             </div>
-                                             <!-- Basic Search -->
-                        	 	 			 <form method="post" class="box basic_search" action="search_result" id="basic_search" name="basic_search" >
-                                                <span class="val_status" style="display: block;">
-                                                <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
-                                                </span>
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Gender</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                <div class="col-sm-5 box">
-                                                                    <select class="form-control" name="gender[]" id="gender">
-                                                                        <option value="2">Female</option>
-                                                                        <option value="1">Male</option>
-                                                                    </select>
-                                                                </div>
-                                                                 
-                                                            </div>
-                                                        </div>        
-                                                </div>	
-                        	 	 		        <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Age</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                <div class="col-sm-6 box">
-                                                                   
-                                                                    <select class="form-control" name="search_age_from[]" id="search_age_from">
-                                                                                <?php 
-                                                                                for($i=18;$i<=60;$i++){ ?>
-                                                                                <option <?php if($i==18){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                                                <?php
-                                                                                } ?>
-                                                                                </select>
-                                                                    </div>
-                                                                    <div class="col-sm-6 box">            
-                                                                        <select class="form-control" name="search_age_to[]" id="search_age_to">
-                                                                                        <?php 
-                                                                                        for($i=18;$i<=60;$i++){
-                                                                                        ?>
-                                                                                        <option  <?php if($i==34){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                                                        <?php
-                                                                                        }
-                                                                                        ?>
-                                                                        </select>
-                                                                    </div>
-                                                                    
-                                                            </div>
-                                                        </div>        
+                                            </div>
+                                            <!-- Basic Search -->
+                                            <form method="post" class="box basic_search" action="search_result" id="basic_search" name="basic_search" >
+                                            <span class="val_status" style="display: block;">
+                                            <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
+                                            </span>
+                                            <div class="col-sm-10  aline-center-box">
+                                                <div class="row">
+                                                    <div class="col-sm-4 base-box">
+                                                        <div class="height_item">
+                                                        <h4>Gender</h4>
+                                                        </div>    
+                                                    </div>
+                                                    <div class="col-sm-6 box">
+                                                        <div class="col-sm-5 box">
+                                                            <select class="form-control" name="gender[]" id="gender">
+                                                                <option value="2">Female</option>
+                                                                <option value="1">Male</option>
+                                                            </select>
+                                                        </div>
+                                             
+                                                    </div>
+                                                </div>        
+                                            </div>    
+                                            <div class="col-sm-10  aline-center-box">
+                                                <div class="row">
+                                                    <div class="col-sm-4 base-box">
+                                                        <div class="height_item">
+                                                            <h4>Age</h4>
+                                                        </div>    
+                                                    </div>
+                                                    <div class="col-sm-6 box">
+                                                        <div class="col-sm-5 box">                    
+                                                            <select class="form-control" name="search_age_from[]" id="search_age_from">
+                                                            <?php 
+                                                            for($i=18;$i<=60;$i++){ ?>
+                                                            <option <?php if($i==18){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                            <?php
+                                                            } ?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-sm-5 box">            
+                                                            <select class="form-control" name="search_age_to[]" id="search_age_to">
+                                                                            <?php 
+                                                                            for($i=18;$i<=60;$i++){
+                                                                            ?>
+                                                                            <option  <?php if($i==34){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                            <?php
+                                                                            }
+                                                                            ?>
+                                                            </select>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>        
+                                            </div>
+                                            <div class="col-sm-10  aline-center-box">
+                                                <div class="row">
+                                                <div class="col-sm-4 base-box">
+                                                <div class="height_item">
+                                                    <h4>Height</h4>
+                                                </div>    
                                                 </div>
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Height</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                <div class="col-sm-6 box">
-                                                                    <select class="form-control" name="height_in_cms[]" id="height_in_cms">
-                                                                                <?php 
+                                                    <div class="col-sm-6 box">
+                                                        <div class="col-sm-5 box">
+                                                            <select class="form-control" name="height_in_cms[]" id="height_in_cms">
+                                                                        <?php 
+                                                                for($i=137;$i<=213;$i++){
+                                                                ?>
+                                                                <option  <?php if($i==137){?> selected="selected" <?php } ?>  value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                <?php
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                         <div class="col-sm-5 box">            
+                                                            <select class="form-control" name="height_in_feets[]" id="height_in_feets">
+                                                                       <?php 
+                                                        for($i=137;$i<=213;$i++){
+                                                        ?>
+                                                        <option  <?php if($i==213){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                                    </select>
+                                                        </div>
+
+                                                    </div>
+                                                </div>        
+                                            </div>
+                                            <div class="col-sm-10  aline-center-box">
+                                                <div class="row">
+                                                    <div class="col-sm-4 base-box">
+                                                        <div class="height_item">
+                                                            <h4>Marital Status</h4>
+                                                        </div>    
+                                                    </div>
+                                                    <div class="col-sm-6 box">
+                                                        <div class="col-sm-5 box">
+                                                             <select class="form-control customize_plan" name="marital_status[]" id="marital_status">
+                                                                        <?php 
+                                                                            if(!empty($martial_status)) :
+                                                                            foreach ($martial_status as $cls_val) {
+                                                                            echo "<option value='" . $cls_val['maritalcategory_id'] . "'>" . ucfirst($cls_val['marital_name']) . "</option>";
+                                                                            }
+                                                                        endif;
+                                                                        ?>
+                                                             </select>
+                                                        </div>
+
+                                                    </div>
+                                                </div>        
+                                            </div>
+                                            <div class="col-sm-10  aline-center-box">
+                                                <div class="row">
+                                                    <div class="col-sm-4 base-box">
+                                                        <div class="height_item">
+                                                            <h4>Mother Tongue</h4>
+                                                        </div>    
+                                                    </div>
+                                                    <div class="col-sm-6 box">
+                                                         <div class="col-sm-5 box">
+                                                            <select class="form-control customize_plan" name="mother_tongue[]" id="mother_tongue">
+                                                                <?php 
+                                                                            if(!empty($mother_tongue)) :
+                                                                            foreach ($mother_tongue as $cls_val) {
+                                                                            echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                            }
+                                                                        endif;
+                                                                        ?>
+                                                                </select> 
+                                                        </div>
+
+                                                    </div>
+                                                </div>        
+                                            </div>
+                                            <div class="col-sm-10  aline-center-box">
+                                                <div class="row">
+                                                    <div class="col-sm-4 base-box">
+                                                        <div class="height_item">
+                                                            <h4>Education</h4>
+                                                        </div>    
+                                                    </div>
+                                                    <div class="col-sm-6 box">
+                                                        <div class="col-sm-5 box">
+                                                            <select class="form-control" name="education[]" id="education">
+                                                            <?php 
+                                                            if(!empty($education_category)) :
+                                                                foreach ($education_category as $cls_val) {
+                                                                    if($cls_val['educationcategory_id'] == '13') {
+                                                                        echo "<option value='" . $cls_val['educationcategory_id'] . "' selected>" . ucfirst($cls_val['cat_name']) . "</option>";
+                                                                    }else{ 
+                                                                        echo "<option value='" . $cls_val['educationcategory_id'] . "'>" . ucfirst($cls_val['cat_name']) . "</option>";
+                                                                    }
+                                                                }
+                                                            endif;
+                                                            ?>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                </div>        
+                                            </div>
+                                            <div class="col-sm-10  aline-center-box">
+                                                <div class="row">
+                                                    <div class="col-sm-4 base-box">
+                                                        <div class="height_item">
+                                                            <h4>Show Profile</h4>
+                                                        </div>    
+                                                     </div>
+                                                    <div class="col-sm-6 box">
+                                                        <div class="col-sm-5 box">
+                                                            <select class="form-control" id="show_profile" name="images[]">
+                                                                <option value="both">Both</option>
+                                                                <option value="with_photo">With Photo</option>
+                                                                <option value="without_photo">Without Photo</option>
+                                                            </select>
+                                                        </div>
+                                                        <span id="show_profile_error" class="registration-error"></span>
+                                                    </div>
+                                                </div>        
+                                            </div>
+                                            <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
+                                            <input type="hidden" name="search_type" value="basicsearch" id="search_type"/>
+
+                                            <div class="search_btn">
+                                                <button type="submit" value="LogIn" class="btn form-control login_btn" id="basic_search">Search</button>
+                                            </div>
+                                            </form>
+
+                                            <!-- Basic Search -End Here--> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in" id="advanced-search">
+                            <div class="registration_form_are">
+                                <div class="row">
+                                    <div class="col-sm-12 aline-center-box">
+                                        <div class="registration_form_s form-box aline-center-box">
+                                         <div class="col-sm-3 aline-center-box box">
+                                            <div class="height_item">      
+                                <h3  id="white">Advanced Search</h3>
+                                </div>    
+                                        </div>
+                                        <form method="post" class="box basic_search" action="<?php echo base_url();?>search_result" id="advance_search_form" name="advance_search_form" >
+                                        <div class="col-sm-10  aline-center-box">
+                                            <div class="row">
+                                                <div class="col-sm-4 base-box">
+                                                    <div class="height_item">
+                                                        <h4>Gender</h4>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-sm-6 box">
+                                                    <div class="col-sm-5 box">
+                                                        <select class="form-control" name="gender[]" id="gender">
+                                                            <option value="2">Female</option>
+                                                            <option value="1">Male</option>
+                                                        </select>
+                                                    </div>
+                                                 
+                                                </div>
+                                            </div>        
+                                        </div>
+                                        <div class="col-sm-10  aline-center-box">
+                                            <div class="row">
+                                                <div class="col-sm-4 base-box">
+                                                    <div class="height_item">
+                                                        <h4>Location</h4>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-sm-6 box">
+                                                    <div class="col-sm-5 box">
+                                                        <select class="form-control customize_plan form_inputs" name="country[]" id="country" placeholder="Country Name">
+                                                        <option value="">Select</option>
+                                                        <?php
+                                                        if(!empty($country)) :
+                                                        foreach ($country as $cls_val) {
+                                                            if($cls_val['country_id']=='93'){
+                                                            echo "<option value='".$cls_val['country_id']."' selected>". ucfirst($cls_val['name'])."</option>";  
+                                                            }else{
+                                                            echo "<option value='" . $cls_val['country_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                            }            
+                                                        }
+                                                        endif;
+                                                        ?>
+                                                        </select>
+                                                    </div>
+                                                 
+                                                </div>
+                                            </div>        
+                                        </div>
+                                        <div class="col-sm-10  aline-center-box">
+                                            <div class="row">
+                                                <div class="col-sm-4 base-box">
+                                                    <div class="height_item">
+                                                        <h4>Occupation</h4>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-sm-6 box">
+                                                    <div class="col-sm-5 box">
+                                                        <select class="form-control" name="occupation[]"  id="occupation">
+                                                            <option value="">Select</option>
+                                                            <?php 
+                                                                if(!empty($occupation_category)) :
+                                                                foreach ($occupation_category as $cls_val) {
+                                                                echo "<option value='" . $cls_val['occ_category_id'] . "'>" . ucfirst($cls_val['occupation_name']) . "</option>";
+                                                                }
+                                                            endif;
+                                                            ?>   
+                                                        </select>
+                                                    </div>
+                                                 
+                                                </div>
+                                            </div>        
+                                        </div>
+                                        <div class="col-sm-10  aline-center-box">
+                                            <div class="row">
+                                                <div class="col-sm-4 base-box">
+                                                    <div class="height_item">
+                                                        <h4>Physical Status</h4>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-sm-6 box">
+                                                    <div class="col-sm-5 box">
+                                                        <select class="form-control" name="phy_status[]" id="phy_status">      
+                                                            <option value="1" selected>Normal</option>
+                                                            <option value="2">Physically challenged</option>
+                                                        </select>
+                                                    </div>
+                                                 
+                                                </div>
+                                            </div>        
+                                        </div>  
+                                        <div class="col-sm-10  aline-center-box">
+                                            <div class="row">
+                                                <div class="col-sm-4 base-box">
+                                                    <div class="height_item">
+                                                        <h4>Age</h4>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-sm-6 box">
+                                                    <div class="col-sm-6 box">
+                                                       
+                                                        <select class="form-control" name="search_age_from[]" id="search_age_from">
+                                                                    <?php 
+                                                                    for($i=18;$i<=60;$i++){ ?>
+                                                                    <option <?php if($i==18){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                    <?php
+                                                                    } ?>
+                                                                    </select>
+                                                        </div>
+                                                        <div class="col-sm-6 box">            
+                                                            <select class="form-control" name="search_age_to[]" id="search_age_to">
+                                                                            <?php 
+                                                                            for($i=18;$i<=60;$i++){
+                                                                            ?>
+                                                                            <option  <?php if($i==34){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                            <?php
+                                                                            }
+                                                                            ?>
+                                                            </select>
+                                                        </div>
+                                                    
+                                                </div>
+                                            </div>        
+                                        </div>
+                                        <div class="col-sm-10  aline-center-box">
+                                            <div class="row">
+                                                <div class="col-sm-4 base-box">
+                                                    <div class="height_item">
+                                                        <h4>Height</h4>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-sm-6 box">
+                                                    <div class="col-sm-6 box">
+                                                        <select class="form-control" name="height_in_cms[]" id="height_in_cms">
+                                                                    <?php 
                                                     for($i=137;$i<=213;$i++){
                                                     ?>
                                                     <option  <?php if($i==137){?> selected="selected" <?php } ?>  value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                                     <?php
                                                     }
                                                     ?>
-                                                                            </select>
-                                                                </div>
-                                                                 <div class="col-sm-6 box">            
-                                                                    <select class="form-control" name="height_in_feets[]" id="height_in_feets">
-                                                                               <?php 
+                                                                </select>
+                                                    </div>
+                                                     <div class="col-sm-6 box">            
+                                                        <select class="form-control" name="height_in_feets[]" id="height_in_feets">
+                                                                   <?php 
                                                     for($i=137;$i<=213;$i++){
                                                     ?>
                                                     <option  <?php if($i==213){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                                     <?php
                                                     }
                                                     ?>
-                                                                            </select>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                        </div>        
+                                                                </select>
+                                                    </div>
+
                                                 </div>
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Marital Status</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                <div class="col-sm-5 box">
-                                                                     <select class="form-control customize_plan" name="marital_status[]" id="marital_status">
-                                                                                <?php 
-                                                                                    if(!empty($martial_status)) :
-                                                                                    foreach ($martial_status as $cls_val) {
-                                                                                    echo "<option value='" . $cls_val['maritalcategory_id'] . "'>" . ucfirst($cls_val['marital_name']) . "</option>";
-                                                                                    }
-                                                                                endif;
-                                                                                ?>
-                                                                     </select>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                        </div>        
+                                            </div>        
+                                        </div>
+                                        <div class="col-sm-10  aline-center-box">
+                                            <div class="row">
+                                                <div class="col-sm-4 base-box">
+                                                    <div class="height_item">
+                                                        <h4>Marital Status</h4>
+                                                    </div>    
                                                 </div>
-                                                 <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Mother Tongue</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                 <div class="col-sm-5 box">
-                                                                    <select class="form-control customize_plan" name="mother_tongue[]" id="mother_tongue">
-                                                                        <?php 
-                                                                                    if(!empty($mother_tongue)) :
-                                                                                    foreach ($mother_tongue as $cls_val) {
-                                                                                    echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
-                                                                                    }
-                                                                                endif;
-                                                                                ?>
-                                                                        </select> 
-                                                                </div>
-                                                                
-                                                            </div>
-                                                        </div>        
-                                                </div>
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Education</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                <div class="col-sm-5 box">
-                                                                    <select class="form-control" name="education[]" id="education">
+                                                <div class="col-sm-6 box">
+                                                    <div class="col-sm-5 box">
+                                                         <select class="form-control customize_plan" name="marital_status[]" id="marital_status">
                                                                     <?php 
-                                                                    if(!empty($education_category)) :
-                                                                        foreach ($education_category as $cls_val) {
-                                                                            if($cls_val['educationcategory_id'] == '13') {
-                                                                                echo "<option value='" . $cls_val['educationcategory_id'] . "' selected>" . ucfirst($cls_val['cat_name']) . "</option>";
-                                                                            }else{ 
-                                                                                echo "<option value='" . $cls_val['educationcategory_id'] . "'>" . ucfirst($cls_val['cat_name']) . "</option>";
-                                                                            }
+                                                                        if(!empty($martial_status)) :
+                                                                        foreach ($martial_status as $cls_val) {
+                                                                        echo "<option value='" . $cls_val['maritalcategory_id'] . "'>" . ucfirst($cls_val['marital_name']) . "</option>";
                                                                         }
                                                                     endif;
                                                                     ?>
-                                                                    </select>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                        </div>        
-                                                </div>
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Show Profile</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                 <div class="col-sm-5 box">
-                                                                    <select class="form-control" id="show_profile" name="images[]">
-                                                                        <option value="both">Both</option>
-                                                                        <option value="with_photo">With Photo</option>
-                                                                        <option value="without_photo">Without Photo</option>
-                                                                    </select>
-                                                                </div>
-                                                                <span id="show_profile_error" class="registration-error"></span>
-                                                            </div>
-                                                        </div>        
-                                                </div>
-                                                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
-                                                <input type="hidden" name="search_type" value="basicsearch" id="search_type"/>
+                                                         </select>
+                                                    </div>
 
-                                                <div class="search_btn">
-                                                    <button type="submit" value="LogIn" class="btn form-control login_btn" id="basic_search">Search</button>
                                                 </div>
-                        	 	 			 </form>
-                                            
-                                             <!-- Basic Search -End Here--> 
-                        	 	 		</div>
-                        	 	 	</div>
-                        	 	 </div>
-                        	 </div>  
-        			     </div>
-                            <div role="tabpanel" class="tab-pane fade in" id="advanced-search">
-                                <div class="registration_form_are">
-                                 <div class="row">
-                                    <div class="col-sm-12 aline-center-box">
-                                        <div class="registration_form_s form-box aline-center-box">
-                                             <div class="col-sm-3 aline-center-box box">
-                                                <div class="height_item">      
-                                                    <h3  id="white">Advanced Search</h3>
-                                                </div>    
-                                             </div>
-                                             <form method="post" class="box basic_search" action="<?php echo base_url();?>search_result" id="advance_search_form" name="advance_search_form" >
-                                              
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Gender</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control" name="gender[]" id="gender">
-                                                                        <option value="2">Female</option>
-                                                                        <option value="1">Male</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>        
+                                            </div>        
+                                        </div>
+                                        <div class="col-sm-10  aline-center-box">
+                                            <div class="row">
+                                                <div class="col-sm-4 base-box">
+                                                    <div class="height_item">
+                                                        <h4>Mother Tongue</h4>
+                                                    </div>    
                                                 </div>
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Location</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control customize_plan form_inputs" name="country[]" id="country" placeholder="Country Name">
-                                                                    <option value="">Select</option>
-                                                                    <?php
-                                                                    if(!empty($country)) :
-                                                                    foreach ($country as $cls_val) {
-                                                                        if($cls_val['country_id']=='93'){
-                                                                        echo "<option value='".$cls_val['country_id']."' selected>". ucfirst($cls_val['name'])."</option>";  
-                                                                        }else{
-                                                                        echo "<option value='" . $cls_val['country_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
-                                                                        }            
-                                                                    }
+                                                <div class="col-sm-6 box">
+                                                     <div class="col-sm-5 box">
+                                                        <select class="form-control customize_plan" name="mother_tongue[]" id="mother_tongue">
+                                                            <?php 
+                                                                        if(!empty($mother_tongue)) :
+                                                                        foreach ($mother_tongue as $cls_val) {
+                                                                        echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                        }
                                                                     endif;
                                                                     ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>        
-                                                </div>
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Ocuppation</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control" name="occupation[]"  id="occupation">
-                                                                                <option value="">Select</option>
-                                                                                <?php 
-                                                                                    if(!empty($occupation_category)) :
-                                                                                    foreach ($occupation_category as $cls_val) {
-                                                                                    echo "<option value='" . $cls_val['occ_category_id'] . "'>" . ucfirst($cls_val['occupation_name']) . "</option>";
-                                                                                    }
-                                                                                endif;
-                                                                                ?>   
-                                                                            </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>        
-                                                </div>
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Physical Status</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control" name="phy_status[]" id="phy_status">                    
-                                                                        <option value="1" selected>Normal</option>
-                                                                        <option value="2">Physically challenged</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>        
-                                                </div>   
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Age</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-8 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control" name="search_age_from[]" id="search_age_from">
-                                                                                <?php 
-                                                                                for($i=18;$i<=60;$i++){ ?>
-                                                                                <option <?php if($i==18){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                                                <?php
-                                                                                } ?>
-                                                                                </select>
-                                                                    <select class="form-control" name="search_age_to[]" id="search_age_to">
-                                                                                        <?php 
-                                                                                        for($i=18;$i<=60;$i++){
-                                                                                        ?>
-                                                                                        <option  <?php if($i==34){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                                                        <?php
-                                                                                        }
-                                                                                        ?>
-                                                                        </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>        
-                                                </div>
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Height</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-8 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control" name="height_in_cms[]" id="height_in_cms">
-                                                                    <?php for($i=137;$i<=213;$i++){?>
-                                                                    <option  <?php if($i==137){?> selected="selected" <?php } ?>  value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                                    <?php } ?>
-                                                                    </select>
+                                                            </select> 
+                                                    </div>
 
-                                                                    <select class="form-control" name="height_in_feets[]" id="height_in_feets">
-                                                                    <?php for($i=137;$i<=213;$i++){?>
-                                                                    <option  <?php if($i==213){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                                    <?php } ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>        
                                                 </div>
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Marital Status</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-5 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control" name="martial_status[]" id="martial_status">           
-                                                                                <?php 
-                                                                                    if(!empty($martial_status)) :
-                                                                                    foreach ($martial_status as $cls_val) {
-                                                                                        if($cls_val['maritalcategory_id']=='1'){
-                                                                                            echo "<option value='" . $cls_val['maritalcategory_id'] . "' selected>" . ucfirst($cls_val['marital_name']) . "</option>";
-
-                                                                                        }else{
-                                                                                            echo "<option value='" . $cls_val['maritalcategory_id'] . "'>" . ucfirst($cls_val['marital_name']) . "</option>";
-                                                                                        }
-                                                                                    }
-                                                                                endif;
-                                                                                ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>        
-                                                </div>
-                                                 <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Mother Tongue</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control" name="mother_tongue[]" id="mother_tongue">           
-                                                                        <?php 
-                                                                            if(!empty($mother_tongue)) :
-                                                                            foreach ($mother_tongue as $cls_val) {
-                                                                                if($cls_val['mothertongue_id']=='1'){
-                                                                                    echo "<option value='" . $cls_val['mothertongue_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
-                                                                                }else{
-                                                                                echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
-                                                                                }
-                                                                            }
-                                                                            endif;
-                                                                        ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>        
-                                                </div>
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Education</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control" name="education_category[]" id="education_category">
-                                                                        <option value="">Select</option>
-                                                                                <?php 
-                                                                                    if(!empty($education_category)) :
-                                                                                    foreach ($education_category as $cls_val) {
-                                                                                    echo "<option value='" . $cls_val['educationcategory_id'] . "'>" . ucfirst($cls_val['cat_name']) . "</option>";
-                                                                                    }
-                                                                                endif;
-                                                                                ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>        
-                                                </div>
-                                                <div class="col-sm-10  aline-center-box">
-                                                       <div class="row">
-                                                            <div class="col-sm-4 base-box">
-                                                                <div class="height_item">
-                                                                    <h4>Show Profile</h4>
-                                                                </div>    
-                                                            </div>
-                                                            <div class="col-sm-6 box">
-                                                                <div class="height_item">
-                                                                    <select class="form-control" id="show_profile" name="images[]">
-                                                                        <option value="both">Both</option>
-                                                                        <option value="with_photo">With Photo</option>
-                                                                        <option value="without_photo">Without Photo</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>        
-                                                </div>
-                                            <input type="hidden" name="search_type" value="advance_search" id="search_type"/>
-                                            <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" /> <div class="search_btn">
-                                            <button type="submit" value="LogIn" class="btn form-control login_btn" id="search_type" name="" value="search_type">Search</button>
-                                                    </div>                                                   
-                                             </form>
+                                            </div>        
                                         </div>
+                                        <div class="col-sm-10  aline-center-box">
+                                            <div class="row">
+                                                <div class="col-sm-4 base-box">
+                                                    <div class="height_item">
+                                                        <h4>Education</h4>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-sm-6 box">
+                                                    <div class="col-sm-5 box">
+                                                        <select class="form-control" name="education[]" id="education">
+                                                        <?php 
+                                                        if(!empty($education_category)) :
+                                                            foreach ($education_category as $cls_val) {
+                                                                if($cls_val['educationcategory_id'] == '13') {
+                                                                    echo "<option value='" . $cls_val['educationcategory_id'] . "' selected>" . ucfirst($cls_val['cat_name']) . "</option>";
+                                                                }else{ 
+                                                                    echo "<option value='" . $cls_val['educationcategory_id'] . "'>" . ucfirst($cls_val['cat_name']) . "</option>";
+                                                                }
+                                                            }
+                                                        endif;
+                                                        ?>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                            </div>        
+                                        </div>
+                                        <div class="col-sm-10  aline-center-box">
+                                            <div class="row">
+                                                <div class="col-sm-4 base-box">
+                                                    <div class="height_item">
+                                                        <h4>Show Profile</h4>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-sm-6 box">
+                                                     <div class="col-sm-5 box">
+                                                        <select class="form-control" id="show_profile" name="images[]">
+                                                            <option value="both">Both</option>
+                                                            <option value="with_photo">With Photo</option>
+                                                            <option value="without_photo">Without Photo</option>
+                                                        </select>
+                                                    </div>
+                                                <span id="show_profile_error" class="registration-error"></span>
+                                                </div>
+                                            </div>        
+                                        </div> 
+                                        <input type="hidden" name="search_type" value="advance_search" id="search_type"/>
+                                        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" /> 
+                                        <div class="search_btn">
+                                        <button type="submit" value="LogIn" class="btn form-control login_btn" id="search_type" name="" value="search_type">Search</button>
+                                        </div>                                                   
+                                        </form>
                                     </div>
                                  </div>
-                             </div>       	            	
-            	           </div>
+                                </div>
+                            </div>       	            	
+                        </div>
                            <div role="tabpanel" class="tab-pane fade in" id="vallikodi">
                                 <div class="registration_form_are">
                                     <div class="row">
