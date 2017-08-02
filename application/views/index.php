@@ -190,7 +190,7 @@
         </section>
         <!--================End Slider Reg Area =================-->
          <!--================Advanced Search Area (selva)=================-->
-         <section class="advanced_search_area search_area2">
+        <section class="advanced_search_area search_area2">
             <div class="container">
                 <div class="welcome_title">
                     <h3>Quick Search</h3>
@@ -265,7 +265,7 @@
                                 <div class="product_div">
                                     <img src="<?php if(!empty($suc['image'])) echo media_url()."assets/img/uploads/success/".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>"class="product_div" alt="Image">
                                         <div class="overlay">
-                                            <div class="text"><?php echo $suc['male_name']."&". $suc['female_name'] ?></div>
+                                            <div class="success-text"><?php echo $suc['male_name']."&". $suc['female_name'] ?></div>
                                      </div>
                                 </div>       
                             </div>
@@ -286,8 +286,8 @@
                      <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
                 <div class="row">
-                    <div class="col-sm-10 aline-center-box">
-                        <div class="r_members_inner">
+                    <div class="col-sm-12">
+                        <div class="sticky_slider">
                             <div class="item">
                                     <img src="<?php echo media_url(); ?>assets/img/uploads/profile/60352199-77(P).jpg" class="featured_div" alt="Image">
                             </div>
@@ -297,30 +297,28 @@
                             <div class="item">
                                     <img src="<?php echo media_url(); ?>assets/img/uploads/profile/1590-1.jpg" class="featured_div" alt="Image">
                             </div>
-                             <div class="item">
+                            <div class="item">
                                     <img src="<?php echo media_url(); ?>assets/img/uploads/profile/4.jpg" class="featured_div" alt="Image">
-                              </div>
+                            </div>
+                        </div><br>
+                        <div class="base-box">
+                            <div class ="sticky_slider">
+                                <div class="item">
+                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/60352199-77(P).jpg" class="featured_div" alt="Image">
+                                </div>
+                                <div class="item">
+                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/96441610-73(P).jpg" class="featured_div" alt="Image">
+                                </div>
+                                <div class="item">
+                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/1590-1.jpg" class="featured_div" alt="Image">
+                                </div>
+                                <div class="item">
+                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/4.jpg" class="featured_div" alt="Image">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>    
-                <div class="row base-box">
-                     <div class="col-sm-10 aline-center-box">
-                        <div class="r_members_inner">
-                            <div class="item">
-                                <img src="<?php echo media_url(); ?>assets/img/uploads/profile/60352199-77(P).jpg" class="featured_div" alt="Image">
-                            </div>
-                            <div class="item">
-                                <img src="<?php echo media_url(); ?>assets/img/uploads/profile/96441610-73(P).jpg" class="featured_div" alt="Image">
-                            </div>
-                            <div class="item">
-                                <img src="<?php echo media_url(); ?>assets/img/uploads/profile/1590-1.jpg" class="featured_div" alt="Image">
-                            </div>
-                            <div class="item">
-                                <img src="<?php echo media_url(); ?>assets/img/uploads/profile/4.jpg" class="featured_div" alt="Image">
-                            </div>
-                        </div>
-                    </div>    
-                </div>  
+                </div>            
             </div>
         </section>  
 <!--================ End Featured (selva)=================-->       
