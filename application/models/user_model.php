@@ -278,11 +278,11 @@ class User_model extends CI_Model {
       if(!empty($values)) {
         if(!empty($values['show_profile'])) {
             if($values['show_profile'] =='with_photo'){
-               $show_profile = '(img.images!="" AND img.images!="defalt_male.jpg" AND img.images!="defalt_female.jpg")';
+               $show_profile = '(img.images!="" AND img.images!="defalt_male.png" AND img.images!="defalt_female.png")';
              }elseif($values['show_profile'] =='without_photo') {
-               $show_profile = '(img.images ="" OR img.images ="defalt_male.jpg" OR img.images="defalt_female.jpg")';              
+               $show_profile = '(img.images ="" OR img.images ="defalt_male.png" OR img.images="defalt_female.png")';              
              }else{
-               $show_profile = '(img.images ="" OR img.images!="" OR img.images ="defalt_male.jpg" AND img.images="defalt_female.jpg")';
+               $show_profile = '(img.images ="" OR img.images!="" OR img.images ="defalt_male.png" AND img.images="defalt_female.png")';
              }  
         }
         
@@ -590,11 +590,11 @@ class User_model extends CI_Model {
         // With Photo - Without photo //
         if(!empty($values['show_profile'])) {
             if($values['show_profile'] =='with_photo'){
-               $show_profile = '(img.images!="" AND img.images!="defalt_male.jpg" AND img.images!="defalt_female.jpg")';
+               $show_profile = '(img.images!="" AND img.images!="defalt_male.png" AND img.images!="defalt_female.png")';
             }elseif($values['show_profile'] =='without_photo') {
-               $show_profile = '(img.images ="" OR img.images ="defalt_male.jpg" OR img.images="defalt_female.jpg")';
+               $show_profile = '(img.images ="" OR img.images ="defalt_male.png" OR img.images="defalt_female.png")';
             }else{
-               $show_profile = '(img.images ="" OR img.images!="" OR img.images ="defalt_male.jpg" AND img.images="defalt_female.jpg")';
+               $show_profile = '(img.images ="" OR img.images!="" OR img.images ="defalt_male.png" AND img.images="defalt_female.png")';
             } 
         } 
 
