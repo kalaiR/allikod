@@ -296,7 +296,6 @@
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Communication Address  : </label>
-												<div class="controls">
 												<label class="control-label" for="focusedInput"></label>
 											  </div>
 											  <div class="control-group">
@@ -395,24 +394,29 @@
 												<label class="control-label" for="focusedInput"></label>
 											  </div>
 											  <div class="control-group">
+												<label class="control-label" for="focusedInput"></label>
+												<label style="width: 100px" class="control-label" for="focusedInput">Elder</label>
+												<label style="width: 100px" class="control-label" for="focusedInput">Younger</label>					
+											  </div>
+											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Brothers : </label>
-												<label class="control-label" for="focusedInput">0</label>
-												<label class="control-label" for="focusedInput">0</label>												
+												<label style="width: 100px" class="control-label" for="focusedInput">0</label>
+												<label style="width: 100px" class="control-label" for="focusedInput">0</label>										
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Sisters : </label>
-												<label class="control-label" for="focusedInput">0</label>
-												<label class="control-label" for="focusedInput">0</label>												
+												<label style="width: 100px" class="control-label" for="focusedInput">0</label>
+												<label style="width: 100px" class="control-label" for="focusedInput">0</label>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Married Brothers : </label>
-												<label class="control-label" for="focusedInput">0</label>
-												<label class="control-label" for="focusedInput">0</label>												
+												<label style="width: 100px" class="control-label" for="focusedInput">0</label>
+												<label style="width: 100px" class="control-label" for="focusedInput">0</label>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Married Sisters : </label>
-												<label class="control-label" for="focusedInput">0</label>
-												<label class="control-label" for="focusedInput">0</label>												
+												<label style="width: 100px" class="control-label" for="focusedInput">0</label>
+												<label style="width: 100px" class="control-label" for="focusedInput">0</label>												
 											  </div>
 											  <!-- <div class="control-group">
 												<label class="control-label"> </label>
