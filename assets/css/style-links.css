@@ -703,7 +703,8 @@
 .asham-row{
     display:inline-block;
     width:23%;
-    margin:1%;
+    margin-top: 1px;
+    margin-left: 5px;
     height:65px;
     font-family:Courier; color:white; font-size: 20px;
 }
