@@ -168,7 +168,7 @@ include('include/menu.php');
                 <?php }
                 ?>
                 </div>
-                    <div class="col-md-3">
+                    <!-- <div class="col-md-3">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <div class="s_title">
@@ -183,7 +183,7 @@ include('include/menu.php');
                                         <div class="price_inner">
                                         <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
                                         <!-- <a href="#">$50</a>
-                                        <a href="#">$350</a> -->
+                                        <a href="#">$350</a> ->
                                     </div>
                                 </div>
                                 </aside>    
@@ -199,7 +199,7 @@ include('include/menu.php');
                                         <div class="price_inner">
                                         <input type="text" id="height" readonly style="border:0; color:#f6931f; font-weight:bold;">
                                         <!-- <a href="#">$50</a>
-                                        <a href="#">$350</a> -->
+                                        <a href="#">$350</a> ->
                                     </div>
                                 </div>  
                                 </aside>  
@@ -215,7 +215,7 @@ include('include/menu.php');
                                         <div class="price_inner">
                                         <input type="text" id="weight" readonly style="border:0; color:#f6931f; font-weight:bold;">
                                         <!-- <a href="#">$50</a>
-                                        <a href="#">$350</a> -->
+                                        <a href="#">$350</a> ->
                                     </div>
                                 </div> 
                                 </aside>   
@@ -465,7 +465,7 @@ include('include/menu.php');
                                 </div>
                                 </aside>
                         </div>
-                    </div>
+                    </div> -->
                 </div>              
                 <!-- <div class="pagination>                    
                     <a class="prev" href="#">Previous</a>

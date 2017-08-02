@@ -266,6 +266,29 @@ class User_model extends CI_Model {
     }
     return $model_data;
   }
+
+   function checkmail(){
+    $model_data['error'] = 0;
+    if($this->input->post('email')) {
+      $login_where = '(user_email="'.$this->input->post('email').'" and user_active_status=1)';
+      $this->db->select('*');
+      $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where);      
+        if($userdata_get->num_rows()) {
+          $model_data['status'] = "login_success";
+          $model_data['login_values'] = $userdata_get->row_array();
+        }
+        else {
+          $model_data['status'] = "Invalid Login Details";
+        }
+    }
+    else {
+      $model_data['status']= "failed";
+      $model_data['error'] = 1;
+    }
+    return $model_data;
+  }
+  
+
   public function get_recent_profile(){
       $query = $this->db->query("select usr.userdetail_id, usr_img.images, usr.user_gender from reg_userdetail as usr 
         INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
@@ -328,7 +351,7 @@ class User_model extends CI_Model {
   // Home Page Quick search //
   public function get_quicksearch($values, $limit, $start){ 
       if(!empty($values)) {
-        $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND usr.user_gender !=3 AND usr.user_delete_status!=1)';
+        $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND usr.user_gender !=3 AND usr.user_delete_status!=1 AND (img.images!="" AND img.images!="defalt_male.png" AND img.images!="defalt_female.png"))';
         $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_gender, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images');
         $this->db->from('reg_userdetail usr');
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
@@ -519,12 +542,21 @@ class User_model extends CI_Model {
    /** Search by dhoshamsearch Id **/
   public function get_dhoshamsearch($values, $limit, $start){ 
 
-        // if($values == 1){
-        //   $dhosham_1 = "and ((`dhosham` LIKE '%nag%') or (`dhosham` LIKE 'n%g%') or(`dhosham` LIKE '%nak%')) and ((`dhosham` LIKE '%n%ga%')or (`dhosham` LIKE '%n%ka%')or (`dhosham` LIKE '%n%ha%') or (`dhosham` LIKE '%n%gha%') or (`dhosham` LIKE '%n%kha%') or (`dhosham` LIKE '%nah%') or (`dhosham` LIKE '%aga%') or (`dhosham` LIKE '%a%g%') or (`dhosham` LIKE '%na%ga%'))";
-        // }    
+        if($values == 1){
+          $dhosham_1 = "(rel.rel_dhosham LIKE '%nag%') or (rel.rel_dhosham LIKE 'n%g%') or(rel.rel_dhosham LIKE '%nak%')) and ((rel.rel_dhosham LIKE '%n%ga%')or (rel.rel_dhosham LIKE '%n%ka%')or (rel.rel_dhosham LIKE '%n%ha%') or (rel.rel_dhosham LIKE '%n%gha%') or (rel.rel_dhosham LIKE '%n%kha%') or (rel.rel_dhosham LIKE '%nah%') or (rel.rel_dhosham LIKE '%aga%') or (rel.rel_dhosham LIKE '%a%g%') or (rel.rel_dhosham LIKE '%na%ga%')";
+        } 
 
-        $user_where = '(rel.rel_dhosham='.$values.' AND usr.user_delete_status!=1 AND usr.user_gender !=3)';
-        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_gender, usr.user_active_status, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images');
+        if($values == 2){
+            $dhosham_1 = "(rel.rel_dhosham LIKE 's%v%')or(rel.rel_dhosham LIKE 'c%v%')or(rel.rel_dhosham LIKE '%se%v%')or(rel.rel_dhosham LIKE '%ce%v%')or(rel.rel_dhosham LIKE '%she%v%')or(rel.rel_dhosham LIKE '%che%v%')or(rel.rel_dhosham LIKE '%sha%v%')or(rel.rel_dhosham LIKE '%cha%v%')) and ((rel.rel_dhosham LIKE '%av%i%') or (rel.rel_dhosham LIKE '%ev%i%') or (rel.rel_dhosham LIKE '%ev%y%') or (rel.rel_dhosham LIKE '%av%y%') or (rel.rel_dhosham LIKE '%e%va%'))and ((rel.rel_dhosham LIKE '%vai%')or(rel.rel_dhosham LIKE '%vay%')or(rel.rel_dhosham LIKE '%vi%')or(rel.rel_dhosham LIKE '%vy%')or(rel.rel_dhosham LIKE '%va%')or(rel.rel_dhosham LIKE '%vha%')) and ((rel.rel_dhosham LIKE '%eva%')or(rel.rel_dhosham LIKE '%vva%')or(rel.rel_dhosham LIKE '%evv%')or(rel.rel_dhosham LIKE '%evva%')";
+        }
+
+        if($values == 3){
+            $dhosham_1 = "(rel.rel_dhosham LIKE 'ra%')or(rel.rel_dhosham LIKE 'ka%')or(rel.rel_dhosham LIKE 'ke%')or(rel.rel_dhosham LIKE 'ga%')or(rel.rel_dhosham LIKE 'ge%')or(rel.rel_dhosham LIKE '%raag%u%')or(rel.rel_dhosham LIKE '%rag%u%')or(rel.rel_dhosham LIKE '%kaet%u%')or(rel.rel_dhosham LIKE '%ket%u%')or(rel.rel_dhosham LIKE '%kaed%u%')or(rel.rel_dhosham LIKE '%ked%u%')or(rel.rel_dhosham LIKE '%gaet%u%')or(rel.rel_dhosham LIKE '%get%u%')or(rel.rel_dhosham LIKE '%gaed%u%')or(rel.rel_dhosham LIKE '%ged%u%')) and ((rel.rel_dhosham LIKE '%r%ghu%')or (rel.rel_dhosham LIKE '%r%khu%')or (rel.rel_dhosham LIKE '%r%gu%')or(rel.rel_dhosham LIKE '%hu%')or(rel.rel_dhosham LIKE '%gu%')or(rel.rel_dhosham LIKE '%du%')or (rel.rel_dhosham LIKE '%r%ku%')or (rel.rel_dhosham LIKE '%k%thu%')or (rel.rel_dhosham LIKE '%k%tu%')or (`rel.rel_dhosham` LIKE '%k%du%')";
+        }
+        
+
+      $user_where = '(rel.rel_dhosham='.$values.' AND usr.user_delete_status!=1 AND usr.user_gender !=3 AND '.$dhosham_1.')';
+        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_gender, usr.user_active_status, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, rel.rel_dhosham, edu.edu_education, edu.edu_occupation, img.images');
         $this->db->from('reg_religion_ethnicity rel');
         $this->db->join('reg_userdetail usr','usr.userdetail_id = rel.reg_user_id','inner'); 
         $this->db->join('reg_education_occupation edu','edu.reg_user_id = rel.reg_user_id','inner');

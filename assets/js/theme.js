@@ -750,7 +750,7 @@
     /*Date Time Picker*/
     /*----------------------------------------------------*/
     
-    $('.datetimepicker4').datetimepicker({format:'YYYY/MM/DD'});
+    $('.datetimepicker4').datetimepicker({format:'YYYY-MM-DD'});
 
     
     /*----------------------------------------------------*/

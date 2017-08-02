@@ -90,7 +90,7 @@
                                                         <?php
                                                         if(!empty($country)) :
                                                             foreach ($country as $cls_val) {
-                                                                echo "<option value='" . $cls_val['country_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                echo "<option value='" . $cls_val['name'] . "'>" . ucfirst($cls_val['name']) . "</option>";
                                                             }
                                                         endif;
                                                         ?>

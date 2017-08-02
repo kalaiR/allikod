@@ -51,6 +51,7 @@ $route['default_controller'] 							= "base/index";
 // $route['login/featured_job'] 							= 'home/featured_job';
 $route['index'] 							= "base/index";
 $route['login_ajax'] 						= "base/login_ajax";
+$route['register_mailcheck'] 						= "base/register_mailcheck";
 $route['search'] 							= "base/search";
 $route['contact'] 							= "base/contact";
 $route['gallery'] 							= "base/gallery";

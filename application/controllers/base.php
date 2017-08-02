@@ -76,6 +76,23 @@ class Base extends CI_Controller {
 	// 	}
 	// }
 
+	public function register_mailcheck(){
+		if($this->input->post()){
+			// echo 'here';
+			// print_r($_POST);
+			// print_r($_REQUEST);
+			// exit();
+			$data_values = $this->user_model->checkmail(); 
+			// print_r($data_values);			
+			if($data_values['status']!=='login_success'){
+				$data['status'] = $data_values['status'];
+				$data['error'] = $data_values['error'];	
+				echo $data['status'];
+			}else{
+				echo 'Already Email Id registered';
+			}
+		}
+	}
 
 	//Changed the above login ajax function temporarily by kalai as per vinoth request(don't allow user to login,only one specified user can login for testing purporse)
 	public function login_ajax(){
@@ -172,16 +189,19 @@ class Base extends CI_Controller {
 			$form_data = $this->input->post();
 				// echo '<pre>';
 				// print_r($_FILES);
+				// print_r($form_data);
 				// echo '<pre>';				
+				// exit();
 				$data = array(
-					'userdetail_id'=>'',
-					'userdetail_profile_id'=>100,
+					// 'userdetail_id'=>'',
+					// 'userdetail_profile_id'=>100,
 					'user_email'=>$form_data['register_email'],
 					'user_pwd'=>$form_data['reg_pass1'],
 					'user_fname'=>$form_data['reg_name'],
 					'user_gender'=>$form_data['gender'][0],					
-					'user_age'=>'25',
-					'user_dob'=>'2017-07-10',					
+					'user_age'=>$form_data['user_age'],
+					'user_dob'=>$form_data['dob'],
+					'user_online_or_simple'=>'Online',					
 					'user_maritalstatus'=>$form_data['marital_status'][0],
 					'user_registeredby'=>$form_data['register_by'][0]
 				);
@@ -189,7 +209,7 @@ class Base extends CI_Controller {
 
 
 		  		$data_reg = array(
-						'religionethnicity_id'=>'',
+						// 'religionethnicity_id'=>'',
 						'reg_user_id'=>$id_userdetails,
 						'rel_timeofbirth'=>'2017-07-10',
 						'rel_mothertongue_id'=>$form_data['mother_tongue'][0],
@@ -209,7 +229,7 @@ class Base extends CI_Controller {
 					$data_reg['rel_religion']= $form_data['reg_religion'];
 				}
 				if(!empty($form_data['luknam'][0])){
-					$data_reg['luknam']= $form_data['luknam'][0];
+					$data_reg['rel_luknam_id']= $form_data['luknam'][0];
 				}
 				if(!empty($form_data['reg_gothra'])){
 					$data_reg['reg_gothra']= $form_data['reg_gothra'];
@@ -218,7 +238,7 @@ class Base extends CI_Controller {
 
 
 		  		$data_regedu = array(
-						'educationoccupation_id'=>'',
+						// 'educationoccupation_id'=>'',
 						'reg_user_id'=>$id_userdetails,
 						'edu_education'=>$form_data['education'][0],
 						'edu_educationdetails'=>$form_data['education_detail'],
@@ -231,7 +251,7 @@ class Base extends CI_Controller {
 
 		  		
 		  		$data_reg_com = array(
-						'communicationfamily_id'=>'',
+						// 'communicationfamily_id'=>'',
 						'reg_user_id'=>$id_userdetails,						
 						'comm_mobile_no'=>$form_data['reg_mobile'],
 						'comm_father_name'=>$form_data['reg_fname'],
@@ -320,21 +340,37 @@ class Base extends CI_Controller {
 
 		  		$id_user_com = $this->user_model->insert_registration('reg_communication_family',$data_reg_com);
 
-
-
 		  		$data_reg_phy = array(
-						'physicalexpectation_id'=>'',
+						// 'physicalexpectation_id'=>'',
 						'reg_user_id'=>$id_userdetails,						
 						'phy_food'=>$form_data['food'][0],							
 						'phy_searchage_from'=>$form_data['search_age_from'][0],
 						'phy_searchage_to'=>$form_data['search_age_to'][0],
-						// 'phy_searchmarital_status'=>form_data['marital_status_any'],
-						'phy_searchmarital_status'=>'Single',
-						'phy_searchedu_status'=>$form_data['reg_Education'][0],
-						// 'phy_expectationfood'=>$form_data['diet_nonveg']
-						'phy_expectationfood'=>'2'
-						
+						//'phy_searchmarital_status'=>'Single',
+						'phy_searchedu_status'=>$form_data['reg_Education'][0]
 				);
+
+				if(!empty($form_data['marital_status_single_white'])){
+					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_single_white'];	
+				}elseif(!empty($form_data['marital_status_windowed'])){
+					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_windowed'];	
+				}elseif(!empty($form_data['marital_status_annualled'])){
+					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_annualled'];	
+				}elseif(!empty($form_data['marital_status_divorced'])){
+					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_divorced'];	
+				}else{
+					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_any'];	
+				}
+
+				if(!empty($form_data['diet_veg'])){
+					$data_reg_phy['phy_expectationfood']=$form_data['diet_veg'];	
+				}elseif(!empty($form_data['diet_nonveg'])){
+					$data_reg_phy['phy_expectationfood']=$form_data['diet_nonveg'];	
+				}elseif(!empty($form_data['diet_egg'])){
+					$data_reg_phy['phy_expectationfood']=$form_data['diet_egg'];	
+				}
+
+
 				if(!empty($form_data['height_in_cms'][0])){
 					$data_reg_phy['phy_height']= $form_data['height_in_cms'][0];
 				}
@@ -365,6 +401,7 @@ class Base extends CI_Controller {
 				// 'phy_yourpersonality'=>$form_data['personality'],
 				// 'phy_expectationabout_lifepartner'=>$form_data['expectation']
 		  		$id_user_phy = $this->user_model->insert_registration('reg_physical_expectation',$data_reg_phy);
+		  		
 
 				if(!empty($_FILES['uploadedfile']['name']))
         		{	   	
@@ -382,17 +419,16 @@ class Base extends CI_Controller {
                 		$upload_data = $this->upload->data(); 
                 		$_POST['uploadedfile'] = $upload_data['file_name']; 
                 		$targetfile_details = $upload_data['file_name'];
-  	            	}
-    		      	else
-            		{
+                		$data['error'] = 0;
+  	            	}else{
 	                	$data['status'] = $this->upload->display_errors(); 
 	                	$upload_error = 1;
 	                	$data['error'] = 1;
                 	}
 
-                	if(isset($data['error'])&&($data['error']!=1)){	
+                	if($data['error']!=1){	
 						$data_images = array(
-								'userimages_id'=>'',
+								// 'userimages_id'=>'',
 								'reg_user_id'=>$id_userdetails,						
 								'images'=>$targetfile_details
 						);	
@@ -401,16 +437,29 @@ class Base extends CI_Controller {
                 }
 
                 // Insert Horoscope // 
-                if(!empty($form_data['result_horoscope'])) {
-                	$tempData = html_entity_decode($form_data['result_horoscope']);
+                if(!empty($form_data['result_horoscope_rasi'])) {
+                	$tempData = html_entity_decode($form_data['result_horoscope_rasi']);
 					$cleanData = json_decode($tempData);		
 					foreach ($cleanData as $key => $value) {
-						$data_images[$value->key]= $value->value;
+						$data_horo[$value->key]= $value->value;
 					}
-					$data_images['imagehoroscope_id'] = '';
-					$data_images['reg_user_id'] = $id_userdetails;
-				}				
-				$id_images = $this->user_model->insert_registration('reg_image_horoscope',$data_images);
+				}	
+				if(!empty($form_data['result_horoscope_rasi'])) {
+					$tempData = html_entity_decode($form_data['result_horoscope_asham']);
+					$cleanData = json_decode($tempData);		
+					foreach ($cleanData as $key => $value) {
+						$data_horo[$value->key]= $value->value;
+					}
+				}	
+
+				// $data_horo['imagehoroscope_id'] = '';
+				$data_horo['reg_user_id'] = $id_userdetails;
+
+				// echo '<pre>';
+				// print_r($data_horo);
+				// echo '</pre>';
+				// exit();
+				$id_images = $this->user_model->insert_registration('reg_image_horoscope',$data_horo);
 		  		$this->load->view('registration');
 
 		  	}else{
