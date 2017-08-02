@@ -536,24 +536,24 @@
             $('.r_members_inner').owlCarousel({
                 loop:true,
                 margin:28,
-                items: 6,
-                nav:true,
+                items: 4,
+                // nav:true,
                 autoplay: true,
                 smartSpeed: 1800,
-                navContainer: '.r_members_inner',
-                navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                // navContainer: '.r_members_inner',
+                // navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
                 responsive:{
                     0:{
-                        items:2
+                        items:1
                     },
                     400:{
-                        items:3
+                        items:1
                     },
                     520:{
-                        items:4
+                        items:2
                     },
                     991:{
-                        items:6
+                        items:4
                     }
                 }
             })
