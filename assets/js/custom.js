@@ -135,13 +135,13 @@ function validate() {
              }
 
         }
-    // if($("#horoscope-field").css('display') != 'none') {
+    if($("#horoscope-field").css('display') != 'none') {
        
-    //    if(!($("#upload").val())) {
-    //              output = false;
-    //              $("#upload_error").html("Required");
-    //          }
-    // }
+       if(!($("#upload").val())) {
+                 output = false;
+                 $("#upload_error").html("Required");
+             }
+    }
 
         return output;
 }
@@ -156,10 +156,11 @@ function remove(array, property, value) {
     }
 }
 
-$(document).ready(function () {
+$(document).ready(function(){
 
     var results_array = [];  
-    // Add the Rasi on registration Page               
+    // Add the Rasi on registration Page 
+
     $('#cont').on('click', '#add_rasi', function(){
             var srasi_val = $('#rasi_name :selected').val();
             var srasi_text = $('#rasi_name :selected').text();
@@ -169,7 +170,7 @@ $(document).ready(function () {
                     var id=$(this).data('id');
                     var res = id.split("_");                                              
                         if(res[1]==sres){                            
-                            img='http://localhost/test/rasi/'+srasi_val+'.png';             
+                            img=media_url+'assets/img/rasi/'+srasi_val+'.png';             
                             $("#"+id).append("<img src="+img+" data-id="+srasi_val+" />");
                             data.key = srasi_val;
                             data.value = res[1];
@@ -184,10 +185,10 @@ $(document).ready(function () {
     });
 
     // Remove the Rasi from Registration Page
-    $('#cont').on('click', '#remove_rasi', function(){
+    $('#cont').on('click', '#remove_rasi', function(){            
             var crasi_name = $('#crasi_name :selected').data('id');
             var crasi_val = $('#crasi_name :selected').val();  
-            alert(crasi_val);
+            // alert(crasi_val);
 
             var cres = crasi_name.split("_");
             var removeid;          
@@ -199,7 +200,7 @@ $(document).ready(function () {
                     var res = id.split("_");                                                       
                     if(cres[1] == res[1]){  
                         // alert($("#"+id).find('[data-id=r_' + res[1] + ']').attr('src'));
-                        $("#"+id).find('[data-id=r_' + res[1] + ']').remove();  
+                        $("#"+id).find('[data-id='+crasi_val+']').remove();  
                         removeid = crasi_val;                                     
                         // data.key = crasi_name;
                         // data.value = res[1];
@@ -210,11 +211,9 @@ $(document).ready(function () {
                 // alert('remove'+removeid)
                 remove(results_array, "key", removeid);
                     //});
-            // alert(JSON.stringify(results_array)); 
+            // alert(JSON.stringify(results_array));             
             // results_array.push(data); 
     });
-
-
         // $("li").click(function () {
         //     var id = $(this).attr("id");
         //     $('#' + id).siblings().find(".active").removeClass("active");
@@ -228,6 +227,20 @@ $(document).ready(function () {
         //     $('#' + selectedolditem).siblings().find(".active").removeClass("active");
         //     $('#' + selectedolditem).addClass("active");
         // }
+$('.search_btn').on('click', '#finish', function(){
+        $("#result_horoscope").val(JSON.stringify(results_array));
+});        
+
+
+     //    $(".featured").owlCarousel({
+     //  autoplay: 3000, //Set AutoPlay to 3 seconds
+     //  autoplay:true,
+     //  loop:true,
+     //  items :4,
+     //  itemsDesktop : [1199,3],
+     //  itemsDesktopSmall : [979,3]
+ 
+     // });
 
 $("#dob").blur(function(){
     // dob =  $('#dob').val();
@@ -253,6 +266,7 @@ $("#dob").blur(function(){
 
 });
 
+
         // Show and Hide Search Div
     $(".slidingDiv").hide();
     
@@ -264,6 +278,7 @@ $("#dob").blur(function(){
                 alert("Please pay at vallikodimatrimonial.in");
         }
     $(".slidingDiv").slideToggle();
+
 });
 
         $("#next").click(function(){            
@@ -341,12 +356,8 @@ $("#dob").blur(function(){
         });
         return false;
     });
-
-
             
 });
-
-
 
 $(window).load(function(){
   var height = $('.img-pane').height();
@@ -357,3 +368,13 @@ $(window).load(function(){
      });
 
  });
+
+// $(window).load(function(){
+//         var height = $('.img_div').height();
+//         var width = $('.img_div').width();
+//         $('.img_div').css({
+//             'margin-top': -height / 2 + "px",
+//             'margin-left': -width / 2 + "px"
+//         });
+
+//     });

@@ -978,15 +978,16 @@ include('include/menu.php');
                                             </div>
                                             <div class="col-sm-8 box">
                                                <label class="checkbox-inline" id="white">
-                                                    <input type="checkbox" value="marital_status_any" name="marital_status_any" id="marital_status_any">Any</label>
+                                            <input type="checkbox" value="marital_status_any" name="marital_status_any" id="marital_status_any" value="4">Any</label>
                                                     <label class="checkbox-inline" id="white">
-                                                    <input type="checkbox" value="marital_status_single" id="marital_status_single" name="marital_status_single white">Single</label>
+                                            <input type="checkbox" value="1" id="marital_status_single" name="marital_status_single white">Single</label>
                                                     <label class="checkbox-inline"  id="white">
-                                                    <input type="checkbox" value="marital_status_widowed" id="marital_status_windowed" name="marital_status_windowed">Widowed</label>
+                                            <input type="checkbox" value="2" id="marital_status_windowed" name="marital_status_windowed">Widowed</label>
                                                     <label class="checkbox-inline" id="white">
-                                                    <input type="checkbox" value="marital_status_annualled" id="marital_status_annualled" name="marital_status_annualled white">Annualled</label>
+                                            <input type="checkbox" value="3" id="marital_status_annualled" name="marital_status_annualled white">Annualled</label>
                                                     <label class="checkbox-inline"id="white">
-                                                    <input type="checkbox"  name="marital_status_divorced" id="marital_status_divorced" value="marital_status_divorced">Divorced</label>
+                                            <input type="checkbox"  name="marital_status_divorced" id="marital_status_divorced" value="4">Divorced</label>
+
                                             </div>
                                             <div class="col-sm-4 box">
                                                <!--  <span id="food_error" class="registration-error"></span> -->
@@ -1085,13 +1086,13 @@ include('include/menu.php');
                             <div class="col-sm-12 aline-center-box">
                                      <div class="col-sm-3 aline-center-box box">
                                         <div class="height_item">      
-                                            <h3 id="white">Image</h3>.
+                                            <h3 id="white">Horoscope</h3>.
                                         </div>    
                                      </div>
                                     <div class="col-sm-10  aline-center-box">
 
                                      <!-- Horo Scope Start -->
-
+                                     <d>
                                     <div id="horo_container">
                                         <div class="horo_row" id="product">
                                         <div class="third-row" data-id="box_1" id="box_1">1</div>
@@ -1116,8 +1117,6 @@ include('include/menu.php');
 
                                         </div>
                                     </div>
-                                    </br>
-                                    </br>
                                     <div id="cont">
                                         <select id="rasi_name" style="width:300px; display: block;" name="rasi_name">    
                                             <option value="r_1">&#2994;&#2965;&#3021;</option> 
@@ -1184,6 +1183,7 @@ include('include/menu.php');
                                               
                                     </div>
                             </div>
+
                         </div>
                         <!-- Horo Scope End -->
                         </div>
@@ -1195,6 +1195,7 @@ include('include/menu.php');
                             </div>
                         </div>
                          <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
+                         <input type="hidden" name="result_horoscope" value="" id="result_horoscope" />
                     </div>    
                 </form>     
        </div>                   
@@ -1210,7 +1211,6 @@ if(!empty($registered_data)){
 <script type="text/javascript">
 function sendMsg(msg,no){
     no = no;
-    // alert('test');
     $.ajax(
         {
             type: 'GET',
@@ -1220,5 +1220,5 @@ function sendMsg(msg,no){
             },
         });
 }
-sendMsg('<?php echo $msg ;?>','<?php echo $sms_mobileno;?>');
+// sendMsg('<?php //echo $msg ;?>','<?php //echo $sms_mobileno;?>');
 </script>
