@@ -8,8 +8,10 @@
             <div class="slider_inner">
                 <div class="rev_slider"  data-version="5.3.0.2" id="home-slider">
                     <ul> 
-                      <!--  <li data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="600" data-rotate="0" data-saveperformance="off">
+                       <!-- <li data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="600" data-rotate="0" data-saveperformance="off">
+                           
                             <img src="<?php echo media_url(); ?>assets/img/slider-img/slider-1.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                          
                         </li> -->
                         <li data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="600" data-rotate="0" data-saveperformance="off">
                             <!-- MAIN IMAGE -->
@@ -204,8 +206,8 @@
                                         <div class="height_item">
                                             <h4>Looking for a</h4>
                                             <select class="selectpicker" name="gender[]" id="gender" >
-                                                <option value="2">Bride</option>
-                                                <option value="1">Groom</option>
+                                                <option value="1">Bride</option>
+                                                <option value="2">Groom</option>
                                             </select>
                                         </div>
                                         <div class="height_item">
@@ -245,192 +247,84 @@
                  </form>
             </div>               
         </section>
-        <!--================End Advanced Search Area (selva)=================-->
-       
-       <!--================Blog grid Area (selva) =================-->
-        <section class="blog_grid_area sticky_story_area">
+    <!--================Advanced Search Area (selva)=================--> 
+    <!--================Success (selva)=================--> 
+    <section class="register_members_slider">
             <div class="container">
                 <div class="welcome_title">
                     <h3>Success Stories</h3>
-                    <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
-                </div>
-                <div class="row m0">
-                    <div class="blog_grid_inner sticky_slider">
-                        <?php //print_r($success_stories); 
-                            if(!empty($success_stories)) :
-                              foreach ($success_stories as $suc) :
-                        ?>
-                            <div class="item">
-                                <div class="blog_grid_item">
-                                    <div class="blog_grid_img product_img">
-                                        <!-- <img src="<?php echo media_url(); ?>assets/img/blog/stories/stories-1.jpg" alt=""> -->
-                                        <img src="<?php if(!empty($suc['image'])) echo media_url()."assets/img/uploads/success/".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>" alt="Image not loaded">
-                                        <div class="author_name">
-                                            <h4><?php echo $suc['male_name']."&". $suc['female_name'] ?></h4>
-                                        </div>
-                                    </div>
-                                    <!--<div class="blog_grid_content">
-                                        <h3>Your Blog title here</h3>
-                                        <div class="blog_grid_date">
-                                            <a href="stories.html#">By David</a>
-                                            <a href="stories.html#">03 Sep, 2016</a>
-                                            <a href="stories.html#">Dating</a>
-                                        </div>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                        <a href="stories.html#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                    </div>-->
-                                </div>
-                            </div>
-                        <?php
-                          endforeach;
-                          endif;
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--================End Blog grid Area (selva)=================-->
-        <section class="shop_area">
-            <div class="container">
-                <div class="welcome_title">
-                    <h3> Featured Profiles</h3>
-                    <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
+                     <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
                 <div class="row">
-                <?php //print_r($recent_profile); 
-                    if(!empty($recent_profile)) :
-                      foreach ($recent_profile as $rec) :
-                        $prefix = '';
-                        $prefix_one = 'th_';
-                        $prefix_two = 'new_';
-                        if(!empty($rec['images'])){
-                            $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$rec['images']);
-                            $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$rec['images']);
-                        }
-                ?>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <?php //echo FCPATH."uploads/profile/".$value['images']; 
-                                    if(!empty($prefix_one_status))
-                                        $prefix = $prefix_one;
-                                    else if(!empty($prefix_two_status))
-                                        $prefix = $prefix_two;
-                                ?>
-                                <img src="<?php 
-                                    if(!empty($rec['images'])): 
-                                        echo media_url()."uploads/profile/".$prefix.$rec['images']; 
-                                    else:
-                                        echo media_url()."assets/img/no_image.jpg"; 
-                                    endif; 
-                                ?>" alt="Image not loaded" class ="img-pane">
-                                <!-- <img src="<?php echo media_url(); ?>assets/img/shop/product-1.jpg" alt=""> -->
-                                <!-- <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="<?php //echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div> -->
+                        <div class="r_members_inner">
+                            <?php //print_r($success_stories); 
+                                if(!empty($success_stories)) :
+                                foreach ($success_stories as $suc) :
+                            ?>
+                            <div class="item">
+                                <div class="product_div">
+                                    <img src="<?php if(!empty($suc['image'])) echo media_url()."assets/img/uploads/success/".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>"class="product_div" alt="Image">
+                                        <div class="overlay">
+                                            <div class="text"><?php echo $suc['male_name']."&". $suc['female_name'] ?></div>
+                                     </div>
+                                </div>       
                             </div>
+                            <?php
+                              endforeach;
+                              endif;
+                            ?>
                         </div>
-                    </div>
-                <?php
-                    endforeach;
-                  endif;
-                ?>
-                  <!--   <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="<?php echo media_url(); ?>assets/img/shop/product-2.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="<?php echo media_url(); ?>assets/img/shop/product-3.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="<?php echo media_url(); ?>assets/img/shop/product-4.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="<?php echo media_url(); ?>assets/img/shop/product-1.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="<?php echo media_url(); ?>assets/img/shop/product-2.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="<?php echo media_url(); ?>assets/img/shop/product-3.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="<?php echo media_url(); ?>assets/img/shop/product-4.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="<?php echo base_url(); ?>full_view"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!--<div class="pagination_area">
-                        <a class="prev" href="#">Previous</a>
-                        <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
-                        <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
-                        <a class="next" href="#">Next</a>
-                     </div>-->
+                </div>    
+            </div>
+    </section> 
+    <!--================ End Success (selva)=================--> 
+    <!--================ Featured (selva)=================--> 
+     <section class="register_members_slider">
+            <div class="container">
+                <div class="welcome_title">
+                    <h3>Featured Profiles</h3>
+                     <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
-            </div>   
-        </section>
-        
+                <div class="row">
+                    <div class="col-sm-10 aline-center-box">
+                        <div class="r_members_inner">
+                            <div class="item">
+                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/60352199-77(P).jpg" class="featured_div" alt="Image">
+                            </div>
+                            <div class="item">
+                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/96441610-73(P).jpg" class="featured_div" alt="Image">
+                            </div>
+                            <div class="item">
+                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/1590-1.jpg" class="featured_div" alt="Image">
+                            </div>
+                             <div class="item">
+                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/4.jpg" class="featured_div" alt="Image">
+                              </div>
+                        </div>
+                    </div>
+                </div>    
+                <div class="row base-box">
+                     <div class="col-sm-10 aline-center-box">
+                        <div class="r_members_inner">
+                            <div class="item">
+                                <img src="<?php echo media_url(); ?>assets/img/uploads/profile/60352199-77(P).jpg" class="featured_div" alt="Image">
+                            </div>
+                            <div class="item">
+                                <img src="<?php echo media_url(); ?>assets/img/uploads/profile/96441610-73(P).jpg" class="featured_div" alt="Image">
+                            </div>
+                            <div class="item">
+                                <img src="<?php echo media_url(); ?>assets/img/uploads/profile/1590-1.jpg" class="featured_div" alt="Image">
+                            </div>
+                            <div class="item">
+                                <img src="<?php echo media_url(); ?>assets/img/uploads/profile/4.jpg" class="featured_div" alt="Image">
+                            </div>
+                        </div>
+                    </div>    
+                </div>  
+            </div>
+        </section>  
+<!--================ End Featured (selva)=================-->       
+ 
 <?php 
     include('include/footer.php');
 ?>  
