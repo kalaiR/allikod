@@ -855,7 +855,7 @@
                                             <div class="col-md-6">       
                                                 <div class="control-group">                     
                                                     <div class="controls">
-                                                        <select multiple>
+                                                        <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4">
                                                             <option value="">Select</option>
                                                             <optgroup class="a" label="Bachelors - Engineering/ Computers"></optgroup>
                                                             <option  selected="selected"  value="1">BE/B Tech</option>

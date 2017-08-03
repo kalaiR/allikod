@@ -8361,3 +8361,10 @@ p{
 .view_icon{
   /*display: none;*/
 }
+.chosen-container-multi{
+  width: 350px !important;
+   
+}
+.default{
+  width: 150px !important;
+}

@@ -126,7 +126,7 @@
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
+                                                                    <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4">
                                                                         <option>Tamil</option>
                                                                         <option>Telegu</option>
                                                                         <option>Other</option>
@@ -144,7 +144,7 @@
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
+                                                                    <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4">
                                                                         <option>Bachelor of Design and Communication</option>
                                                                         <option>Bachelor of Music</option>
                                                                         <option>Other</option>
@@ -328,10 +328,17 @@
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>Tamil</option>
-                                                                        <option>Telegu</option>
-                                                                        <option>Other</option>
+                                                                    <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4">
+                                                                          <option value=""></option> 
+                                                                          <option value="United States">United States</option> 
+                                                                          <option value="United Kingdom">United Kingdom</option> 
+                                                                          <option value="Afghanistan">Afghanistan</option> 
+                                                                          <option value="Albania">Albania</option> 
+                                                                          <option value="Algeria">Algeria</option> 
+                                                                          <option value="American Samoa">American Samoa</option> 
+                                                                          <option value="Andorra">Andorra</option> 
+                                                                          <option value="Angola">Angola</option> 
+                                                                          <option value="Anguilla">Anguilla</option> 
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -346,7 +353,7 @@
                                                             </div>
                                                             <div class="col-sm-6 box">
                                                                 <div class="height_item">
-                                                                    <select class="selectpicker">
+                                                                    <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4">
                                                                         <option>Bachelor of Design and Communication</option>
                                                                         <option>Bachelor of Music</option>
                                                                         <option>Other</option>

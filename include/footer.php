@@ -147,10 +147,11 @@
         <script src="vendors/jquery-ui/jquery-ui.js"></script>
         <script type="text/javascript" src="js/custom.js"></script>
         <script src="js/custom_validation.js"></script>
+        <script src="js/chosen.jquery.min.js"></script>
         
         <!--<script src="js/video_player.js"></script>-->
         <script src="js/theme.js"></script>
-        <script src="js/snap.svg-min.js"></script>
+        <!-- <script src="js/snap.svg-min.js"></script> -->
         <!-- <script src="js/astrochart.js"></script> -->
         <script language="JavaScript">
             var dywidth = 100 + '%';
@@ -159,29 +160,28 @@
                 'width':300,
                 'height':400};
 
-            var astroChart = new AstroChart("#chart");
+            //var astroChart = new AstroChart("#chart");
          //   var astroChart2 = new AstroChart("#chart2");
-            astroChart.draw({1:["Su"], 2:["Su", "Asc"], 12:["Su", "Mo", "Ve", "Me", "Ra", "Ke", "Asc", "Ma", "Sa~R"]}, options);
+           // astroChart.draw({1:["Su"], 2:["Su", "Asc"], 12:["Su", "Mo", "Ve", "Me", "Ra", "Ke", "Asc", "Ma", "Sa~R"]}, options);
            // astroChart2.draw(["Su", "Mo"], options);
 
-            var svg = document.querySelector( "#chart" );
-            var svgData = new XMLSerializer().serializeToString( svg );
+            //var svg = document.querySelector( "#chart" );
+            //var svgData = new XMLSerializer().serializeToString( svg );
 
-            var canvas = document.createElement( "canvas" );
-            var ctx = canvas.getContext( "2d" );
+            // var canvas = document.createElement( "canvas" );
+            // var ctx = canvas.getContext( "2d" );
 
-            var img = document.createElement( "img" );
-            img.setAttribute( "src", "data:image/svg+xml;base64," + btoa( svgData ) );
-            console.log(svgData);
+            // var img = document.createElement( "img" );
+            // img.setAttribute( "src", "data:image/svg+xml;base64," + btoa( svgData ) );
+            // console.log(svgData);
           //  img.onload = function() {
-                ctx.drawImage( img, 0, 0 );
+                //ctx.drawImage( img, 0, 0 );
     // Now is done
-                console.log( canvas.toDataURL( "image/png" ) );
+                //console.log( canvas.toDataURL( "image/png" ) );
             //};
-
+            $(".chosen-select").chosen();
 
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();   
         });
      </script>
-
