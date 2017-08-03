@@ -842,20 +842,23 @@ class User_model extends CI_Model {
             $profileimage_update_data = array(
                         'images' => $this->input->post('cus_profileimage'), 
             );
-            $userdetail_update_where = '(userdetail_id="'.$this->input->post('rid').'")'; 
+            $userdetail_update_where = '(userdetail_id="'.$id.'")'; 
             $this->db->set($userdetail_update_data); 
             $this->db->where($userdetail_update_where);
             $this->db->update("reg_userdetail", $userdetail_update_data);
+            // echo $this->db->last_query();
 
-            $communication_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+            $communication_update_where = '(reg_user_id="'.$id.'")'; 
             $this->db->set($communication_update_data); 
             $this->db->where($communication_update_where);
             $this->db->update("reg_communication_family", $communication_update_data);
+            // echo $this->db->last_query();
 
-            $religion_ethnicity_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+            $religion_ethnicity_update_where = '(reg_user_id="'.$id.'")'; 
             $this->db->set($religion_ethnicity_update_data); 
             $this->db->where($religion_ethnicity_update_where);
             $this->db->update("reg_religion_ethnicity", $religion_ethnicity_update_data);
+            echo $this->db->last_query();
 
             $education_occupation_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
             $this->db->set($education_occupation_update_data); 

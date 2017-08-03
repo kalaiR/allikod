@@ -535,6 +535,20 @@ $(document).ready(function() {
 
     /*Admin customer user edit form End*/
 
+    $(".find_age,#cus_age").keypress(function(event) {event.preventDefault();});
+
+    $('.find_age').on('blur', function(){
+        date_value = $(this).val().split('-');
+        // dob = $.datepicker.formatDate('dd/mm/yy', new Date(date_value[2],date_value[1]-1,date_value[0]));
+        // var today = $.datepicker.formatDate('dd/mm/yy', new Date());
+        var dob = new Date(date_value[0],date_value[1]-1,date_value[2]);
+        var today = new Date();
+        var nowYear = today.getYear();
+        var pastYear = dob.getYear();
+        var age = nowYear - pastYear;
+        $('#cus_age').val(age);
+    });
+    
 });
 
 $(window).load(function(){
