@@ -253,7 +253,7 @@
             <div class="container">
                 <div class="welcome_title">
                     <h3>Success Stories</h3>
-                     <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
+                     <img src="<?php// echo media_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
                 <div class="row">
                         <div class="r_members_inner">
@@ -261,14 +261,12 @@
                                 if(!empty($success_stories)) :
                                 foreach ($success_stories as $suc) :
                             ?>
-                            <div class="item">
                                 <div class="product_div">
                                     <img src="<?php if(!empty($suc['image'])) echo media_url()."assets/img/uploads/success/".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>"class="product_div" alt="Image">
                                         <div class="overlay">
                                             <div class="success-text"><?php echo $suc['male_name']."&". $suc['female_name'] ?></div>
                                      </div>
                                 </div>       
-                            </div>
                             <?php
                               endforeach;
                               endif;

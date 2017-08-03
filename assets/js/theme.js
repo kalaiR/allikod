@@ -507,9 +507,9 @@
             $('.slider_adms_active').owlCarousel({
                 loop:true,
                 margin:30,
-                items: 4,
+                // items: 4,
                 nav:true,
-                autoplay: true,
+                autoplay:true,
                 smartSpeed: 1800,
                 navText: ['<span>Previous<i class="fa fa-angle-left"></i></span>','<span><i class="fa fa-angle-right"></i>Next</span>'],
                 responsive:{
@@ -520,7 +520,7 @@
                         items:2
                     },
                     730:{
-                        items:4
+                        items:3
                     }
                 }
             })
@@ -537,11 +537,11 @@
                 loop:true,
                 margin:28,
                 // items: 3,
-                // nav:true,
+                nav:true,
                 autoplay: true,
                 smartSpeed: 1800,
-                // navContainer: '.r_members_inner',
-                // navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                navContainer: '.r_members_inner',
+                navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
                 responsive:{
                     0:{
                         items:1
@@ -561,36 +561,6 @@
     }
     members_slider();
 
-    // function members_slider(){
-    //     if ( $('#r_member_inner').length ){
-    //         $('#r_member_inner').owlCarousel({
-    //             loop:true,
-    //             margin:28,
-    //             // items: 3,
-    //             // nav:true,
-    //             autoplay: true,
-    //             smartSpeed: 1800,
-    //             // navContainer: '.r_members_inner',
-    //             // navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
-    //             responsive:{
-    //                 0:{
-    //                     items:1
-    //                 },
-    //                 400:{
-    //                     items:1
-    //                 },
-    //                 520:{
-    //                     items:2
-    //                 },
-    //                 991:{
-    //                     items:4
-    //                 }
-    //             }
-    //         })
-    //     }
-    // }
-    // members_slider();
-    
     /*----------------------------------------------------*/
     /*  Sticky Stories Slider
     /*----------------------------------------------------*/
@@ -598,7 +568,7 @@
         if ( $('.sticky_slider').length ){
             $('.sticky_slider').owlCarousel({
                 loop:true,
-                margin:30,
+                margin:28,
                 // items: 3,
                 // nav:true,
                 autoplay: true,
