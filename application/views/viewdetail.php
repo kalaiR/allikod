@@ -48,13 +48,49 @@ include('include/menu.php');
                                                 else if($prefix_two_status)
                                                     $prefix = $prefix_two;
                                             ?>
-                                            <img src="<?php 
-                                                if(!empty($results['images'])): 
-                                                    echo media_url()."uploads/profile/".$prefix.$results['images']; 
-                                                else:
-                                                    echo media_url()."assets/img/no_image.jpg"; 
-                                                endif; 
-                                            ?>" alt="Image not loaded" style="width:170px;height:170px;">
+                                            <ul>
+                                            <li><a href="#lightbox" data-toggle="modal"> 
+                                                    <img src="<?php 
+                                                        if(!empty($results['images'])): 
+                                                            echo media_url()."uploads/profile/".$prefix.$results['images']; 
+                                                        else:
+                                                            echo media_url()."assets/img/no_image.jpg"; 
+                                                        endif; 
+                                                    ?>" alt="Image not loaded" style="width:170px;height:170px;">
+                                            </a></li>
+                                            </ul>
+                                            <div class="modal fade and carousel slide lig" id="lightbox">
+                                                <div class="modal-dialog ">
+                                                    <div class="modal-body">
+                                                          <ol class="carousel-indicators">
+                                                            <li data-target="#lightbox" data-slide-to="0" class="active"></li>
+                                                            <li data-target="#lightbox" data-slide-to="1"></li>
+                                                            <li data-target="#lightbox" data-slide-to="2"></li>
+                                                          </ol>
+                                                          <div class="carousel-inner">
+                                                           
+                                                            <div class="item active">
+                                                               <div class="numbertext">1 / 3</div>
+                                                              <img class="lig-box"src="img/search-result-page/img1.jpg" alt="First slide">
+                                                            </div>
+                                                            <div class="item">
+                                                              <div class="numbertext">2 / 3</div>
+                                                              <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Second slide">
+                                                            </div>
+                                                            <div class="item">
+                                                             <div class="numbertext">3 / 3</div>
+                                                              <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Third slide">
+                                                            </div>
+                                                          </div>
+                                                          <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev">
+                                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                                          </a>
+                                                          <a class="right carousel-control" href="#lightbox" role="button" data-slide="next">
+                                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                                          </a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <ul>
                                             <li><a href="#">Name</a></li>
                                             <li><a href="#">Vallikodi ID</a></li>

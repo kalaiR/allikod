@@ -1906,6 +1906,7 @@ p2
   position: relative;
   border-radius: 5px;
   overflow: hidden;
+  margin-left: 40px;
 }
 
 .team_inner_area .team_items img {
@@ -2700,7 +2701,7 @@ p2
 }
 
 .adms_slider_area .adms_inners {
-  border: 2px solid #e0e0e0;
+  /*border: 2px solid #e0e0e0;*/
   overflow: hidden;
   border-radius: 5px;
 }
@@ -2772,14 +2773,14 @@ p2
 
 .adms_slider_area .adms_inners .adms_head .right_adms a:hover {
   background: #e74c3c;
-  color: #fff;
+  /*color: #fff;*/
 }
 
 .adms_slider_inners {
   overflow: hidden;
   clear: both;
   padding: 30px 30px;
-  background: #f4f4f4;
+  /*background: #f4f4f4;*/
 }
 
 .adms_slider_inners .slider_adms_active .team_items:before {
@@ -8413,3 +8414,7 @@ p{
 .pagination>li>a,.pagination>li>span{position:relative;float:left;padding:6px 12px;line-height:1.42857143;text-decoration:none;color:#5c7500;background-color:#fff;border:1px solid #ddd;margin-left:-1px}
 }
 
+.featured-box
+{
+  padding-top: 50px;
+}
