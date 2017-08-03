@@ -536,30 +536,60 @@
             $('.r_members_inner').owlCarousel({
                 loop:true,
                 margin:28,
-                items: 6,
-                nav:true,
+                // items: 3,
+                // nav:true,
                 autoplay: true,
                 smartSpeed: 1800,
-                navContainer: '.r_members_inner',
-                navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                // navContainer: '.r_members_inner',
+                // navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
                 responsive:{
                     0:{
-                        items:2
+                        items:1
                     },
                     400:{
-                        items:3
+                        items:1
                     },
                     520:{
-                        items:4
+                        items:2
                     },
                     991:{
-                        items:6
+                        items:3
                     }
                 }
             })
         }
     }
     members_slider();
+
+    // function members_slider(){
+    //     if ( $('#r_member_inner').length ){
+    //         $('#r_member_inner').owlCarousel({
+    //             loop:true,
+    //             margin:28,
+    //             // items: 3,
+    //             // nav:true,
+    //             autoplay: true,
+    //             smartSpeed: 1800,
+    //             // navContainer: '.r_members_inner',
+    //             // navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+    //             responsive:{
+    //                 0:{
+    //                     items:1
+    //                 },
+    //                 400:{
+    //                     items:1
+    //                 },
+    //                 520:{
+    //                     items:2
+    //                 },
+    //                 991:{
+    //                     items:4
+    //                 }
+    //             }
+    //         })
+    //     }
+    // }
+    // members_slider();
     
     /*----------------------------------------------------*/
     /*  Sticky Stories Slider
@@ -569,12 +599,12 @@
             $('.sticky_slider').owlCarousel({
                 loop:true,
                 margin:30,
-                items: 3,
-                nav:true,
-                autoplay: false,
+                // items: 3,
+                // nav:true,
+                autoplay: true,
                 smartSpeed: 1800,
-                navContainer: '.sticky_slider',
-                navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                // navContainer: '.sticky_slider',
+                // navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
                 responsive:{
                     0:{
                         items:1
@@ -583,7 +613,7 @@
                         items:2
                     },
                     768:{
-                        items:3
+                        items:4
                     }
                 }
             })
