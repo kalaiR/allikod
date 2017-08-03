@@ -239,13 +239,13 @@ class User_model extends CI_Model {
       return $query;
   }
   
-  function insert_registration($table1, $data1){
+  public function insert_registration($table1, $data1){
     $this->db->insert($table1, $data1);
     $id_table1    = $this->db->insert_id();
     return $id_table1;
   }
 
-  function user_login(){
+  public function user_login(){
     $model_data['error'] = 0;
     if($this->input->post('email_id')) {
       $login_where = '(user_email="'.$this->input->post('email_id').'" and user_pwd="'.$this->input->post('password').'" and user_active_status=1)';
@@ -267,24 +267,29 @@ class User_model extends CI_Model {
     return $model_data;
   }
 
-   function checkmail(){
+ public function checkmail(){
     $model_data['error'] = 0;
     if($this->input->post('email')) {
       $login_where = '(user_email="'.$this->input->post('email').'" and user_active_status=1)';
       $this->db->select('*');
       $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where);      
         if($userdata_get->num_rows()) {
-          $model_data['status'] = "login_success";
-          $model_data['login_values'] = $userdata_get->row_array();
-        }
-        else {
-          $model_data['status'] = "Invalid Login Details";
+          $model_data['cstatus'] = "email_available";
+          $model_data['status'] = "Email Already Registered";
+          // $model_data['login_values'] = $userdata_get->row_array();
+          $model_data['error'] = 0;
+        }else{
+          $model_data['cstatus'] = 'email_notavailable';
+          $model_data['status'] = "Email Available";
+          $model_data['error'] = 1;
         }
     }
     else {
-      $model_data['status']= "failed";
+      $model_data['status']= "Input Required";
       $model_data['error'] = 1;
     }
+    // print_r($model_data);
+    // exit();
     return $model_data;
   }
   
@@ -877,7 +882,120 @@ class User_model extends CI_Model {
       }
       return $model_data;
   }
-  
+
+
+  public function countprofileviewed(){
+    $model_data['error'] = 0;
+    $this->input->post('profile_id');    
+    if($this->input->post('profile_id')){
+      $profviewed_where = '(profile_id ="'.$this->input->post('profile_id').'")';
+      $this->db->select('*');      
+      $proviewedata_get = $this->db->get_where('reg_userviewed as rview',$profviewed_where);  
+      // print_r($proviewedata_get->num_rows());
+                          
+      if($proviewedata_get->num_rows()==0) {
+          // After Valid the Profile Id Already viewed // If Not            
+            if($this->input->post('user_id')) {
+               // print_r($this->input->post('user_id'));                          
+
+                        $payment_where = '(reg_user_id  ="'.$this->input->post('user_id').'" and payment_status =1)';
+                        $this->db->select('*');      
+                        $paymentdata_get = $this->db->get_where('reg_payment as pay',$payment_where);      
+
+                        $renew_where = '(reg_user_id  ="'.$this->input->post('user_id').'" and active_status =1)';
+                        $this->db->select('*');                   
+                        $renewdata_get = $this->db->get_where('renew_detail as ren',$renew_where);     
+
+                                       
+                        // Check in Payment table and Insert data in Viewed table
+                        $model_data['presults'] = $paymentdata_get->row_array();                            
+                        $pno_profile = $model_data['presults']['no_of_profiles_viewed'];
+                        $ptotal_profile = $model_data['presults']['totalno_of_profile'];
+
+                        $model_data['rresults'] = $renewdata_get->row_array();
+                        $rno_profile = $model_data['rresults']['no_of_profile_viewed'];
+                        $rtotal_profile = $model_data['rresults']['totalno_of_profile'];
+
+                        if(($paymentdata_get->num_rows())&&($pno_profile < $ptotal_profile)){
+                                      // echo 'payment-in';
+                          
+                                      $model_data['results1'] = $model_data['presults']['no_of_profiles_viewed'];
+                                      $model_data['results2'] = $model_data['results1'] + 1;
+
+                                      
+                                      // Update in Payment Table
+                                  $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('user_id').'")';
+                                  $physicalattributes_update_data = array('no_of_profiles_viewed' => $model_data['results2']);
+                                      $this->db->set($physicalattributes_update_data); 
+                                      $this->db->where($physicalattributes_update_where);
+                                      $this->db->update("reg_payment", $physicalattributes_update_data);
+
+                                      // Insert in Viewed Table                       
+                                      $pphysicalattributes_insert_data = array('reg_user_id' => $this->input->post('user_id'), 'profile_id'=>$this->input->post('profile_id'));                              
+                                      // echo 'insert';
+                                      $this->insert_registration("reg_userviewed", $pphysicalattributes_insert_data);
+                                      $model_data['status']= "show";
+                                      // print_r($model_data);
+                                      // exit();
+                                      // }else{
+                                      //       
+                                      // }
+                        }elseif(($renewdata_get->num_rows())&&($rno_profile < $rtotal_profile)){ 
+                                      
+                                      // echo 'Renew_no';                          
+                                      $model_data['results1'] = $model_data['rresults']['no_of_profile_viewed'];
+                                      $model_data['results2'] = $model_data['results1'] + 1;
+
+                                      // Update in Renew Table
+                                      $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('user_id').'")';
+                                      $physicalattributes_update_data = array('no_of_profile_viewed' => $model_data['results2']);
+
+                                      $this->db->set($physicalattributes_update_data); 
+                                      $this->db->where($physicalattributes_update_where);
+                                      $this->db->update("renew_detail", $physicalattributes_update_data);
+
+                                      // Insert in Viewed Table                       
+                                      $rphysicalattributes_insert_data = array('reg_user_id' => $this->input->post('user_id'), 'profile_id'=>$this->input->post('profile_id'), 'renew_id'=>$model_data['rresults']['renewdetail_id']);
+                                      // print_r($rphysicalattributes_insert_data);
+                                      $this->insert_registration("reg_userviewed", $rphysicalattributes_insert_data);
+                                      $model_data['status']= "show";
+                        }else{
+                              $model_data['status']= "hide";
+                              $model_data['error'] = 1;
+                        }
+
+                      if($pno_profile >= $ptotal_profile){
+                          $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('user_id').'")';
+                          $physicalattributes_update_data = array('payment_status' => '0');
+                          $this->db->set($physicalattributes_update_data); 
+                          $this->db->where($physicalattributes_update_where);
+                          $this->db->update("reg_payment", $physicalattributes_update_data);
+
+                      }elseif($rno_profile >= $rtotal_profile){
+                          // Update in Renew Table
+                          $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('user_id').'")';
+                          $physicalattributes_update_data = array('active_status' => '0');
+                          $this->db->set($physicalattributes_update_data); 
+                          $this->db->where($physicalattributes_update_where);
+                          $this->db->update("renew_detail", $physicalattributes_update_data);
+                      }
+
+          }else {
+              $model_data['status']= "hide";
+              $model_data['error'] = 1;
+          } 
+      }else{
+              $model_data['status']= "hide";
+              $model_data['error'] = 1;
+      } // End proviewedata_get  
+    }
+  // print_r($model_data);
+  // exit();
+  return $model_data;
+  }
+
+
+
 }
 /* End of file User_model.php */
 /* Location: ./application/controllers/base.php */

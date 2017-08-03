@@ -69,27 +69,25 @@ class Base extends CI_Controller {
 	// 		}else{
 	// 			// Session
 	//         	$this->session->set_userdata("login_status",1);
- //    	    	$this->session->set_userdata("login_session",$data_values['login_values']);
- //    	    	$data['login_user'] = $data_values['login_values'];
+ 	//    	    	$this->session->set_userdata("login_session",$data_values['login_values']);
+ 	//    	    	$data['login_user'] = $data_values['login_values'];
 	// 			$this->load->view('index', $data);
 	// 		}
 	// 	}
 	// }
 
 	public function register_mailcheck(){
-		if($this->input->post()){
-			// echo 'here';
-			// print_r($_POST);
-			// print_r($_REQUEST);
-			// exit();
-			$data_values = $this->user_model->checkmail(); 
-			// print_r($data_values);			
-			if($data_values['status']!=='login_success'){
+		$data['status'] = '';
+		if($this->input->post()){			
+			$data_values = $this->user_model->checkmail(); 			
+			if($data_values['cstatus']!='email_available'){
 				$data['status'] = $data_values['status'];
 				$data['error'] = $data_values['error'];	
-				echo $data['status'];
+				echo $data['error'];
 			}else{
-				echo 'Already Email Id registered';
+				$data['status'] = $data_values['status'];
+				$data['error'] = $data_values['error'];	
+				echo $data['error'];
 			}
 		}
 	}
@@ -797,5 +795,21 @@ class Base extends CI_Controller {
 	}
 	public function newreg(){
 		$this->load->view('newreg');
+	}
+
+	public function countprofile_viewed(){				
+		if($this->input->post()){						
+			$data_values = $this->user_model->countprofileviewed();
+			if($data_values['status']!=='hide'){
+				$data['status'] = $data_values['status'];
+				$data['error'] = $data_values['error'];								
+			}else{
+				$data['status'] = $data_values['status'];
+				$data['error'] = $data_values['error'];	
+				
+			}
+			echo json_encode($data);	
+		}
+
 	}
 }
