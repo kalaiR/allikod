@@ -1,55 +1,3 @@
-// function checkMailStatus(){
-//     var email=$("#register_email").val();// value in field email
-//     var params = [];    
-//     params[csrf_name] = csfrData[csrf_name];
-//     params['email'] = email;    
-
-//     // $.ajax({
-//     //         type : "POST",
-//     //         url:baseurl+'register_mailcheck',// put your real file name 
-//     //         data : email+'='+email+'&'+csrf_name+'='+csfrData[csrf_name], 
-//     //         success:function(msg){
-//     //         alert(msg); // your message will come here.     
-//     //         }
-//     //  });
-
-//     var data = {};
-//     data[csrf_name] = csfrData[csrf_name];
-//     data[email] = email;
-
-
-//     $.ajax({
-//     url: baseurl+"register_mailcheck",
-//     data: data,
-//     type: "post",
-//     success: function(response, textStatus, jqXHR){
-//         alert(msg);
-//         $('#sign-up').html(response);
-//     },
-//     error: function(jqXHR, textStatus, errorThrown){
-//         console.log("The following error occured: "+
-//                     textStatus, errorThrown);
-//     }
-//     });
-
-//     // $.ajax({
-//     //         type : "POST",
-//     //         url : $(this).attr('action'),
-//     //         data : form_data+'&'+csrf_name+'='+csfrData[csrf_name] ,
-//     //         success: function(res) {
-//     //             if(res != 'login_success') {
-//     //                 this_status.html("<i class='icon-remove-sign' id='admin_error_login'></i>  "+res);
-//     //                 this_status.fadeIn(500);
-//     //                 // this_status.fadeOut(5000);
-//     //             }
-//     //             else {
-//     //                window.location.href = admin_baseurl+"dashboard";
-//     //             }
-//     //         }
-//     //     });
-
-// }
-
 var calculateAge = function(birthday) {
     var now = new Date();
     var past = new Date(birthday);
@@ -68,11 +16,34 @@ function validate() {
             if(!($("#register_email").val())) {
                 output = false;
                 $("#register_email-error").html("Required");
-            }   
-            if(!$("#register_email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
-                $("#register_email-error").html("Invalid");
-                output = false;
+            } 
+            
+            if($("#register_email").val()){
+                if(!$("#register_email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+                    $("#register_email-error").html("Invalid Email Id");
+                    output = false;
+                     
+                }
             }
+
+            if($("#register_email").val()){
+                    var data = {};
+                    data[csrf_name] = csfrData[csrf_name];
+                    data['email'] = $("#register_email").val();
+                    $.ajax({
+                        url: baseurl+"register_mailcheck",
+                        data: data,
+                        type: "post",
+                        success: function(results_array){
+                            // alert(JSON.stringify(results_array));
+                            if(results_array!=1){
+                                output = false;
+                                $("#register_email-error").html(" Email Already Registered ");
+                            }
+                        }
+                    });
+            }
+            
              if(!($("#reg_pass1").val())) {
                  output = false;
                  $("#reg_passed_error").html("Required");
@@ -80,13 +51,13 @@ function validate() {
              if(!($("#reg_con_pass2").val())) {
                  output = false;
                  $("#reg_con_error").html("Required");
-             }    
-                if($("#reg_pass1").val() != $("#reg_con_pass2").val()) {
-                 output = false;
-                   $("#reg_con_error").html("Password doesn't match");
-                  
-                }
-           
+             }   
+
+            if($("#reg_pass1").val() != $("#reg_con_pass2").val()) {
+             output = false;
+               $("#reg_con_error").html("Password doesn't match");
+              
+            }           
               
              if(!($("#register_by").val())) {
                  output = false;
@@ -370,13 +341,42 @@ $(document).ready(function() {
     $(".slidingDiv").hide();
 
     $('.view_communication').click(function(){
-        if($('.slidingDiv').length == 0){
-            if($('.check_payment_status').val() == 1)
-                alert("Please renew your account at vallikodimatrimonial.in");
-            else
-                alert("Please pay at vallikodimatrimonial.in");
-            }
-        $(".slidingDiv").slideToggle();
+        if($('.slidingDiv').length != 0){
+            var data = {};
+            var url = window.location.href;
+            var profile_id = url.split('viewdetail/');
+            data[csrf_name] = csfrData[csrf_name];
+            data['user_id'] = log_userid;
+            data['profile_id'] = profile_id[1];
+            // alert(JSON.stringify(data)); 
+            $.ajax({
+            url: baseurl+"countprofile_viewed",
+            data: data,
+            type: "post",
+            dataType: 'json',
+            success: function(res){        
+                // alert(JSON.stringify(res));  
+                if(res['status'] == 'hide')
+                    alert("Please renew your account or view another profile");
+                else
+                    $(".slidingDiv").slideToggle(); 
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+                // console.log("The following error occured: "+ textStatus, errorThrown);
+                // $('#register_email-error').html(response);
+                //     return false;
+                }
+            });
+
+            // if($('.check_payment_status').val() == 1)
+            //     alert("Please renew your account at vallikodimatrimonial.in");
+            // else
+            //     alert("Please pay at vallikodimatrimonial.in");
+        }else{
+            // $(".slidingDiv").slideToggle();    
+            alert("Please contact vallikodimatrimonial.in");
+        }
+        
     });
 
     $("#next").click(function(){            
