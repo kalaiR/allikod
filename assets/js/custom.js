@@ -1,3 +1,65 @@
+// function checkMailStatus(){
+//     var email=$("#register_email").val();// value in field email
+//     var params = [];    
+//     params[csrf_name] = csfrData[csrf_name];
+//     params['email'] = email;    
+
+//     // $.ajax({
+//     //         type : "POST",
+//     //         url:baseurl+'register_mailcheck',// put your real file name 
+//     //         data : email+'='+email+'&'+csrf_name+'='+csfrData[csrf_name], 
+//     //         success:function(msg){
+//     //         alert(msg); // your message will come here.     
+//     //         }
+//     //  });
+
+//     var data = {};
+//     data[csrf_name] = csfrData[csrf_name];
+//     data[email] = email;
+
+
+//     $.ajax({
+//     url: baseurl+"register_mailcheck",
+//     data: data,
+//     type: "post",
+//     success: function(response, textStatus, jqXHR){
+//         alert(msg);
+//         $('#sign-up').html(response);
+//     },
+//     error: function(jqXHR, textStatus, errorThrown){
+//         console.log("The following error occured: "+
+//                     textStatus, errorThrown);
+//     }
+//     });
+
+//     // $.ajax({
+//     //         type : "POST",
+//     //         url : $(this).attr('action'),
+//     //         data : form_data+'&'+csrf_name+'='+csfrData[csrf_name] ,
+//     //         success: function(res) {
+//     //             if(res != 'login_success') {
+//     //                 this_status.html("<i class='icon-remove-sign' id='admin_error_login'></i>  "+res);
+//     //                 this_status.fadeIn(500);
+//     //                 // this_status.fadeOut(5000);
+//     //             }
+//     //             else {
+//     //                window.location.href = admin_baseurl+"dashboard";
+//     //             }
+//     //         }
+//     //     });
+
+// }
+
+var calculateAge = function(birthday) {
+    var now = new Date();
+    var past = new Date(birthday);
+    var nowYear = now.getFullYear();
+    var pastYear = past.getFullYear();
+    var age = nowYear - pastYear;
+ 
+    return age;
+};
+
 function validate() {
     var output = true;
     // $(".registration-error").html('');
@@ -146,6 +208,7 @@ function validate() {
         return output;
 }
 
+// Remove the Result array Values for Horoscope //
 function remove(array, property, value) {
     var i, j, cur;
     for (i = array.length - 1; i >= 0; i--) {
@@ -156,11 +219,12 @@ function remove(array, property, value) {
     }
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
 
-    var results_array = [];  
+    // Rasi Horoscope - Start //
+    var results_array = [];     
     // Add the Rasi on registration Page               
-    $('#cont').on('click', '#add_rasi', function(){
+    $('#rasi_cont').on('click', '#add_rasi', function(){
             var srasi_val = $('#rasi_name :selected').val();
             var srasi_text = $('#rasi_name :selected').text();
             var sres = $('#box_id :selected').val(); 
@@ -169,7 +233,7 @@ $(document).ready(function () {
                     var id=$(this).data('id');
                     var res = id.split("_");                                              
                         if(res[1]==sres){                            
-                            img='http://localhost/test/rasi/'+srasi_val+'.png';             
+                            img=media_url+'assets/img/rasi/'+srasi_val+'.png';             
                             $("#"+id).append("<img src="+img+" data-id="+srasi_val+" />");
                             data.key = srasi_val;
                             data.value = res[1];
@@ -184,10 +248,10 @@ $(document).ready(function () {
     });
 
     // Remove the Rasi from Registration Page
-    $('#cont').on('click', '#remove_rasi', function(){
+    $('#rasi_cont').on('click', '#remove_rasi', function(){
             var crasi_name = $('#crasi_name :selected').data('id');
             var crasi_val = $('#crasi_name :selected').val();  
-            alert(crasi_val);
+            // alert(crasi_val);
 
             var cres = crasi_name.split("_");
             var removeid;          
@@ -199,7 +263,7 @@ $(document).ready(function () {
                     var res = id.split("_");                                                       
                     if(cres[1] == res[1]){  
                         // alert($("#"+id).find('[data-id=r_' + res[1] + ']').attr('src'));
-                        $("#"+id).find('[data-id=r_' + res[1] + ']').remove();  
+                        $("#"+id).find('[data-id='+crasi_val+']').remove();  
                         removeid = crasi_val;                                     
                         // data.key = crasi_name;
                         // data.value = res[1];
@@ -209,97 +273,147 @@ $(document).ready(function () {
                 });                                
                 // alert('remove'+removeid)
                 remove(results_array, "key", removeid);
+                $('#crasi_name').find('option:selected').remove();
+                    //});
+            // alert(JSON.stringify(results_array)); 
+            // results_array.push(data); 
+    });
+    // Rasi Horoscope - End //
+
+
+    // ASHAM Horoscope - Start //
+    var results_array_asham = [];  
+    // Add the ASHAM on registration Page               
+    $('#asham_cont').on('click', '#add_asham', function(){
+            var srasi_val = $('#asham_name :selected').val();
+            var srasi_text = $('#asham_name :selected').text();
+            var sres = $('#ashambox_id :selected').val();            
+            var data={};
+              $('.asham-row').each(function(){
+                    var id=$(this).data('id');
+                    var res = id.split("_");                                              
+                        if(res[1]==sres){                            
+                            img=media_url+'assets/img/rasi/'+srasi_val+'.png';             
+                            $("#"+id).append("<img src="+img+" data-id="+srasi_val+" />");
+                            data.key = srasi_val;
+                            data.value = res[1];
+                            data.text = srasi_text;
+                            data.boxid = id;
+                        }                    
+              });
+            results_array_asham.push(data); 
+            $("#asham_name option[value='"+srasi_val+"']").remove();            
+            $("#casham_name").append('<option value="' + data.key + '" data-id="'+data.boxid+'">' + data.text + '</option>');
+            // alert(JSON.stringify(results_array));    
+    });
+
+    // Remove the ASHAM from Registration Page
+    $('#asham_cont').on('click', '#remove_asham', function(){
+            var crasi_name = $('#casham_name :selected').data('id');
+            var crasi_val = $('#casham_name :selected').val();             
+
+            var cres = crasi_name.split("_");
+            var removeid;          
+            //var data={};
+            // alert(JSON.stringify(results_array)); 
+            //results_array.forEach(function(e){  
+                $('.asham-row').each(function(){
+                    var id=$(this).data('id');
+                    var res = id.split("_");                                                       
+                    if(cres[1] == res[1]){  
+                        // alert($("#"+id).find('[data-id=r_' + res[1] + ']').attr('src'));
+                        $("#"+id).find('[data-id='+crasi_val+']').remove();  
+                        removeid = crasi_val;                                     
+                        // data.key = crasi_name;
+                        // data.value = res[1];
+                        // data.text = srasi_text;
+                        // data.boxid = id;                                    
+                    }
+                });                                
+                // alert('remove'+removeid)
+                remove(results_array_asham, "key", removeid);
+                $('#casham_name').find('option:selected').remove();
                     //});
             // alert(JSON.stringify(results_array)); 
             // results_array.push(data); 
     });
 
+    // ASHAM Horoscope - End //
 
-        // $("li").click(function () {
-        //     var id = $(this).attr("id");
-        //     $('#' + id).siblings().find(".active").removeClass("active");
-        //     $('#' + id).addClass("active");
-        //     localStorage.setItem("selectedolditem", id);
-        // });
+    // $("li").click(function () {
+    //     var id = $(this).attr("id");
+    //     $('#' + id).siblings().find(".active").removeClass("active");
+    //     $('#' + id).addClass("active");
+    //     localStorage.setItem("selectedolditem", id);
+    // });
 
-        // var selectedolditem = localStorage.getItem('selectedolditem');
+    // var selectedolditem = localStorage.getItem('selectedolditem');
 
-        // if (selectedolditem != null) {
-        //     $('#' + selectedolditem).siblings().find(".active").removeClass("active");
-        //     $('#' + selectedolditem).addClass("active");
-        // }
+    // if (selectedolditem != null) {
+    //     $('#' + selectedolditem).siblings().find(".active").removeClass("active");
+    //     $('#' + selectedolditem).addClass("active");
+    // }
 
-$("#dob").blur(function(){
-    // dob =  $('#dob').val();
-    // var today = new Date();    
-    // var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
-    // $('#age').html(age+' years old');
 
-    // var today = new Date(), // today date object
-    //   birthday_val = $("#dob").val().split('/'), // input value
-    //   birthday = new Date(birthday_val[2],birthday_val[0]-1,birthday_val[1]), // birthday date object
-    //   todayYear = today.getFullYear(), // today year
-    //   todayMonth = today.getMonth(), // today month
-    //   todayDay = today.getDate(), // today day of month
-    //   birthdayYear = birthday.getFullYear(), // birthday year
-    //   birthdayMonth = birthday.getMonth(), // birthday month
-    //   birthdayDay = birthday.getDate(), // birthday day of month
-    //   // calculate age
-    //   age = (todayMonth == birthdayMonth && todayDay > birthdayDay) ? 
-    //         todayYear - birthdayYear : (todayMonth > birthdayMonth) ? 
-    //               todayYear - birthdayYear : todayYear - birthdayYear-1;
+    $("#dob").blur(function(){      
+        var $birthday = $('#dob').val();
+        var age = calculateAge($birthday)
+        $('#user_age').val(age);
+    });
 
-    // alert("Age: " + age);
+    $('.search_btn').on('click', '#finish', function(){
+        $("#result_horoscope_rasi").val(JSON.stringify(results_array));
+        $("#result_horoscope_asham").val(JSON.stringify(results_array_asham));
+    });        
 
-});
-
-        // Show and Hide Search Div
+    // Show and Hide Search Div
     $(".slidingDiv").hide();
-    
+
     $('.view_communication').click(function(){
         if($('.slidingDiv').length == 0){
             if($('.check_payment_status').val() == 1)
                 alert("Please renew your account at vallikodimatrimonial.in");
             else
                 alert("Please pay at vallikodimatrimonial.in");
-        }
-    $(".slidingDiv").slideToggle();
-});
-
-        $("#next").click(function(){            
-            var output = validate();
-            if(output) {
-                var current = $(".highlight");
-                var next = $(".highlight").next("li");
-                if(next.length>0) {                
-                    $("#"+current.attr("id")+"-field").hide();
-                    $("#"+next.attr("id")+"-field").show();
-                    $("#back").show();
-                    $("#finish").hide();
-                    $(".highlight").removeClass("highlight");
-                    next.addClass("highlight");                                
-                    if($(".highlight").attr("id") == 'horoscope') {
-                        $("#next").hide();
-                        $("#finish").show();                
-                    }
-                }
             }
-        });
-        $("#back").click(function(){ 
+        $(".slidingDiv").slideToggle();
+    });
+
+    $("#next").click(function(){            
+        var output = validate();
+        if(output) {
             var current = $(".highlight");
-            var prev = $(".highlight").prev("li");
-            if(prev.length>0) {
+            var next = $(".highlight").next("li");
+            if(next.length>0) {                
                 $("#"+current.attr("id")+"-field").hide();
-                $("#"+prev.attr("id")+"-field").show();
-                $("#next").show();
+                $("#"+next.attr("id")+"-field").show();
+                $("#back").show();
                 $("#finish").hide();
                 $(".highlight").removeClass("highlight");
-                prev.addClass("highlight");
-                if($(".highlight").attr("id") == 'userdetails') {
-                    $("#back").hide();          
+                next.addClass("highlight");                                
+                if($(".highlight").attr("id") == 'horoscope') {
+                    $("#next").hide();
+                    $("#finish").show();                
                 }
             }
-        });
+        }
+    });
+
+    $("#back").click(function(){ 
+        var current = $(".highlight");
+        var prev = $(".highlight").prev("li");
+        if(prev.length>0) {
+            $("#"+current.attr("id")+"-field").hide();
+            $("#"+prev.attr("id")+"-field").show();
+            $("#next").show();
+            $("#finish").hide();
+            $(".highlight").removeClass("highlight");
+            prev.addClass("highlight");
+            if($(".highlight").attr("id") == 'userdetails') {
+                $("#back").hide();          
+            }
+        }
+    });
 
     $('form#userlogin').submit(function() {
         var formData = new FormData(this);
@@ -323,7 +437,7 @@ $("#dob").blur(function(){
         return false;
     });
 
-//var this_status = $(this).find('.admin_status');  
+  
     // Form Upload for Success Stories //
     $("form#success_stories").submit(function(){
         var formData = new FormData(this);
@@ -342,7 +456,92 @@ $("#dob").blur(function(){
         return false;
     });
 
-     
-            
+    /*Admin customer user edit form Start*/
+    $('.customer_edit_form').on('submit',function(e) {
+        e.preventDefault();
+        // var error = '';
+        var error_msg = $(this).find('.val_error');
+        var message = '';
+        // /* Validate Input and Select element */
+        // // $(this).find('.form_inputs').each(function() {
+        // //     var this_val = $.trim($(this).val()); 
+        // //     // alert(this_val);           
+        // //     if(this_val == '') {
+        // //         // alert($(this).attr('name'));
+        // //         error = 1;
+        // //         message ="Please fill all mandatory fields";
+        // //         $(this).addClass('form-field-error');
+        // //     }
+        // //      else {            
+        // //         $(this).removeClass('form-field-error');
+        // //     }
+        // // });
+        // // Validate Password comparison
+        // if(error == '' ) {
+        //       if($("#new_pass").val() != $("#confirm_pass").val()) {
+        //           error = 1;
+        //           message = "Confirm password didnot match with new password";
+        //           $("#confirm_pass").addClass("form-field-error");
+        //       }
+        //       else {
+        //          $("#confirm_pass").removeClass("form-field-error"); 
+        //       } 
+        // }
+        // /* Check whether the input and select element has error or not */
+        // if($(this).find('input,select').hasClass('form-field-error')) {
+        //     if(message == '') {
+        //         message ="Please fill all mandatory fields";
+        //     }
+        //     $('html, body').animate({scrollTop:0},500);
+        //     error_msg.html(message).fadeIn(350);
+        //     return false;
+        // }
+        // else {
+            error = 0;
+            error_msg.fadeOut('fast').html('');
+            var formData = new FormData($(this)[0]);
+            // formData[csrf_name] = csfrData[csrf_name];
+            formData.append(csrf_name,csfrData[csrf_name]);
+            formData.append('action',"update");
+            formData.append('rid', $(this).data('id'));
+            // var formData = $(this).serialize();
+            // alert(JSON.stringify(formData)); // It returns empty when stringify json data, but data has been passed
+            $.ajax({
+               type: "POST",
+               url: baseurl+$(this).attr('action'),
+               data: formData,
+               async: false,
+               contentType: false,
+               processData: false,
+               dataType: 'json', 
+               success: function(res) {  
+                  if(res.error==1) {
+                      $('.val_error').html("<i class='icon-remove-sign'></i>  "+res.status);
+                      $('html, body').animate({scrollTop:0},500);
+                      $('.val_error').fadeIn(500);
+                      $('.val_error').fadeOut(5000);
+                  }
+                    else if(res.error==2) {
+                      // alert("no error");
+                      $('.val_error').html();
+                      $(this).html(res.output);
+                      $('html, body').animate({scrollTop:0},500);
+                      // $('.db_status').fadeOut(10000);
+                  }
+                }
+            });
+        // }
+    });
+
+    /*Admin customer user edit form End*/
+
 });
 
+$(window).load(function(){
+  var height = $('.img-pane').height();
+     var width = $('.img-pane').width();
+     $('.img-pane').css({
+         'margin-top': -height / 2 + "px",
+         'margin-left': -width / 2 + "px"
+     });
+});

@@ -169,7 +169,8 @@ include('include/menu.php');
                                             </div>    
                                                 <div class="col-sm-4 box">
                                                     <span id="gender_error" class="registration-error"></span>
-                                                </div>     
+                                                </div> 
+                                            <input type='hidden' class="form-control" name="user_age" id="user_age"  value=""/>     
                                         </div>
                                         <div class="row base-box">
                                             <div class="col-sm-4">
@@ -533,7 +534,7 @@ include('include/menu.php');
                                                             <?php 
                                                                 if(!empty($country)) :
                                                                 foreach ($country as $cls_val) {
-                                                                echo "<option value='" . $cls_val[' country_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                echo "<option value='" . $cls_val[' name'] . "'>" . ucfirst($cls_val['name']) . "</option>";
                                                                 }
                                                                 endif;
                                                             ?> 
@@ -815,12 +816,16 @@ include('include/menu.php');
                                                     <h4>Height in CMs</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4 box">                                                
                                                 <select class="form-control" name="height_in_cms[]" id="height_in_cms">
-                                                       <option value="">Select</option>
-                                                        <option value="160">160</option>
-                                                        <option value="165">165</option>
-                                                 </select>
+                                                    <?php 
+                                                    for($i=137;$i<=213;$i++){
+                                                    ?>
+                                                    <option  <?php if($i==137){?> selected="selected" <?php } ?>  value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </select>
                                             </div>
                                             <!-- <div class="col-sm-4 box">
                                                <span id="resident_error" class="registration-error"></span>
@@ -832,12 +837,16 @@ include('include/menu.php');
                                                    <h4>Weight in KGs</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-4 box">
-                                                <select class="form-control" name="height_in_cms[]" id="height_in_cms">
-                                                        <option value="">Select</option>
-                                                        <option value="45">45</option>
-                                                        <option value="50">50</option>
-                                                 </select>
+                                            <div class="col-sm-4 box">                                                
+                                                 <select class="form-control" name="weight_in_kgs[]" id="weight_in_kgs">
+                                                                               <?php 
+                                                    for($i=137;$i<=213;$i++){
+                                                    ?>
+                                                    <option  <?php if($i==213){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                                            </select>
                                             </div>
                                             <!-- <div class="col-sm-4 box">
                                                <span id="resident_error" class="registration-error"></span>
@@ -954,17 +963,23 @@ include('include/menu.php');
                                             </div>
                                             <div class="col-sm-4 box">
                                                 <select class="form-control" name="search_age_from[]" id="search_age_from">
-                                                    <option value="">Select</option>
-                                                    <option value="18">18</option>
-                                                    <option value="20">20</option>
+                                                    <?php 
+                                                    for($i=18;$i<=60;$i++){ ?>
+                                                    <option <?php if($i==18){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                    <?php
+                                                    } ?>
                                                 </select>
                                             </div>
                                             <div class="col-sm-4 box">
                                                 <select class="form-control" name="search_age_to[]" id="search_age_to">
-                                                        <option value="">Select</option>
-                                                        <option value="21">21</option>
-                                                        <option value="24">24</option>
-                                                </select>
+                                                                                        <?php 
+                                                                                        for($i=18;$i<=60;$i++){
+                                                                                        ?>
+                                                                                        <option  <?php if($i==34){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                                        <?php
+                                                                                        }
+                                                                                        ?>
+                                                                        </select>
                                             </div>
                                             <div class="col-sm-2 box">
                                                 <span id="search_age_from_error" class="registration-error"></span>
@@ -978,15 +993,15 @@ include('include/menu.php');
                                             </div>
                                             <div class="col-sm-8 box">
                                                <label class="checkbox-inline" id="white">
-                                                    <input type="checkbox" value="marital_status_any" name="marital_status_any" id="marital_status_any">Any</label>
+                                                    <input type="checkbox" value="4" name="marital_status_any" id="marital_status_any">Any</label>
                                                     <label class="checkbox-inline" id="white">
-                                                    <input type="checkbox" value="marital_status_single" id="marital_status_single" name="marital_status_single white">Single</label>
+                                                    <input type="checkbox" value="1" id="marital_status_single" name="marital_status_single white">Single</label>
                                                     <label class="checkbox-inline"  id="white">
-                                                    <input type="checkbox" value="marital_status_widowed" id="marital_status_windowed" name="marital_status_windowed">Widowed</label>
+                                                    <input type="checkbox" value="2" id="marital_status_windowed" name="marital_status_windowed">Widowed</label>
                                                     <label class="checkbox-inline" id="white">
-                                                    <input type="checkbox" value="marital_status_annualled" id="marital_status_annualled" name="marital_status_annualled white">Annualled</label>
+                                                    <input type="checkbox" value="3" id="marital_status_annualled" name="marital_status_annualled white">Annualled</label>
                                                     <label class="checkbox-inline"id="white">
-                                                    <input type="checkbox"  name="marital_status_divorced" id="marital_status_divorced" value="marital_status_divorced">Divorced</label>
+                                                    <input type="checkbox"  name="4" id="marital_status_divorced" value="marital_status_divorced">Divorced</label>
                                             </div>
                                             <div class="col-sm-4 box">
                                                <!--  <span id="food_error" class="registration-error"></span> -->
@@ -1117,7 +1132,7 @@ include('include/menu.php');
                                                         <div class="third-row" data-id="box_7" id="box_7">7</div>
                                                     </div>
                                                 </div> <!-- Rasi Horoscope - End -->
-                                                <div id="cont">
+                                                <div id="rasi_cont">
                                                     <select style="width: 70px" id="rasi_name" class="drop_horo styled-select blue semi-square" name="rasi_name">    
                                                         <option value="r_1">&#2994;&#2965;&#3021;</option> 
                                                         <option value="r_2">&#2992;&#3006;&#2965;&#3009;</option>
@@ -1153,6 +1168,7 @@ include('include/menu.php');
                                                         <i class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_rasi" name="add_rasi"></i>
                                                 </div> 
                                             </div>  <!-- row col 6 ends -->
+
                                             <div class="col-md-6">
                                                 <!-- Asham Horoscope - start -->
                                                 <div id="asham_horo_container">
@@ -1178,7 +1194,45 @@ include('include/menu.php');
                                                     <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
 
                                                     </div>
-                                                </div> <!-- Asham Horoscope - end -->                       
+                                                </div> <!-- Asham Horoscope - end -->    
+
+                                                <div id="asham_cont">
+                                                    <select style="width: 70px" id="asham_name" class="drop_horo styled-select blue semi-square" name="asham_name">    
+                                                        <option value="a_1">&#2994;&#2965;&#3021;</option> 
+                                                        <option value="a_2">&#2992;&#3006;&#2965;&#3009;</option>
+                                                        <option value="a_3">&#2970;&#2984;&#3021;</option>   
+                                                        <option value="a_4">&#2965;&#3015;&#2980;&#3009;</option>
+                                                        <option value="a_5">&#2970;&#2985;&#3007;</option>
+                                                        <option value="a_6">&#2970;&#3014;&#2997;&#3021; </option>
+                                                        <option value="a_7"> &#2965;&#3009;&#2992;&#3009;</option>
+                                                        <option value="a_8"> &#2970;&#3009;&#2965;&#3021;</option>
+                                                        <option value="a_9">&#2970;&#3010;&#2992;&#3007;</option>
+                                                        <option value="a_10"> &#2986;&#3009;&#2980;&#2985;&#3021;</option> 
+                                                    </select>
+
+                                                    <select id="ashambox_id" style="width: 70px" class="drop_horo styled-select blue semi-square" >
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option> 
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option> 
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                    </select>
+
+                                                        <!-- <img src="assets/img/add.png" type="button" id="add_rasi" value="ADD" name="add_rasi" /> -->
+                                                        <i class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_asham" name="add_asham"></i>
+                                                        <select style="width: 70px" id="casham_name" class="drop_horo styled-select blue semi-square" name="casham_name">
+                                                        </select>    
+                                                        <i class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_asham" name="remove_asham"></i>
+                                                </div>    
+
+
                                             </div> <!-- col 6 ends -->
                                         </div> <!-- col 12 ends -->
                                     </div> <!-- row ends -->
@@ -1194,7 +1248,10 @@ include('include/menu.php');
                                 <input class="btnAction next_angkar_btn pull-right" type="submit" name="finish" id="finish" value="Finish" style="display:none;">
                             </div>
                         </div>
+
                          <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
+                         <input type="hidden" name="result_horoscope_rasi" value="" id="result_horoscope_rasi" />
+                         <input type="hidden" name="result_horoscope_asham" value="" id="result_horoscope_asham" />
                     </div>    
                 </form>     
        </div>                   
@@ -1220,5 +1277,5 @@ function sendMsg(msg,no){
             },
         });
 }
-sendMsg('<?php echo $msg ;?>','<?php echo $sms_mobileno;?>');
+// sendMsg('<?php //echo $msg ;?>','<?php //echo $sms_mobileno;?>');
 </script>

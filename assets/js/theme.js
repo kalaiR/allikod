@@ -535,13 +535,13 @@
         if ( $('.r_members_inner').length ){
             $('.r_members_inner').owlCarousel({
                 loop:true,
-                margin:28,
+                margin:30,
                 // items: 3,
-                nav:true,
+                // nav:true,
                 autoplay: true,
                 smartSpeed: 1800,
-                navContainer: '.r_members_inner',
-                navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                // navContainer: '.r_members_inner',
+                // navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
                 responsive:{
                     0:{
                         items:1
@@ -553,7 +553,7 @@
                         items:2
                     },
                     991:{
-                        items:3
+                        items:4
                     }
                 }
             })
@@ -750,7 +750,7 @@
     /*Date Time Picker*/
     /*----------------------------------------------------*/
     
-    $('.datetimepicker4').datetimepicker({format:'YYYY/MM/DD'});
+    $('.datetimepicker4').datetimepicker({format:'YYYY-MM-DD'});
 
     
     /*----------------------------------------------------*/
