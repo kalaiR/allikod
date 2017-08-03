@@ -206,8 +206,8 @@
                                         <div class="height_item">
                                             <h4>Looking for a</h4>
                                             <select class="selectpicker" name="gender[]" id="gender" >
-                                                <option value="1">Bride</option>
-                                                <option value="2">Groom</option>
+                                                <option value="2">Bride</option>
+                                                <option value="1">Groom</option>
                                             </select>
                                         </div>
                                         <div class="height_item">
@@ -279,48 +279,94 @@
     </section> 
     <!--================ End Success (selva)=================--> 
     <!--================ Featured (selva)=================--> 
-     <section class="register_members_slider">
-            <div class="container">
-                <div class="welcome_title">
-                    <h3>Featured Profiles</h3>
-                     <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="sticky_slider">
-                            <div class="item">
-                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/60352199-77(P).jpg" class="featured_div" alt="Image">
-                            </div>
-                            <div class="item">
-                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/96441610-73(P).jpg" class="featured_div" alt="Image">
-                            </div>
-                            <div class="item">
-                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/1590-1.jpg" class="featured_div" alt="Image">
-                            </div>
-                            <div class="item">
-                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/4.jpg" class="featured_div" alt="Image">
-                            </div>
-                        </div><br>
-                        <div class="base-box">
-                            <div class ="sticky_slider">
-                                <div class="item">
-                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/60352199-77(P).jpg" class="featured_div" alt="Image">
-                                </div>
-                                <div class="item">
-                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/96441610-73(P).jpg" class="featured_div" alt="Image">
-                                </div>
-                                <div class="item">
-                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/1590-1.jpg" class="featured_div" alt="Image">
-                                </div>
-                                <div class="item">
-                                    <img src="<?php echo media_url(); ?>assets/img/uploads/profile/4.jpg" class="featured_div" alt="Image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>            
+    <section class="register_members_slider">
+        <div class="container">
+            <div class="welcome_title">
+                <h3>Featured Profiles</h3>
+                 <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
             </div>
-        </section>  
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="sticky_slider">
+                        <?php 
+                            //echo "<pre>";print_r($recent_profile); echo "</pre>";
+                            if(!empty($recent_profile['bride'])) :
+                              foreach ($recent_profile['bride']as $rec) :
+                                $prefix = '';
+                                $prefix_one = 'th_';
+                                $prefix_two = 'new_';
+                                if(!empty($rec['images'])){
+                                    $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$rec['images']);
+                                    $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$rec['images']);
+                                }
+                                if($prefix_one_status || $prefix_two_status):
+                        ?>
+                        <?php if($rec['user_gender'] == 2): ?>
+                            <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                                    if(!empty($prefix_one_status))
+                                        $prefix = $prefix_one;
+                                    else if(!empty($prefix_two_status))
+                                        $prefix = $prefix_two;
+                            ?>
+                                <div class="item">
+                                    <img src="<?php 
+                                    if(!empty($rec['images'])): 
+                                        echo media_url()."uploads/profile/".$prefix.$rec['images']; 
+                                    else:
+                                        echo media_url()."assets/img/no_image.jpg"; 
+                                    endif; 
+                                    ?>" alt="Image not loaded" class ="featured_div">
+                                </div>
+                        <?php endif; ?>
+                            <?php
+                        endif;
+                    endforeach;
+                  endif;
+                ?>
+                    </div> 
+                <br>
+                    <div class="base-box">
+                        <div class ="sticky_slider">
+                            <?php //print_r($recent_profile); 
+                                if(!empty($recent_profile['groom'])) :
+                                  foreach ($recent_profile['groom']as $rec) :
+                                    $prefix = '';
+                                    $prefix_one = 'th_';
+                                    $prefix_two = 'new_';
+                                    if(!empty($rec['images'])){
+                                        $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$rec['images']);
+                                        $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$rec['images']);
+                                    }
+                                    if($prefix_one_status || $prefix_two_status):
+                            ?>
+                            <?php if($rec['user_gender'] == 1): ?>
+                            <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                                    if(!empty($prefix_one_status))
+                                        $prefix = $prefix_one;
+                                    else if(!empty($prefix_two_status))
+                                        $prefix = $prefix_two;
+                            ?>
+                                <div class="item">
+                                    <img src="<?php 
+                                    if(!empty($rec['images'])): 
+                                        echo media_url()."uploads/profile/".$prefix.$rec['images']; 
+                                    else:
+                                        echo media_url()."assets/img/no_image.jpg"; 
+                                    endif; 
+                                    ?>" alt="Image not loaded" class ="featured_div">
+                                </div>
+                            <?php endif; ?>
+                                    <?php
+                                endif;
+                            endforeach;
+                          endif;
+                        ?>
+                        </div>
+                    </div> 
+                </div>
+            </div>         
+        </div>
+    </section>  
 <!--================ End Featured (selva)=================-->       
  
 <?php 

@@ -290,9 +290,14 @@ class User_model extends CI_Model {
   
 
   public function get_recent_profile(){
-      $query = $this->db->query("select usr.userdetail_id, usr_img.images, usr.user_gender from reg_userdetail as usr 
+      //Female
+      $query['bride'] = $this->db->query("select usr.userdetail_id, usr_img.images, usr.user_gender from reg_userdetail as usr 
         INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
-        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' ORDER BY usr.userdetail_id DESC limit 9")->result_array();
+        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' AND usr.user_gender = 2 ORDER BY usr.userdetail_id DESC limit 4")->result_array();
+      //Male
+      $query['groom'] = $this->db->query("select usr.userdetail_id, usr_img.images, usr.user_gender from reg_userdetail as usr 
+        INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
+        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' AND usr.user_gender = 1 ORDER BY usr.userdetail_id DESC limit 4")->result_array();
       return $query;
   }
 
