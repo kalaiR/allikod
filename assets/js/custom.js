@@ -348,7 +348,7 @@ $(document).ready(function() {
             data[csrf_name] = csfrData[csrf_name];
             data['user_id'] = log_userid;
             data['profile_id'] = profile_id[1];
-            alert(JSON.stringify(data)); 
+            // alert(JSON.stringify(data)); 
             $.ajax({
             url: baseurl+"countprofile_viewed",
             data: data,
@@ -356,8 +356,10 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(res){        
                 // alert(JSON.stringify(res));  
-                // $('#register_email-error').html(response);
-                return true;
+                if(res['status'] == 'hide')
+                    alert("Please renew your account or view another profile");
+                else
+                    $(".slidingDiv").slideToggle(); 
             },
             error: function(jqXHR, textStatus, errorThrown){
                 // console.log("The following error occured: "+ textStatus, errorThrown);
@@ -371,7 +373,8 @@ $(document).ready(function() {
             // else
             //     alert("Please pay at vallikodimatrimonial.in");
         }else{
-            $(".slidingDiv").slideToggle();    
+            // $(".slidingDiv").slideToggle();    
+            alert("Please contact vallikodimatrimonial.in");
         }
         
     });
