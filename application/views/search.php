@@ -158,7 +158,7 @@ include('include/menu.php');
                                                     </div>
                                                     <div class="col-sm-6 box">
                                                          <div class="col-sm-5 box">
-                                                            <select multiple style="width:300px;" tabindex="4" class="chosen-select form-control customize_plan" data-placeholder="Please Select" name="mother_tongue[]" id="mother_tongue second">
+                                                            <select multiple style="width:300px;" tabindex="4" class="chosen-select form-control customize_plan" data-placeholder="Please Select" name="mother_tongue[]" id="mother_tongue">
                                                                 <?php 
                                                                             if(!empty($mother_tongue)) :
                                                                             foreach ($mother_tongue as $cls_val) {

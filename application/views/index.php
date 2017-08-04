@@ -283,7 +283,7 @@
                             <div class="item">
                                 <div class="team_items">    
                                     <div class="product_div">
-                                        <img src="<?php echo media_url(); ?>assets/img/uploads/profile/4x6 right.jpg" alt="Image" class="product_div">
+                                        <img src="<?php echo media_url(); ?>assets/img/uploads/profile/4x6-right.jpg" alt="Image" class="product_div">
                                         <div class="overlay">
                                              <div class="success-text">&</div>
                                         </div>

@@ -1193,11 +1193,12 @@ include('include/menu.php');
                                                     <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
                                                     <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
 
+                                                    <div id="asham_cont" style="margin-left: 75px;">                                           
                                                     </div>
                                                 </div> <!-- Asham Horoscope - end -->    
-
-                                                <div id="asham_cont">
-                                                    <select style="width: 70px" id="asham_name" class="drop_horo styled-select blue semi-square" name="asham_name">    
+                                                
+                                                </div>
+                                                <select style="width: 70px" id="asham_name" class="drop_horo styled-select blue semi-square" name="asham_name">    
                                                         <option value="a_1">&#2994;&#2965;&#3021;</option> 
                                                         <option value="a_2">&#2992;&#3006;&#2965;&#3009;</option>
                                                         <option value="a_3">&#2970;&#2984;&#3021;</option>   
@@ -1230,10 +1231,7 @@ include('include/menu.php');
                                                         <select style="width: 70px" id="casham_name" class="drop_horo styled-select blue semi-square" name="casham_name">
                                                         </select>    
                                                         <i class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_asham" name="remove_asham"></i>
-                                                </div>    
-
-
-                                            </div> <!-- col 6 ends -->
+                                             </div> <!-- col 6 ends -->
                                         </div> <!-- col 12 ends -->
                                     </div> <!-- row ends -->
                                 </div>

@@ -19,7 +19,7 @@
             if(this_val == '') {
                 // alert($(this).attr('name'));
                 error = 1;
-                message ="Please Provide All Mandatory Field !";
+                message ="Please Provide Valid Information!";
                 $(this).addClass('form-field-error');
                 if(tag_name == "select") {
                      $(this).addClass('form-field-error');

@@ -32,7 +32,7 @@
                                                         <div class="col-md-10">
                                                             <input type="text" class="form-control form_inputs" id="bride_name" placeholder="Bride Name (Female) *" name="bride_name">
                                                         </div>
-                                                         <div class="val_status tooltips" style="display: inline-block;">
+                                                         <div class="tooltips" style="display: inline-block;">
                                                          <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Type the name of the Girl</span>
                                                         </div>
                                                     </div>
@@ -85,8 +85,8 @@
                                                     <div class="reg_chose form-group">
                                                             <!-- <input type="submit" value="LogIn" id="post_submit" name="post_submit" class="btn form-control login_btn"> -->
                                                         <div class="reg_chose form-group">
-                                                            <button type="submit" value="LogIn" class="btn login_btn">Post</button>
-                                                        </div> 
+                                                    <button type="submit" herf="#" value="LogIn" class="btn form-control login_btn">Post</button>
+                                                </div> 
                                                     </div>     
                                             </div>
                                         </div>                                         

@@ -141,20 +141,20 @@
         <script src="<?php echo media_url(); ?>assets/vendors/bootstrap-selector/bootstrap-select.js"></script>
         <script src="<?php echo media_url(); ?>assets/vendors/bootstrap-datepicker/js/moment-with-locales.js"></script>
         <script src="<?php echo media_url(); ?>assets/vendors/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"></script>
-        <script src="<?php echo media_url(); ?>assets/vendors/counter-up/waypoints.min.js"></script>
-        <script src="<?php echo media_url(); ?>assets/vendors/counter-up/jquery.counterup.min.js"></script>
+       <!--  <script src="<?php //echo media_url(); ?>assets/vendors/counter-up/waypoints.min.js"></script>
+        <script src="<?php //echo media_url(); ?>assets/vendors/counter-up/jquery.counterup.min.js"></script> -->
         <script src="<?php echo media_url(); ?>assets/vendors/owl-carousel/owl.carousel.min.js"></script>
-        <script src="<?php echo media_url(); ?>assets/vendors/bs-tooltip/jquery.webui-popover.min.js"></script>
+        <!-- <script src="<?php echo media_url(); ?>assets/vendors/bs-tooltip/jquery.webui-popover.min.js"></script> -->
         <script src="<?php echo media_url(); ?>assets/vendors/jquery-ui/jquery-ui.js"></script>
 
         <!-- contact js -->
         <script src="<?php echo media_url(); ?>assets/js/jquery.form.js"></script>
         <script src="<?php echo media_url(); ?>assets/js/jquery.validate.min.js"></script>
-        <script src="<?php echo media_url(); ?>assets/js/contact.js"></script>
+        <!-- <script src="<?php //echo media_url(); ?>assets/js/contact.js"></script> -->
         
         <!--gmaps Js-->
-       <!--  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-        <script src="<?php echo media_url(); ?>assets/js/gmaps.min.js"></script> -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+        <!-- <script src="<?php //echo media_url(); ?>assets/js/gmaps.min.js"></script> -->
         <script src="<?php echo media_url(); ?>assets/js/custom.js"></script>
         <script src="<?php echo media_url(); ?>assets/js/custom_validation.js"></script>
 
