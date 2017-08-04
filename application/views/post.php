@@ -26,13 +26,13 @@
                                             <div class="registration_form_s" id="registration_form_s">
                                                     <h4>Post Your Story</h4>
                                                     <span class="val_status" style="display: block;">
-                                    <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
-                                    </span>
+                                                        <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
+                                                    </span>
                                                     <div class="form-group">
                                                         <div class="col-md-10">
                                                             <input type="text" class="form-control form_inputs" id="bride_name" placeholder="Bride Name (Female) *" name="bride_name">
                                                         </div>
-                                                         <div class="val_status tooltips" style="display: inline-block;">
+                                                         <div class="tooltips" style="display: inline-block;">
                                                          <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Type the name of the Girl</span>
                                                         </div>
                                                     </div>
@@ -40,15 +40,15 @@
                                                         <div class="col-md-10">
                                                             <input type="text" class="form-control form_inputs" id="groom_name" placeholder="Groom Name (Male) *" name="groom_name">
                                                         </div>    
-                                                        <div class="val_status tooltips" style="display: inline-block;">
+                                                        <div class="tooltips" style="display: inline-block;">
                                                             <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Type the name of the Boy</span>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-10">
-                                                            <input type="text" class="form-control form_inputs" id="vallikodi_id" placeholder="Vallikodi ID" name="vallikodi_id">
+                                                            <input type="text" class="form-control" id="vallikodi_id" placeholder="Vallikodi ID" name="vallikodi_id">
                                                         </div>   
-                                                        <div class="val_status tooltips" style="display: inline-block;">
+                                                        <div class="tooltips" style="display: inline-block;">
                                                             <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Mention the Vallikodi ID of the Bride or Groom</span>
                                                         </div> 
                                                     </div>
@@ -56,7 +56,7 @@
                                                         <div class="col-md-10">
                                                             <input type="email" class="form-control form_inputs" id="email_id" placeholder="Email" name="email_id">
                                                         </div>
-                                                        <div class="val_status tooltips" style="display: inline-block;">
+                                                        <div class="tooltips" style="display: inline-block;">
                                                             <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Enter your E-mail ID</span>
                                                         </div>    
                                                     </div>
@@ -73,7 +73,7 @@
                                                             </div>
                                                                 <div class="col-md-6 upload_box next-box">
                                                                    <div>
-                                                                        <input type="file" id="upload_post" name="upload_post" class="form_inputs" class="next-box" />
+                                                                        <input type="file" id="upload_post" name="upload_post" class="form_inputs" />
                                                                         <!-- <input type="button" id="upload_post" value="upload" name ="upload_post"> -->
                                                                     </div>
                                                                 </div>
@@ -81,11 +81,11 @@
                                                     <div class="comment_form_area next-box">
                                                         <textarea id="comment" class="form-control" name="comment" placeholder="Comment" rows="5"></textarea>
                                                     </div>    
-                                                   <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
+                                                   <!-- <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" /> -->
                                                     <div class="reg_chose form-group">
                                                             <!-- <input type="submit" value="LogIn" id="post_submit" name="post_submit" class="btn form-control login_btn"> -->
                                                         <div class="reg_chose form-group">
-                                                            <button type="submit" value="LogIn" class="btn login_btn">Post</button>
+                                                            <button type="submit" value="LogIn" class="form-control login_btn">Post</button>
                                                         </div> 
                                                     </div>     
                                             </div>

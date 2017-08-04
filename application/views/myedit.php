@@ -262,7 +262,18 @@
                                            <h3 id="hcolor">Image</h3>
                                         </div>
                                         <div class="col-md-12 text-boxs">
-                                            <button type="submit" value="LogIn" herf="#" class="btn form-control login_btn">Upload Images</button>
+                                             <div class="imageupload panel panel-default">
+                                        <div class="panel-heading clearfix">
+                                            <h3 class="panel-title">Upload Image</h3>
+                                            <span id="upimg_error" class="registration-error"></span>
+                                        </div>
+                                        <div class="file-tab panel-body">
+                                            <label class="btn btn-default btn-file">
+                                                <span>Browse</span>
+                                                <input type="file" name="image-file" id="upimg">
+                                            </label>
+                                        </div>
+                                    </div>
                                             <p>No photos in your album.Upload Photos.</p>      
                                         </div>
                                     </div>
