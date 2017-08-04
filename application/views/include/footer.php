@@ -160,6 +160,9 @@
 
         <!--<script src="js/video_player.js"></script>-->
         <script src="<?php echo media_url(); ?>assets/js/theme.js"></script>
+        <script src="<?php echo media_url(); ?>assets/js/chosen.jquery.min.js"></script>
+        <script type="text/javascript">
+        $(".chosen-select").chosen();</script>
 
         <?php $login_session = $this->session->userdata("login_session");
               $loginuser_id = $login_session['userdetail_id'];

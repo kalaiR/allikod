@@ -1014,7 +1014,7 @@ include('include/menu.php');
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4">
-                                                     <select multiple="multiple" class="form-control" name="reg_Education[]" id="reg_Education">
+                                                     <select multiple style="width:300px;" tabindex="4" data-placeholder="Please Select" class="chosen-select form-control" name="reg_Education[]" id="reg_Education second">
                                                             <option value="">Select</option>
                                                             <?php 
                                                                 if(!empty($education)) :
