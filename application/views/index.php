@@ -173,7 +173,7 @@
                                     </div>
                                     <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
                                     <div class="reg_chose form-group">
-                                        <button type="submit" value="LogIn" herf="#" class="btn form-control login_btn">Register</button>
+                                        <button type="submit" value="LogIn" class="btn form-control login_btn">Register</button>
                                     </div>
 
                                 </form>
