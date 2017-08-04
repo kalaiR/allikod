@@ -430,23 +430,23 @@ $(document).ready(function() {
     });
 
   
-    // Form Upload for Success Stories //
-    $("form#success_stories").submit(function(){
-        var formData = new FormData(this);
-        $.ajax({
-            url: 'success_stories',
-            type: 'POST',
-            data: formData,
-            async: false,
-            success: function (data) {
-                alert(data)
-            },
-            cache: false,
-            contentType: false,
-            processData: false
-        });
-        return false;
-    });
+    // // Form Upload for Success Stories //
+    // $("form#success_stories").submit(function(){
+    //     var formData = new FormData(this);
+    //     $.ajax({
+    //         url: 'success_stories',
+    //         type: 'POST',
+    //         data: formData,
+    //         async: false,
+    //         success: function (data) {
+    //             alert(data)
+    //         },
+    //         cache: false,
+    //         contentType: false,
+    //         processData: false
+    //     });
+    //     return false;
+    // });
 
     /*Admin customer user edit form Start*/
     $('.customer_edit_form').on('submit',function(e) {

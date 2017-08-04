@@ -54,7 +54,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-10">
-                                                            <input type="email" class="form-control form_inputs" id="email_id" placeholder="Email" name="email_id">
+                                                            <input type="email" class="form-control" id="email_id" placeholder="Email" name="email_id">
                                                         </div>
                                                         <div class="tooltips" style="display: inline-block;">
                                                             <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Enter your E-mail ID</span>
@@ -65,7 +65,7 @@
                                                                     <div class="form-group">
                                                                         <div class="col-md-12">
                                                                             <div class="datepicker">
-                                                                                <input type='text' class="form-control form_inputs datetimepicker4" placeholder="Marriage" name="mariage_date" id="mariage_date"/>
+                                                                                <input type='text' class="form-control datetimepicker4" placeholder="Marriage" name="mariage_date" id="mariage_date"/>
                                                                                 <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>    
                                                                             </div>
                                                                         </div>         
@@ -85,7 +85,7 @@
                                                     <div class="reg_chose form-group">
                                                             <!-- <input type="submit" value="LogIn" id="post_submit" name="post_submit" class="btn form-control login_btn"> -->
                                                         <div class="reg_chose form-group">
-                                                            <button type="submit" value="LogIn" class="form-control login_btn">Post</button>
+                                                            <button type="submit" value="LogIn" class="form-control login_btn" name="submit">Post</button>
                                                         </div> 
                                                     </div>     
                                             </div>
