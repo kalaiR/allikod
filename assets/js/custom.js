@@ -174,7 +174,7 @@ function validate() {
     //              $("#upload_error").html("Required");
     //          }
     // }
-        }
+        
 }
 
 // Remove the Result array Values for Horoscope //
