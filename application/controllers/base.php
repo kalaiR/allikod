@@ -108,7 +108,7 @@ class Base extends CI_Controller {
 				echo $data['status'];
 				redirect(base_url().'index');
 			}else{
-				if($_POST['email_id'] == 'sample21@gmail.com'){
+			if($_POST['email_id'] == 'sample21@gmail.com' || 'rajeswari.moto@gmail.com' || 'saranvishwaja@gmail.com' || 'kalasugumar1959@gmail.com' || 'mmappan@gmail.com' || 'komalsvrj@gmail.com' || 'mailtouthayan@gmail.com' || 'anbu21@gmail.com' || 'viji.matsat@gmail.com' || 'dhivya21@gmail.com' || 'sankari21@gmail.com'){
 					// Session
 		        	$this->session->set_userdata("login_status",1);
 	    	    	$this->session->set_userdata("login_session",$data_values['login_values']);
@@ -530,7 +530,7 @@ class Base extends CI_Controller {
 				$age_to = $form_data['search_age_to'][0];
 				$height_from = $form_data['height_in_cms'][0];		
 				$height_to = $form_data['height_in_feets'][0];
-				$mar_status = $form_data['martial_status'][0];
+				$mar_status = $form_data['marital_status'][0];
 				$mother_tongue = $form_data['mother_tongue'][0];
 				// $education = $form_data['education_category'][0];
 				$show_profile = $form_data['images'][0];
@@ -583,12 +583,24 @@ class Base extends CI_Controller {
 			$advance_search = $this->session->userdata('advance_search_sess');						
 
 			if(!empty($search_inputs)){
+				$session_data = $this->session->userdata('search_inputs');
+				$session_data['offset'] = $values[0];
+				$this->session->set_userdata("search_inputs", $session_data);
 				$data = $this->user_model->get_basicsearch($search_inputs, $per_page, $offset);	
 			}elseif(!empty($search_quick)){
+				$session_data = $this->session->userdata('search_quick');
+				$session_data['offset'] = $values[0];
+				$this->session->set_userdata("search_quick", $session_data);
 				$data = $this->user_model->get_quicksearch($search_quick, $per_page, $offset);				
 			}elseif(!empty($search_dhosham)){
+				$session_data = $this->session->userdata('search_dhoshamid');
+				$session_data['offset'] = $values[0];
+				$this->session->set_userdata("search_dhoshamid", $session_data);
 				$data = $this->user_model->get_dhoshamsearch($search_dhosham, $per_page, $offset);
 			}elseif(!empty($advance_search)){
+				$session_data = $this->session->userdata('advance_search_sess');
+				$session_data['offset'] = $values[0];
+				$this->session->set_userdata("advance_search_sess", $session_data);
 				$data = $this->user_model->get_advancesearch($advance_search, $per_page, $offset);
 			}			
 		}
@@ -637,63 +649,117 @@ class Base extends CI_Controller {
 		// Navigation Links
 		$pagination_links = $this->pagination->create_links();
 		$data["links"] = $pagination_links;			
-		// echo '<pre>';
-		// print_r($data);
-		// echo '</pre>';
+		echo '<pre>';
+		print_r($data);
+		echo '</pre>';
 		// exit();
 		$this->load->view('search_result',$data);
 		
 	}
 	public function success_stories(){
+		$per_page = 5;
+		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);		
+		if($values[0]){	
+			$offset = (($values[0]-1)*$per_page); 
+		}else{
+		 	$offset = 0;
+		}	
 
 		if($this->input->post()){
 			$form_data = $this->input->post();
-			$config['upload_path'] = base_url().'uploads/userprofile/';        
-        	$config['allowed_types'] = '*';
-        	$config['max_filename'] = '255';
-        	$config['encrypt_name'] = TRUE;
-        	$config['max_size'] = '1024'; //1 MB
-       		
-       		// print_r($_FILES);
-       		// exit();		
-		    if (isset($_FILES['upload_post']['name'])) {
-		        if (0 < $_FILES['upload_post']['error']) {
-		            echo 'Error during file upload' . $_FILES['upload_post']['error'];
-		        } else {
-		        	echo 'in';
-		            if (file_exists('uploads/userprofile' . $_FILES['upload_post']['name'])) {
-		                echo 'File already exists : uploads/userprofile' . $_FILES['upload_post']['name'];
-		            } else {
-		                $this->load->library('upload', $config);
-		                if (!$this->upload->do_upload('upload_post')) {
-		                    echo $this->upload->display_errors();
-		                } else {
-		                    echo 'File successfully uploaded : uploads/userprofile' . $_FILES['upload_post']['name'];
-		                }
-		            }
-		        }
-		    } else {
-		        echo 'Please choose a file';
-		    }
+			if(!empty($_FILES['uploadedfile']['name'])){	   	
+        			$config['upload_path'] = FCPATH.USER_SUCCESS_PATH; 
+        			
+        			// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
+			        $config['allowed_types'] = 'jpg|jpeg|png'; // Allowed tupes
+			        $config['encrypt_name'] = TRUE; // Encrypted file name for security purpose
+			        $personnal_logo['file_ext_tolower'] 	= TRUE;
+			        $config['max_size']    = '20480'; // Maximum size - 1MB
+			    	$config['max_width']  = '10240'; // Maximumm width - 1024px
+			    	$config['max_height']  = '76800'; // Maximum height - 768px
+			        $this->upload->initialize($config); // Initialize the configuration		
+           			if($this->upload->do_upload('uploadedfile'))
+            		{
+                		$upload_data = $this->upload->data(); 
+                		$_POST['uploadedfile'] = $upload_data['file_name']; 
+                		$targetfile_details = $upload_data['file_name'];
+                		$data['error'] = 0;
+  	            	}else{
+	                	$data['status'] = $this->upload->display_errors(); 
+	                	$upload_error = 1;
+	                	$data['error'] = 1;
+                	}
+                }
 
 		    // Insert Success-Queries //
+            if($data['error']!=1){	$images = $targetfile_details;	}else{	$images = ''; }
+			if($form_data['vallikodi_id']){	$vallikodi_id = $form_data['vallikodi_id'];	}else{	$vallikodi_id = ''; }
+
 			$data_success_stories = array(
-						'successstories_id'=>'',
-						'vallikodi_id'=>$form_data['vallikodi_id'],
+						// 'successstories_id'=>'',
+						'vallikodi_id'=>$vallikodi_id,
 						'email_id'=>$form_data['email_id'],
 						'male_name'=>$form_data['bride_name'],
 						'female_name'=>$form_data['groom_name'],
 						'title'=>'Success Stories',					
-						'image'=>'path',
+						'image'=>$images,
 						'description'=>$form_data['comment'],	
 						'marriage_date'=>$form_data['mariage_date']
 				);
-		  		$success_stories = $this->user_model->insert_registration('success_stories',$data_success_stories);
-		  		$data['success_stories'] = $success_stories;
-		  		$data['success_msg'] = 'Data Inserted successfully';				
-				$this->load->view('success-stories', $data);
+				// print_r($data_success_stories);				
+				// exit();
+				if($data['error']!=1){
+			  		$success_stories = $this->user_model->insert_registration('success_stories', $data_success_stories);
+			  		$data['success_stories'] = $success_stories;
+			  		$data['success_msg'] = 'Data Inserted successfully';
+		  		}
+				redirect('success_stories/');
 		}else{
-			$data['results'] = $this->user_model->get_success_stories();			
+
+			$data = $this->user_model->get_success_stories($per_page, $offset);
+
+				//pagination
+			$this->load->library('pagination');
+
+			// Pagination configuration
+	  		$config['base_url'] = base_url().'success_stories';
+			$config['per_page'] = $per_page;		
+			$config['total_rows'] = $data['total_rows'];
+			$config['uri_segment'] = 2;
+			$config['num_links'] = 4;
+			$config['use_page_numbers'] = TRUE;
+
+	    	// Custom Configuration
+			$config['full_tag_open'] = '<ul class="pagination">';
+			$config['full_tag_close'] = '</ul>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a>';
+			$config['cur_tag_close'] = '</a></li>';
+			$config['next_link'] = 'Next';
+			$config['prev_link'] = 'Prev';
+			$config['first_link'] = 'First';
+			$config['first_tag_open'] = '<li>';
+			$config['first_tag_close'] = '</li>';
+			$config['last_link'] = 'Last';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+
+			// Pagination Inititalization
+			$this->pagination->initialize($config);
+
+			// Navigation Links
+			$pagination_links = $this->pagination->create_links();
+			$data["links"] = $pagination_links;	
+
+			// echo '<pre>';
+			// print_r($data);
+			// echo '</pre>';
+			
 			$this->load->view('success-stories', $data);
 		}	
 	}

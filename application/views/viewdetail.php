@@ -6,6 +6,21 @@ include('include/menu.php');
 // print_r($results);
 // echo '</pre>';
 // exit();
+
+
+$session_search = $this->session->all_userdata();
+if(!empty($session_search['search_inputs']['offset'])){
+    $curr_offset = $session_search['search_inputs']['offset'];
+}elseif(!empty($session_search['search_quick']['offset'])){
+    $curr_offset = $session_search['search_quick']['offset'];
+}elseif(!empty($session_search['search_dhoshamid']['offset'])){
+    $curr_offset = $session_search['search_dhoshamid']['offset'];
+}elseif(!empty($session_search['advance_search_sess']['offset'])){
+    $curr_offset = $session_search['advance_search_sess']['offset'];
+}else{
+    $curr_offset = '';
+}
+
 ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
@@ -24,7 +39,7 @@ include('include/menu.php');
                 <div class="row">
                     <div class="col-md-12">
                         <div class="pad">
-                            <a href="<?php echo base_url();?>search_result" class="register_angkar_btn login_btn pull-right">Back</a>
+                            <a href="<?php echo base_url();?>search_result/<?php echo $curr_offset;?>" class="register_angkar_btn login_btn pull-right">Back</a>
                         </div> 
                     <div class="members_profile_inners">
                             <div class="members_about_box">
@@ -107,11 +122,11 @@ include('include/menu.php');
                                     <p><b>Click the button to view the contact details</b>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" value="View" class="btn form-control login_btn view_communication">View</button></p><br>
                                     <input type="hidden" class="check_payment_status" value="<?php echo $this->session->userdata("login_status"); ?>">
                                     <!-- <a href="search.html" class="register_angkar_btn">View</a> -->
-                                    <?php 
+                                    <!-- <?php 
                                         $user_session = $this->session->userdata("login_session");
                                         // print_r($user_session);  
-                                        if($user_session['payment_status'] == 1 && $user_session['no_of_profiles_viewed'] < $user_session['totalno_of_profile']):
-                                    ?>
+                                        //if($user_session['payment_status'] == 1 && $user_session['no_of_profiles_viewed'] < $user_session['totalno_of_profile']):
+                                    ?> -->
                                         <div class="slidingDiv">
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -165,7 +180,7 @@ include('include/menu.php');
                                                 </div>
                                             </div>  <!-- row ends -->             
                                          </div> 
-                                    <?php endif; ?>
+                                    <?php // endif; ?>
                                     </div>                                                           
                                 </div>                  
                                 <div class="members_about_box">

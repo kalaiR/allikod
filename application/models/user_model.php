@@ -218,14 +218,25 @@ class User_model extends CI_Model {
       return $query;
   }
 
-  public function get_success_stories(){
-      $condition = "sstories.active_status = 1";
+  public function get_success_stories($limit, $start){
+
+      $user_where = 'sstories.active_status = 1';
       $this->db->select('*');
-      $this->db->from('success_stories AS sstories');
-      $this->db->where($condition);      
-      $this->db->order_by('sstories.successstories_id','');
-      $query = $this->db->get()->result_array();          
-      return $query;
+      $this->db->from('success_stories sstories');
+      $this->db->limit($limit,$start);
+      $this->db->where($user_where);
+      $this->db->order_by('sstories.successstories_id','desc');
+      $model_data['results'] = $this->db->get()->result_array(); 
+      // echo $this->db->last_query();  
+
+      // Total rows
+      $this->db->select('*');
+      $this->db->from('success_stories sstories');
+      $this->db->where($user_where);
+      $this->db->order_by('sstories.successstories_id','desc');
+      $model_data['total_rows'] = $this->db->get()->num_rows();   
+
+      return $model_data;
   }
 
   public function get_success_stories_limit(){
@@ -239,7 +250,7 @@ class User_model extends CI_Model {
       return $query;
   }
   
-  public function insert_registration($table1, $data1){
+  public function insert_registration($table1, $data1){    
     $this->db->insert($table1, $data1);
     $id_table1    = $this->db->insert_id();
     return $id_table1;
@@ -561,7 +572,7 @@ class User_model extends CI_Model {
         }
 
         if($values == 3){
-            $dhosham_1 = "(rel.rel_dhosham LIKE 'ra%')or(rel.rel_dhosham LIKE 'ka%')or(rel.rel_dhosham LIKE 'ke%')or(rel.rel_dhosham LIKE 'ga%')or(rel.rel_dhosham LIKE 'ge%')or(rel.rel_dhosham LIKE '%raag%u%')or(rel.rel_dhosham LIKE '%rag%u%')or(rel.rel_dhosham LIKE '%kaet%u%')or(rel.rel_dhosham LIKE '%ket%u%')or(rel.rel_dhosham LIKE '%kaed%u%')or(rel.rel_dhosham LIKE '%ked%u%')or(rel.rel_dhosham LIKE '%gaet%u%')or(rel.rel_dhosham LIKE '%get%u%')or(rel.rel_dhosham LIKE '%gaed%u%')or(rel.rel_dhosham LIKE '%ged%u%')) and ((rel.rel_dhosham LIKE '%r%ghu%')or (rel.rel_dhosham LIKE '%r%khu%')or (rel.rel_dhosham LIKE '%r%gu%')or(rel.rel_dhosham LIKE '%hu%')or(rel.rel_dhosham LIKE '%gu%')or(rel.rel_dhosham LIKE '%du%')or (rel.rel_dhosham LIKE '%r%ku%')or (rel.rel_dhosham LIKE '%k%thu%')or (rel.rel_dhosham LIKE '%k%tu%')or (`rel.rel_dhosham` LIKE '%k%du%')";
+            $dhosham_1 = "(rel.rel_dhosham LIKE 'ra%')or(rel.rel_dhosham LIKE 'ka%')or(rel.rel_dhosham LIKE 'ke%')or(rel.rel_dhosham LIKE 'ga%')or(rel.rel_dhosham LIKE 'ge%')or(rel.rel_dhosham LIKE '%raag%u%')or(rel.rel_dhosham LIKE '%rag%u%')or(rel.rel_dhosham LIKE '%kaet%u%')or(rel.rel_dhosham LIKE '%ket%u%')or(rel.rel_dhosham LIKE '%kaed%u%')or(rel.rel_dhosham LIKE '%ked%u%')or(rel.rel_dhosham LIKE '%gaet%u%')or(rel.rel_dhosham LIKE '%get%u%')or(rel.rel_dhosham LIKE '%gaed%u%')or(rel.rel_dhosham LIKE '%ged%u%')) and ((rel.rel_dhosham LIKE '%r%ghu%')or (rel.rel_dhosham LIKE '%r%khu%')or (rel.rel_dhosham LIKE '%r%gu%')or(rel.rel_dhosham LIKE '%hu%')or(rel.rel_dhosham LIKE '%gu%')or(rel.rel_dhosham LIKE '%du%')or (rel.rel_dhosham LIKE '%r%ku%')or (rel.rel_dhosham LIKE '%k%thu%')or (rel.rel_dhosham LIKE '%k%tu%')or (rel.rel_dhosham LIKE '%k%du%')";
         }
         
 
@@ -894,12 +905,17 @@ class User_model extends CI_Model {
 
   public function countprofileviewed(){
     $model_data['error'] = 0;
+    $pno_profile = '';
+    $ptotal_profile = '';
+    $rno_profile  = '';
+    $rtotal_profile = '';
+
+
     $this->input->post('profile_id');    
     if($this->input->post('profile_id')){
-      $profviewed_where = '(profile_id ="'.$this->input->post('profile_id').'")';
+      $profviewed_where = '(profile_id ="'.$this->input->post('profile_id').'" AND  reg_user_id="'.$this->input->post('user_id').'")';
       $this->db->select('*');      
-      $proviewedata_get = $this->db->get_where('reg_userviewed as rview',$profviewed_where);  
-      // print_r($proviewedata_get->num_rows());
+      $proviewedata_get = $this->db->get_where('reg_userviewed as rview',$profviewed_where);        
                           
       if($proviewedata_get->num_rows()==0) {
           // After Valid the Profile Id Already viewed // If Not            
@@ -916,14 +932,26 @@ class User_model extends CI_Model {
 
                                        
                         // Check in Payment table and Insert data in Viewed table
-                        $model_data['presults'] = $paymentdata_get->row_array();                            
-                        $pno_profile = $model_data['presults']['no_of_profiles_viewed'];
-                        $ptotal_profile = $model_data['presults']['totalno_of_profile'];
+                        $model_data['presults'] = $paymentdata_get->row_array();  
+                        if(!empty($model_data['presults']['no_of_profiles_viewed'])){                          
+                            $pno_profile = $model_data['presults']['no_of_profiles_viewed'];
+                        }    
+                        if(!empty($model_data['presults']['totalno_of_profile'])){                            
+                            $ptotal_profile = $model_data['presults']['totalno_of_profile'];
+                        }    
 
                         $model_data['rresults'] = $renewdata_get->row_array();
-                        $rno_profile = $model_data['rresults']['no_of_profile_viewed'];
-                        $rtotal_profile = $model_data['rresults']['totalno_of_profile'];
-
+                        //print_r($model_data['rresults']);
+                        if(!empty($model_data['rresults']['no_of_profile_viewed'])){  
+                          $rno_profile = $model_data['rresults']['no_of_profile_viewed'];
+                        }
+                        if(!empty($model_data['rresults']['totalno_of_profile'])){  
+                          $rtotal_profile = $model_data['rresults']['totalno_of_profile'];
+                        }
+                       
+                        // echo $rno_profile;
+                        // echo $rtotal_profile;
+                        // exit();
                         if(($paymentdata_get->num_rows())&&($pno_profile < $ptotal_profile)){
                                       // echo 'payment-in';
                           
@@ -995,6 +1023,8 @@ class User_model extends CI_Model {
       }else{
               $model_data['status']= "hide";
               $model_data['error'] = 1;
+              $model_data['info'] = "Already-Viewed";
+
       } // End proviewedata_get  
     }
   // print_r($model_data);

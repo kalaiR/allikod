@@ -1071,13 +1071,13 @@ include('include/menu.php');
                         </div>
                         <div role="tabpanel" class="tab-pane fade in" id="horoscope-field">
                         <div class="row">
-                            <div class="col-sm-12 aline-center-box">
-                                     <div class="col-sm-3 aline-center-box box">
+                            <div class="col-sm-10 aline-center-box">
+                                     <!-- <div class="col-sm-3 aline-center-box box">
                                         <div class="height_item">      
                                             <h3 id="white">Image</h3>.
                                         </div>    
-                                     </div>
-                                    <div class="col-sm-10  aline-center-box">
+                                     </div> -->
+                                    <!-- <div class="col-sm-10  aline-center-box">
                                        <div class="row">
                                             <div class="col-sm-6 base-box hr-box">
                                                 <div class="height_item">
@@ -1088,10 +1088,21 @@ include('include/menu.php');
                                                 <span></span>
                                                 <p id="msg"></p>
                                                 <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" /><br>
-                                                <!-- <input type="button" class="btnAction next_angkar_btn" id="upload" value="upload" name ="upload"> -->
+                                                <!-- <input type="button" class="btnAction next_angkar_btn" id="upload" value="upload" name ="upload"> ->
                                                  <span id="upload_error" class="registration-error"></span>
                                             </div>
                                         </div>        
+                                    </div> -->
+                                    <div class="imageupload panel panel-default">
+                                        <div class="panel-heading clearfix">
+                                            <h3 class="panel-title">Upload Image</h3>
+                                        </div>
+                                        <div class="file-tab panel-body">
+                                            <label class="btn btn-default btn-file">
+                                            <span>Browse</span>
+                                        <input type="file" name="uploadedfile" id="uploadedfile" name="uploadedfile">
+                                            </label>
+                                        </div>
                                     </div>
                             </div>
                         </div>
@@ -1196,7 +1207,7 @@ include('include/menu.php');
                                                     </div>
                                                 </div> <!-- Asham Horoscope - end -->    
 
-                                                <div id="asham_cont">
+                                                <div id="asham_cont" style="margin-left: 75px; ">
                                                     <select style="width: 70px" id="asham_name" class="drop_horo styled-select blue semi-square" name="asham_name">    
                                                         <option value="a_1">&#2994;&#2965;&#3021;</option> 
                                                         <option value="a_2">&#2992;&#3006;&#2965;&#3009;</option>
