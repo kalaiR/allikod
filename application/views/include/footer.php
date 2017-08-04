@@ -177,4 +177,8 @@
         var baseurl = "<?php echo base_url(); ?>/";        
         var media_url = "<?php echo media_url(); ?>"; 
         var log_userid = "<?php echo $loginuser_id; ?>";
+        
+          var $imageupload = $('.imageupload');
+            $imageupload.imageupload();
+
     </script>

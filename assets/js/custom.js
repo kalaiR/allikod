@@ -10,164 +10,163 @@ var calculateAge = function(birthday) {
 
 function validate() {
     var output = true;
-    // $(".registration-error").html('');
-    //     if($("#userdetails-field").css('display') != 'none') {
+    $(".registration-error").html('');
+        if($("#userdetails-field").css('display') != 'none') {
 
-    //         if(!($("#register_email").val())) {
-    //             output = false;
-    //             $("#register_email-error").html("Required");
-    //         } 
+            if(!($("#register_email").val())) {
+                output = false;
+                $("#register_email-error").html("Required");
+            } 
             
-    //         if($("#register_email").val()){
-    //             if(!$("#register_email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
-    //                 $("#register_email-error").html("Invalid Email Id");
-    //                 output = false;
+            if($("#register_email").val()){
+                if(!$("#register_email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+                    $("#register_email-error").html("Invalid Email Id");
+                    output = false;
                      
-    //             }
-    //         }
+                }
+            }
 
-    //         if($("#register_email").val()){
-    //                 var data = {};
-    //                 data[csrf_name] = csfrData[csrf_name];
-    //                 data['email'] = $("#register_email").val();
-    //                 $.ajax({
-    //                     url: baseurl+"register_mailcheck",
-    //                     data: data,
-    //                     type: "post",
-    //                     success: function(results_array){
-    //                         // alert(JSON.stringify(results_array));
-    //                         if(results_array!=1){
-    //                             output = false;
-    //                             $("#register_email-error").html(" Email Already Registered ");
-    //                         }
-    //                     }
-    //                 });
-    //         }
+            if($("#register_email").val()){
+                    var data = {};
+                    data[csrf_name] = csfrData[csrf_name];
+                    data['email'] = $("#register_email").val();
+                    $.ajax({
+                        url: baseurl+"register_mailcheck",
+                        data: data,
+                        type: "post",
+                        success: function(results_array){
+                            // alert(JSON.stringify(results_array));
+                            if(results_array!=1){
+                                output = false;
+                                $("#register_email-error").html(" Email Already Registered ");
+                            }
+                        }
+                    });
+            }
             
-    //          if(!($("#reg_pass1").val())) {
-    //              output = false;
-    //              $("#reg_passed_error").html("Required");
-    //          } 
-    //          if(!($("#reg_con_pass2").val())) {
-    //              output = false;
-    //              $("#reg_con_error").html("Required");
-    //          }   
+             if(!($("#reg_pass1").val())) {
+                 output = false;
+                 $("#reg_passed_error").html("Required");
+             } 
+             if(!($("#reg_con_pass2").val())) {
+                 output = false;
+                 $("#reg_con_error").html("Required");
+             }   
 
-    //         if($("#reg_pass1").val() != $("#reg_con_pass2").val()) {
-    //          output = false;
-    //            $("#reg_con_error").html("Password doesn't match");
+            if($("#reg_pass1").val() != $("#reg_con_pass2").val()) {
+             output = false;
+               $("#reg_con_error").html("Password doesn't match");
               
-    //         }           
+            }           
               
-    //          if(!($("#register_by").val())) {
-    //              output = false;
-    //              $("#reg_error").html("Required");
-    //          }
+             if(!($("#register_by").val())) {
+                 output = false;
+                 $("#reg_error").html("Required");
+             }
 
-    //          if(!($("#reg_Nam").val())) {
-    //              output = false;
-    //              $("#reg_nam_error").html("Required");
-    //          } 
-    //           if(!($("#gender").val())) {
-    //              output = false;
-    //              $("#gender_error").html("Required");
-    //          } 
-    //          if(!($("#marital").val())) {
-    //              output = false;
-    //              $("#marital_error").html("Required");
-    //          }
+             if(!($("#reg_Nam").val())) {
+                 output = false;
+                 $("#reg_nam_error").html("Required");
+             } 
+              if(!($("#gender").val())) {
+                 output = false;
+                 $("#gender_error").html("Required");
+             } 
+             if(!($("#marital").val())) {
+                 output = false;
+                 $("#marital_error").html("Required");
+             }
       
-    //     }
-    //     if($("#ethnicity-field").css('display') != 'none') {
+        }
+        if($("#ethnicity-field").css('display') != 'none') {
 
-    //         if(!($("#reg_tim").val())) {
-    //              output = false;
-    //              $("#tim_error").html("Required");
-    //          }
-    //           if(!($("#reg_tim").val())) {
-    //              output = false;
-    //              $("#tim_error").html("Required");
-    //          }
-    //           if(!($("#mother").val())) {
-    //              output = false;
-    //              $("#mother_error").html("Required");
-    //          }
-    //          if(!($("#nakshathra").val())) {
-    //              output = false;
-    //              $("#nakshathra_error").html("Required");
-    //          }
-    //          if(!($("#zodiac_sign").val())) {
-    //              output = false;
-    //              $("#zodiac_sign_error").html("Required");
-    //          }
-    //     }
-    //     if($("#education-field").css('display') != 'none') {
+            if(!($("#reg_tim").val())) {
+                 output = false;
+                 $("#tim_error").html("Required");
+             }
+              if(!($("#reg_tim").val())) {
+                 output = false;
+                 $("#tim_error").html("Required");
+             }
+              if(!($("#mother").val())) {
+                 output = false;
+                 $("#mother_error").html("Required");
+             }
+             if(!($("#nakshathra").val())) {
+                 output = false;
+                 $("#nakshathra_error").html("Required");
+             }
+             if(!($("#zodiac_sign").val())) {
+                 output = false;
+                 $("#zodiac_sign_error").html("Required");
+             }
+        }
+        if($("#education-field").css('display') != 'none') {
 
-    //          if(!($("#edu").val())) {
-    //              output = false;
-    //              $("#edu_error").html("Required");
-    //          } 
-    //          if(!($("#education_detail").val())) {
-    //              output = false;
-    //              $("#education_detail_error").html("Required");
-    //          } 
-    //          if(!($("#occupation").val())) {
-    //              output = false;
-    //              $("#occupation_error").html("Required");
-    //          }  
-    //          if(!($("#employed_in").val())) {
-    //              output = false;
-    //              $("#employed_in_error").html("Required");
-    //          }
-    //          if(!($("#reg_income").val())) {
-    //              output = false;
-    //              $("#reg_income_error").html("Required");
-    //          }  
-    //     }
-    // if($("#com-field").css('display') != 'none') {
-    //     var mobile =$("#reg_mobile").val();
-    //     if(!(/^([0-9-+]{10})+$/.test(mobile)) && mobile.length!=10){
-    //         output = false;
-    //         $("#reg_mobile_error").html("Invalid Number");
-    //     }       
-    //          if(!($("#reg_fname").val())) {
-    //              output = false;
-    //              $("#reg_fname_error").html("Required");
-    //          }
-    //          if(!($("#reg_mname").val())) {
-    //              output = false;
-    //              $("#reg_mname_error").html("Required");
-    //          }
-    //          if(!($("#reg_femployment").val())) {
-    //              output = false;
-    //              $("#reg_femployment_error").html("Required");
-    //          } 
-    //          if(!($("#reg_memployment").val())) {
-    //              output = false;
-    //              $("#reg_memployment_error").html("Required");
-    //          }   
-    //          if(!($("#family_status").val())) {
-    //              output = false;
-    //              $("#family_status_error").html("Required");
-    //          }
-    //          if(!($("#family_type").val())) {
-    //              output = false;
-    //              $("#family_type_error").html("Required");
-    //          }  
+             if(!($("#edu").val())) {
+                 output = false;
+                 $("#edu_error").html("Required");
+             } 
+             if(!($("#education_detail").val())) {
+                 output = false;
+                 $("#education_detail_error").html("Required");
+             } 
+             if(!($("#occupation").val())) {
+                 output = false;
+                 $("#occupation_error").html("Required");
+             }  
+             if(!($("#employed_in").val())) {
+                 output = false;
+                 $("#employed_in_error").html("Required");
+             }
+             if(!($("#reg_income").val())) {
+                 output = false;
+                 $("#reg_income_error").html("Required");
+             }  
+        }
+    if($("#com-field").css('display') != 'none') {
+        var mobile =$("#reg_mobile").val();
+        if(!(/^([0-9-+]{10})+$/.test(mobile)) && mobile.length!=10){
+            output = false;
+            $("#reg_mobile_error").html("Invalid Number");
+        }       
+             if(!($("#reg_fname").val())) {
+                 output = false;
+                 $("#reg_fname_error").html("Required");
+             }
+             if(!($("#reg_mname").val())) {
+                 output = false;
+                 $("#reg_mname_error").html("Required");
+             }
+             if(!($("#reg_femployment").val())) {
+                 output = false;
+                 $("#reg_femployment_error").html("Required");
+             } 
+             if(!($("#reg_memployment").val())) {
+                 output = false;
+                 $("#reg_memployment_error").html("Required");
+             }   
+             if(!($("#family_status").val())) {
+                 output = false;
+                 $("#family_status_error").html("Required");
+             }
+             if(!($("#family_type").val())) {
+                 output = false;
+                 $("#family_type_error").html("Required");
+             }  
+        }
+        if($("#exceptation-field").css('display') != 'none') {
 
-    //     }
-    //     if($("#exceptation-field").css('display') != 'none') {
+             if(!($("#food").val())) {
+                 output = false;
+                 $("#food_error").html("Required");
+             }
+             if(!($("#search_age_from").val())) {
+                 output = false;
+                 $("#search_age_from_error").html("Required");
+             }
 
-    //          if(!($("#food").val())) {
-    //              output = false;
-    //              $("#food_error").html("Required");
-    //          }
-    //          if(!($("#search_age_from").val())) {
-    //              output = false;
-    //              $("#search_age_from_error").html("Required");
-    //          }
-
-    //     }
+        }
     // if($("#horoscope-field").css('display') != 'none') {
        
     //    if(!($("#upload").val())) {
@@ -175,8 +174,7 @@ function validate() {
     //              $("#upload_error").html("Required");
     //          }
     // }
-
-        return output;
+        }
 }
 
 // Remove the Result array Values for Horoscope //
@@ -438,23 +436,23 @@ $(document).ready(function() {
     });
 
   
-    // Form Upload for Success Stories //
-    $("form#success_stories").submit(function(){
-        var formData = new FormData(this);
-        $.ajax({
-            url: 'success_stories',
-            type: 'POST',
-            data: formData,
-            async: false,
-            success: function (data) {
-                alert(data)
-            },
-            cache: false,
-            contentType: false,
-            processData: false
-        });
-        return false;
-    });
+    // // Form Upload for Success Stories //
+    // $("form#success_stories").submit(function(){
+    //     var formData = new FormData(this);
+    //     $.ajax({
+    //         url: 'success_stories',
+    //         type: 'POST',
+    //         data: formData,
+    //         async: false,
+    //         success: function (data) {
+    //             alert(data)
+    //         },
+    //         cache: false,
+    //         contentType: false,
+    //         processData: false
+    //     });
+    //     return false;
+    // });
 
     /*Admin customer user edit form Start*/
     $('.customer_edit_form').on('submit',function(e) {
@@ -559,3 +557,248 @@ $(window).load(function(){
          'margin-left': -width / 2 + "px"
      });
 });
+
+
+ /*Image upload in reg page*/
+
+
+(function($) {
+    'use strict';
+
+    var options = {};
+
+    var methods = {
+        init: init,
+        disable: disable,
+        enable: enable,
+        reset: reset
+    };
+
+    // -----------------------------------------------------------------------------
+    // Plugin Definition
+    // -----------------------------------------------------------------------------
+
+    $.fn.imageupload = function(methodOrOptions) {
+        var givenArguments = arguments;
+
+        return this.filter('div').each(function() {
+            if (methods[methodOrOptions]) {
+                methods[methodOrOptions].apply($(this), Array.prototype.slice.call(givenArguments, 1));
+            }
+            else if (typeof methodOrOptions === 'object' || !methodOrOptions) {
+                methods.init.apply($(this), givenArguments);
+            }
+            else {
+                throw new Error('Method "' + methodOrOptions + '" is not defined for imageupload.');
+            }
+        });
+    };
+
+    $.fn.imageupload.defaultOptions = {
+        allowedFormats: [ 'jpg', 'jpeg', 'png', 'gif' ],
+        maxWidth: 250,
+        maxHeight: 250,
+        maxFileSizeKb: 2048
+    };
+
+    // -----------------------------------------------------------------------------
+    // Public Methods
+    // -----------------------------------------------------------------------------
+
+    function init(givenOptions) {
+        options = $.extend({}, $.fn.imageupload.defaultOptions, givenOptions);
+
+        var $imageupload = this;
+        var $fileTab = $imageupload.find('.file-tab');
+        var $fileTabButton = $imageupload.find('.panel-heading .btn:eq(0)');
+        var $browseFileButton = $fileTab.find('input[type="file"]');
+        var $removeFileButton = $fileTab.find('.btn:eq(1)');
+        var $urlTab = $imageupload.find('.url-tab');
+        var $urlTabButton = $imageupload.find('.panel-heading .btn:eq(1)');
+        var $submitUrlButton = $urlTab.find('.btn:eq(0)');
+        var $removeUrlButton = $urlTab.find('.btn:eq(1)');
+
+        // Do a complete reset.
+        resetFileTab($fileTab);
+        resetUrlTab($urlTab);
+        showFileTab($fileTab);
+        enable.call($imageupload);
+        
+        // Unbind all previous bound event handlers.
+        $fileTabButton.off();
+        $browseFileButton.off();
+        $removeFileButton.off();
+        $urlTabButton.off();
+        $submitUrlButton.off();
+        $removeUrlButton.off();
+
+        $fileTabButton.on('click', function() {
+            $(this).blur();
+            showFileTab($fileTab);
+        });
+
+        $browseFileButton.on('change', function() {
+            $(this).blur();
+            submitImageFile($fileTab);
+        });
+
+        $removeFileButton.on('click', function() {
+            $(this).blur();
+            resetFileTab($fileTab);
+        });
+
+        $urlTabButton.on('click', function() {
+            $(this).blur();
+            showUrlTab($urlTab);
+        });
+
+        $submitUrlButton.on('click', function() {
+            $(this).blur();
+            submitImageUrl($urlTab);
+        });
+
+        $removeUrlButton.on('click', function() {
+            $(this).blur();
+            resetUrlTab($urlTab);
+        });
+    }
+
+    function disable() {
+        var $imageupload = this;
+        $imageupload.addClass('imageupload-disabled');
+    }
+
+    function enable() {
+        var $imageupload = this;
+        $imageupload.removeClass('imageupload-disabled');
+    }
+
+    function reset() {
+        var $imageupload = this;
+        init.call($imageupload, options);
+    }
+
+    // -----------------------------------------------------------------------------
+    // Private Methods
+    // -----------------------------------------------------------------------------
+
+    function getAlertHtml(message) {
+        var html = [];
+        html.push('<div class="alert alert-danger alert-dismissible">');
+        html.push('<button type="button" class="close" data-dismiss="alert">');
+        html.push('<span>&times;</span>');
+        html.push('</button>' + message);
+        html.push('</div>');
+        return html.join('');
+    }
+
+    function getImageThumbnailHtml(src) {
+        return '<img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px">';
+    }
+
+    function getFileExtension(path) {
+        return path.substr(path.lastIndexOf('.') + 1).toLowerCase();
+    }
+
+    function isValidImageFile(file, callback) {
+        // Check file size.
+        if (file.size / 1024 > options.maxFileSizeKb)
+        {
+            callback(false, 'File is too large (max ' + options.maxFileSizeKb + 'kB).');
+            return;
+        }
+
+        // Check image format by file extension.
+        var fileExtension = getFileExtension(file.name);
+        if ($.inArray(fileExtension, options.allowedFormats) > -1) {
+            callback(true, 'Image file is valid.');
+        }
+        else {
+            callback(false, 'File type is not allowed.');
+        }
+    }
+
+
+    function showFileTab($fileTab) {
+        var $imageupload = $fileTab.closest('.imageupload');
+        var $fileTabButton = $imageupload.find('.panel-heading .btn:eq(0)');
+
+        if (!$fileTabButton.hasClass('active')) {
+            var $urlTab = $imageupload.find('.url-tab');
+
+            // Change active tab buttton.
+            $imageupload.find('.panel-heading .btn:eq(1)').removeClass('active');
+            $fileTabButton.addClass('active');
+
+            // Hide URL tab and show file tab.
+            $urlTab.hide();
+            $fileTab.show();
+            resetUrlTab($urlTab);
+        }
+    }
+
+    function resetFileTab($fileTab) {
+        $fileTab.find('.alert').remove();
+        $fileTab.find('img').remove();
+        $fileTab.find('.btn span').text('Browse');
+        $fileTab.find('.btn:eq(1)').hide();
+        $fileTab.find('input').val('');
+    }
+
+    function submitImageFile($fileTab) {
+        var $browseFileButton = $fileTab.find('.btn:eq(0)');
+        var $removeFileButton = $fileTab.find('.btn:eq(1)');
+        var $fileInput = $browseFileButton.find('input');
+        
+        $fileTab.find('.alert').remove();
+        $fileTab.find('img').remove();
+        $browseFileButton.find('span').text('Browse');
+        $removeFileButton.hide();
+
+        // Check if file was uploaded.
+        if (!($fileInput[0].files && $fileInput[0].files[0])) {
+            return;
+        }
+
+        $browseFileButton.prop('disabled', true);
+        
+        var file = $fileInput[0].files[0];
+
+        isValidImageFile(file, function(isValid, message) {
+            if (isValid) {
+                var fileReader = new FileReader();
+
+                fileReader.onload = function(e) {
+                    // Show thumbnail and remove button.
+                    $fileTab.prepend(getImageThumbnailHtml(e.target.result));
+                    $browseFileButton.find('span').text('Change');
+                    $removeFileButton.css('display', 'inline-block');
+                };
+
+                fileReader.onerror = function() {
+                    $fileTab.prepend(getAlertHtml('Error loading image file.'));
+                    $fileInput.val('');
+                };
+
+                fileReader.readAsDataURL(file);
+            }
+            else {
+                $fileTab.prepend(getAlertHtml(message));
+                $browseFileButton.find('span').text('Browse');
+                $fileInput.val('');
+            }
+
+            $browseFileButton.prop('disabled', false);
+        });
+    }
+    function resetUrlTab($urlTab) {
+        $urlTab.find('.alert').remove();
+        $urlTab.find('img').remove();
+        $urlTab.find('.btn:eq(1)').hide();
+        $urlTab.find('input').val('');
+    }
+
+}(jQuery));
+
+
+ /* End Image upload in reg page*/

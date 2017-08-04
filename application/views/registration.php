@@ -1071,13 +1071,13 @@ include('include/menu.php');
                         </div>
                         <div role="tabpanel" class="tab-pane fade in" id="horoscope-field">
                         <div class="row">
-                            <div class="col-sm-12 aline-center-box">
-                                     <div class="col-sm-3 aline-center-box box">
+                            <div class="col-sm-10 aline-center-box">
+                                     <!-- <div class="col-sm-3 aline-center-box box">
                                         <div class="height_item">      
                                             <h3 id="white">Image</h3>.
                                         </div>    
-                                     </div>
-                                    <div class="col-sm-10  aline-center-box">
+                                     </div> -->
+                                    <!-- <div class="col-sm-10  aline-center-box">
                                        <div class="row">
                                             <div class="col-sm-6 base-box hr-box">
                                                 <div class="height_item">
@@ -1087,11 +1087,22 @@ include('include/menu.php');
                                             <div class="col-md-6 upload_box hr-box">
                                                 <span></span>
                                                 <p id="msg"></p>
-                                                <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" /><br>
+                                                <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" /><br> -->
                                                 <!-- <input type="button" class="btnAction next_angkar_btn" id="upload" value="upload" name ="upload"> -->
-                                                 <span id="upload_error" class="registration-error"></span>
+                                        <!--          <span id="upload_error" class="registration-error"></span>
                                             </div>
                                         </div>        
+                                    </div> -->
+                                    <div class="imageupload panel panel-default">
+                                        <div class="panel-heading clearfix">
+                                            <h3 class="panel-title">Upload Image</h3>
+                                        </div>
+                                        <div class="file-tab panel-body">
+                                            <label class="btn btn-default btn-file">
+                                                <span>Browse</span>
+                                                <input type="file" name="image-file" id="upimg">
+                                            </label>
+                                        </div>
                                     </div>
                             </div>
                         </div>
