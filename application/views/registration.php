@@ -1096,7 +1096,6 @@ include('include/menu.php');
                                     <div class="imageupload panel panel-default">
                                         <div class="panel-heading clearfix">
                                             <h3 class="panel-title">Upload Image</h3>
-                                            <span id="upimg_error" class="registration-error"></span>
                                         </div>
                                         <div class="file-tab panel-body">
                                             <label class="btn btn-default btn-file">

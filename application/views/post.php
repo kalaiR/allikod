@@ -61,7 +61,7 @@
                                                         </div>    
                                                     </div>
                                                         <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-10">
                                                                     <div class="form-group">
                                                                         <div class="col-md-12">
                                                                             <div class="datepicker">
@@ -71,13 +71,21 @@
                                                                         </div>         
                                                                     </div>
                                                             </div>
-                                                                <div class="col-md-6 upload_box next-box">
-                                                                   <div>
-                                                                        <input type="file" id="upload_post" name="upload_post" class="form_inputs" />
-                                                                        <!-- <input type="button" id="upload_post" value="upload" name ="upload_post"> -->
-                                                                    </div>
+                                                        </div> 
+                                                        <div class="col-md-10 base-box">
+                                                            <div class="imageupload panel panel-default">
+                                                                <div class="panel-heading clearfix">
+                                                                    <h3 class="panel-title">Upload Image *</h3>
                                                                 </div>
-                                                        </div>
+                                                                <div class="file-tab panel-body">
+                                                                    <label class="btn btn-default btn-file">
+                                                                        <span>Browse</span>
+                                                                         <input type="file" id="upload_post" name="upload_post" class="form_inputs" />
+                                                                    </label>
+                                                                 </div>
+                                                                <!-- <input type="button" id="upload_post" value="upload" name ="upload_post"> -->
+                                                            </div>
+                                                        </div>    
                                                     <div class="comment_form_area next-box">
                                                         <textarea id="comment" class="form-control" name="comment" placeholder="Comment" rows="5"></textarea>
                                                     </div>    
