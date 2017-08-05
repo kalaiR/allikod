@@ -649,9 +649,9 @@ class Base extends CI_Controller {
 		// Navigation Links
 		$pagination_links = $this->pagination->create_links();
 		$data["links"] = $pagination_links;			
-		echo '<pre>';
-		print_r($data);
-		echo '</pre>';
+		// echo '<pre>';
+		// print_r($data);
+		// echo '</pre>';
 		// exit();
 		$this->load->view('search_result',$data);
 		

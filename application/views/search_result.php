@@ -35,9 +35,11 @@ if($values[0]!=0){
                 </div> 
                  <div class="row">
                      <div class="col-md-12 ">
+                     <?php if(!empty($total_rows)) : ?>
                         <div class="col-md-8">
                             <p>Search Results :  <?php echo  $current_tot; ?> of <?php echo $total_rows; ?> </p>
                         </div>
+                     <?php endif; ?>
                         <div class="search_btn back-box">
                                 <a href="<?php echo base_url(); ?>search" class="register_angkar_btn">Back</a>
                         </div>
