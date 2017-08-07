@@ -1,3 +1,4 @@
+<?php if(!$this->input->is_ajax_request()) { ?>
 <?php 
     include('include/header.php');
 ?>      <?php 
@@ -146,13 +147,14 @@
         
         <!--================Blog grid Area =================-->
         <form method="POST" action="myedit" class="customer_edit_form" name="customer_edit_form" enctype="multipart/form-data">
+<?php } ?> 
             <?php
-              // print_r($zodiac_data);
-              if(!empty($status)) :
-                echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
-              endif;
+                // echo $status;
+              // if(!empty($status)) :
+              //   echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
+              // endif;
             ?> 
-            <p class='val_error'> <p>
+            <p class='val_error'></p>
             <section class="blog_grid_area">
                 <div class="container">
                     <div class="row">
@@ -274,7 +276,8 @@
                                             </label>
                                         </div>
                                     </div>
-                                            <p>No photos in your album.Upload Photos.</p>      
+                                            <p>No photos in your album.Upload Photos.</p>  
+                                            <!-- <input type="file" name="cus_profileimage[]" id="uploadedfile" name="uploadedfile" multiple="">  -->   
                                         </div>
                                     </div>
                                 </div>
@@ -592,9 +595,9 @@
                                                     <p><b>Education *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                    <select class="selectpicker">
-                                                        <option>BCA</option>
-                                                        <option>BE/B Tech</option>
+                                                    <select class="selectpicker" name="cus_education">
+                                                        <option value="1">BCA</option>
+                                                        <option value="2">BE/B Tech</option>
                                                     </select>     
                                                  </div>
                                             </div>
@@ -611,9 +614,9 @@
                                                     <p><b>Occupation *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                      <select class="selectpicker">
-                                                        <option>Admin</option>
-                                                        <option>Other</option>
+                                                      <select class="selectpicker" name="cus_occupation">
+                                                        <option value="1">Admin</option>
+                                                        <option value="2">Other</option>
                                                     </select>
                                                  </div>
                                             </div>     
@@ -624,7 +627,7 @@
                                                     <p><b>Employed In *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                    <select class="selectpicker">
+                                                    <select class="selectpicker" name="cus_empin">
                                                         <option value="">Select Employed In</option>
                                                           <?php 
                                                             foreach ($selection_values['employedin_values'] as $emp_val):      
@@ -641,7 +644,7 @@
                                                     <p><b>Monthly Income(In Indian-Rs) *</b></p>
                                                 </div>
                                                 <div class="col-md-5">       
-                                                    <input type="text" class="form-control" id="reg_Name" placeholder="" <?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; ?>" name="cus_moninc">
+                                                    <input type="text" class="form-control" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; ?>" name="cus_moninc">
                                                  </div>
                                             </div>
                                             <div class="row com-box">
@@ -805,7 +808,7 @@
                                                     <p><b>Height</b></p>
                                                 </div>
                                                 <div class="col-md-6">        
-                                                   <select class="selectpicker" name="cus_height">
+                                                   <select class="selectpicker" name="cus_heightcms">
                                                         <option value="">Height in cm</option>
                                                         <?php 
                                                             foreach ($selection_values['height_values'] as $height_val):  
@@ -1006,7 +1009,7 @@
                                                 <div class="col-md-6">       
                                                     <div class="control-group">                     
                                                         <div class="controls">
-                                                            <select multiple>
+                                                            <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4">
                                                                 <option value="">Select</option>
                                                                 <optgroup class="a" label="Bachelors - Engineering/ Computers"></optgroup>
                                                                 <option  selected="selected"  value="1">BE/B Tech</option>
@@ -1075,7 +1078,7 @@
                                                                 <div class="third-row" data-id="box_7" id="box_7">7</div>
                                                             </div>
                                                         </div> <!-- Rasi Horoscope - End -->
-                                                        <div id="cont">
+                                                        <div id="rasi_cont">
                                                             <select style="width: 70px" id="rasi_name" class="drop_horo styled-select blue semi-square" name="rasi_name">    
                                                                 <option value="r_1">&#2994;&#2965;&#3021;</option> 
                                                                 <option value="r_2">&#2992;&#3006;&#2965;&#3009;</option>
@@ -1105,11 +1108,11 @@
                                                             </select>
 
                                                                 <!-- <img src="assets/img/add.png" type="button" id="add_rasi" value="ADD" name="add_rasi" /> -->
-                                                                <i class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_rasi" name="add_rasi"></i>
+                                                                <i style="cursor:pointer" class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_rasi" name="add_rasi"></i>
                                                                 <select style="width: 70px" id="crasi_name" class="drop_horo styled-select blue semi-square" name="crasi_name">
                                                                 </select>    
-                                                                <i class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_rasi" name="add_rasi"></i>
-                                                        </div> 
+                                                                <i style="cursor:pointer" class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_rasi" name="add_rasi"></i>
+                                                        </div>  
                                                     </div>  <!-- row col 6 ends -->
                                                     <div class="col-md-6">
                                                         <!-- Asham Horoscope - start -->
@@ -1135,8 +1138,43 @@
                                                             <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
                                                             <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
 
-                                                            </div>
-                                                        </div> <!-- Asham Horoscope - end -->                       
+                                                            </div>                         
+                                                        </div> <!-- Asham Horoscope - end -->
+                                                        <div id="asham_cont">
+                                                        <select style="width: 70px;" id="asham_name" class="drop_horo styled-select blue semi-square" name="asham_name">    
+                                                            <option value="a_1">&#2994;&#2965;&#3021;</option> 
+                                                            <option value="a_2">&#2992;&#3006;&#2965;&#3009;</option>
+                                                            <option value="a_3">&#2970;&#2984;&#3021;</option>   
+                                                            <option value="a_4">&#2965;&#3015;&#2980;&#3009;</option>
+                                                            <option value="a_5">&#2970;&#2985;&#3007;</option>
+                                                            <option value="a_6">&#2970;&#3014;&#2997;&#3021; </option>
+                                                            <option value="a_7"> &#2965;&#3009;&#2992;&#3009;</option>
+                                                            <option value="a_8"> &#2970;&#3009;&#2965;&#3021;</option>
+                                                            <option value="a_9">&#2970;&#3010;&#2992;&#3007;</option>
+                                                            <option value="a_10"> &#2986;&#3009;&#2980;&#2985;&#3021;</option> 
+                                                        </select>
+
+                                                        <select id="ashambox_id" style="width: 70px" class="drop_horo styled-select blue semi-square" >
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option> 
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option> 
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                        </select>
+
+                                                            <!-- <img src="assets/img/add.png" type="button" id="add_rasi" value="ADD" name="add_rasi" /> -->
+                                                            <i style="cursor:pointer" class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_asham" name="add_asham"></i>
+                                                            <select style="width: 70px" id="casham_name" class="drop_horo styled-select blue semi-square" name="casham_name">
+                                                            </select>    
+                                                            <i style="cursor:pointer" class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_asham" name="remove_asham"></i>
+                                                    </div> 
                                                     </div> <!-- col 6 ends -->
                                                 </div> <!-- col 12 ends -->
                                             </div> <!-- row ends -->
@@ -1146,10 +1184,10 @@
                     </div>        
                 </div>
             </section>
+<?php if(!$this->input->is_ajax_request()) { ?>
         </form>
         <!--================End Blog grid Area =================-->
 <?php 
 include('include/footer.php');
 ?>  
-    </body>
-</html>
+<?php } ?>

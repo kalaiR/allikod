@@ -8418,3 +8418,10 @@ p{
 {
   padding-top: 50px;
 }
+.chosen-container-multi{
+  width: 350px !important;
+   
+}
+.default{
+  width: 150px !important;
+}

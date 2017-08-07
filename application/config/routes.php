@@ -63,6 +63,7 @@ $route['search'] 							= "base/search";
 $route['search_result'] 					= "base/search_result";
 $route['search_result/(:any)'] 				= "base/search_result/$1";
 $route['success_stories'] 					= "base/success_stories";
+$route['success_stories/(:any)'] 			= "base/success_stories/$1";
 $route['vanniyar'] 							= "base/vanniyar";
 $route['viewdetail/(:any)'] 				= "base/viewdetail/$1";
 $route['myprofile'] 						= "base/myprofile";
