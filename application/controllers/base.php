@@ -882,6 +882,8 @@ class Base extends CI_Controller {
 				$data['customeruser_values'] = $data_values['customeruser_values'];
 				//Get Selection option data's for edit
 				$data['selection_values'] = $this->user_model->customer_user_selectiondata();
+				$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
+				$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
 				// echo "<pre>";
 				// print_r($data['selection_values']);
 				// echo "</pre>";
