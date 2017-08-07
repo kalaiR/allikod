@@ -72,7 +72,7 @@
                         message = "Upload image height and width below 300 X 350";
                         $("#upload_post").addClass("form-field-error");
                     }
-                    else if (file_size > 100000) {
+                    else if (file_size > 1000000) {
                         error = 1;
                         message = "Upload image size less than 1 MB";
                         $("#upload_post").addClass("form-field-error");
