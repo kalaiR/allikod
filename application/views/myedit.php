@@ -1075,7 +1075,7 @@
                                                                 <div class="third-row" data-id="box_7" id="box_7">7</div>
                                                             </div>
                                                         </div> <!-- Rasi Horoscope - End -->
-                                                        <div id="cont">
+                                                        <div id="rasi_cont">
                                                             <select style="width: 70px" id="rasi_name" class="drop_horo styled-select blue semi-square" name="rasi_name">    
                                                                 <option value="r_1">&#2994;&#2965;&#3021;</option> 
                                                                 <option value="r_2">&#2992;&#3006;&#2965;&#3009;</option>
@@ -1105,11 +1105,11 @@
                                                             </select>
 
                                                                 <!-- <img src="assets/img/add.png" type="button" id="add_rasi" value="ADD" name="add_rasi" /> -->
-                                                                <i class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_rasi" name="add_rasi"></i>
+                                                                <i style="cursor:pointer" class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_rasi" name="add_rasi"></i>
                                                                 <select style="width: 70px" id="crasi_name" class="drop_horo styled-select blue semi-square" name="crasi_name">
                                                                 </select>    
-                                                                <i class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_rasi" name="add_rasi"></i>
-                                                        </div> 
+                                                                <i style="cursor:pointer" class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_rasi" name="add_rasi"></i>
+                                                        </div>  
                                                     </div>  <!-- row col 6 ends -->
                                                     <div class="col-md-6">
                                                         <!-- Asham Horoscope - start -->
@@ -1137,7 +1137,7 @@
 
                                                             </div>                         
                                                         </div> <!-- Asham Horoscope - end -->
-                                                        <div id="asham_cont" style="margin-left: 115px">
+                                                        <div id="asham_cont">
                                                         <select style="width: 70px;" id="asham_name" class="drop_horo styled-select blue semi-square" name="asham_name">    
                                                             <option value="a_1">&#2994;&#2965;&#3021;</option> 
                                                             <option value="a_2">&#2992;&#3006;&#2965;&#3009;</option>
@@ -1167,10 +1167,10 @@
                                                         </select>
 
                                                             <!-- <img src="assets/img/add.png" type="button" id="add_rasi" value="ADD" name="add_rasi" /> -->
-                                                            <i class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_asham" name="add_asham"></i>
+                                                            <i style="cursor:pointer" class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_asham" name="add_asham"></i>
                                                             <select style="width: 70px" id="casham_name" class="drop_horo styled-select blue semi-square" name="casham_name">
                                                             </select>    
-                                                            <i class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_asham" name="remove_asham"></i>
+                                                            <i style="cursor:pointer" class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_asham" name="remove_asham"></i>
                                                     </div> 
                                                     </div> <!-- col 6 ends -->
                                                 </div> <!-- col 12 ends -->

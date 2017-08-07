@@ -1173,10 +1173,10 @@ include('include/menu.php');
                                                     </select>
 
                                                         <!-- <img src="assets/img/add.png" type="button" id="add_rasi" value="ADD" name="add_rasi" /> -->
-                                                        <i class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_rasi" name="add_rasi"></i>
+                                                        <i style="cursor:pointer" class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_rasi" name="add_rasi"></i>
                                                         <select style="width: 70px" id="crasi_name" class="drop_horo styled-select blue semi-square" name="crasi_name">
                                                         </select>    
-                                                        <i class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_rasi" name="add_rasi"></i>
+                                                        <i style="cursor:pointer" class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_rasi" name="add_rasi"></i>
                                                 </div> 
                                             </div>  <!-- row col 6 ends -->
 
@@ -1204,44 +1204,44 @@ include('include/menu.php');
                                                     <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
                                                     <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
 
-                                                    <div id="asham_cont" style="margin-left: 75px;">                                           
-                                                    </div>
                                                 </div> <!-- Asham Horoscope - end -->    
                                                 
                                                 </div>
-                                                <select style="width: 70px" id="asham_name" class="drop_horo styled-select blue semi-square" name="asham_name">    
-                                                        <option value="a_1">&#2994;&#2965;&#3021;</option> 
-                                                        <option value="a_2">&#2992;&#3006;&#2965;&#3009;</option>
-                                                        <option value="a_3">&#2970;&#2984;&#3021;</option>   
-                                                        <option value="a_4">&#2965;&#3015;&#2980;&#3009;</option>
-                                                        <option value="a_5">&#2970;&#2985;&#3007;</option>
-                                                        <option value="a_6">&#2970;&#3014;&#2997;&#3021; </option>
-                                                        <option value="a_7"> &#2965;&#3009;&#2992;&#3009;</option>
-                                                        <option value="a_8"> &#2970;&#3009;&#2965;&#3021;</option>
-                                                        <option value="a_9">&#2970;&#3010;&#2992;&#3007;</option>
-                                                        <option value="a_10"> &#2986;&#3009;&#2980;&#2985;&#3021;</option> 
-                                                    </select>
+                                                <div id="asham_cont">
+                                                        <select style="width: 70px;" id="asham_name" class="drop_horo styled-select blue semi-square" name="asham_name">    
+                                                            <option value="a_1">&#2994;&#2965;&#3021;</option> 
+                                                            <option value="a_2">&#2992;&#3006;&#2965;&#3009;</option>
+                                                            <option value="a_3">&#2970;&#2984;&#3021;</option>   
+                                                            <option value="a_4">&#2965;&#3015;&#2980;&#3009;</option>
+                                                            <option value="a_5">&#2970;&#2985;&#3007;</option>
+                                                            <option value="a_6">&#2970;&#3014;&#2997;&#3021; </option>
+                                                            <option value="a_7"> &#2965;&#3009;&#2992;&#3009;</option>
+                                                            <option value="a_8"> &#2970;&#3009;&#2965;&#3021;</option>
+                                                            <option value="a_9">&#2970;&#3010;&#2992;&#3007;</option>
+                                                            <option value="a_10"> &#2986;&#3009;&#2980;&#2985;&#3021;</option> 
+                                                        </select>
 
-                                                    <select id="ashambox_id" style="width: 70px" class="drop_horo styled-select blue semi-square" >
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option> 
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option> 
-                                                        <option value="10">10</option>
-                                                        <option value="11">11</option>
-                                                        <option value="12">12</option>
-                                                    </select>
+                                                        <select id="ashambox_id" style="width: 70px" class="drop_horo styled-select blue semi-square" >
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option> 
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option> 
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                        </select>
 
-                                                        <!-- <img src="assets/img/add.png" type="button" id="add_rasi" value="ADD" name="add_rasi" /> -->
-                                                        <i class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_asham" name="add_asham"></i>
-                                                        <select style="width: 70px" id="casham_name" class="drop_horo styled-select blue semi-square" name="casham_name">
-                                                        </select>    
-                                                        <i class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_asham" name="remove_asham"></i>
+                                                            <!-- <img src="assets/img/add.png" type="button" id="add_rasi" value="ADD" name="add_rasi" /> -->
+                                                            <i style="cursor:pointer" class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_asham" name="add_asham"></i>
+                                                            <select style="width: 70px" id="casham_name" class="drop_horo styled-select blue semi-square" name="casham_name">
+                                                            </select>    
+                                                            <i style="cursor:pointer" class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_asham" name="remove_asham"></i>
+                                                    </div> 
                                              </div> <!-- col 6 ends -->
                                         </div> <!-- col 12 ends -->
                                     </div> <!-- row ends -->
