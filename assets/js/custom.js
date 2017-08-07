@@ -35,7 +35,7 @@ function validate() {
                         data: data,
                         type: "post",
                         success: function(results_array){
-                            // alert(JSON.stringify(results_array));
+                            alert(JSON.stringify(results_array));
                             if(results_array!=1){
                                 output = false;
                                 $("#register_email-error").html(" Email Already Registered ");
@@ -166,15 +166,9 @@ function validate() {
                  $("#search_age_from_error").html("Required");
              }
 
-        }
-    // if($("#horoscope-field").css('display') != 'none') {
-       
-    //    if(!($("#upload").val())) {
-    //              output = false;
-    //              $("#upload_error").html("Required");
-    //          }
-    // }
-            return output;   
+        }    
+
+        return output;
 }
 
 // Remove the Result array Values for Horoscope //
@@ -435,24 +429,6 @@ $(document).ready(function() {
         return false;
     });
 
-  
-    // // Form Upload for Success Stories //
-    // $("form#success_stories").submit(function(){
-    //     var formData = new FormData(this);
-    //     $.ajax({
-    //         url: 'success_stories',
-    //         type: 'POST',
-    //         data: formData,
-    //         async: false,
-    //         success: function (data) {
-    //             alert(data)
-    //         },
-    //         cache: false,
-    //         contentType: false,
-    //         processData: false
-    //     });
-    //     return false;
-    // });
 
     /*Admin customer user edit form Start*/
     $('.customer_edit_form').on('submit',function(e) {
@@ -520,11 +496,13 @@ $(document).ready(function() {
                       $('.val_error').fadeOut(5000);
                   }
                     else if(res.error==2) {
-                      // alert("no error");
-                      $('.val_error').html();
+                      $('.val_error').html("<i class='icon-ok-sign'></i>  "+res.status);
                       $(this).html(res.output);
                       $('html, body').animate({scrollTop:0},500);
-                      // $('.db_status').fadeOut(10000);
+                      $('.val_error').fadeIn(500);
+                      $('.val_error').fadeOut(5000);
+                      // $('.db_status').fadeIn(500);
+                      // $('.db_status').fadeOut(5000);
                   }
                 }
             });
@@ -557,11 +535,7 @@ $(window).load(function(){
          'margin-left': -width / 2 + "px"
      });
 });
-
-
- /*Image upload in reg page*/
-
-
+/*Image upload in reg page*/
 (function($) {
     'use strict';
 

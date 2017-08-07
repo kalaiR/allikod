@@ -1099,8 +1099,8 @@ include('include/menu.php');
                                         </div>
                                         <div class="file-tab panel-body">
                                             <label class="btn btn-default btn-file">
-                                                <span>Browse</span>
-                                                <input type="file" name="image-file" id="upimg">
+                                            <span>Browse</span>
+                                        <input type="file" name="uploadedfile" id="uploadedfile" name="uploadedfile">
                                             </label>
                                         </div>
                                     </div>

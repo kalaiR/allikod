@@ -1,4 +1,4 @@
-{} $(document).ready(function() {
+$(document).ready(function() {
         var height = '';
         var width = '';
 
@@ -59,26 +59,26 @@
         }
        //  /* Image Upload on Submit*/ 
             if($(this).hasClass('post_success_form')){
-                if($("#upload_post")[0].files[0]){
-                    var file_size = $("#upload_post")[0].files[0].size;
-                    var ext = $("#upload_post").val().split('.').pop().toLowerCase();
+                if($("#uploadedfile")[0].files[0]){
+                    var file_size = $("#uploadedfile")[0].files[0].size;
+                    var ext = $("#uploadedfile").val().split('.').pop().toLowerCase();
                     if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
                         error = 1;
                         message = "Invalid extension, only gif, png, jpg, jpeg are allowed";
-                        $("#upload_post").addClass("form-field-error");
+                        $("#uploadedfile").addClass("form-field-error");
                     }
                     else if (width > 350 || height > 300) {
                         error = 1;
                         message = "Upload image height and width below 300 X 350";
-                        $("#upload_post").addClass("form-field-error");
+                        $("#uploadedfile").addClass("form-field-error");
                     }
-                    else if (file_size > 100000) {
+                    else if (file_size > 1000000) {
                         error = 1;
                         message = "Upload image size less than 1 MB";
-                        $("#upload_post").addClass("form-field-error");
+                        $("#uploadedfile").addClass("form-field-error");
                     }
                     else{
-                        $("#upload_post").removeClass("form-field-error");
+                        $("#uploadedfile").removeClass("form-field-error");
                     } 
                 }
             }
