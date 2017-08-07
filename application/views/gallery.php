@@ -47,7 +47,7 @@
                     </form>
                 </div><br>
                 <div class="row">
-                    <div class="blog_grid_inner">
+                    <div class="blog_grid_inner pagination_area" id="pagination_area">
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
@@ -163,11 +163,11 @@
                         </div>
                     </div>
                 </div><br>
-                <div class="pagination paginate pull-right">
+                <div class="pagination_area paginate pull-right" id="pagination_area">
                     <a class="prev" href="stories.html#">Previous</a>
                     <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
                     <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
-                    <a class="next" href="#">Next</a>
+                    <a class="next" href="">Next</a>
                 </div>
             </div>
         </section>
@@ -179,7 +179,7 @@
     <!-- <script type="text/javascript" src="<?php echo media_url(); ?>assets/js/jquery.simplePagination.js"></script> -->
     <script type="text/javascript">
                $(function() {
-            $(.paginate).pagination({
+            $('#pagination_area').pagination({
                 items: 16,
                 itemsOnPage:8,
                 cssStyle: 'light-theme'
