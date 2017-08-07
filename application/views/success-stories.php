@@ -24,12 +24,30 @@ include('include/menu.php');
 	                        </div>        
 	                    </div>
 	                    	<?php 
+								// $prefix = '';
+								// $prefix_one = 'th_';
+								// $prefix_two = 'new_';
+								// $prefix_one_status = file_exists(FCPATH."assets/img/uploads/profile/success/".$prefix_one);
+								// $prefix_two_status = file_exists(FCPATH."assets/img/uploads/profile/success/".$prefix_two);
+								// if($prefix_one_status)
+								// 	$prefix = $prefix_one;
+								// else if($prefix_two_status)
+								// 	$prefix = $prefix_two;
+                                            
+
 	                    	if(!empty($results)){	                    		                    	
-	                    	foreach ($results as $value) { ?>
+	                    	foreach ($results as $value){ ?>
 				            <div class="row sucess"> 
 				            	<div class="col-sm-12">        
 		                            <div class="col-sm-3 col-xs-12 sucess-box">
-			                             <img src="<?php echo media_url(); ?>assets/img/sucess/stories-4.jpg" class="img-thumbnail image-box " alt="">   
+			                             <img src="<?php 
+                                                        if(!empty($value['image'])): 
+                                                            echo media_url()."assets/img/uploads/success/".$value['image']; 
+                                                        else:
+                                                            echo media_url()."assets/img/no_image.jpg"; 
+                                                        endif; 
+                                         ?>" alt="Image not loaded" style="width:170px;height:170px;">
+
 		                             </div>
 		                             	<div class="col-sm-5 text-box">
 		                                	<div class="col-sm-4 col-xs-6">
@@ -87,6 +105,15 @@ include('include/menu.php');
 	                            <a class="next" href="<?php echo base_url(); ?>success_stories">Next</a>
                         	</div>
             			</div> -->
+
+						<?php
+							if(!empty($links)) :
+								echo "<div class='col-md-8 nopadding pull-right '>
+								<div class='pagination-box clearfix'>" .$links . "
+								</div>
+								</div>";
+							endif;
+						?> 
             	</div>	
         </section>
 <!--================End Blog grid Area =================-->

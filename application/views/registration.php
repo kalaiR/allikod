@@ -71,7 +71,7 @@ include('include/menu.php');
                                         <div class="row base-box">
                                             <div class="col-sm-4">
                                                 <div class="height_item">
-                                                    <h4>Password</h4>
+                                                    <h4>Password *</h4>
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4 ">
@@ -84,7 +84,7 @@ include('include/menu.php');
                                         <div class="row base-box">
                                             <div class="col-sm-4">
                                                 <div class="height_item">
-                                                    <h4>Confirm Password</h4>
+                                                    <h4>Confirm Password *</h4>
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
@@ -97,7 +97,7 @@ include('include/menu.php');
                                         <div class="row base-box">
                                             <div class="col-sm-4">
                                                 <div class="height_item">
-                                                   <h4>Register By</h4>
+                                                   <h4>Register By *</h4>
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
@@ -123,7 +123,7 @@ include('include/menu.php');
                                         <div class="row base-box">
                                             <div class="col-sm-4">
                                                 <div class="height_item">
-                                                   <h4>Name</h4>
+                                                   <h4>Name *</h4>
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
@@ -136,7 +136,7 @@ include('include/menu.php');
                                         <div class="row base-box">
                                             <div class="col-sm-4">
                                                 <div class="height_item">
-                                                <h4>Gender</h4>
+                                                <h4>Gender *</h4>
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
@@ -1099,8 +1099,8 @@ include('include/menu.php');
                                         </div>
                                         <div class="file-tab panel-body">
                                             <label class="btn btn-default btn-file">
-                                                <span>Browse</span>
-                                                <input type="file" name="image-file" id="upimg">
+                                            <span>Browse</span>
+                                        <input type="file" name="uploadedfile" id="uploadedfile" name="uploadedfile">
                                             </label>
                                         </div>
                                     </div>

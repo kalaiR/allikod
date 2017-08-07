@@ -24,11 +24,11 @@
                                     <form action="success_stories" class="post_success_form" method="post" name="success_stories" id="success_stories" enctype="multipart/form-data">
                                         <div class="col-md-8">
                                             <div class="registration_form_s" id="registration_form_s">
-                                                    <h4>Post Your Story</h4>
+                                                    <!-- <h2>Post Your Story</h2> -->
                                                     <span class="val_status" style="display: block;">
-                                                        <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
-                                                    </span>
-                                                    <div class="form-group">
+                                    <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
+                                    </span>
+                                                    <div class="form-group base-box">
                                                         <div class="col-md-10">
                                                             <input type="text" class="form-control form_inputs" id="bride_name" placeholder="Bride Name (Female) *" name="bride_name">
                                                         </div>
@@ -71,21 +71,27 @@
                                                                         </div>         
                                                                     </div>
                                                             </div>
-                                                        </div> 
-                                                        <div class="col-md-10 base-box">
+                                                            </div>
+                                                                <!-- <div class="col-md-6 upload_box next-box">
+                                                                   <div>
+                                                                        <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" class="next-box" />
+                                                                    </div>
+                                                                </div> -->
+                                                            <div class="col-md-10 base-box">
                                                             <div class="imageupload panel panel-default">
                                                                 <div class="panel-heading clearfix">
                                                                     <h3 class="panel-title">Upload Image *</h3>
+                                                                    <span id="upimg_error" class="registration-error"></span>
                                                                 </div>
                                                                 <div class="file-tab panel-body">
                                                                     <label class="btn btn-default btn-file">
                                                                         <span>Browse</span>
-                                                                         <input type="file" id="upload_post" name="upload_post" class="form_inputs" />
+                                                                         <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" />
                                                                     </label>
                                                                  </div>
                                                                 <!-- <input type="button" id="upload_post" value="upload" name ="upload_post"> -->
                                                             </div>
-                                                        </div>    
+                                                        </div>   
                                                     <div class="comment_form_area next-box">
                                                         <textarea id="comment" class="form-control" name="comment" placeholder="Comment" rows="5"></textarea>
                                                     </div>    
@@ -93,7 +99,7 @@
                                                     <div class="reg_chose form-group">
                                                             <!-- <input type="submit" value="LogIn" id="post_submit" name="post_submit" class="btn form-control login_btn"> -->
                                                         <div class="reg_chose form-group">
-                                                            <button type="submit" value="LogIn" class="form-control login_btn" name="submit">Post</button>
+                                                            <button type="submit" value="LogIn" class="btn login_btn" name="submit">Post</button>
                                                         </div> 
                                                     </div>     
                                             </div>
