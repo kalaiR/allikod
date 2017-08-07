@@ -795,6 +795,8 @@ class Base extends CI_Controller {
 		//Get current login user id from session
 		$login_session = $this->session->userdata("login_session");
 		$id = $login_session['userdetail_id'];
+		$profile_image = array();
+		$data['error'] = 0;
 		if($_POST){
 	   		// Update data
 	   		// $validation_rules = array(
@@ -813,37 +815,66 @@ class Base extends CI_Controller {
 		 //          	}
 		 //        }
 	  //     	}
-   //    		else {
-   //    			echo "else";
-	    		$data_values = $this->user_model->update_customer_user($id); 
+			$filesCount = sizeof($_FILES['cus_profileimage']['name']);
+			if(!empty($_FILES['cus_profileimage']['name'][0]) && $filesCount > 0){
+				for($i = 0; $i < $filesCount; $i++){
+					// $profile_image = $_FILES['cus_profileimage']['name'];
+					$_FILES['userFile']['name'] = $_FILES['cus_profileimage']['name'][$i];
+	                $_FILES['userFile']['type'] = $_FILES['cus_profileimage']['type'][$i];
+	                $_FILES['userFile']['tmp_name'] = $_FILES['cus_profileimage']['tmp_name'][$i];
+	                // $_FILES['userFile']['error'] = $_FILES['cus_profileimage']['error'][$i];
+	                $_FILES['userFile']['size'] = $_FILES['cus_profileimage']['size'][$i];
+					// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
+					$config['upload_path'] = FCPATH.USER_PROFILE_PATH; 
+					$config['allowed_types'] = FILETYPE_ALLOWED;//FILETYPE_ALLOWED which is defined constantly in constants file
+					$config['file_name'] = "th_".$_FILES['cus_profileimage']['name'][$i];
+					// $config['max_size']  = '1000';
+					// $config['max_width'] = '450';
+					// $config['max_height'] = '600';
+
+					$this->upload->initialize($config);
+					if($this->upload->do_upload('userFile')){
+					    $uploadData = $this->upload->data();
+					    array_push($profile_image,USER_PROFILE_PATH.$uploadData['file_name']);
+						$profile_image[$i] = str_replace("th_","",$uploadData['file_name']);
+					}else{
+						$data['error'] = 1;
+						$data['status'] = $this->upload->display_errors();
+					    // array_push($product_image,'');
+					    $profile_image[$i] = '';
+					    break;
+					}
+				}
+				//Remove old image
+				$cus_image = $this->user_model->get_customer_images($id); 
+				// print_r($cus_image);
+				foreach ($cus_image as $value) {
+					// echo FCPATH.USER_PROFILE_PATH.$value['images'];
+					@unlink(FCPATH.USER_PROFILE_PATH.$value['images']);
+				}
+			}
+      		if($data['error'] != 1) {
+	    		$data_values = $this->user_model->update_customer_user($id,$profile_image); 
 	    		$data['error'] = $data_values['error'];
 		        $data['status'] = $data_values['status'];	
-		        print_r($data_values);
-   //    		}
-   //    		echo "after if else";
-	  //     	if($data['error']==1) {
-			// 	$result['status'] = $data['status'];
-			// 	$result['error'] = $data['error'];	
-			// 	echo json_encode($result);
-			// }
-			// else if($data['error']==2) {
+      		}
+	      	if($data['error']==1) {
+				$result['status'] = $data['status'];
+				$result['error'] = $data['error'];	
+				echo json_encode($result);
+			}
+			else if($data['error']==2) {
 				// $data_ajax['customeruser_values'] = $data_values['customeruser_values'];
-				// $data_ajax['status'] = $data['status'];
-				// // $data_ajax['mapped_data'] = $data_values['mapped_data'];
-				// $result['error'] = $data['error'];
-				// if($this->input->post('action') == 'save')
-				// 	$result['output'] = $this->load->view('admin/add_customer_user',$data_ajax,true);
-				// else if($this->input->post('action') == 'update'){
-				// 	// $data_ajax['zodiac_data'] = $this->master_data_model->zodiac_sign('edit')['zodiac_data'];
-				// 	$data_res = $this->customeruser_data_model->customer_user('edit');
-				// 	$data_ajax['customeruser_values'] = $data_res['customeruser_values'];
-				// 	$data_ajax['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
-				// 	$result['output'] = $this->load->view('admin/edit_customer_user',$data_ajax,true);
-				// }
-				// else
-				// 	$result['output'] = $this->load->view('admin/zodiac_sign',$data_ajax,true);
-				// echo json_encode($result);
-			// }
+				$data_ajax['status'] = $data['status'];
+				// $data_ajax['mapped_data'] = $data_values['mapped_data'];
+				$result['error'] = $data['error'];
+				$result['status'] = $data['status'];
+				$data_res = $this->user_model->customer_user_profile($id);
+				$data_ajax['customeruser_values'] = $data_res['customeruser_values'];
+				$data_ajax['selection_values'] = $this->user_model->customer_user_selectiondata();
+				$result['output'] = $this->load->view('myedit',$data_ajax,true);
+				echo json_encode($result);
+			}
 		}
 		else{
 			if(!empty($id)){

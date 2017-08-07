@@ -782,8 +782,7 @@ class User_model extends CI_Model {
       return $model_data;
   }
 
-  public function update_customer_user($id){
-      echo "update_customer_user";
+  public function update_customer_user($id,$profile_image){
       $res = $this->db->get_where('reg_userdetail', array('userdetail_id' => $id))->row_array();
       if(is_numeric($id) && !empty($res))
       { 
@@ -798,7 +797,7 @@ class User_model extends CI_Model {
                               'user_maritalstatus' => $this->input->post('cus_marstatus'),
                               'user_registeredby' => ($this->input->post('cus_regby')) ? $this->input->post('cus_regby') : NULL,
                               );
-            print_r($userdetail_update_data);
+            // print_r($userdetail_update_data);
             $religion_ethnicity_update_data = array(
                     'rel_timeofbirth' => $this->input->post('cus_birthhours')."-".$this->input->post('cus_birthmins')."-".$this->input->post('cus_birthmer'),
                     'rel_mothertongue_id' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
@@ -810,7 +809,7 @@ class User_model extends CI_Model {
                     'rel_gothra' => $this->input->post('cus_gothra'),
                     'rel_zodiacsign_id' => ($this->input->post('cus_zodiac')) ? $this->input->post('cus_zodiac') : NULL,
                               );
-            print_r($religion_ethnicity_update_data);
+            // print_r($religion_ethnicity_update_data);
             $education_occupation_update_data = array(
                     'edu_education' => ($this->input->post('cus_education')) ? $this->input->post('cus_education') : NULL,
                     'edu_educationdetails' => $this->input->post('cus_edudetail'),
@@ -819,7 +818,7 @@ class User_model extends CI_Model {
                     'edu_montlyincome' => $this->input->post('cus_moninc'),
                     'edu_occupationdetail' => $this->input->post('cus_ocudetail'),
                     );
-            print_r($education_occupation_update_data);
+            // print_r($education_occupation_update_data);
             $communication_update_data = array(
                     'comm_residence' => $this->input->post('cus_resident'),
                     'comm_current_countrycountry' => ($this->input->post('cus_curcountry')) ? $this->input->post('cus_curcountry') : NULL,
@@ -844,7 +843,7 @@ class User_model extends CI_Model {
                     'comm_number_of_sisters_yo_mar' => $this->input->post('cus_sisyoungmar'),
                     'comm_about_family' => $this->input->post('cus_abtfamily'),
                     );
-            print_r($communication_update_data);
+            // print_r($communication_update_data);
             $physicalattributes_update_data = array(
                     'phy_height' => $this->input->post('cus_heightcms'),
                     'phy_weight' => $this->input->post('cus_weight'),
@@ -855,9 +854,8 @@ class User_model extends CI_Model {
                     'phy_yourpersonality' => $this->input->post('cus_personality'),
                     'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
             );
-            $profileimage_update_data = array(
-                        'images' => $this->input->post('cus_profileimage'), 
-            );
+            // print_r($physicalattributes_update_data);
+
             $userdetail_update_where = '(userdetail_id="'.$id.'")'; 
             $this->db->set($userdetail_update_data); 
             $this->db->where($userdetail_update_where);
@@ -874,22 +872,26 @@ class User_model extends CI_Model {
             $this->db->set($religion_ethnicity_update_data); 
             $this->db->where($religion_ethnicity_update_where);
             $this->db->update("reg_religion_ethnicity", $religion_ethnicity_update_data);
-            echo $this->db->last_query();
+            // echo $this->db->last_query();
 
-            $education_occupation_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+            $education_occupation_update_where = '(reg_user_id="'.$id.'")'; 
             $this->db->set($education_occupation_update_data); 
             $this->db->where($education_occupation_update_where);
             $this->db->update("reg_education_occupation", $education_occupation_update_data);
+            // echo $this->db->last_query();
 
-            $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+            $physicalattributes_update_where = '(reg_user_id="'.$id.'")'; 
             $this->db->set($physicalattributes_update_data); 
             $this->db->where($physicalattributes_update_where);
             $this->db->update("reg_physical_expectation", $physicalattributes_update_data);
+            // echo $this->db->last_query();
 
-            // $profileimage_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
-            // $this->db->set($profileimage_update_data); 
-            // $this->db->where($profileimage_update_where);
-            // $this->db->update("user_images", $profileimage_update_data);
+            if(!empty($profile_image)){
+                $image_delete_where = '(reg_user_id="'.$id.'")';
+                $this->db->delete("user_images", $image_delete_where); 
+                foreach ($profile_image as $value)
+                  $this->db->insert('user_images',array('reg_user_id' => $id,'images' =>$value));
+            }
 
             // echo $this->db->last_query(); 
             $model_data['status'] = "Updated Successfully";
@@ -1030,6 +1032,15 @@ class User_model extends CI_Model {
   // print_r($model_data);
   // exit();
   return $model_data;
+  }
+
+  public function get_customer_images($id){
+    // $this->db->select('images');
+    // $image_data = $this->db->get_where('user_images', array('reg_user_id' => $id ))->result();
+    $this->db->select('images'); 
+    $this->db->from('user_images');   
+    $this->db->where('reg_user_id', $id);
+    return $this->db->get()->result_array();
   }
 
 

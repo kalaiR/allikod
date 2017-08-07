@@ -497,11 +497,13 @@ $(document).ready(function() {
                       $('.val_error').fadeOut(5000);
                   }
                     else if(res.error==2) {
-                      // alert("no error");
-                      $('.val_error').html();
+                      $('.val_error').html("<i class='icon-ok-sign'></i>  "+res.status);
                       $(this).html(res.output);
                       $('html, body').animate({scrollTop:0},500);
-                      // $('.db_status').fadeOut(10000);
+                      $('.val_error').fadeIn(500);
+                      $('.val_error').fadeOut(5000);
+                      // $('.db_status').fadeIn(500);
+                      // $('.db_status').fadeOut(5000);
                   }
                 }
             });

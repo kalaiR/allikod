@@ -1,3 +1,4 @@
+<?php if(!$this->input->is_ajax_request()) { ?>
 <?php 
     include('include/header.php');
 ?>      <?php 
@@ -146,13 +147,14 @@
         
         <!--================Blog grid Area =================-->
         <form method="POST" action="myedit" class="customer_edit_form" name="customer_edit_form" enctype="multipart/form-data">
+<?php } ?> 
             <?php
-              // print_r($zodiac_data);
-              if(!empty($status)) :
-                echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
-              endif;
+                // echo $status;
+              // if(!empty($status)) :
+              //   echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
+              // endif;
             ?> 
-            <p class='val_error'> <p>
+            <p class='val_error'></p>
             <section class="blog_grid_area">
                 <div class="container">
                     <div class="row">
@@ -262,8 +264,9 @@
                                            <h3 id="hcolor">Image</h3>
                                         </div>
                                         <div class="col-md-12 text-boxs">
-                                            <button type="submit" value="LogIn" herf="#" class="btn form-control login_btn">Upload Images</button>
-                                            <p>No photos in your album.Upload Photos.</p>      
+                                            <!-- <button type="submit" value="LogIn" herf="#" class="btn form-control login_btn">Upload Images</button>
+                                            <p>No photos in your album.Upload Photos.</p> -->      
+                                            <input type="file" name="cus_profileimage[]" id="uploadedfile" name="uploadedfile" multiple="">
                                         </div>
                                     </div>
                                 </div>
@@ -581,9 +584,9 @@
                                                     <p><b>Education *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                    <select class="selectpicker">
-                                                        <option>BCA</option>
-                                                        <option>BE/B Tech</option>
+                                                    <select class="selectpicker" name="cus_education">
+                                                        <option value="1">BCA</option>
+                                                        <option value="2">BE/B Tech</option>
                                                     </select>     
                                                  </div>
                                             </div>
@@ -600,9 +603,9 @@
                                                     <p><b>Occupation *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                      <select class="selectpicker">
-                                                        <option>Admin</option>
-                                                        <option>Other</option>
+                                                      <select class="selectpicker" name="cus_occupation">
+                                                        <option value="1">Admin</option>
+                                                        <option value="2">Other</option>
                                                     </select>
                                                  </div>
                                             </div>     
@@ -613,7 +616,7 @@
                                                     <p><b>Employed In *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                    <select class="selectpicker">
+                                                    <select class="selectpicker" name="cus_empin">
                                                         <option value="">Select Employed In</option>
                                                           <?php 
                                                             foreach ($selection_values['employedin_values'] as $emp_val):      
@@ -630,7 +633,7 @@
                                                     <p><b>Monthly Income(In Indian-Rs) *</b></p>
                                                 </div>
                                                 <div class="col-md-5">       
-                                                    <input type="text" class="form-control" id="reg_Name" placeholder="" <?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; ?>" name="cus_moninc">
+                                                    <input type="text" class="form-control" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; ?>" name="cus_moninc">
                                                  </div>
                                             </div>
                                             <div class="row com-box">
@@ -794,7 +797,7 @@
                                                     <p><b>Height</b></p>
                                                 </div>
                                                 <div class="col-md-6">        
-                                                   <select class="selectpicker" name="cus_height">
+                                                   <select class="selectpicker" name="cus_heightcms">
                                                         <option value="">Height in cm</option>
                                                         <?php 
                                                             foreach ($selection_values['height_values'] as $height_val):  
@@ -1135,10 +1138,10 @@
                     </div>        
                 </div>
             </section>
+<?php if(!$this->input->is_ajax_request()) { ?>
         </form>
         <!--================End Blog grid Area =================-->
 <?php 
 include('include/footer.php');
 ?>  
-    </body>
-</html>
+<?php } ?>
