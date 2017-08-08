@@ -1248,7 +1248,7 @@ legend + .control-group {
 .form-horizontal .controls {
   *display: inline-block;
   *padding-left: 20px;
-  margin-left: 160px;
+  margin-left: 230px;
   *margin-left: 0;
 }
 .form-horizontal .controls:first-child {
@@ -4465,4 +4465,16 @@ i[class^="icon-"] {
 }
 .pad{
   padding-top: 30px;
+}
+.rasi_box
+{
+  margin-top: 10px;
+}
+.asham-box
+{
+  margin-left: 55px;
+}
+.rs_box
+{
+  margin-left: 15px;
 }
