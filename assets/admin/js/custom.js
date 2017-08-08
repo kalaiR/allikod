@@ -195,7 +195,7 @@ $(document).ready(function() {
         if(error == '' ) {
               if($("#new_pass").val() != $("#confirm_pass").val()) {
                   error = 1;
-                  message = "Confirm password didnot match with new password";
+                  message = "Confirm password did not match with new password";
                   $("#confirm_pass").addClass("form-field-error");
               }
               else {
@@ -221,6 +221,43 @@ $(document).ready(function() {
             formData.append('rid', $(this).data('id'));
             // var formData = $(this).serialize();
             // alert(JSON.stringify(formData)); // It returns empty when stringify json data, but data has been passed
+            
+            rasi = [];
+            $('.horo_row div').each(function() {
+                if($(this).find('img').length){
+                    value = $(this).text();
+                    // formData.append('rasi', $(this).text());
+                    $(this).find('img').each(function(){
+                        rasi.push({'key':$(this).data('id'),'value':value});
+                    })                   
+                }
+            });
+            if($('#rasi_name option').length > 0){
+                $('#rasi_name option').each(function(){
+                    rasi.push({'key':$(this).val(),'value':0});
+                });
+            }
+            // alert(JSON.stringify(rasi));
+            formData.append('rasi', JSON.stringify(rasi));
+
+            amsam = [];
+            $('.asham_horo_row div').each(function() {
+                if($(this).find('img').length){
+                    value = $(this).text();
+                    // formData.append('rasi', $(this).text());
+                    $(this).find('img').each(function(){
+                        amsam.push({'key':$(this).data('id'),'value':value});
+                    })                   
+                }
+            });
+            if($('#asham_name option').length > 0){
+                $('#asham_name option').each(function(){
+                    amsam.push({'key':$(this).val(),'value':0});
+                });
+            }
+            // alert(JSON.stringify(amsam));
+            formData.append('amsam', JSON.stringify(amsam));
+
             $.ajax({
                type: "POST",
                url: admin_baseurl+$(this).attr('action'),
@@ -238,9 +275,11 @@ $(document).ready(function() {
                   }
                     else if(res.error==2) {
                       // alert("no error");
-                      $('.val_error').html();
+                      $('.val_error').html("<i class='icon-ok-sign'></i>  "+res.status);
                       $(this).html(res.output);
                       $('html, body').animate({scrollTop:0},500);
+                      $('.val_error').fadeIn(500);
+                      $('.val_error').fadeOut(5000);
                       // $('.db_status').fadeOut(10000);
                   }
                 }
