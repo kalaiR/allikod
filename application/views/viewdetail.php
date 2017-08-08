@@ -162,7 +162,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <div class="col-md-4  dark">
                                                         <p class="text_short"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></p>
                                                     </div>
-                                                    <div class="col-md-1 tooltips">
+                                                    <div class="col-md-1 tooltips long">
                                                         <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></span>
                                                     </div>
                                                     <div  class="col-md-6 col-xs-6 ">
@@ -258,7 +258,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                             <div class="col-md-4  dark">
                                                 <p class="text_short"><?php echo $results['edu_educationdetails']; ?></p>
                                             </div>
-                                            <div class="col-md-1 tooltips">
+                                            <div class="col-md-1 tooltips long">
                                                 <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['edu_educationdetails']; ?></span>
                                             </div>
                                             <div class="col-md-6 col-xs-6">
@@ -275,7 +275,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                             <div class="col-md-4  dark">
                                                 <p class="text_short"><?php echo $results['edu_occupationdetail']; ?></p>
                                             </div>
-                                            <div class="col-md-1 tooltips">
+                                            <div class="col-md-1 tooltips long">
                                                 <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['edu_occupationdetail']; ?></span>
                                             </div>
                                             <div  class="col-md-6 col-xs-6 ">
@@ -318,7 +318,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                             <div class="col-md-4 col-xs-6 dark">
                                                 <p class="text_short"><?php echo $results['comm_father_employment']; ?></p>
                                             </div>
-                                            <div class="col-md-1 col-xs-1 tooltips">
+                                            <div class="col-md-1 col-xs-1 tooltips long">
                                                 <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['comm_father_employment']; ?></span>
                                             </div>
                                             <div class="col-md-6 col-xs-6">
@@ -327,7 +327,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                             <div class="col-md-4 col-xs-6 dark">
                                                 <p class="text_short"><?php echo $results['comm_mother_employment']; ?></p>
                                             </div>
-                                            <div class="col-md-1 col-xs-1 tooltips">
+                                            <div class="col-md-1 col-xs-1 tooltips long">
                                                 <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['comm_mother_employment']; ?></span>
                                             </div>
                                             <div class="col-md-6 col-xs-6">

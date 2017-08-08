@@ -689,13 +689,13 @@
 
 .asham_horo_row{
     font-size: 0px; /*Remove extra margins!*/
-    min-height:282px;
+    height:282px;
    /* margin-top:25px;*/
     width:282px;
     background-color:transparent;
     /*margin-left:auto;
     margin-right:auto*/;
-    padding:2%;    
+    padding:1%;    
     background-image: url("../img/rasi/amsam1.png");
     background-repeat: no-repeat;
     background-position: right top;
