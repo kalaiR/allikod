@@ -750,6 +750,22 @@ class User_model extends CI_Model {
      //  echo "<pre>";
       // print_r($model_data['customeruser_values']);
       // echo "</pre>";
+      $condition = "regedu.reg_user_id = ".$id."";
+      $this->db->select('regedu.*,edu.education_id,edu.edu_name');
+      $this->db->from('reg_selectededucation regedu');
+      $this->db->join('education edu','edu.education_id=regedu.education_id','inner');
+      $this->db->where($condition); 
+      $model_data['customeruser_multiple_edu_values'] = $this->db->get()->result_array();
+      // print_r($model_data['customeruser_multiple_edu_values']);
+
+      $condition = "regmar.reg_user_id = ".$id."";
+      $this->db->select('mar.maritalcategory_id');
+      $this->db->from('reg_selectedmarital regmar');
+      $this->db->join('marital_category mar','mar.maritalcategory_id=regmar.marital_category_id','inner');
+      $this->db->where($condition); 
+      $model_data['customeruser_multiple_marstatus_values'] = $this->db->get()->result_array();
+      // print_r($model_data['customeruser_multiple_marstatus_values']);
+
       return $model_data;
   }
   public function customer_user_selectiondata(){
@@ -852,6 +868,9 @@ class User_model extends CI_Model {
                     'phy_physicalstatus' => $this->input->post('cus_phystatus'),
                     'phy_food' => $this->input->post('cus_food'),
                     'phy_yourpersonality' => $this->input->post('cus_personality'),
+                    'phy_searchage_from' => $this->input->post('cus_startage'),
+                    'phy_searchage_to' => $this->input->post('cus_endage'),
+                    'phy_expectationfood' => $this->input->post('cus_expectfood'),
                     'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
             );
             // print_r($physicalattributes_update_data);
@@ -912,6 +931,22 @@ class User_model extends CI_Model {
             $this->db->set($data_horo); 
             $this->db->where($horoscope_where);
             $this->db->update("reg_image_horoscope", $data_horo);
+
+            //Update expectation for search
+
+            // $expectation_update_data = array(
+            //         'phy_height' => $this->input->post('cus_heightcms'),
+            //         'phy_weight' => $this->input->post('cus_weight'),
+            //         'phy_bodytype' => $this->input->post('cus_bodytype'),
+            //         'phy_complexion' => $this->input->post('cus_complexion'),
+            //         'phy_physicalstatus' => $this->input->post('cus_phystatus'),
+            //         'phy_food' => $this->input->post('cus_food'),
+            //         'phy_yourpersonality' => $this->input->post('cus_personality'),
+            //         'phy_searchage_from' => $this->input->post('cus_startage'),
+            //         'phy_searchage_to' => $this->input->post('cus_endage'),
+            //         'phy_expectationfood' => $this->input->post('cus_expectfood'),
+            //         'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
+            // );
 
             // echo $this->db->last_query(); 
             $model_data['status'] = "Updated Successfully";

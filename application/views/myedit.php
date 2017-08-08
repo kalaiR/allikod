@@ -984,21 +984,19 @@
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" value="">
-                                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                                                Single
-                                                        </label>
-                                                        <label>
-                                                            <input type="checkbox" value="">
-                                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                                                Widowed
-                                                        </label>
-                                                        <label>
-                                                            <input type="checkbox" value="">
-                                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                                                Divorced Annulled
-                                                        </label>
+                                                        <?php 
+                                                        $marstatus = array();
+                                                        foreach ($customeruser_multiple_marstatus_values as $key => $value) {
+                                                            array_push($marstatus, $value['maritalcategory_id']);
+                                                        }
+                                                        foreach ($selection_values['maritalstatus_values'] as $mar_val): 
+                                                        ?> 
+                                                            <label>
+                                                                <input type="checkbox" value="<?php echo $mar_val['maritalcategory_id']; ?>"  <?php $key = array_search($mar_val['maritalcategory_id'],$customeruser_multiple_marstatus_values); echo $key; if(in_array($mar_val['maritalcategory_id'],$marstatus)) echo "checked"; ?> name="cus_expectmarstatus[]">
+                                                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                                    <?php echo $mar_val['marital_name']; ?>
+                                                            </label>
+                                                        <?php endforeach; ?>
                                                     </div>
                                                 </div>                                           
                                             </div>
@@ -1009,7 +1007,13 @@
                                                 <div class="col-md-6">       
                                                     <div class="control-group">                     
                                                         <div class="controls">
-                                                            <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4">
+                                                            <?php 
+                                                                $education = array();
+                                                                foreach ($customeruser_multiple_edu_values as $key => $value) {
+                                                                    array_push($education, $value['education_id']);
+                                                                } 
+                                                            ?>
+                                                            <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4" name="cus_expectedu[]">
                                                                 <option value="">Select</option>
                                                                 <optgroup class="a" label="Bachelors - Engineering/ Computers"></optgroup>
                                                                 <option  selected="selected"  value="1">BE/B Tech</option>
@@ -1036,11 +1040,11 @@
                                                 foreach ($selection_values['food_values'] as $con_val):      
                                                     if($con_val['food_id'] == $customeruser_values['phy_expectationfood']){  ?>
                                                         <div class="radio-inline">
-                                                            <label><input type="radio" name="Vegetarian" value="<?php echo $con_val['food_id']; ?>" checked><?php echo $con_val['name']; ?></label>
+                                                            <label><input type="radio" name="cus_expectfood" value="<?php echo $con_val['food_id']; ?>" checked><?php echo $con_val['name']; ?></label>
                                                         </div>
                                                     <?php }else{?>
                                                         <div class="radio-inline">
-                                                            <label><input type="radio" name="Vegetarian" value="<?php echo $con_val['food_id']; ?>"><?php echo $con_val['name']; ?></label>
+                                                            <label><input type="radio" name="cus_expectfood" value="<?php echo $con_val['food_id']; ?>"><?php echo $con_val['name']; ?></label>
                                                         </div>
                                                 <?php } endforeach; ?>     
                                                  </div>
