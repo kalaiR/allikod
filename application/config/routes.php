@@ -51,6 +51,7 @@ $route['default_controller'] 							= "base/index";
 // $route['login/featured_job'] 							= 'home/featured_job';
 $route['index'] 							= "base/index";
 $route['login_ajax'] 						= "base/login_ajax";
+$route['register_mailcheck'] 				= "base/register_mailcheck";
 $route['search'] 							= "base/search";
 $route['contact'] 							= "base/contact";
 $route['gallery'] 							= "base/gallery";
@@ -62,6 +63,7 @@ $route['search'] 							= "base/search";
 $route['search_result'] 					= "base/search_result";
 $route['search_result/(:any)'] 				= "base/search_result/$1";
 $route['success_stories'] 					= "base/success_stories";
+$route['success_stories/(:any)'] 			= "base/success_stories/$1";
 $route['vanniyar'] 							= "base/vanniyar";
 $route['viewdetail/(:any)'] 				= "base/viewdetail/$1";
 $route['myprofile'] 						= "base/myprofile";
@@ -70,6 +72,7 @@ $route['upload_file'] 						= "base/upload_file";
 $route['logout'] 							= "base/logout";
 $route['myedit'] 							= "base/myedit";
 $route['newreg'] 							= "base/newreg";
+$route['countprofile_viewed'] 				= "base/countprofile_viewed";
 
 
 // $route['admin'] 							= "admin/base/index";

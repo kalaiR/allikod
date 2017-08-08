@@ -69,13 +69,28 @@ class Base extends CI_Controller {
 	// 		}else{
 	// 			// Session
 	//         	$this->session->set_userdata("login_status",1);
- //    	    	$this->session->set_userdata("login_session",$data_values['login_values']);
- //    	    	$data['login_user'] = $data_values['login_values'];
+ 	//    	    	$this->session->set_userdata("login_session",$data_values['login_values']);
+ 	//    	    	$data['login_user'] = $data_values['login_values'];
 	// 			$this->load->view('index', $data);
 	// 		}
 	// 	}
 	// }
 
+	public function register_mailcheck(){
+		$data['status'] = '';
+		if($this->input->post()){			
+			$data_values = $this->user_model->checkmail(); 			
+			if($data_values['cstatus']!='email_available'){
+				$data['status'] = $data_values['status'];
+				$data['error'] = $data_values['error'];	
+				echo $data['error'];
+			}else{
+				$data['status'] = $data_values['status'];
+				$data['error'] = $data_values['error'];	
+				echo $data['error'];
+			}
+		}
+	}
 
 	//Changed the above login ajax function temporarily by kalai as per vinoth request(don't allow user to login,only one specified user can login for testing purporse)
 	public function login_ajax(){
@@ -93,7 +108,7 @@ class Base extends CI_Controller {
 				echo $data['status'];
 				redirect(base_url().'index');
 			}else{
-				if($_POST['email_id'] == 'sample21@gmail.com'){
+			if($_POST['email_id'] == 'sample21@gmail.com' || 'rajeswari.moto@gmail.com' || 'saranvishwaja@gmail.com' || 'kalasugumar1959@gmail.com' || 'mmappan@gmail.com' || 'komalsvrj@gmail.com' || 'mailtouthayan@gmail.com' || 'anbu21@gmail.com' || 'viji.matsat@gmail.com' || 'dhivya21@gmail.com' || 'sankari21@gmail.com'){
 					// Session
 		        	$this->session->set_userdata("login_status",1);
 	    	    	$this->session->set_userdata("login_session",$data_values['login_values']);
@@ -172,16 +187,19 @@ class Base extends CI_Controller {
 			$form_data = $this->input->post();
 				// echo '<pre>';
 				// print_r($_FILES);
+				// print_r($form_data);
 				// echo '<pre>';				
+				// exit();
 				$data = array(
-					'userdetail_id'=>'',
-					'userdetail_profile_id'=>100,
+					// 'userdetail_id'=>'',
+					// 'userdetail_profile_id'=>100,
 					'user_email'=>$form_data['register_email'],
 					'user_pwd'=>$form_data['reg_pass1'],
 					'user_fname'=>$form_data['reg_name'],
 					'user_gender'=>$form_data['gender'][0],					
-					'user_age'=>'25',
-					'user_dob'=>'2017-07-10',					
+					'user_age'=>$form_data['user_age'],
+					'user_dob'=>$form_data['dob'],
+					'user_online_or_simple'=>'Online',					
 					'user_maritalstatus'=>$form_data['marital_status'][0],
 					'user_registeredby'=>$form_data['register_by'][0]
 				);
@@ -189,7 +207,7 @@ class Base extends CI_Controller {
 
 
 		  		$data_reg = array(
-						'religionethnicity_id'=>'',
+						// 'religionethnicity_id'=>'',
 						'reg_user_id'=>$id_userdetails,
 						'rel_timeofbirth'=>'2017-07-10',
 						'rel_mothertongue_id'=>$form_data['mother_tongue'][0],
@@ -200,25 +218,25 @@ class Base extends CI_Controller {
 					$data_reg['rel_religion']= $form_data['reg_religion'];
 				}
 				if(!empty($form_data['reg_caste'])){
-					$data_reg['reg_caste']= $form_data['reg_caste'];
+					$data_reg['rel_caste']= $form_data['reg_caste'];
 				}
 				if(!empty($form_data['reg_Dhosham'])){
-					$data_reg['reg_Dhosham']= $form_data['reg_Dhosham'];
+					$data_reg['rel_dhosham']= $form_data['reg_Dhosham'];
 				}
 				if(!empty($form_data['reg_religion'])){
 					$data_reg['rel_religion']= $form_data['reg_religion'];
 				}
 				if(!empty($form_data['luknam'][0])){
-					$data_reg['luknam']= $form_data['luknam'][0];
+					$data_reg['rel_luknam_id']= $form_data['luknam'][0];
 				}
 				if(!empty($form_data['reg_gothra'])){
-					$data_reg['reg_gothra']= $form_data['reg_gothra'];
+					$data_reg['rel_gothra']= $form_data['reg_gothra'];
 				}
 		  		$id_userreg = $this->user_model->insert_registration('reg_religion_ethnicity',$data_reg);
 
 
 		  		$data_regedu = array(
-						'educationoccupation_id'=>'',
+						// 'educationoccupation_id'=>'',
 						'reg_user_id'=>$id_userdetails,
 						'edu_education'=>$form_data['education'][0],
 						'edu_educationdetails'=>$form_data['education_detail'],
@@ -231,7 +249,7 @@ class Base extends CI_Controller {
 
 		  		
 		  		$data_reg_com = array(
-						'communicationfamily_id'=>'',
+						// 'communicationfamily_id'=>'',
 						'reg_user_id'=>$id_userdetails,						
 						'comm_mobile_no'=>$form_data['reg_mobile'],
 						'comm_father_name'=>$form_data['reg_fname'],
@@ -320,21 +338,37 @@ class Base extends CI_Controller {
 
 		  		$id_user_com = $this->user_model->insert_registration('reg_communication_family',$data_reg_com);
 
-
-
 		  		$data_reg_phy = array(
-						'physicalexpectation_id'=>'',
+						// 'physicalexpectation_id'=>'',
 						'reg_user_id'=>$id_userdetails,						
 						'phy_food'=>$form_data['food'][0],							
 						'phy_searchage_from'=>$form_data['search_age_from'][0],
 						'phy_searchage_to'=>$form_data['search_age_to'][0],
-						// 'phy_searchmarital_status'=>form_data['marital_status_any'],
-						'phy_searchmarital_status'=>'Single',
-						'phy_searchedu_status'=>$form_data['reg_Education'][0],
-						// 'phy_expectationfood'=>$form_data['diet_nonveg']
-						'phy_expectationfood'=>'2'
-						
+						//'phy_searchmarital_status'=>'Single',
+						'phy_searchedu_status'=>$form_data['reg_Education'][0]
 				);
+
+				if(!empty($form_data['marital_status_single_white'])){
+					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_single_white'];	
+				}elseif(!empty($form_data['marital_status_windowed'])){
+					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_windowed'];	
+				}elseif(!empty($form_data['marital_status_annualled'])){
+					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_annualled'];	
+				}elseif(!empty($form_data['marital_status_divorced'])){
+					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_divorced'];	
+				}else{
+					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_any'];	
+				}
+
+				if(!empty($form_data['diet_veg'])){
+					$data_reg_phy['phy_expectationfood']=$form_data['diet_veg'];	
+				}elseif(!empty($form_data['diet_nonveg'])){
+					$data_reg_phy['phy_expectationfood']=$form_data['diet_nonveg'];	
+				}elseif(!empty($form_data['diet_egg'])){
+					$data_reg_phy['phy_expectationfood']=$form_data['diet_egg'];	
+				}
+
+
 				if(!empty($form_data['height_in_cms'][0])){
 					$data_reg_phy['phy_height']= $form_data['height_in_cms'][0];
 				}
@@ -365,6 +399,7 @@ class Base extends CI_Controller {
 				// 'phy_yourpersonality'=>$form_data['personality'],
 				// 'phy_expectationabout_lifepartner'=>$form_data['expectation']
 		  		$id_user_phy = $this->user_model->insert_registration('reg_physical_expectation',$data_reg_phy);
+		  		
 
 				if(!empty($_FILES['uploadedfile']['name']))
         		{	   	
@@ -382,17 +417,16 @@ class Base extends CI_Controller {
                 		$upload_data = $this->upload->data(); 
                 		$_POST['uploadedfile'] = $upload_data['file_name']; 
                 		$targetfile_details = $upload_data['file_name'];
-  	            	}
-    		      	else
-            		{
+                		$data['error'] = 0;
+  	            	}else{
 	                	$data['status'] = $this->upload->display_errors(); 
 	                	$upload_error = 1;
 	                	$data['error'] = 1;
                 	}
 
-                	if(isset($data['error'])&&($data['error']!=1)){	
+                	if($data['error']!=1){	
 						$data_images = array(
-								'userimages_id'=>'',
+								// 'userimages_id'=>'',
 								'reg_user_id'=>$id_userdetails,						
 								'images'=>$targetfile_details
 						);	
@@ -401,16 +435,29 @@ class Base extends CI_Controller {
                 }
 
                 // Insert Horoscope // 
-                if(!empty($form_data['result_horoscope'])) {
-                	$tempData = html_entity_decode($form_data['result_horoscope']);
+                if(!empty($form_data['result_horoscope_rasi'])) {
+                	$tempData = html_entity_decode($form_data['result_horoscope_rasi']);
 					$cleanData = json_decode($tempData);		
 					foreach ($cleanData as $key => $value) {
-						$data_images[$value->key]= $value->value;
+						$data_horo[$value->key]= $value->value;
 					}
-					$data_images['imagehoroscope_id'] = '';
-					$data_images['reg_user_id'] = $id_userdetails;
-				}				
-				$id_images = $this->user_model->insert_registration('reg_image_horoscope',$data_images);
+				}	
+				if(!empty($form_data['result_horoscope_rasi'])) {
+					$tempData = html_entity_decode($form_data['result_horoscope_asham']);
+					$cleanData = json_decode($tempData);		
+					foreach ($cleanData as $key => $value) {
+						$data_horo[$value->key]= $value->value;
+					}
+				}	
+
+				// $data_horo['imagehoroscope_id'] = '';
+				$data_horo['reg_user_id'] = $id_userdetails;
+
+				// echo '<pre>';
+				// print_r($data_horo);
+				// echo '</pre>';
+				// exit();
+				$id_images = $this->user_model->insert_registration('reg_image_horoscope',$data_horo);
 		  		$this->load->view('registration');
 
 		  	}else{
@@ -483,7 +530,7 @@ class Base extends CI_Controller {
 				$age_to = $form_data['search_age_to'][0];
 				$height_from = $form_data['height_in_cms'][0];		
 				$height_to = $form_data['height_in_feets'][0];
-				$mar_status = $form_data['martial_status'][0];
+				$mar_status = $form_data['marital_status'][0];
 				$mother_tongue = $form_data['mother_tongue'][0];
 				// $education = $form_data['education_category'][0];
 				$show_profile = $form_data['images'][0];
@@ -536,12 +583,24 @@ class Base extends CI_Controller {
 			$advance_search = $this->session->userdata('advance_search_sess');						
 
 			if(!empty($search_inputs)){
+				$session_data = $this->session->userdata('search_inputs');
+				$session_data['offset'] = $values[0];
+				$this->session->set_userdata("search_inputs", $session_data);
 				$data = $this->user_model->get_basicsearch($search_inputs, $per_page, $offset);	
 			}elseif(!empty($search_quick)){
+				$session_data = $this->session->userdata('search_quick');
+				$session_data['offset'] = $values[0];
+				$this->session->set_userdata("search_quick", $session_data);
 				$data = $this->user_model->get_quicksearch($search_quick, $per_page, $offset);				
 			}elseif(!empty($search_dhosham)){
+				$session_data = $this->session->userdata('search_dhoshamid');
+				$session_data['offset'] = $values[0];
+				$this->session->set_userdata("search_dhoshamid", $session_data);
 				$data = $this->user_model->get_dhoshamsearch($search_dhosham, $per_page, $offset);
 			}elseif(!empty($advance_search)){
+				$session_data = $this->session->userdata('advance_search_sess');
+				$session_data['offset'] = $values[0];
+				$this->session->set_userdata("advance_search_sess", $session_data);
 				$data = $this->user_model->get_advancesearch($advance_search, $per_page, $offset);
 			}			
 		}
@@ -598,55 +657,109 @@ class Base extends CI_Controller {
 		
 	}
 	public function success_stories(){
+		$per_page = 5;
+		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);		
+		if($values[0]){	
+			$offset = (($values[0]-1)*$per_page); 
+		}else{
+		 	$offset = 0;
+		}	
 
 		if($this->input->post()){
 			$form_data = $this->input->post();
-			$config['upload_path'] = base_url().'uploads/userprofile/';        
-        	$config['allowed_types'] = '*';
-        	$config['max_filename'] = '255';
-        	$config['encrypt_name'] = TRUE;
-        	$config['max_size'] = '1024'; //1 MB
-       		
-       		// print_r($_FILES);
-       		// exit();		
-		    if (isset($_FILES['upload_post']['name'])) {
-		        if (0 < $_FILES['upload_post']['error']) {
-		            echo 'Error during file upload' . $_FILES['upload_post']['error'];
-		        } else {
-		        	echo 'in';
-		            if (file_exists('uploads/userprofile' . $_FILES['upload_post']['name'])) {
-		                echo 'File already exists : uploads/userprofile' . $_FILES['upload_post']['name'];
-		            } else {
-		                $this->load->library('upload', $config);
-		                if (!$this->upload->do_upload('upload_post')) {
-		                    echo $this->upload->display_errors();
-		                } else {
-		                    echo 'File successfully uploaded : uploads/userprofile' . $_FILES['upload_post']['name'];
-		                }
-		            }
-		        }
-		    } else {
-		        echo 'Please choose a file';
-		    }
+			if(!empty($_FILES['uploadedfile']['name'])){	   	
+        			$config['upload_path'] = FCPATH.USER_SUCCESS_PATH; 
+        			
+        			// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
+			        $config['allowed_types'] = 'jpg|jpeg|png'; // Allowed tupes
+			        $config['encrypt_name'] = TRUE; // Encrypted file name for security purpose
+			        $personnal_logo['file_ext_tolower'] 	= TRUE;
+			        $config['max_size']    = '20480'; // Maximum size - 1MB
+			    	$config['max_width']  = '10240'; // Maximumm width - 1024px
+			    	$config['max_height']  = '76800'; // Maximum height - 768px
+			        $this->upload->initialize($config); // Initialize the configuration		
+           			if($this->upload->do_upload('uploadedfile'))
+            		{
+                		$upload_data = $this->upload->data(); 
+                		$_POST['uploadedfile'] = $upload_data['file_name']; 
+                		$targetfile_details = $upload_data['file_name'];
+                		$data['error'] = 0;
+  	            	}else{
+	                	$data['status'] = $this->upload->display_errors(); 
+	                	$upload_error = 1;
+	                	$data['error'] = 1;
+                	}
+                }
 
 		    // Insert Success-Queries //
+            if($data['error']!=1){	$images = $targetfile_details;	}else{	$images = ''; }
+			if($form_data['vallikodi_id']){	$vallikodi_id = $form_data['vallikodi_id'];	}else{	$vallikodi_id = ''; }
+
 			$data_success_stories = array(
-						'successstories_id'=>'',
-						'vallikodi_id'=>$form_data['vallikodi_id'],
+						// 'successstories_id'=>'',
+						'vallikodi_id'=>$vallikodi_id,
 						'email_id'=>$form_data['email_id'],
 						'male_name'=>$form_data['bride_name'],
 						'female_name'=>$form_data['groom_name'],
 						'title'=>'Success Stories',					
-						'image'=>'path',
+						'image'=>$images,
 						'description'=>$form_data['comment'],	
 						'marriage_date'=>$form_data['mariage_date']
 				);
-		  		$success_stories = $this->user_model->insert_registration('success_stories',$data_success_stories);
-		  		$data['success_stories'] = $success_stories;
-		  		$data['success_msg'] = 'Data Inserted successfully';				
-				$this->load->view('success-stories', $data);
+				// print_r($data_success_stories);				
+				// exit();
+				if($data['error']!=1){
+			  		$success_stories = $this->user_model->insert_registration('success_stories', $data_success_stories);
+			  		$data['success_stories'] = $success_stories;
+			  		$data['success_msg'] = 'Data Inserted successfully';
+		  		}
+				redirect('success_stories/');
 		}else{
-			$data['results'] = $this->user_model->get_success_stories();			
+
+			$data = $this->user_model->get_success_stories($per_page, $offset);
+
+				//pagination
+			$this->load->library('pagination');
+
+			// Pagination configuration
+	  		$config['base_url'] = base_url().'success_stories';
+			$config['per_page'] = $per_page;		
+			$config['total_rows'] = $data['total_rows'];
+			$config['uri_segment'] = 2;
+			$config['num_links'] = 4;
+			$config['use_page_numbers'] = TRUE;
+
+	    	// Custom Configuration
+			$config['full_tag_open'] = '<ul class="pagination">';
+			$config['full_tag_close'] = '</ul>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a>';
+			$config['cur_tag_close'] = '</a></li>';
+			$config['next_link'] = 'Next';
+			$config['prev_link'] = 'Prev';
+			$config['first_link'] = 'First';
+			$config['first_tag_open'] = '<li>';
+			$config['first_tag_close'] = '</li>';
+			$config['last_link'] = 'Last';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+
+			// Pagination Inititalization
+			$this->pagination->initialize($config);
+
+			// Navigation Links
+			$pagination_links = $this->pagination->create_links();
+			$data["links"] = $pagination_links;	
+
+			// echo '<pre>';
+			// print_r($data);
+			// echo '</pre>';
+			
 			$this->load->view('success-stories', $data);
 		}	
 	}
@@ -682,19 +795,120 @@ class Base extends CI_Controller {
 		//Get current login user id from session
 		$login_session = $this->session->userdata("login_session");
 		$id = $login_session['userdetail_id'];
-		if(!empty($id)){
-			$data_values = $this->user_model->customer_user_profile($id);
-			$data['customeruser_values'] = $data_values['customeruser_values'];
-			//Get Selection option data's for edit
-			$data['selection_values'] = $this->user_model->customer_user_selectiondata();
-			// echo "<pre>";
-			// print_r($data['selection_values']);
-			// echo "</pre>";
-			$this->load->view('myedit',$data);
+		$profile_image = array();
+		$data['error'] = 0;
+		if($_POST){
+	   		// Update data
+	   		// $validation_rules = array(
+   			// 	// array('field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|required|xss_clean|max_length[50]|edit_unique[reg_userdetail.userdetail_id.user_email.'.$id.']' ),
+   			// );
+	   		// $this->form_validation->set_rules($validation_rules);
+	  //     	if ($this->form_validation->run() == FALSE) {   
+	  //     		echo "if";
+		 //        foreach($validation_rules as $row){
+		 //        	$field = $row['field']; // getting field name
+		 //        	$error = form_error($field); // getting error for field name
+		 //        	if($error){
+		 //            	$data['error'] = 1;
+		 //            	$data['status'] = strip_tags($error);
+		 //            	break;
+		 //          	}
+		 //        }
+	  //     	}
+			$filesCount = sizeof($_FILES['cus_profileimage']['name']);
+			if(!empty($_FILES['cus_profileimage']['name'][0]) && $filesCount > 0){
+				for($i = 0; $i < $filesCount; $i++){
+					// $profile_image = $_FILES['cus_profileimage']['name'];
+					$_FILES['userFile']['name'] = $_FILES['cus_profileimage']['name'][$i];
+	                $_FILES['userFile']['type'] = $_FILES['cus_profileimage']['type'][$i];
+	                $_FILES['userFile']['tmp_name'] = $_FILES['cus_profileimage']['tmp_name'][$i];
+	                // $_FILES['userFile']['error'] = $_FILES['cus_profileimage']['error'][$i];
+	                $_FILES['userFile']['size'] = $_FILES['cus_profileimage']['size'][$i];
+					// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
+					$config['upload_path'] = FCPATH.USER_PROFILE_PATH; 
+					$config['allowed_types'] = FILETYPE_ALLOWED;//FILETYPE_ALLOWED which is defined constantly in constants file
+					$config['file_name'] = "th_".$_FILES['cus_profileimage']['name'][$i];
+					// $config['max_size']  = '1000';
+					// $config['max_width'] = '450';
+					// $config['max_height'] = '600';
+
+					$this->upload->initialize($config);
+					if($this->upload->do_upload('userFile')){
+					    $uploadData = $this->upload->data();
+					    array_push($profile_image,USER_PROFILE_PATH.$uploadData['file_name']);
+						$profile_image[$i] = str_replace("th_","",$uploadData['file_name']);
+					}else{
+						$data['error'] = 1;
+						$data['status'] = $this->upload->display_errors();
+					    // array_push($product_image,'');
+					    $profile_image[$i] = '';
+					    break;
+					}
+				}
+				//Remove old image
+				$cus_image = $this->user_model->get_customer_images($id); 
+				// print_r($cus_image);
+				foreach ($cus_image as $value) {
+					// echo FCPATH.USER_PROFILE_PATH.$value['images'];
+					@unlink(FCPATH.USER_PROFILE_PATH.$value['images']);
+				}
+			}
+      		if($data['error'] != 1) {
+	    		$data_values = $this->user_model->update_customer_user($id,$profile_image); 
+	    		$data['error'] = $data_values['error'];
+		        $data['status'] = $data_values['status'];	
+      		}
+	      	if($data['error']==1) {
+				$result['status'] = $data['status'];
+				$result['error'] = $data['error'];	
+				echo json_encode($result);
+			}
+			else if($data['error']==2) {
+				// $data_ajax['customeruser_values'] = $data_values['customeruser_values'];
+				$data_ajax['status'] = $data['status'];
+				// $data_ajax['mapped_data'] = $data_values['mapped_data'];
+				$result['error'] = $data['error'];
+				$result['status'] = $data['status'];
+				$data_res = $this->user_model->customer_user_profile($id);
+				$data_ajax['customeruser_values'] = $data_res['customeruser_values'];
+				$data_ajax['selection_values'] = $this->user_model->customer_user_selectiondata();
+				$result['output'] = $this->load->view('myedit',$data_ajax,true);
+				echo json_encode($result);
+			}
+		}
+		else{
+			if(!empty($id)){
+				$data_values = $this->user_model->customer_user_profile($id);
+				$data['customeruser_values'] = $data_values['customeruser_values'];
+				//Get Selection option data's for edit
+				$data['selection_values'] = $this->user_model->customer_user_selectiondata();
+				$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
+				$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
+				// echo "<pre>";
+				// print_r($data['selection_values']);
+				// echo "</pre>";
+				$this->load->view('myedit',$data);
+			}
 		}
 		// $this->load->view('myedit');
 	}
 	public function newreg(){
 		$this->load->view('newreg');
+	}
+
+	public function countprofile_viewed(){				
+		if($this->input->post()){						
+			$data_values = $this->user_model->countprofileviewed();
+			if($data_values['status']!=='hide'){
+				$data['status'] = $data_values['status'];
+				$data['error'] = $data_values['error'];								
+			}else{
+				$data['status'] = $data_values['status'];
+				$data['error'] = $data_values['error'];	
+				
+			}
+			echo json_encode($data);	
+		}
+
 	}
 }

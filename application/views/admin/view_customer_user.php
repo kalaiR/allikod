@@ -400,24 +400,29 @@
 												<label class="control-label" for="focusedInput">Younger</label>	
 											  </div>
 											  <div class="control-group">
+												<label class="control-label" for="focusedInput"></label>
+												<label style="width: 100px" class="control-label" for="focusedInput">Elder</label>
+												<label style="width: 100px" class="control-label" for="focusedInput">Younger</label>					
+											  </div>
+											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Brothers : </label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_brothers_el']; ?></label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_brothers_yo']; ?></label>												
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_brothers_el']; ?></label>
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_brothers_yo']; ?></label>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Sisters : </label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_el']; ?></label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_yo']; ?></label>												
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_el']; ?></label>
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_yo']; ?></label>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Married Brothers : </label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_brothers_el_mar']; ?></label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_brothers_yo_mar']; ?></label>												
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_brothers_el_mar']; ?></label>
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_brothers_yo_mar']; ?></label>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Married Sisters : </label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_el_mar']; ?></label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_yo_mar']; ?></label>												
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_el_mar']; ?></label>
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_yo_mar']; ?></label>												
 											  </div>
 											  <!-- <div class="control-group">
 												<label class="control-label"> </label>

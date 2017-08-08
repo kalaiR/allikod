@@ -47,7 +47,7 @@
                     </form>
                 </div><br>
                 <div class="row">
-                    <div class="blog_grid_inner">
+                    <div class="blog_grid_inner pagination_area" id="pagination_area">
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
@@ -104,14 +104,70 @@
                                 </div>
                             </div>
                         </div>
-                        
+                        <div class="blog_grid_inner">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="blog_grid_item">
+                                <div class="blog_grid_img">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_84IMG_20141002_110125.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                       <div class="col-md-3 col-sm-6">
+                            <div class="blog_grid_item">
+                                <div class="blog_grid_img">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_2301IMG_0842.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="blog_grid_item">
+                                <div class="blog_grid_img">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_2407IMG_1676.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="blog_grid_item">
+                                <div class="blog_grid_img">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_6060IMG_0879.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="blog_grid_item">
+                                <div class="blog_grid_img">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_6628IMG_0823.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="blog_grid_item">
+                                <div class="blog_grid_img">
+                                    <img class="lightbox" src="<?php echo media_url(); ?>assets/img/valli/new_7436IMG_0814.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="blog_grid_item">
+                                <div class="blog_grid_img">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_7481IMG_2002.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="blog_grid_item">
+                                <div class="blog_grid_img">
+                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_8953IMG_1121.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div><br>
-                <div class="pagination pull-right">
+                <div class="pagination_area paginate pull-right" id="pagination_area">
                     <a class="prev" href="stories.html#">Previous</a>
                     <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
                     <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
-                    <a class="next" href="#">Next</a>
+                    <a class="next" href="">Next</a>
                 </div>
             </div>
         </section>
@@ -120,15 +176,15 @@
 <?php 
     include('include/footer.php');
 ?> 
-   <!--  <script type="text/javascript" src="<?php echo media_url(); ?>assets/js/jquery.simplePagination.js"></script>
+    <!-- <script type="text/javascript" src="<?php echo media_url(); ?>assets/js/jquery.simplePagination.js"></script> -->
     <script type="text/javascript">
                $(function() {
-            $(selector).pagination({
+            $('#pagination_area').pagination({
                 items: 16,
                 itemsOnPage:8,
                 cssStyle: 'light-theme'
             });
         })
-    </script> -->
+    </script>
     </body>
 </html>

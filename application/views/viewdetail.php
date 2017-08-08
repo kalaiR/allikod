@@ -6,6 +6,21 @@ include('include/menu.php');
 // print_r($results);
 // echo '</pre>';
 // exit();
+
+
+$session_search = $this->session->all_userdata();
+if(!empty($session_search['search_inputs']['offset'])){
+    $curr_offset = $session_search['search_inputs']['offset'];
+}elseif(!empty($session_search['search_quick']['offset'])){
+    $curr_offset = $session_search['search_quick']['offset'];
+}elseif(!empty($session_search['search_dhoshamid']['offset'])){
+    $curr_offset = $session_search['search_dhoshamid']['offset'];
+}elseif(!empty($session_search['advance_search_sess']['offset'])){
+    $curr_offset = $session_search['advance_search_sess']['offset'];
+}else{
+    $curr_offset = '';
+}
+
 ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
@@ -24,7 +39,7 @@ include('include/menu.php');
                 <div class="row">
                     <div class="col-md-12">
                         <div class="pad">
-                            <a href="<?php echo base_url();?>search_result" class="register_angkar_btn login_btn pull-right">Back</a>
+                            <a href="<?php echo base_url();?>search_result/<?php echo $curr_offset;?>" class="register_angkar_btn login_btn pull-right">Back</a>
                         </div> 
                     <div class="members_profile_inners">
                             <div class="members_about_box">
@@ -48,13 +63,49 @@ include('include/menu.php');
                                                 else if($prefix_two_status)
                                                     $prefix = $prefix_two;
                                             ?>
-                                            <img src="<?php 
-                                                if(!empty($results['images'])): 
-                                                    echo media_url()."uploads/profile/".$prefix.$results['images']; 
-                                                else:
-                                                    echo media_url()."assets/img/no_image.jpg"; 
-                                                endif; 
-                                            ?>" alt="Image not loaded" style="width:170px;height:170px;">
+                                            <ul>
+                                            <li><a href="#lightbox" data-toggle="modal"> 
+                                                    <img src="<?php 
+                                                        if(!empty($results['images'])): 
+                                                            echo media_url()."uploads/profile/".$prefix.$results['images']; 
+                                                        else:
+                                                            echo media_url()."assets/img/no_image.jpg"; 
+                                                        endif; 
+                                                    ?>" alt="Image not loaded" style="width:170px;height:170px;">
+                                            </a></li>
+                                            </ul>
+                                            <div class="modal fade and carousel slide lig" id="lightbox">
+                                                <div class="modal-dialog ">
+                                                    <div class="modal-body">
+                                                          <ol class="carousel-indicators">
+                                                            <li data-target="#lightbox" data-slide-to="0" class="active"></li>
+                                                            <li data-target="#lightbox" data-slide-to="1"></li>
+                                                            <li data-target="#lightbox" data-slide-to="2"></li>
+                                                          </ol>
+                                                          <div class="carousel-inner">
+                                                           
+                                                            <div class="item active">
+                                                               <div class="numbertext">1 / 3</div>
+                                                              <img class="lig-box"src="img/search-result-page/img1.jpg" alt="First slide">
+                                                            </div>
+                                                            <div class="item">
+                                                              <div class="numbertext">2 / 3</div>
+                                                              <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Second slide">
+                                                            </div>
+                                                            <div class="item">
+                                                             <div class="numbertext">3 / 3</div>
+                                                              <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Third slide">
+                                                            </div>
+                                                          </div>
+                                                          <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev">
+                                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                                          </a>
+                                                          <a class="right carousel-control" href="#lightbox" role="button" data-slide="next">
+                                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                                          </a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <ul>
                                             <li><a href="#">Name</a></li>
                                             <li><a href="#">Vallikodi ID</a></li>
@@ -71,11 +122,11 @@ include('include/menu.php');
                                     <p><b>Click the button to view the contact details</b>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" value="View" class="btn form-control login_btn view_communication">View</button></p><br>
                                     <input type="hidden" class="check_payment_status" value="<?php echo $this->session->userdata("login_status"); ?>">
                                     <!-- <a href="search.html" class="register_angkar_btn">View</a> -->
-                                    <?php 
+                                    <!-- <?php 
                                         $user_session = $this->session->userdata("login_session");
                                         // print_r($user_session);  
-                                        if($user_session['payment_status'] == 1 && $user_session['no_of_profiles_viewed'] < $user_session['totalno_of_profile']):
-                                    ?>
+                                        //if($user_session['payment_status'] == 1 && $user_session['no_of_profiles_viewed'] < $user_session['totalno_of_profile']):
+                                    ?> -->
                                         <div class="slidingDiv">
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -111,7 +162,7 @@ include('include/menu.php');
                                                     <div class="col-md-4  dark">
                                                         <p class="text_short"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></p>
                                                     </div>
-                                                    <div class="col-md-1 tooltips">
+                                                    <div class="col-md-1 tooltips long">
                                                         <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></span>
                                                     </div>
                                                     <div  class="col-md-6 col-xs-6 ">
@@ -129,7 +180,7 @@ include('include/menu.php');
                                                 </div>
                                             </div>  <!-- row ends -->             
                                          </div> 
-                                    <?php endif; ?>
+                                    <?php // endif; ?>
                                     </div>                                                           
                                 </div>                  
                                 <div class="members_about_box">
@@ -207,7 +258,7 @@ include('include/menu.php');
                                             <div class="col-md-4  dark">
                                                 <p class="text_short"><?php echo $results['edu_educationdetails']; ?></p>
                                             </div>
-                                            <div class="col-md-1 tooltips">
+                                            <div class="col-md-1 tooltips long">
                                                 <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['edu_educationdetails']; ?></span>
                                             </div>
                                             <div class="col-md-6 col-xs-6">
@@ -224,7 +275,7 @@ include('include/menu.php');
                                             <div class="col-md-4  dark">
                                                 <p class="text_short"><?php echo $results['edu_occupationdetail']; ?></p>
                                             </div>
-                                            <div class="col-md-1 tooltips">
+                                            <div class="col-md-1 tooltips long">
                                                 <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['edu_occupationdetail']; ?></span>
                                             </div>
                                             <div  class="col-md-6 col-xs-6 ">
@@ -267,7 +318,7 @@ include('include/menu.php');
                                             <div class="col-md-4 col-xs-6 dark">
                                                 <p class="text_short"><?php echo $results['comm_father_employment']; ?></p>
                                             </div>
-                                            <div class="col-md-1 col-xs-1 tooltips">
+                                            <div class="col-md-1 col-xs-1 tooltips long">
                                                 <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['comm_father_employment']; ?></span>
                                             </div>
                                             <div class="col-md-6 col-xs-6">
@@ -276,7 +327,7 @@ include('include/menu.php');
                                             <div class="col-md-4 col-xs-6 dark">
                                                 <p class="text_short"><?php echo $results['comm_mother_employment']; ?></p>
                                             </div>
-                                            <div class="col-md-1 col-xs-1 tooltips">
+                                            <div class="col-md-1 col-xs-1 tooltips long">
                                                 <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['comm_mother_employment']; ?></span>
                                             </div>
                                             <div class="col-md-6 col-xs-6">

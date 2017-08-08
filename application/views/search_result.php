@@ -1,6 +1,15 @@
 <?php 
 include('include/header.php');
 include('include/menu.php');
+
+preg_match("/[^\/]+$/", $this->uri->uri_string(), $values); 
+$current_tot = '';
+if($values[0]!=0){
+    $current_tot = $values[0];
+    $current_tot = $current_tot*10; 
+}else{
+    $current_tot = 10;
+}
 ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
@@ -25,7 +34,12 @@ include('include/menu.php');
                     </div>    
                 </div> 
                  <div class="row">
-                     <div class="col-md-9 aline-center-box ">
+                     <div class="col-md-12 ">
+                     <?php if(!empty($total_rows)) : ?>
+                        <div class="col-md-8">
+                            <p>Search Results :  <?php echo  $current_tot; ?> of <?php echo $total_rows; ?> </p>
+                        </div>
+                     <?php endif; ?>
                         <div class="search_btn back-box">
                                 <a href="<?php echo base_url(); ?>search" class="register_angkar_btn">Back</a>
                         </div>
@@ -168,7 +182,7 @@ include('include/menu.php');
                 <?php }
                 ?>
                 </div>
-                    <div class="col-md-3">
+                    <!-- <div class="col-md-3">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <div class="s_title">
@@ -183,7 +197,7 @@ include('include/menu.php');
                                         <div class="price_inner">
                                         <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
                                         <!-- <a href="#">$50</a>
-                                        <a href="#">$350</a> -->
+                                        <a href="#">$350</a> ->
                                     </div>
                                 </div>
                                 </aside>    
@@ -199,7 +213,7 @@ include('include/menu.php');
                                         <div class="price_inner">
                                         <input type="text" id="height" readonly style="border:0; color:#f6931f; font-weight:bold;">
                                         <!-- <a href="#">$50</a>
-                                        <a href="#">$350</a> -->
+                                        <a href="#">$350</a> ->
                                     </div>
                                 </div>  
                                 </aside>  
@@ -215,7 +229,7 @@ include('include/menu.php');
                                         <div class="price_inner">
                                         <input type="text" id="weight" readonly style="border:0; color:#f6931f; font-weight:bold;">
                                         <!-- <a href="#">$50</a>
-                                        <a href="#">$350</a> -->
+                                        <a href="#">$350</a> ->
                                     </div>
                                 </div> 
                                 </aside>   
@@ -465,7 +479,7 @@ include('include/menu.php');
                                 </div>
                                 </aside>
                         </div>
-                    </div>
+                    </div> -->
                 </div>              
                 <!-- <div class="pagination>                    
                     <a class="prev" href="#">Previous</a>

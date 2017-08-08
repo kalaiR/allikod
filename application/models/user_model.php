@@ -218,14 +218,25 @@ class User_model extends CI_Model {
       return $query;
   }
 
-  public function get_success_stories(){
-      $condition = "sstories.active_status = 1";
+  public function get_success_stories($limit, $start){
+
+      $user_where = 'sstories.active_status = 1';
       $this->db->select('*');
-      $this->db->from('success_stories AS sstories');
-      $this->db->where($condition);      
-      $this->db->order_by('sstories.successstories_id','');
-      $query = $this->db->get()->result_array();          
-      return $query;
+      $this->db->from('success_stories sstories');
+      $this->db->limit($limit,$start);
+      $this->db->where($user_where);
+      $this->db->order_by('sstories.successstories_id','desc');
+      $model_data['results'] = $this->db->get()->result_array(); 
+      // echo $this->db->last_query();  
+
+      // Total rows
+      $this->db->select('*');
+      $this->db->from('success_stories sstories');
+      $this->db->where($user_where);
+      $this->db->order_by('sstories.successstories_id','desc');
+      $model_data['total_rows'] = $this->db->get()->num_rows();   
+
+      return $model_data;
   }
 
   public function get_success_stories_limit(){
@@ -239,13 +250,13 @@ class User_model extends CI_Model {
       return $query;
   }
   
-  function insert_registration($table1, $data1){
+  public function insert_registration($table1, $data1){    
     $this->db->insert($table1, $data1);
     $id_table1    = $this->db->insert_id();
     return $id_table1;
   }
 
-  function user_login(){
+  public function user_login(){
     $model_data['error'] = 0;
     if($this->input->post('email_id')) {
       $login_where = '(user_email="'.$this->input->post('email_id').'" and user_pwd="'.$this->input->post('password').'" and user_active_status=1)';
@@ -266,10 +277,43 @@ class User_model extends CI_Model {
     }
     return $model_data;
   }
+
+ public function checkmail(){
+    $model_data['error'] = 0;
+    if($this->input->post('email')) {
+      $login_where = '(user_email="'.$this->input->post('email').'" and user_active_status=1)';
+      $this->db->select('*');
+      $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where);      
+        if($userdata_get->num_rows()) {
+          $model_data['cstatus'] = "email_available";
+          $model_data['status'] = "Email Already Registered";
+          // $model_data['login_values'] = $userdata_get->row_array();
+          $model_data['error'] = 0;
+        }else{
+          $model_data['cstatus'] = 'email_notavailable';
+          $model_data['status'] = "Email Available";
+          $model_data['error'] = 1;
+        }
+    }
+    else {
+      $model_data['status']= "Input Required";
+      $model_data['error'] = 1;
+    }
+    // print_r($model_data);
+    // exit();
+    return $model_data;
+  }
+  
+
   public function get_recent_profile(){
-      $query = $this->db->query("select usr.userdetail_id, usr_img.images, usr.user_gender from reg_userdetail as usr 
+      //Female
+      $query['bride'] = $this->db->query("select usr.userdetail_id, usr_img.images, usr.user_gender from reg_userdetail as usr 
         INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
-        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' ORDER BY usr.userdetail_id DESC limit 8")->result_array();
+        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' AND usr.user_gender = 2 ORDER BY usr.userdetail_id DESC limit 10")->result_array();
+      //Male
+      $query['groom'] = $this->db->query("select usr.userdetail_id, usr_img.images, usr.user_gender from reg_userdetail as usr 
+        INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
+        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' AND usr.user_gender = 1 ORDER BY usr.userdetail_id DESC limit 10")->result_array();
       return $query;
   }
 
@@ -328,7 +372,7 @@ class User_model extends CI_Model {
   // Home Page Quick search //
   public function get_quicksearch($values, $limit, $start){ 
       if(!empty($values)) {
-        $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND usr.user_gender !=3 AND usr.user_delete_status!=1)';
+        $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND usr.user_gender !=3 AND usr.user_delete_status!=1 AND (img.images!="" AND img.images!="defalt_male.png" AND img.images!="defalt_female.png"))';
         $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_gender, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images');
         $this->db->from('reg_userdetail usr');
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
@@ -519,12 +563,21 @@ class User_model extends CI_Model {
    /** Search by dhoshamsearch Id **/
   public function get_dhoshamsearch($values, $limit, $start){ 
 
-        // if($values == 1){
-        //   $dhosham_1 = "and ((`dhosham` LIKE '%nag%') or (`dhosham` LIKE 'n%g%') or(`dhosham` LIKE '%nak%')) and ((`dhosham` LIKE '%n%ga%')or (`dhosham` LIKE '%n%ka%')or (`dhosham` LIKE '%n%ha%') or (`dhosham` LIKE '%n%gha%') or (`dhosham` LIKE '%n%kha%') or (`dhosham` LIKE '%nah%') or (`dhosham` LIKE '%aga%') or (`dhosham` LIKE '%a%g%') or (`dhosham` LIKE '%na%ga%'))";
-        // }    
+        if($values == 1){
+          $dhosham_1 = "(rel.rel_dhosham LIKE '%nag%') or (rel.rel_dhosham LIKE 'n%g%') or(rel.rel_dhosham LIKE '%nak%')) and ((rel.rel_dhosham LIKE '%n%ga%')or (rel.rel_dhosham LIKE '%n%ka%')or (rel.rel_dhosham LIKE '%n%ha%') or (rel.rel_dhosham LIKE '%n%gha%') or (rel.rel_dhosham LIKE '%n%kha%') or (rel.rel_dhosham LIKE '%nah%') or (rel.rel_dhosham LIKE '%aga%') or (rel.rel_dhosham LIKE '%a%g%') or (rel.rel_dhosham LIKE '%na%ga%')";
+        } 
 
-        $user_where = '(rel.rel_dhosham='.$values.' AND usr.user_delete_status!=1 AND usr.user_gender !=3)';
-        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_gender, usr.user_active_status, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images');
+        if($values == 2){
+            $dhosham_1 = "(rel.rel_dhosham LIKE 's%v%')or(rel.rel_dhosham LIKE 'c%v%')or(rel.rel_dhosham LIKE '%se%v%')or(rel.rel_dhosham LIKE '%ce%v%')or(rel.rel_dhosham LIKE '%she%v%')or(rel.rel_dhosham LIKE '%che%v%')or(rel.rel_dhosham LIKE '%sha%v%')or(rel.rel_dhosham LIKE '%cha%v%')) and ((rel.rel_dhosham LIKE '%av%i%') or (rel.rel_dhosham LIKE '%ev%i%') or (rel.rel_dhosham LIKE '%ev%y%') or (rel.rel_dhosham LIKE '%av%y%') or (rel.rel_dhosham LIKE '%e%va%'))and ((rel.rel_dhosham LIKE '%vai%')or(rel.rel_dhosham LIKE '%vay%')or(rel.rel_dhosham LIKE '%vi%')or(rel.rel_dhosham LIKE '%vy%')or(rel.rel_dhosham LIKE '%va%')or(rel.rel_dhosham LIKE '%vha%')) and ((rel.rel_dhosham LIKE '%eva%')or(rel.rel_dhosham LIKE '%vva%')or(rel.rel_dhosham LIKE '%evv%')or(rel.rel_dhosham LIKE '%evva%')";
+        }
+
+        if($values == 3){
+            $dhosham_1 = "(rel.rel_dhosham LIKE 'ra%')or(rel.rel_dhosham LIKE 'ka%')or(rel.rel_dhosham LIKE 'ke%')or(rel.rel_dhosham LIKE 'ga%')or(rel.rel_dhosham LIKE 'ge%')or(rel.rel_dhosham LIKE '%raag%u%')or(rel.rel_dhosham LIKE '%rag%u%')or(rel.rel_dhosham LIKE '%kaet%u%')or(rel.rel_dhosham LIKE '%ket%u%')or(rel.rel_dhosham LIKE '%kaed%u%')or(rel.rel_dhosham LIKE '%ked%u%')or(rel.rel_dhosham LIKE '%gaet%u%')or(rel.rel_dhosham LIKE '%get%u%')or(rel.rel_dhosham LIKE '%gaed%u%')or(rel.rel_dhosham LIKE '%ged%u%')) and ((rel.rel_dhosham LIKE '%r%ghu%')or (rel.rel_dhosham LIKE '%r%khu%')or (rel.rel_dhosham LIKE '%r%gu%')or(rel.rel_dhosham LIKE '%hu%')or(rel.rel_dhosham LIKE '%gu%')or(rel.rel_dhosham LIKE '%du%')or (rel.rel_dhosham LIKE '%r%ku%')or (rel.rel_dhosham LIKE '%k%thu%')or (rel.rel_dhosham LIKE '%k%tu%')or (rel.rel_dhosham LIKE '%k%du%')";
+        }
+        
+
+      $user_where = '(rel.rel_dhosham='.$values.' AND usr.user_delete_status!=1 AND usr.user_gender !=3 AND '.$dhosham_1.')';
+        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_gender, usr.user_active_status, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, rel.rel_dhosham, edu.edu_education, edu.edu_occupation, img.images');
         $this->db->from('reg_religion_ethnicity rel');
         $this->db->join('reg_userdetail usr','usr.userdetail_id = rel.reg_user_id','inner'); 
         $this->db->join('reg_education_occupation edu','edu.reg_user_id = rel.reg_user_id','inner');
@@ -713,6 +766,7 @@ class User_model extends CI_Model {
       $model_data['food_values'] = $this->db->order_by('food_id','asc')->get_where('food',array('active_status'=>1))->result_array();
       $model_data['familystatus_values'] = $this->db->order_by('familystatus_id','asc')->get_where('family_status',array('active_status'=>1))->result_array();
       $model_data['familytype_values'] = $this->db->order_by('familytype_id','asc')->get_where('family_type',array('active_status'=>1))->result_array();
+      $model_data['height_values'] = $this->db->order_by('heightrelation_id','asc')->get_where('height_relation')->result_array();
 
       //Category and Subcategory values
       // $model_data['education_values'] = $this->db->order_by('education_id','asc')->get_where('education')->result_array();
@@ -727,7 +781,290 @@ class User_model extends CI_Model {
       $model_data['education_values'] = $this->db->get()->result_array();
       return $model_data;
   }
-  
+
+  public function update_customer_user($id,$profile_image){
+      $res = $this->db->get_where('reg_userdetail', array('userdetail_id' => $id))->row_array();
+      if(is_numeric($id) && !empty($res))
+      { 
+            $userdetail_update_data = array(
+                              // 'user_email' => $this->input->post('cus_email'),
+                              // 'user_pwd' => $this->input->post('cus_password'),
+                              'user_fname' => $this->input->post('cus_fname'),
+                              'user_gender' => $this->input->post('cus_gender'),
+                              'user_dob' => date('Y-m-d',strtotime($this->input->post('cus_dob'))),
+                              'user_age' => $this->input->post('cus_age'),
+                              // 'user_active_status' => $this->input->post('cus_profileactivestatus'),
+                              'user_maritalstatus' => $this->input->post('cus_marstatus'),
+                              'user_registeredby' => ($this->input->post('cus_regby')) ? $this->input->post('cus_regby') : NULL,
+                              );
+            // print_r($userdetail_update_data);
+            $religion_ethnicity_update_data = array(
+                    'rel_timeofbirth' => $this->input->post('cus_birthhours')."-".$this->input->post('cus_birthmins')."-".$this->input->post('cus_birthmer'),
+                    'rel_mothertongue_id' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
+                    // 'rel_religion' => $this->input->post('cus_religion'),
+                    // 'rel_caste' => $this->input->post('cus_caste'),
+                    'rel_dhosham' => $this->input->post('cus_dosham'),
+                    'rel_nakshathra_id' => ($this->input->post('cus_nakshathra')) ? $this->input->post('cus_nakshathra') : NULL,
+                    'rel_luknam_id' => ($this->input->post('cus_lukhnam')) ? $this->input->post('cus_lukhnam') : NULL,
+                    'rel_gothra' => $this->input->post('cus_gothra'),
+                    'rel_zodiacsign_id' => ($this->input->post('cus_zodiac')) ? $this->input->post('cus_zodiac') : NULL,
+                              );
+            // print_r($religion_ethnicity_update_data);
+            $education_occupation_update_data = array(
+                    'edu_education' => ($this->input->post('cus_education')) ? $this->input->post('cus_education') : NULL,
+                    'edu_educationdetails' => $this->input->post('cus_edudetail'),
+                    'edu_occupation' => ($this->input->post('cus_occupation')) ? $this->input->post('cus_occupation') : NULL,
+                    'edu_employedin' => ($this->input->post('cus_empin')) ? $this->input->post('cus_empin') : NULL,
+                    'edu_montlyincome' => $this->input->post('cus_moninc'),
+                    'edu_occupationdetail' => $this->input->post('cus_ocudetail'),
+                    );
+            // print_r($education_occupation_update_data);
+            $communication_update_data = array(
+                    'comm_residence' => $this->input->post('cus_resident'),
+                    'comm_current_countrycountry' => ($this->input->post('cus_curcountry')) ? $this->input->post('cus_curcountry') : NULL,
+                    'comm_current_city' => $this->input->post('cus_curcity'),
+                    'comm_current_district' => $this->input->post('cus_curdistrict'),
+                    'comm_communication_address' => $this->input->post('cus_address'),
+                    'comm_phone_no' => $this->input->post('cus_phone'),
+                    'comm_mobile_no' => $this->input->post('cus_mobile'),
+                    'comm_father_name' => $this->input->post('cus_fathername'),
+                    'comm_mother_name' => $this->input->post('cus_mothername'),
+                    'comm_father_employment' => $this->input->post('cus_fatheremp'),
+                    'comm_mother_employment' => $this->input->post('cus_motheremp'),
+                    'comm_family_status' => $this->input->post('cus_familystatus'),
+                    'comm_family_type' => $this->input->post('cus_familytype'),
+                    'comm_number_of_brothers_el' => $this->input->post('cus_broelder'),
+                    'comm_number_of_brothers_yo' => $this->input->post('cus_broyoung'),
+                    'comm_number_of_brothers_el_mar' => $this->input->post('cus_broeldermar'),
+                    'comm_number_of_brothers_yo_mar' => $this->input->post('cus_broyoungmar'),
+                    'comm_number_of_sisters_el' => $this->input->post('cus_siselder'),
+                    'comm_number_of_sisters_yo' => $this->input->post('cus_sisyoung'),
+                    'comm_number_of_sisters_el_mar' => $this->input->post('cus_siseldermar'),
+                    'comm_number_of_sisters_yo_mar' => $this->input->post('cus_sisyoungmar'),
+                    'comm_about_family' => $this->input->post('cus_abtfamily'),
+                    );
+            // print_r($communication_update_data);
+            $physicalattributes_update_data = array(
+                    'phy_height' => $this->input->post('cus_heightcms'),
+                    'phy_weight' => $this->input->post('cus_weight'),
+                    'phy_bodytype' => $this->input->post('cus_bodytype'),
+                    'phy_complexion' => $this->input->post('cus_complexion'),
+                    'phy_physicalstatus' => $this->input->post('cus_phystatus'),
+                    'phy_food' => $this->input->post('cus_food'),
+                    'phy_yourpersonality' => $this->input->post('cus_personality'),
+                    'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
+            );
+            // print_r($physicalattributes_update_data);
+
+            $userdetail_update_where = '(userdetail_id="'.$id.'")'; 
+            $this->db->set($userdetail_update_data); 
+            $this->db->where($userdetail_update_where);
+            $this->db->update("reg_userdetail", $userdetail_update_data);
+            // echo $this->db->last_query();
+
+            $communication_update_where = '(reg_user_id="'.$id.'")'; 
+            $this->db->set($communication_update_data); 
+            $this->db->where($communication_update_where);
+            $this->db->update("reg_communication_family", $communication_update_data);
+            // echo $this->db->last_query();
+
+            $religion_ethnicity_update_where = '(reg_user_id="'.$id.'")'; 
+            $this->db->set($religion_ethnicity_update_data); 
+            $this->db->where($religion_ethnicity_update_where);
+            $this->db->update("reg_religion_ethnicity", $religion_ethnicity_update_data);
+            // echo $this->db->last_query();
+
+            $education_occupation_update_where = '(reg_user_id="'.$id.'")'; 
+            $this->db->set($education_occupation_update_data); 
+            $this->db->where($education_occupation_update_where);
+            $this->db->update("reg_education_occupation", $education_occupation_update_data);
+            // echo $this->db->last_query();
+
+            $physicalattributes_update_where = '(reg_user_id="'.$id.'")'; 
+            $this->db->set($physicalattributes_update_data); 
+            $this->db->where($physicalattributes_update_where);
+            $this->db->update("reg_physical_expectation", $physicalattributes_update_data);
+            // echo $this->db->last_query();
+
+            if(!empty($profile_image)){
+                $image_delete_where = '(reg_user_id="'.$id.'")';
+                $this->db->delete("user_images", $image_delete_where); 
+                foreach ($profile_image as $value)
+                  $this->db->insert('user_images',array('reg_user_id' => $id,'images' =>$value));
+            }
+
+            //Update Raasi and Amsam
+            $rasi  = $this->input->post('rasi');
+            $amsam  = $this->input->post('amsam');
+            if(!empty($rasi)) { 
+                $cleanData = json_decode($rasi);    
+                foreach ($cleanData as $key => $value) {
+                  $data_horo[$value->key]= $value->value;
+                }
+            } 
+            if(!empty($amsam)) { 
+                $cleanData = json_decode($amsam);    
+                foreach ($cleanData as $key => $value) {
+                  $data_horo[$value->key]= $value->value;
+                }
+            } 
+            $horoscope_where = '(reg_user_id="'.$id.'")';
+            $this->db->set($data_horo); 
+            $this->db->where($horoscope_where);
+            $this->db->update("reg_image_horoscope", $data_horo);
+
+            // echo $this->db->last_query(); 
+            $model_data['status'] = "Updated Successfully";
+            $model_data['error'] = 2;
+      }
+      else{
+            $model_data['error'] = 1;
+            $model_data['status'] = "Something went wrong. You may entered incorrect ID";
+      }
+      return $model_data;
+  }
+
+
+  public function countprofileviewed(){
+    $model_data['error'] = 0;
+    $pno_profile = '';
+    $ptotal_profile = '';
+    $rno_profile  = '';
+    $rtotal_profile = '';
+
+
+    $this->input->post('profile_id');    
+    if($this->input->post('profile_id')){
+      $profviewed_where = '(profile_id ="'.$this->input->post('profile_id').'" AND  reg_user_id="'.$this->input->post('user_id').'")';
+      $this->db->select('*');      
+      $proviewedata_get = $this->db->get_where('reg_userviewed as rview',$profviewed_where);        
+                          
+      if($proviewedata_get->num_rows()==0) {
+          // After Valid the Profile Id Already viewed // If Not            
+            if($this->input->post('user_id')) {
+               // print_r($this->input->post('user_id'));                          
+
+                        $payment_where = '(reg_user_id  ="'.$this->input->post('user_id').'" and payment_status =1)';
+                        $this->db->select('*');      
+                        $paymentdata_get = $this->db->get_where('reg_payment as pay',$payment_where);      
+
+                        $renew_where = '(reg_user_id  ="'.$this->input->post('user_id').'" and active_status =1)';
+                        $this->db->select('*');                   
+                        $renewdata_get = $this->db->get_where('renew_detail as ren',$renew_where);     
+
+                                       
+                        // Check in Payment table and Insert data in Viewed table
+                        $model_data['presults'] = $paymentdata_get->row_array();  
+                        if(!empty($model_data['presults']['no_of_profiles_viewed'])){                          
+                            $pno_profile = $model_data['presults']['no_of_profiles_viewed'];
+                        }    
+                        if(!empty($model_data['presults']['totalno_of_profile'])){                            
+                            $ptotal_profile = $model_data['presults']['totalno_of_profile'];
+                        }    
+
+                        $model_data['rresults'] = $renewdata_get->row_array();
+                        //print_r($model_data['rresults']);
+                        if(!empty($model_data['rresults']['no_of_profile_viewed'])){  
+                          $rno_profile = $model_data['rresults']['no_of_profile_viewed'];
+                        }
+                        if(!empty($model_data['rresults']['totalno_of_profile'])){  
+                          $rtotal_profile = $model_data['rresults']['totalno_of_profile'];
+                        }
+                       
+                        // echo $rno_profile;
+                        // echo $rtotal_profile;
+                        // exit();
+                        if(($paymentdata_get->num_rows())&&($pno_profile < $ptotal_profile)){
+                                      // echo 'payment-in';
+                          
+                                      $model_data['results1'] = $model_data['presults']['no_of_profiles_viewed'];
+                                      $model_data['results2'] = $model_data['results1'] + 1;
+
+                                      
+                                      // Update in Payment Table
+                                  $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('user_id').'")';
+                                  $physicalattributes_update_data = array('no_of_profiles_viewed' => $model_data['results2']);
+                                      $this->db->set($physicalattributes_update_data); 
+                                      $this->db->where($physicalattributes_update_where);
+                                      $this->db->update("reg_payment", $physicalattributes_update_data);
+
+                                      // Insert in Viewed Table                       
+                                      $pphysicalattributes_insert_data = array('reg_user_id' => $this->input->post('user_id'), 'profile_id'=>$this->input->post('profile_id'));                              
+                                      // echo 'insert';
+                                      $this->insert_registration("reg_userviewed", $pphysicalattributes_insert_data);
+                                      $model_data['status']= "show";
+                                      // print_r($model_data);
+                                      // exit();
+                                      // }else{
+                                      //       
+                                      // }
+                        }elseif(($renewdata_get->num_rows())&&($rno_profile < $rtotal_profile)){ 
+                                      
+                                      // echo 'Renew_no';                          
+                                      $model_data['results1'] = $model_data['rresults']['no_of_profile_viewed'];
+                                      $model_data['results2'] = $model_data['results1'] + 1;
+
+                                      // Update in Renew Table
+                                      $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('user_id').'")';
+                                      $physicalattributes_update_data = array('no_of_profile_viewed' => $model_data['results2']);
+
+                                      $this->db->set($physicalattributes_update_data); 
+                                      $this->db->where($physicalattributes_update_where);
+                                      $this->db->update("renew_detail", $physicalattributes_update_data);
+
+                                      // Insert in Viewed Table                       
+                                      $rphysicalattributes_insert_data = array('reg_user_id' => $this->input->post('user_id'), 'profile_id'=>$this->input->post('profile_id'), 'renew_id'=>$model_data['rresults']['renewdetail_id']);
+                                      // print_r($rphysicalattributes_insert_data);
+                                      $this->insert_registration("reg_userviewed", $rphysicalattributes_insert_data);
+                                      $model_data['status']= "show";
+                        }else{
+                              $model_data['status']= "hide";
+                              $model_data['error'] = 1;
+                        }
+
+                      if($pno_profile >= $ptotal_profile){
+                          $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('user_id').'")';
+                          $physicalattributes_update_data = array('payment_status' => '0');
+                          $this->db->set($physicalattributes_update_data); 
+                          $this->db->where($physicalattributes_update_where);
+                          $this->db->update("reg_payment", $physicalattributes_update_data);
+
+                      }elseif($rno_profile >= $rtotal_profile){
+                          // Update in Renew Table
+                          $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('user_id').'")';
+                          $physicalattributes_update_data = array('active_status' => '0');
+                          $this->db->set($physicalattributes_update_data); 
+                          $this->db->where($physicalattributes_update_where);
+                          $this->db->update("renew_detail", $physicalattributes_update_data);
+                      }
+
+          }else {
+              $model_data['status']= "hide";
+              $model_data['error'] = 1;
+          } 
+      }else{
+              $model_data['status']= "hide";
+              $model_data['error'] = 1;
+              $model_data['info'] = "Already-Viewed";
+
+      } // End proviewedata_get  
+    }
+  // print_r($model_data);
+  // exit();
+  return $model_data;
+  }
+
+  public function get_customer_images($id){
+    // $this->db->select('images');
+    // $image_data = $this->db->get_where('user_images', array('reg_user_id' => $id ))->result();
+    $this->db->select('images'); 
+    $this->db->from('user_images');   
+    $this->db->where('reg_user_id', $id);
+    return $this->db->get()->result_array();
+  }
+
+
+
 }
 /* End of file User_model.php */
 /* Location: ./application/controllers/base.php */
