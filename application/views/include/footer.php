@@ -160,6 +160,7 @@
 
         <!--<script src="js/video_player.js"></script>-->
         <script src="<?php echo media_url(); ?>assets/js/theme.js"></script>
+         <script src="<?php echo media_url(); ?>assets/js/image-upload.js"></script>
         <script src="<?php echo media_url(); ?>assets/js/chosen.jquery.min.js"></script>
         <script type="text/javascript">
         $(".chosen-select").chosen();</script>
@@ -177,6 +178,7 @@
         var baseurl = "<?php echo base_url(); ?>/";        
         var media_url = "<?php echo media_url(); ?>"; 
         var log_userid = "<?php echo $loginuser_id; ?>";
+
         var $imageupload = $('.imageupload');
         $imageupload.imageupload();
     </script>
