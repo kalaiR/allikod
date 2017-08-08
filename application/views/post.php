@@ -28,7 +28,7 @@
                                                     <span class="val_status" style="display: block;">
                                     <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
                                     </span>
-                                                    <div class="form-group base-box">
+                                                    <div class="form-group featured-box">
                                                         <div class="col-md-10">
                                                             <input type="text" class="form-control form_inputs" id="bride_name" placeholder="Bride Name (Female) *" name="bride_name">
                                                         </div>

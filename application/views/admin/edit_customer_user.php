@@ -964,7 +964,7 @@
 													<h2><!-- <i class="icon-th"> -->Horoscope</h2> 			
 												</div>
 												<div class="box-content">
-													<div class="col-md-6" style="display: inline-block;">	
+													<div class="col-md-6 rs_box" style="display: inline-block;">	
 													<!-- Rasi Horoscope - Start -->
 		                                                    <div id="horo_container">
 		                                                        <div class="horo_row" id="product">
@@ -988,7 +988,7 @@
 		                                                            <div class="third-row" data-id="box_8" id="box_8">8</div>
 		                                                            <div class="third-row" data-id="box_7" id="box_7">7</div>
 		                                                        </div>
-		                                                        <div id="rasi_cont">
+		                                                        <div id="rasi_cont" class="rasi_box">
 		                                                            <select style="width: 70px" id="rasi_name" class="drop_horo styled-select blue semi-square" name="rasi_name">    
 		                                                                <option value="r_1">&#2994;&#2965;&#3021;</option> 
 		                                                                <option value="r_2">&#2992;&#3006;&#2965;&#3009;</option>
@@ -1024,7 +1024,7 @@
 		                                                    </div>
 		                                                    <!-- Rasi Horoscope - End -->
 		                                                </div>  <!-- row col 6 ends -->
-		                                                <div class="col-md-6" style="display: inline-block;">
+		                                                <div class="col-md-6 asham-box" style="display: inline-block;">
 		                                                    <!-- Asham Horoscope - start -->
 		                                                <!-- <div id="asham_horo_container"> -->
 		                                                    <div class="asham_horo_row" id="product">
@@ -1049,7 +1049,7 @@
 			                                                    <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
 		                                                	</div>
 		                                              <!-- </div> --><!-- Asham Horoscope - end -->
-		                                              		<div id="asham_cont">
+		                                              		<div id="asham_cont" class="rasi_box">
 		                                                        <select style="width: 70px;" id="asham_name" class="drop_horo styled-select blue semi-square" name="asham_name">    
 		                                                            <option value="a_1">&#2994;&#2965;&#3021;</option> 
 		                                                            <option value="a_2">&#2992;&#3006;&#2965;&#3009;</option>

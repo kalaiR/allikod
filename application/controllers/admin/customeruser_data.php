@@ -88,17 +88,12 @@ class Customeruser_Data extends CI_Controller {
 				$data_ajax['status'] = $data['status'];
 				// $data_ajax['mapped_data'] = $data_values['mapped_data'];
 				$result['error'] = $data['error'];
-				if($this->input->post('action') == 'save')
-					$result['output'] = $this->load->view('admin/add_customer_user',$data_ajax,true);
-				else if($this->input->post('action') == 'update'){
-					// $data_ajax['zodiac_data'] = $this->master_data_model->zodiac_sign('edit')['zodiac_data'];
-					$data_res = $this->customeruser_data_model->customer_user('edit');
-					$data_ajax['customeruser_values'] = $data_res['customeruser_values'];
-					$data_ajax['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
-					$result['output'] = $this->load->view('admin/edit_customer_user',$data_ajax,true);
-				}
-				else
-					$result['output'] = $this->load->view('admin/zodiac_sign',$data_ajax,true);
+				$result['status'] = $data['status'];
+				// $data_ajax['zodiac_data'] = $this->master_data_model->zodiac_sign('edit')['zodiac_data'];
+				$data_res = $this->customeruser_data_model->customer_user_profile($id);
+				$data_ajax['customeruser_values'] = $data_res['customeruser_values'];
+				$data_ajax['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
+				$result['output'] = $this->load->view('admin/edit_customer_user',$data_ajax,true);
 				echo json_encode($result);
 			}
 		}
