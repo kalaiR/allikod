@@ -174,7 +174,13 @@ class Base extends CI_Controller {
 	// 	$this->load->view('admin/edit_customer_user');
 	// }
 	// public function view_customer_user(){
-	// 	$this->load->view('admin/view_customer_user');
+	// 	//To get last value of the url after slash (instead of this we can use $this->uri->segment(3),but this is not working here only, in admin working well)
+	// 	preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);
+	// 	$id = $values[0];
+	// 	$data['customeruser_values'] = $this->customeruser_model->get_viewdetails_byid($id);
+	// 	$data['rasi'] = $this->customeruser_model->getrasi_viewdetails_byid($id);		
+	// 	$data['amsham'] = $this->customeruser_model->getamsham_viewdetails_byid($id);
+	// 	$this->load->view('admin/view_customer_user',$data);
 	// }
 	// public function add_online_user(){
 	// 	$this->load->view('admin/add_online_user');

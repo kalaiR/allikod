@@ -43,11 +43,11 @@
 												<label class="control-label" for="focusedInput">User Type :  </label>
 												<label class="control-label" for="focusedInput"><?php //echo $customeruser_values['user_online_or_simple']; ?> </label>												
 											  </div> -->
-											  <?php 
-											  // echo "<pre>";
-											  // print_r($customeruser_values); 
-											  // echo "<pre>";
-											  ?>
+											  <!-- <?php 
+											  echo "<pre>";
+											  print_r($customeruser_values); 
+											  echo "<pre>";
+											  ?> -->
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Customer Email : </label>
 												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['user_email']; ?> </label>
@@ -280,31 +280,32 @@
 											<fieldset>										  
 											  <div class="control-group">
 												<label class="control-label">Resident of : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_residence']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Current Country : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_current_countrycountry']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Current City : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_current_city']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Current District : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_current_district']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Communication Address  : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<div class="controls">
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_communication_address']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Phone Number : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_phone_no']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Mobile Number : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_mobile_no']; ?></label>
 											 </div>					  							  
 											</fieldset>
 										  </form>
@@ -321,23 +322,23 @@
 											<fieldset>										  
 											  <div class="control-group">
 												<label class="control-label">Height : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_height']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Weight : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_weight']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Body Type : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_bodytype']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Complexion : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_complexion']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Physical Status : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_physicalstatus']; ?></label>
 											  </div>				    							  
 											</fieldset>
 										  </form>
@@ -354,7 +355,7 @@
 											<fieldset>										  
 											  <div class="control-group">
 												<label class="control-label">Food : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_food']; ?></label>
 											  </div>  				    							  
 											</fieldset>
 										  </form>
@@ -371,27 +372,32 @@
 											<fieldset>
 											<div class="control-group">
 												<label class="control-label" for="focusedInput">Father's Name : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_father_name']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Father's Employment : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_father_employment']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Mother's Name : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_mother_name']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Mother's Employment : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_mother_employment']; ?></label>
 											  </div>										  
 											  <div class="control-group">
 												<label class="control-label">Family Status : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_physicalstatus']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Family Type : </label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_family_status']; ?></label>
+											  </div>
+											  <div class="control-group">
 												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput">Elder</label>
+												<label class="control-label" for="focusedInput">Younger</label>	
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput"></label>
@@ -400,23 +406,23 @@
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Brothers : </label>
-												<label style="width: 100px" class="control-label" for="focusedInput">0</label>
-												<label style="width: 100px" class="control-label" for="focusedInput">0</label>										
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_brothers_el']; ?></label>
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_brothers_yo']; ?></label>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Sisters : </label>
-												<label style="width: 100px" class="control-label" for="focusedInput">0</label>
-												<label style="width: 100px" class="control-label" for="focusedInput">0</label>												
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_el']; ?></label>
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_yo']; ?></label>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Married Brothers : </label>
-												<label style="width: 100px" class="control-label" for="focusedInput">0</label>
-												<label style="width: 100px" class="control-label" for="focusedInput">0</label>												
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_brothers_el_mar']; ?></label>
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_brothers_yo_mar']; ?></label>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Married Sisters : </label>
-												<label style="width: 100px" class="control-label" for="focusedInput">0</label>
-												<label style="width: 100px" class="control-label" for="focusedInput">0</label>												
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_el_mar']; ?></label>
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_yo_mar']; ?></label>												
 											  </div>
 											  <!-- <div class="control-group">
 												<label class="control-label"> </label>
@@ -457,7 +463,7 @@
 
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">More About family  : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_about_family']; ?></label>
 											  </div>  					  							  
 											</fieldset>
 										  </form>
@@ -474,7 +480,7 @@
 											<fieldset>											  
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Personality  : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_yourpersonality']; ?></label>
 											  </div>  					  							  
 											</fieldset>
 										  </form>
@@ -491,33 +497,37 @@
 											<fieldset>											  
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Age : </label>
-												<label class="control-label" for="focusedInput">From 25</label>
-												<label class="control-label" for="focusedInput">To 28</label>												
+												<label class="control-label" for="focusedInput">From <?php echo $customeruser_values['phy_searchage_from']; ?></label>
+												<label class="control-label" for="focusedInput">To <?php echo $customeruser_values['phy_searchage_to']; ?></label>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Marital Status :</label>
 												<div class="controls">
 												  <label class="checkbox inline">
-													<input type="checkbox" id="inlineCheckbox1" value="option1"> Single
+													<!-- <input type="checkbox" id="inlineCheckbox1" value="option1"> --> 
+													Single
 												  </label>
 												  <label class="checkbox inline">
-													<input type="checkbox" id="inlineCheckbox2" value="option2"> Widowed
+													<!-- <input type="checkbox" id="inlineCheckbox2" value="option2"> -->
+													Widowed
 												  </label>
 												  <label class="checkbox inline">
-													<input type="checkbox" id="inlineCheckbox3" value="option3"> Divorsed
+													<!-- <input type="checkbox" id="inlineCheckbox3" value="option3"> -->
+													Divorsed
 												  </label>
 												  <label class="checkbox inline">
-													<input type="checkbox" id="inlineCheckbox3" value="option3"> Annualled
+													<!-- <input type="checkbox" id="inlineCheckbox3" value="option3"> -->
+													Annualled
 												  </label>
 												</div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="selectError1">Education</label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_searchedu_status']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Food :</label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_expectationfood']; ?></label>
 											  </div>  					  							  
 											</fieldset>
 										  </form>
@@ -534,7 +544,7 @@
 											<fieldset>											  
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Personality  : </label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_expectationabout_lifepartner']; ?></label>
 											  </div>  					  							  
 											</fieldset>
 										  </form>
@@ -552,7 +562,30 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Image  : </label>
 												<div class="control-group">
-												  <label class="control-label" for="focusedInput"></label>
+												  <label class="control-label" for="focusedInput"><div class="profile_list">                                    
+                                        <?php //echo "<pre>";print_r($results);echo "</pre>"; ?>
+                                          <!-- <img src="<?php //if(!empty($results['image'])) echo base_url()."assets/img/uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No Image" style="vertical-align:bottom;width:170px;height:170px;"> -->
+                                            <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                                                $prefix = '';
+                                                $prefix_one = 'th_';
+                                                $prefix_two = 'new_';
+                                                $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$customeruser_values['images']);
+                                                $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$customeruser_values['images']);
+                                                if($prefix_one_status)
+                                                    $prefix = $prefix_one;
+                                                else if($prefix_two_status)
+                                                    $prefix = $prefix_two;
+                                            ?>
+                                            <img src="<?php 
+                                                if(!empty($customeruser_values['images'])): 
+                                                    echo media_url()."uploads/profile/".$prefix.$customeruser_values['images']; 
+                                                    // echo "string";
+                                                else:
+                                                    echo media_url()."assets/img/no_image.jpg"; 
+                                                endif; 
+                                            ?>" alt="Image not loaded" style="width:170px;height:170px;">
+                                    </div>                  
+                                </div></label>
 												</div>												
 											  </div>  					  							  
 											</fieldset>
@@ -614,27 +647,30 @@
                                                 <!-- <div class="col-md-6"> -->
                                                     <!-- Asham Horoscope - start -->
                                                 <!-- <div id="asham_horo_container"> -->
-                                                    <div class="asham_horo_row" id="product">
-	                                                    <div class="asham-row" data-id="abox_1" id="abox_1">1</div>
-	                                                    <div class="asham-row" data-id="abox_2" id="abox_2">2</div>
-	                                                    <div class="asham-row" data-id="abox_3" id="abox_3">3</div>
-	                                                    <div class="asham-row" data-id="abox_4" id="abox_4">4</div>
+                                                    <!-- <div id="asham_horo_container"> -->
+                                                        <div class="asham_horo_row" id="product">
+                                                        <div class="asham-row" data-id="abox_1" id="abox_1">1</div>
+                                                        <div class="asham-row" data-id="abox_2" id="abox_2">2</div>
+                                                        <div class="asham-row" data-id="abox_3" id="abox_3">3</div>
+                                                        <div class="asham-row" data-id="abox_4" id="abox_4">4</div>
 
-	                                                    <div class="asham-row" data-id="abox_12" id="abox_12">12</div>
-	                                                    <div class="asham-row" data-id="abox_15" id="abox_15">-</div>
-	                                                    <div class="asham-row" data-id="abox_16" id="abox_16">-</div>
-	                                                    <div class="asham-row" data-id="abox_5"  id="abox_5">5</div>
+                                                        <div class="asham-row" data-id="abox_12" id="abox_12">12</div>
+                                                        <div class="asham-row" data-id="abox_15" id="abox_15">-</div>
+                                                        <div class="asham-row" data-id="abox_16" id="abox_16">-</div>
+                                                        <div class="asham-row" data-id="abox_5"  id="abox_5">5</div>
 
-	                                                    <div class="asham-row" data-id="abox_11" id="abox_11">11</div>
-	                                                    <div class="asham-row" data-id="abox_13" id="abox_13">-</div>
-	                                                    <div class="asham-row" data-id="abox_14" id="abox_14">-</div>
-	                                                    <div class="asham-row" data-id="abox_6"  id="abox_6">6</div>
+                                                        <div class="asham-row" data-id="abox_11" id="abox_11">11</div>
+                                                        <div class="asham-row" data-id="abox_13" id="abox_13">-</div>
+                                                        <div class="asham-row" data-id="abox_14" id="abox_14">-</div>
+                                                        <div class="asham-row" data-id="abox_6"  id="abox_6">6</div>
 
-	                                                    <div class="asham-row" data-id="abox_10" id="abox_10">10</div>
-	                                                    <div class="asham-row" data-id="abox_9" id="abox_9">9</div>
-	                                                    <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
-	                                                    <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
-                                                	</div>
+                                                        <div class="asham-row" data-id="abox_10" id="abox_10">10</div>
+                                                        <div class="asham-row" data-id="abox_9" id="abox_9">9</div>
+                                                        <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
+                                                        <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
+
+                                                        </div>
+                                                    </div>
                                               <!-- </div> --><!-- Asham Horoscope - end -->
                                               <!-- </div>  -->
                                              </div>     
@@ -657,3 +693,34 @@
 <?php 
     include('templates/footer.php');
 ?>
+<script type="text/javascript">
+$(document).ready(function () {
+
+   var arr = <?php echo json_encode($rasi); ?>     
+   $('.horo_row #box_6, #box_7, #box_10, #box_11').attr('readonly', 'readonly');   
+   $.each(arr, function( i, val ) {    
+     $('.third-row').each(function(){
+        var id=$(this).data('id');
+        var res = id.split("_");          
+        if(res[1]==val){
+            img='<?php echo media_url(); ?>'+'assets/img/rasi/'+i+'.png';             
+            $("#"+id).append("<img src="+img+" />");
+        }
+      });  
+   }); 
+
+   var asham_arr = <?php echo json_encode($amsham); ?>    
+   $('.asham_horo_row #abox_6, #abox_7, #abox_10, #abox_11').attr('readonly', 'readonly');
+   $.each(asham_arr, function( i, val ) {    
+     $('.asham-row').each(function(){
+        var id=$(this).data('id');
+        var res = id.split("_");          
+        if(res[1]==val){
+            img='<?php echo media_url(); ?>'+'assets/img/rasi/'+i+'.png';             
+            $("#"+id).append("<img src="+img+" />");
+        }
+      });  
+   }); 
+
+});    
+</script>
