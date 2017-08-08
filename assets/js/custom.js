@@ -188,26 +188,30 @@ $(document).ready(function() {
     var results_array = [];     
     // Add the Rasi on registration Page               
     $('#rasi_cont').on('click', '#add_rasi', function(){
-            var srasi_val = $('#rasi_name :selected').val();
-            var srasi_text = $('#rasi_name :selected').text();
-            var sres = $('#box_id :selected').val(); 
-            var data={};
-              $('.third-row').each(function(){
-                    var id=$(this).data('id');
-                    var res = id.split("_");                                              
-                        if(res[1]==sres){                            
-                            img=media_url+'assets/img/rasi/'+srasi_val+'.png';             
-                            $("#"+id).append("<img src="+img+" data-id="+srasi_val+" />");
-                            data.key = srasi_val;
-                            data.value = res[1];
-                            data.text = srasi_text;
-                            data.boxid = id;
-                        }                    
-              });
-            results_array.push(data); 
-            $("#rasi_name option[value='"+srasi_val+"']").remove();            
-            $("#crasi_name").append('<option value="' + data.key + '" data-id="'+data.boxid+'">' + data.text + '</option>');
-            // alert(JSON.stringify(results_array));    
+            //added if condition only by kalai
+            // alert($('#rasi_name option').length);
+            if($('#rasi_name option').length > 0){
+                var srasi_val = $('#rasi_name :selected').val();
+                var srasi_text = $('#rasi_name :selected').text();
+                var sres = $('#box_id :selected').val(); 
+                var data={};
+                  $('.third-row').each(function(){
+                        var id=$(this).data('id');
+                        var res = id.split("_");                                              
+                            if(res[1]==sres){                            
+                                img=media_url+'assets/img/rasi/'+srasi_val+'.png';             
+                                $("#"+id).append("<img src="+img+" data-id="+srasi_val+" />");
+                                data.key = srasi_val;
+                                data.value = res[1];
+                                data.text = srasi_text;
+                                data.boxid = id;
+                            }                    
+                  });
+                results_array.push(data); 
+                $("#rasi_name option[value='"+srasi_val+"']").remove();            
+                $("#crasi_name").append('<option value="' + data.key + '" data-id="'+data.boxid+'">' + data.text + '</option>');
+                // alert(JSON.stringify(results_array));    
+            }
     });
 
     // Remove the Rasi from Registration Page
@@ -236,6 +240,9 @@ $(document).ready(function() {
                 });                                
                 // alert('remove'+removeid)
                 remove(results_array, "key", removeid);
+                //newly added by kalai start
+                $('#rasi_name').append($('#crasi_name').find('option:selected').clone());
+                //end
                 $('#crasi_name').find('option:selected').remove();
                     //});
             // alert(JSON.stringify(results_array)); 
@@ -248,26 +255,30 @@ $(document).ready(function() {
     var results_array_asham = [];  
     // Add the ASHAM on registration Page               
     $('#asham_cont').on('click', '#add_asham', function(){
-            var srasi_val = $('#asham_name :selected').val();
-            var srasi_text = $('#asham_name :selected').text();
-            var sres = $('#ashambox_id :selected').val();            
-            var data={};
-              $('.asham-row').each(function(){
-                    var id=$(this).data('id');
-                    var res = id.split("_");                                              
-                        if(res[1]==sres){                            
-                            img=media_url+'assets/img/rasi/'+srasi_val+'.png';             
-                            $("#"+id).append("<img src="+img+" data-id="+srasi_val+" />");
-                            data.key = srasi_val;
-                            data.value = res[1];
-                            data.text = srasi_text;
-                            data.boxid = id;
-                        }                    
-              });
-            results_array_asham.push(data); 
-            $("#asham_name option[value='"+srasi_val+"']").remove();            
-            $("#casham_name").append('<option value="' + data.key + '" data-id="'+data.boxid+'">' + data.text + '</option>');
-            // alert(JSON.stringify(results_array));    
+            //added if condition only by kalai
+            // alert($('#asham_name option').length);
+            if($('#asham_name option').length > 0){
+                var srasi_val = $('#asham_name :selected').val();
+                var srasi_text = $('#asham_name :selected').text();
+                var sres = $('#ashambox_id :selected').val();            
+                var data={};
+                  $('.asham-row').each(function(){
+                        var id=$(this).data('id');
+                        var res = id.split("_");                                              
+                            if(res[1]==sres){                            
+                                img=media_url+'assets/img/rasi/'+srasi_val+'.png';             
+                                $("#"+id).append("<img src="+img+" data-id="+srasi_val+" />");
+                                data.key = srasi_val;
+                                data.value = res[1];
+                                data.text = srasi_text;
+                                data.boxid = id;
+                            }                    
+                  });
+                results_array_asham.push(data); 
+                $("#asham_name option[value='"+srasi_val+"']").remove();            
+                $("#casham_name").append('<option value="' + data.key + '" data-id="'+data.boxid+'">' + data.text + '</option>');
+                // alert(JSON.stringify(results_array)); 
+            }   
     });
 
     // Remove the ASHAM from Registration Page
@@ -295,6 +306,9 @@ $(document).ready(function() {
                 });                                
                 // alert('remove'+removeid)
                 remove(results_array_asham, "key", removeid);
+                //newly added by kalai start
+                $('#asham_name').append($('#casham_name').find('option:selected').clone());
+                //end
                 $('#casham_name').find('option:selected').remove();
                     //});
             // alert(JSON.stringify(results_array)); 
@@ -480,6 +494,30 @@ $(document).ready(function() {
             formData.append('rid', $(this).data('id'));
             // var formData = $(this).serialize();
             // alert(JSON.stringify(formData)); // It returns empty when stringify json data, but data has been passed
+            rasi = [];
+            $('.horo_row div').each(function() {
+                if($(this).find('img').length){
+                    value = $(this).text();
+                    // formData.append('rasi', $(this).text());
+                    $(this).find('img').each(function(){
+                        rasi.push({'key':$(this).data('id'),'value':value});
+                    })                   
+                }
+            });
+            // alert(JSON.stringify(rasi));
+            formData.append('rasi', JSON.stringify(rasi));
+            amsam = [];
+            $('.asham_horo_row div').each(function() {
+                if($(this).find('img').length){
+                    value = $(this).text();
+                    // formData.append('rasi', $(this).text());
+                    $(this).find('img').each(function(){
+                        amsam.push({'key':$(this).data('id'),'value':value});
+                    })                   
+                }
+            });
+            // alert(JSON.stringify(amsam));
+            formData.append('amsam', JSON.stringify(amsam));
             $.ajax({
                type: "POST",
                url: baseurl+$(this).attr('action'),

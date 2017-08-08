@@ -171,7 +171,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 pull-right">
-                                    <button type="submit" value="LogIn" herf="#" class="btn form-control edit_btn pull-right">Cancel</button>
+                                    <!-- <button type="submit" value="LogIn" herf="#" class="btn form-control edit_btn pull-right">Cancel</button> -->
                                     <button type="submit" value="LogIn" herf="#" class="btn form-control edit_btn pull-right">Save</button>
                                 </div>
                             </div>
@@ -264,20 +264,20 @@
                                            <h3 id="hcolor">Image</h3>
                                         </div>
                                         <div class="col-md-12 text-boxs">
-                                             <div class="imageupload panel panel-default">
-                                        <div class="panel-heading clearfix">
-                                            <h3 class="panel-title">Upload Image</h3>
-                                            <span id="upimg_error" class="registration-error"></span>
-                                        </div>
-                                        <div class="file-tab panel-body">
-                                            <label class="btn btn-default btn-file">
-                                                <span>Browse</span>
-                                                <input type="file" name="image-file" id="upimg">
-                                            </label>
-                                        </div>
-                                    </div>
-                                            <p>No photos in your album.Upload Photos.</p>  
-                                            <!-- <input type="file" name="cus_profileimage[]" id="uploadedfile" name="uploadedfile" multiple="">  -->   
+                                        <!--      <div class="imageupload panel panel-default">
+                                                <div class="panel-heading clearfix">
+                                                    <h3 class="panel-title">Upload Image</h3>
+                                                    <span id="upimg_error" class="registration-error"></span>
+                                                </div>
+                                                <div class="file-tab panel-body">
+                                                    <label class="btn btn-default btn-file">
+                                                        <span>Browse</span>
+                                                        <input type="file" name="image-file" id="upimg">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <p>No photos in your album.Upload Photos.</p> -->  
+                                            <input type="file" name="cus_profileimage[]" id="uploadedfile" name="uploadedfile" multiple="">    
                                         </div>
                                     </div>
                                 </div>
@@ -1190,4 +1190,39 @@
 <?php 
 include('include/footer.php');
 ?>  
+<script type="text/javascript">
+$(document).ready(function () {
+
+   var arr = <?php echo json_encode($rasi); ?>     
+   $('.horo_row #box_6, #box_7, #box_10, #box_11').attr('readonly', 'readonly');   
+   $.each(arr, function( i, val ) {    
+     $('.third-row').each(function(){
+        var id=$(this).data('id');
+        var res = id.split("_");          
+        if(res[1]==val){
+            img='<?php echo media_url(); ?>'+'assets/img/rasi/'+i+'.png';             
+            $("#"+id).append("<img src="+img+" data-id='"+i+"'/>");
+            rasi_value = $("#rasi_name option[value='"+i+"']");
+            rasi_value.remove();
+            $("#crasi_name").append("<option value='"+i+"' data-id='"+id+"'>"+rasi_value.text()+"</option>");
+        }
+      });  
+   }); 
+   $("#crasi_name option:first").attr('selected','selected');
+
+   var asham_arr = <?php echo json_encode($amsham); ?>    
+   $('.asham_horo_row #abox_6, #abox_7, #abox_10, #abox_11').attr('readonly', 'readonly');
+   $.each(asham_arr, function( i, val ) {    
+     $('.asham-row').each(function(){
+        var id=$(this).data('id');
+        var res = id.split("_");          
+        if(res[1]==val){
+            img='<?php echo media_url(); ?>'+'assets/img/rasi/'+i+'.png';             
+            $("#"+id).append("<img src="+img+" />");
+        }
+      });  
+   }); 
+
+});    
+</script>
 <?php } ?>

@@ -218,10 +218,10 @@ class Base extends CI_Controller {
 					$data_reg['rel_religion']= $form_data['reg_religion'];
 				}
 				if(!empty($form_data['reg_caste'])){
-					$data_reg['reg_caste']= $form_data['reg_caste'];
+					$data_reg['rel_caste']= $form_data['reg_caste'];
 				}
 				if(!empty($form_data['reg_Dhosham'])){
-					$data_reg['reg_Dhosham']= $form_data['reg_Dhosham'];
+					$data_reg['rel_dhosham']= $form_data['reg_Dhosham'];
 				}
 				if(!empty($form_data['reg_religion'])){
 					$data_reg['rel_religion']= $form_data['reg_religion'];
@@ -230,7 +230,7 @@ class Base extends CI_Controller {
 					$data_reg['rel_luknam_id']= $form_data['luknam'][0];
 				}
 				if(!empty($form_data['reg_gothra'])){
-					$data_reg['reg_gothra']= $form_data['reg_gothra'];
+					$data_reg['rel_gothra']= $form_data['reg_gothra'];
 				}
 		  		$id_userreg = $this->user_model->insert_registration('reg_religion_ethnicity',$data_reg);
 
@@ -882,6 +882,8 @@ class Base extends CI_Controller {
 				$data['customeruser_values'] = $data_values['customeruser_values'];
 				//Get Selection option data's for edit
 				$data['selection_values'] = $this->user_model->customer_user_selectiondata();
+				$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
+				$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
 				// echo "<pre>";
 				// print_r($data['selection_values']);
 				// echo "</pre>";
