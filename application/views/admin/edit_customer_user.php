@@ -962,10 +962,10 @@
 											<div class="row-fluid sortable">
 											<div class="box span8">
 												<div class="box-header well">
-													<h2><!-- <i class="icon-th"> -->Horoscope</h2>	  			
+													<h2><!-- <i class="icon-th"> -->Horoscope</h2> 			
 												</div>
 												<div class="box-content">
-													<div class="col-md-6" style="display: inline-block;">			
+													<div class="col-md-6" style="display: inline-block;">	
 													<!-- Rasi Horoscope - Start -->
 		                                                    <div id="horo_container">
 		                                                        <div class="horo_row" id="product">
@@ -983,7 +983,7 @@
 		                                                            <div class="third-row" data-id="box_13" id="box_13">-</div>
 		                                                            <div class="third-row" data-id="box_14" id="box_14">-</div>
 		                                                            <div class="third-row" data-id="box_6"  id="box_6">6</div>
-
+		                                                            
 		                                                            <div class="third-row" data-id="box_10" id="box_10">10</div>
 		                                                            <div class="third-row" data-id="box_9" id="box_9">9</div>
 		                                                            <div class="third-row" data-id="box_8" id="box_8">8</div>
@@ -1002,7 +1002,6 @@
 		                                                                <option value="r_9">&#2970;&#3010;&#2992;&#3007;</option>
 		                                                                <option value="r_10"> &#2986;&#3009;&#2980;&#2985;&#3021;</option> 
 		                                                            </select>
-
 		                                                            <select id="box_id" style="width: 70px" class="drop_horo styled-select blue semi-square" >
 		                                                                <option value="1">1</option>
 		                                                                <option value="2">2</option>
@@ -1017,7 +1016,6 @@
 		                                                                <option value="11">11</option>
 		                                                                <option value="12">12</option>
 		                                                            </select>
-
 		                                                                <!-- <img src="assets/img/add.png" type="button" id="add_rasi" value="ADD" name="add_rasi" /> -->
 		                                                                <i style="cursor:pointer" class="icon-plus" aria-hidden="true" id="add_rasi" name="add_rasi"></i>
 		                                                                <select style="width: 70px" id="crasi_name" class="drop_horo styled-select blue semi-square" name="crasi_name">
@@ -1088,7 +1086,7 @@
 		                                                            <i style="cursor:pointer" class="icon-remove" aria-hidden="true" type="button" id="remove_asham" name="remove_asham"></i>
 		                                                    </div> 
 		                                              	</div> <!-- col 6 ends  -->     
-										</div> <!-- box content Ends -->
+												</div> <!-- box content Ends -->
 												</div>
 											</div>
 											<div class="form-actions">
