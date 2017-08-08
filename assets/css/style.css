@@ -2384,7 +2384,7 @@ p2
   border: 1px solid #e0e0e0;
   border-radius: 3px;
   position: relative;
-  top:2px;
+  top:12px;
 }
 
 .registration_form_area .registration_form_s h4 {
@@ -2517,7 +2517,7 @@ p2
 
 .registration_form_area .registration_form_s .form-group.reg_chose {
   text-align: center;
-  margin: 10px 0px 50px 0px;
+  margin: 10px 0px 20px 0px;
 }
 
 /* End Main slider area css
@@ -8195,6 +8195,7 @@ ol a{
   border: none;
   background: transparent;
   margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .edit_btn:focus {

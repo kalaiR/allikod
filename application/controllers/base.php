@@ -906,6 +906,10 @@ class Base extends CI_Controller {
 			if(!empty($id)){
 				$data_values = $this->user_model->customer_user_profile($id);
 				$data['customeruser_values'] = $data_values['customeruser_values'];
+				//store the multiple values of marital status
+				$data['customeruser_multiple_marstatus_values'] = $data_values['customeruser_multiple_marstatus_values'];
+				//store the multiple values of education
+				$data['customeruser_multiple_edu_values'] = $data_values['customeruser_multiple_edu_values'];
 				//Get Selection option data's for edit
 				$data['selection_values'] = $this->user_model->customer_user_selectiondata();
 				$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
