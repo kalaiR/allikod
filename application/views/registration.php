@@ -256,7 +256,7 @@ include('include/menu.php');
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control" id="reg_religion" name="reg_religion"placeholder="Religion">
+                                                <input type="text" class="form-control" id="reg_religion" name="reg_religion"placeholder="Religion"  readonly="readonly" value="Hindu">
                                             </div>
                                             <!-- <div class="col-sm-4 box">
                                                <span id="mother_error" class="registration-error"></span>
@@ -269,7 +269,7 @@ include('include/menu.php');
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                               <input type="text" class="form-control" id="reg_caste" name="reg_caste"placeholder="Caste">
+                                               <input type="text" class="form-control" id="reg_caste" name="reg_caste"placeholder="Caste" value="Vanniar" readonly="readonly">
                                             </div>
                                             <!-- <div class="col-sm-4 box">
                                                <span id="mother_error" class="registration-error"></span>
@@ -341,7 +341,7 @@ include('include/menu.php');
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                               <input type="text" class="form-control" id="reg_gothra" name="reg_gothra" placeholder="Gothra">
+                                               <input type="text" class="form-control" id="reg_gothra" name="reg_gothra" placeholder="Gothra" value="Sambu Maharishi Gothra" readonly="readonly">
                                             </div>
                                             <!-- <div class="col-sm-4 box">
                                              <span id="luknam_error" class="registration-error"></span>

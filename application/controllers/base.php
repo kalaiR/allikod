@@ -424,9 +424,8 @@ class Base extends CI_Controller {
 			        $personnal_logo['file_ext_tolower'] 	= TRUE;
 			        $config['max_size']    = '20480'; // Maximum size - 1MB
 			    	$config['max_width']  = '10240'; // Maximumm width - 1024px
-			    	$config['max_height']  = '76800'; // Maximum height - 768px
-			    	$new_name = 'th_'.$_FILES["uploadedfile"]['name'];
-					$config['file_name'] = $new_name;
+			    	$config['max_height']  = '76800'; // Maximum height - 768px			    	
+					$config['file_name'] = "th_".$_FILES["uploadedfile"]['name'];
 			        $this->upload->initialize($config); // Initialize the configuration		
            			if($this->upload->do_upload('uploadedfile'))
             		{
@@ -797,6 +796,7 @@ class Base extends CI_Controller {
 		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);
 		$id = $values[0];
 		$data['results'] = $this->user_model->get_viewdetails_byid($id);
+		$data['slider_images'] = $this->user_model->get_customer_images($id);
 		$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
 		$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
 		$this->load->view('viewdetail',$data);

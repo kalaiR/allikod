@@ -162,7 +162,11 @@ include('include/menu.php');
                                                                 <?php 
                                                                             if(!empty($mother_tongue)) :
                                                                             foreach ($mother_tongue as $cls_val) {
-                                                                            echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                if($cls_val['mothertongue_id'] == '1') {
+                                                                                    echo "<option value='" . $cls_val['mothertongue_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                }else{
+                                                                                     echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                }    
                                                                             }
                                                                         endif;
                                                                         ?>
@@ -434,7 +438,11 @@ include('include/menu.php');
                                                             <?php 
                                                                         if(!empty($mother_tongue)) :
                                                                         foreach ($mother_tongue as $cls_val) {
-                                                                        echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                if($cls_val['mothertongue_id'] == '1') {
+                                                                                    echo "<option value='" . $cls_val['mothertongue_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                }else{
+                                                                                    echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                }    
                                                                         }
                                                                     endif;
                                                                     ?>
