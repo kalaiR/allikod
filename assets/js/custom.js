@@ -35,7 +35,7 @@ function validate() {
                         data: data,
                         type: "post",
                         success: function(results_array){
-                            alert(JSON.stringify(results_array));
+                            // alert(JSON.stringify(results_array));
                             if(results_array!=1){
                                 output = false;
                                 $("#register_email-error").html(" Email Already Registered ");
@@ -504,8 +504,14 @@ $(document).ready(function() {
                     })                   
                 }
             });
+            if($('#rasi_name option').length > 0){
+                $('#rasi_name option').each(function(){
+                    rasi.push({'key':$(this).val(),'value':0});
+                });
+            }
             // alert(JSON.stringify(rasi));
             formData.append('rasi', JSON.stringify(rasi));
+
             amsam = [];
             $('.asham_horo_row div').each(function() {
                 if($(this).find('img').length){
@@ -516,8 +522,14 @@ $(document).ready(function() {
                     })                   
                 }
             });
+            if($('#asham_name option').length > 0){
+                $('#asham_name option').each(function(){
+                    amsam.push({'key':$(this).val(),'value':0});
+                });
+            }
             // alert(JSON.stringify(amsam));
             formData.append('amsam', JSON.stringify(amsam));
+            
             $.ajax({
                type: "POST",
                url: baseurl+$(this).attr('action'),
