@@ -8195,6 +8195,7 @@ ol a{
   border: none;
   background: transparent;
   margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .edit_btn:focus {
