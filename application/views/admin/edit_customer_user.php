@@ -557,12 +557,12 @@
 														  <div class="control-group">
 															<label class="control-label">Height : </label>
 															<div class="controls">
-															  <select data-rel="chosen" name="cus_heightcms">
+															  <select data-rel="chosen" name="cus_heightcms" class="span3">
 															  	<option value="">In CMs</option>
 																<option>140</option>
 																<option>141</option>
 															  </select>
-															  <select data-rel="chosen" name="cus_heightfeet">
+															  <select data-rel="chosen" name="cus_heightfeet" class="span3">
 																<option value="">In Feet</option>
 																<option>5</option>
 																<option>6</option>
@@ -830,13 +830,13 @@
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Age : </label>
 															<div class="controls">
-															  <select data-rel="chosen" value="From">
+															  <select data-rel="chosen" value="From" class="span3">
 																<option>20</option>
 																<option>23</option>
 															  </select>
 															</div>
 															<div class="controls">
-															  <select data-rel="chosen">
+															  <select data-rel="chosen" class="span3">
 																<option>25</option>
 																<option>26</option>
 															  </select>
@@ -925,7 +925,6 @@
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Image  : </label>
 															<div class="control-group">
-															  <label class="control-label" for="fileInput">Image</label>
 															  <div class="controls">
 																<input class="input-file uniform_on" id="fileInput" type="file" name="cus_profileimage">
 															  </div>
@@ -983,7 +982,7 @@
 		                                                            <div class="third-row" data-id="box_13" id="box_13">-</div>
 		                                                            <div class="third-row" data-id="box_14" id="box_14">-</div>
 		                                                            <div class="third-row" data-id="box_6"  id="box_6">6</div>
-		                                                            
+
 		                                                            <div class="third-row" data-id="box_10" id="box_10">10</div>
 		                                                            <div class="third-row" data-id="box_9" id="box_9">9</div>
 		                                                            <div class="third-row" data-id="box_8" id="box_8">8</div>
