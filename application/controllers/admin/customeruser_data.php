@@ -12,7 +12,7 @@ class Customeruser_Data extends CI_Controller {
 	{
 		//get main CodeIgniter object
 	    $CI =& get_instance();
-	    //load database library
+	    //load database libraryd
 	    $CI->load->database();    
 	    $CI->form_validation->set_message('edit_unique', "Sorry, that %s is already being used.");
 	    list($table, $id, $field, $current_id) = explode(".", $params);    
@@ -115,6 +115,8 @@ class Customeruser_Data extends CI_Controller {
 		$id = $this->uri->segment(3);
 		$data_values = $this->customeruser_data_model->customer_user_profile($id);
 		$data['customeruser_values'] = $data_values['customeruser_values'];
+		$data['rasi'] = $this->customeruser_data_model->getrasi_viewdetails_byid($id);		
+		$data['amsham'] = $this->customeruser_data_model->getamsham_viewdetails_byid($id);
 		$this->load->view('admin/view_customer_user',$data);
 	}
 	public function add_online_user(){
