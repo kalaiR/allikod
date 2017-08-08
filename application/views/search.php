@@ -452,7 +452,8 @@ include('include/menu.php');
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-6 box">
-                                                    <div class="col-sm-5 box">
+                                                    <div class="col-sm-5 box">                          
+
                                                         <select multiple style="width:300px;" tabindex="4" class="chosen-select form-control" data-placeholder="Please Select" name="education[]" id="education second">
                                                         <?php 
                                                         if(!empty($education_category)) :

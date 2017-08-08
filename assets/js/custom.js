@@ -35,7 +35,7 @@ function validate() {
                         data: data,
                         type: "post",
                         success: function(results_array){
-                            alert(JSON.stringify(results_array));
+                            // alert(JSON.stringify(results_array));
                             if(results_array!=1){
                                 output = false;
                                 $("#register_email-error").html(" Email Already Registered ");
