@@ -1202,6 +1202,7 @@ $(document).ready(function () {
         if(res[1]==val){
             img='<?php echo media_url(); ?>'+'assets/img/rasi/'+i+'.png';             
             $("#"+id).append("<img src="+img+" data-id='"+i+"'/>");
+            //newly added for edit
             rasi_value = $("#rasi_name option[value='"+i+"']");
             rasi_value.remove();
             $("#crasi_name").append("<option value='"+i+"' data-id='"+id+"'>"+rasi_value.text()+"</option>");
@@ -1218,7 +1219,11 @@ $(document).ready(function () {
         var res = id.split("_");          
         if(res[1]==val){
             img='<?php echo media_url(); ?>'+'assets/img/rasi/'+i+'.png';             
-            $("#"+id).append("<img src="+img+" />");
+            $("#"+id).append("<img src="+img+" data-id='"+i+"'/>");
+            //newly added for edit
+            amsam_value = $("#asham_name option[value='"+i+"']");
+            amsam_value.remove();
+            $("#casham_name").append("<option value='"+i+"' data-id='"+id+"'>"+amsam_value.text()+"</option>");
         }
       });  
    }); 

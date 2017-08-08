@@ -893,6 +893,26 @@ class User_model extends CI_Model {
                   $this->db->insert('user_images',array('reg_user_id' => $id,'images' =>$value));
             }
 
+            //Update Raasi and Amsam
+            $rasi  = $this->input->post('rasi');
+            $amsam  = $this->input->post('amsam');
+            if(!empty($rasi)) { 
+                $cleanData = json_decode($rasi);    
+                foreach ($cleanData as $key => $value) {
+                  $data_horo[$value->key]= $value->value;
+                }
+            } 
+            if(!empty($amsam)) { 
+                $cleanData = json_decode($amsam);    
+                foreach ($cleanData as $key => $value) {
+                  $data_horo[$value->key]= $value->value;
+                }
+            } 
+            $horoscope_where = '(reg_user_id="'.$id.'")';
+            $this->db->set($data_horo); 
+            $this->db->where($horoscope_where);
+            $this->db->update("reg_image_horoscope", $data_horo);
+
             // echo $this->db->last_query(); 
             $model_data['status'] = "Updated Successfully";
             $model_data['error'] = 2;
