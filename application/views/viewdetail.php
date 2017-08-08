@@ -3,7 +3,7 @@ include('include/header.php');
 include('include/menu.php');
 
 // echo '<pre>';
-// print_r($results);
+// print_r($session_search);
 // echo '</pre>';
 // exit();
 

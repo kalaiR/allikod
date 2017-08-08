@@ -209,7 +209,7 @@ class Base extends CI_Controller {
 		  		$data_reg = array(
 						// 'religionethnicity_id'=>'',
 						'reg_user_id'=>$id_userdetails,
-						'rel_timeofbirth'=>'2017-07-10',
+						'rel_timeofbirth'=>$form_data['reg_tim'],
 						'rel_mothertongue_id'=>$form_data['mother_tongue'][0],
 						'rel_nakshathra_id'=>$form_data['nakshathra'][0],
 						'rel_zodiacsign_id'=>$form_data['zodiac_sign'][0]
@@ -335,8 +335,32 @@ class Base extends CI_Controller {
 				// 'comm_number_of_sisters_el_mar'=>$form_data['reg_MESister'],
 				// 'comm_number_of_sisters_yo_mar'=>$form_data['reg_MYSister'],
 				// 'comm_about_family'=>$form_data['more_abt_family']	
-
 		  		$id_user_com = $this->user_model->insert_registration('reg_communication_family',$data_reg_com);
+
+
+				$expected_education = array();
+				if(!empty($form_data['reg_Education'])){
+		  			$expected_education = $form_data['reg_Education'];
+			  		foreach ($expected_education as $key => $value) {			  			
+						$data_expected = array(
+						'reg_user_id'=>$id_userdetails,						
+						'education_id'=>$value
+						);
+			  			$reg_Education = $this->user_model->insert_registration('reg_selectededucation',$data_expected);
+			  		}
+		  		}
+
+		  		$expected_maritalstatus = array();
+		  		if(!empty($form_data['check_list'])){
+			  		$expected_maritalstatus = $form_data['check_list'];
+			  		foreach ($expected_maritalstatus as $key => $value) {
+						$searchmarital_status = array(
+						'reg_user_id'=>$id_userdetails,						
+						'marital_category_id'=>$value
+						);
+			  			$phy_searchmarital_status = $this->user_model->insert_registration('reg_selectedmarital',$searchmarital_status);
+			  		}
+		  		}	
 
 		  		$data_reg_phy = array(
 						// 'physicalexpectation_id'=>'',
@@ -344,21 +368,10 @@ class Base extends CI_Controller {
 						'phy_food'=>$form_data['food'][0],							
 						'phy_searchage_from'=>$form_data['search_age_from'][0],
 						'phy_searchage_to'=>$form_data['search_age_to'][0],
-						//'phy_searchmarital_status'=>'Single',
-						'phy_searchedu_status'=>$form_data['reg_Education'][0]
+						'phy_searchmarital_status'=>'',
+						'phy_searchedu_status'=>''
 				);
-
-				if(!empty($form_data['marital_status_single_white'])){
-					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_single_white'];	
-				}elseif(!empty($form_data['marital_status_windowed'])){
-					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_windowed'];	
-				}elseif(!empty($form_data['marital_status_annualled'])){
-					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_annualled'];	
-				}elseif(!empty($form_data['marital_status_divorced'])){
-					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_divorced'];	
-				}else{
-					$data_reg_phy['phy_searchmarital_status']=$form_data['marital_status_any'];	
-				}
+		  		
 
 				if(!empty($form_data['diet_veg'])){
 					$data_reg_phy['phy_expectationfood']=$form_data['diet_veg'];	
@@ -398,6 +411,7 @@ class Base extends CI_Controller {
 				// 'phy_physicalstatus'=>$form_data['physical_status'][0],
 				// 'phy_yourpersonality'=>$form_data['personality'],
 				// 'phy_expectationabout_lifepartner'=>$form_data['expectation']
+
 		  		$id_user_phy = $this->user_model->insert_registration('reg_physical_expectation',$data_reg_phy);
 		  		
 
@@ -411,6 +425,8 @@ class Base extends CI_Controller {
 			        $config['max_size']    = '20480'; // Maximum size - 1MB
 			    	$config['max_width']  = '10240'; // Maximumm width - 1024px
 			    	$config['max_height']  = '76800'; // Maximum height - 768px
+			    	$new_name = 'th_'.$_FILES["uploadedfile"]['name'];
+					$config['file_name'] = $new_name;
 			        $this->upload->initialize($config); // Initialize the configuration		
            			if($this->upload->do_upload('uploadedfile'))
             		{
@@ -486,7 +502,7 @@ class Base extends CI_Controller {
 
 	public function search_result(){	
 		$per_page = 10;
-		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);		
+		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);				
 		if($values[0]){	
 			$offset = (($values[0]-1)*$per_page); 
 		}else{
@@ -495,6 +511,11 @@ class Base extends CI_Controller {
 
 		$search_inputs = array();
 		$advance_search = array();	
+
+		// echo '<pre>';
+		// print_r($this->input->post());
+		// echo '</pre>';
+		// exit();
 
 		if($this->input->post()){	
 			$form_data = $this->input->post();			
@@ -512,16 +533,17 @@ class Base extends CI_Controller {
 				$age_to = $form_data['search_age_to'][0];
 				$height_from = $form_data['height_in_cms'][0];		
 				$height_to = $form_data['height_in_feets'][0];
-				$mar_status = $form_data['marital_status'][0];
-				$mother_tongue = $form_data['mother_tongue'][0];
-				$education = $form_data['education'][0];
+				$mar_status = $form_data['marital_status'][0];				
+				$mother_tongue = $form_data['mother_tongue'];
+				$education = $form_data['education'];
 				$show_profile = $form_data['images'][0];
-				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'education'=>$education, 'show_profile'=>$show_profile);
+				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'education'=>$education, 'show_profile'=>$show_profile);				
+
 				$data = $this->user_model->get_basicsearch($values, $per_page, $offset);
 				$this->session->set_userdata('search_inputs',$values);
 
 			}elseif($form_data['search_type'] =='advance_search'){
-				// Search by Advance Search //
+				// Search by Advance Search //				
 				$gender = $form_data['gender'][0];	
 				$country = $form_data['country'][0];
 				// $occupation = $form_data['occupation'][0];	
@@ -531,14 +553,14 @@ class Base extends CI_Controller {
 				$height_from = $form_data['height_in_cms'][0];		
 				$height_to = $form_data['height_in_feets'][0];
 				$mar_status = $form_data['marital_status'][0];
-				$mother_tongue = $form_data['mother_tongue'][0];
-				// $education = $form_data['education_category'][0];
+				$mother_tongue = $form_data['mother_tongue'];
+				// $education = $form_data['education_category'];
 				$show_profile = $form_data['images'][0];
 
 				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'show_profile'=>$show_profile, 'country'=>$country, 'physical_status'=>$physical_status, );
 
-				if(!empty($form_data['education_category'][0])){					
-					$values['education_category'] = $form_data['education_category'][0];
+				if(!empty($form_data['education'])){					
+					$values['education_category'] = $form_data['education'];
 				}
 
 				if(!empty($form_data['occupation'][0])){
@@ -576,7 +598,7 @@ class Base extends CI_Controller {
 				$search_quick = $this->session->userdata('search_quick');					
 			}
 		}else{		
-			// Pagination Session Data
+			// Pagination Session Data			
 			$search_inputs = $this->session->userdata('search_inputs');
 			$search_quick = $this->session->userdata('search_quick');
 			$search_dhosham = $this->session->userdata('search_dhoshamid');
@@ -592,10 +614,14 @@ class Base extends CI_Controller {
 				$session_data['offset'] = $values[0];
 				$this->session->set_userdata("search_quick", $session_data);
 				$data = $this->user_model->get_quicksearch($search_quick, $per_page, $offset);				
-			}elseif(!empty($search_dhosham)){
-				$session_data = $this->session->userdata('search_dhoshamid');
-				$session_data['offset'] = $values[0];
+			}elseif(!empty($search_dhosham)){				
+				$session_data = $this->session->userdata('search_dhoshamid');				
 				$this->session->set_userdata("search_dhoshamid", $session_data);
+				if(is_array($session_data) && isset($session_data['offset'])) {
+					preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);		
+					echo 'offset====>'.$values[0]; 			
+					$session_data['offset'] = $values[0];
+				}				
 				$data = $this->user_model->get_dhoshamsearch($search_dhosham, $per_page, $offset);
 			}elseif(!empty($advance_search)){
 				$session_data = $this->session->userdata('advance_search_sess');
@@ -676,7 +702,7 @@ class Base extends CI_Controller {
 			        $personnal_logo['file_ext_tolower'] 	= TRUE;
 			        $config['max_size']    = '20480'; // Maximum size - 1MB
 			    	$config['max_width']  = '10240'; // Maximumm width - 1024px
-			    	$config['max_height']  = '76800'; // Maximum height - 768px
+			    	$config['max_height']  = '76800'; // Maximum height - 768px			    	
 			        $this->upload->initialize($config); // Initialize the configuration		
            			if($this->upload->do_upload('uploadedfile'))
             		{

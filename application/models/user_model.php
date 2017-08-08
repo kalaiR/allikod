@@ -329,21 +329,49 @@ class User_model extends CI_Model {
                $show_profile = '(img.images ="" OR img.images!="" OR img.images ="defalt_male.png" AND img.images="defalt_female.png")';
              }  
         }
-        
-        $catedu = $this->get_catgoryeducation($values['education']);
-        $val =1;
+                
+       // Get education category based on education
         $like_where = "(";
-        foreach ($catedu as $key => $value) {          
-          if($val!= count($catedu)){
-            $like_where .= 'edu.edu_education = "'.$value['education_id'].'" OR ';
-          }else{
-            $like_where .= 'edu.edu_education = "'.$value['education_id'].'"';
-          }           
-          $val++;          
-        }  
+          $cval =1;
+          foreach ($values['education'] as $ckey => $cvalue) {
+            $val =1;
+            $catedu = $this->get_catgoryeducation($cvalue);        
+              foreach ($catedu as $key => $value) {          
+                if($val!= count($catedu)){
+                  $like_where .= 'edu.edu_education = "'.$value['education_id'].'" OR ';
+                }else{
+                  $like_where .= 'edu.edu_education = "'.$value['education_id'].'"';
+                }           
+                $val++;          
+              }               
+              // echo $cval.'=='.count($values['education']);
+              if($cval!= count($values['education']))             
+                $like_where .= 'OR ';
+           $cval++;   
+        }
         $like_where .= ")";  
+        // echo $like_where;
+        // exit();
 
-        $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND rel.rel_mothertongue_id = "'.$values['mother_tongue'].'" AND '.$like_where.' AND '.$show_profile.' AND usr.user_delete_status!=1)';
+
+        // Get mother tongue category based on mother tongue
+        $like_wheres = "("; 
+            $cval =1;
+            foreach ($values['mother_tongue'] as $ckey => $cvalue) {                        
+                $catedu = $this->get_mothertongue('', $cvalue); 
+                // echo $cval.'==='.count($values['mother_tongue']);                                                        
+                  if($cval!= count($values['mother_tongue'])){
+                      $like_wheres .= 'rel.rel_mothertongue_id = "'.$cvalue.'" OR ';
+                  }else{
+                      $like_wheres .= 'rel.rel_mothertongue_id = "'.$cvalue.'"';
+                  }
+            $cval++;          
+            }
+        $like_wheres .= ")"; 
+        // echo $like_wheres;
+        // exit();
+
+        $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND '.$like_wheres.' AND '.$show_profile.' AND '.$like_where.' AND usr.user_delete_status!=1)';
         $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_gender, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images');
         $this->db->from('reg_userdetail usr');
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
@@ -366,6 +394,8 @@ class User_model extends CI_Model {
         $this->db->order_by('usr.userdetail_id','desc');
         $query['total_rows'] = $this->db->get()->num_rows();
       }  
+      // print_r($query);
+      // exit();
       return $query;
   }
 
@@ -562,6 +592,7 @@ class User_model extends CI_Model {
  
    /** Search by dhoshamsearch Id **/
   public function get_dhoshamsearch($values, $limit, $start){ 
+      $dhosham_1 = '';       
 
         if($values == 1){
           $dhosham_1 = "(rel.rel_dhosham LIKE '%nag%') or (rel.rel_dhosham LIKE 'n%g%') or(rel.rel_dhosham LIKE '%nak%')) and ((rel.rel_dhosham LIKE '%n%ga%')or (rel.rel_dhosham LIKE '%n%ka%')or (rel.rel_dhosham LIKE '%n%ha%') or (rel.rel_dhosham LIKE '%n%gha%') or (rel.rel_dhosham LIKE '%n%kha%') or (rel.rel_dhosham LIKE '%nah%') or (rel.rel_dhosham LIKE '%aga%') or (rel.rel_dhosham LIKE '%a%g%') or (rel.rel_dhosham LIKE '%na%ga%')";
@@ -587,6 +618,7 @@ class User_model extends CI_Model {
         $this->db->order_by('rel.reg_user_id','desc');
         $model_data['results'] = $this->db->get()->result_array(); 
         // echo $this->db->last_query();  
+
 
          // Total rows
         $this->db->select('*');
@@ -642,6 +674,7 @@ class User_model extends CI_Model {
 
 // Advance Search Query //
  public function get_advancesearch($values, $limit, $start){
+  $display_where = '';
   if(!empty($values)) {
 
         // With Photo - Without photo //
@@ -655,42 +688,74 @@ class User_model extends CI_Model {
             } 
         } 
 
-        // With Education Category Based Education //
-        if(!empty($values['education_category'])) {
-          $catedu = $this->get_catgoryeducation($values['education_category']);
-          $val =1;
-          $like_where1 = "(";
-            foreach ($catedu as $key => $value) {          
-              if($val!= count($catedu)){
-                $like_where1 .= 'edu.edu_education = "'.$value['education_id'].'" OR ';
-              }else{
-                $like_where1 .= 'edu.edu_education = "'.$value['education_id'].'"';
-              }           
-              $val++;          
-            }  
-          $like_where1 .= ")";          
+       if(!empty($values['mother_tongue'])) {
+         // Get mother tongue category based on mother tongue
+        $mothertongue_wheres = "("; 
+            $cval =1;
+            foreach ($values['mother_tongue'] as $ckey => $cvalue) {                        
+                $catedu = $this->get_mothertongue('', $cvalue); 
+                // echo $cval.'==='.count($values['mother_tongue']);                                                        
+                  if($cval!= count($values['mother_tongue'])){
+                      $mothertongue_wheres .= 'rel.rel_mothertongue_id = "'.$cvalue.'" OR ';
+                  }else{
+                      $mothertongue_wheres .= 'rel.rel_mothertongue_id = "'.$cvalue.'"';
+                  }
+            $cval++;          
+            }
+        $mothertongue_wheres .= ")"; 
+      }
 
-          $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND rel.rel_mothertongue_id = "'.$values['mother_tongue'].'" AND '.$show_profile.' AND '.$like_where1.' AND usr.user_delete_status!=1)';
+        // With Education Category Based Education //      
+        if(!empty($values['education_category'])) {                        
+            $educationcategory_where = "(";
+            $cval =1;
+            foreach ($values['education_category'] as $ckey => $cvalue) {
+                $val =1;
+                $catedu = $this->get_catgoryeducation($cvalue);        
+                foreach ($catedu as $key => $value) {          
+                  if($val!= count($catedu)){
+                    $educationcategory_where .= 'edu.edu_education = "'.$value['education_id'].'" OR ';
+                  }else{
+                    $educationcategory_where .= 'edu.edu_education = "'.$value['education_id'].'"';
+                  }           
+                  $val++;          
+                }               
+                // echo $cval.'=='.count($values['education']);
+                if($cval!= count($values['education_category']))             
+                  $educationcategory_where .= 'OR ';
+                $cval++;   
+            }
+            $educationcategory_where .= ")";            
+
+            // $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND '.$mothertongue_wheres.' AND '.$show_profile.' AND '.$educationcategory_where.' AND usr.user_delete_status!=1)';
+            $display_where .= $educationcategory_where.' AND ';
         } 
 
         // With Occupation Category Based Occupation //
         if(!empty($values['occupation_catagory'])) {
           $cateocc = $this->get_catgoryoccupation($values['occupation_catagory']);                 
           $val =1;
-          $like_where = "(";
+          $occcategory_where = "(";
             foreach ($cateocc as $key => $value) {          
               if($val!= count($cateocc)){
-                $like_where .= 'edu.edu_occupation = "'.$value['occupation_id'].'" OR ';
+                $occcategory_where .= 'edu.edu_occupation = "'.$value['occupation_id'].'" OR ';
               }else{
-                $like_where .= 'edu.edu_occupation = "'.$value['occupation_id'].'"';
+                $occcategory_where .= 'edu.edu_occupation = "'.$value['occupation_id'].'"';
               }           
               $val++;          
             }  
-          $like_where .= ")";  
-          $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND rel.rel_mothertongue_id = "'.$values['mother_tongue'].'" AND '.$show_profile.' AND '.$like_where.' AND usr.user_delete_status!=1)'; 
+          $occcategory_where .= ")";  
+          // $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND '.$mothertongue_wheres.' AND '.$show_profile.' AND '.$occcategory_where.' AND usr.user_delete_status!=1)';
+          $display_where .= $occcategory_where.' AND '; 
         }
 
-        $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND rel.rel_mothertongue_id = "'.$values['mother_tongue'].'" AND '.$show_profile.' AND usr.user_delete_status!=1)';
+       
+
+        if($display_where){
+          $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND '.$mothertongue_wheres.' AND '.$show_profile.' AND '.$display_where.' usr.user_delete_status!=1 )';
+        }else{
+          $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND '.$mothertongue_wheres.' AND '.$show_profile.' AND usr.user_delete_status!=1)';
+        }
 
         $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_gender, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images');
         $this->db->from('reg_userdetail usr');

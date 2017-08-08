@@ -993,15 +993,16 @@ include('include/menu.php');
                                             </div>
                                             <div class="col-sm-8 box">
                                                <label class="checkbox-inline" id="white">
-                                                    <input type="checkbox" value="4" name="marital_status_any" id="marital_status_any">Any</label>
+                                               
+                                                <input type="checkbox" value="Any" name="check_list[]" id="marital_status_any">Any</label>
                                                     <label class="checkbox-inline" id="white">
-                                                    <input type="checkbox" value="1" id="marital_status_single" name="marital_status_single white">Single</label>
+                                                <input type="checkbox" value="1" id="marital_status_single" name="check_list[]">Single</label>
                                                     <label class="checkbox-inline"  id="white">
-                                                    <input type="checkbox" value="2" id="marital_status_windowed" name="marital_status_windowed">Widowed</label>
+                                                <input type="checkbox" value="2" id="marital_status_windowed" name="check_list[]">Widowed</label>
                                                     <label class="checkbox-inline" id="white">
-                                                    <input type="checkbox" value="3" id="marital_status_annualled" name="marital_status_annualled white">Annualled</label>
+                                                <input type="checkbox" value="3" id="marital_status_annualled" name="check_list[] white">Annualled</label>
                                                     <label class="checkbox-inline"id="white">
-                                                    <input type="checkbox"  name="4" id="marital_status_divorced" value="marital_status_divorced">Divorced</label>
+                                                <input type="checkbox" name="check_list[]" id="marital_status_divorced" value="marital_status_divorced">Divorced</label>
                                             </div>
                                             <div class="col-sm-4 box">
                                                <!--  <span id="food_error" class="registration-error"></span> -->
