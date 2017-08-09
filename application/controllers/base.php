@@ -941,4 +941,25 @@ class Base extends CI_Controller {
 		}
 
 	}
+	public function testemail(){
+		// Email configuration
+		$this->config->load('email', true);
+		$emailsetup = $this->config->item('email');
+		$this->load->library('email', $emailsetup);
+		$to_email = "kalaiarasi@etekchnoservices.com";
+		$subject = 'Test Email';
+		$message = "Hello";
+		$this->email->initialize($emailsetup);	
+		$this->email->from($emailsetup['smtp_user'], 'Test');
+		$this->email->to($to_email);
+		$this->email->subject($subject);
+		$this->email->message($message);
+		echo $this->email->send();
+		echo $this->email->print_debugger();
+		/* Check whether mail send or not*/
+		if($this->email->send()) 
+			echo "mail sent";
+		else
+			echo "mail not sent";
+	}
 }

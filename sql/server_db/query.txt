@@ -78,6 +78,8 @@ SET
 WHERE 
   vallikodi_server_new.reg_userdetail.userdetail_id = BBBn3tl_test.user_detail.id;
 
+update reg_userdetail set user_online_or_simple = 'online' where user_online_or_simple = 'Online';
+
 
 no need to run(just for reference)
 Query to generate report of active online user from the year 2014 to 2017:

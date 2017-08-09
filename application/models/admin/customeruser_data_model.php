@@ -37,6 +37,9 @@ class Customeruser_data_model extends CI_Model {
 	                                'user_active_status' => $this->input->post('cus_profileactivestatus'),
 	                                'user_maritalstatus' => $this->input->post('cus_marstatus'),
 	                                'user_registeredby' => ($this->input->post('cus_regby')) ? $this->input->post('cus_regby') : NULL,
+	                                'userdetail_profile_id' => ($this->input->post('cus_profileid')) ? $this->input->post('cus_profileid') : NULL,
+	                                'userdetail_file_id' => ($this->input->post('cus_fileid')) ? $this->input->post('cus_fileid') : NULL,
+	                                'user_online_or_simple' => $this->input->post('cus_usertype'),
 	                                );
 	            	// print_r($userdetail_update_data);
 	            	$paymentdetail_update_data = array(
@@ -48,7 +51,7 @@ class Customeruser_data_model extends CI_Model {
 	            					'startdate' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
 	            					'enddate' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
 	                                );
-	            	// print_r($paymentdetail_update_data);
+	            	print_r($paymentdetail_update_data);
 	            	$religion_ethnicity_update_data = array(
 	            					'rel_mothertongue_id' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
 	            					'rel_religion' => $this->input->post('cus_religion'),

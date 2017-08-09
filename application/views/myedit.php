@@ -277,7 +277,7 @@
                                                 </div>
                                             </div>
                                             <p>No photos in your album.Upload Photos.</p> -->  
-                                            <input type="file" name="cus_profileimage[]" id="uploadedfile" name="uploadedfile" multiple="">    
+                                            <input type="file" name="cus_profileimage[]" id="uploadedfile" multiple="">    
                                         </div>
                                     </div>
                                 </div>
