@@ -8,7 +8,7 @@
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3 title="My Profile"><img class="left_img" src="img/banner/t-left-img.png" alt="">My Profile<img class="right_img" src="img/banner/t-right-img.png" alt=""></h3>
+                    <h3 title="My Profile"><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">My Profile<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
                     <!--<a href="index.html">Home</a>
                     <a href="shop-cart.html">Pricing</a>-->
                 </div>
@@ -166,7 +166,7 @@
                                     <div class="col-md-2">
                                         <h3 class="text-box" id="hcolor">Name</h3>
                                     </div>    
-                                    <div class="col-md-4 names-boxs">
+                                    <div class="col-md-4 names-boxs">                                        
                                        <input type="text" class="form-control" id="reg_email2" placeholder="Username" value="<?php if(!empty($customeruser_values['user_fname'])) echo $customeruser_values['user_fname']; ?>" name="cus_fname">
                                     </div>
                                 </div>
@@ -457,8 +457,8 @@
                                                 <?php 
                                                     $time_of_birth = explode("-", $customeruser_values['rel_timeofbirth']);
                                                 ?>
-                                                <div class="col-md-1">       
-                                                    <select name="cus_birthhours">
+                                                <div class="col-md-1" style="width:13%">       
+                                                    <select name="cus_birthhours" class="col-md-1 tb_drop">
                                                         <option value="">Hours</option>
                                                         <?php for( $i=0; $i<=12; $i++ ):
                                                             if($time_of_birth[0] == $i)
@@ -472,8 +472,8 @@
                                                         endfor; ?>
                                                     </select>                                         
                                                 </div>
-                                                <div class="col-md-1">       
-                                                    <select name="cus_birthmins">
+                                                <div class="col-md-1" style="width:13%">       
+                                                    <select name="cus_birthmins" class="col-md-2 tb_drop">
                                                         <option value="">Minutes</option>
                                                         <?php for( $i=0; $i<=59; $i++ ):
                                                             if($time_of_birth[1] == $i)
@@ -487,8 +487,8 @@
                                                         endfor; ?>
                                                     </select>                                         
                                                 </div>
-                                                <div class="col-md-1">       
-                                                    <select name="cus_birthmer">
+                                                <div class="col-md-1" style="width:13%">       
+                                                    <select name="cus_birthmer" class="col-md-2 tb_drop">
                                                         <option value="">Meredian</option>
                                                         <option value="am" <?php if($time_of_birth[2] == "am") echo "selected"; ?>>AM</option>
                                                         <option value="pm" <?php if($time_of_birth[2] == "pm") echo "selected"; ?>>PM</option>
@@ -949,11 +949,11 @@
                                         </div>
                                         <div class="col-md-6 text-boxs">
                                             <div class="row com-box">
-                                                <div class="col-md-3">
+                                                <div class="col-md-2">
                                                     <p><b>Age</b></p>
                                                 </div>
                                                 <div class="col-md-2">        
-                                                    <select name="cus_startage">
+                                                    <select name="cus_startage" class="tb_drop">
                                                         <option value="">From</option>
                                                         <?php for( $i=18; $i<=60; $i++ ):
                                                         if($i == $customeruser_values['phy_searchage_from'])
@@ -967,7 +967,7 @@
                                                     <p><b>To</b></p> 
                                                 </div>
                                                 <div class="col-md-2">        
-                                                    <select name="cus_endage">
+                                                    <select name="cus_endage" class="tb_drop">
                                                         <option value="">To</option>
                                                         <?php for( $i=18; $i<=60; $i++ ):
                                                         if($i == $customeruser_values['phy_searchage_to'])
@@ -979,10 +979,10 @@
                                                 </div>
                                             </div>
                                             <div class="row com-box">
-                                                <div class="col-md-3 text-box">
+                                                <div class="col-md-2">
                                                     <p><b>Marital Status</b></p>
                                                 </div>
-                                                <div class="col-md-9">
+                                                <div class="col-md-10" style="padding: 0px">
                                                     <div class="checkbox">
                                                         <?php 
                                                         $marstatus = array();
@@ -1001,7 +1001,7 @@
                                                 </div>                                           
                                             </div>
                                             <div class="row com-box">
-                                                <div class="col-md-3">
+                                                <div class="col-md-2">
                                                     <p><b>Education</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
@@ -1032,7 +1032,7 @@
                                                  </div>
                                             </div>
                                             <div class="row com-box">
-                                                <div class="col-md-3">
+                                                <div class="col-md-2">
                                                     <p><b>Diet</b></p>
                                                 </div>
                                                 <div class="col-md-8">  
