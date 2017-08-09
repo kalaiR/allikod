@@ -208,6 +208,7 @@
 .text-box
 {
   padding-top:15px;
+  padding-left: 30px;
   float: left;
 }
 .base-box
@@ -736,7 +737,6 @@
   margin-bottom: 10px;
 }
 /*Edit-page-image-upload*/
-
 #media-list li img {
     width: 100px;
     height: 100px
