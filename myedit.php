@@ -156,8 +156,8 @@
                                 <div class="col-md-2">
                                     <h3 class="text-box" id="hcolor">Name</h3>
                                 </div>    
-                                <div class="col-md-4 names-boxs">
-                                   <input type="text" class="form-control" id="reg_email2" placeholder="Adibha">
+                                <div class="col-md-4 names-boxs">                                    
+                                   <input type="text" style="" class="form-control" id="reg_email2" placeholder="Adibha">
                                 </div>
                             </div>
                             <div class="col-md-4 pull-right">
@@ -409,20 +409,20 @@
                                             <div class="col-md-5">
                                                 <p><b>Time Of Birth *</b></p>
                                             </div>
-                                            <div class="col-md-1">       
-                                                <select>
+                                            <div class="col-md-2">       
+                                                <select class="col-md-2 ">
                                                     <option>00</option>
                                                     <option>01</option>
                                                 </select>                                         
                                             </div>
                                             <div class="col-md-1">       
-                                                <select>
+                                                <select class="col-md-1 selectpicker">
                                                     <option>00</option>
                                                     <option>01</option>
                                                 </select>                                         
                                             </div>
                                             <div class="col-md-1">       
-                                                <select>
+                                                <select class="col-md-1 selectpicker">
                                                     <option>AM</option>
                                                     <option>PM</option>
                                                 </select>                                         
