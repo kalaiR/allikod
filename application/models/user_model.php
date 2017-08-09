@@ -19,12 +19,12 @@ class User_model extends CI_Model {
   }
 
   public function get_martialstatus(){
-      $condition = "martial.active_status = 1";
-      $this->db->select('*');
-      $this->db->from('marital_category AS martial');
-      $this->db->where($condition);      
-      $this->db->order_by('martial.maritalcategory_id','asc');
-      $query = $this->db->get()->result_array();          
+        $condition = "martial.active_status = 1";
+        $this->db->select('*');
+        $this->db->from('marital_category AS martial');
+        $this->db->where($condition);      
+        $this->db->order_by('martial.maritalcategory_id','asc');
+        $query = $this->db->get()->result_array(); 
       return $query;
   }
 
@@ -1161,6 +1161,36 @@ class User_model extends CI_Model {
     $this->db->from('user_images');   
     $this->db->where('reg_user_id', $id);
     return $this->db->get()->result_array();
+  }
+
+  public function get_selected_education($id){
+    // $this->db->select('images');
+    // $image_data = $this->db->get_where('user_images', array('reg_user_id' => $id ))->result();
+    $this->db->select('education_id'); 
+    $this->db->from('reg_selectededucation');   
+    $this->db->where('reg_user_id', $id);
+    $query = $this->db->get()->result_array();
+    return $query; 
+  }
+
+
+  public function get_selected_maritalstatus($id){
+    // $this->db->select('images');
+    // $image_data = $this->db->get_where('user_images', array('reg_user_id' => $id ))->result();
+    $this->db->select('marital_category_id'); 
+    $this->db->from('reg_selectedmarital');   
+    $this->db->where('reg_user_id', $id);
+    return $this->db->get()->result_array();
+  }
+
+  public function get_martialstatusbyId($id){
+        $condition = "martial.active_status = 1 AND maritalcategory_id = '".$id."'";
+        $this->db->select('*');
+        $this->db->from('marital_category AS martial');
+        $this->db->where($condition);      
+        $this->db->order_by('martial.maritalcategory_id','asc');
+        $query = $this->db->get()->result_array(); 
+      return $query;
   }
 
 

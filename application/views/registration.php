@@ -840,9 +840,9 @@ include('include/menu.php');
                                             <div class="col-sm-4 box">                                                
                                                  <select class="form-control" name="weight_in_kgs[]" id="weight_in_kgs">
                                                                                <?php 
-                                                    for($i=137;$i<=213;$i++){
+                                                    for($i=37;$i<=113;$i++){
                                                     ?>
-                                                    <option  <?php if($i==213){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                    <option  <?php if($i==63){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                                     <?php
                                                     }
                                                     ?>
