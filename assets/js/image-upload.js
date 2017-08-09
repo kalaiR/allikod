@@ -129,9 +129,9 @@
         return html.join('');
     }
 
-    function getImageThumbnailHtml(src) {
-        return '<img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px">';
-    }
+    // function getImageThumbnailHtml(src) {
+    //     return '<img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px">';
+    // }
 
     function getFileExtension(path) {
         return path.substr(path.lastIndexOf('.') + 1).toLowerCase();
@@ -235,5 +235,96 @@
         $urlTab.find('input').val('');
     }
 
+     $('.img_view').click(function(){
+          $(".edit_img").show();
+          $(".btn-nav").hide();
+    });
+    var names = [];
+    $('.edit-mult-img').on('change', '.picupload', function(event) {
+        var getAttr = $(this).attr('click-type');
+        var files = event.target.files;
+        var output = document.getElementById("media-list");
+        var z = 0
+
+                    var fileExtension = ['jpeg', 'jpg','png','gif'];
+                    if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                       
+                        $('#spanFileName').html("Only jpeg,jpg,png,gif formats are allowed.");
+                    }
+                    else {
+                        $('#spanFileName').html("");
+                    } 
+                    
+        if (getAttr == 'type1') {
+            $('#media-list').html('');
+            $('#media-list').html('<li class="myupload"><span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload" multiple></span></li>');
+            $('#hint_brand').modal('show');
+
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                names.push($(this).get(0).files[i].name);
+                if (file.type.match('image')) {
+                    var picReader = new FileReader();
+                    picReader.fileName = file.name
+                    picReader.addEventListener("load", function(event) {
+                        var picFile = event.target;
+
+                        var div = document.createElement("li");
+
+
+                        div.innerHTML = "<img src='" + picFile.result + "'" +
+                            "title='" + picFile.name + "'/><div  class='post-thumb'><div class='inner-post-thumb'><a href='javascript:void(0);' data-id='" + event.target.fileName + "' class='remove-pic'><i class='fa fa-times' aria-hidden='true'></i></a><div></div>";
+
+                        $("#media-list").prepend(div);
+
+
+                    });
+                } 
+                picReader.readAsDataURL(file);
+            }
+            console.log(names);
+        } else if (getAttr == 'type2') {
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                names.push($(this).get(0).files[i].name);
+                if (file.type.match('image')) {
+
+                    var picReader = new FileReader();
+                    picReader.fileName = file.name
+                    picReader.addEventListener("load", function(event) {
+
+                        var picFile = event.target;
+
+                        var div = document.createElement("li");
+
+                        div.innerHTML = "<img src='" + picFile.result + "'" +
+                            "title='" + picFile.name + "'/><div  class='post-thumb'><div class='inner-post-thumb'><a href='javascript:void(0);' data-id='" + event.target.fileName + "' class='remove-pic'><i class='fa fa-times' aria-hidden='true'></i></a><div></div>";
+
+                        $("#media-list").prepend(div);
+
+                    });
+                } 
+                picReader.readAsDataURL(file);
+
+            }
+            // return array of file name
+            console.log(names);
+        }
+
+    });
+
+    $('.edit-mult-img').on('click', '.remove-pic', function() {
+        $(this).parent().parent().parent().remove();
+        var removeItem = $(this).attr('data-id');
+        var yet = names.indexOf(removeItem);
+
+        if (yet != -1) {
+            names.splice(yet, 1);
+        }
+        // return array of file name
+        console.log(names);
+      });
+
 }(jQuery));
  /* End Image upload in reg page*/
+

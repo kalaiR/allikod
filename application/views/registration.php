@@ -58,7 +58,7 @@ include('include/menu.php');
                                         <div class="row base-box">
                                             <div class="col-sm-4">
                                                 <div class="height_item">
-                                                    <h4>Email</h4>
+                                                    <h4>Email *</h4>
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
@@ -161,7 +161,7 @@ include('include/menu.php');
                                         <div class="row base-box" style="color: black;">
                                             <div class="col-sm-4">
                                                 <div class="height_item">
-                                                  <h4 id="white">Birthday</h4>
+                                                  <h4 id="white">Birthday *</h4>
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
@@ -175,7 +175,7 @@ include('include/menu.php');
                                         <div class="row base-box">
                                             <div class="col-sm-4">
                                                 <div class="height_item">
-                                                  <h4>Marital Status</h4>
+                                                  <h4>Marital Status *</h4>
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">

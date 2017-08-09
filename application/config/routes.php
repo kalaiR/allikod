@@ -74,6 +74,8 @@ $route['myedit'] 							= "base/myedit";
 $route['newreg'] 							= "base/newreg";
 $route['countprofile_viewed'] 				= "base/countprofile_viewed";
 
+$route['testemail'] 						= "base/testemail";
+
 
 // $route['admin'] 							= "admin/base/index";
 $route['admin'] 							= "admin/base/index";
