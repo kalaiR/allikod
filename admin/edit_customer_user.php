@@ -479,12 +479,12 @@
 											  <div class="control-group">
 												<label class="control-label">Height : </label>
 												<div class="controls">
-												  <select data-rel="chosen">
+												  <select data-rel="chosen" class="span3">
 													<option value="">In CMs</option>
 													<option>140</option>
 													<option>141</option>
 												  </select>
-												  <select data-rel="chosen">
+												  <select data-rel="chosen" class="span3">
 													<option value="">In Feet</option>
 													<option>5</option>
 													<option>6</option>
@@ -726,12 +726,12 @@
 											  <div class="control-group">
 												<label class="control-label">Age : </label>
 												<div class="controls">
-												  <select data-rel="chosen">
+												  <select data-rel="chosen" class="span3">
 													<option value="">From</option>
 													<option>25</option>
 													<option>26</option>
 												  </select>
-												  <select data-rel="chosen">
+												  <select data-rel="chosen" class="span3">
 													<option value="">To</option>
 													<option>35</option>
 													<option>36</option>
@@ -821,8 +821,6 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Image  : </label>
 												<div class="control-group">
-												  <label class="control-label" for="fileInput">Image</label>
-												  <div class="controls">
 													<input class="input-file uniform_on" id="fileInput" type="file">
 												  </div>
 												</div>												
