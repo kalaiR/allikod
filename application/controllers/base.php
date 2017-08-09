@@ -793,12 +793,31 @@ class Base extends CI_Controller {
 	}
 	public function viewdetail(){
 		//To get last value of the url after slash (instead of this we can use $this->uri->segment(3),but this is not working here only, in admin working well)
+		$get_educationlist = array();
+
 		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);
 		$id = $values[0];
 		$data['results'] = $this->user_model->get_viewdetails_byid($id);
 		$data['slider_images'] = $this->user_model->get_customer_images($id);
 		$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
 		$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
+
+		$data['eeducation'] = $this->user_model->get_selected_education($id);
+		foreach($data['eeducation'] as $key => $value) {
+			  $get_educationlist[] = $this->user_model->get_education($value['education_id']);			  
+		}
+		if(!empty($get_educationlist)){
+			$data['expected_education']	 =  $get_educationlist;
+		}
+		
+		$data['emaritalstatus'] = $this->user_model->get_selected_maritalstatus($id);
+		foreach($data['emaritalstatus'] as $key => $value) {			  
+			  $get_martial[] = $this->user_model->get_martialstatusbyId($value['marital_category_id']);
+		}		
+		if(!empty($get_martial)){		
+			$data['expected_maritalstatus'] = $get_martial;
+		}
+
 		$this->load->view('viewdetail',$data);
 	}
 	public function myprofile(){
