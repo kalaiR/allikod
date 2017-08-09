@@ -22,7 +22,7 @@ class Base extends CI_Controller {
 					'user_fname'=>$form_data['reg_Name'],
 					'user_gender'=>$form_data['gender'][0],					
 					'user_age'=>$form_data['reg_age'],					
-					'user_online_or_simple'=>'Online',
+					'user_online_or_simple'=>'online',
 					'user_registeredby'=>$form_data['register_by'][0]
 				);
 		  		$id_userdetails = $this->user_model->insert_registration('reg_userdetail',$data);
@@ -39,6 +39,29 @@ class Base extends CI_Controller {
 					'rel_mothertongue_id'=>$form_data['mother_tongue'][0]
 				);	
 		  		$this->user_model->insert_registration('reg_religion_ethnicity', $data_religion);
+		  		//Email Process
+				// $ci =& get_instance();	
+				// $ci->config->load('email', true);
+				// $emailsetup = $ci->config->item('email');
+				// $this->load->library('email', $emailsetup);
+				// $from_email = $emailsetup['smtp_user'];
+				// $this->email->initialize($emailsetup);
+				// $this->email->from($from_email, '');
+    //             $this->email->to($form_data['reg_email2']);
+    // 			$this->email->subject('Registrations Process Completed');
+    // 			// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
+    // 			$message = $this->load->view('email_template/registration', $data, TRUE);
+    // 			$this->email->message($message);
+
+    // 			if($this->email->send())
+    // 			{
+    //     			echo "Your email was sent.!";
+    // 			}
+    // 			else 
+    // 			{
+    //     			echo "Your email was not sent.!";
+    // 			}
+
 		  		redirect('registration/'.$id_userdetails);
 		}else{
 			$data['register'] = $this->user_model->get_registerid();
@@ -199,7 +222,7 @@ class Base extends CI_Controller {
 					'user_gender'=>$form_data['gender'][0],					
 					'user_age'=>$form_data['user_age'],
 					'user_dob'=>$form_data['dob'],
-					'user_online_or_simple'=>'Online',					
+					'user_online_or_simple'=>'online',					
 					'user_maritalstatus'=>$form_data['marital_status'][0],
 					'user_registeredby'=>$form_data['register_by'][0]
 				);
@@ -464,16 +487,32 @@ class Base extends CI_Controller {
 						$data_horo[$value->key]= $value->value;
 					}
 				}	
-
-				// $data_horo['imagehoroscope_id'] = '';
 				$data_horo['reg_user_id'] = $id_userdetails;
-
-				// echo '<pre>';
-				// print_r($data_horo);
-				// echo '</pre>';
-				// exit();
 				$id_images = $this->user_model->insert_registration('reg_image_horoscope',$data_horo);
-		  		$this->load->view('registration');
+
+				// //Email Process
+				// 			$ci =& get_instance();	
+				// 			$ci->config->load('email', true);
+				// 			$emailsetup = $ci->config->item('email');
+				// 			$this->load->library('email', $emailsetup);
+				// 			$from_email = $emailsetup['smtp_user'];
+				// 			$this->email->initialize($emailsetup);
+				// 			$this->email->from($from_email, '');
+				//             $this->email->to($user_values['admin_user_email']);
+				// 			$this->email->subject('Get your forgotten Password');
+				// 			// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
+				// 			$message = $this->load->view('email_template/registration', $user_values, TRUE);
+				// 			$this->email->message($message);
+
+				// 			if($this->email->send())
+				// 			{
+				//     			echo "Your email was sent.!";
+				// 			}
+				// 			else 
+				// 			{
+				//     			echo "Your email was not sent.!";
+				// 			}		  					  		
+		  		$this->load->view('registration',$data_reg_com);
 
 		  	}else{
 		  		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);		  		
