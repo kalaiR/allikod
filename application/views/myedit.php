@@ -166,8 +166,8 @@
                                     <div class="col-md-2">
                                         <h3 class="text-box" id="hcolor">Name</h3>
                                     </div>    
-                                    <div class="col-md-4 names-boxs">                                        
-                                       <input type="text" class="form-control" id="reg_email2" placeholder="Username" value="<?php if(!empty($customeruser_values['user_fname'])) echo $customeruser_values['user_fname']; ?>" name="cus_fname">
+                                    <div class="col-md-4 names-boxs">
+                                       <input type="text" class="form-control form_inputs" data-message="User Name" id="reg_email2" placeholder="Username" value="<?php if(!empty($customeruser_values['user_fname'])) echo $customeruser_values['user_fname']; ?>" name="cus_fname">
                                     </div>
                                 </div>
                                 <div class="col-md-4 pull-right">
@@ -367,7 +367,7 @@
                                                     <p><b>Mobile Number</b></p>
                                                  </div>
                                                 <div class="col-md-4">        
-                                                     <input type="text" class="form-control" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['comm_mobile_no'])) echo $customeruser_values['comm_mobile_no']; ?>" name="cus_mobile">                                            
+                                                     <input type="text" class="form-control form_inputs" data-message="Mobile Number" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['comm_mobile_no'])) echo $customeruser_values['comm_mobile_no']; ?>" name="cus_mobile">                                            
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -375,7 +375,7 @@
                                                     <p><b>Communication Address</b></p>
                                                  </div>
                                                 <div class="col-md-4">        
-                                                     <textarea id="comment" placeholder="" rows="4" name="cus_address"><?php if(!empty($customeruser_values['comm_communication_address'])) echo $customeruser_values['comm_communication_address']; ?></textarea>                                            
+                                                     <textarea class="form_inputs" data-message="Communication Address" id="comment" placeholder="" rows="4" name="cus_address"><?php if(!empty($customeruser_values['comm_communication_address'])) echo $customeruser_values['comm_communication_address']; ?></textarea>                                            
                                                 </div>
                                             </div>   
                                         </div>      
@@ -473,7 +473,7 @@
                                                     $time_of_birth = explode("-", $customeruser_values['rel_timeofbirth']);
                                                 ?>
                                                 <div class="col-md-1" style="width:13%">       
-                                                    <select name="cus_birthhours" class="col-md-1 tb_drop">
+                                                    <select name="cus_birthhours" class="form_inputs col-md-1 tb_drop" data-message="Birth Hour">
                                                         <option value="">Hours</option>
                                                         <?php for( $i=0; $i<=12; $i++ ):
                                                             if($time_of_birth[0] == $i)
@@ -488,7 +488,7 @@
                                                     </select>                                         
                                                 </div>
                                                 <div class="col-md-1" style="width:13%">       
-                                                    <select name="cus_birthmins" class="col-md-2 tb_drop">
+                                                    <select name="cus_birthmins" class="col-md-2 tb_drop form_inputs" data-message="Birth Minute">
                                                         <option value="">Minutes</option>
                                                         <?php for( $i=0; $i<=59; $i++ ):
                                                             if($time_of_birth[1] == $i)
@@ -503,7 +503,7 @@
                                                     </select>                                         
                                                 </div>
                                                 <div class="col-md-1" style="width:13%">       
-                                                    <select name="cus_birthmer" class="col-md-2 tb_drop">
+                                                    <select name="cus_birthmer" class="form_inputs col-md-2 tb_drop" data-message="Birth Meredian">
                                                         <option value="">Meredian</option>
                                                         <option value="am" <?php if($time_of_birth[2] == "am") echo "selected"; ?>>AM</option>
                                                         <option value="pm" <?php if($time_of_birth[2] == "pm") echo "selected"; ?>>PM</option>
@@ -515,7 +515,7 @@
                                                     <p><b>Mother Tongue *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                    <select class="selectpicker" name="cus_mothertongue">
+                                                    <select class="selectpicker form_inputs" data-message="Mother Tongue" name="cus_mothertongue">
                                                         <option value="">Select Mother Tongue</option>
                                                           <?php 
                                                             foreach ($selection_values['mothertongue_values'] as $mt_val):      
@@ -540,7 +540,7 @@
                                                     <p><b>Nakshathra *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                    <select class="selectpicker" name="cus_nakshathra">
+                                                    <select class="selectpicker form_inputs" data-message="Nakshathra" name="cus_nakshathra">
                                                         <option value="">Select Nakshathra</option>
                                                           <?php 
                                                             foreach ($selection_values['nakshathra_values'] as $nak_val):      
@@ -584,7 +584,7 @@
                                                     <p><b>Zodiac Sign *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                    <select class="selectpicker" name="cus_zodiac">
+                                                    <select class="selectpicker form_inputs" data-message="Zodiac Sign" name="cus_zodiac">
                                                         <option value="">Select Zodiac Sign</option>
                                                           <?php 
                                                             foreach ($selection_values['zodiac_values'] as $zod_val):      
@@ -610,7 +610,7 @@
                                                     <p><b>Education *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                    <select class="selectpicker" name="cus_education">
+                                                    <select class="selectpicker form_inputs" data-message="Education" name="cus_education">
                                                         <option value="1">BCA</option>
                                                         <option value="2">BE/B Tech</option>
                                                     </select>     
@@ -621,7 +621,7 @@
                                                     <p><b>Education In Detail *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                      <textarea id="comment" placeholder="" rows="3" cols="25" name="cus_edudetail"><?php if(!empty($customeruser_values['edu_educationdetails'])) echo $customeruser_values['edu_educationdetails']; ?></textarea>
+                                                      <textarea class="form_inputs" data-message="Education in details" id="comment" placeholder="" rows="3" cols="25" name="cus_edudetail"><?php if(!empty($customeruser_values['edu_educationdetails'])) echo $customeruser_values['edu_educationdetails']; ?></textarea>
                                                  </div>
                                             </div>
                                             <div class="row com-box">
@@ -629,7 +629,7 @@
                                                     <p><b>Occupation *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                      <select class="selectpicker" name="cus_occupation">
+                                                      <select class="selectpicker form_inputs" data-message="Occupation" name="cus_occupation">
                                                         <option value="1">Admin</option>
                                                         <option value="2">Other</option>
                                                     </select>
@@ -642,7 +642,7 @@
                                                     <p><b>Employed In *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                    <select class="selectpicker" name="cus_empin">
+                                                    <select class="selectpicker form_inputs" data-message="Employed in" name="cus_empin">
                                                         <option value="">Select Employed In</option>
                                                           <?php 
                                                             foreach ($selection_values['employedin_values'] as $emp_val):      
@@ -659,7 +659,7 @@
                                                     <p><b>Monthly Income(In Indian-Rs) *</b></p>
                                                 </div>
                                                 <div class="col-md-5">       
-                                                    <input type="text" class="form-control" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; ?>" name="cus_moninc">
+                                                    <input type="text" class="form-control form_inputs" data-message="Monthly Income" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; ?>" name="cus_moninc">
                                                  </div>
                                             </div>
                                             <div class="row com-box">
@@ -667,7 +667,7 @@
                                                     <p><b>Occupation In Detail *</b></p>
                                                 </div>
                                                 <div class="col-md-5">       
-                                                    <textarea id="comment" placeholder="" rows="4" cols="25" name="cus_ocudetail"><?php if(!empty($customeruser_values['edu_occupationdetail'])) echo $customeruser_values['edu_occupationdetail']; ?></textarea>
+                                                    <textarea class="form_inputs" data-message="Occupation in details" id="comment" placeholder="" rows="4" cols="25" name="cus_ocudetail"><?php if(!empty($customeruser_values['edu_occupationdetail'])) echo $customeruser_values['edu_occupationdetail']; ?></textarea>
                                                  </div>
                                             </div>
                                         </div>         
@@ -684,7 +684,7 @@
                                                     <p><b>Father's Name *</b></p>
                                                 </div>
                                                 <div class="col-md-5">        
-                                                    <input type="text" class="form-control" id="reg_Name" placeholder="Father's Name" value="<?php if(!empty($customeruser_values['comm_father_name'])) echo $customeruser_values['comm_father_name']; ?>" name="cus_fathername">
+                                                    <input type="text" class="form-control form_inputs" data-message="Father's Name" id="reg_Name" placeholder="Father's Name" value="<?php if(!empty($customeruser_values['comm_father_name'])) echo $customeruser_values['comm_father_name']; ?>" name="cus_fathername">
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -692,7 +692,7 @@
                                                     <p><b>Mother's Name *</b></p>
                                                 </div>
                                                 <div class="col-md-5">        
-                                                    <input type="text" class="form-control" id="reg_Name" placeholder="Mother's Name" value="<?php if(!empty($customeruser_values['comm_mother_name'])) echo $customeruser_values['comm_mother_name']; ?>" name="cus_mothername">
+                                                    <input type="text" class="form-control form_inputs" data-message="Mother's Name" id="reg_Name" placeholder="Mother's Name" value="<?php if(!empty($customeruser_values['comm_mother_name'])) echo $customeruser_values['comm_mother_name']; ?>" name="cus_mothername">
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -700,7 +700,7 @@
                                                     <p><b>Father's Employment *</b></p>
                                                 </div>
                                                 <div class="col-md-5">        
-                                                    <input type="text" class="form-control" id="reg_Name" placeholder="Father's Employment" value="<?php if(!empty($customeruser_values['comm_father_employment'])) echo $customeruser_values['comm_father_employment']; ?>" name="cus_fatheremp">
+                                                    <input type="text" class="form-control form_inputs" data-message="Father's Employment" id="reg_Name" placeholder="Father's Employment" value="<?php if(!empty($customeruser_values['comm_father_employment'])) echo $customeruser_values['comm_father_employment']; ?>" name="cus_fatheremp">
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -708,7 +708,7 @@
                                                     <p><b>Mother's Employment *</b></p>
                                                 </div>
                                                 <div class="col-md-5">        
-                                                    <input type="text" class="form-control" id="reg_Name" placeholder="Mother's Employment" value="<?php if(!empty($customeruser_values['comm_mother_employment'])) echo $customeruser_values['comm_mother_employment']; ?>" name="cus_motheremp">
+                                                    <input type="text" class="form-control form_inputs" data-message="Mother's Employment" id="reg_Name" placeholder="Mother's Employment" value="<?php if(!empty($customeruser_values['comm_mother_employment'])) echo $customeruser_values['comm_mother_employment']; ?>" name="cus_motheremp">
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -716,7 +716,7 @@
                                                     <p><b>Family Status *</b></p>
                                                 </div>
                                                 <div class="col-md-5">        
-                                                    <select class="selectpicker" name="cus_familystatus">
+                                                    <select class="selectpicker form_inputs" data-message="Family Status" name="cus_familystatus">
                                                         <option value="">Select Family Status</option>
                                                             <?php 
                                                                 foreach ($selection_values['familystatus_values'] as $con_val):      
@@ -733,7 +733,7 @@
                                                     <p><b>Family Type *</b></p>
                                                 </div>
                                                 <div class="col-md-5">        
-                                                    <select class="selectpicker" name="cus_familytype">
+                                                    <select class="selectpicker form_inputs" data-message="Family Type" name="cus_familytype">
                                                         <option value="">Select Family Type</option>
                                                             <?php 
                                                                 foreach ($selection_values['familytype_values'] as $con_val):      
@@ -922,7 +922,7 @@
                                                     <p><b>Food *</b></p>
                                                 </div>
                                                 <div class="col-md-5">        
-                                                    <select class="selectpicker" name="cus_food">
+                                                    <select class="selectpicker form_inputs" data-message="Food" name="cus_food">
                                                         <option value="">Select Food Values</option>
                                                         <?php 
                                                             foreach ($selection_values['food_values'] as $con_val):      
@@ -1047,8 +1047,8 @@
                                                  </div>
                                             </div>
                                             <div class="row com-box">
-                                                <div class="col-md-2">
-                                                    <p><b>Diet</b></p>
+                                                <div class="col-md-3">
+                                                    <p><b>Expectation Food</b></p>
                                                 </div>
                                                 <div class="col-md-8">  
                                                 <?php 
