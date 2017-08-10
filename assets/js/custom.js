@@ -450,21 +450,33 @@ $(document).ready(function() {
         // var error = '';
         var error_msg = $(this).find('.val_error');
         var message = '';
-        // /* Validate Input and Select element */
-        // // $(this).find('.form_inputs').each(function() {
-        // //     var this_val = $.trim($(this).val()); 
-        // //     // alert(this_val);           
-        // //     if(this_val == '') {
-        // //         // alert($(this).attr('name'));
-        // //         error = 1;
-        // //         message ="Please fill all mandatory fields";
-        // //         $(this).addClass('form-field-error');
-        // //     }
-        // //      else {            
-        // //         $(this).removeClass('form-field-error');
-        // //     }
-        // // });
-        // // Validate Password comparison
+        /* Validate Input and Select element */
+        $(this).find('.form_inputs').each(function() {
+            var this_val = $.trim($(this).val()); 
+            // alert(this_val);           
+            if(this_val == '') {
+                // alert($(this).attr('name'));
+                error = 1;
+                message ="Please fill "+$(this).data('message');
+                $(this).addClass('form-field-error');
+            }
+             else {            
+                $(this).removeClass('form-field-error');
+            }
+        });
+        /* Validate mobile*/     
+        if(error == '') {
+            var mobile = $(this).find('.mobile_value');
+            if ((/^([0-9-+]{10})+$/.test(mobile.val())) && mobile.length > 0) {
+                mobile.removeClass("form-field-error");
+            }
+            else if (mobile.length > 0) {
+                error = 1;
+                message = "Enter Valid Mobile Number!";
+                mobile.addClass("form-field-error");
+            }
+        }
+        // Validate Password comparison
         // if(error == '' ) {
         //       if($("#new_pass").val() != $("#confirm_pass").val()) {
         //           error = 1;
@@ -476,15 +488,15 @@ $(document).ready(function() {
         //       } 
         // }
         // /* Check whether the input and select element has error or not */
-        // if($(this).find('input,select').hasClass('form-field-error')) {
-        //     if(message == '') {
-        //         message ="Please fill all mandatory fields";
-        //     }
-        //     $('html, body').animate({scrollTop:0},500);
-        //     error_msg.html(message).fadeIn(350);
-        //     return false;
-        // }
-        // else {
+        if($(this).find('input,select,textarea').hasClass('form-field-error')) {
+            if(message == '') {
+                message ="Please fill "+$(this).data('message');
+            }
+            $('html, body').animate({scrollTop:0},500);
+            error_msg.html(message).fadeIn(350);
+            return false;
+        }
+        else {
             error = 0;
             error_msg.fadeOut('fast').html('');
             var formData = new FormData($(this)[0]);
@@ -556,7 +568,7 @@ $(document).ready(function() {
                   }
                 }
             });
-        // }
+        }
     });
 
     /*Admin customer user edit form End*/
