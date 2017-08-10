@@ -3,7 +3,7 @@ include('include/header.php');
 include('include/menu.php');
 
 // echo '<pre>';
-// print_r($session_search);
+// print_r($expected_maritalstatus);
 // echo '</pre>';
 // exit();
 
@@ -78,24 +78,29 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <div class="modal-dialog ">
                                                     <div class="modal-body">
                                                           <ol class="carousel-indicators">
-                                                            <li data-target="#lightbox" data-slide-to="0" class="active"></li>
-                                                            <li data-target="#lightbox" data-slide-to="1"></li>
-                                                            <li data-target="#lightbox" data-slide-to="2"></li>
+                                                           <?php 
+                                                            if(!empty($slider_images)){
+                                                            foreach($slider_images as $key => $value) { ?>
+                                                                <li data-target="#lightbox" data-slide-to="<?php echo $key;?>"></li>
+                                                           <?php } }?>
                                                           </ol>
                                                           <div class="carousel-inner">
-                                                           
-                                                            <div class="item active">
-                                                               <div class="numbertext">1 / 3</div>
-                                                              <img class="lig-box"src="img/search-result-page/img1.jpg" alt="First slide">
-                                                            </div>
-                                                            <div class="item">
-                                                              <div class="numbertext">2 / 3</div>
-                                                              <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Second slide">
-                                                            </div>
-                                                            <div class="item">
-                                                             <div class="numbertext">3 / 3</div>
-                                                              <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Third slide">
-                                                            </div>
+                                                            <?php 
+                                                                if(!empty($slider_images)){
+                                                                foreach ($slider_images as $key => $value) { 
+                                                                if($key!=1){?>
+                                                                <div class="item">
+                                                                        <div class="numbertext"><?php echo $key;?> / <?php echo count($slider_images);?></div>
+                                                                        <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$value['images'];?>" alt="First slide">
+                                                                </div>
+                                                                <?php }else{?>
+                                                                     <div class="item active">
+                                                                        <div class="numbertext"><?php echo $key;?> / <?php echo count($slider_images);?></div>
+                                                                        <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$value['images'];?>" alt="First slide">
+                                                                        </div>
+                                                                <?php }
+                                                            }
+                                                           } ?>
                                                           </div>
                                                           <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev">
                                                             <span class="glyphicon glyphicon-chevron-left"></span>
@@ -463,7 +468,12 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <li><a href="#">Education</a></li>                                      
                                             </ul> 
                                             <ul>
-                                                <li><a href="#"><?php echo $results['phy_searchedu_status']; ?></a></li>                                    
+                                                <?php 
+                                                if(!empty($expected_education)){
+                                                    foreach($expected_education as $key => $value) { ?>
+                                                        <li><a href="#"><?php echo $value['edu_name']; ?></a></li>
+                                                <?php }
+                                                }?>
                                             </ul>                                                                 
                                         </div> 
                                 </div>
@@ -477,7 +487,14 @@ if(!empty($session_search['search_inputs']['offset'])){
                                             </ul> 
                                             <ul>
                                                 <li>                                                     
-                                                    <?php echo $results['maritalname']; ?>
+                                                    <?php //echo $results['maritalname']; ?>
+                                                    <?php 
+                                                        if(!empty($expected_maritalstatus)){
+                                                            foreach($expected_maritalstatus as $key => $value) { 
+                                                                ?>
+                                                                <li><a href="#"><?php echo $value[0]['marital_name']; ?></a></li>
+                                                        <?php }
+                                                    }?>
                                                 </li>                                    
                                             </ul>                                                                 
                                         </div> 

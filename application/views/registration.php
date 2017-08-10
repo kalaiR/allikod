@@ -840,9 +840,9 @@ include('include/menu.php');
                                             <div class="col-sm-4 box">                                                
                                                  <select class="form-control" name="weight_in_kgs[]" id="weight_in_kgs">
                                                                                <?php 
-                                                    for($i=137;$i<=213;$i++){
+                                                    for($i=37;$i<=113;$i++){
                                                     ?>
-                                                    <option  <?php if($i==213){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                    <option  <?php if($i==63){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                                     <?php
                                                     }
                                                     ?>
@@ -1272,7 +1272,14 @@ include('include/footer.php');
 if(!empty($registered_data)){
     $msg = 'Dear Customer Thanks for registering with us in vallikodivanniarmatrimonial.in';
     $sms_mobileno = $registered_data['comm_mobile_no'];
-}?>
+}
+// print_r($comm_mobile_no);
+// exit();
+if(!empty($comm_mobile_no)){
+    $msg = 'Dear Customer Thanks for registering with us in vallikodivanniarmatrimonial.in';
+    $sms_mobileno = $comm_mobile_no;
+}
+?>
 <!-- SMS Script for Vallikodi for Home Register process - Start -->
 <script type="text/javascript">
 function sendMsg(msg,no){
@@ -1287,5 +1294,9 @@ function sendMsg(msg,no){
             },
         });
 }
-// sendMsg('<?php //echo $msg ;?>','<?php //echo $sms_mobileno;?>');
+sendMsg('<?php echo $msg;?>','<?php echo $sms_mobileno;?>');
 </script>
+<?php
+if(!empty($comm_mobile_no))
+        redirect('registration');
+?>

@@ -155,7 +155,7 @@
               // endif;
             ?> 
             <p class='val_error'></p>
-            <section class="blog_grid_area">
+            <section class="blog_grid_area" >
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -263,7 +263,7 @@
                                         <div class="col-md-12">
                                            <h3 id="hcolor">Image</h3>
                                         </div>
-                                        <div class="col-md-12 text-boxs">
+                                        <div class="col-md-12 text-boxs edit-mult-img">
                                         <!--      <div class="imageupload panel panel-default">
                                                 <div class="panel-heading clearfix">
                                                     <h3 class="panel-title">Upload Image</h3>
@@ -277,7 +277,22 @@
                                                 </div>
                                             </div>
                                             <p>No photos in your album.Upload Photos.</p> -->  
-                                            <input type="file" name="cus_profileimage[]" id="uploadedfile" name="uploadedfile" multiple="">    
+                                            <input type="file" name="cus_profileimage[]" id="uploadedfile" multiple="">    
+                                            <!-- <div class="wrap-upload-buttons">
+                                                 <span id="spanFileName" class="registration-error"></span>
+                                                <ul class="btn-nav">
+                                                    <li><span class="btn btn-default btn-default"> Browers<input type="file" name="cus_profileimage[]" click-type="type1" class="picupload img_view" multiple accept="image/*" /></span></li>
+                                                </ul>
+                                            </div>
+                                            <div class="edit_img">
+                                                <div class="modal-body login-box clearfix">
+                                                    <ul id="media-list" class="clearfix">
+                                                        <li class="myupload">
+                                                            <span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload  " multiple></span>
+                                                        </li>
+                                                    </ul>
+                                                 </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
