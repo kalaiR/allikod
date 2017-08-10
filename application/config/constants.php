@@ -41,6 +41,7 @@ define('ADMIN_MEDIA_PATH','assets/admin/img/');
 define('ADMIN_UPLOAD_MEDIA_PATH','assets/admin/img/uploads/');
 // define('USER_PROFILE_PATH','assets/img/uploads/profile/');
 define('USER_PROFILE_PATH','uploads/profile/');
+// define('USER_SUCCESS_PATH','uploads/success_stories/');
 define('USER_SUCCESS_PATH','assets/img/uploads/success/');
 define('FILETYPE_ALLOWED','jpg|jpeg|png|gif');
 

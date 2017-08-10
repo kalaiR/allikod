@@ -88,14 +88,14 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                             <?php 
                                                                 if(!empty($slider_images)){
                                                                 foreach ($slider_images as $key => $value) { 
-                                                                if($key!=1){?>
+                                                                if($key!=0){?>
                                                                 <div class="item">
-                                                                        <div class="numbertext"><?php echo $key;?> / <?php echo count($slider_images);?></div>
+                                                                        <div class="numbertext"><?php echo $key+1;?> / <?php echo count($slider_images);?></div>
                                                                         <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$value['images'];?>" alt="First slide">
                                                                 </div>
                                                                 <?php }else{?>
                                                                      <div class="item active">
-                                                                        <div class="numbertext"><?php echo $key;?> / <?php echo count($slider_images);?></div>
+                                                                        <div class="numbertext"><?php echo $key+1;?> / <?php echo count($slider_images);?></div>
                                                                         <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$value['images'];?>" alt="First slide">
                                                                         </div>
                                                                 <?php }

@@ -95,7 +95,7 @@
                                                     <div class="comment_form_area next-box">
                                                         <textarea id="comment" class="form-control" name="comment" placeholder="Comment" rows="5"></textarea>
                                                     </div>    
-                                                   <!-- <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" /> -->
+                                                   <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
                                                     <div class="reg_chose form-group">
                                                             <!-- <input type="submit" value="LogIn" id="post_submit" name="post_submit" class="btn form-control login_btn"> -->
                                                         <div class="reg_chose form-group">
@@ -107,7 +107,7 @@
                                     </form>    
                                             <div class="col-sm-4">
                                                 <div class="form_man">
-                                                    <!-- <img src="<?php echo media_url(); ?>assets/img/registration-man.png" alt=""> -->
+                                                    <!-- <img src="<?php //echo media_url(); ?>assets/img/registration-man.png" alt=""> -->
                                                 </div>
                                             </div>
                                     </div>
