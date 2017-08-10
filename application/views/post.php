@@ -17,13 +17,13 @@
                 <div class="row">
                     <div class="col-md-8 aline-center-box">
                             <div class="single_blog_image">
-                                <h3>Post your success stories here !</h3>          
+                                <h3 align="center">Post your success stories here !</h3>          
                             </div>
                             <div class="registration_form_area" id="registration_form_are">
                                     <div class="row">
                                     <form action="success_stories" class="post_success_form" method="post" name="success_stories" id="success_stories" enctype="multipart/form-data">
-                                        <div class="col-md-8">
-                                            <div class="registration_form_s" id="registration_form_s">
+                                        <div class="col-md-12">
+                                            <div class="registration_form_s aline-center-box" id="registration_form_s">
                                                     <!-- <h2>Post Your Story</h2> -->
                                                     <span class="val_status" style="display: block;">
                                     <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
@@ -65,7 +65,7 @@
                                                                     <div class="form-group">
                                                                         <div class="col-md-12">
                                                                             <div class="datepicker">
-                                                                                <input type='text' class="form-control datetimepicker4" placeholder="Marriage" name="mariage_date" id="mariage_date"/>
+                                                                                <input type='text' class="form-control datetimepicker4" placeholder="Marriage Date" name="mariage_date" id="mariage_date"/>
                                                                                 <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>    
                                                                             </div>
                                                                         </div>         
