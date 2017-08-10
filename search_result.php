@@ -28,7 +28,10 @@
                     </div>    
                 </div> 
                  <div class="row">
-                     <div class="col-md-9 aline-center-box ">
+                     <div class="col-md-12">
+                        <div class="col-md-8">
+                            <p>Search Results : 6 of 100 </p>
+                        </div>
                         <div class="search_btn back-box">
                                 <a href="search.php" class="register_angkar_btn">Back</a>
                         </div>
@@ -39,7 +42,7 @@
                     <div class="col-md-4 col-sm-6">
                         <img src="img/search-result-page/img1.jpg" alt="">
                           <div>
-                           <ul class="">
+                           <ul>
                               <li><a href="#lightbox" data-toggle="modal">More Images</a></li>
                             </ul>
                           </div> 

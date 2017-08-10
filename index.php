@@ -143,7 +143,7 @@
         </section>
         <!--================End Slider Reg Area =================-->
          <!--================Advanced Search Area (selva)=================-->
-         <section class="advanced_search_area search_area2">
+        <section class="advanced_search_area search_area2">
             <div class="container">
                 <div class="welcome_title">
                     <h3>Quick Search</h3>
@@ -193,13 +193,13 @@
         <!--================End Advanced Search Area (selva)=================-->
        
        <!--================Blog grid Area (selva) =================-->
-        <section class="blog_grid_area sticky_story_area">
+        <!-- <section class="blog_grid_area sticky_story_area">
             <div class="container">
                 <div class="welcome_title">
                     <h3>Success Stories</h3>
                     <img src="img/w-title-b.png" alt="">
                 </div>
-                <div class="row m0">
+                <div class="row">
                     <div class="blog_grid_inner sticky_slider">
                         <div class="item">
                             <div class="blog_grid_item">
@@ -209,16 +209,6 @@
                                         <h4>Maria & Kavin</h4>
                                     </div>
                                 </div>
-                                <!--<div class="blog_grid_content">
-                                    <h3>Your Blog title here</h3>
-                                    <div class="blog_grid_date">
-                                        <a href="stories.php#">By David</a>
-                                        <a href="stories.php#">03 Sep, 2016</a>
-                                        <a href="stories.php#">Dating</a>
-                                    </div>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                    <a href="stories.php#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>-->
                             </div>
                         </div>
                         <div class="item">
@@ -229,16 +219,6 @@
                                         <h4>Rocky Ahmed</h4>
                                     </div>
                                 </div>
-                                <!--<div class="blog_grid_content">
-                                    <h3>Your Blog title here</h3>
-                                    <div class="blog_grid_date">
-                                        <a href="stories.php#">By David</a>
-                                        <a href="stories.php#">03 Sep, 2016</a>
-                                        <a href="stories.php#">Dating</a>
-                                    </div>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                    <a href="stories.php#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>-->
                             </div>
                         </div>
                         <div class="item">
@@ -249,16 +229,6 @@
                                         <h4>Maria & Kavin</h4>
                                     </div>
                                 </div>
-                                <!--<div class="blog_grid_content">
-                                    <h3>Your Blog title here</h3>
-                                    <div class="blog_grid_date">
-                                        <a href="stories.php#">By David</a>
-                                        <a href="stories.php#">03 Sep, 2016</a>
-                                        <a href="stories.php#">Dating</a>
-                                    </div>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                    <a href="stories.php#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>-->
                             </div>
                         </div>
                         <div class="item">
@@ -269,136 +239,232 @@
                                         <h4>Rocky Ahmed</h4>
                                     </div>
                                 </div>
-                                <!--<div class="blog_grid_content">
-                                    <h3>Your Blog title here</h3>
-                                    <div class="blog_grid_date">
-                                        <a href="stories.php#">By David</a>
-                                        <a href="stories.php#">03 Sep, 2016</a>
-                                        <a href="stories.php#">Dating</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+       <!--  <section class="shop_area">
+            <div class="container">
+                <div class="welcome_title">
+                    <h3>Success Stories</h3>
+                    <img src="img/w-title-b.png" alt="">
+                </div>
+                <div class="row">
+                    <div id="owl-demo" class="owl-carousel owl-theme">
+                      <div class="item">
+                        <div class="product_div">
+                            <img src="img/blog/stories/4.jpg" class="img-rounded" alt="Owl Image">
+                        </div>    
+                      </div>
+                      <div class="item">
+                        <div class="product_div">
+                            <img src="img/blog/stories/1590-1.jpg" class="img-rounded" alt="Owl Image">
+                        </div>    
+                      </div>
+                     <div class="item">
+                        <div class="product_div">
+                            <img src="img/blog/stories/96441610-73(P).jpg" class="img-rounded" alt="Owl Image">
+                        </div>    
+                      </div>
+                     <div class="item">
+                        <div class="product_div">
+                            <img src="img/blog/stories/60352199-77(P).jpg" class="img-rounded" alt="Owl Image">
+                        </div>    
+                    </div>
+                </div>
+
+            </div>   
+        </section> -->
+        <!-- <section class="register_members_slider">
+            <div class="container">
+                <div class="welcome_title">
+                    <h3>Success Stories</h3>
+                    <img src="img/w-title-b.png" alt="">
+                </div>
+                <div class="row">
+                        <div class="r_members_inner">
+                            <div class="item product_div">
+                                    <img src="img/blog/stories/stories-3.jpg" class="product_div" alt="Owl Image">
+                                <div class="overlay">
+                                    <div class="text">Poongundran & Ezhilvathani</div>
+                                </div>    
+                            </div>               
+                            <div class="item">
+                                <div class="item product_div">
+                                    <img src="img/blog/stories/96441610-73(P).jpg" class="product_div" alt="Owl Image">
+                                    <div class="overlay">
+                                        <div class="text">Poongundran & Ezhilvathani</div>
                                     </div>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                    <a href="stories.php#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>-->
+                                </div>    
+                            </div>
+                            <div class="item">
+                                <div class="item product_div">
+                                    <img src="img/blog/stories/1590-1.jpg" class="product_div" alt="Owl Image">
+                                    <div class="overlay">
+                                        <div class="text">Poongundran & Ezhilvathani</div>
+                                    </div>    
+                                </div>    
+                            </div>
+                            <div class="item">
+                                <div class="item product_div">
+                                    <img src="img/blog/stories/4.jpg" class="product_div" alt="Owl Image">
+                                    <div class="overlay">
+                                        <div class="text">Poongundran & Ezhilvathani</div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                </div>    
+            </div>
+        </section> -->
+      <section class="adms_slider_area">
+            <div class="container">
+                <div class="adms_inners">
+                    <!-- <div class="adms_head">
+                        <div class="col-md-10">
+                            <div class="row left_adms">
+                                <div class="pull-left">
+                                    <h3>Lena Adms</h3>
+                                    <h4>26 years old</h4>
+                                    <h4>Frace, Paris</h4>
+                                </div>
+                                <div class="pull-right">
+                                    <h5>80% Match</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="row right_adms">
+                                <a href="quick.html#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                <a href="quick.html#"><i class="fa fa-times" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="adms_slider_inners">
+                        <div class="slider_adms_active team_inner_area">
+                            <div class="item">
+                                <div class="team_items">    
+                                    <div class="product_div">
+                                        <img src="img/blog/stories/4.jpg" alt="Image">
+                                     </div> 
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="team_items">
+                                    <div class="product_div">
+                                        <img src="img/blog/stories/4.jpg" alt="Image">
+                                     </div> 
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="team_items">
+                                   <div class="product_div">
+                                        <img src="img/blog/stories/4.jpg" alt="Image">
+                                     </div> 
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="team_items">
+                                    <div class="product_div">
+                                        <img src="img/blog/stories/4.jpg" alt="Image">
+                                     </div> 
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="team_items">
+                                   <div class="product_div">
+                                        <img src="img/blog/stories/4.jpg" alt="Image">
+                                     </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!--================End Register Members  slider Area =================-->
+        
         <!--================End Blog grid Area (selva)=================-->
-        <section class="shop_area">
+       <!--  <section class="shop_area">
             <div class="container">
                 <div class="welcome_title">
                     <h3> Featured Profiles</h3>
                     <img src="img/w-title-b.png" alt="">
                 </div>
                 <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="img/shop/product-1.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="myprofile.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="#owl-demo">
+                      <div class="item"><img src="img/blog/stories/stories-4.jpg" alt="Owl Image"></div>
+                      <div class="item"><img src="img/blog/stories/stories-3.jpg" alt="Owl Image"></div>
+                      <div class="item"><img src="img/blog/stories/stories-4.jpg" alt="Owl Image"></div>
+                      <div class="item"><img src="img/blog/stories/stories-3.jpg" alt="Owl Image"></div>
+                      <div class="item"><img src="img/blog/stories/stories-4.jpg" alt="Owl Image"></div>
+                      <div class="item"><img src="img/blog/stories/stories-3.jpg" alt="Owl Image"></div>
+                      <div class="item"><img src="img/blog/stories/stories-3.jpg" alt="Owl Image"></div>
+                        <div class="item"><img src="img/blog/stories/stories-4.jpg" alt="Owl Image"></div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="img/shop/product-2.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="myprofile.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="img/shop/product-3.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="myprofile.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="img/shop/product-4.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="myprofile.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="img/shop/product-1.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="myprofile.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="img/shop/product-2.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="myprofile.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="img/shop/product-3.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>
-                                        <li><a href="myprofile.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_img">
-                                <img src="img/shop/product-4.jpg" alt="">
-                                <div class="hover_icon">
-                                    <ul>S
-                                        <li><a href="myprofile.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--<div class="pagination_area">
-                        <a class="prev" href="#">Previous</a>
-                        <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
-                        <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
-                        <a class="next" href="#">Next</a>
-                     </div>-->
                 </div>
+                <div class="row base-box">
+                    <div class="featured">
+                      <div class="item"><img src="img/blog/stories/stories-4.jpg" alt="Owl Image"></div>
+                      <div class="item"><img src="img/blog/stories/stories-3.jpg" alt="Owl Image"></div>
+                      <div class="item"><img src="img/blog/stories/stories-4.jpg" alt="Owl Image"></div>
+                      <div class="item"><img src="img/blog/stories/stories-3.jpg" alt="Owl Image"></div>
+                      <div class="item"><img src="img/blog/stories/stories-4.jpg" alt="Owl Image"></div>
+                      <div class="item"><img src="img/blog/stories/stories-3.jpg" alt="Owl Image"></div>
+                      <div class="item"><img src="img/blog/stories/stories-3.jpg" alt="Owl Image"></div>
+                        <div class="item"><img src="img/blog/stories/stories-4.jpg" alt="Owl Image"></div>
+                    </div>
+                </div>    
+
             </div>   
         </section>
-        
+         -->
+        <section class="register_members_slider">
+            <div class="container">
+                <div class="welcome_title">
+                    <h3>Featured Profiles</h3>
+                    <img src="img/w-title-b.png" alt="">
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 aline-center-box">
+                        <div class="r_members_inner">
+                            <div class="item">
+                                <img src="img/blog/stories/60352199-77(P).jpg"  class="featured_div"  alt="Owl Image">
+                            </div>
+                            <div class="item">
+                                <img src="img/blog/stories/96441610-73(P).jpg"  class="featured_div"  alt="Owl Image">
+                            </div>
+                            <div class="item">
+                                <img src="img/blog/stories/1590-1.jpg" class="featured_div"  alt="Owl Image">
+                            </div>    
+                            <div class="item">
+                                <img src="img/blog/stories/stories-3.jpg" class="featured_div" alt="Owl Image">
+                            </div>
+                        </div>
+                    </div>
+                </div><br>        
+                <div class="row base-box">
+                    <div class="col-sm-10 aline-center-box">
+                        <div class="r_members_inner">
+                            <div class="item">
+                                <img src="img/blog/stories/60352199-77(P).jpg"  class="featured_div"  alt="Owl Image">
+                            </div>
+                            <div class="item">
+                                <img src="img/blog/stories/96441610-73(P).jpg"  class="featured_div"  alt="Owl Image">
+                            </div>
+                            <div class="item">
+                                <img src="img/blog/stories/1590-1.jpg" class="featured_div"  alt="Owl Image">
+                            </div>    
+                            <div class="item">
+                                <img src="img/blog/stories/stories-3.jpg" class="featured_div" alt="Owl Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>          
+            </div>
+        </section>
 <?php 
     include('include/footer.php');
 ?>  

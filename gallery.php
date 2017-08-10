@@ -46,119 +46,120 @@
                 </div><br>
                 <div class="row">
                     <div class="blog_grid_inner">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_84IMG_20141002_110125.jpg" alt="">
+                        <ul class = "pagination">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_84IMG_20141002_110125.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                       <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_2301IMG_0842.jpg" alt="">
+                           <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_2301IMG_0842.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_2407IMG_1676.jpg" alt="">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_2407IMG_1676.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_6060IMG_0879.jpg" alt="">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_6060IMG_0879.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_6628IMG_0823.jpg" alt="">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_6628IMG_0823.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img class="lightbox" src="img/valli/new_7436IMG_0814.jpg" alt="">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img class="lightbox" src="img/valli/new_7436IMG_0814.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_7481IMG_2002.jpg" alt="">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_7481IMG_2002.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_8953IMG_1121.jpg" alt="">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_8953IMG_1121.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_9651Image-(14).jpg" alt="">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_9651Image-(14).jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                       <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_9399IMG_3835.jpg" alt="">
+                           <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_9399IMG_3835.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_8783IMG_3841.jpg" alt="">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_8783IMG_3841.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_8338IMG_3840.jpg" alt="">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_8338IMG_3840.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_6628IMG_0823.jpg" alt="">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_6628IMG_0823.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img class="lightbox" src="img/valli/new_3201IMG_3827.jpg" alt="">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img class="lightbox" src="img/valli/new_3201IMG_3827.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_2276IMG_3857.jpg" alt="">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_2276IMG_3857.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="col-md-3 col-sm-6">
-                            <div class="blog_grid_item">
-                                <div class="blog_grid_img">
-                                    <img src="img/valli/new_1327IMG_3868.jpg" alt="">
+                            
+                            <div class="col-md-3 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+                                        <img src="img/valli/new_1327IMG_3868.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div><br><br>
                 <div id="pagination_are" class="pagination light-theme simple-pagination pull-right">
@@ -176,13 +177,13 @@
 ?>
         <!--<script src="js/video_player.js"></script>-->
         <script src="js/theme.js"></script>
-        <script>$(function() {
+      <!--   <script>$(function() {
             $('#pagination_are').pagination({
                 items: 16,
                 itemsOnPage : 8,
                 cssStyle: 'light-theme'
             });
         });
-        </script>
+        </script> -->
     </body>
 </html>
