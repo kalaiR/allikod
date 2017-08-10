@@ -8,7 +8,7 @@
         <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
-                    <h3 title="My Profile"><img class="left_img" src="img/banner/t-left-img.png" alt="">My Profile<img class="right_img" src="img/banner/t-right-img.png" alt=""></h3>
+                    <h3 title="My Profile"><img class="left_img" src="<?php echo media_url(); ?>assets/img/banner/t-left-img.png" alt="">My Profile<img class="right_img" src="<?php echo media_url(); ?>assets/img/banner/t-right-img.png" alt=""></h3>
                     <!--<a href="index.html">Home</a>
                     <a href="shop-cart.html">Pricing</a>-->
                 </div>
@@ -155,7 +155,7 @@
               // endif;
             ?> 
             <p class='val_error'></p>
-            <section class="blog_grid_area">
+            <section class="blog_grid_area" >
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -263,7 +263,7 @@
                                         <div class="col-md-12">
                                            <h3 id="hcolor">Image</h3>
                                         </div>
-                                        <div class="col-md-12 text-boxs">
+                                        <div class="col-md-12 text-boxs edit-mult-img">
                                         <!--      <div class="imageupload panel panel-default">
                                                 <div class="panel-heading clearfix">
                                                     <h3 class="panel-title">Upload Image</h3>
@@ -277,7 +277,22 @@
                                                 </div>
                                             </div>
                                             <p>No photos in your album.Upload Photos.</p> -->  
-                                            <input type="file" name="cus_profileimage[]" id="uploadedfile" name="uploadedfile" multiple="">    
+                                            <input type="file" name="cus_profileimage[]" id="uploadedfile" multiple="">    
+                                            <!-- <div class="wrap-upload-buttons">
+                                                 <span id="spanFileName" class="registration-error"></span>
+                                                <ul class="btn-nav">
+                                                    <li><span class="btn btn-default btn-default"> Browers<input type="file" name="cus_profileimage[]" click-type="type1" class="picupload img_view" multiple accept="image/*" /></span></li>
+                                                </ul>
+                                            </div>
+                                            <div class="edit_img">
+                                                <div class="modal-body login-box clearfix">
+                                                    <ul id="media-list" class="clearfix">
+                                                        <li class="myupload">
+                                                            <span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload  " multiple></span>
+                                                        </li>
+                                                    </ul>
+                                                 </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -457,8 +472,8 @@
                                                 <?php 
                                                     $time_of_birth = explode("-", $customeruser_values['rel_timeofbirth']);
                                                 ?>
-                                                <div class="col-md-1">       
-                                                    <select name="cus_birthhours" class="form_inputs" data-message="Birth Hour">
+                                                <div class="col-md-1" style="width:13%">       
+                                                    <select name="cus_birthhours" class="form_inputs col-md-1 tb_drop" data-message="Birth Hour">
                                                         <option value="">Hours</option>
                                                         <?php for( $i=0; $i<=12; $i++ ):
                                                             if($time_of_birth[0] == $i)
@@ -472,8 +487,8 @@
                                                         endfor; ?>
                                                     </select>                                         
                                                 </div>
-                                                <div class="col-md-1">       
-                                                    <select name="cus_birthmins form_inputs" data-message="Birth Minute">
+                                                <div class="col-md-1" style="width:13%">       
+                                                    <select name="cus_birthmins" class="col-md-2 tb_drop form_inputs" data-message="Birth Minute">
                                                         <option value="">Minutes</option>
                                                         <?php for( $i=0; $i<=59; $i++ ):
                                                             if($time_of_birth[1] == $i)
@@ -487,8 +502,8 @@
                                                         endfor; ?>
                                                     </select>                                         
                                                 </div>
-                                                <div class="col-md-1">       
-                                                    <select name="cus_birthmer form_inputs" data-message="Birth Meredian">
+                                                <div class="col-md-1" style="width:13%">       
+                                                    <select name="cus_birthmer" class="form_inputs col-md-2 tb_drop" data-message="Birth Meredian">
                                                         <option value="">Meredian</option>
                                                         <option value="am" <?php if($time_of_birth[2] == "am") echo "selected"; ?>>AM</option>
                                                         <option value="pm" <?php if($time_of_birth[2] == "pm") echo "selected"; ?>>PM</option>
@@ -949,11 +964,11 @@
                                         </div>
                                         <div class="col-md-6 text-boxs">
                                             <div class="row com-box">
-                                                <div class="col-md-3">
+                                                <div class="col-md-2">
                                                     <p><b>Age</b></p>
                                                 </div>
                                                 <div class="col-md-2">        
-                                                    <select name="cus_startage">
+                                                    <select name="cus_startage" class="tb_drop">
                                                         <option value="">From</option>
                                                         <?php for( $i=18; $i<=60; $i++ ):
                                                         if($i == $customeruser_values['phy_searchage_from'])
@@ -967,7 +982,7 @@
                                                     <p><b>To</b></p> 
                                                 </div>
                                                 <div class="col-md-2">        
-                                                    <select name="cus_endage">
+                                                    <select name="cus_endage" class="tb_drop">
                                                         <option value="">To</option>
                                                         <?php for( $i=18; $i<=60; $i++ ):
                                                         if($i == $customeruser_values['phy_searchage_to'])
@@ -979,10 +994,10 @@
                                                 </div>
                                             </div>
                                             <div class="row com-box">
-                                                <div class="col-md-3 text-box">
+                                                <div class="col-md-2">
                                                     <p><b>Marital Status</b></p>
                                                 </div>
-                                                <div class="col-md-9">
+                                                <div class="col-md-10" style="padding: 0px">
                                                     <div class="checkbox">
                                                         <?php 
                                                         $marstatus = array();
@@ -1001,7 +1016,7 @@
                                                 </div>                                           
                                             </div>
                                             <div class="row com-box">
-                                                <div class="col-md-3">
+                                                <div class="col-md-2">
                                                     <p><b>Education</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
@@ -1033,7 +1048,7 @@
                                             </div>
                                             <div class="row com-box">
                                                 <div class="col-md-3">
-                                                    <p><b>Food</b></p>
+                                                    <p><b>Expectation Food</b></p>
                                                 </div>
                                                 <div class="col-md-8">  
                                                 <?php 

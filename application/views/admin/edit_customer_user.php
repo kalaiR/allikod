@@ -112,6 +112,114 @@
 											<div class="row-fluid sortable">
 											<div class="box span8">
 												<div class="box-header well">
+													<h2><!-- <i class="icon-th"> -->Profile Details</h2>	  			
+												</div>
+												<div class="box-content">
+													<div class="form-horizontal">
+														<fieldset>
+														  <!-- <div class="control-group">
+															<label class="control-label" for="focusedInput">Profile No : </label>
+															<div class="controls">
+															  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+															</div>												
+														  </div> -->
+														  <!-- <div class="control-group">
+															<label class="control-label" for="focusedInput">File No : </label>
+															<div class="controls">
+															  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+															</div>												
+														  </div> -->
+														  <div class="control-group">
+															<label class="control-label" for="focusedInput">Vallikodi Id: </label>
+															<div class="controls">
+																<label for="focusedInput"><?php echo "VM".$customeruser_values['userdetail_id'];  ?> </label>
+															</div>
+														  </div>
+														  <div class="control-group">
+															<label class="control-label">User Type : </label>
+															<div class="controls">
+															  <select data-rel="chosen" name="cus_usertype">
+															  <option value="">Select User Type</option>
+															  <?php foreach (unserialize(USER_TYPE) as $key => $val): ?>
+																<option value="<?php echo $key; ?>" <?php if($customeruser_values['user_online_or_simple'] == $key) echo "selected"; ?>><?php echo $val; ?></option>
+															  <?php endforeach; ?>
+															  </select>
+															</div>
+														  </div>										
+														  <div class="control-group">
+																<label class="control-label" for="focusedInput">Profile Id: </label>
+																<div class="controls">
+																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['userdetail_profile_id'])) echo $customeruser_values['userdetail_profile_id'];  ?>" name="cus_profileid">
+																</div>
+														  </div>
+														  <div class="control-group">
+																<label class="control-label" for="focusedInput">File Id: </label>
+																<div class="controls">
+																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['userdetail_file_id'])) echo $customeruser_values['userdetail_file_id'];  ?>" name="cus_fileid">
+																</div>
+														  </div>
+														  <div class="control-group">
+															<label class="control-label">Registered By : </label>
+															<div class="controls">
+															  <select data-rel="chosen" name="cus_regby">
+															  <option value="">Select Registered By</option>
+															  <?php 
+											                    foreach ($selection_values['registeredby_values'] as $reg_val):      
+											                        if($reg_val['registeredby_id'] == $customeruser_values['user_registeredby'])  
+											                        	echo "<option selected value='".$reg_val['registeredby_id']."'>".$reg_val['name']."</option>";
+											                        else
+											                            echo "<option value='".$reg_val['registeredby_id']."'>".$reg_val['name']."</option>";                       
+											                    endforeach; ?>
+															  </select>
+															</div>
+														  </div>
+														  	<div class="control-group">
+																<label class="control-label" for="focusedInput">Name : </label>
+																<div class="controls">
+																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['user_fname'])) echo $customeruser_values['user_fname']; ?>" name="cus_fname">
+																</div>
+														  	</div>
+														  	<div class="control-group">
+															<label class="control-label">Gender : </label>
+															<div class="controls">
+															  <select data-rel="chosen" name="cus_gender">
+															  <option value="">Select Gender</option>
+															  <?php foreach (unserialize(GENDER) as $key => $val): ?>
+																<option value="<?php echo $key; ?>" <?php if($customeruser_values['user_gender'] == $key) echo "selected"; ?>><?php echo $val; ?></option>
+															  <?php endforeach; ?>
+															  </select>
+															</div>
+														  </div>
+														  	<div class="control-group">
+															  <label class="control-label" for="date01">Date of Birth </label>
+															  <div class="controls">
+																<input type="text" class="input-xlarge datepicker" value="<?php if(!empty($customeruser_values['user_dob'])) echo date("d/m/Y", strtotime($customeruser_values['user_dob'])); ?>" name="cus_dob">
+															  </div>
+															</div>
+															
+														  <div class="control-group">
+															<label class="control-label">Marital Status : </label>
+															<div class="controls">
+															  <select data-rel="chosen" name="cus_marstatus">
+															  <option value="">Select Marital Status</option>
+															  <?php 
+											                    foreach ($selection_values['maritalstatus_values'] as $mar_val):      
+											                        if($mar_val['maritalcategory_id'] == $customeruser_values['user_maritalstatus'])  
+											                        	echo "<option selected value='".$mar_val['maritalcategory_id']."'>".$mar_val['marital_name']."</option>";
+											                        else
+											                            echo "<option value='".$mar_val['maritalcategory_id']."'>".$mar_val['marital_name']."</option>";                       
+											                    endforeach; ?>
+															  </select>
+															</div>
+														  </div> 											  
+														</fieldset>
+													  </div>
+													</div>
+												</div>
+											</div>
+											<div class="row-fluid sortable">
+											<div class="box span8">
+												<div class="box-header well">
 													<h2><!-- <i class="icon-th"> -->Payment Details</h2>	  			
 												</div>
 												<div class="box-content">
@@ -183,13 +291,13 @@
 														  	<div class="control-group">
 															  <label class="control-label" for="date01">Starting Date </label>
 															  <div class="controls">
-																<input type="text" class="input-xlarge datepicker" value="<?php if(!empty($customeruser_values['startdate'])) echo date("d/m/Y", strtotime($customeruser_values['startdate'])); ?>" name="cus_paymentstartdate" readonly>
+																<input type="text" class="input-xlarge datepicker" value="<?php if(!empty($customeruser_values['startdate'])) echo date("d/m/Y", strtotime($customeruser_values['startdate'])); ?>" name="cus_paymentstartdate">
 															  </div>
 															</div>
 															<div class="control-group">
 															  <label class="control-label" for="date01">Ending Date</label>
 															  <div class="controls">
-																<input type="text" class="input-xlarge datepicker" value="<?php if(!empty($customeruser_values['enddate'])) echo date("d/m/Y", strtotime($customeruser_values['enddate'])); ?>" name="cus_paymentenddate" readonly>
+																<input type="text" class="input-xlarge datepicker" value="<?php if(!empty($customeruser_values['enddate'])) echo date("d/m/Y", strtotime($customeruser_values['enddate'])); ?>" name="cus_paymentenddate">
 															  </div>
 															</div>
 														  <div class="control-group">
@@ -212,85 +320,6 @@
 															  </select>
 															</div>
 														  </div>											  
-														</fieldset>
-													  </div>
-													</div>
-												</div>
-											</div>
-											<div class="row-fluid sortable">
-											<div class="box span8">
-												<div class="box-header well">
-													<h2><!-- <i class="icon-th"> -->Profile Details</h2>	  			
-												</div>
-												<div class="box-content">
-													<div class="form-horizontal">
-														<fieldset>
-														  <!-- <div class="control-group">
-															<label class="control-label" for="focusedInput">Profile No : </label>
-															<div class="controls">
-															  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
-															</div>												
-														  </div> -->
-														  <!-- <div class="control-group">
-															<label class="control-label" for="focusedInput">File No : </label>
-															<div class="controls">
-															  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
-															</div>												
-														  </div> -->
-														  <div class="control-group">
-															<label class="control-label">Registered By : </label>
-															<div class="controls">
-															  <select data-rel="chosen" name="cus_regby">
-															  <option value="">Select Registered By</option>
-															  <?php 
-											                    foreach ($selection_values['registeredby_values'] as $reg_val):      
-											                        if($reg_val['registeredby_id'] == $customeruser_values['user_registeredby'])  
-											                        	echo "<option selected value='".$reg_val['registeredby_id']."'>".$reg_val['name']."</option>";
-											                        else
-											                            echo "<option value='".$reg_val['registeredby_id']."'>".$reg_val['name']."</option>";                       
-											                    endforeach; ?>
-															  </select>
-															</div>
-														  </div>
-														  	<div class="control-group">
-																<label class="control-label" for="focusedInput">Name : </label>
-																<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['user_fname'])) echo $customeruser_values['user_fname']; ?>" name="cus_fname">
-																</div>
-														  	</div>
-														  	<div class="control-group">
-															<label class="control-label">Gender : </label>
-															<div class="controls">
-															  <select data-rel="chosen" name="cus_gender">
-															  <option value="">Select Gender</option>
-															  <?php foreach (unserialize(GENDER) as $key => $val): ?>
-																<option value="<?php echo $key; ?>" <?php if($customeruser_values['user_gender'] == $key) echo "selected"; ?>><?php echo $val; ?></option>
-															  <?php endforeach; ?>
-															  </select>
-															</div>
-														  </div>
-														  	<div class="control-group">
-															  <label class="control-label" for="date01">Date of Birth </label>
-															  <div class="controls">
-																<input type="text" class="input-xlarge datepicker" value="<?php if(!empty($customeruser_values['user_dob'])) echo date("d/m/Y", strtotime($customeruser_values['user_dob'])); ?>" name="cus_dob">
-															  </div>
-															</div>
-															
-														  <div class="control-group">
-															<label class="control-label">Marital Status : </label>
-															<div class="controls">
-															  <select data-rel="chosen" name="cus_marstatus">
-															  <option value="">Select Marital Status</option>
-															  <?php 
-											                    foreach ($selection_values['maritalstatus_values'] as $mar_val):      
-											                        if($mar_val['maritalcategory_id'] == $customeruser_values['user_maritalstatus'])  
-											                        	echo "<option selected value='".$mar_val['maritalcategory_id']."'>".$mar_val['marital_name']."</option>";
-											                        else
-											                            echo "<option value='".$mar_val['maritalcategory_id']."'>".$mar_val['marital_name']."</option>";                       
-											                    endforeach; ?>
-															  </select>
-															</div>
-														  </div> 											  
 														</fieldset>
 													  </div>
 													</div>

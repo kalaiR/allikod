@@ -2402,11 +2402,11 @@ p2
 
 .registration_form_area .registration_form_s .form-group input {
   width: 100%;
-  height: 46px;
+  height: 34px;
   box-shadow: none;
   border: 1px solid #ccc;
   border-radius: 3px;
-  background: #f4f4f4;
+  /*background: #f4f4f4;*/
   padding: 0px 20px;
   outline: none;
   box-shadow: none;
@@ -8274,7 +8274,7 @@ ol a{
   color: #334249;
 }
 p{
-    padding: 5px;
+    padding: 10px;
 }
 
 /*Text Crunch Lines*/
@@ -8431,4 +8431,10 @@ p{
   outline:0 !important;
   -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(231, 76, 60, 0.6) !important;
   box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(231, 76, 60, 0.6)!important;
+}
+.tb_drop{
+  height: 32px;
+  width: 60px;
+  border-radius: 4px;
+  padding: 1px;
 }

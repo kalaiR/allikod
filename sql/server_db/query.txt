@@ -66,7 +66,19 @@ update reg_userdetail set user_gender = 2 where userdetail_id='66951' OR userdet
 
 ALTER TABLE `reg_payment` CHANGE `no_of_profiles_viewed` `no_of_profiles_viewed` INT( 5 ) NOT NULL DEFAULT '0';
 
+09/08/17:
+ALTER TABLE `reg_userdetail` ADD `userdetail_file_id` INT( 11 ) NOT NULL DEFAULT '0' COMMENT 'It will enter by admin for both online and simple user' AFTER `userdetail_profile_id` ;
 
+Migration query for updation: (41765 rows affected)
+UPDATE 
+  BBBn3tl_test.user_detail, 
+  vallikodi_server_new.reg_userdetail 
+SET 
+  vallikodi_server_new.reg_userdetail.userdetail_file_id = BBBn3tl_test.user_detail.file_id
+WHERE 
+  vallikodi_server_new.reg_userdetail.userdetail_id = BBBn3tl_test.user_detail.id;
+
+update reg_userdetail set user_online_or_simple = 'online' where user_online_or_simple = 'Online';
 
 
 no need to run(just for reference)
