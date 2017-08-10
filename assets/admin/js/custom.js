@@ -289,5 +289,14 @@ $(document).ready(function() {
 
     /*Admin customer user edit form End*/
 
+    $("#usertype_act").on("change",function(){
+      var usertype = $('option:selected',this).val();
+      if(usertype == "simple")
+        $(".online_user_field").hide();
+      else
+        $(".online_user_field").show();
+
+    });
+
 });
 

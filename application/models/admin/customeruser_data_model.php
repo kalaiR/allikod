@@ -277,7 +277,7 @@ class Customeruser_data_model extends CI_Model {
   public function customer_user_profile($id){
   		// View by id
   		$condition = "usr.userdetail_id = ".$id."";
-    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name');
+    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,pay.*,ren.*,ren.totalno_of_profile as totprofile,ren.active_status as renewalstatus');
 	    $this->db->from('reg_userdetail usr');
 	    $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
 	    $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
@@ -295,6 +295,8 @@ class Customeruser_data_model extends CI_Model {
 	    $this->db->join('education ed','ed.education_id=eo.edu_education','left');
 	    $this->db->join('occupation occ','occ.occupation_id=eo.edu_occupation','left');
 	    $this->db->join('employed_in ein','ein.employedin_id=eo.edu_employedin','left');
+	    $this->db->join('reg_payment pay','pay.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('renew_detail ren','ren.reg_user_id=usr.userdetail_id','left');
 	    $this->db->where($condition); 
 	    $model_data['customeruser_values'] = $this->db->get()->row_array();
 	   //  echo $this->db->last_query();
