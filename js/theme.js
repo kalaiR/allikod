@@ -749,7 +749,7 @@
     /*----------------------------------------------------*/
     /*Date Time Picker*/
     /*----------------------------------------------------*/
-    $('.datetimepicker4').datetimepicker();
+    $('.datetimepicker4').datetimepicker({format:'YYYY/MM/DD'});
     
     /*----------------------------------------------------*/
     /*Price select custome handle*/

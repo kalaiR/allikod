@@ -202,7 +202,7 @@
 												<span class="label label-success">Online</span>
 											</td>
 											<td class="center">
-												<span class="label label-success">Activated</span>
+												<a><span class="label label-success btn-profile">Activated</span></a>
 											</td>
 											<td class="center">
 												<span class="label label-success">Paid</span>
@@ -566,6 +566,21 @@
 			<div class="modal-footer">
 				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
 				<a href="#" class="btn btn-danger">Delete</a>
+			</div>
+		</div>
+
+		<!-- Profile status activate and deactivate popup -->
+		<div class="modal hide fade" id="profileModal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Alert !</h3>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure want to Deactivate?</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+				<a href="#" class="btn btn-danger">Deactive</a>
 			</div>
 		</div>
 	<!-- Placed at the end of the document so the pages load faster -->

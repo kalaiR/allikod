@@ -151,11 +151,11 @@
                     <div class="col-md-12">
                         <div class="members_profile_inners">
                            <div class="members_about_box">
-                                <form method="post" action="myedit.php">
-                                    <div class="heads">
-                                    <h3 id="hcolor">Name : Madhivanan <button type="submit" value="Edit" class="btn form-control edit_btn pull-right">Edit</button></h3>
-                                    </div>
-                                </form>                                
+                                <div class="heads">
+                                    <h3 id="hcolor">Name : <?php echo $results['user_fname']; ?>
+                                    <a href="<?php echo base_url(); ?>myedit" class="btn form-control edit_btn pull-right">Edit</a>
+                                    </h3>
+                                </div>                                
                                 <div class="profile_list">                                    
                                         <ul>
                                             <li><a href="#">Vallikodi ID</a></li>

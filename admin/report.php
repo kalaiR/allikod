@@ -68,24 +68,54 @@
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Add
 					    </a> -->
-						<div class="control-group">
+					    <div class="row">
+	                        <div class="span8">
+	                            <div class="span6 pad">
+	                            Online No. of Registration :
+	                            </div>
+	                            <div class="span2 pad">0</div>
+	                        </div>
+	                        <div class="span8" style="margin: 0px">
+	                            <div class="span6 pad">
+	                            Simple No. of Registration :
+	                            </div>
+	                            <div class="span2 pad"> 0 </div>
+	                        </div>
+	                        <div class="span8" style="margin: 0px">
+	                            <div class="span6 pad">
+	                            Total No. of Registration :
+	                            </div>
+	                            <div class="span2 pad"> 0 </div>
+	                        </div>
+	                        <!-- <div class="span1">
+	                            <div class="span1 pad">
+	                            <p>0</p>
+	                            </div>
+	                            <div class="pad">
+	                                <p>0</p>
+	                            </div>
+	                            <div  class="pad">
+                                <p>0</p>
+                                </div>
+	                        </div> -->
+	                    </div>
+
+						<!-- <div class="control-group">
 							<label class="control-label">Online No. of registration : 0</label>
-							<!-- <div class="controls">
+							<div class="controls">
 							  <span class="input-xlarge uneditable-input span1">0</span>
-							</div> -->
+							</div>
 						</div>
 						<div class="control-group pad">
 							<label class="control-label">Simple No. of registration : 0</label>
-							<!-- <div class="controls">
+							<div class="controls">
 							  <span class="input-xlarge uneditable-input span1">0</span>
-							</div> -->
+							</div>
 						</div>
 						<div class="control-group pad">
-							<label class="control-label">Total No. of registration : 0</label>
-							<!-- <div class="controls">
+							<label class="control-label">Total No. of registration : 0</label>							
 							  <span class="input-xlarge uneditable-input span1">0</span>
-							</div> -->
-						</div>
+						</div> -->
 					</div>
 						         
 					</div>

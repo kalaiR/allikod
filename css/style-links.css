@@ -208,6 +208,7 @@
 .text-box
 {
   padding-top:15px;
+  /*padding-left: 30px;*/
   float: left;
 }
 .base-box

@@ -479,12 +479,12 @@
 											  <div class="control-group">
 												<label class="control-label">Height : </label>
 												<div class="controls">
-												  <select data-rel="chosen">
+												  <select data-rel="chosen" class="span3">
 													<option value="">In CMs</option>
 													<option>140</option>
 													<option>141</option>
 												  </select>
-												  <select data-rel="chosen">
+												  <select data-rel="chosen" class="span3">
 													<option value="">In Feet</option>
 													<option>5</option>
 													<option>6</option>
@@ -726,12 +726,12 @@
 											  <div class="control-group">
 												<label class="control-label">Age : </label>
 												<div class="controls">
-												  <select data-rel="chosen">
+												  <select data-rel="chosen" class="span3">
 													<option value="">From</option>
 													<option>25</option>
 													<option>26</option>
 												  </select>
-												  <select data-rel="chosen">
+												  <select data-rel="chosen" class="span3">
 													<option value="">To</option>
 													<option>35</option>
 													<option>36</option>
@@ -821,8 +821,6 @@
 											  <div class="edit-mult-img">
 												<!-- <label class="control-label" for="focusedInput">Image  : </label>
 												<div class="control-group">
-												  <label class="control-label" for="fileInput">Image</label>
-												  <div class="controls">
 													<input class="input-file uniform_on" id="fileInput" type="file">
 												  </div>
 												</div> -->
@@ -876,8 +874,8 @@
 										<h2><!-- <i class="icon-th"> --></i> Horoscope</h2>		
 									</div>
 									<div class="box-content">
-											<div class="col-md-12 col-xs-12">	
-												<!-- <div class="col-md-6">			 -->
+											<!-- <div class="row"> -->
+												<div class="col-md-6" style="display: inline-block;">			
 											<!-- Rasi Horoscope - Start -->
                                                     <div id="horo_container">
                                                         <div class="horo_row" id="product">
@@ -901,10 +899,45 @@
                                                             <div class="third-row" data-id="box_8" id="box_8">8</div>
                                                             <div class="third-row" data-id="box_7" id="box_7">7</div>
                                                         </div>
+                                                        <div id="rasi_cont">
+                                                            <select style="width: 70px" id="rasi_name" class="drop_horo styled-select blue semi-square" name="rasi_name">    
+                                                                <option value="r_1">&#2994;&#2965;&#3021;</option> 
+                                                                <option value="r_2">&#2992;&#3006;&#2965;&#3009;</option>
+                                                                <option value="r_3">&#2970;&#2984;&#3021;</option>   
+                                                                <option value="r_4">&#2965;&#3015;&#2980;&#3009;</option>
+                                                                <option value="r_5">&#2970;&#2985;&#3007;</option>
+                                                                <option value="r_6">&#2970;&#3014;&#2997;&#3021; </option>
+                                                                <option value="r_7"> &#2965;&#3009;&#2992;&#3009;</option>
+                                                                <option value="r_8"> &#2970;&#3009;&#2965;&#3021;</option>
+                                                                <option value="r_9">&#2970;&#3010;&#2992;&#3007;</option>
+                                                                <option value="r_10"> &#2986;&#3009;&#2980;&#2985;&#3021;</option> 
+                                                            </select>
+
+                                                            <select id="box_id" style="width: 70px" class="drop_horo styled-select blue semi-square" >
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option> 
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option> 
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                            </select>
+
+                                                                <!-- <img src="assets/img/add.png" type="button" id="add_rasi" value="ADD" name="add_rasi" /> -->
+                                                                <i style="cursor:pointer" class="icon-plus" aria-hidden="true" id="add_rasi" name="add_rasi"></i>
+                                                                <select style="width: 70px" id="crasi_name" class="drop_horo styled-select blue semi-square" name="crasi_name">
+                                                                </select>    
+                                                                <i style="cursor:pointer" class="icon-remove"   aria-hidden="true" type="button" id="remove_rasi" name="add_rasi"></i>
+                                                        </div> 
                                                     </div>
                                                     <!-- Rasi Horoscope - End -->
-                                                <!-- </div> -->  <!-- row col 6 ends -->
-                                                <!-- <div class="col-md-6"> -->
+                                                </div>  <!-- row col 6 ends -->
+                                                <div class="col-md-6" style="display: inline-block;">
                                                     <!-- Asham Horoscope - start -->
                                                 <!-- <div id="asham_horo_container"> -->
                                                     <div class="asham_horo_row" id="product">
@@ -929,8 +962,43 @@
 	                                                    <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
                                                 	</div>
                                               <!-- </div> --><!-- Asham Horoscope - end -->
-                                              <!-- </div>  -->
-                                             </div>     
+                                              		<div id="asham_cont">
+                                                        <select style="width: 70px;" id="asham_name" class="drop_horo styled-select blue semi-square" name="asham_name">    
+                                                            <option value="a_1">&#2994;&#2965;&#3021;</option> 
+                                                            <option value="a_2">&#2992;&#3006;&#2965;&#3009;</option>
+                                                            <option value="a_3">&#2970;&#2984;&#3021;</option>   
+                                                            <option value="a_4">&#2965;&#3015;&#2980;&#3009;</option>
+                                                            <option value="a_5">&#2970;&#2985;&#3007;</option>
+                                                            <option value="a_6">&#2970;&#3014;&#2997;&#3021; </option>
+                                                            <option value="a_7"> &#2965;&#3009;&#2992;&#3009;</option>
+                                                            <option value="a_8"> &#2970;&#3009;&#2965;&#3021;</option>
+                                                            <option value="a_9">&#2970;&#3010;&#2992;&#3007;</option>
+                                                            <option value="a_10"> &#2986;&#3009;&#2980;&#2985;&#3021;</option> 
+                                                        </select>
+
+                                                        <select id="ashambox_id" style="width: 70px" class="drop_horo styled-select blue semi-square" >
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option> 
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option> 
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                        </select>
+
+                                                            <!-- <img src="assets/img/add.png" type="button" id="add_rasi" value="ADD" name="add_rasi" /> -->
+                                                            <i style="cursor:pointer" class="icon-plus" aria-hidden="true" id="add_asham" name="add_asham"></i>
+                                                            <select style="width: 70px" id="casham_name" class="drop_horo styled-select blue semi-square" name="casham_name">
+                                                            </select>    
+                                                            <i style="cursor:pointer" class="icon-remove" aria-hidden="true" type="button" id="remove_asham" name="remove_asham"></i>
+                                                    </div> 
+                                              	</div> <!-- col 6 ends  -->
+                                            <!-- </div>   row end   -->
 										</div> <!-- box content Ends -->
 									</div>
 								</div>

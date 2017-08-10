@@ -284,6 +284,12 @@ function docReady(){
 		e.preventDefault();
 		$('#myModal').modal('show');
 	});
+	$('.btn-profile').click(function(e){
+		e.preventDefault();
+		$('#profileModal').modal('show');
+	});
+	
+	
 
 
 

@@ -156,8 +156,8 @@
                                 <div class="col-md-2">
                                     <h3 class="text-box" id="hcolor">Name</h3>
                                 </div>    
-                                <div class="col-md-4 names-boxs">
-                                   <input type="text" class="form-control" id="reg_email2" placeholder="Adibha">
+                                <div class="col-md-4 names-boxs">                                    
+                                   <input type="text" style="" class="form-control" id="reg_email2" placeholder="Adibha">
                                 </div>
                             </div>
                             <div class="col-md-4 pull-right">
@@ -407,22 +407,22 @@
                                     <div class="col-md-6 text-boxs">
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Time Of Birth</b></p>
+                                                <p><b>Time Of Birth *</b></p>
                                             </div>
-                                            <div class="col-md-1">       
-                                                <select>
+                                            <div class="col-md-2">       
+                                                <select class="col-md-2 ">
                                                     <option>00</option>
                                                     <option>01</option>
                                                 </select>                                         
                                             </div>
                                             <div class="col-md-1">       
-                                                <select>
+                                                <select class="col-md-1 selectpicker">
                                                     <option>00</option>
                                                     <option>01</option>
                                                 </select>                                         
                                             </div>
                                             <div class="col-md-1">       
-                                                <select>
+                                                <select class="col-md-1 selectpicker">
                                                     <option>AM</option>
                                                     <option>PM</option>
                                                 </select>                                         
@@ -430,7 +430,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Mother Tongue</b></p>
+                                                <p><b>Mother Tongue *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                 <select class="selectpicker">
@@ -449,7 +449,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Nakshathra</b></p>
+                                                <p><b>Nakshathra *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                 <select class="selectpicker">
@@ -481,7 +481,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-4">
-                                                <p><b>Zodiac Sign</b></p>
+                                                <p><b>Zodiac Sign *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                 <select class="selectpicker">
@@ -501,7 +501,7 @@
                                     <div class="col-md-6 text-boxs">
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Education</b></p>
+                                                <p><b>Education *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                 <select class="selectpicker">
@@ -512,7 +512,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Education In Detail</b></p>
+                                                <p><b>Education In Detail *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                   <textarea id="comment" placeholder="" rows="3" cols="25"></textarea>
@@ -520,7 +520,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Occupation</b></p>
+                                                <p><b>Occupation *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                   <select class="selectpicker">
@@ -533,7 +533,7 @@
                                     <div class="col-md-6 text-boxs">
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Employed In</b></p>
+                                                <p><b>Employed In *</b></p>
                                             </div>
                                             <div class="col-md-6">       
                                                 <select class="selectpicker">
@@ -544,7 +544,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Monthly Income(In Indian-Rs)</b></p>
+                                                <p><b>Monthly Income(In Indian-Rs) *</b></p>
                                             </div>
                                             <div class="col-md-5">       
                                                 <input type="text" class="form-control" id="reg_Name" placeholder="" >
@@ -552,7 +552,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Occupation In Detail</b></p>
+                                                <p><b>Occupation In Detail *</b></p>
                                             </div>
                                             <div class="col-md-5">       
                                                 <textarea id="comment" placeholder="" rows="4" cols="25"></textarea>
@@ -569,31 +569,31 @@
                                     <div class="col-md-6 text-boxs">
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Father's Name</b></p>
+                                                <p><b>Father's Name *</b></p>
                                             </div>
                                             <div class="col-md-5">        
-                                                <input type="text" class="form-control" id="reg_Name" placeholder="Vadivel" disabled="disabled">
+                                                <input type="text" class="form-control" id="reg_Name" placeholder="Vadivel">
                                             </div>
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Mother's Name</b></p>
+                                                <p><b>Mother's Name *</b></p>
                                             </div>
                                             <div class="col-md-5">        
-                                                <input type="text" class="form-control" id="reg_Name" placeholder="Kalaiselvi" disabled="disabled">
+                                                <input type="text" class="form-control" id="reg_Name" placeholder="Kalaiselvi">
                                             </div>
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Father's Employment</b></p>
+                                                <p><b>Father's Employment *</b></p>
                                             </div>
                                             <div class="col-md-5">        
-                                                <input type="text" class="form-control" id="reg_Name" placeholder="Retired" disabled="disabled">
+                                                <input type="text" class="form-control" id="reg_Name" placeholder="Retired">
                                             </div>
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Mother's Employment</b></p>
+                                                <p><b>Mother's Employment *</b></p>
                                             </div>
                                             <div class="col-md-5">        
                                                 <input type="text" class="form-control" id="reg_Name" placeholder="Housewife" >
@@ -601,7 +601,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Family Status</b></p>
+                                                <p><b>Family Status *</b></p>
                                             </div>
                                             <div class="col-md-5">        
                                                 <select class="selectpicker">
@@ -612,7 +612,7 @@
                                         </div>
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Family Type</b></p>
+                                                <p><b>Family Type *</b></p>
                                             </div>
                                             <div class="col-md-5">        
                                                 <select class="selectpicker">
@@ -766,7 +766,7 @@
                                     <div class="col-md-6 text-boxs">
                                         <div class="row com-box">
                                             <div class="col-md-5">
-                                                <p><b>Food</b></p>
+                                                <p><b>Food *</b></p>
                                             </div>
                                             <div class="col-md-5">        
                                                 <select class="selectpicker">
@@ -853,10 +853,24 @@
                                                 <p><b>Education</b></p>
                                             </div>
                                             <div class="col-md-6">       
-                                                <select class="selectpicker">
-                                                    <option>Any</option>
-                                                    <option>Other</option>
-                                                </select>     
+                                                <div class="control-group">                     
+                                                    <div class="controls">
+                                                        <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4">
+                                                            <option value="">Select</option>
+                                                            <optgroup class="a" label="Bachelors - Engineering/ Computers"></optgroup>
+                                                            <option  selected="selected"  value="1">BE/B Tech</option>
+                                                            <option  value="2">BCA</option>
+                                                            <option  value="3">Aeronautical Engineering</option>
+                                                            <option  value="4">B Arch</option>
+                                                            <option  value="5">B Plan</option>
+                                                            <optgroup class="a" label="Masters - Engineering/ Computers"></optgroup>
+                                                            <option  value="6">MCA/PGDCA</option>
+                                                            <option  value="7">ME/M Tech</option>
+                                                            <option  value="8">MS (Engg.)</option>
+                                                            <option  value="9">M Arch</option>
+                                                        </select>
+                                                    </div>
+                                                </div>     
                                              </div>
                                         </div>
                                         <div class="row com-box">
@@ -879,11 +893,66 @@
                                 </div>
                             </div>
                                 <div class="members_about_box">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                       <h3 id="hcolor">Horoscope</h3>
+                                <h3 id="hcolor">Horoscope</h3>
+                                    <div class="profile_list"> 
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                            <!-- Rasi Horoscope - Start -->
+                                                    <div id="horo_container">
+                                                        <div class="horo_row" id="product">
+                                                            <div class="third-row" data-id="box_1" id="box_1">1</div>
+                                                            <div class="third-row" data-id="box_2" id="box_2">2</div>
+                                                            <div class="third-row" data-id="box_3" id="box_3">3</div>
+                                                            <div class="third-row" data-id="box_4" id="box_4">4</div>
+
+                                                            <div class="third-row" data-id="box_12" id="box_12">12</div>
+                                                            <div class="third-row" data-id="box_15" id="box_15">-</div>
+                                                            <div class="third-row" data-id="box_16" id="box_16">-</div>
+                                                            <div class="third-row" data-id="box_5"  id="box_5">5</div>
+
+                                                            <div class="third-row" data-id="box_11" id="box_11">11</div>
+                                                            <div class="third-row" data-id="box_13" id="box_13">-</div>
+                                                            <div class="third-row" data-id="box_14" id="box_14">-</div>
+                                                            <div class="third-row" data-id="box_6"  id="box_6">6</div>
+
+                                                            <div class="third-row" data-id="box_10" id="box_10">10</div>
+                                                            <div class="third-row" data-id="box_9" id="box_9">9</div>
+                                                            <div class="third-row" data-id="box_8" id="box_8">8</div>
+                                                            <div class="third-row" data-id="box_7" id="box_7">7</div>
+                                                        </div>
+                                                    </div> <!-- Rasi Horoscope - End --> 
+                                                </div>  <!-- row col 6 ends -->
+                                                <div class="col-md-6">
+                                                    <!-- Asham Horoscope - start -->
+                                                    <div id="asham_horo_container">
+                                                        <div class="asham_horo_row" id="product">
+                                                        <div class="asham-row" data-id="abox_1" id="abox_1">1</div>
+                                                        <div class="asham-row" data-id="abox_2" id="abox_2">2</div>
+                                                        <div class="asham-row" data-id="abox_3" id="abox_3">3</div>
+                                                        <div class="asham-row" data-id="abox_4" id="abox_4">4</div>
+
+                                                        <div class="asham-row" data-id="abox_12" id="abox_12">12</div>
+                                                        <div class="asham-row" data-id="abox_15" id="abox_15">-</div>
+                                                        <div class="asham-row" data-id="abox_16" id="abox_16">-</div>
+                                                        <div class="asham-row" data-id="abox_5"  id="abox_5">5</div>
+
+                                                        <div class="asham-row" data-id="abox_11" id="abox_11">11</div>
+                                                        <div class="asham-row" data-id="abox_13" id="abox_13">-</div>
+                                                        <div class="asham-row" data-id="abox_14" id="abox_14">-</div>
+                                                        <div class="asham-row" data-id="abox_6"  id="abox_6">6</div>
+
+                                                        <div class="asham-row" data-id="abox_10" id="abox_10">10</div>
+                                                        <div class="asham-row" data-id="abox_9" id="abox_9">9</div>
+                                                        <div class="asham-row" data-id="abox_8" id="abox_8">8</div>
+                                                        <div class="asham-row" data-id="abox_7" id="abox_7">7</div>
+
+                                                        </div>
+                                                    </div> <!-- Asham Horoscope - end -->                              
+                                                </div> <!-- col 6 ends -->
+                                            </div> <!-- col 12 ends -->
+                                        </div> <!-- row ends -->
                                     </div>
-                                </div>
                             </div>    
                             </div>                              
                 </div>        

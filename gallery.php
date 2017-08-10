@@ -45,13 +45,11 @@
                 </form>
                 </div><br>
                 <div class="row">
-                    <div class="blog_grid_inner">
-                        <ul class = "pagination">
-                            <div class="col-md-3 col-sm-6">
-                                <div class="blog_grid_item">
-                                    <div class="blog_grid_img">
-                                        <img src="img/valli/new_84IMG_20141002_110125.jpg" alt="">
-                                    </div>
+                    <div class="blog_grid_inner pagination_area">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="blog_grid_item">
+                                <div class="blog_grid_img">
+                                    <img src="img/valli/new_84IMG_20141002_110125.jpg" alt="">
                                 </div>
                             </div>
                            <div class="col-md-3 col-sm-6">
@@ -162,13 +160,13 @@
                             </div>
                     </div>
                 </div><br><br>
-                <div id="pagination_are" class="pagination light-theme simple-pagination pull-right">
-                <!-- <div class="pagination_area">
+                <div id="pagination" class="pagination light-theme simple-pagination pull-right">
+                <div class="pagination_are">
                     <a class="prev" href="gallery.html">Previous</a>
                     <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
                     <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
                     <a class="next" href="gallery_2page.html">Next</a>
-                </div> -->
+                </div>
             </div>
         </section>
         <!--================End Blog grid Area =================-Ravichandran-->
@@ -179,6 +177,8 @@
         <script src="js/theme.js"></script>
       <!--   <script>$(function() {
             $('#pagination_are').pagination({
+        <script>$(function() {
+            $('#pagination')({
                 items: 16,
                 itemsOnPage : 8,
                 cssStyle: 'light-theme'
