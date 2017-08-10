@@ -38,8 +38,8 @@ include('include/menu.php');
 	                    	if(!empty($results)){	                    		                    	
 	                    	foreach ($results as $value){ ?>
 				            <div class="row sucess"> 
-				            	<div class="col-sm-12">        
-		                            <div class="col-sm-3 col-xs-12 sucess-box">
+				            	<div class="col-sm-12 suc_border_box det_border">        
+		                            <div class="col-sm-3 col-xs-12 sucess-box pad_bor">
 			                             <img src="<?php 
                                                         if(!empty($value['image'])): 
                                                             echo media_url()."assets/img/uploads/success/".$value['image']; 

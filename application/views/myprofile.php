@@ -427,28 +427,41 @@
                                     </div>
                                     </div>                                                                  
                                 </div>
-                                 <div class="members_about_box">
-                                    <div id="">
-                                    <h3 id="hcolor">Search(Expectation/Looking for)</h3>
-                                    </div> 
-                                        <div class="profile_list">
-                                            <ul>
-                                                <li><a><?php echo $results['phy_expectationabout_lifepartner']; ?></a></li>
-                                            </ul>
-                                            <ul>
-                                                <li><a>From <?php echo $results['phy_searchage_from']; ?> To <?php echo $results['phy_searchage_to']; ?></a></li>
-                                            </ul>
+                                 <div class="members_about_box"> 
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                           <h3 id="hcolor">Search (Expectation / Looking For)</h3>
                                         </div>
-                                        <div class="col-sm-12  aline-center-box ">
-                                           <div class="row">
-                                                <div class="profile_list">
-                                                    <!-- <div class="height_item profile_list"> -->
+                                        <div class="col-md-6 text-boxs leftpad">
+                                            <div class="row com-box">
+                                                <div class="col-md-3">
+                                                    <p>Age</p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                <p>From</p>
+                                                </div>
+                                                <div class="col-md-2">        
+                                                    <p><b><?php echo $results['phy_searchage_from']; ?></b></p> 
+                                                </div>
+                                                 <div class="col-md-2">        
+                                                    <p>To</p> 
+                                                </div> 
+                                                <div class="col-md-2">        
+                                                    <p><b><?php echo $results['phy_searchage_to']; ?></b></p> 
+                                                </div>  
+                                                                                         
+                                            </div>
+                                            <div class="row com-box">
+                                                    <div class="col-md-3">
                                                         <p>Marital Status</p>
-                                                        <label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <div class="checkbox">
+                                                        <p>
                                                         <!-- <input type="checkbox" value=""> -->
                                                         <!-- <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span> -->
-                                                                <?php echo $results['maritalname']; ?>
-                                                    </label>
+                                                                <b><?php echo $results['maritalname']; ?></b>
+                                                        </p>
                                                     <!-- </div>     -->
                                                   <!--   <div class="col-sm-8 "> -->
                                                     <!-- <div class="height_item "> -->
@@ -480,41 +493,38 @@
                                                         <label class="checkbox-inline"><input type="checkbox" value="">Divorced</label>
                                                     </div> -->
                                                 <!-- </div> -->
+                                                        </div>                                                
+                                                    </div>        
                                                 </div>
-                                                
-                                            </div>        
+                                                <div class="row com-box">
+                                                    <div class="col-md-3">
+                                                        <p>Education</p>
+                                                    </div>
+                                                    <div class="col-md-6">       
+                                                        <div class="control-group">                     
+                                                            <div class="controls">
+                                                                <p><b><?php echo $results['phy_searchedu_status']; ?></b></p>
+                                                                <!-- <li><a>BE/BTech</a></li>
+                                                                <li><a>BSc</a></li>
+                                                                <li><a>B Com</a></li> -->
+                                                                <!-- <li><a>Family Status</a></li>
+                                                                <li><a>Family Type</a></li>
+                                                                <li><a>Work as</a></li> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row com-box">
+                                                    <div class="col-md-3">
+                                                        <p>Diet</p>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <p><b><?php echo $results['phy_expectationfood_name']; ?></b></p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="profile_list">
-                                            <ul>
-                                                <li><a>Education</a></li>
-                                                <!-- <li><a>Mother's Name</a></li>
-                                                <li><a>Father's Occupation</a></li>
-                                                <li><a>Mother's Occupation</a></li>
-                                                <li><a>Family Status</a></li>
-                                                <li><a>Family Type</a></li>
- -->                                                <!-- <li><a>Work as</a></li> -->
-                                            </ul> 
-                                            <ol>
-                                                <li><a><?php echo $results['phy_searchedu_status']; ?></a></li>
-                                                <!-- <li><a>BE/BTech</a></li>
-                                                <li><a>BSc</a></li>
-                                                <li><a>B Com</a></li> -->
-                                                <!-- <li><a>Family Status</a></li>
-                                                <li><a>Family Type</a></li>
-                                                <li><a>Work as</a></li> -->
-                                            <ol>
-                                        </div>
-                                        <div class="profile_list">
-                                            <ul>
-                                                <li><a>Expectation Food</a></li>
-                                            </ul>
-                                            <ul>
-                                                <li><a><?php echo $results['phy_expectationfood_name']; ?></a></li>
-                                            </ul>
-                                        </div>  
-
-                                </div>
-
+                                    </div>
                          
                             <div class="members_about_box">
                                     <h3 id="hcolor">Horoscope</h3>

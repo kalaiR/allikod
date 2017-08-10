@@ -114,28 +114,37 @@ if($values[0]!=0){
                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 detail-box">
+                    <div class="col-md-6 col-sm-6 border_box det_border">
                       <div class="head-box"><h4>Vallikodi ID : V1
                       <?php if(!empty($value['userdetail_id'])){ echo $value['userdetail_id'];}?></h4></div>
                         <div class="text-box-name">
                           <div class="col-md-5 col-xs-6 name-box">
                             <p><b>Name</b></p>
                           </div>
-                          <div class="col-md-6 ">
-                              <p> : <?php if(!empty($value['user_fname'])){ echo $value['user_fname'];}?></p>
+                            <div class="col-md-1 ">
+                              <p> : </p>
+                            </div>
+                            <div class="col-md-6 ">
+                             <p><?php if(!empty($value['user_fname'])){ echo $value['user_fname'];}?></p>
                             </div>
                         </div>    
                         <div class="col-md-5 col-xs-6 name-box">
                           <p><b>DOB / Age</b></p>
                         </div>
+                        <div class="col-md-1 ">
+                              <p> : </p>
+                            </div>
                         <div class="col-md-6">
-                            <p>: <?php if(!empty($value['user_dob'])){ echo $value['user_dob'];}?></p>
+                            <p> <?php if(!empty($value['user_dob'])){ echo $value['user_dob'];}?></p>
                         </div>
                         <div class="col-md-5 col-xs-6 name-box">
                             <p><b>Star</b></p>
                         </div>
-                        <div class="col-md-7">
-                          <p> : <?php if(!empty($value['rel_nakshathra_id'])){                             
+                        <div class="col-md-1 ">
+                              <p> : </p>
+                        </div>
+                        <div class="col-md-6">
+                          <p>  <?php if(!empty($value['rel_nakshathra_id'])){                             
                             $val = $this->user_model->get_nakshathra($value['rel_nakshathra_id']);
                             echo $val['name'];
                             }?></p>
@@ -143,15 +152,20 @@ if($values[0]!=0){
                         <div class="col-md-5 col-md-5 col-xs-6 name-box">
                           <p><b>Religion</b></p>
                         </div>
+                        <div class="col-md-1 ">
+                              <p> : </p>
+                        </div>
                         <div class="col-md-6">
-                            <p>: <?php if(!empty($value['rel_religion'])){ echo $value['rel_religion'];}?></p>
+                            <p> <?php if(!empty($value['rel_religion'])){ echo $value['rel_religion'];}?></p>
                         </div>
                         <div class="col-md-5 col-md-5 col-xs-6 name-box">
                           <p><b>Education</b></p>
                         </div>
+                        <div class="col-md-1 ">
+                              <p> : </p>
+                        </div>
                         <div class="col-md-6">
-                            <p>:
-                            <?php if(!empty($value['edu_education'])){ 
+                            <p> <?php if(!empty($value['edu_education'])){ 
                                 $val = $this->user_model->get_education($value['edu_education']);
                                 echo $val['edu_name'];
                                 }?>
@@ -160,16 +174,18 @@ if($values[0]!=0){
                         <div class="col-md-5 col-md-5 col-xs-6 name-box">
                           <p><b>Occupation</b></p>
                         </div>
+                        <div class="col-md-1 ">
+                              <p> : </p>
+                        </div>
                         <div class="col-md-6">
-                            <p>:
-                                <?php if(!empty($value['edu_occupation'])){ 
+                            <p> <?php if(!empty($value['edu_occupation'])){ 
                                 $val = $this->user_model->get_occupation($value['edu_occupation']);
                                 echo $val['occupation_name'];
                                 }?>
                             </p>
                         </div>
-                        <div class="text-box-name">
-                          <div class="col-md-6 head-box">
+                        <div class="text-box-name pu">
+                          <div class="col-md-6">
                             <p><a href="<?php echo base_url().'viewdetail/'.$value['userdetail_id'];?>" target="_blank">View Full Details</a></p>
                           </div>  
                         </div>

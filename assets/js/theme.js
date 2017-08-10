@@ -750,8 +750,8 @@
     /*Date Time Picker*/
     /*----------------------------------------------------*/
     
-    $('.datetimepicker4').datetimepicker({format:'YYYY-MM-DD',maxDate: new Date});
-
+    $('.datetimepicker4').datetimepicker({format:'YYYY-MM-DD',maxDate: new Date,}).val('');
+    // $('.datetimepicker4').datetimepicker();
     
     /*----------------------------------------------------*/
     /*Price select custome handle*/
