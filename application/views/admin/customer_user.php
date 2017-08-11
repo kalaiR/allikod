@@ -106,7 +106,7 @@
 									</div>
 								  </div>
 								  <div class="control-group">
-									<a class="btn btn-primary pull-right" id="add" href="#">
+									<a style="margin-right: 15px" class="btn btn-primary pull-right" id="add" href="#">
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Search
 								    </a>
