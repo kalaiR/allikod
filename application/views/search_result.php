@@ -525,74 +525,36 @@ if(isset($per_page)&&(!empty($total_rows)))
                         if(!empty($links)) :
                             echo "<div class='col-md-8 nopadding pull-right '>
                                         <div class='col-md-5 pagination-box clearfix' style='display:inline-block'>" .$links . "
+                                        </div>";
+                                        if(!empty($pages)) : ?>
+                                        <div class="col-md-1 goto">Go to</div>
+                                        <div class="col-md-1 dir_page">
+                                          <select class="extra_drop" name="pagination_dropdown" id="pagination_dropdown" 
+                                          onchange="location = this.value;">                                               
+                                                <?php                     
+                                                for($i=1;$i<=$pages;$i++){
+                                                    if($i!=$values[0]){?>
+                                                    <option value="<?php echo base_url()."search_result/".$i;?>">
+                                                        <?php echo $i; 
+                                                    ?>
+                                                    </option>
+                                                    <?php }else{?>
+                                                    <option value="<?php echo base_url()."search_result/".$i;?>" selected>
+                                                        <?php echo $i;?>
+                                                    </option>
+                                                    <?php }
+                                                }?>
+                                        </select>
                                         </div>
-                                        <div class='col-md-1 goto'>Go to</div>
-                                        <div class='col-md-1 dir_page'>
-                                            <select class='extra_drop'>
-                                                <option>1</option>
-                                                <option>9</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                            </select>
-                                        </div>
-                                    </div>";
-                        endif;
+                                        <?php endif; ?>
+                                    </div>;
+                        <?php endif;
                         ?>
                         </div>
                     </div>
-                </div>              
-                <!-- <div class="pagination>                    
-                    <a class="prev" href="#">Previous</a>
-                    <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
-                    <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
-                    <a class="next" href="#">Next</a>
-                </div> -->
-                <!-- <?php
-                if(!empty($links)) :
-                            echo "<div class='col-md-8 nopadding pull-right '>
-                                    <div class='pagination-box clearfix'>" .$links . "
-                                        </div>
-                                    </div>";
-                endif;
-                ?>
-                <?php if(!empty($pages)): ?>
-                    <select name="pagination_dropdown" id="pagination_dropdown" onchange="location = this.value;">
-                        <?php                     
-                        for($i=1;$i<=$pages;$i++){
-                            if($i!=$values[0]){?>
-                            <option value="<?php echo base_url()."search_result/".$i;?>">
-                                <?php echo $i; 
-                                ?>
-                            </option>
-                            <?php }else{?>
-                            <option value="<?php echo base_url()."search_result/".$i;?>" selected>
-                                <?php echo $i;?>
-                            </option>
-                            <?php }
-                        }
-                     ?>                    
-                    </select>
-                <?php endif; ?> -->
+                </div>        
             </div>
         </section>
-        <!--================End search_reslut grid Area =================-->               
-        
-       <!--  <div id="largeContent" style="display:none;">
-            <div class="media tool_content">
-                <div class="media-left">
-                    <img src="<?php // echo media_url(); ?>assets/img/map-persion.png" alt="">
-                </div>
-                <div class="media-body">
-                    <h3>Sandi Williams</h3>
-                    <h5>21 years old</h5>
-                    <h5>From Paris</h5>
-                    <h5>Distance 16 km</h5>
-                </div>
-            </div>
-        </div> -->
 <?php 
     include('include/footer.php');
 ?> 
