@@ -226,7 +226,7 @@
 															  	else 
 															  		$selected = "initial"; 
 															  	?>
-															  <input type="hidden" name="payment_mode" value="not_paid" class="payment_mode">
+															  <input type="hidden" name="payment_mode" value="<?php echo $selected; ?>" class="payment_mode">
 															  <select data-rel="chosen" name="cus_paymentmode" class="paymentmode_act">
 															  	<option value="" <?php if($selected == "not_paid") echo "selected"; ?>>Select Payment Mode</option>
 															  	<option value="initial" <?php if($selected == "initial") echo "selected"; ?>>Initial</option>
@@ -251,7 +251,7 @@
 															<div class="controls">
 															<?php foreach (unserialize(PAYMENT_TYPE) as $key => $val): ?>
 															  <label class="radio">
-																<input type="radio" value="<?php echo $key; ?>" <?php if(($customeruser_values['payment_type'] == $key && $selected == "initial") || ($customeruser_values['plan_id'] == $key && $selected == "renewal")) echo "checked";  ?> name="cus_paymenttype">
+																<input type="radio" value="<?php echo $key; ?>" <?php if(($customeruser_values['payment_type'] == $key && $selected == "initial") || ($customeruser_values['plan_id'] == $key && $selected == "renewal")) echo "checked";  ?> name="cus_paymenttype" class="paymenttype_act">
 																<?php echo $val; ?>
 															  </label>
 															  <div style="clear:both"></div>
@@ -275,7 +275,7 @@
 																<div class="controls">
 																<?php foreach (unserialize(PERIOD_IN_MONTH) as $key => $val): ?>
 																  <label class="radio">
-																	<input type="radio" class="period_monthact" value="<?php echo $key; ?>" <?php if($customeruser_values['user_online_or_simple'] == "online"): if(($selected == 'initial' && $customeruser_values['paymonth'] == $val) || ($selected == 'renewal' && $customeruser_values['renmonth'] == $val)) echo "checked"; endif; ?> name="cus_period">
+																	 <input type="radio" class="period_monthact" value="<?php echo $key; ?>" <?php if($customeruser_values['user_online_or_simple'] == "online"): if(($selected == 'initial' && $customeruser_values['period_in_month'] == $val) || ($selected == 'renewal' && $customeruser_values['ren_period_in_month'] == $val)) echo "checked"; endif; ?> name="cus_period">
 																	<?php echo $val; ?>
 																  </label>
 																  <div style="clear:both"></div>
@@ -285,8 +285,8 @@
 														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">
 																<label class="control-label" for="focusedInput">Total No. of profile: </label>
 																<div class="controls">
-																  <!-- <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['totalno_of_profile'])) echo $customeruser_values['totalno_of_profile'];  ?>" name="cus_totprofile" disabled> -->
-																	<input class="input-xlarge focused" id="cus_totprofile" type="text" value="<?php if($customeruser_values['user_online_or_simple'] == "online"): if($selected == 'initial') echo $customeruser_values['totalno_of_profile']; if($selected == 'renewal') echo $customeruser_values['totprofile']; endif;  ?>" name="cus_totprofile">
+																  <!-- <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php //if(!empty($customeruser_values['totalno_of_profile'])) echo $customeruser_values['totalno_of_profile'];  ?>" name="cus_totprofile" disabled> -->
+																	<input class="input-xlarge focused" id="cus_totprofile" type="text" value="<?php if($customeruser_values['user_online_or_simple'] == "online"): if($selected == 'initial') echo $customeruser_values['paytotprofile']; if($selected == 'renewal') echo $customeruser_values['rentotprofile']; endif;  ?>" name="cus_totprofile">
 																</div>
 														  	</div>
 														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">

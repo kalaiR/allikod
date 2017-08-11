@@ -488,7 +488,7 @@
                                                     </select>                                         
                                                 </div>
                                                 <div class="col-md-1" style="width:13%">       
-                                                    <select name="cus_birthmins" class="col-md-2 tb_drop form_inputs" data-message="Birth Minute">
+                                                    <select name="cus_birthmins" class="form_inputs col-md-2 tb_drop" data-message="Birth Minute">
                                                         <option value="">Minutes</option>
                                                         <?php for( $i=0; $i<=59; $i++ ):
                                                             if($time_of_birth[1] == $i)

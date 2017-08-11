@@ -490,7 +490,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Search (Expectation/Looking for</h2>	  			
+										<h2><!-- <i class="icon-th"> --></i> Search (Expectation/Looking for)</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">

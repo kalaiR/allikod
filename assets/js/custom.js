@@ -459,18 +459,25 @@ $(document).ready(function() {
     /*Admin customer user edit form Start*/
     $('.customer_edit_form').on('submit',function(e) {
         e.preventDefault();
+        if($(this).find('.bootstrap-select').hasClass('form_inputs')) {
+            $(this).find('.bootstrap-select').removeClass('form_inputs');
+        }  
         // var error = '';
         var error_msg = $(this).find('.val_error');
         var message = '';
         /* Validate Input and Select element */
         $(this).find('.form_inputs').each(function() {
             var this_val = $.trim($(this).val()); 
-            // alert(this_val);           
+            var tag_name = $(this).prop("tagName").toLowerCase();
+            // alert(tag_name);           
             if(this_val == '') {
                 // alert($(this).attr('name'));
                 error = 1;
                 message ="Please fill "+$(this).data('message');
+                // alert(message);
+                // alert($(this).attr('name'));
                 $(this).addClass('form-field-error');
+                return false;
             }
              else {            
                 $(this).removeClass('form-field-error');
@@ -501,9 +508,9 @@ $(document).ready(function() {
         // }
         // /* Check whether the input and select element has error or not */
         if($(this).find('input,select,textarea').hasClass('form-field-error')) {
-            if(message == '') {
-                message ="Please fill "+$(this).data('message');
-            }
+            // if(message == '') {
+            //     message ="Please fill "+data('message');
+            // }
             $('html, body').animate({scrollTop:0},500);
             error_msg.html(message).fadeIn(350);
             return false;
