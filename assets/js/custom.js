@@ -458,6 +458,7 @@ $(document).ready(function() {
                 // alert($(this).attr('name'));
                 error = 1;
                 message ="Please fill "+$(this).data('message');
+                alert(message);
                 $(this).addClass('form-field-error');
             }
              else {            
@@ -489,9 +490,9 @@ $(document).ready(function() {
         // }
         // /* Check whether the input and select element has error or not */
         if($(this).find('input,select,textarea').hasClass('form-field-error')) {
-            if(message == '') {
-                message ="Please fill "+$(this).data('message');
-            }
+            // if(message == '') {
+            //     message ="Please fill "+data('message');
+            // }
             $('html, body').animate({scrollTop:0},500);
             error_msg.html(message).fadeIn(350);
             return false;
