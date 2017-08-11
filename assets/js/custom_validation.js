@@ -98,28 +98,29 @@ $(document).ready(function() {
             return true;
         }  
   }); // End document
+  $(".image_act").on('change',function(){
+        //Get reference of FileUpload.
+        var fileUpload = $(this)[0];
+        if (typeof (fileUpload.files) != "undefined") {
+            //Initiate the FileReader object.
+            var reader = new FileReader();
+            //Read the contents of Image File.
+            reader.readAsDataURL(fileUpload.files[0]);
+            reader.onload = function (e) {
+            //Initiate the JavaScript Image object.
+            var image = new Image();
+            //Set the Base64 string return from FileReader as source.
+            image.src = e.target.result;
+            image.onload = function () {
+                //Determine the Height and Width.
+                height = this.height;
+                width = this.width;
+            };
+          }
+        }
+    });
 });
-    //   $(".image_act").on('change',function(){
-    //     //Get reference of FileUpload.
-    //     var fileUpload = $(this)[0];
-    //     if (typeof (fileUpload.files) != "undefined") {
-    //         //Initiate the FileReader object.
-    //         var reader = new FileReader();
-    //         //Read the contents of Image File.
-    //         reader.readAsDataURL(fileUpload.files[0]);
-    //         reader.onload = function (e) {
-    //         //Initiate the JavaScript Image object.
-    //         var image = new Image();
-    //         //Set the Base64 string return from FileReader as source.
-    //         image.src = e.target.result;
-    //         image.onload = function () {
-    //             //Determine the Height and Width.
-    //             height = this.height;
-    //             width = this.width;
-    //         };
-    //       }
-    //     }
-    // });
+      
 
     
         /*  ===========         Basic_Search Form Validation Start     ===================   */
