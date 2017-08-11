@@ -956,7 +956,7 @@ p2
 .login_form_inner .login_btn_area .login_social {
   display: inline-block;
   float: right;
-  padding-top: 11px;
+  padding-top: 2px;
 }
 
 .login_form_inner .login_btn_area .login_social h5 {

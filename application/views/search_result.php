@@ -89,7 +89,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                             else if(!empty($prefix_two_status))
                                 $prefix = $prefix_two;
                         ?>
-                        <div class="main_photo">
+                        <!-- <div class="main_photo"> -->
                         <img src="<?php 
                             if(!empty($value['images'])): 
                                 echo media_url()."uploads/profile/".$prefix.$value['images']; 
@@ -97,7 +97,8 @@ if(isset($per_page)&&(!empty($total_rows)))
                                 echo media_url()."assets/img/no_image.jpg"; 
                             endif; 
                         ?>" alt="Image not loaded" style="width:170px;height:170px;">
-                        <img class="inlay" src="<?php echo media_url(); ?>assets/img/lock-icon.png"></div>
+                        <!-- <img class="inlay" src="<?php //echo media_url(); ?>assets/img/lock-icon.png"> -->
+                        <!-- </div> -->
                           <!-- <div><a href="#">More Images</a></div>  -->
                           <div>
                            <ul class="">
@@ -228,7 +229,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                                     <img src="<?php //echo media_url(); ?>assets/img/widget-title-border.png" alt="">
                                 </div>
                                 <ul>
-                                    <li><a href="#"><img src="<?php // echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Age Limit</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Age Limit</b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="price_select"></div>
@@ -244,7 +245,8 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php // echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Height Limit</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Height Limit</b></a></li>
+
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="height_select"></div>
@@ -260,7 +262,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php // echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Weight Limit</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Weight Limit</b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="weight_select"></div>
@@ -276,7 +278,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php // echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Marital Status</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Marital Status</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -312,7 +314,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php // echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Occupation</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Occupation</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -348,7 +350,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php // echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Education</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Education</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -384,7 +386,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php // echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Employed In</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Employed In</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -420,7 +422,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php // echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Food</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Food</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -449,7 +451,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php // echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Complexion</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Complexion</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -485,7 +487,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php // echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Body Type</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Body Type</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>

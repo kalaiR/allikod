@@ -134,8 +134,7 @@
 							<li><a href="#online">Online</a></li>
 							<li><a href="#simple">Simple</a></li>
 							<li><a href="#waiting">Waiting</a></li>
-						</ul>
-						 
+						</ul>						 
 						<div id="myTabContent" class="tab-content">
 							<!-- View Tab Begins -->
 							<div class="tab-pane active" id="view">
