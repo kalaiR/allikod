@@ -341,23 +341,7 @@ class Base extends CI_Controller {
 
 				if(!empty($form_data['more_abt_family'])){
 					$data_reg_com['comm_about_family']= $form_data['more_abt_family'];
-				}
-						
-				// 'comm_residence'=>$form_data['resident'][0],
-				// 'comm_current_countrycountry'=>$form_data['cur_country'][0],
-				// 'comm_current_city'=>$form_data['reg_city'],
-				// 'comm_current_district'=>$form_data['reg_district'],					
-				// 'comm_communication_address'=>$form_data['comm_address'],
-				// 'comm_phone_no'=>$form_data['reg_phone'],
-				// 'comm_number_of_brothers_el'=>$form_data['reg_EBrother'],
-				// 'comm_number_of_brothers_yo'=>$form_data['reg_YBrother'],
-				// 'comm_number_of_brothers_el_mar'=>$form_data['reg_MEBrother'],
-				// 'comm_number_of_brothers_yo_mar'=>$form_data['reg_MYBrother'],
-				// 'comm_number_of_sisters_el'=>$form_data['reg_ESister'],
-				// 'comm_number_of_sisters_yo'=>$form_data['reg_YSister'],
-				// 'comm_number_of_sisters_el_mar'=>$form_data['reg_MESister'],
-				// 'comm_number_of_sisters_yo_mar'=>$form_data['reg_MYSister'],
-				// 'comm_about_family'=>$form_data['more_abt_family']	
+				}										
 		  		$id_user_com = $this->user_model->insert_registration('reg_communication_family',$data_reg_com);
 
 
@@ -438,23 +422,44 @@ class Base extends CI_Controller {
 		  		$id_user_phy = $this->user_model->insert_registration('reg_physical_expectation',$data_reg_phy);
 		  		
 
-				if(!empty($_FILES['uploadedfile']['name']))
-        		{	   	
+				if(!empty($_FILES['uploadedfile']['name'])){
+        			$imagePrefix = "new_"; 
+					$imagename = $imagePrefix.$_FILES["uploadedfile"]['name'];
+
+					$thumbimagePrefix = "th_"; 
+					$thumbimagename = $thumbimagePrefix.$_FILES["uploadedfile"]['name'];
+
+					$stored_filename = $_FILES["uploadedfile"]['name'];
+
         			$config['upload_path'] = FCPATH.USER_PROFILE_PATH; 
         			// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
 			        $config['allowed_types'] = 'jpg|jpeg|png'; // Allowed tupes
-			        $config['encrypt_name'] = TRUE; // Encrypted file name for security purpose
+			        // $config['encrypt_name'] = TRUE; // Encrypted file name for security purpose
 			        $personnal_logo['file_ext_tolower'] 	= TRUE;
 			        $config['max_size']    = '20480'; // Maximum size - 1MB
 			    	$config['max_width']  = '10240'; // Maximumm width - 1024px
-			    	$config['max_height']  = '76800'; // Maximum height - 768px			    	
-					$config['file_name'] = "th_".$_FILES["uploadedfile"]['name'];
+			    	$config['max_height']  = '76800'; // Maximum height - 768px	
+			    	$config['file_name'] = $imagename;		    						
 			        $this->upload->initialize($config); // Initialize the configuration		
-           			if($this->upload->do_upload('uploadedfile'))
-            		{
-                		$upload_data = $this->upload->data(); 
-                		$_POST['uploadedfile'] = $upload_data['file_name']; 
+           			if($this->upload->do_upload('uploadedfile')){
+                		$upload_data = $this->upload->data();                 		
                 		$targetfile_details = $upload_data['file_name'];
+
+                		//newly added for thumbnail
+                		$userprofile_logo_thumb['image_library'] = 'gd2';						
+						$userprofile_logo_thumb['source_image'] = FCPATH.USER_PROFILE_PATH.$upload_data['file_name'];
+						$userprofile_logo_thumb['create_thumb'] = FALSE;						
+						$userprofile_logo_thumb['maintain_ratio'] = TRUE;
+						$userprofile_logo_thumb['width']  = 260;
+						$userprofile_logo_thumb['height']  = 260;
+						$userprofile_logo_thumb['new_image'] = $thumbimagename;
+						$this->load->library('image_lib');
+						$this->image_lib->initialize($userprofile_logo_thumb);
+						// Resize operation
+						if (!$this->image_lib->resize()){
+	                		$data['status'] = strip_tags($this->image_lib->display_errors()); 
+						}
+						$this->image_lib->clear();
                 		$data['error'] = 0;
   	            	}else{
 	                	$data['status'] = $this->upload->display_errors(); 
@@ -466,10 +471,18 @@ class Base extends CI_Controller {
 						$data_images = array(
 								// 'userimages_id'=>'',
 								'reg_user_id'=>$id_userdetails,						
-								'images'=>$targetfile_details
+								'images'=>$stored_filename
 						);	
 						$id_images = $this->user_model->insert_registration('user_images',$data_images);
 					}
+                }else{
+                		if($data['user_gender']!=2){$default_images = "defalt_male.png";}else{$default_images = "defalt_female.png";}
+                		$data_images = array(
+								// 'userimages_id'=>'',
+								'reg_user_id'=>$id_userdetails,						
+								'images'=>$default_images
+						);	
+						$id_images = $this->user_model->insert_registration('user_images',$data_images);
                 }
 
                 // Insert Horoscope // 
@@ -888,15 +901,30 @@ class Base extends CI_Controller {
 		$this->load->view('viewdetail',$data);
 	}
 	public function myprofile(){
-		// echo "test";
-		// if(!empty($this->session->userdata("login_status"))){ 
         $login_session = $this->session->userdata("login_session");
-        // print_r($login_session);
 		$id = $login_session['userdetail_id'];
 		if(!empty($id)){
 			$data['results'] = $this->user_model->get_viewdetails_byid($id);
 			$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
 			$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
+
+			// Education Excepted from Selected Education Table
+			$data['eeducation'] = $this->user_model->get_selected_education($id);
+			foreach($data['eeducation'] as $key => $value) {
+				$get_educationlist[] = $this->user_model->get_education($value['education_id']);			  
+			}
+			if(!empty($get_educationlist)){
+				$data['expected_education']	 =  $get_educationlist;
+			}
+
+			// Marital Excepted from Selected Marital Table
+			$data['emaritalstatus'] = $this->user_model->get_selected_maritalstatus($id);
+			foreach($data['emaritalstatus'] as $key => $value) {			  
+				$get_martial[] = $this->user_model->get_martialstatusbyId($value['marital_category_id']);
+			}		
+			if(!empty($get_martial)){		
+				$data['expected_maritalstatus'] = $get_martial;
+			}
 			$this->load->view('myprofile',$data);
 		}
 	}

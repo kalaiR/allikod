@@ -36,11 +36,7 @@
         <link href="<?php echo media_url(); ?>assets/css/responsive.css" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="<?php echo media_url(); ?>assets/css/simplePagination.css"/>
         <link href="<?php echo media_url(); ?>assets/css/chosen.css" rel="stylesheet">
-        
-        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script> -->
-       
-        <!-- <script src="<?php echo media_url(); ?>assets/js/map-custome.js"></script> -->
-
+      
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

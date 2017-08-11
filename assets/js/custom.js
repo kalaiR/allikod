@@ -8,8 +8,36 @@ var calculateAge = function(birthday) {
     return age;
 };
 
+function mailcheckuser(){        
+    if($("#register_email").val()){
+                    var data = {};
+                    data[csrf_name] = csfrData[csrf_name];
+                    data['email'] = $("#register_email").val();
+                    $.ajax({
+                        url: baseurl+"register_mailcheck",
+                        data: data,
+                        type: "post",
+                        async: false,
+                        success: function(results_array){
+                            // alert(JSON.stringify(results_array));
+                            if(results_array!="1"){
+                                ajx_output = false;
+                                // alert("ajax-fasle");
+                                $("#register_email-error").html(" Email Already Registered ");
+                                return ajx_output;      
+                            }else{
+                                ajx_output = true;
+                                // alert("ajax-true");
+                                return ajx_output;      
+                            }
+                        }
+                    });
+                    return ajx_output;
+            }
+}
+
 function validate() {
-    var output = true;
+    var output = true;     
     $(".registration-error").html('');
         if($("#userdetails-field").css('display') != 'none') {
 
@@ -22,26 +50,8 @@ function validate() {
                 if(!$("#register_email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
                     $("#register_email-error").html("Invalid Email Id");
                     output = false;
-                     
                 }
-            }
 
-            if($("#register_email").val()){
-                    var data = {};
-                    data[csrf_name] = csfrData[csrf_name];
-                    data['email'] = $("#register_email").val();
-                    $.ajax({
-                        url: baseurl+"register_mailcheck",
-                        data: data,
-                        type: "post",
-                        success: function(results_array){
-                            // alert(JSON.stringify(results_array));
-                            if(results_array!=1){
-                                output = false;
-                                $("#register_email-error").html(" Email Already Registered ");
-                            }
-                        }
-                    });
             }
             
              if(!($("#reg_pass1").val())) {
@@ -76,7 +86,7 @@ function validate() {
                  output = false;
                  $("#marital_error").html("Required");
              }
-      
+            
         }
         if($("#ethnicity-field").css('display') != 'none') {
 
@@ -166,8 +176,7 @@ function validate() {
                  $("#search_age_from_error").html("Required");
              }
 
-        }    
-
+        }            
         return output;
 }
 
@@ -385,9 +394,12 @@ $(document).ready(function() {
         
     });
 
-    $("#next").click(function(){            
+    $("#next").click(function(){
+        var ajx_output;            
         var output = validate();
-        if(output) {
+        ajx_output = mailcheckuser();
+        // alert('end-ajax-control'+ajx_output);
+        if((output)&&(ajx_output)) {
             var current = $(".highlight");
             var next = $(".highlight").next("li");
             if(next.length>0) {                
@@ -447,18 +459,25 @@ $(document).ready(function() {
     /*Admin customer user edit form Start*/
     $('.customer_edit_form').on('submit',function(e) {
         e.preventDefault();
+        if($(this).find('.bootstrap-select').hasClass('form_inputs')) {
+            $(this).find('.bootstrap-select').removeClass('form_inputs');
+        }  
         // var error = '';
         var error_msg = $(this).find('.val_error');
         var message = '';
         /* Validate Input and Select element */
         $(this).find('.form_inputs').each(function() {
             var this_val = $.trim($(this).val()); 
-            // alert(this_val);           
+            var tag_name = $(this).prop("tagName").toLowerCase();
+            // alert(tag_name);           
             if(this_val == '') {
                 // alert($(this).attr('name'));
                 error = 1;
                 message ="Please fill "+$(this).data('message');
+                // alert(message);
+                // alert($(this).attr('name'));
                 $(this).addClass('form-field-error');
+                return false;
             }
              else {            
                 $(this).removeClass('form-field-error');
@@ -489,9 +508,9 @@ $(document).ready(function() {
         // }
         // /* Check whether the input and select element has error or not */
         if($(this).find('input,select,textarea').hasClass('form-field-error')) {
-            if(message == '') {
-                message ="Please fill "+$(this).data('message');
-            }
+            // if(message == '') {
+            //     message ="Please fill "+data('message');
+            // }
             $('html, body').animate({scrollTop:0},500);
             error_msg.html(message).fadeIn(350);
             return false;

@@ -9,7 +9,6 @@
                 <div class="rev_slider"  data-version="5.3.0.2" id="home-slider">
                     <ul> 
                        <!-- <li data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="600" data-rotate="0" data-saveperformance="off">
-                           
                             <img src="<?php //echo media_url(); ?>assets/img/slider-img/slider-1.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                           
                         </li> -->
@@ -280,27 +279,7 @@
             <div class="container">
                 <div class="adms_inners">
                     <div class="adms_slider_inners">
-                        <div class="slider_adms_active team_inner_area">
-                            <div class="item">
-                                <div class="team_items">    
-                                    <div class="product_div">
-                                        <img src="<?php echo media_url(); ?>assets/img/uploads/profile/4x6-right.jpg" alt="Image" class="product_div">
-                                        <div class="overlay">
-                                             <div class="success-text">&</div>
-                                        </div>
-                                     </div> 
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="team_items">
-                                    <div class="product_div">
-                                         <img src="<?php echo media_url(); ?>assets/img/uploads/profile/DSC_1123.jpg" alt="Image" class="product_div">
-                                         <div class="overlay">
-                                             <div class="success-text">&</div>
-                                        </div>
-                                     </div> 
-                                </div>
-                            </div>
+                        <div class="slider_adms_active team_inner_area">                            
                              <?php //print_r($success_stories); 
                                 if(!empty($success_stories)) :
                                 foreach ($success_stories as $suc) :
@@ -308,7 +287,7 @@
                             <div class="item">
                                 <div class="team_items">
                                     <div class="product_div">
-                                        <img src="<?php if(!empty($suc['image'])) echo media_url()."assets/img/uploads/success/".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>"class="product_div" alt="Image">
+                                        <img src="<?php if(!empty($suc['image'])) echo media_url()."assets/img/uploads/success/th_".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>"class="product_div" alt="Image">
                                         <div class="overlay">
                                             <div class="success-text"><?php echo $suc['male_name']."&". $suc['female_name'] ?>
                                             </div>
@@ -357,13 +336,14 @@
                                             $prefix = $prefix_two;
                             ?>
                             <div class="item">
-                                <img src="<?php 
+                                <a href="<?php echo base_url()."viewdetail/".$rec['userdetail_id'];?>"><img src="<?php 
                                 if(!empty($rec['images'])): 
                                     echo media_url()."uploads/profile/".$prefix.$rec['images']; 
                                 else:
                                     echo media_url()."assets/img/no_image.jpg"; 
                                 endif; 
                                 ?>" alt="Image not loaded" class ="featured_div">
+                                </a>
                             </div>
                             <?php endif; ?>
                                         <?php

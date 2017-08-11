@@ -297,6 +297,48 @@ $(document).ready(function() {
         $(".online_user_field").show();
 
     });
+    $(".period_monthact").on("change",function(){
+      var period_month = $(this).val();
+      // alert(period_month);
+      // var today = $.datepicker.formatDate('dd/mm/yy', new Date());
+      if(period_month == 3){
+        var today = new Date();
+        var after_threemonth = new Date();
+        // var after_threemonth = new Date(today.setMonth(today.getMonth() + 3));
+        var after_threemonth = $.datepicker.formatDate('dd/mm/yy', new Date(after_threemonth.setMonth(today.getMonth() + 3)));
+        // alert($.datepicker.formatDate('dd/mm/yy', today));
+        // alert(after_threemonth);
+        $("#cus_paymentstartdate").val($.datepicker.formatDate('dd/mm/yy', today));
+        $("#cus_paymentenddate").val(after_threemonth);
+        $("#cus_totprofile").val(60);
+      }
+      else if(period_month == 6){
+        var today = new Date();
+        var after_sixmonth = new Date();
+        // var after_threemonth = new Date(today.setMonth(today.getMonth() + 3));
+        var after_sixmonth = $.datepicker.formatDate('dd/mm/yy', new Date(after_sixmonth.setMonth(today.getMonth() + 6)));
+        // alert($.datepicker.formatDate('dd/mm/yy', today));
+        // alert(after_sixmonth);
+        $("#cus_paymentstartdate").val($.datepicker.formatDate('dd/mm/yy', today));
+        $("#cus_paymentenddate").val(after_sixmonth);
+        $("#cus_totprofile").val(120);
+      }
+    });
+    $(".paymentmode_act").on("change",function(e){
+      var paymentmode = $('option:selected',this).val();
+      if($('.payment_mode').val() =="not_paid" && paymentmode == "renewal"){
+        alert("Could not able to renewal because still this customer is not paid");
+        // alert($(this).find("option[value='']").text());
+        $(this).find("option[value='']").attr('selected', true);
+        $(this).find("option[value='']").siblings("option").removeAttr("selected");
+      }
+    });
+    $(".paymenttype_act").on("change",function(){
+      // alert("yes");
+      var paymenttype = $(this).val();
+      // alert(paymenttype);
+    });
+    
 
 });
 

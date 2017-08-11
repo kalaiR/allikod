@@ -2,6 +2,18 @@
 include('include/header.php');
 include('include/menu.php');
 
+$session_search = $this->session->all_userdata();
+if(!empty($session_search['search_inputs']['show_profile'])){
+    $displayresults =  $session_search['search_inputs']['show_profile'];
+    if($displayresults == 'both'){
+        $rdisplayresults = "With All Photos";
+    }elseif($displayresults == 'with_photo'){
+        $rdisplayresults = "With Photos";
+    }elseif($displayresults == 'without_photo'){
+        $rdisplayresults = "Without Photos";    
+    }
+}
+
 preg_match("/[^\/]+$/", $this->uri->uri_string(), $values); 
 $current_tot = '';
 if($values[0]!=0){
@@ -37,12 +49,17 @@ if(isset($per_page)&&(!empty($total_rows)))
                     </div>    
                 </div> 
                  <div class="row">
-                     <div class="col-md-12 ">
-                     <?php if(!empty($total_rows)) : ?>
+                     <div class="col-md-12 ">                     
                         <div class="col-md-8">
-                            <p>Search Results :  <?php echo  $current_tot; ?> of <?php echo $total_rows; ?> </p>
+                            <?php if(!empty($total_rows)) : ?>
+                                <p>
+                                    Search Results :  <?php echo  $current_tot; ?> of <?php echo $total_rows; ?>
+                                    <?php if(!empty($rdisplayresults)) : ?>
+                                        <?php echo  " - ".$rdisplayresults;?>
+                                    <?php endif; ?>    
+                                </p>
+                            <?php endif; ?>
                         </div>
-                     <?php endif; ?>
                         <div class="search_btn back-box">
                                 <a href="<?php echo base_url(); ?>search" class="register_angkar_btn">Back</a>
                         </div>
@@ -229,6 +246,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                             <aside class="s_widget categories_widget">
                                 <ul>
                                     <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Height Limit</b></a></li>
+
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="height_select"></div>

@@ -42,16 +42,6 @@ class Customeruser_data_model extends CI_Model {
 	                                'user_online_or_simple' => $this->input->post('cus_usertype'),
 	                                );
 	            	// print_r($userdetail_update_data);
-	            	$paymentdetail_update_data = array(
-	            					'payment_type' => $this->input->post('cus_paymenttype'),
-	            					'bill_number' => $this->input->post('cus_billnumber'),
-	            					'amount' => $this->input->post('cus_amount'),
-	            					'period_in_month' => $this->input->post('cus_period'),
-	            					'payment_status' => $this->input->post('cus_paymentactivestatus'),
-	            					'startdate' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
-	            					'enddate' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
-	                                );
-	            	print_r($paymentdetail_update_data);
 	            	$religion_ethnicity_update_data = array(
 	            					'rel_mothertongue_id' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
 	            					'rel_religion' => $this->input->post('cus_religion'),
@@ -190,11 +180,6 @@ class Customeruser_data_model extends CI_Model {
 	        $this->db->where($userdetail_update_where);
 	        $this->db->update("reg_userdetail", $userdetail_update_data);
 
-	        $paymentdetail_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
-	        $this->db->set($paymentdetail_update_data); 
-	        $this->db->where($paymentdetail_update_where);
-	        $this->db->update("reg_payment", $paymentdetail_update_data);
-
 	        $religion_ethnicity_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
 	        $this->db->set($religion_ethnicity_update_data); 
 	        $this->db->where($religion_ethnicity_update_where);
@@ -219,6 +204,59 @@ class Customeruser_data_model extends CI_Model {
 	        $this->db->set($profileimage_update_data); 
 	        $this->db->where($profileimage_update_where);
 	        $this->db->update("user_images", $profileimage_update_data);
+
+			$paymentinitial_data = array(
+				'reg_user_id' => $this->input->post('rid'),
+				'payment_type' => $this->input->post('cus_paymenttype'),
+				'bill_number' => $this->input->post('cus_billnumber'),
+				'amount' => $this->input->post('cus_amount'),
+				'period_in_month' => $this->input->post('cus_period'),
+				'totalno_of_profile' => $this->input->post('cus_totprofile'),
+				'payment_status' => $this->input->post('cus_paymentactivestatus'),
+				'startdate' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
+				'enddate' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
+            );
+
+            $paymentrenewal_data = array(
+            	'reg_user_id' => $this->input->post('rid'),
+				'plan_id' => $this->input->post('cus_paymenttype'),
+				'ren_bill_number' => $this->input->post('cus_billnumber'),
+				'ren_amount' => $this->input->post('cus_amount'),
+				'ren_period_in_month' => $this->input->post('cus_period'),
+				'totalno_of_profile' => $this->input->post('cus_totprofile'),
+				'active_status' => $this->input->post('cus_paymentactivestatus'),
+				'starting_date' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
+				'ending_date' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
+            );
+            // echo $this->input->post('payment_mode');
+            // echo $this->input->post('cus_paymentmode');
+
+			if(($this->input->post('payment_mode') == "not_paid") AND ($this->input->post('cus_paymentmode') == "initial")){
+				// echo "if1";
+				// print_r($paymentinitial_data);
+				$this->db->insert("reg_payment", $paymentinitial_data);
+			}
+			else if(($this->input->post('payment_mode') == "initial") AND ($this->input->post('cus_paymentmode') == "renewal")){
+				// echo "if2";
+				// print_r($paymentrenewal_data);
+				$this->db->insert("renew_detail", $paymentrenewal_data);
+			}
+			else if(($this->input->post('payment_mode') == "initial") AND ($this->input->post('cus_paymentmode') == "initial")){
+				// echo "if3";
+				// print_r($paymentinitial_data);
+				$paymentinitial_data_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+		        $this->db->set($paymentinitial_data); 
+		        $this->db->where($paymentinitial_data_where);
+		        $this->db->update("user_images", $paymentinitial_data);
+			}
+			else if(($this->input->post('payment_mode') == "renewal") AND ($this->input->post('cus_paymentmode') == "renewal")){
+				// echo "if4";
+				// print_r($paymentrenewal_data);
+				$paymentrenewal_data_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+		        $this->db->set($paymentrenewal_data); 
+		        $this->db->where($paymentrenewal_data_where);
+		        $this->db->update("user_images", $paymentrenewal_data);
+			}
 
 	        // echo $this->db->last_query(); 
 	        $model_data['status'] = "Updated Successfully";
@@ -277,7 +315,7 @@ class Customeruser_data_model extends CI_Model {
   public function customer_user_profile($id){
   		// View by id
   		$condition = "usr.userdetail_id = ".$id."";
-    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,pay.*,ren.*,ren.totalno_of_profile as totprofile,ren.active_status as renewalstatus');
+    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,pay.*,ren.*,pay.totalno_of_profile as paytotprofile,ren.totalno_of_profile as rentotprofile,ren.active_status as renewalstatus');
 	    $this->db->from('reg_userdetail usr');
 	    $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
 	    $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
