@@ -333,6 +333,11 @@ $(document).ready(function() {
         $(this).find("option[value='']").siblings("option").removeAttr("selected");
       }
     });
+    $(".paymenttype_act").on("change",function(){
+      // alert("yes");
+      var paymenttype = $(this).val();
+      // alert(paymenttype);
+    });
     
 
 });
