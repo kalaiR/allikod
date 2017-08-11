@@ -23,7 +23,7 @@
                                     <div class="row">
                                     <form action="success_stories" class="post_success_form" method="post" name="success_stories" id="success_stories" enctype="multipart/form-data">
                                         <div class="col-md-12">
-                                            <div class="registration_form_s aline-center-box" id="registration_form_s">
+                                            <div class="registration_form_s aline-center-box det_border" id="registration_form_s">
                                                     <!-- <h2>Post Your Story</h2> -->
                                                     <span class="val_status" style="display: block;">
                                     <!-- <i class="fa fa-times" aria-hidden="true"></i> -->

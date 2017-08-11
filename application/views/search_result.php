@@ -82,13 +82,14 @@ if(isset($per_page)&&(!empty($total_rows)))
                     }
                     // if(file_exists(FCPATH."uploads/profile/".$value['images'])){
                 ?>                        
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-4 col-sm-6">                    
                          <?php //echo FCPATH."uploads/profile/".$value['images']; 
                             if(!empty($prefix_one_status))
                                 $prefix = $prefix_one;
                             else if(!empty($prefix_two_status))
                                 $prefix = $prefix_two;
                         ?>
+                        <div class="main_photo">
                         <img src="<?php 
                             if(!empty($value['images'])): 
                                 echo media_url()."uploads/profile/".$prefix.$value['images']; 
@@ -96,6 +97,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                                 echo media_url()."assets/img/no_image.jpg"; 
                             endif; 
                         ?>" alt="Image not loaded" style="width:170px;height:170px;">
+                        <img class="inlay" src="<?php echo media_url(); ?>assets/img/lock-icon.png"></div>
                           <!-- <div><a href="#">More Images</a></div>  -->
                           <div>
                            <ul class="">
@@ -516,6 +518,31 @@ if(isset($per_page)&&(!empty($total_rows)))
                                 </aside>
                         </div>
                     </div> -->
+
+                    <div class="col-md-12" style="display: inline-block;"">
+                        <div>
+                        <?php
+                        if(!empty($links)) :
+                            echo "<div class='col-md-8 nopadding pull-right '>
+                                        <div class='col-md-5 pagination-box clearfix' style='display:inline-block'>" .$links . "
+                                        </div>
+                                        <div class='col-md-1 goto'>Go to</div>
+                                        <div class='col-md-1 dir_page'>
+                                            <select class='extra_drop'>
+                                                <option>1</option>
+                                                <option>9</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                            </select>
+                                        </div>
+                                    </div>";
+                        endif;
+                        ?>
+                        </div>
+                    </div>
                 </div>              
                 <!-- <div class="pagination>                    
                     <a class="prev" href="#">Previous</a>
@@ -523,7 +550,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                     <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
                     <a class="next" href="#">Next</a>
                 </div> -->
-                <?php
+                <!-- <?php
                 if(!empty($links)) :
                             echo "<div class='col-md-8 nopadding pull-right '>
                                     <div class='pagination-box clearfix'>" .$links . "
@@ -548,7 +575,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         }
                      ?>                    
                     </select>
-                <?php endif; ?>
+                <?php endif; ?> -->
             </div>
         </section>
         <!--================End search_reslut grid Area =================-->               

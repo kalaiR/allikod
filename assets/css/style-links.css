@@ -884,3 +884,28 @@ ul#media-list {
 }
 /*Edit-image-upolad*/
 
+.extra_drop{
+  border:1px solid #ddd;
+  border-radius: 4px;
+  padding: 6px 12px;
+    line-height: 1.428571;
+    text-decoration: none;
+}
+.goto{
+  display:inline-block;
+  padding-top:24px;
+  padding-left:1px;
+}
+.dir_page{
+  display:inline-block;padding:20px
+}
+.main_photo{
+    position:relative;
+    width:170px;
+    height:170px
+}
+.inlay{
+    position:absolute;
+    top:5px;
+    right:5px
+}

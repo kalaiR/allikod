@@ -1240,15 +1240,15 @@ legend + .control-group {
 }
 .form-horizontal .control-label {
   float: left;
-  width: 200px;
-  padding:  5px 0px 0px 25px;
+  width: 150px;
+  padding:  5px 0px 0px 5px;
   /*padding-top: 5px;*/
   /*text-align: right;*/
 }
 .form-horizontal .controls {
   *display: inline-block;
   *padding-left: 20px;
-  margin-left: 230px;
+  margin-left: 155px;
   *margin-left: 0;
 }
 .form-horizontal .controls:first-child {
