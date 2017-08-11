@@ -10,7 +10,7 @@
                     <ul> 
                        <!-- <li data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="600" data-rotate="0" data-saveperformance="off">
                            
-                            <img src="<?php echo media_url(); ?>assets/img/slider-img/slider-1.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                            <img src="<?php // echo media_url(); ?>assets/img/slider-img/slider-1.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                           
                         </li> -->
                         <li data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="600" data-rotate="0" data-saveperformance="off">
@@ -288,7 +288,7 @@
                             <div class="item">
                                 <div class="team_items">
                                     <div class="product_div">
-                                        <img src="<?php if(!empty($suc['image'])) echo media_url()."assets/img/uploads/success/".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>"class="product_div" alt="Image">
+                                        <img src="<?php if(!empty($suc['image'])) echo media_url()."assets/img/uploads/success/th_".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>"class="product_div" alt="Image">
                                         <div class="overlay">
                                             <div class="success-text"><?php echo $suc['male_name']."&". $suc['female_name'] ?>
                                             </div>
@@ -337,13 +337,14 @@
                                             $prefix = $prefix_two;
                             ?>
                             <div class="item">
-                                <img src="<?php 
+                                <a href="<?php echo base_url()."viewdetail/".$rec['userdetail_id'];?>"><img src="<?php 
                                 if(!empty($rec['images'])): 
                                     echo media_url()."uploads/profile/".$prefix.$rec['images']; 
                                 else:
                                     echo media_url()."assets/img/no_image.jpg"; 
                                 endif; 
                                 ?>" alt="Image not loaded" class ="featured_div">
+                                </a>
                             </div>
                             <?php endif; ?>
                                         <?php

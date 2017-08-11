@@ -23,9 +23,9 @@
         <div class="register_form_inner zoom-anim-dialog mfp-hide" id="register_form">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="registration_man">
-                         <img src="<?php echo media_url(); ?>assets/img/Registration_man.png" alt="">
-                    </div>
+                    <!-- <div class="registration_man">
+                         <img src="<?php // echo media_url(); ?>assets/img/Registration_man.png" alt="">
+                    </div> -->
                 </div>
                 <div class="col-md-6">
                     <div class="registration_form_s">

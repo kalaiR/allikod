@@ -377,7 +377,7 @@ class User_model extends CI_Model {
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
-        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');
         $this->db->limit($limit,$start);
         $this->db->where($user_where);
         $this->db->order_by('usr.userdetail_id','desc');
@@ -389,7 +389,7 @@ class User_model extends CI_Model {
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
-        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');
         $this->db->where($user_where);
         $this->db->order_by('usr.userdetail_id','desc');
         $query['total_rows'] = $this->db->get()->num_rows();
@@ -402,13 +402,17 @@ class User_model extends CI_Model {
   // Home Page Quick search //
   public function get_quicksearch($values, $limit, $start){ 
       if(!empty($values)) {
-        $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND usr.user_gender !=3 AND usr.user_delete_status!=1 AND usr.user_active_status!=0 AND (img.images!="" AND img.images!="defalt_male.png" AND img.images!="defalt_female.png"))';
+        // $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND usr.user_gender !=3 AND usr.user_delete_status!=1 AND usr.user_active_status!=0 AND (img.images!="" AND img.images!="defalt_male.png" AND img.images!="defalt_female.png"))';
+
+        $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND usr.user_gender !=3 AND usr.user_delete_status!=1 AND usr.user_active_status!=0 )';
+        
+
         $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_gender, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images');
         $this->db->from('reg_userdetail usr');
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
-        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');
         $this->db->limit($limit,$start);
         $this->db->where($user_where);
         $this->db->order_by('usr.userdetail_id','desc');
@@ -420,7 +424,7 @@ class User_model extends CI_Model {
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
-        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');
         $this->db->where($user_where);
         $this->db->order_by('usr.userdetail_id','desc');
         $query['total_rows'] = $this->db->get()->num_rows();
@@ -438,7 +442,7 @@ class User_model extends CI_Model {
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
-        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');
         $this->db->limit($limit,$start);
         $this->db->where($user_where);
         $this->db->order_by('usr.userdetail_id','desc');
@@ -456,7 +460,7 @@ class User_model extends CI_Model {
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
-        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');
         $this->db->limit($limit,$start);
         $this->db->where($user_where);
         $this->db->order_by('usr.userdetail_profile_id','desc');
@@ -612,7 +616,7 @@ class User_model extends CI_Model {
         $this->db->from('reg_religion_ethnicity rel');
         $this->db->join('reg_userdetail usr','usr.userdetail_id = rel.reg_user_id','inner'); 
         $this->db->join('reg_education_occupation edu','edu.reg_user_id = rel.reg_user_id','inner');
-        $this->db->join('user_images img','img.reg_user_id = rel.reg_user_id','inner');               
+        $this->db->join('user_images img','img.reg_user_id = rel.reg_user_id','left');               
         $this->db->limit($limit,$start);
         $this->db->where($user_where);
         $this->db->order_by('rel.reg_user_id','desc');
@@ -762,7 +766,7 @@ class User_model extends CI_Model {
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
-        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');
         $this->db->limit($limit,$start);        
         $this->db->where($user_where);       
         $this->db->order_by('usr.userdetail_id','desc');
@@ -775,7 +779,7 @@ class User_model extends CI_Model {
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
-        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');
         $this->db->where($user_where);        
         $this->db->order_by('usr.userdetail_id','desc');
         $query['total_rows'] = $this->db->get()->num_rows();
