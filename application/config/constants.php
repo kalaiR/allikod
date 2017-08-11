@@ -41,6 +41,7 @@ define('ADMIN_MEDIA_PATH','assets/admin/img/');
 define('ADMIN_UPLOAD_MEDIA_PATH','assets/admin/img/uploads/');
 // define('USER_PROFILE_PATH','assets/img/uploads/profile/');
 define('USER_PROFILE_PATH','uploads/profile/');
+// define('USER_SUCCESS_PATH','uploads/success_stories/');
 define('USER_SUCCESS_PATH','assets/img/uploads/success/');
 define('FILETYPE_ALLOWED','jpg|jpeg|png|gif');
 
@@ -52,6 +53,7 @@ define('GENDER',serialize(array("1"=>"Male","2"=>"Female")));
 define('USER_TYPE',serialize(array("online"=>"Online","simple"=>"Simple")));
 //array to get physical status
 define('PHYSICAL_STATUS',serialize(array("normal"=>"Normal","physically_challenged"=>"Physically Challenged")));
-
+//array to get period in months for both initial and renewal payment
+define('PERIOD_IN_MONTH',serialize(array("3"=>"3","6"=>"6")));
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
