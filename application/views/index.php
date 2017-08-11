@@ -280,27 +280,7 @@
             <div class="container">
                 <div class="adms_inners">
                     <div class="adms_slider_inners">
-                        <div class="slider_adms_active team_inner_area">
-                            <div class="item">
-                                <div class="team_items">    
-                                    <div class="product_div">
-                                        <img src="<?php echo media_url(); ?>assets/img/uploads/profile/4x6-right.jpg" alt="Image" class="product_div">
-                                        <div class="overlay">
-                                             <div class="success-text">&</div>
-                                        </div>
-                                     </div> 
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="team_items">
-                                    <div class="product_div">
-                                         <img src="<?php echo media_url(); ?>assets/img/uploads/profile/DSC_1123.jpg" alt="Image" class="product_div">
-                                         <div class="overlay">
-                                             <div class="success-text">&</div>
-                                        </div>
-                                     </div> 
-                                </div>
-                            </div>
+                        <div class="slider_adms_active team_inner_area">                            
                              <?php //print_r($success_stories); 
                                 if(!empty($success_stories)) :
                                 foreach ($success_stories as $suc) :
