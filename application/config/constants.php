@@ -53,6 +53,7 @@ define('GENDER',serialize(array("1"=>"Male","2"=>"Female")));
 define('USER_TYPE',serialize(array("online"=>"Online","simple"=>"Simple")));
 //array to get physical status
 define('PHYSICAL_STATUS',serialize(array("normal"=>"Normal","physically_challenged"=>"Physically Challenged")));
-
+//array to get period in months for both initial and renewal payment
+define('PERIOD_IN_MONTH',serialize(array("3"=>"3","6"=>"6")));
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

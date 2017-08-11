@@ -214,18 +214,20 @@
 												<div class="box-content">
 													<div class="form-horizontal">
 														<fieldset>
+														  <?php //echo "<pre>"; print_r($customeruser_values);echo "</pre>";  ?>
 														  <div class="control-group">
 															<label class="control-label">Payment Mode: </label>
 															<div class="controls">
-															  <select data-rel="chosen" name="cus_usertype">
-															  	<?php 
-															  	if(empty(renewdetail_id) && empty(regpayment_id))
+															  <?php 
+															  	if(empty($customeruser_values['renewdetail_id']) && empty($customeruser_values['regpayment_id']))
 															  		$selected = "not_paid";
-															  	else if(!empty(renewdetail_id)) 
+															  	else if(!empty($customeruser_values['renewdetail_id'])) 
 															  		$selected = "renewal"; 
 															  	else 
 															  		$selected = "initial"; 
 															  	?>
+															  <input type="hidden" name="payment_mode" value="not_paid" class="payment_mode">
+															  <select data-rel="chosen" name="cus_paymentmode" class="paymentmode_act">
 															  	<option value="" <?php if($selected == "not_paid") echo "selected"; ?>>Select Payment Mode</option>
 															  	<option value="initial" <?php if($selected == "initial") echo "selected"; ?>>Initial</option>
 															  	<option value="renewal" <?php if($selected == "renewal") echo "selected"; ?>>Renewal</option>
@@ -247,25 +249,13 @@
 															<label class="control-label" for="focusedInput">Payment Type : </label>
 															
 															<div class="controls">
+															<?php foreach (unserialize(PAYMENT_TYPE) as $key => $val): ?>
 															  <label class="radio">
-																<input type="radio" id="optionsRadios1" value="1" <?php if(!empty($customeruser_values['payment_type'])) if($customeruser_values['payment_type'] == 1) echo "checked";  ?> name="cus_paymenttype">
-																Cash
+																<input type="radio" value="<?php echo $key; ?>" <?php if(($customeruser_values['payment_type'] == $key && $selected == "initial") || ($customeruser_values['plan_id'] == $key && $selected == "renewal")) echo "checked";  ?> name="cus_paymenttype">
+																<?php echo $val; ?>
 															  </label>
 															  <div style="clear:both"></div>
-															  <label class="radio">
-																<input type="radio" id="optionsRadios2" value="2" <?php if(!empty($customeruser_values['payment_type'])) if($customeruser_values['payment_type'] == 2) echo "checked";  ?> name="cus_paymenttype">
-																DD
-															  </label>
-															  <div style="clear:both"></div>
-															  <label class="radio">
-																<input type="radio" id="optionsRadios2" value="3" <?php if(!empty($customeruser_values['payment_type'])) if($customeruser_values['payment_type'] == 3) echo "checked";  ?> name="cus_paymenttype">
-																CHQ
-															  </label>
-															  <div style="clear:both"></div>
-															  <label class="radio">
-																<input type="radio" id="optionsRadios2" value="4" <?php if(!empty($customeruser_values['payment_type'])) if($customeruser_values['payment_type'] == 4) echo "checked";  ?> name="cus_paymenttype">
-																Net Banking
-															  </label>
+															<?php endforeach; ?>
 															</div>
 														  </div>
 														  <div class="control-group">
@@ -283,39 +273,39 @@
 														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">
 																<label class="control-label" for="focusedInput">Period in Months </label>
 																<div class="controls">
+																<?php foreach (unserialize(PERIOD_IN_MONTH) as $key => $val): ?>
 																  <label class="radio">
-																	<input type="radio" id="optionsRadios1" value="3" <?php if(!empty($customeruser_values['payment_type'])) if($customeruser_values['payment_type'] == 3) echo "checked";  ?> name="cus_period">
-																	3
+																	<input type="radio" class="period_monthact" value="<?php echo $key; ?>" <?php if($customeruser_values['user_online_or_simple'] == "online"): if(($selected == 'initial' && $customeruser_values['paymonth'] == $val) || ($selected == 'renewal' && $customeruser_values['renmonth'] == $val)) echo "checked"; endif; ?> name="cus_period">
+																	<?php echo $val; ?>
 																  </label>
 																  <div style="clear:both"></div>
-																  <label class="radio">
-																	<input type="radio" id="optionsRadios1" value="6" <?php if(!empty($customeruser_values['payment_type'])) if($customeruser_values['payment_type'] == 6) echo "checked";  ?> name="cus_period">
-																	6
-																  </label>
+																<?php endforeach; ?>
 																</div>
 															</div>
 														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">
 																<label class="control-label" for="focusedInput">Total No. of profile: </label>
 																<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['totalno_of_profile'])) echo $customeruser_values['totalno_of_profile'];  ?>" name="cus_totprofile" disabled>
+																  <!-- <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['totalno_of_profile'])) echo $customeruser_values['totalno_of_profile'];  ?>" name="cus_totprofile" disabled> -->
+																	<input class="input-xlarge focused" id="cus_totprofile" type="text" value="<?php if($customeruser_values['user_online_or_simple'] == "online"): if($selected == 'initial') echo $customeruser_values['totalno_of_profile']; if($selected == 'renewal') echo $customeruser_values['totprofile']; endif;  ?>" name="cus_totprofile">
 																</div>
 														  	</div>
 														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">
 																<label class="control-label" for="focusedInput">No. of profile Viewed: </label>
 																<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['no_of_profiles_viewed'])) echo $customeruser_values['no_of_profiles_viewed'];  ?>" name="cus_viewprofile" disabled>
+																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if($customeruser_values['user_online_or_simple'] == "online"): if($selected == 'initial') echo $customeruser_values['no_of_profiles_viewed']; if($selected == 'renewal') echo $customeruser_values['no_of_profile_viewed']; endif; ?>" name="cus_viewprofile" disabled>
 																</div>
 														  	</div>
 														  	<div class="control-group">
 															  <label class="control-label" for="date01">Starting Date </label>
 															  <div class="controls">
-																<input type="text" class="input-xlarge datepicker" value="<?php if(!empty($customeruser_values['startdate'])) echo date("d/m/Y", strtotime($customeruser_values['startdate'])); ?>" name="cus_paymentstartdate">
+																<!-- <input type="text" class="input-xlarge datepicker" value="<?php //if(!empty($customeruser_values['startdate'])) echo date("d/m/Y", strtotime($customeruser_values['startdate'])); ?>" name="cus_paymentstartdate"> -->
+															  	<input type="text" class="input-xlarge datepicker" id="cus_paymentstartdate" value="<?php if($selected == 'initial') echo date("d/m/Y", strtotime($customeruser_values['startdate'])); else if($selected == 'renewal') echo date("d/m/Y", strtotime($customeruser_values['starting_date'])); ?>" name="cus_paymentstartdate">
 															  </div>
 															</div>
 															<div class="control-group">
 															  <label class="control-label" for="date01">Ending Date</label>
 															  <div class="controls">
-																<input type="text" class="input-xlarge datepicker" value="<?php if(!empty($customeruser_values['enddate'])) echo date("d/m/Y", strtotime($customeruser_values['enddate'])); ?>" name="cus_paymentenddate">
+																<input type="text" class="input-xlarge datepicker" id="cus_paymentenddate" value="<?php if($selected == 'initial') echo date("d/m/Y", strtotime($customeruser_values['enddate'])); else if($selected == 'renewal') echo date("d/m/Y", strtotime($customeruser_values['ending_date'])); ?>" name="cus_paymentenddate">
 															  </div>
 															</div>
 														  <div class="control-group">
@@ -323,8 +313,8 @@
 															<div class="controls">
 															  <select data-rel="chosen" name="cus_paymentactivestatus">
 															  	<option value="">Select Payment Active</option>
-																<option value="1" <?php if ($customeruser_values['payment_status'] == 1) echo "selected"; ?>>Yes</option>
-																<option value="0" <?php if ($customeruser_values['payment_status'] == 0) echo "selected"; ?>>No</option>
+																<option value="1" <?php if (($customeruser_values['payment_status'] == 1 && $selected == 'initial') || ($customeruser_values['renewalstatus'] == 1 && $selected == 'renewal')) echo "selected"; ?>>Yes</option>
+																<option value="0" <?php if (($customeruser_values['payment_status'] == 0 && $selected == 'initial') || ($customeruser_values['renewalstatus'] == 0 && $selected == 'renewal')) echo "selected"; ?>>No</option>
 															  </select>
 															</div>
 														  </div>
