@@ -134,17 +134,6 @@
 															<div class="controls">
 																<label for="focusedInput"><?php echo "VM".$customeruser_values['userdetail_id'];  ?> </label>
 															</div>
-														  </div>
-														  <div class="control-group">
-															<label class="control-label">User Type : </label>
-															<div class="controls">
-															  <select data-rel="chosen" name="cus_usertype">
-															  <option value="">Select User Type</option>
-															  <?php foreach (unserialize(USER_TYPE) as $key => $val): ?>
-																<option value="<?php echo $key; ?>" <?php if($customeruser_values['user_online_or_simple'] == $key) echo "selected"; ?>><?php echo $val; ?></option>
-															  <?php endforeach; ?>
-															  </select>
-															</div>
 														  </div>										
 														  <div class="control-group">
 																<label class="control-label" for="focusedInput">Profile Id: </label>
@@ -226,6 +215,35 @@
 													<div class="form-horizontal">
 														<fieldset>
 														  <div class="control-group">
+															<label class="control-label">Payment Mode: </label>
+															<div class="controls">
+															  <select data-rel="chosen" name="cus_usertype">
+															  	<?php 
+															  	if(empty(renewdetail_id) && empty(regpayment_id))
+															  		$selected = "not_paid";
+															  	else if(!empty(renewdetail_id)) 
+															  		$selected = "renewal"; 
+															  	else 
+															  		$selected = "initial"; 
+															  	?>
+															  	<option value="" <?php if($selected == "not_paid") echo "selected"; ?>>Select Payment Mode</option>
+															  	<option value="initial" <?php if($selected == "initial") echo "selected"; ?>>Initial</option>
+															  	<option value="renewal" <?php if($selected == "renewal") echo "selected"; ?>>Renewal</option>
+															  </select>
+															</div>
+														  </div>
+														  <div class="control-group">
+															<label class="control-label">User Type : </label>
+															<div class="controls">
+															  <select data-rel="chosen" name="cus_usertype" id="usertype_act">
+															  <option value="">Select User Type</option>
+															  <?php foreach (unserialize(USER_TYPE) as $key => $val): ?>
+																<option value="<?php echo $key; ?>" <?php if($customeruser_values['user_online_or_simple'] == $key) echo "selected"; ?>><?php echo $val; ?></option>
+															  <?php endforeach; ?>
+															  </select>
+															</div>
+														  </div>
+														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Payment Type : </label>
 															
 															<div class="controls">
@@ -251,6 +269,18 @@
 															</div>
 														  </div>
 														  <div class="control-group">
+															<label class="control-label" for="focusedInput">Bill Number </label>
+															<div class="controls">
+															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['bill_number'])) echo $customeruser_values['bill_number'];  ?>" name="cus_billnumber">
+															</div>
+														</div>
+														<div class="control-group">
+															<label class="control-label" for="focusedInput">Amount </label>
+															<div class="controls">
+															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['amount'])) echo $customeruser_values['amount'];  ?>" name="cus_amount">
+															</div>
+														</div>
+														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">
 																<label class="control-label" for="focusedInput">Period in Months </label>
 																<div class="controls">
 																  <label class="radio">
@@ -264,25 +294,13 @@
 																  </label>
 																</div>
 															</div>
-															<div class="control-group">
-																<label class="control-label" for="focusedInput">Bill Number </label>
-																<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['bill_number'])) echo $customeruser_values['bill_number'];  ?>" name="cus_billnumber">
-																</div>
-															</div>
-															<div class="control-group">
-																<label class="control-label" for="focusedInput">Amount </label>
-																<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['amount'])) echo $customeruser_values['amount'];  ?>" name="cus_amount">
-																</div>
-															</div>
-														  	<div class="control-group">
+														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">
 																<label class="control-label" for="focusedInput">Total No. of profile: </label>
 																<div class="controls">
 																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['totalno_of_profile'])) echo $customeruser_values['totalno_of_profile'];  ?>" name="cus_totprofile" disabled>
 																</div>
 														  	</div>
-														  	<div class="control-group">
+														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">
 																<label class="control-label" for="focusedInput">No. of profile Viewed: </label>
 																<div class="controls">
 																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['no_of_profiles_viewed'])) echo $customeruser_values['no_of_profiles_viewed'];  ?>" name="cus_viewprofile" disabled>

@@ -129,9 +129,9 @@
         return html.join('');
     }
 
-    // function getImageThumbnailHtml(src) {
-    //     return '<img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px">';
-    // }
+    function getImageThumbnailHtml(src) {
+        return '<img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px">';
+    }
 
     function getFileExtension(path) {
         return path.substr(path.lastIndexOf('.') + 1).toLowerCase();
@@ -235,6 +235,9 @@
         $urlTab.find('input').val('');
     }
 
+ /* End Image upload in reg page*/
+  /* Start Image upload in edit page*/
+
      $('.img_view').click(function(){
           $(".edit_img").show();
           $(".btn-nav").hide();
@@ -326,5 +329,5 @@
       });
 
 }(jQuery));
- /* End Image upload in reg page*/
+ /* End Image upload in edit page*/
 

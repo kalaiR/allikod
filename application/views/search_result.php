@@ -10,6 +10,9 @@ if($values[0]!=0){
 }else{
     $current_tot = 10;
 }
+if(isset($per_page)&&(!empty($total_rows)))
+    $pages = ceil($total_rows/$per_page);
+
 ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
@@ -509,8 +512,26 @@ if($values[0]!=0){
                                     <div class='pagination-box clearfix'>" .$links . "
                                         </div>
                                     </div>";
-                        endif;
-                ?> 
+                endif;
+                ?>
+                <?php if(!empty($pages)): ?>
+                    <select name="pagination_dropdown" id="pagination_dropdown" onchange="location = this.value;">
+                        <?php                     
+                        for($i=1;$i<=$pages;$i++){
+                            if($i!=$values[0]){?>
+                            <option value="<?php echo base_url()."search_result/".$i;?>">
+                                <?php echo $i; 
+                                ?>
+                            </option>
+                            <?php }else{?>
+                            <option value="<?php echo base_url()."search_result/".$i;?>" selected>
+                                <?php echo $i;?>
+                            </option>
+                            <?php }
+                        }
+                     ?>                    
+                    </select>
+                <?php endif; ?>
             </div>
         </section>
         <!--================End search_reslut grid Area =================-->               

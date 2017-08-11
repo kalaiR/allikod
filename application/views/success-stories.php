@@ -24,29 +24,31 @@ include('include/menu.php');
 	                        </div>        
 	                    </div>
 	                    	<?php 
-								// $prefix = '';
-								// $prefix_one = 'th_';
-								// $prefix_two = 'new_';
-								// $prefix_one_status = file_exists(FCPATH."assets/img/uploads/profile/success/".$prefix_one);
-								// $prefix_two_status = file_exists(FCPATH."assets/img/uploads/profile/success/".$prefix_two);
-								// if($prefix_one_status)
-								// 	$prefix = $prefix_one;
-								// else if($prefix_two_status)
-								// 	$prefix = $prefix_two;
-                                            
-
 	                    	if(!empty($results)){	                    		                    	
-	                    	foreach ($results as $value){ ?>
+	                    	foreach ($results as $value){ 
+	                    	 		$prefix = '';
+                                    $prefix_one = 'th_';
+                                    $prefix_two = 'new_';                                    
+                                    if(!empty($value['image'])){
+                                        $prefix_one_status = file_exists(FCPATH."assets/img/uploads/success/".$prefix_one.$value['image']);
+                                        $prefix_two_status = file_exists(FCPATH."assets/img/uploads/success/".$prefix_two.$value['image']);
+                                    }
+		                            if(!empty($prefix_one_status))
+                                        $prefix = $prefix_one;
+                                    else if(!empty($prefix_two_status))
+                                        $prefix = $prefix_two;
+	                    	?>
 				            <div class="row sucess"> 
-				            	<div class="col-sm-12 suc_border_box det_border">        
+				            	<div class="col-sm-12 suc_border_box det_border">       				            	
 		                            <div class="col-sm-3 col-xs-12 sucess-box pad_bor">
-			                             <img src="<?php 
-                                                        if(!empty($value['image'])): 
-                                                            echo media_url()."assets/img/uploads/success/".$value['image']; 
-                                                        else:
-                                                            echo media_url()."assets/img/no_image.jpg"; 
-                                                        endif; 
-                                         ?>" alt="Image not loaded" style="width:170px;height:170px;">
+		                            
+		                             <img src="<?php 
+                                            if(!empty($value['image'])): 
+                                             echo media_url()."assets/img/uploads/success/".$prefix.$value['image']; 
+                                            else:
+                                             	echo media_url()."assets/img/no_image.jpg"; 
+                                            endif; 
+	                                 ?>" alt="Image not loaded" style="width:170px;height:170px;">
 
 		                             </div>
 		                             	<div class="col-sm-5 text-box">
@@ -82,9 +84,6 @@ include('include/menu.php');
 		                              			<form action="<?php echo base_url(); ?>success_stories"class=" form_inner">
 			                              			<div class="form-group col-md-12 sucess-box">
 		                                    			<textarea id="comment" placeholder="Comment" rows="1" disabled="disabled"><?php echo $value['description'];?></textarea>
-		                                    			<!-- <div class="form-group col-md-5 sucess-box  ">
-	                                    					 <button type="submit" value="LogIn" class="btn form-control login_btn">Submit</button> 
-	                                					</div> -->
 		                                			</div>		
 		                                		</form>	
 		                              		</div>
@@ -97,14 +96,7 @@ include('include/menu.php');
 	                	}
 	                	?>	
             		</div>
-            			<!-- <div class="row">
-            				<div class="pagination_area">
-	                            <a class="prev" href="<?php echo base_url();?>success_stories">Previous</a>
-	                            <a class="arrow_left" href="<?php echo base_url();?>success_stories"><i class="fa fa-angle-left"></i></a>
-	                            <a class="arrow_right" href="<?php echo base_url(); ?>success_stories"><i class="fa fa-angle-right"></i></a>
-	                            <a class="next" href="<?php echo base_url(); ?>success_stories">Next</a>
-                        	</div>
-            			</div> -->
+            			
 
 						<?php
 							if(!empty($links)) :

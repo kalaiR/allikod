@@ -671,6 +671,7 @@ class Base extends CI_Controller {
 
 		//pagination
 		$this->load->library('pagination');
+		$data['per_page'] = $per_page;
 
 		// Pagination configuration
   		$config['base_url'] = base_url().'search_result';
@@ -732,31 +733,58 @@ class Base extends CI_Controller {
 		if($this->input->post()){
 			$form_data = $this->input->post();
 			if(!empty($_FILES['uploadedfile']['name'])){	   	
-        			$config['upload_path'] = FCPATH.USER_SUCCESS_PATH; 
+        			
+        			$imagePrefix = "new_"; 
+					$imagename = $imagePrefix.$_FILES["uploadedfile"]['name'];
+
+					$thumbimagePrefix = "th_"; 
+					$thumbimagename = $thumbimagePrefix.$_FILES["uploadedfile"]['name'];
+
+					$stored_filename = $_FILES["uploadedfile"]['name'];
         			
         			// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
+        			$config['upload_path'] = FCPATH.USER_SUCCESS_PATH; 
 			        $config['allowed_types'] = 'jpg|jpeg|png'; // Allowed tupes
-			        $config['encrypt_name'] = TRUE; // Encrypted file name for security purpose
+			        // $config['encrypt_name'] = TRUE; // Encrypted file name for security purpose
 			        $personnal_logo['file_ext_tolower'] 	= TRUE;
 			        $config['max_size']    = '20480'; // Maximum size - 1MB
 			    	$config['max_width']  = '10240'; // Maximumm width - 1024px
-			    	$config['max_height']  = '76800'; // Maximum height - 768px			    	
+			    	$config['max_height']  = '76800'; // Maximum height - 768px		
+			    	$config['file_name'] = $imagename;	    	
 			        $this->upload->initialize($config); // Initialize the configuration		
            			if($this->upload->do_upload('uploadedfile'))
             		{
-                		$upload_data = $this->upload->data(); 
-                		$_POST['uploadedfile'] = $upload_data['file_name']; 
+                		$upload_data = $this->upload->data();                 		
                 		$targetfile_details = $upload_data['file_name'];
+
+                		//newly added for thumbnail
+                		$successprofile_logo_thumb['image_library'] = 'gd2';						
+						$successprofile_logo_thumb['source_image'] = FCPATH.USER_SUCCESS_PATH.$upload_data['file_name'];
+						$successprofile_logo_thumb['create_thumb'] = FALSE;						
+						$successprofile_logo_thumb['maintain_ratio'] = TRUE;
+						$successprofile_logo_thumb['width']         = 260;
+						$successprofile_logo_thumb['height']       = 260;
+						$successprofile_logo_thumb['new_image']	= $thumbimagename;
+						$this->load->library('image_lib');
+						$this->image_lib->initialize($successprofile_logo_thumb);
+						// Resize operation
+						if ( ! $this->image_lib->resize())
+						{
+	                		$data['status'] = strip_tags($this->image_lib->display_errors()); 
+						}
+						$this->image_lib->clear();
                 		$data['error'] = 0;
   	            	}else{
 	                	$data['status'] = $this->upload->display_errors(); 
 	                	$upload_error = 1;
 	                	$data['error'] = 1;
                 	}
+                	// print_r($data['status']);
+                	// exit();
                 }
 
 		    // Insert Success-Queries //
-            if($data['error']!=1){	$images = $targetfile_details;	}else{	$images = ''; }
+            if($data['error']!=1){	$images = $stored_filename;	}else{	$images = ''; }
 			if($form_data['vallikodi_id']){	$vallikodi_id = $form_data['vallikodi_id'];	}else{	$vallikodi_id = ''; }
 
 			$data_success_stories = array(

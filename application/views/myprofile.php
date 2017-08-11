@@ -424,6 +424,9 @@
                                     <div id="">
                                     <h3 id="hcolor">Expectation About Life Partner</h3>
                                     <div class="profile_list">
+                                    <ul>
+                                                <li><a><?php echo $results['phy_expectationabout_lifepartner']; ?></a></li>
+                                    </ul>
                                     </div>
                                     </div>                                                                  
                                 </div>
