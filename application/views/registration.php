@@ -292,16 +292,13 @@ include('include/menu.php');
                                                <span id="mother_error" class="registration-error"></span>
                                             </div>  -->    
                                         </div>
-                                        <div class="row base-box">
+                                        <!-- <div class="row base-box">
                                             <div class="col-sm-4">                                            
                                             </div>
                                             <div class="col-sm-4">
                                                <input type="text" class="form-control" id="reg_Dhosham" name="reg_Dhosham" placeholder="Enter Dhosham">
-                                            </div>
-                                            <!-- <div class="col-sm-4 box">
-                                               <span id="mother_error" class="registration-error"></span>
-                                            </div>  -->    
-                                        </div>
+                                            </div>                                               
+                                        </div> -->
                                         <div class="row base-box">
                                             <div class="col-sm-4">
                                                 <div class="height_item">
@@ -841,17 +838,17 @@ include('include/menu.php');
                                                     ?>
                                                 </select>
                                             </div>
-                                            <div class="col-sm-2 box">                                                
+                                            <!-- <div class="col-sm-2 box">                                                
                                                 <select class="form-control" name="height_in_cms[]" id="height_in_cms">
                                                     <?php 
-                                                    for($i=137;$i<=213;$i++){
+                                                    //for($i=137;$i<=213;$i++){
                                                     ?>
-                                                    <option  <?php if($i==137){?> selected="selected" <?php } ?>  value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                    <option  <?php //if($i==137){?> selected="selected" <?php //} ?>  value="<?php //echo $i; ?>"><?php //echo $i; ?></option>
                                                     <?php
-                                                    }
+                                                   // }
                                                     ?>
                                                 </select>
-                                            </div>
+                                            </div> -->
                                             <!-- <div class="col-sm-4 box">
                                                <span id="resident_error" class="registration-error"></span>
                                             </div>   -->   
