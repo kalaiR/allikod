@@ -447,6 +447,7 @@ class User_model extends CI_Model {
         $this->db->where($user_where);
         $this->db->order_by('usr.userdetail_id','desc');
         $model_data['results'] = $this->db->get()->result_array();
+        // echo $this->db->last_query();
 
     return $model_data;
   }

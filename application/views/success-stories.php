@@ -62,13 +62,13 @@ include('include/menu.php');
 			                                	<p>Bride Name </p>
 			                                </div>
 			                                <div class="col-sm-6 col-xs-6">
-			                                <p>: <?php echo $value['female_name'];?></p>
+			                                <p>: <?php echo $value['male_name'];?></p>
 			                                </div>
 			                                <div class="col-sm-4 col-xs-6">	
 			                                	<p>Groom Name</p>
 			                                </div>
 			                                <div class="col-sm-6 col-xs-6">	
-			                                	<p>: <?php echo $value['male_name'];?></p>
+			                                	<p>: <?php echo $value['female_name'];?></p>
 		                             		</div>
 		                             		<div class="col-sm-4 col-xs-6">
 			                                	<p>Marriage Date</p>

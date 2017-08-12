@@ -590,7 +590,13 @@ class Base extends CI_Controller {
 				$show_profile = $form_data['images'][0];
 				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'education'=>$education, 'show_profile'=>$show_profile);				
 
+				// To get the image slider for search results
 				$data = $this->user_model->get_basicsearch($values, $per_page, $offset);
+				foreach ($data['results'] as $key => $value) {
+					$sliderdata[] = $this->user_model->get_customer_images($value['userdetail_id']);
+				}
+				$data['slider_images'] = $sliderdata;
+				
 				$this->session->set_userdata('search_inputs',$values);
 
 			}elseif($form_data['search_type'] =='advance_search'){
@@ -660,6 +666,13 @@ class Base extends CI_Controller {
 				$session_data['offset'] = $values[0];
 				$this->session->set_userdata("search_inputs", $session_data);
 				$data = $this->user_model->get_basicsearch($search_inputs, $per_page, $offset);	
+				
+				// To get the image slider for search results
+				foreach ($data['results'] as $key => $value) {
+					$sliderdata[] = $this->user_model->get_customer_images($value['userdetail_id']);
+				}
+				$data['slider_images'] = $sliderdata;
+
 			}elseif(!empty($search_quick)){
 				$session_data = $this->session->userdata('search_quick');
 				$session_data['offset'] = $values[0];
@@ -669,8 +682,7 @@ class Base extends CI_Controller {
 				$session_data = $this->session->userdata('search_dhoshamid');				
 				$this->session->set_userdata("search_dhoshamid", $session_data);
 				if(is_array($session_data) && isset($session_data['offset'])) {
-					preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);		
-					echo 'offset====>'.$values[0]; 			
+					preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);							
 					$session_data['offset'] = $values[0];
 				}				
 				$data = $this->user_model->get_dhoshamsearch($search_dhosham, $per_page, $offset);
@@ -727,10 +739,10 @@ class Base extends CI_Controller {
 		// Navigation Links
 		$pagination_links = $this->pagination->create_links();
 		$data["links"] = $pagination_links;			
-		// echo '<pre>';
-		// print_r($data);
-		// echo '</pre>';
-		// exit();
+		/*echo '<pre>';
+		print_r($data);
+		echo '</pre>';
+		exit();*/
 		$this->load->view('search_result',$data);
 		
 	}
