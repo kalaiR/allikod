@@ -38,7 +38,8 @@ function mailcheckuser(){
 
 function validate() {
     var output = true;     
-    $(".registration-error").html('');
+         $(".registration-error").html('');
+
         if($("#userdetails-field").css('display') != 'none') {
 
             if(!($("#register_email").val())) {
@@ -88,6 +89,7 @@ function validate() {
              }
             
         }
+
         if($("#ethnicity-field").css('display') != 'none') {
 
             if(!($("#reg_tim").val())) {
@@ -176,7 +178,14 @@ function validate() {
                  $("#search_age_from_error").html("Required");
              }
 
-        }            
+        }  
+
+        if($("#horoscope-field").css('display')!= 'none') {
+             if(!($("#crasi_name").val())) {
+                 output = false;
+                 $("#crasi_name_error").html("Required");
+             }             
+        }          
         return output;
 }
 
@@ -394,12 +403,13 @@ $(document).ready(function() {
         
     });
 
-    $("#next").click(function(){
+    $("#next, #finish").click(function(){
         var ajx_output;            
         var output = validate();
         ajx_output = mailcheckuser();
         // alert('end-ajax-control'+ajx_output);
         if((output)&&(ajx_output)) {
+        // if(output) {
             var current = $(".highlight");
             var next = $(".highlight").next("li");
             if(next.length>0) {                
@@ -474,6 +484,7 @@ $(document).ready(function() {
                 // alert($(this).attr('name'));
                 error = 1;
                 message ="Please fill "+$(this).data('message');
+                $(this).focus();
                 // alert(message);
                 // alert($(this).attr('name'));
                 $(this).addClass('form-field-error');

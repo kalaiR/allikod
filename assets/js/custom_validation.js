@@ -124,35 +124,38 @@ $(document).ready(function() {
 
     
         /*  ===========         Basic_Search Form Validation Start     ===================   */
-     // $(document).on('submit','.basic_search',function(e) {
-     //    if($(this).find('.bootstrap-select').hasClass('form_inputs')) {
-     //        $(this).find('.bootstrap-select').removeClass(' ');
-     //    }       
-     //    var error = '';
-     //    var error_msg = $(this).find('.val_status');
-     //    var message = '';
-     //    $('.val_error').css('display','none');
-     //    /* Validate Input and Select element */
-     //    $(this).find('.form_inputs').each(function() {
-     //        var tag_name = $(this).prop("tagName").toLowerCase();
-     //        var this_val = $.trim($(this).val()); 
-     //        // alert(this_val);           
-     //        if(this_val == '') {
-     //            // alert($(this).attr('name'));
-     //            error = 1;
-     //            message ="Please Provide Valid Information!";
-     //            $(this).addClass('form-field-error');
-     //            if(tag_name == "select") {
-     //                 $(this).addClass('form-field-error');
-     //            }
-     //        }
-     //         else {            
-     //            $(this).removeClass('form-field-error');
-     //            if(tag_name == "select") {
-     //                $(this).removeClass('form-field-error');
-     //            }
-     //        }
-     //    });
+     $(document).on('submit','.basic_search',function(e) {
+        if($(this).find('.bootstrap-select').hasClass('form_inputs')) {
+            $(this).find('.bootstrap-select').removeClass(' ');
+        }       
+        var error = '';
+        var error_msg = $(this).find('.val_status');
+        var message = '';
+        $('.val_error').css('display','none');
+        /* Validate Input and Select element */
+        $(this).find('.form_inputs').each(function() {
+            var tag_name = $(this).prop("tagName").toLowerCase();
+            var this_val = $.trim($(this).val()); 
+            // alert(this_val);           
+            if(this_val == '') {
+                // alert($(this).attr('name'));
+                error = 1;
+                // message ="Please Provide Valid Information!";
+                message ="Please fill "+$(this).data('message');
+                $(this).focus();
+                $(this).addClass('form-field-error');
+                return false;
+                if(tag_name == "select") {
+                     $(this).addClass('form-field-error');
+                }
+            }
+             else {            
+                $(this).removeClass('form-field-error');
+                if(tag_name == "select") {
+                    $(this).removeClass('form-field-error');
+                }
+            }
+        });
        //  /* Validate mobile*/     
        //  if(error == '') {
        //      var mobile = $(this).find('.mobile_value');
@@ -202,22 +205,24 @@ $(document).ready(function() {
        //              } 
        //          }
        //      }
-       //  /* Check whether the input and select element has error or not */
-        // if($(this).find('input,select').hasClass('form-field-error')) {
-        //     if(message == '') {
-        //         message ="Please Provide All Mandatory Field !";
-        //     }
-        //     error_msg.addClass('val_error');
-        //     error_msg.html(message).fadeIn(350);
-        //     return false;
-        // }
-        // else {
-        //     error = 0;
-        //     error_msg.fadeOut('fast').html('');
-        //     alert("succes");
-        //     return false;
-        // }  
-     // }); // End document
+         /* Check whether the input and select element has error or not */
+        if($(this).find('input,select').hasClass('form-field-error')) {
+            if(message == '') {
+                // message ="Please Provide All Mandatory Field !";
+                // message ="Please fill "+$(this).data('message');
+                // $(this).focus();
+            }
+            error_msg.addClass('val_error');
+            error_msg.html(message).fadeIn(350);
+            return false;
+        }
+        else {
+            error = 0;
+            error_msg.fadeOut('fast').html('');
+            // alert("succes");
+            return true;
+        }  
+     }); // End document
 
     //      $(".image_act").on('change',function(){
     //     //Get reference of FileUpload.

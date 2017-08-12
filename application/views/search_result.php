@@ -530,7 +530,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                                             </div>
                                             <div class='col-md-1 goto'>Go to</div>
                                             <div class='col-md-1 dir_page'>
-                                                <select class='extra_drop'>
+                                                <select class='extra_drop' style='overflow-y: scroll;'>
                                                     <option>1</option>
                                                     <option>9</option>
                                                     <option>3</option>
