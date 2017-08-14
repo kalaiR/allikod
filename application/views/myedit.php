@@ -498,7 +498,7 @@
                                                             if(strlen((string)$i) == 1)
                                                                 echo "<option value =0".$i." ".$status.">0".$i."</option>";
                                                             else
-                                                                echo "<option value =".$i.">".$i."</option>";
+                                                                echo "<option value =".$i." ".$status.">".$i."</option>";
                                                         endfor; ?>
                                                     </select>                                         
                                                 </div>
