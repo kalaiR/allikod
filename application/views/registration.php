@@ -947,6 +947,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4 box">
+                                            <!-- *** -->
                                                <select class="form-control" name="food[]" id="food">
                                                        <option value="">Select</option>
                                                        <?php 
@@ -962,7 +963,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             <span id="food_error" class="registration-error"></span>
                                             </div>     
                                     </div>
-                                    <div class="row base-box">
+                                    <div class="row base-box">                                    
                                             <div class="col-sm-4 base-box box">
                                                 <div class="height_item">
                                                  <h4>Your Personality</h4>
@@ -1206,6 +1207,9 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                         </select>    
                                                         <i style="cursor:pointer" class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_rasi" name="add_rasi"></i>
                                                 </div> 
+                                                <div class="col-sm-4 box">
+                                            <span id="crasi_name_error" class="registration-error"></span>
+                                            </div>
                                             </div>  <!-- row col 6 ends -->
 
                                             <div class="col-md-6">
@@ -1267,7 +1271,9 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                             <!-- <img src="assets/img/add.png" type="button" id="add_rasi" value="ADD" name="add_rasi" /> -->
                                                             <i style="cursor:pointer" class="fa fa-plus-square fa-lg" aria-hidden="true" id="add_asham" name="add_asham"></i>
                                                             <select style="width: 70px" id="casham_name" class="drop_horo styled-select blue semi-square" name="casham_name">
-                                                            </select>    
+                                                            </select>
+                                                            <span id="casham_name_error" class="registration-error"></span>
+                                                            <!-- ***    -->
                                                             <i style="cursor:pointer" class="fa fa-times-circle fa-lg" aria-hidden="true" type="button" id="remove_asham" name="remove_asham"></i>
                                                     </div> 
                                              </div> <!-- col 6 ends -->
@@ -1314,7 +1320,7 @@ if(!empty($comm_mobile_no)){
 }
 ?>
 <!-- SMS Script for Vallikodi for Home Register process - Start -->
-<script type="text/javascript">
+<!--script type="text/javascript">
 function sendMsg(msg,no){
     no = no;
     // alert('test');
@@ -1328,7 +1334,7 @@ function sendMsg(msg,no){
         });
 }
 sendMsg('<?php echo $msg;?>','<?php echo $sms_mobileno;?>');
-</script>
+</script-->
 <?php
 if(!empty($comm_mobile_no))
         redirect('registration');

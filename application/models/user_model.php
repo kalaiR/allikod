@@ -858,6 +858,7 @@ class User_model extends CI_Model {
       // $model_data['education_values'] = $this->db->order_by('education_id','asc')->get_where('education')->result_array();
       // $model_data['occupation_values'] = $this->db->order_by('occupation_id','asc')->get_where('occupation')->result_array();
       
+      //Education and Occuaption with category
       $condition = "edu.active_status = 1";
       $this->db->select('edu.education_id,edu.edu_name,edu_cat.cat_name,edu.edu_categoryid');
       $this->db->from('education edu');
@@ -865,6 +866,44 @@ class User_model extends CI_Model {
       $this->db->where($condition);
       // $this->db->group_by('edu_cat.cat_name');
       $model_data['education_values'] = $this->db->get()->result_array();
+      // echo "<pre>";
+      // print_r($model_data['education_values']);
+      // echo "</pre>";
+      $educategory = array();
+      foreach ($model_data['education_values'] as $val) {
+        $cat_name = $val['cat_name'];
+        $education_id = $val['education_id'];
+        $edu_name = $val['edu_name'];
+        $educategory[$cat_name][$education_id] = $edu_name;
+      }
+      // echo "<pre>";
+      // print_r($educategory);
+      // echo "</pre>";
+      $model_data['education_values'] = $educategory;
+
+      $condition = "occ.active_status = 1";
+      $this->db->select('occ.occupation_id,occ.occupation_name as occ_name,occ_cat.occupation_name as occ_cat,occ.occupation_catid');
+      $this->db->from('occupation occ');
+      $this->db->join('occupation_category occ_cat','occ_cat.occ_category_id=occ.occupation_catid','inner');
+      $this->db->where($condition);
+      $model_data['occupation_values'] = $this->db->get()->result_array();
+      // echo $this->db->last_query();
+      // echo "<pre>";
+      // print_r($model_data['occupation_values']);
+      // echo "</pre>";
+      $occupationcategory = array();
+      foreach ($model_data['occupation_values'] as $val) {
+        $cat_name = $val['occ_cat'];
+        $occupation_id = $val['occupation_id'];
+        $occ_name = $val['occ_name'];
+        $occupationcategory[$cat_name][$occupation_id] = $occ_name;
+      }
+      // echo "<pre>";
+      // print_r($occupationcategory);
+      // echo "</pre>";
+      $model_data['occupation_values'] = $occupationcategory;
+
+
       return $model_data;
   }
 

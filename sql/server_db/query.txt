@@ -80,6 +80,14 @@ WHERE
 
 update reg_userdetail set user_online_or_simple = 'online' where user_online_or_simple = 'Online';
 
+11/08/17:
+ALTER TABLE `renew_detail` ADD `ren_bill_number` VARCHAR( 100 ) NOT NULL AFTER `plan_id` ,
+ADD `ren_bank_name` VARCHAR( 200 ) NOT NULL AFTER `ren_bill_number` ,
+ADD `ren_cheque_dd_number` VARCHAR( 50 ) NOT NULL AFTER `ren_bank_name` ,
+ADD `ren_amount` INT( 11 ) NOT NULL AFTER `ren_cheque_dd_number` ,
+ADD `ren_period_in_month` INT( 11 ) NOT NULL AFTER `ren_amount` ;
+
+
 
 no need to run(just for reference)
 Query to generate report of active online user from the year 2014 to 2017:
