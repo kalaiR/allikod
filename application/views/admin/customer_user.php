@@ -274,7 +274,7 @@
 									<table class="table table-striped table-bordered bootstrap-datatable datatable">
 									  <thead>
 										  <tr>
-											   <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span>
+											  <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span>
 											  </th>
 											  <th>No</th>
 											  <th>Vallikodi ID</th>

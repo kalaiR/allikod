@@ -73,13 +73,13 @@
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Password : </label>
 															<div class="controls">
-															  <input class="input-xlarge focused form_inputs" type="Password" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_password" id="new_pass">
+															  <input class="input-xlarge focused form_inputs" type="text" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_password" id="new_pass">
 															</div>
 														  </div>
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Confirm Password : </label>
 															<div class="controls">
-															  <input class="input-xlarge focused form_inputs" type="Password" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_confpassword" id="confirm_pass">
+															  <input class="input-xlarge focused form_inputs" type="text" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_confpassword" id="confirm_pass">
 															</div>
 														  </div>
 														  <!-- <div class="control-group">
@@ -182,7 +182,7 @@
 														  	<div class="control-group">
 															  <label class="control-label" for="date01">Date of Birth </label>
 															  <div class="controls">
-																<input type="text" class="input-xlarge datepicker" value="<?php if(!empty($customeruser_values['user_dob'])) echo date("d/m/Y", strtotime($customeruser_values['user_dob'])); ?>" name="cus_dob">
+																<input type="text" class="input-xlarge datepicker" value="<?php if(!empty($customeruser_values['user_dob'])) echo date("Y-m-d", strtotime($customeruser_values['user_dob'])); ?>" name="cus_dob">
 															  </div>
 															</div>
 															
@@ -261,13 +261,13 @@
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Bill Number </label>
 															<div class="controls">
-															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['bill_number'])) echo $customeruser_values['bill_number'];  ?>" name="cus_billnumber">
+															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if($selected == 'initial') echo $customeruser_values['bill_number']; if($selected == 'renewal') echo $customeruser_values['ren_bill_number']; ?>" name="cus_billnumber">
 															</div>
 														</div>
 														<div class="control-group">
 															<label class="control-label" for="focusedInput">Amount </label>
 															<div class="controls">
-															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['amount'])) echo $customeruser_values['amount'];  ?>" name="cus_amount">
+															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if($selected == 'initial') echo $customeruser_values['amount']; if($selected == 'renewal') echo $customeruser_values['ren_amount']; ?>" name="cus_amount">
 															</div>
 														</div>
 														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">
@@ -275,7 +275,10 @@
 																<div class="controls">
 																<?php foreach (unserialize(PERIOD_IN_MONTH) as $key => $val): ?>
 																  <label class="radio">
-																	 <input type="radio" class="period_monthact" value="<?php echo $key; ?>" <?php if($customeruser_values['user_online_or_simple'] == "online"): if(($selected == 'initial' && $customeruser_values['period_in_month'] == $val) || ($selected == 'renewal' && $customeruser_values['ren_period_in_month'] == $val)) echo "checked"; endif; ?> name="cus_period">
+																	 <input type="radio" class="period_monthact" value="<?php echo $key; ?>" 
+																	 <?php if($customeruser_values['user_online_or_simple'] == "online"): if(($selected == 'initial' && $customeruser_values['period_in_month'] == $val) || ($selected == 'renewal' && $customeruser_values['ren_period_in_month'] == $val)) echo "checked"; 
+																	 endif; ?> 
+																	 name="cus_period">
 																	<?php echo $val; ?>
 																  </label>
 																  <div style="clear:both"></div>
@@ -299,13 +302,13 @@
 															  <label class="control-label" for="date01">Starting Date </label>
 															  <div class="controls">
 																<!-- <input type="text" class="input-xlarge datepicker" value="<?php //if(!empty($customeruser_values['startdate'])) echo date("d/m/Y", strtotime($customeruser_values['startdate'])); ?>" name="cus_paymentstartdate"> -->
-															  	<input type="text" class="input-xlarge datepicker" id="cus_paymentstartdate" value="<?php if($selected == 'initial') echo date("d/m/Y", strtotime($customeruser_values['startdate'])); else if($selected == 'renewal') echo date("d/m/Y", strtotime($customeruser_values['starting_date'])); ?>" name="cus_paymentstartdate">
+															  	<input type="text" class="input-xlarge datepicker" id="cus_paymentstartdate" value="<?php if($selected == 'initial') echo date("Y-m-d", strtotime($customeruser_values['startdate'])); else if($selected == 'renewal') echo date("Y-m-d", strtotime($customeruser_values['starting_date'])); ?>" name="cus_paymentstartdate">
 															  </div>
 															</div>
 															<div class="control-group">
 															  <label class="control-label" for="date01">Ending Date</label>
 															  <div class="controls">
-																<input type="text" class="input-xlarge datepicker" id="cus_paymentenddate" value="<?php if($selected == 'initial') echo date("d/m/Y", strtotime($customeruser_values['enddate'])); else if($selected == 'renewal') echo date("d/m/Y", strtotime($customeruser_values['ending_date'])); ?>" name="cus_paymentenddate">
+																<input type="text" class="input-xlarge datepicker" id="cus_paymentenddate" value="<?php if($selected == 'initial') echo date("Y-m-d", strtotime($customeruser_values['enddate'])); else if($selected == 'renewal') echo date("Y-m-d", strtotime($customeruser_values['ending_date'])); ?>" name="cus_paymentenddate">
 															  </div>
 															</div>
 														  <div class="control-group">

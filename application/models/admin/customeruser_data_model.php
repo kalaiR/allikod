@@ -99,71 +99,8 @@ class Customeruser_data_model extends CI_Model {
 	                // print_r($physicalattributes_update_data);
 	                $profileimage_update_data = array(
 	                				'images' => $this->input->post('cus_profileimage'),	
-	                            	// 'name' => $this->input->post('cus_email'),
-	                                // 'active_status' => $this->input->post('cus_password'),
-	                                // 'payment_type' => $this->input->post('cus_paymenttype'),
-	                                // 'period_in_month' => $this->input->post('cus_period'),
-	                                // 'bill_number' => $this->input->post('cus_billnumber'),
-	                                // 'amount' => $this->input->post('cus_amount'),
-	                                // 'startdate' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))), 
-	                                // 'enddate' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))), 
-	                                // 'payment_status' => $this->input->post('cus_paymentactivestatus'),
-	                                // 'name' => $this->input->post('cus_profileactivestatus'),
-
-	                                // 'user_registeredby' => ($this->input->post('cus_regby')) ? $this->input->post('cus_regby') : NULL,
-	                                // 'name' => $this->input->post('cus_fname'),
-	                                // 'active_status' => $this->input->post('cus_gender'),
-	                                // 'name' => date('Y-m-d',strtotime($this->input->post('cus_dob'))),
-	                                // 'user_maritalstatus' => $this->input->post('cus_marstatus'),
-	                                // 'name' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
-	                                // 'rel_religion' => $this->input->post('cus_religion'),
-	                                // 'rel_caste' => $this->input->post('cus_caste'),
-	                                // 'rel_dhosham' => $this->input->post('cus_dosham'),
-	                                // 'name' => ($this->input->post('cus_nakshathra')) ? $this->input->post('cus_nakshathra') : NULL,
-	                                // 'active_status' => ($this->input->post('cus_lukhnam')) ? $this->input->post('cus_lukhnam') : NULL,
-	                                // 'rel_gothra' => $this->input->post('cus_gothra'),                               
-	                                // 'name' => ($this->input->post('cus_zodiac')) ? $this->input->post('cus_zodiac') : NULL,
-
-	                                // 'edu_education' => ($this->input->post('cus_education')) ? $this->input->post('cus_education') : NULL,
-	                                // 'edu_educationdetails' => $this->input->post('cus_edudetail'),
-	                                // 'edu_occupation' => ($this->input->post('cus_occupation')) ? $this->input->post('cus_occupation') : NULL,
-	                                // 'edu_employedin' => ($this->input->post('cus_empin')) ? $this->input->post('cus_empin') : NULL,
-	                                // 'edu_montlyincome' => $this->input->post('cus_moninc'),
-	                                // 'comm_residence' => $this->input->post('cus_resident'),
-	                                // 'comm_current_countrycountry' => ($this->input->post('cus_curcountry')) ? $this->input->post('cus_curcountry') : NULL,
-	                                // 'comm_current_city' => $this->input->post('cus_curcity'),
-	                                // 'comm_current_district' => $this->input->post('cus_curdistrict'),
-	                                // 'comm_communication_address' => $this->input->post('cus_curaddress'),
-	                                // 'comm_phone_no' => $this->input->post('cus_curphone'),
-	                                // 'comm_mobile_no' => $this->input->post('cus_curmobile'),
-
-	                                // 'phy_height' => $this->input->post('cus_heightcms'),
-	                                // 'active_status' => $this->input->post('cus_weight'),
-	                                // 'active_status' => $this->input->post('cus_bodytype'),
-	                                // 'active_status' => $this->input->post('cus_complexion'),
-	                                // 'active_status' => $this->input->post('cus_phystatus'),
-
-	                                // 'phy_food' => $this->input->post('cus_food'),
-	                                // 'comm_father_name' => $this->input->post('cus_fathername'),
-	                                // 'comm_father_employment' => $this->input->post('cus_fatheremp'),
-	                                // 'comm_mother_name' => $this->input->post('cus_mothername'),
-	                                // 'comm_mother_employment' => $this->input->post('cus_motheremp'),
-	                                // 'comm_family_status' => $this->input->post('cus_familystatus'),
-	                                // 'comm_family_type' => $this->input->post('cus_familytype'),
-	                                // 'comm_number_of_brothers_el' => $this->input->post('cus_broelder'),
-	                                // 'comm_number_of_brothers_yo' => $this->input->post('cus_broyoung'),
-	                                // 'comm_number_of_sisters_el' => $this->input->post('cus_siselder'),
-	                                // 'active_status' => $this->input->post('cus_sisyoung'),
-	                                // 'comm_number_of_brothers_el_mar' => $this->input->post('cus_broeldermar'),
-	                                // 'comm_number_of_brothers_yo_mar' => $this->input->post('cus_broyoungmar'),
-	                                // 'active_status' => $this->input->post('cus_siseldermar'),
-	                                // 'active_status' => $this->input->post('cus_sisyoungmar'),
-	                                // 'comm_about_family' => $this->input->post('cus_abtfamily'),
-	                                // 'active_status' => $this->input->post('cus_personality'),
-	                                // 'active_status' => $this->input->post('cus_expect'),
-	                                // 'active_status' => $this->input->post('cus_profileimage'),
 	                              );
-								  // print_r($profileimage_update_data);
+					// print_r($profileimage_update_data);
 	        // }
 	        // else {
 	        //   $zodiac_update_data = array( 
@@ -180,31 +117,33 @@ class Customeruser_data_model extends CI_Model {
 	        $this->db->where($userdetail_update_where);
 	        $this->db->update("reg_userdetail", $userdetail_update_data);
 
-	        $religion_ethnicity_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
-	        $this->db->set($religion_ethnicity_update_data); 
-	        $this->db->where($religion_ethnicity_update_where);
-	        $this->db->update("reg_religion_ethnicity", $religion_ethnicity_update_data);
+	        // $religion_ethnicity_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+	        // $this->db->set($religion_ethnicity_update_data); 
+	        // $this->db->where($religion_ethnicity_update_where);
+	        // $this->db->update("reg_religion_ethnicity", $religion_ethnicity_update_data);
 
-	        $education_occupation_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
-	        $this->db->set($education_occupation_update_data); 
-	        $this->db->where($education_occupation_update_where);
-	        $this->db->update("reg_education_occupation", $education_occupation_update_data);
+	        // $education_occupation_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+	        // $this->db->set($education_occupation_update_data); 
+	        // $this->db->where($education_occupation_update_where);
+	        // $this->db->update("reg_education_occupation", $education_occupation_update_data);
 
-	        $communication_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
-	        $this->db->set($communication_update_data); 
-	        $this->db->where($communication_update_where);
-	        $this->db->update("reg_communication_family", $communication_update_data);
+	        // $communication_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+	        // $this->db->set($communication_update_data); 
+	        // $this->db->where($communication_update_where);
+	        // $this->db->update("reg_communication_family", $communication_update_data);
 
-	        $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
-	        $this->db->set($physicalattributes_update_data); 
-	        $this->db->where($physicalattributes_update_where);
-	        $this->db->update("reg_physical_expectation", $physicalattributes_update_data);
+	        // $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+	        // $this->db->set($physicalattributes_update_data); 
+	        // $this->db->where($physicalattributes_update_where);
+	        // $this->db->update("reg_physical_expectation", $physicalattributes_update_data);
 
-	        $profileimage_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
-	        $this->db->set($profileimage_update_data); 
-	        $this->db->where($profileimage_update_where);
-	        $this->db->update("user_images", $profileimage_update_data);
+	        // $profileimage_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+	        // $this->db->set($profileimage_update_data); 
+	        // $this->db->where($profileimage_update_where);
+	        // $this->db->update("user_images", $profileimage_update_data);
 
+	        // echo $this->input->post('cus_paymentstartdate');
+	        // echo $this->input->post('cus_paymentenddate');
 			$paymentinitial_data = array(
 				'reg_user_id' => $this->input->post('rid'),
 				'payment_type' => $this->input->post('cus_paymenttype'),
@@ -216,6 +155,7 @@ class Customeruser_data_model extends CI_Model {
 				'startdate' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
 				'enddate' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
             );
+            // print_r($paymentinitial_data);
 
             $paymentrenewal_data = array(
             	'reg_user_id' => $this->input->post('rid'),
@@ -228,6 +168,7 @@ class Customeruser_data_model extends CI_Model {
 				'starting_date' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
 				'ending_date' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
             );
+            // print_r($paymentrenewal_data);
             // echo $this->input->post('payment_mode');
             // echo $this->input->post('cus_paymentmode');
 
@@ -247,7 +188,7 @@ class Customeruser_data_model extends CI_Model {
 				$paymentinitial_data_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
 		        $this->db->set($paymentinitial_data); 
 		        $this->db->where($paymentinitial_data_where);
-		        $this->db->update("user_images", $paymentinitial_data);
+		        $this->db->update("reg_payment", $paymentinitial_data);
 			}
 			else if(($this->input->post('payment_mode') == "renewal") AND ($this->input->post('cus_paymentmode') == "renewal")){
 				// echo "if4";
@@ -255,7 +196,7 @@ class Customeruser_data_model extends CI_Model {
 				$paymentrenewal_data_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
 		        $this->db->set($paymentrenewal_data); 
 		        $this->db->where($paymentrenewal_data_where);
-		        $this->db->update("user_images", $paymentrenewal_data);
+		        $this->db->update("renew_detail", $paymentrenewal_data);
 			}
 
 	        // echo $this->db->last_query(); 

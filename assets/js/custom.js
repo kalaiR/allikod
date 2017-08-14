@@ -458,7 +458,7 @@ $(document).ready(function() {
                 // alert($(this).attr('name'));
                 error = 1;
                 message ="Please fill "+$(this).data('message');
-                alert(message);
+                // alert(message);
                 $(this).addClass('form-field-error');
             }
              else {            

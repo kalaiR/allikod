@@ -129,7 +129,7 @@ $route['admin/contact_gallery_upload'] 				= "admin/base/contact_gallery_upload"
 $route['admin/add_contact_gallery'] 					= "admin/base/add_contact_gallery";
 $route['admin/edit_contact_gallery'] 					= "admin/base/edit_contact_gallery";
 $route['admin/cd_list'] 					= "admin/customeruser_data/cd_list";
-
+$route['admin/customer_user_new'] 							= "admin/customeruser_data/customer_user_new";
 
 
 
