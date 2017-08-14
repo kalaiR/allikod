@@ -1198,7 +1198,161 @@ class User_model extends CI_Model {
       return $query;
   }
 
+  public function update_quickregister($userid, $updateresults){
+      if(is_numeric($userid) && !empty($updateresults))
+      { 
+            $userdetail_update_data = array(
+                              // 'user_email' => $this->input->post('cus_email'),
+                              // 'user_pwd' => $this->input->post('cus_password'),
+                              // 'user_fname' => $this->input->post('cus_fname'),
+                              // 'user_gender' => $this->input->post('gender')[0],
+                              'user_dob' => date('Y-m-d',strtotime($this->input->post('dob'))),
+                              // 'user_age' => $this->input->post('cus_age'),
+                              // 'user_active_status' => $this->input->post('cus_profileactivestatus'),
+                              'user_maritalstatus' => $this->input->post('marital_status')[0],
+                              // 'user_registeredby' => ($this->input->post('register_by')[0]) ? $this->input->post('register_by')[0] : NULL,
+                              );
+            // print_r($userdetail_update_data); 
 
+            $religion_ethnicity_update_data = array(
+                    'rel_timeofbirth' => $this->input->post('reg_tim'),
+                    // 'rel_mothertongue_id' => ($this->input->post('mother_tongue')[0]) ? $this->input->post('mother_tongue')[0] : NULL,
+                    'rel_religion' => $this->input->post('reg_religion'),
+                    'rel_caste' => $this->input->post('reg_caste'),
+                    'rel_dhosham' => $this->input->post('dhosham')[0],
+                    'rel_nakshathra_id' => ($this->input->post('nakshathra')[0]) ? $this->input->post('nakshathra')[0] : NULL,
+                    'rel_luknam_id' => ($this->input->post('luknam')[0]) ? $this->input->post('luknam')[0] : NULL,
+                    'rel_gothra' => $this->input->post('reg_gothra'),
+                    'rel_zodiacsign_id' => ($this->input->post('zodiac_sign')[0]) ? $this->input->post('zodiac_sign')[0] : NULL,
+                     );
+            // print_r($religion_ethnicity_update_data);            
+
+            $education_occupation_update_data = array(
+                    'reg_user_id' => $userid,
+                    'edu_education' => ($this->input->post('education')[0]) ? $this->input->post('education')[0] : NULL,
+                    'edu_educationdetails' => $this->input->post('education_detail'),
+                    'edu_occupation' => ($this->input->post('occupation')[0]) ? $this->input->post('occupation')[0] : NULL,
+                    'edu_employedin' => ($this->input->post('employed_in')[0]) ? $this->input->post('employed_in')[0] : NULL,
+                    'edu_montlyincome' => $this->input->post('reg_income'),
+                    'edu_occupationdetail' => $this->input->post('occupationdetail'),
+                    );
+            // print_r($education_occupation_update_data);            
+
+            $communication_update_data = array(
+                    'comm_residence' => $this->input->post('resident')[0],
+                    // 'comm_current_countrycountry' => ($this->input->post('cur_country')[0]) ? $this->input->post('cur_country')[0] : NULL,
+                    'comm_current_city' => $this->input->post('reg_city'),
+                    'comm_current_district' => $this->input->post('reg_district'),
+                    'comm_communication_address' => $this->input->post('comm_address'),
+                    'comm_phone_no' => $this->input->post('reg_phone'),
+                    // 'comm_mobile_no' => $this->input->post('cus_mobile'),
+                    'comm_father_name' => $this->input->post('reg_fname'),
+                    'comm_mother_name' => $this->input->post('reg_mname'),
+                    'comm_father_employment' => $this->input->post('reg_femployment'),
+                    'comm_mother_employment' => $this->input->post('reg_memployment'),
+                    'comm_family_status' => $this->input->post('family_status')[0],
+                    'comm_family_type' => $this->input->post('family_type')[0],
+                    'comm_number_of_brothers_el' => $this->input->post('reg_EBrother'),
+                    'comm_number_of_brothers_yo' => $this->input->post('reg_YBrother'),
+                    'comm_number_of_brothers_el_mar' => $this->input->post('reg_MEBrother'),
+                    'comm_number_of_brothers_yo_mar' => $this->input->post('reg_MYBrother'),
+                    'comm_number_of_sisters_el' => $this->input->post('reg_ESister'),
+                    'comm_number_of_sisters_yo' => $this->input->post('reg_YSister'),
+                    'comm_number_of_sisters_el_mar' => $this->input->post('reg_MESister'),
+                    'comm_number_of_sisters_yo_mar' => $this->input->post('reg_MYSister'),
+                    'comm_about_family' => $this->input->post('more_abt_family'),
+                    );
+            // print_r($communication_update_data);
+
+            $physicalattributes_update_data = array(
+                    'reg_user_id'=> $userid,
+                    'phy_height' => $this->input->post('height_in_cms')[0],
+                    'phy_weight' => $this->input->post('weight_in_kgs')[0],
+                    'phy_bodytype' => $this->input->post('body_type')[0],
+                    'phy_complexion' => $this->input->post('complexion')[0],
+                    'phy_physicalstatus' => $this->input->post('physical_status')[0],
+                    'phy_food' => $this->input->post('food')[0],
+                    'phy_yourpersonality' => $this->input->post('personality'),
+                    'phy_searchage_from' => $this->input->post('search_age_from')[0],
+                    'phy_searchage_to' => $this->input->post('search_age_to')[0],                    
+                    'phy_expectationfood' => $this->input->post('diet_nonveg'),
+                    'phy_expectationabout_lifepartner' => $this->input->post('expectation'),
+            );
+            // print_r($physicalattributes_update_data);
+            // exit();
+
+            $userdetail_update_where = '(userdetail_id="'.$userid.'")'; 
+            $this->db->set($userdetail_update_data); 
+            $this->db->where($userdetail_update_where);
+            $this->db->update("reg_userdetail", $userdetail_update_data);
+            // echo $this->db->last_query();
+
+            $communication_update_where = '(reg_user_id="'.$userid.'")'; 
+            $this->db->set($communication_update_data); 
+            $this->db->where($communication_update_where);
+            $this->db->update("reg_communication_family", $communication_update_data);
+            // echo $this->db->last_query();
+
+            $religion_ethnicity_update_where = '(reg_user_id="'.$userid.'")'; 
+            $this->db->set($religion_ethnicity_update_data); 
+            $this->db->where($religion_ethnicity_update_where);
+            $this->db->update("reg_religion_ethnicity", $religion_ethnicity_update_data);
+            // echo $this->db->last_query();
+
+            $this->insert_registration("reg_education_occupation", $education_occupation_update_data);
+            $this->insert_registration("reg_physical_expectation", $physicalattributes_update_data);
+            $this->insert_registration("user_images", $updateresults); 
+
+            //Update Raasi and Amsam
+            $rasi  = $this->input->post('result_horoscope_rasi');
+            $amsam  = $this->input->post('result_horoscope_asham');
+            $data_horo['reg_user_id'] = $userid;
+            if(!empty($rasi)) { 
+                $cleanData = json_decode($rasi);    
+                foreach ($cleanData as $key => $value) {
+                  $data_horo[$value->key]= $value->value;
+                }
+            } 
+
+            if(!empty($amsam)) { 
+                $cleanData = json_decode($amsam);    
+                foreach ($cleanData as $key => $value) {
+                  $data_horo[$value->key]= $value->value;
+                }
+            } 
+            $this->insert_registration("reg_image_horoscope", $data_horo); 
+
+            $expected_education = array();
+            if(!empty($this->input->post('reg_Education'))){
+              $expected_education = $this->input->post('reg_Education');
+              foreach ($expected_education as $key => $value) {             
+                  $data_expected = array('reg_user_id'=>$userid,'education_id'=>$value);
+                  $reg_Education = $this->insert_registration('reg_selectededucation',$data_expected);
+              }
+            }
+
+            $expected_maritalstatus = array();
+            if(!empty($this->input->post('check_list'))){
+                $expected_maritalstatus = $this->input->post('check_list');
+                  foreach ($expected_maritalstatus as $key => $value) {
+                    $searchmarital_status = array(
+                    'reg_user_id'=>$userid,           
+                    'marital_category_id'=>$value
+                  );
+              $phy_searchmarital_status = $this->insert_registration('reg_selectedmarital',$searchmarital_status);
+                  }
+            }
+
+            $model_data['status'] = "Updated Successfully";
+            $model_data['error'] = 2;
+      }else{
+            $model_data['error'] = 1;
+            $model_data['status'] = "Something went wrong. You may entered incorrect ID";
+      }
+      // print_r($model_data);
+      // exit();
+      return $model_data;
+  }
 
 }
 /* End of file User_model.php */

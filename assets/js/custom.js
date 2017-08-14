@@ -8,11 +8,13 @@ var calculateAge = function(birthday) {
     return age;
 };
 
-function mailcheckuser(){        
+function reg_mailcheckuser(){        
     if($("#register_email").val()){
+                    // alert('here');
                     var data = {};
                     data[csrf_name] = csfrData[csrf_name];
                     data['email'] = $("#register_email").val();
+                    // alert(data);
                     $.ajax({
                         url: baseurl+"register_mailcheck",
                         data: data,
@@ -36,7 +38,7 @@ function mailcheckuser(){
             }
 }
 
-function validate() {
+function reg_validate() {
     var output = true;     
     $(".registration-error").html('');
         if($("#userdetails-field").css('display') != 'none') {
@@ -396,8 +398,8 @@ $(document).ready(function() {
 
     $("#next").click(function(){
         var ajx_output;            
-        var output = validate();
-        ajx_output = mailcheckuser();
+        var output = reg_validate();
+        ajx_output = reg_mailcheckuser();
         // alert('end-ajax-control'+ajx_output);
         if((output)&&(ajx_output)) {
             var current = $(".highlight");

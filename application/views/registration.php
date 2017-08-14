@@ -1,6 +1,11 @@
 <?php 
 include('include/header.php');
 include('include/menu.php');
+preg_match("/[^\/]+$/", $this->uri->uri_string(), $values); 
+if((!empty($values[0]))&&(is_numeric($values[0]))){
+    $editprocess = "edit";
+    $quickregister_id = $values[0];
+}
 ?> 
 
      <!--================Banner Area =================-->
@@ -1284,7 +1289,13 @@ include('include/menu.php');
                          <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
                          <input type="hidden" name="result_horoscope_rasi" value="" id="result_horoscope_rasi" />
                          <input type="hidden" name="result_horoscope_asham" value="" id="result_horoscope_asham" />
-                    </div>    
+                         <?php if(!empty($editprocess)){?>
+                <input type="hidden" name="editprocess" id="editprocess" value="<?php echo $editprocess;?>" />
+                         <?php } ?>
+                         <?php if(!empty($quickregister_id)){?>
+                <input type="hidden" name="quickregister_id" id="quickregister_id" value="<?php echo $quickregister_id;?>" />
+                         <?php } ?>
+                         </div>    
                 </form>     
        </div>                   
                      
