@@ -472,7 +472,7 @@ $(document).ready(function() {
         if($(this).find('.bootstrap-select').hasClass('form_inputs')) {
             $(this).find('.bootstrap-select').removeClass('form_inputs');
         }  
-        // var error = '';
+        var error = '';
         var error_msg = $(this).find('.val_error');
         var message = '';
         /* Validate Input and Select element */
@@ -499,6 +499,7 @@ $(document).ready(function() {
             var mobile = $(this).find('.mobile_value');
             if ((/^([0-9-+]{10})+$/.test(mobile.val())) && mobile.length > 0) {
                 mobile.removeClass("form-field-error");
+                alert("mobile validation");
             }
             else if (mobile.length > 0) {
                 error = 1;

@@ -305,10 +305,10 @@ $(document).ready(function() {
         var today = new Date();
         var after_threemonth = new Date();
         // var after_threemonth = new Date(today.setMonth(today.getMonth() + 3));
-        var after_threemonth = $.datepicker.formatDate('dd/mm/yy', new Date(after_threemonth.setMonth(today.getMonth() + 3)));
+        var after_threemonth = $.datepicker.formatDate('yy-mm-dd', new Date(after_threemonth.setMonth(today.getMonth() + 3)));
         // alert($.datepicker.formatDate('dd/mm/yy', today));
         // alert(after_threemonth);
-        $("#cus_paymentstartdate").val($.datepicker.formatDate('dd/mm/yy', today));
+        $("#cus_paymentstartdate").val($.datepicker.formatDate('yy-mm-dd', today));
         $("#cus_paymentenddate").val(after_threemonth);
         $("#cus_totprofile").val(60);
       }
@@ -316,10 +316,10 @@ $(document).ready(function() {
         var today = new Date();
         var after_sixmonth = new Date();
         // var after_threemonth = new Date(today.setMonth(today.getMonth() + 3));
-        var after_sixmonth = $.datepicker.formatDate('dd/mm/yy', new Date(after_sixmonth.setMonth(today.getMonth() + 6)));
+        var after_sixmonth = $.datepicker.formatDate('yy-mm-dd', new Date(after_sixmonth.setMonth(today.getMonth() + 6)));
         // alert($.datepicker.formatDate('dd/mm/yy', today));
         // alert(after_sixmonth);
-        $("#cus_paymentstartdate").val($.datepicker.formatDate('dd/mm/yy', today));
+        $("#cus_paymentstartdate").val($.datepicker.formatDate('yy-mm-dd', today));
         $("#cus_paymentenddate").val(after_sixmonth);
         $("#cus_totprofile").val(120);
       }

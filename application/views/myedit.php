@@ -203,7 +203,7 @@
                                                 <p><b>Starting Date</b></p>
                                             </div>
                                             <div class="col-md-3">       
-                                                <p> : <?php if(!empty($customeruser_values['startdate'])) echo date("d/m/Y", strtotime($customeruser_values['startdate'])); ?> </p>                                            
+                                                <p> : <?php if(!empty($customeruser_values['startdate'])) echo date("Y-m-d", strtotime($customeruser_values['startdate'])); ?> </p>                                            
                                             </div>
                                         </div> 
                                         <div class="row">
@@ -211,7 +211,7 @@
                                                 <p><b>Ending Date</b></p>
                                             </div>
                                             <div class="col-md-3">       
-                                                <p> : <?php if(!empty($customeruser_values['enddate'])) echo date("d/m/Y", strtotime($customeruser_values['enddate'])); ?></p>                            
+                                                <p> : <?php if(!empty($customeruser_values['enddate'])) echo date("Y-m-d", strtotime($customeruser_values['enddate'])); ?></p>                            
                                             </div>
                                         </div>     
                                     </div>
@@ -609,10 +609,20 @@
                                                 <div class="col-md-5">
                                                     <p><b>Education *</b></p>
                                                 </div>
-                                                <div class="col-md-6">       
-                                                    <select class="chosen-select form_inputs" data-message="Education" name="cus_education" style="width:225px; line-height: 20px;">
-                                                        <option value="1">BCA</option>
-                                                        <option value="2">BE/B Tech</option>
+                                                <div class="col-md-6">
+                                                    <select class="chosen-select" style="width:225px" data-message="Education" name="cus_education">
+                                                    <option value="">Select Education</option>
+                                                        <?php 
+                                                            foreach ($selection_values['education_values'] as $key => $edu_val):    
+                                                                echo "<optgroup class='a' label='".$key."'>"; 
+                                                                foreach ($edu_val as $e_id => $edu): 
+                                                                    if($e_id == $customeruser_values['edu_education'])  
+                                                                        echo "<option selected value='".$e_id."'>".$edu."</option>";
+                                                                    else
+                                                                        echo "<option value='".$e_id."'>".$edu."</option>";
+                                                                endforeach;
+                                                                echo "</optgroup>";
+                                                            endforeach; ?>
                                                     </select>     
                                                  </div>
                                             </div>
@@ -630,8 +640,19 @@
                                                 </div>
                                                 <div class="col-md-6">       
                                                       <select class="selectpicker form_inputs" data-message="Occupation" name="cus_occupation">
-                                                        <option value="1">Admin</option>
-                                                        <option value="2">Other</option>
+                                                        <option value="">Select Occupation</option>
+                                                        <?php 
+                                                            foreach ($selection_values['occupation_values'] as $key => $occ_val):    
+                                                                echo "<optgroup class='a' label='".$key."'>"; 
+                                                                foreach ($occ_val as $o_id => $ocu): 
+                                                                    if($o_id == $customeruser_values['edu_occupation'])  
+                                                                        echo "<option selected value='".$o_id."'>".$ocu."</option>";
+                                                                    else
+                                                                        echo "<option value='".$o_id."'>".$ocu."</option>";
+                                                                endforeach;
+                                                                echo "</optgroup>";
+                                                            endforeach; ?>
+                                                    </select>   
                                                     </select>
                                                  </div>
                                             </div>     
@@ -1022,25 +1043,19 @@
                                                 <div class="col-md-6">       
                                                     <div class="control-group">                     
                                                         <div class="controls">
-                                                            <?php 
-                                                                $education = array();
-                                                                foreach ($customeruser_multiple_edu_values as $key => $value) {
-                                                                    array_push($education, $value['education_id']);
-                                                                } 
-                                                            ?>
                                                             <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4" name="cus_expectedu[]">
-                                                                <option value="">Select</option>
-                                                                <optgroup class="a" label="Bachelors - Engineering/ Computers"></optgroup>
-                                                                <option  selected="selected"  value="1">BE/B Tech</option>
-                                                                <option  value="2">BCA</option>
-                                                                <option  value="3">Aeronautical Engineering</option>
-                                                                <option  value="4">B Arch</option>
-                                                                <option  value="5">B Plan</option>
-                                                                <optgroup class="a" label="Masters - Engineering/ Computers"></optgroup>
-                                                                <option  value="6">MCA/PGDCA</option>
-                                                                <option  value="7">ME/M Tech</option>
-                                                                <option  value="8">MS (Engg.)</option>
-                                                                <option  value="9">M Arch</option>
+                                                                <option value="">Select Education</option>
+                                                                <?php 
+                                                                    foreach ($selection_values['education_values'] as $key => $edu_val):    
+                                                                        echo "<optgroup class='a' label='".$key."'>"; 
+                                                                        foreach ($edu_val as $e_id => $edu): 
+                                                                            if($e_id == $customeruser_values['edu_education'])  
+                                                                                echo "<option selected value='".$e_id."'>".$edu."</option>";
+                                                                            else
+                                                                                echo "<option value='".$e_id."'>".$edu."</option>";
+                                                                        endforeach;
+                                                                        echo "</optgroup>";
+                                                                    endforeach; ?>
                                                             </select>
                                                         </div>
                                                     </div>     
