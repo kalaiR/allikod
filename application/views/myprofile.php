@@ -4,7 +4,7 @@
 // echo '<pre>';
 // print_r($results);
 // echo '</pre>';
-// exit();
+
 ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
@@ -323,6 +323,7 @@
                                     <div id="">
                                     <h3 id="hcolor">More About Family</h3>
                                     <div class="profile_list"> 
+                                    <?php echo $results['comm_about_family']; ?>
                                     </div>
                                     </div>                                                                  
                                 </div>
@@ -506,7 +507,7 @@
                                                 </div>
                                                 <div class="row com-box">
                                                     <div class="col-md-3">
-                                                        <p>Diet</p>
+                                                        <p>Expectation Food</p>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <p><b><?php echo $results['phy_expectationfood_name']; ?></b></p>

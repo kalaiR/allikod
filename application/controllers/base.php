@@ -206,13 +206,12 @@ class Base extends CI_Controller {
     }
 
 	public function registration(){
-		if($this->input->post()){
-			$form_data = $this->input->post();
-				// echo '<pre>';
-				// print_r($_FILES);
-				// print_r($form_data);
-				// echo '<pre>';				
-				// exit();
+		// print_r($this->input->post());
+		// exit();	
+
+		if(($this->input->post())&&($this->input->post('editprocess')!="edit")){
+			echo 'in';
+				$form_data = $this->input->post();				
 				$data = array(
 					// 'userdetail_id'=>'',
 					// 'userdetail_profile_id'=>100,
@@ -410,15 +409,7 @@ class Base extends CI_Controller {
 				if(!empty($form_data['expectation'])){
 					$data_reg_phy['phy_expectationabout_lifepartner']= $form_data['expectation'];
 				}
-
-				// 'phy_height'=>$form_data['height_in_cms'][0],
-				// 'phy_weight'=>$form_data['weight_in_kgs'][0],
-				// 'phy_bodytype'=>$form_data['body_type'][0],
-				// 'phy_complexion'=>$form_data['complexion'][0],					
-				// 'phy_physicalstatus'=>$form_data['physical_status'][0],
-				// 'phy_yourpersonality'=>$form_data['personality'],
-				// 'phy_expectationabout_lifepartner'=>$form_data['expectation']
-
+				
 		  		$id_user_phy = $this->user_model->insert_registration('reg_physical_expectation',$data_reg_phy);
 		  		
 
@@ -528,10 +519,68 @@ class Base extends CI_Controller {
 		  		$this->load->view('registration',$data_reg_com);
 
 		  	}else{
-		  		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);		  		
-		  		if($values[0]){
-		  			$data['registered_data'] = $this->user_model->get_registerdata($values[0]);		  							
+		  		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);			  		
+		  		if(!empty($values[0])){
+		  			$data['registered_data'] = $this->user_model->get_registerdata($values[0]);		  			
 		  		}
+		  		
+		  		// Edit Process - Start Here
+		  		if($this->input->post('editprocess') == "edit"){								  			
+						$form_data = $this->input->post();					
+
+							if(!empty($_FILES['uploadedfile']['name'])){
+								$imagePrefix = "new_"; 
+								$thumbimagePrefix = "th_"; 
+								$imagename = $imagePrefix.$_FILES["uploadedfile"]['name'];								
+								$thumbimagename = $thumbimagePrefix.$_FILES["uploadedfile"]['name'];
+								$stored_filename = $_FILES["uploadedfile"]['name'];
+								$config['upload_path'] = FCPATH.USER_PROFILE_PATH; 
+								// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
+								$config['allowed_types'] = 'jpg|jpeg|png'; // Allowed tupes
+								// $config['encrypt_name'] = TRUE; // Encrypted file name for security purpose
+								$personnal_logo['file_ext_tolower'] 	= TRUE;
+								$config['max_size']    = '20480'; // Maximum size - 1MB
+								$config['max_width']  = '10240'; // Maximumm width - 1024px
+								$config['max_height']  = '76800'; // Maximum height - 768px	
+								$config['file_name'] = $imagename;		    						
+								$this->upload->initialize($config); // Initialize the configuration		
+								if($this->upload->do_upload('uploadedfile')){
+									$upload_data = $this->upload->data();                 		
+									$targetfile_details = $upload_data['file_name'];
+
+									//newly added for thumbnail
+									$userprofile_logo_thumb['image_library'] = 'gd2';						
+									$userprofile_logo_thumb['source_image'] = FCPATH.USER_PROFILE_PATH.$upload_data['file_name'];
+									$userprofile_logo_thumb['create_thumb'] = FALSE;						
+									$userprofile_logo_thumb['maintain_ratio'] = TRUE;
+									$userprofile_logo_thumb['width']  = 260;
+									$userprofile_logo_thumb['height']  = 260;
+									$userprofile_logo_thumb['new_image'] = $thumbimagename;
+									$this->load->library('image_lib');
+									$this->image_lib->initialize($userprofile_logo_thumb);
+									// Resize operation
+									if (!$this->image_lib->resize()){
+										$data['status'] = strip_tags($this->image_lib->display_errors()); 
+									}
+									$this->image_lib->clear();
+									$data['error'] = 0;
+								}else{
+									$data['status'] = $this->upload->display_errors(); 
+									$upload_error = 1;
+									$data['error'] = 1;
+								}
+
+								if($data['error']!=1){	
+								$data_images = array('reg_user_id'=>$this->input->post('quickregister_id'),'images'=>$stored_filename);	
+								}
+							}else{
+								if($data['user_gender']!=2){$default_images = "defalt_male.png";}else{$default_images = "defalt_female.png";}
+								$data_images = array('reg_user_id'=>$this->input->post('quickregister_id'), 'images'=>$default_images);	
+						}						
+					$this->user_model->update_quickregister($this->input->post('quickregister_id'), $data_images);
+		  	    }
+		  		// Edit Process - End Here		  		
+
 		  		$data['register'] = $this->user_model->get_registerid();		  							
 		  		$data['martial_status'] = $this->user_model->get_martialstatus();
 		  		$data['mother_tongue'] = $this->user_model->get_mothertongue();
