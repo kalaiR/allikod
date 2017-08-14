@@ -476,6 +476,7 @@ $(document).ready(function() {
             var mobile = $(this).find('.mobile_value');
             if ((/^([0-9-+]{10})+$/.test(mobile.val())) && mobile.length > 0) {
                 mobile.removeClass("form-field-error");
+                alert("mobile validation");
             }
             else if (mobile.length > 0) {
                 error = 1;
