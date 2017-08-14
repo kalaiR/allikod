@@ -302,11 +302,11 @@
                                             <li><a>No. of Sisters Married</a></li>                           
                                         </ul>
                                         <ul>
-                                            <li><a>Elder</a></li>
-                                            <li><a><?php echo $results['comm_number_of_brothers_el']; ?></a></li>
-                                            <li><a><?php echo $results['comm_number_of_sisters_el']; ?></a></li>
-                                            <li><a><?php echo $results['comm_number_of_brothers_el_mar']; ?></a></li>
-                                            <li><a><?php echo $results['comm_number_of_sisters_el_mar']; ?></a></li>
+                                            <li><a><b>Elder</b></a></li>
+                                            <li><a><b><?php echo $results['comm_number_of_brothers_el']; ?></b></a></li>
+                                            <li><a><b><?php echo $results['comm_number_of_sisters_el']; ?></b></a></li>
+                                            <li><a><b><?php echo $results['comm_number_of_brothers_el_mar']; ?></b></a></li>
+                                            <li><a><b><?php echo $results['comm_number_of_sisters_el_mar']; ?></b></a></li>
                                             <!-- <li><a>Designer</a></li> -->
                                         </ul>
                                         <ul>
@@ -442,7 +442,7 @@
                                                     </div>
                                                     <div class="col-md-9">
                                                         <div class="checkbox">
-                                                        <p>
+                                                        <p><b>
                                                         <!-- <input type="checkbox" value=""> -->
                                                         <!-- <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span> -->
                                                                 <!-- <b><?php // echo $results['maritalname']; ?></b> -->
@@ -451,7 +451,7 @@
                                                                 <li><?php echo $value[0]['marital_name']; ?></li>
                                                                 <?php 
                                                         }} ?>
-                                                        </p>
+                                                        </b></p>
                                                     <!-- </div>     -->
                                                   <!--   <div class="col-sm-8 "> -->
                                                     <!-- <div class="height_item "> -->
@@ -493,13 +493,14 @@
                                                     <div class="col-md-6">       
                                                         <div class="control-group">                     
                                                             <div class="controls">
-                                                                <!-- <p><b><?php // echo $results['phy_searchedu_status']; ?></b></p> -->
+                                                                <!-- <p><b><?php // echo $results['phy_searchedu_status']; ?></b></p> --><p><b>
                                                                 <?php 
                                                                 if(!empty($expected_education)){
                                                                     foreach($expected_education as $key => $value) { ?>
                                                                             <li><?php echo $value['edu_name']; ?></li>
                                                                     <?php }
-                                                                }?>
+                                                                }?>  
+                                                                </b></p>
                                                             </div>
                                                         </div>
                                                     </div>
