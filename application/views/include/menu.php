@@ -8,7 +8,8 @@
            <button type="submit" value="LogIn" class="btn form-control login_btn" name="user-submit" id="user_submit">LogIn</button>
            <div class="login_social">
               <h5>Not yet?</h5>
-              <a href="<?php echo base_url(); ?>registration">Register</a>
+              <a href="<?php echo base_url(); ?>registration">Register</a><br>
+              <a href="<?php echo base_url(); ?>registration">Forgot Password?</a>
                <!-- <ul>  
                    <li><a href="index.html"><i class="fa fa-facebook"></i></a></li>
                    <li><a href="index.html"><i class="fa fa-google-plus"></i></a></li>
@@ -23,9 +24,9 @@
         <div class="register_form_inner zoom-anim-dialog mfp-hide" id="register_form">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="registration_man">
-                         <img src="<?php echo media_url(); ?>assets/img/Registration_man.png" alt="">
-                    </div>
+                    <!-- <div class="registration_man">
+                         <img src="<?php // echo media_url(); ?>assets/img/Registration_man.png" alt="">
+                    </div> -->
                 </div>
                 <div class="col-md-6">
                     <div class="registration_form_s">
@@ -148,7 +149,7 @@
                         <li class="dropdown submenu">
                             <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome,&nbsp&nbsp<?php echo $user_session_data['user_fname']; ?>&nbsp&nbsp<i class="fa fa-user-circle" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu">
-                                <!--li><a href="<?php echo base_url(); ?>mymatches">Matches</a></li-->
+                                <!--li><a href="<?php //echo base_url(); ?>mymatches">Matches</a></li-->
                                 <li><a href="<?php echo base_url(); ?>myprofile">My Profile</a></li>
                                 <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
                             </ul>

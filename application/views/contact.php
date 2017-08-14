@@ -745,12 +745,15 @@
                                 <div class="form-group col-md-12">
                                     <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
                                 </div>
+                                <div class="form-group col-md-12">
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Phone">
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <textarea id="comment" placeholder="Message" id="message" name="message" rows="1"></textarea>
+                                    <textarea id="comment" placeholder="Message" id="message" name="message" rows="2"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -772,6 +775,8 @@
 <?php 
     include('include/footer.php');
 ?> 
+  <!--gmaps Js-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 <script type="text/javascript">    
    var map;
 function initialize() {
@@ -1354,5 +1359,4 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
 <!--==================================Map23=============================-->
-    </body>
-</html>
+   
