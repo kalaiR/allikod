@@ -816,17 +816,13 @@ class User_model extends CI_Model {
       $this->db->join('employed_in ein','ein.employedin_id=eo.edu_employedin','left');
       $this->db->where($condition); 
       $model_data['customeruser_values'] = $this->db->get()->row_array();
-     //  echo $this->db->last_query();
-     //  echo "<pre>";
-      // print_r($model_data['customeruser_values']);
-      // echo "</pre>";
+
       $condition = "regedu.reg_user_id = ".$id."";
       $this->db->select('regedu.*,edu.education_id,edu.edu_name');
       $this->db->from('reg_selectededucation regedu');
       $this->db->join('education edu','edu.education_id=regedu.education_id','inner');
       $this->db->where($condition); 
       $model_data['customeruser_multiple_edu_values'] = $this->db->get()->result_array();
-      // print_r($model_data['customeruser_multiple_edu_values']);
 
       $condition = "regmar.reg_user_id = ".$id."";
       $this->db->select('mar.maritalcategory_id');
@@ -834,7 +830,6 @@ class User_model extends CI_Model {
       $this->db->join('marital_category mar','mar.maritalcategory_id=regmar.marital_category_id','inner');
       $this->db->where($condition); 
       $model_data['customeruser_multiple_marstatus_values'] = $this->db->get()->result_array();
-      // print_r($model_data['customeruser_multiple_marstatus_values']);
 
       return $model_data;
   }
@@ -1057,7 +1052,62 @@ class User_model extends CI_Model {
             //         'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
             // );
 
-            // echo $this->db->last_query(); 
+
+            //Storing multiple records for education and occupation
+            $condition = "regedu.reg_user_id = ".$id."";
+            $this->db->select('edu.education_id');
+            $this->db->from('reg_selectededucation regedu');
+            $this->db->join('education edu','edu.education_id=regedu.education_id','inner');
+            $this->db->where($condition); 
+            $model_data['customeruser_multiple_edu_values'] = $this->db->get()->result_array();
+
+            $edustatus = array();
+            foreach ($model_data['customeruser_multiple_edu_values'] as $key => $value) {
+                array_push($edustatus, $value['education_id']);
+            }
+
+            $condition = "regmar.reg_user_id = ".$id."";
+            $this->db->select('mar.maritalcategory_id');
+            $this->db->from('reg_selectedmarital regmar');
+            $this->db->join('marital_category mar','mar.maritalcategory_id=regmar.marital_category_id','inner');
+            $this->db->where($condition); 
+            $model_data['customeruser_multiple_marstatus_values'] = $this->db->get()->result_array();
+
+            $marstatus = array();
+            foreach ($model_data['customeruser_multiple_marstatus_values'] as $key => $value) {
+                array_push($marstatus, $value['maritalcategory_id']);
+            }
+
+            $marold = serialize($marstatus);
+            $marnew = serialize($this->input->post('cus_expectmarstatus'));
+
+            $eduold = serialize($edustatus);
+            $edunew = serialize($this->input->post('cus_expectedu'));
+
+            $mar_insert_batch = array();
+            foreach ($this->input->post('cus_expectmarstatus') as $value) {
+              $mar_result['reg_user_id'] = $id;
+              $mar_result['marital_category_id'] = $value;
+              array_push($mar_insert_batch, $mar_result);
+            }
+
+            $edu_insert_batch = array();
+            foreach ($this->input->post('cus_expectedu') as $value) {
+              $edu_result['reg_user_id'] = $id;
+              $edu_result['education_id'] = $value;
+              array_push($edu_insert_batch, $edu_result);
+            }
+
+            if($marold != $marnew){
+              $this->db->where('reg_user_id', $id);
+              $this->db->delete('reg_selectedmarital'); 
+              $this->db->insert_batch('reg_selectedmarital',$mar_insert_batch);
+            }
+            if($eduold != $edunew){
+              $this->db->where('reg_user_id', $id);
+              $this->db->delete('reg_selectededucation'); 
+              $this->db->insert_batch('reg_selectededucation',$edu_insert_batch);
+            }
             $model_data['status'] = "Updated Successfully";
             $model_data['error'] = 2;
       }
