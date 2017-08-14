@@ -622,7 +622,16 @@ include('include/menu.php');
                                                 <div class="reg_chose form-group ">
                                                     <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
                                                 </div>
-                                            </div>                                           
+                                            </div>
+                                            <!-- <div class="col-sm-6 aline-center-box ">
+                                                <div class="col-sm-6 ">
+                                                    <form>
+                                                        <div class="col-sm-6 ">
+                                                            <input style="width: 160px" type="text" name="" class="form-control">
+                                                        </div>     
+                                                    </form>
+                                                </div>                                                    
+                                            </div>  -->                                          
                                         </div> 
                                         <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
                                         <input type="hidden" name="search_type" id="search_dhosham" value="search_dhosham" />

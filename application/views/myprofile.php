@@ -74,29 +74,12 @@
                                             <li><a>Designer </a></li> -->
                                         </ul>
                                     </div>
-                                   <!--  <div class="row">
-                                        
-                                            <div class="col-md-3 col-sm-6 col"><p>Vallikodi ID</p></div>
-                                            <div class="col-md-3 col-sm-6 col"><p>Profile ID</p></div>
-                                            <div class="col-md-3 col-sm-6 col"><p>Vallikodi ID</p></div>
-                                            <div class="col-md-3 col-sm-6 col"><p>Profile ID</p></div>
-                                         </div>
-
-                                    <div class="row">
-                                        
-                                        <div class="col-md-3 col-sm-6 col">562</div>
-                                        <div class="col-md-3 col-sm-6 col">66</div>
-                                        <div class="col-md-3 col-sm-6 col">562</div>
-                                        <div class="col-md-3 col-sm-6 col">66</div>
-                                    </div> -->
                                                             
                                 </div>
                                 <div class="members_about_box">
                                 <div id="">
                                 <h3 id="hcolor">Communication Details</h3>                                
-                                </div>
-                                <!-- <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know extremely painful.</p> -->
-                                <!-- <div class="profile_list"> -->
+                                </div>                                
                                 <div class="profile_list">                                    
                                         <ul>
                                             <li><a>Residence of</a></li>
@@ -143,9 +126,7 @@
                                 <div class="members_about_box">
                                 <div id="">
                                 <h3 id="hcolor">Profile Details</h3>
-                                </div>
-                                <!-- <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know extremely painful.</p> -->
-                                <!-- <div class="profile_list"> -->
+                                </div>                                
                                 <div class="profile_list">                                    
                                         <ul>
                                             <li><a>Registered By</a></li>
@@ -463,7 +444,12 @@
                                                         <p>
                                                         <!-- <input type="checkbox" value=""> -->
                                                         <!-- <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span> -->
-                                                                <b><?php echo $results['maritalname']; ?></b>
+                                                                <!-- <b><?php // echo $results['maritalname']; ?></b> -->
+                                                        <?php if(!empty($expected_maritalstatus)){
+                                                            foreach($expected_maritalstatus as $key => $value) { ?>
+                                                                <li><?php echo $value[0]['marital_name']; ?></li>
+                                                                <?php 
+                                                        }} ?>
                                                         </p>
                                                     <!-- </div>     -->
                                                   <!--   <div class="col-sm-8 "> -->
@@ -506,13 +492,13 @@
                                                     <div class="col-md-6">       
                                                         <div class="control-group">                     
                                                             <div class="controls">
-                                                                <p><b><?php echo $results['phy_searchedu_status']; ?></b></p>
-                                                                <!-- <li><a>BE/BTech</a></li>
-                                                                <li><a>BSc</a></li>
-                                                                <li><a>B Com</a></li> -->
-                                                                <!-- <li><a>Family Status</a></li>
-                                                                <li><a>Family Type</a></li>
-                                                                <li><a>Work as</a></li> -->
+                                                                <!-- <p><b><?php // echo $results['phy_searchedu_status']; ?></b></p> -->
+                                                                <?php 
+                                                                if(!empty($expected_education)){
+                                                                    foreach($expected_education as $key => $value) { ?>
+                                                                            <li><?php echo $value['edu_name']; ?></li>
+                                                                    <?php }
+                                                                }?>
                                                             </div>
                                                         </div>
                                                     </div>

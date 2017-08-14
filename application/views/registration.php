@@ -282,12 +282,23 @@ include('include/menu.php');
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                               <input type="text" class="form-control" id="reg_Dhosham" name="reg_Dhosham"placeholder="Dhosham">
+                                               <select class="form-control" name="dhosham[]" id="dhosham">
+                                                    <option value="1">Naga Dhosam</option>
+                                                    <option value="2">Chevvai Dhosam</option>
+                                                    <option value="3">Raghu Kedhu Dhosam</option>
+                                                </select>
                                             </div>
                                             <!-- <div class="col-sm-4 box">
                                                <span id="mother_error" class="registration-error"></span>
                                             </div>  -->    
                                         </div>
+                                        <!-- <div class="row base-box">
+                                            <div class="col-sm-4">                                            
+                                            </div>
+                                            <div class="col-sm-4">
+                                               <input type="text" class="form-control" id="reg_Dhosham" name="reg_Dhosham" placeholder="Enter Dhosham">
+                                            </div>                                               
+                                        </div> -->
                                         <div class="row base-box">
                                             <div class="col-sm-4">
                                                 <div class="height_item">
@@ -816,7 +827,7 @@ include('include/menu.php');
                                                     <h4>Height in CMs</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-4 box">                                                
+                                            <div class="col-sm-2 box">                                                
                                                 <select class="form-control" name="height_in_cms[]" id="height_in_cms">
                                                     <?php 
                                                     for($i=137;$i<=213;$i++){
@@ -827,6 +838,17 @@ include('include/menu.php');
                                                     ?>
                                                 </select>
                                             </div>
+                                            <!-- <div class="col-sm-2 box">                                                
+                                                <select class="form-control" name="height_in_cms[]" id="height_in_cms">
+                                                    <?php 
+                                                    //for($i=137;$i<=213;$i++){
+                                                    ?>
+                                                    <option  <?php //if($i==137){?> selected="selected" <?php //} ?>  value="<?php //echo $i; ?>"><?php //echo $i; ?></option>
+                                                    <?php
+                                                   // }
+                                                    ?>
+                                                </select>
+                                            </div> -->
                                             <!-- <div class="col-sm-4 box">
                                                <span id="resident_error" class="registration-error"></span>
                                             </div>   -->   

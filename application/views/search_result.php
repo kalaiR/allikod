@@ -2,6 +2,18 @@
 include('include/header.php');
 include('include/menu.php');
 
+$session_search = $this->session->all_userdata();
+if(!empty($session_search['search_inputs']['show_profile'])){
+    $displayresults =  $session_search['search_inputs']['show_profile'];
+    if($displayresults == 'both'){
+        $rdisplayresults = "With All Photos";
+    }elseif($displayresults == 'with_photo'){
+        $rdisplayresults = "With Photos";
+    }elseif($displayresults == 'without_photo'){
+        $rdisplayresults = "Without Photos";    
+    }
+}
+
 preg_match("/[^\/]+$/", $this->uri->uri_string(), $values); 
 $current_tot = '';
 if($values[0]!=0){
@@ -37,12 +49,17 @@ if(isset($per_page)&&(!empty($total_rows)))
                     </div>    
                 </div> 
                  <div class="row">
-                     <div class="col-md-12 ">
-                     <?php if(!empty($total_rows)) : ?>
+                     <div class="col-md-12 ">                     
                         <div class="col-md-8">
-                            <p>Search Results :  <?php echo  $current_tot; ?> of <?php echo $total_rows; ?> </p>
+                            <?php if(!empty($total_rows)) : ?>
+                                <p>
+                                    Search Results :  <?php echo  $current_tot; ?> of <?php echo $total_rows; ?>
+                                    <?php if(!empty($rdisplayresults)) : ?>
+                                        <?php echo  " - ".$rdisplayresults;?>
+                                    <?php endif; ?>    
+                                </p>
+                            <?php endif; ?>
                         </div>
-                     <?php endif; ?>
                         <div class="search_btn back-box">
                                 <a href="<?php echo base_url(); ?>search" class="register_angkar_btn">Back</a>
                         </div>
@@ -52,7 +69,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                 <div class="col-md-9">
                 <?php
                 if(!empty($results)){
-                foreach($results as $value) { 
+                foreach($results as $key => $value) { 
                     // echo $value['images']."<br>";
                     // echo base_url()."uploads/profile/".$value['images'];
                     // echo "image_status"."<br>".file_exists(base_url()."uploads/profile/".$value['images'])."<br>";
@@ -65,13 +82,14 @@ if(isset($per_page)&&(!empty($total_rows)))
                     }
                     // if(file_exists(FCPATH."uploads/profile/".$value['images'])){
                 ?>                        
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-4 col-sm-6">                    
                          <?php //echo FCPATH."uploads/profile/".$value['images']; 
                             if(!empty($prefix_one_status))
                                 $prefix = $prefix_one;
                             else if(!empty($prefix_two_status))
                                 $prefix = $prefix_two;
                         ?>
+                        <!-- <div class="main_photo"> -->
                         <img src="<?php 
                             if(!empty($value['images'])): 
                                 echo media_url()."uploads/profile/".$prefix.$value['images']; 
@@ -79,6 +97,8 @@ if(isset($per_page)&&(!empty($total_rows)))
                                 echo media_url()."assets/img/no_image.jpg"; 
                             endif; 
                         ?>" alt="Image not loaded" style="width:170px;height:170px;">
+                        <!-- <img class="inlay" src="<?php //echo media_url(); ?>assets/img/lock-icon.png"> -->
+                        <!-- </div> -->
                           <!-- <div><a href="#">More Images</a></div>  -->
                           <div>
                            <ul class="">
@@ -88,24 +108,30 @@ if(isset($per_page)&&(!empty($total_rows)))
                           <div class="modal fade and carousel slide lig" id="lightbox">
                            <div class="modal-dialog ">
                               <div class="modal-body">
-                                  <ol class="carousel-indicators">
-                                    <li data-target="#lightbox" data-slide-to="0" class="active"></li>
-                                    <li data-target="#lightbox" data-slide-to="1"></li>
-                                    <li data-target="#lightbox" data-slide-to="2"></li>
-                                  </ol>
+                                  <!-- <ol class="carousel-indicators">
+                                       <?php 
+                                        //if(!empty($slider_images)){
+                                        //foreach($slider_images as $key => $value) { ?>
+                                            <li data-target="#lightbox" data-slide-to="<?php //echo $key;?>"></li>
+                                       <?php //} }?>
+                                  </ol> -->
                                   <div class="carousel-inner">
-                                    <div class="item active">
-                                        <div class="numbertext">1 / 3</div>
-                                      <img class="lig-box"src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="First slide">
-                                    </div>
-                                    <div class="item">
-                                        <div class="numbertext">2 / 3</div>
-                                      <img class="lig-box" src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="Second slide">
-                                    </div>
-                                    <div class="item">
-                                         <div class="numbertext">3 / 3</div>
-                                      <img class="lig-box" src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="Third slide">
-                                    </div>
+                                            <?php 
+                                                if(!empty($slider_images[$key])){
+                                                    foreach($slider_images[$key] as $skey => $svalue) {       
+                                                        if($skey!=0){?>
+                                                            <div class="item">
+                                                                    <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($slider_images[$key]);?></div>
+                                                                    <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$svalue['images'];?>" alt="First slide">
+                                                            </div>
+                                                        <?php }else{?>
+                                                             <div class="item active">
+                                                                <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($slider_images[$key]);?></div>
+                                                                <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$svalue['images'];?>" alt="First slide">
+                                                                </div>
+                                                        <?php }
+                                                    }
+                                            } ?>
                                   </div>
                                   <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev">
                                     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -206,10 +232,10 @@ if(isset($per_page)&&(!empty($total_rows)))
                             <aside class="s_widget categories_widget">
                                 <div class="s_title">
                                     <h4>Searching Options</h4>
-                                    <img src="<?php echo media_url(); ?>assets/img/widget-title-border.png" alt="">
+                                    <img src="<?php //echo media_url(); ?>assets/img/widget-title-border.png" alt="">
                                 </div>
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Age Limit</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Age Limit</b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="price_select"></div>
@@ -225,7 +251,8 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Height Limit</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Height Limit</b></a></li>
+
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="height_select"></div>
@@ -241,7 +268,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Weight Limit</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Weight Limit</b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box">
                                     <div id="weight_select"></div>
@@ -257,7 +284,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Marital Status</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Marital Status</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -293,7 +320,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Occupation</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Occupation</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -329,7 +356,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Education</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Education</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -365,7 +392,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Employed In</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Employed In</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -401,7 +428,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Food</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Food</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -430,7 +457,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Complexion</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Complexion</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -466,7 +493,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
-                                    <li><a href="#"><img src="<?php echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Body Type</b></a></li>
+                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Body Type</b></a></li>
                                 </ul>
                                 <div class="checkbox">
                                     <label>
@@ -499,56 +526,43 @@ if(isset($per_page)&&(!empty($total_rows)))
                                 </aside>
                         </div>
                     </div> -->
-                </div>              
-                <!-- <div class="pagination>                    
-                    <a class="prev" href="#">Previous</a>
-                    <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
-                    <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
-                    <a class="next" href="#">Next</a>
-                </div> -->
-                <?php
-                if(!empty($links)) :
+
+                    <div class="col-md-12" style="display: inline-block;"">
+                        <div>
+                        <?php
+                        if(!empty($links)) :
                             echo "<div class='col-md-8 nopadding pull-right '>
-                                    <div class='pagination-box clearfix'>" .$links . "
+                                        <div class='col-md-5 pagination-box clearfix' style='display:inline-block'>" .$links . "
+                                        </div>";
+                                        if(!empty($pages)) : ?>
+                                        <div class="col-md-1 goto">Go to</div>
+                                        <div class="col-md-1 dir_page">
+                                          <select class="extra_drop pagination_scrol" name="pagination_dropdown" id="pagination_dropdown" 
+                                          onchange="location = this.value;">                                               
+                                                <?php                     
+                                                for($i=1;$i<=$pages;$i++){
+                                                    if($i!=$values[0]){?>
+                                                    <option value="<?php echo base_url()."search_result/".$i;?>">
+                                                        <?php echo $i; 
+                                                    ?>
+                                                    </option>
+                                                    <?php }else{?>
+                                                    <option value="<?php echo base_url()."search_result/".$i;?>" selected>
+                                                        <?php echo $i;?>
+                                                    </option>
+                                                    <?php }
+                                                }?>
+                                        </select>
                                         </div>
-                                    </div>";
-                endif;
-                ?>
-                <?php if(!empty($pages)): ?>
-                    <select name="pagination_dropdown" id="pagination_dropdown" onchange="location = this.value;">
-                        <?php                     
-                        for($i=1;$i<=$pages;$i++){
-                            if($i!=$values[0]){?>
-                            <option value="<?php echo base_url()."search_result/".$i;?>">
-                                <?php echo $i; 
-                                ?>
-                            </option>
-                            <?php }else{?>
-                            <option value="<?php echo base_url()."search_result/".$i;?>" selected>
-                                <?php echo $i;?>
-                            </option>
-                            <?php }
-                        }
-                     ?>                    
-                    </select>
-                <?php endif; ?>
+                                        <?php endif; ?>
+                                    </div>
+                        <?php endif;
+                        ?>
+                        </div>
+                    </div>
+                </div>        
             </div>
         </section>
-        <!--================End search_reslut grid Area =================-->               
-        
-       <!--  <div id="largeContent" style="display:none;">
-            <div class="media tool_content">
-                <div class="media-left">
-                    <img src="<?php echo media_url(); ?>assets/img/map-persion.png" alt="">
-                </div>
-                <div class="media-body">
-                    <h3>Sandi Williams</h3>
-                    <h5>21 years old</h5>
-                    <h5>From Paris</h5>
-                    <h5>Distance 16 km</h5>
-                </div>
-            </div>
-        </div> -->
 <?php 
     include('include/footer.php');
 ?> 

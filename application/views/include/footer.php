@@ -100,21 +100,7 @@
         </footer>
         <!--================End Footer Area (selva)=================-->
         
-        
-        
-        <!--<div id="largeContent" style="display:none;">
-            <div class="media tool_content">
-                <div class="media-left">
-                    <img src="<?php echo media_url(); ?>assets/img/map-persion.png" alt="">
-                </div>
-                <div class="media-body">
-                    <h3>Sandi Williams</h3>
-                    <h5>21 years old</h5>
-                    <h5>From Paris</h5>
-                    <h5>Distance 16 km</h5>
-                </div>
-            </div>
-        </div>-->        
+         
         
         
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -152,8 +138,7 @@
         <script src="<?php echo media_url(); ?>assets/js/jquery.validate.min.js"></script>
         <!-- <script src="<?php //echo media_url(); ?>assets/js/contact.js"></script> -->
         
-        <!--gmaps Js-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+      
         <!-- <script src="<?php //echo media_url(); ?>assets/js/gmaps.min.js"></script> -->
         <script src="<?php echo media_url(); ?>assets/js/custom.js"></script>
         <script src="<?php echo media_url(); ?>assets/js/custom_validation.js"></script>

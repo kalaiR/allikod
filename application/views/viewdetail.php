@@ -177,10 +177,13 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                         <p><?php if(!empty($results['comm_phone_no'])) echo $results['comm_phone_no']; else echo "--"; ?></p>
                                                     </div >
                                                     <div class="col-md-6 col-xs-6">
-                                                    <p>Phone Number</p>
+                                                    <p>Mobile Number</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
                                                         <p><?php if(!empty($results['comm_mobile_no'])) echo $results['comm_mobile_no']; else echo "--"; ?></p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p><a href="#">Am Interested</a></p>
                                                     </div>                                     
                                                 </div>
                                             </div>  <!-- row ends -->             
