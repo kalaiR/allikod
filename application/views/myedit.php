@@ -610,7 +610,7 @@
                                                     <p><b>Education *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
-                                                    <select class="selectpicker form_inputs" data-message="Education" name="cus_education">
+                                                    <select class="chosen-select form_inputs" data-message="Education" name="cus_education" style="width:225px; line-height: 20px;">
                                                         <option value="1">BCA</option>
                                                         <option value="2">BE/B Tech</option>
                                                     </select>     

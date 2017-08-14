@@ -8450,3 +8450,6 @@ p{
 .scrol{
 overflow: auto;
 }
+li{
+  list-style-type: none !important;
+}
