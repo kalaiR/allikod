@@ -77,7 +77,7 @@
             <div class="copyright">
                 <div class="copyright_left">
                     <div class="copyright_text">
-                        <h4>© <a href="index">Vallikodi</a> 2017  Powered by: <a href="http://etekchnoservices.com/" target="_blank"> ETekchno Services</a> </h4>
+                        <h4>© <a href="index">Vallikodi</a> 2017  <!-- Powered by: <a href="http://etekchnoservices.com/" target="_blank"> ETekchno Services</a> --> </h4>
                     </div>
                 </div>
                 <div class="copyright_right">
