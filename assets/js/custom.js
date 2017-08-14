@@ -472,7 +472,7 @@ $(document).ready(function() {
         if($(this).find('.bootstrap-select').hasClass('form_inputs')) {
             $(this).find('.bootstrap-select').removeClass('form_inputs');
         }  
-        // var error = '';
+        var error = '';
         var error_msg = $(this).find('.val_error');
         var message = '';
         /* Validate Input and Select element */
