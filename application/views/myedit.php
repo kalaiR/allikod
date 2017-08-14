@@ -610,7 +610,7 @@
                                                     <p><b>Education *</b></p>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <select class="chosen-select" style="width:225px" data-message="Education" name="cus_education">
+                                                    <select class="selectpicker input_forms"data-message="Education" name="cus_education">
                                                     <option value="">Select Education</option>
                                                         <?php 
                                                             foreach ($selection_values['education_values'] as $key => $edu_val):    

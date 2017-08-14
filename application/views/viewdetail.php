@@ -466,7 +466,21 @@ if(!empty($session_search['search_inputs']['offset'])){
                                     <div id="">
                                     <h3 id="hcolor">Education Expected</h3>
                                     </div> 
-                                        <div class="profile_list">                                    
+                                        <div class="profile_list">
+                                        <div class="row com-box">
+                                                <div class="col-md-3">
+                                                    <p>Education</p>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <?php 
+                                                if(!empty($expected_education)){
+                                                    foreach($expected_education as $key => $value) { ?>
+                                                        <li><b><a href="#"><?php echo $value['edu_name']; ?></a></b></li>
+                                                <?php }
+                                                }?>     
+                                                 </div>
+                                            </div>
+                                        <!-- <div class="profile_list">                                    
                                             <ul>
                                                 <li><a href="#">Education</a></li>                                      
                                             </ul> 
@@ -478,7 +492,8 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <?php }
                                                 }?>
                                             </ul>                                                                 
-                                        </div> 
+                                        </div> --> 
+                                </div>
                                 </div>
                                 <div class="members_about_box">
                                     <div id="">
