@@ -909,3 +909,7 @@ ul#media-list {
     top:5px;
     right:5px
 }
+select .pagination_scrol{
+height:50px;
+overflow-y: scroll;
+}

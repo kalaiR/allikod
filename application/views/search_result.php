@@ -69,7 +69,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                 <div class="col-md-9">
                 <?php
                 if(!empty($results)){
-                foreach($results as $value) { 
+                foreach($results as $key => $value) { 
                     // echo $value['images']."<br>";
                     // echo base_url()."uploads/profile/".$value['images'];
                     // echo "image_status"."<br>".file_exists(base_url()."uploads/profile/".$value['images'])."<br>";
@@ -108,24 +108,30 @@ if(isset($per_page)&&(!empty($total_rows)))
                           <div class="modal fade and carousel slide lig" id="lightbox">
                            <div class="modal-dialog ">
                               <div class="modal-body">
-                                  <ol class="carousel-indicators">
-                                    <li data-target="#lightbox" data-slide-to="0" class="active"></li>
-                                    <li data-target="#lightbox" data-slide-to="1"></li>
-                                    <li data-target="#lightbox" data-slide-to="2"></li>
-                                  </ol>
+                                  <!-- <ol class="carousel-indicators">
+                                       <?php 
+                                        //if(!empty($slider_images)){
+                                        //foreach($slider_images as $key => $value) { ?>
+                                            <li data-target="#lightbox" data-slide-to="<?php //echo $key;?>"></li>
+                                       <?php //} }?>
+                                  </ol> -->
                                   <div class="carousel-inner">
-                                    <div class="item active">
-                                        <div class="numbertext">1 / 3</div>
-                                      <img class="lig-box"src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="First slide">
-                                    </div>
-                                    <div class="item">
-                                        <div class="numbertext">2 / 3</div>
-                                      <img class="lig-box" src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="Second slide">
-                                    </div>
-                                    <div class="item">
-                                         <div class="numbertext">3 / 3</div>
-                                      <img class="lig-box" src="<?php echo base_url(); ?>assets/img/search-result-page/img1.jpg" alt="Third slide">
-                                    </div>
+                                            <?php 
+                                                if(!empty($slider_images[$key])){
+                                                    foreach($slider_images[$key] as $skey => $svalue) {       
+                                                        if($skey!=0){?>
+                                                            <div class="item">
+                                                                    <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($slider_images[$key]);?></div>
+                                                                    <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$svalue['images'];?>" alt="First slide">
+                                                            </div>
+                                                        <?php }else{?>
+                                                             <div class="item active">
+                                                                <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($slider_images[$key]);?></div>
+                                                                <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$svalue['images'];?>" alt="First slide">
+                                                                </div>
+                                                        <?php }
+                                                    }
+                                            } ?>
                                   </div>
                                   <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev">
                                     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -523,78 +529,40 @@ if(isset($per_page)&&(!empty($total_rows)))
 
                     <div class="col-md-12" style="display: inline-block;"">
                         <div>
-                            <?php
-                            if(!empty($links)) :
-                                echo "<div class='col-md-8 nopadding pull-right '>
-                                            <div class='col-md-5 pagination-box clearfix' style='display:inline-block'>" .$links . "
-                                            </div>
-                                            <div class='col-md-1 goto'>Go to</div>
-                                            <div class='col-md-1 dir_page'>
-                                                <select class='extra_drop' style='overflow-y: scroll;'>
-                                                    <option>1</option>
-                                                    <option>9</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                </select>
-                                            </div>
+                        <?php
+                        if(!empty($links)) :
+                            echo "<div class='col-md-8 nopadding pull-right '>
+                                        <div class='col-md-5 pagination-box clearfix' style='display:inline-block'>" .$links . "
                                         </div>";
-                            endif;
-                            ?>
+                                        if(!empty($pages)) : ?>
+                                        <div class="col-md-1 goto">Go to</div>
+                                        <div class="col-md-1 dir_page">
+                                          <select class="extra_drop pagination_scrol" name="pagination_dropdown" id="pagination_dropdown" 
+                                          onchange="location = this.value;">                                               
+                                                <?php                     
+                                                for($i=1;$i<=$pages;$i++){
+                                                    if($i!=$values[0]){?>
+                                                    <option value="<?php echo base_url()."search_result/".$i;?>">
+                                                        <?php echo $i; 
+                                                    ?>
+                                                    </option>
+                                                    <?php }else{?>
+                                                    <option value="<?php echo base_url()."search_result/".$i;?>" selected>
+                                                        <?php echo $i;?>
+                                                    </option>
+                                                    <?php }
+                                                }?>
+                                        </select>
+                                        </div>
+                                        <?php endif; ?>
+                                    </div>
+                        <?php endif;
+                        ?>
                         </div>
                     </div>
-                </div>              
-                <!-- <div class="pagination>                    
-                    <a class="prev" href="#">Previous</a>
-                    <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
-                    <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
-                    <a class="next" href="#">Next</a>
-                </div> -->
-                <!-- <?php
-                if(!empty($links)) :
-                            echo "<div class='col-md-8 nopadding pull-right '>
-                                    <div class='pagination-box clearfix'>" .$links . "
-                                        </div>
-                                    </div>";
-                endif;
-                ?>
-                <?php if(!empty($pages)): ?>
-                    <select name="pagination_dropdown" id="pagination_dropdown" onchange="location = this.value;">
-                        <?php                     
-                        for($i=1;$i<=$pages;$i++){
-                            if($i!=$values[0]){?>
-                            <option value="<?php echo base_url()."search_result/".$i;?>">
-                                <?php echo $i; 
-                                ?>
-                            </option>
-                            <?php }else{?>
-                            <option value="<?php echo base_url()."search_result/".$i;?>" selected>
-                                <?php echo $i;?>
-                            </option>
-                            <?php }
-                        }
-                     ?>                    
-                    </select>
-                <?php endif; ?> -->
+                </div>        
             </div>
         </section>
-        <!--================End search_reslut grid Area =================-->               
-        
-       <!--  <div id="largeContent" style="display:none;">
-            <div class="media tool_content">
-                <div class="media-left">
-                    <img src="<?php //echo media_url(); ?>assets/img/map-persion.png" alt="">
-                </div>
-                <div class="media-body">
-                    <h3>Sandi Williams</h3>
-                    <h5>21 years old</h5>
-                    <h5>From Paris</h5>
-                    <h5>Distance 16 km</h5>
-                </div>
-            </div>
-        </div> -->
 <?php 
     include('include/footer.php');
 ?> 
