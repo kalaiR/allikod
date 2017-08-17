@@ -89,6 +89,7 @@
 	<!-- Custom.js for functionality -->
 	<script src="<?php echo media_url(); ?>assets/admin/js/custom.js"></script>
 	<script src="<?php echo media_url(); ?>assets/admin/js/sidebar-menu.js"></script>
+	<script src="<?php echo media_url(); ?>assets/admin/js/admin-img-upload.js"></script>
     <script>
         $.sidebarMenu($('.sidebar-menu'))
     </script>
