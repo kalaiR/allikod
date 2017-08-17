@@ -335,16 +335,32 @@
                                         else if(!empty($prefix_two_status))
                                             $prefix = $prefix_two;
                             ?>
-                            <div class="item">
-                                <a href="<?php echo base_url()."viewdetail/".$rec['userdetail_id'];?>"><img src="<?php 
-                                if(!empty($rec['images'])): 
-                                    echo media_url()."uploads/profile/".$prefix.$rec['images']; 
-                                else:
-                                    echo media_url()."assets/img/no_image.jpg"; 
-                                endif; 
-                                ?>" alt="Image not loaded" class ="featured_div">
-                                </a>
-                            </div>
+                            <?php
+                                $user_session = $this->session->userdata("login_status");
+                                if(!empty($user_session)){ ?>
+                                    <div class="item">
+                                        <a href="<?php echo base_url()."viewdetail/".$rec['userdetail_id'];?>"><img src="<?php 
+                                            if(!empty($rec['images'])): 
+                                                echo media_url()."uploads/profile/".$prefix.$rec['images']; 
+                                            else:
+                                                echo media_url()."assets/img/no_image.jpg"; 
+                                            endif; 
+                                        ?>" alt="Image not loaded" class ="featured_div">
+                                        </a>
+                                    </div>
+                                <?php }else{ ?>
+                                    <div class="item">
+                                        <a href="<?php echo base_url()."viewfeatureprofile/".$rec['userdetail_id'];?>">
+                                        <img src="<?php 
+                                        if(!empty($rec['images'])): 
+                                        echo media_url()."uploads/profile/".$prefix.$rec['images']; 
+                                        else:
+                                        echo media_url()."assets/img/no_image.jpg"; 
+                                        endif; 
+                                        ?>" alt="Image not loaded" class ="featured_div">
+                                        </a>
+                                    </div>
+                                <?php } ?>
                             <?php endif; ?>
                                         <?php
                                     endif;
@@ -375,17 +391,33 @@
                                         $prefix = $prefix_one;
                                     else if(!empty($prefix_two_status))
                                         $prefix = $prefix_two;
-                            ?>
-                            <div class="item">                                
-                                <a href="<?php echo base_url()."viewdetail/".$rec['userdetail_id'];?>"><img src="<?php 
-                                if(!empty($rec['images'])): 
-                                    echo media_url()."uploads/profile/".$prefix.$rec['images']; 
-                                else:
-                                    echo media_url()."assets/img/no_image.jpg"; 
-                                endif; 
-                                ?>" alt="Image not loaded" class ="featured_div">
-                                </a>
-                            </div>
+                            ?>                            
+                            <?php 
+                                $user_session = $this->session->userdata("login_status");
+                                if(!empty($user_session)){ ?>
+                                    <div class="item">
+                                        <a href="<?php echo base_url()."viewdetail/".$rec['userdetail_id'];?>"><img src="<?php 
+                                            if(!empty($rec['images'])): 
+                                                echo media_url()."uploads/profile/".$prefix.$rec['images']; 
+                                            else:
+                                                echo media_url()."assets/img/no_image.jpg"; 
+                                            endif; 
+                                        ?>" alt="Image not loaded" class ="featured_div">
+                                        </a>
+                                    </div>
+                                <?php }else{ ?>
+                                    <div class="item">
+                                        <a href="<?php echo base_url()."viewfeatureprofile/".$rec['userdetail_id'];?>">
+                                        <img src="<?php 
+                                        if(!empty($rec['images'])): 
+                                        echo media_url()."uploads/profile/".$prefix.$rec['images']; 
+                                        else:
+                                        echo media_url()."assets/img/no_image.jpg"; 
+                                        endif; 
+                                        ?>" alt="Image not loaded" class ="featured_div">
+                                        </a>
+                                    </div>
+                                <?php } ?>
                             <?php endif; ?>
                                         <?php
                                     endif;
