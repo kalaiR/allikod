@@ -962,14 +962,29 @@
 												<div class="box-content">
 													<div class="form-horizontal">
 														<fieldset>											  
-														  <div class="control-group">
-															<label class="control-label" for="focusedInput">Image  : </label>
-															<div class="control-group">
+														  <div class="edit-mult-img">
+															<!-- <label class="control-label" for="focusedInput">Image  : </label> -->
+															<!-- <div class="control-group">
 															  <div class="controls">
 																<input class="input-file uniform_on" id="fileInput" type="file" name="cus_profileimage">
 															  </div>
-															</div>												
-														  </div>  					  							  
+															</div>	 -->
+															<div class="wrap-upload-buttons">
+																<span id="spanFileName" class="val-error"></span>
+																<ul class="btn-nav">
+																	<li><span class="btn btn-default"> Browers<input type="file" name="cus_profileimage[]" click-type="type1" class="picupload img_view" multiple accept="image/*" / id="picupload"></span></li>
+																</ul>
+															</div>
+															 <div class="edit_img">
+															<div class="modal-body login-box clearfix">
+																<ul id="media-list" class="clearfix">
+																	<li class="myupload">
+																		<span><i class="icon32 icon-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload per-img-box" multiple></span>
+																	</li>
+																</ul>
+															</div>
+															</div>											
+														 </div>  					  							  
 														</fieldset>
 													  </div>
 													</div>
@@ -978,18 +993,18 @@
 											<div class="row-fluid sortable">
 											<div class="box span8">
 												<div class="box-header well">
-													<h2><!-- <i class="icon-th"> --> Image Activation</h2>	  			
+													<h2><!-- <i class="icon-th"> --> Featured Profile</h2>	  			
 												</div>
 												<div class="box-content">
 													<div class="form-horizontal">
 														<fieldset>			  
 														  <div class="control-group">
-															<label class="control-label">Image Active :</label>
+															<label class="control-label">Featured Profile Status :</label>
 															<div class="controls">
-															  <select data-rel="chosen">
-															  	<option value="">Select Active Status</option>
-																<option>Active</option>
-																<option>Inactive</option>
+															  <select data-rel="chosen" name="cus_featuredactivestatus">
+															  	<option value="">Select Featured Status</option>
+																<option value="1" <?php if ($customeruser_values['user_featured_profile_status'] == 1) echo "selected"; ?>>Active</option>
+																<option value="0" <?php if ($customeruser_values['user_featured_profile_status'] == 0) echo "selected"; ?>>Not Active</option>
 															  </select>
 															</div>		
 														  </div> 							  
