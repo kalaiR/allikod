@@ -8453,3 +8453,26 @@ overflow: auto;
 .li_style{
   list-style-type: disc ;
 }
+.myview_head{
+  text-align: center;
+  font-weight: bold;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+.myview_con{
+  text-align: center;
+  background-color: #ccc;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+.myview_nor{
+  text-align: center;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+.myview_con a{
+  color: #000;
+}
+.myview_nor a{
+  color: #000;
+}

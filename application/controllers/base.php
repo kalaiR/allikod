@@ -173,6 +173,9 @@ class Base extends CI_Controller {
 	public function post_success(){
 		$this->load->view('post');
 	}
+	public function myview(){
+		$this->load->view('myview');
+	}
 
 	public function upload_file(){
 
