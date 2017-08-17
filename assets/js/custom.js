@@ -84,6 +84,10 @@ function reg_validate() {
               if(!($("#gender").val())) {
                  output = false;
                  $("#gender_error").html("Required");
+             }
+             if(!($("#dob").val())) {
+                 output = false;
+                 $("#dob_error").html("Required");
              } 
              if(!($("#marital").val())) {
                  output = false;

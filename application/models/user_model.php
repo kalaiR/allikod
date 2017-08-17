@@ -281,7 +281,8 @@ class User_model extends CI_Model {
  public function checkmail(){
     $model_data['error'] = 0;
     if($this->input->post('email')) {
-      $login_where = '(user_email="'.$this->input->post('email').'" and user_active_status=1)';
+      // $login_where = '(user_email="'.$this->input->post('email').'" and user_active_status=1)';
+      $login_where = '(user_email="'.$this->input->post('email').'")';
       $this->db->select('*');
       $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where);      
         if($userdata_get->num_rows()) {

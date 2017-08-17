@@ -598,24 +598,37 @@
 															<label class="control-label">Height : </label>
 															<div class="controls">
 															  <select data-rel="chosen" name="cus_heightcms" class="span3">
-															  	<option value="">In CMs</option>
-																<option>140</option>
-																<option>141</option>
+															  	<option value="">Height in cm</option>
+		                                                        <?php 
+		                                                            foreach ($selection_values['height_values'] as $height_val):  
+		                                                                if (strpos($customeruser_values['phy_height'], 'cm') == false) 
+		                                                                    $customeruser_values['phy_height'] += "cm";   
+		                                                                if($height_val['cms']."cm" == $customeruser_values['phy_height'])  
+		                                                                    echo "<option selected value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";
+		                                                                else
+		                                                                    echo "<option value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";                       
+		                                                            endforeach; ?>
 															  </select>
-															  <select data-rel="chosen" name="cus_heightfeet" class="span3">
+															  <!-- <select data-rel="chosen" name="cus_heightfeet" class="span3">
 																<option value="">In Feet</option>
 																<option>5</option>
 																<option>6</option>
-															  </select>
+															  </select> -->
 															</div>
 														  </div>
 														  <div class="control-group">
 															<label class="control-label">Weight : </label>
 															<div class="controls">
 															  <select data-rel="chosen" name="cus_weight">
-															  	<option value="">Select Weight</option>
-																<option>60</option>
-																<option>65</option>
+															  	<option value="">Weight in Kgs</option>
+		                                                        <?php for( $i=41; $i<=140; $i++ ):
+		                                                            if (strpos($customeruser_values['phy_weight'], 'kg') == false) 
+		                                                                    $customeruser_values['phy_weight'] += "kg"; 
+		                                                            if($i."kg" == $customeruser_values['phy_weight'])
+		                                                                echo "<option value =".$i."kg selected>".$i."</option>";
+		                                                            else
+		                                                                echo "<option value =".$i."kg>".$i."</option>";
+		                                                        endfor; ?>
 															  </select>
 															</div>
 														  </div>
@@ -761,7 +774,7 @@
 															<div class="controls">
 																<div class="input-prepend">
 																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el'])) echo $customeruser_values['comm_number_of_brothers_el']; ?>" name="cus_broelder">
-																  <span class="add-on">Younger</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el'])) echo $customeruser_values['comm_number_of_brothers_el']; ?>" name="cus_broyoung">
+																  <span class="add-on">Younger</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_yo'])) echo $customeruser_values['comm_number_of_brothers_yo']; ?>" name="cus_broyoung">
 																</div>
 															</div>								
 														  </div>
@@ -769,7 +782,7 @@
 															<label class="control-label" for="prependedInput">No. of Sisters : </label>
 															<div class="controls">
 																<div class="input-prepend">
-																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el'])) echo $customeruser_values['comm_number_of_sisters_el_mar']; ?>" name="cus_siselder">
+																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el'])) echo $customeruser_values['comm_number_of_sisters_el']; ?>" name="cus_siselder">
 																   <span class="add-on">Younger</span><input class="span4" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_yo'])) echo $customeruser_values['comm_number_of_sisters_yo']; ?>" name="cus_sisyoung">
 																  </div>
 															</div>								
@@ -778,8 +791,8 @@
 															<label class="control-label" for="prependedInput">No. of Married Brothers : </label>
 															<div class="controls">
 																<div class="input-prepend">
-																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['	comm_number_of_brothers_el_mar'])) echo $customeruser_values['	comm_number_of_brothers_el_mar']; ?>" name="cus_broeldermar">
-																  <span class="add-on">Younger</span><input class="span4" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['	comm_number_of_brothers_yo_mar'])) echo $customeruser_values['	comm_number_of_brothers_yo_mar']; ?>" name="cus_broyoungmar">
+																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el_mar'])) echo $customeruser_values['comm_number_of_brothers_el_mar']; ?>" name="cus_broeldermar">
+																  <span class="add-on">Younger</span><input class="span4" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_yo_mar'])) echo $customeruser_values['comm_number_of_brothers_yo_mar']; ?>" name="cus_broyoungmar">
 																 </div>
 															</div>								
 														  </div>
@@ -788,7 +801,7 @@
 															<div class="controls">
 																<div class="input-prepend">
 																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el_mar'])) echo $customeruser_values['comm_number_of_sisters_el_mar']; ?>" name="cus_siseldermar">
-																  <span class="add-on">younger</span><input class="span4" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['	comm_number_of_sisters_yo_mar'])) echo $customeruser_values['	comm_number_of_sisters_yo_mar']; ?>" name="cus_sisyoungmar">
+																  <span class="add-on">younger</span><input class="span4" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_yo_mar'])) echo $customeruser_values['comm_number_of_sisters_yo_mar']; ?>" name="cus_sisyoungmar">
 																 </div>
 															</div>								
 														  </div>
@@ -971,15 +984,15 @@
 															</div>	 -->
 															<div class="wrap-upload-buttons">
 																<span id="spanFileName" class="val-error"></span>
-																<ul class="btn-nav">
+																<!-- <ul class="btn-nav">
 																	<li><span class="btn btn-default"> Browers<input type="file" name="cus_profileimage[]" click-type="type1" class="picupload img_view" multiple accept="image/*" / id="picupload"></span></li>
-																</ul>
+																</ul> -->
 															</div>
 															 <div class="edit_img">
 															<div class="modal-body login-box clearfix">
 																<ul id="media-list" class="clearfix">
 																	<li class="myupload">
-																		<span><i class="icon32 icon-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload per-img-box" multiple></span>
+																		<span><i class="icon32 icon-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload per-img-box user-img" multiple></span>
 																	</li>
 																</ul>
 															</div>

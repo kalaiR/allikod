@@ -135,7 +135,7 @@ li.myupload span input {
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0
+    right: 0;
 }
 
 li.myupload span i {
@@ -220,10 +220,10 @@ ul#media-list {
     padding: 0;
     margin: 0
 }
-.edit_img
+/*.edit_img
 {
   display: none;
-}
+}*/
 .wrap-upload-buttons
 {
   padding-left: 30px;
@@ -240,5 +240,9 @@ ul#media-list {
 .val-error
 {
   color: #840707;
+}
+.user-img
+{
+    cursor: pointer;
 }
 /*Edit-image-upolad*/
