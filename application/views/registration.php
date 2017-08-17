@@ -1,6 +1,11 @@
 <?php 
 include('include/header.php');
 include('include/menu.php');
+preg_match("/[^\/]+$/", $this->uri->uri_string(), $values); 
+if((!empty($values[0]))&&(is_numeric($values[0]))){
+    $editprocess = "edit";
+    $quickregister_id = $values[0];
+}
 ?> 
 
      <!--================Banner Area =================-->
@@ -165,13 +170,13 @@ include('include/menu.php');
                                                 </div>    
                                             </div>
                                             <div class="col-sm-2">
-                                                <input type='text' class="form-control datetimepicker4" name="dob" id="dob" placeholder="Birthday" /> 
-                                            </div>
+                                                <input type='text' class="form-control datetimepicker4" name="dob" id="dob" placeholder="Birthday" value="" /> 
+                                            </div> 
                                             <div class="col-sm-2">
                                                 <input type='text' class="form-control" placeholder="Age" /> 
-                                            </div>    
-                                                <div class="col-sm-3 box">
-                                                    <span id="gender_error" class="registration-error"></span>
+                                            </div>   
+                                                <div class="col-sm-2 box">
+                                                    <span id="dob_error" class="registration-error"></span>
                                                 </div> 
                                             <input type='hidden' class="form-control" name="user_age" id="user_age"  value=""/>     
                                         </div>
@@ -1293,7 +1298,13 @@ include('include/menu.php');
                          <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
                          <input type="hidden" name="result_horoscope_rasi" value="" id="result_horoscope_rasi" />
                          <input type="hidden" name="result_horoscope_asham" value="" id="result_horoscope_asham" />
-                    </div>    
+                         <?php if(!empty($editprocess)){?>
+                <input type="hidden" name="editprocess" id="editprocess" value="<?php echo $editprocess;?>" />
+                         <?php } ?>
+                         <?php if(!empty($quickregister_id)){?>
+                <input type="hidden" name="quickregister_id" id="quickregister_id" value="<?php echo $quickregister_id;?>" />
+                         <?php } ?>
+                         </div>    
                 </form>     
        </div>                   
                      

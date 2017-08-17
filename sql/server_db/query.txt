@@ -87,6 +87,8 @@ ADD `ren_cheque_dd_number` VARCHAR( 50 ) NOT NULL AFTER `ren_bank_name` ,
 ADD `ren_amount` INT( 11 ) NOT NULL AFTER `ren_cheque_dd_number` ,
 ADD `ren_period_in_month` INT( 11 ) NOT NULL AFTER `ren_amount` ;
 
+17/08/17:
+ALTER TABLE `reg_userdetail` ADD `user_featured_profile_status` TINYINT( 1 ) NOT NULL DEFAULT '0' COMMENT 'Store this status whether it is showing in home page or not' AFTER `user_registeredby` ;
 
 
 no need to run(just for reference)

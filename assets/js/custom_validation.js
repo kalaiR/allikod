@@ -1,10 +1,38 @@
+function mailcheckuser(){        
+    if($("#reg_email2").val()){
+                    var data = {};
+                    data[csrf_name] = csfrData[csrf_name];
+                    data['email'] = $("#reg_email2").val();
+                    $.ajax({
+                        url: baseurl+"register_mailcheck",
+                        data: data,
+                        type: "post",
+                        async: false,
+                        success: function(results_array){
+                            // alert(JSON.stringify(results_array));
+                            if(results_array!="1"){
+                                ajx_output = 1;
+                                // alert("ajax-fasle");
+                                // $("#register_email-error").html(" Email Already Registered ");
+                                return ajx_output;      
+                            }else{
+                                ajx_output = 0;
+                                // alert("ajax-true");
+                                return ajx_output;      
+                            }
+                        }
+                    });
+                    return ajx_output;
+            }
+}
+
 $(document).ready(function() {
         var height = '';
         var width = '';
 
     /*  ===========         Registration Form Validation Start     ===================   */
-     $(document).on('submit','.reg_form,.post_success_form',function(e) {
-      // alert("linked");
+     $(document).on('submit','.reg_form,.post_success_form,.form_inner',function(e) {
+       // alert("linked");
         if($(this).find('.bootstrap-select').hasClass('form_inputs')) {
             $(this).find('.bootstrap-select').removeClass('form_inputs');
         }       
@@ -57,6 +85,21 @@ $(document).ready(function() {
                 email.removeClass("form-field-error");
             }
         }
+
+        // /* Validate email exits */
+        if(error == '') {
+            var email1 = $(this).find('#reg_email2');
+            var email = mailcheckuser();                                
+              if(email){
+                error = 1;
+                message = "Email Already Registered !";
+                email1.addClass("form-field-error");
+              }else{
+                email.removeClass("form-field-error");
+                // alert("false=>");              
+              }
+        }
+
        //  /* Image Upload on Submit*/ 
             if($(this).hasClass('post_success_form')){
                 if($("#uploadedfile")[0].files[0]){
@@ -84,6 +127,7 @@ $(document).ready(function() {
             }
         /* Check whether the input and select element has error or not */
         if($(this).find('input,select').hasClass('form-field-error')) {
+            // alert("message===>"+message);
             if(message == '') {
                 message ="Please Provide All Mandatory Field !";
             }
@@ -96,7 +140,7 @@ $(document).ready(function() {
             error_msg.fadeOut('fast').html('');
             // alert("success");
             return true;
-        }  
+        }        
   }); // End document
   $(".image_act").on('change',function(){
         //Get reference of FileUpload.
