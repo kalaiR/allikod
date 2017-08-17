@@ -74,7 +74,7 @@ $route['myedit'] 							= "base/myedit";
 $route['newreg'] 							= "base/newreg";
 $route['countprofile_viewed'] 				= "base/countprofile_viewed";
 $route['viewfeatureprofile/(:any)'] 		= "base/viewfeatureprofile/$1";
-
+$route['myview'] 							= "base/myview";
 $route['testemail'] 						= "base/testemail";
 
 

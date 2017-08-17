@@ -595,7 +595,7 @@
                                                     <div class="col-md-9">       
                                                         <div class="control-group">                     
                                                             <div class="controls">
-                                                                <!-- <p><b><?php // echo $results['phy_searchedu_status']; ?></b></p> --><p><b><li>hsfdh</li><li>hsfdh</li><li>hsfdh</li><li>hsfdh</li><li>hsfdh</li>
+                                                                <!-- <p><b><?php // echo $results['phy_searchedu_status']; ?></b></p> --><p><b>
                                                                 <?php 
                                                                 if(!empty($expected_education)){
                                                                     foreach($expected_education as $key => $value) { ?>
