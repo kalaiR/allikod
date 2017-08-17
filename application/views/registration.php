@@ -217,15 +217,15 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             <h3 id="white">Ethnicity</h3>
                                         </div>    
                                     </div>
-                                    <div class="col-sm-8 aline-center-box base-box">
-                                        <div class="row base-box">
+                                    <div class="col-sm-8 aline-center-box box">
+                                        <div class="row box">
                                             <div class="col-sm-4">
                                                 <div class="height_item">
-                                                   <h4>Time *</h4>
+                                                   <h4 id="white">Time *</h4>
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                                 <input type="time" name="reg_tim" class="form-control" id="reg_tim" placeholder="Time of Birth">
+                                                 <input type='text' class="form-control timepicker" id="reg_tim" placeholder="Time of Birth">
                                             </div>
                                             <div class="col-sm-4 box">
                                                <span id="tim_error" class="registration-error"></span>
