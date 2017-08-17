@@ -752,6 +752,7 @@
     $('.datetimepicker4').datetimepicker({format:'YYYY-MM-DD'});
     // $('.datetimepicker4').datetimepicker({format:'YYYY-MM-DD',maxDate: new Date,});
     // $('.datetimepicker4').datetimepicker();
+    $(".timepicker").datetimepicker({format: 'hh-mm-A'});
     
     /*----------------------------------------------------*/
     /*Price select custome handle*/

@@ -128,15 +128,15 @@ class Customeruser_data_model extends CI_Model {
 	        // $this->db->where($education_occupation_update_where);
 	        // $this->db->update("reg_education_occupation", $education_occupation_update_data);
 
-	        // $communication_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
-	        // $this->db->set($communication_update_data); 
-	        // $this->db->where($communication_update_where);
-	        // $this->db->update("reg_communication_family", $communication_update_data);
+	        $communication_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+	        $this->db->set($communication_update_data); 
+	        $this->db->where($communication_update_where);
+	        $this->db->update("reg_communication_family", $communication_update_data);
 
-	        // $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
-	        // $this->db->set($physicalattributes_update_data); 
-	        // $this->db->where($physicalattributes_update_where);
-	        // $this->db->update("reg_physical_expectation", $physicalattributes_update_data);
+	        $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+	        $this->db->set($physicalattributes_update_data); 
+	        $this->db->where($physicalattributes_update_where);
+	        $this->db->update("reg_physical_expectation", $physicalattributes_update_data);
 
 	        // $profileimage_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
 	        // $this->db->set($profileimage_update_data); 
@@ -299,6 +299,7 @@ class Customeruser_data_model extends CI_Model {
   		$model_data['food_values'] = $this->db->order_by('food_id','asc')->get_where('food',array('active_status'=>1))->result_array();
   		$model_data['familystatus_values'] = $this->db->order_by('familystatus_id','asc')->get_where('family_status',array('active_status'=>1))->result_array();
   		$model_data['familytype_values'] = $this->db->order_by('familytype_id','asc')->get_where('family_type',array('active_status'=>1))->result_array();
+  		$model_data['height_values'] = $this->db->order_by('heightrelation_id','asc')->get_where('height_relation')->result_array();
 
   		//Category and Subcategory values
   		// $model_data['education_values'] = $this->db->order_by('education_id','asc')->get_where('education')->result_array();

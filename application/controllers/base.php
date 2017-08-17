@@ -206,11 +206,13 @@ class Base extends CI_Controller {
     }
 
 	public function registration(){
+		// echo '<pre>';
 		// print_r($this->input->post());
+		// echo '</pre>';
 		// exit();	
 
 		if(($this->input->post())&&($this->input->post('editprocess')!="edit")){
-			echo 'in';
+			// echo 'in';
 				$form_data = $this->input->post();				
 				$data = array(
 					// 'userdetail_id'=>'',

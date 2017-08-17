@@ -8450,6 +8450,6 @@ p{
 .scrol{
 overflow: auto;
 }
-li{
-  list-style-type: none !important;
+.li_style{
+  list-style-type: disc ;
 }
