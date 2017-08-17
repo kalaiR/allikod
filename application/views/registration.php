@@ -146,17 +146,17 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>
                                             <div class="col-sm-4">
                                                 <select class="form-control customize_plan" name="gender[]" id="gender">
-                                                    
-                                                    <?php if(!empty($registered_data) && $registered_data['user_gender']!=1){
-                                                                                echo "<option value='" . $registered_data['user_gender'] . "' selected>Female</option>";
-                                                                               }elseif(!empty($registered_data) && $registered_data['user_gender']!=2){
-                                                                                echo "<option value='" . $registered_data['user_gender'] . "'>Male</option>";
-                                                                               }else{
-                                                                                echo "<option value=''>Select</option>"; 
-                                                                                echo "<option value='1'>Male</option>";    
-                                                                                echo "<option value='1'>Female</option>";
-                                                                               }
-                                                                            ?>          
+                                                <?php
+                                                if(!empty($registered_data) && $registered_data['user_gender']!=1){
+                                                    echo "<option value='" . $registered_data['user_gender'] . "' selected>Female</option>";
+                                                }elseif(!empty($registered_data) && $registered_data['user_gender']!=2){
+                                                    echo "<option value='" . $registered_data['user_gender'] . "' selected>Male</option>";
+                                                }else{
+                                                    echo "<option value=''>Select</option>"; 
+                                                    echo "<option value='1'>Male</option>";    
+                                                    echo "<option value='2'>Female</option>";
+                                                }
+                                                ?>          
                                                 </select>
                                             </div>    
                                                 <div class="col-sm-4 box">
