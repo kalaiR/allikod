@@ -86,7 +86,7 @@ class Customeruser_data_model extends CI_Model {
 	                                'comm_number_of_sisters_yo_mar' => $this->input->post('cus_sisyoungmar'),
 	                                'comm_about_family' => $this->input->post('cus_abtfamily'),
 	            					);
-	            	print_r($communication_update_data);
+	            	// print_r($communication_update_data);
 	                $physicalattributes_update_data = array(
 	                				'phy_height' => $this->input->post('cus_heightcms'),
 	                                'phy_weight' => $this->input->post('cus_weight'),

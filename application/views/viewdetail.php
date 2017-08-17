@@ -550,7 +550,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <?php 
                                                 if(!empty($expected_education)){
                                                     foreach($expected_education as $key => $value) { ?>
-                                                        <li><b><?php echo $value['edu_name']; ?></b></li>
+                                                        <li style="margin-left: 10px;"><b><?php echo $value['edu_name']; ?></b></li>
                                                 <?php }
                                                 }?>     
                                                  </div>
