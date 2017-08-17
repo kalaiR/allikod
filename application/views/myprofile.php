@@ -595,11 +595,11 @@
                                                     <div class="col-md-9">       
                                                         <div class="control-group">                     
                                                             <div class="controls">
-                                                                <!-- <p><b><?php // echo $results['phy_searchedu_status']; ?></b></p> --><p><b>
+                                                                <!-- <p><b><?php // echo $results['phy_searchedu_status']; ?></b></p> --><p><b><li>hsfdh</li><li>hsfdh</li><li>hsfdh</li><li>hsfdh</li><li>hsfdh</li>
                                                                 <?php 
                                                                 if(!empty($expected_education)){
                                                                     foreach($expected_education as $key => $value) { ?>
-                                                                            <li><?php echo $value['edu_name']; ?></li>
+                                                                            <li style="margin-left: 10px;"><?php echo $value['edu_name']; ?></li>
                                                                     <?php }
                                                                 }?>  
                                                                 </b></p>
