@@ -164,10 +164,13 @@ include('include/menu.php');
                                                   <h4 id="white">Birthday *</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-2">
                                                 <input type='text' class="form-control datetimepicker4" name="dob" id="dob" placeholder="Birthday" /> 
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <input type='text' class="form-control" placeholder="Age" /> 
                                             </div>    
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-3 box">
                                                     <span id="gender_error" class="registration-error"></span>
                                                 </div> 
                                             <input type='hidden' class="form-control" name="user_age" id="user_age"  value=""/>     

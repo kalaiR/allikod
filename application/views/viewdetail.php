@@ -112,12 +112,12 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 </div>
                                             </div>
                                             <ul>
-                                            <li><a href="#">Name</a></li>
-                                            <li><a href="#">Vallikodi ID</a></li>
+                                            <li><a>Name</a></li>
+                                            <li><a>Vallikodi ID</a></li>
                                         </ul>
                                         <ul>
-                                            <li><a href="#"><?php echo $results['user_fname']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['userdetail_id']; ?></a></li>
+                                            <li><a><?php echo $results['user_fname']; ?></a></li>
+                                            <li><a><?php echo $results['userdetail_id']; ?></a></li>
                                         </ul>                                        
                                     </div>                  
                                 </div>
@@ -197,23 +197,53 @@ if(!empty($session_search['search_inputs']['offset'])){
                                 </div>
                                 
                                 <!-- <div class="profile_list"> -->
-                                <div class="profile_list">                                    
-                                        <ul>
-                                            <li><a href="#">Registered By</a></li>
-                                            <li><a href="#">Gender</a></li>
+                                <div class="profile_list">
+                                    <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Registered By</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['registered_by_name']; ?></p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Gender</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['user_gender'] != 2 ? 'Male':'Female'; ?></p>
+                                                </div>                                      
+                                            </div>
+                                            <div class="col-md-6">              
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Date of Birth/Age</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['user_dob']; ?></p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Marital Status</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['marital_name']; ?></p>
+                                                </div>                                       
+                                            </div>
+                                        </div>                                    
+                                        <!-- <ul>
+                                            <li><a>Registered By</a></li>
+                                            <li><a>Gender</a></li>
                                         </ul>
                                         <ul>
-                                            <li><a href="#"><?php echo $results['registered_by_name']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['user_gender'] != 2 ? 'Male':'Female'; ?></a></li>
+                                            <li><a><?php echo $results['registered_by_name']; ?></a></li>
+                                            <li><a><?php echo $results['user_gender'] != 2 ? 'Male':'Female'; ?></a></li>
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Date of Birth/ Age</a></li>
-                                            <li><a href="#">Marital Status</a></li>
+                                            <li><a>Date of Birth/ Age</a></li>
+                                            <li><a>Marital Status</a></li>
                                         </ul>
                                         <ul>
-                                            <li><a href="#"><?php echo $results['user_dob']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['marital_name']; ?></a></li>
-                                        </ul>
+                                            <li><a><?php echo $results['user_dob']; ?></a></li>
+                                            <li><a><?php echo $results['marital_name']; ?></a></li>
+                                        </ul> -->
                                     </div>                                             
                                 </div>
                                 <div class="members_about_box">
@@ -222,29 +252,78 @@ if(!empty($session_search['search_inputs']['offset'])){
                                 </div>
                                 <!-- <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know extremely painful.</p> -->
                                 <!-- <div class="profile_list"> -->
-                                <div class="profile_list">                                    
-                                        <ul>
-                                            <li><a href="#">TIme of Birth</a></li>
-                                            <li><a href="#">Mother Tongue</a></li>
-                                            <li><a href="#">Dhosham</a></li>
-                                            <li><a href="#">Nakshathra</a></li>                                            
+                                <div class="profile_list">
+                                     <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Time of Birth</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['rel_timeofbirth']; ?></p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Mother Tongue</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['mother_tongue_name']; ?></p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Dhosham</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['rel_dhosham']; ?></p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Nakshathra</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['nakshathra_name']; ?></p>
+                                                </div>
+                                                                                               
+                                            </div>
+                                            <div class="col-md-6">              
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Luknam</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['lukhnam_name']; ?></p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Gothra</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['rel_gothra']; ?></p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Zodiac Sign</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['zodiac_name']; ?></p>
+                                                </div>                          
+                                            </div>
+                                        </div>                                    
+                                        <!-- <ul>
+                                            <li><a>Time of Birth</a></li>
+                                            <li><a>Mother Tongue</a></li>
+                                            <li><a>Dhosham</a></li>
+                                            <li><a>Nakshathra</a></li>                                            
                                         </ul>
                                         <ul>
-                                            <li><a href="#"><?php echo $results['rel_timeofbirth']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['mother_tongue_name']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['rel_dhosham']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['nakshathra_name']; ?></a></li>
+                                            <li><a><?php echo $results['rel_timeofbirth']; ?></a></li>
+                                            <li><a><?php echo $results['mother_tongue_name']; ?></a></li>
+                                            <li><a><?php echo $results['rel_dhosham']; ?></a></li>
+                                            <li><a><?php echo $results['nakshathra_name']; ?></a></li>
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Luknam</a></li>
-                                            <li><a href="#">Gothra</a></li>
-                                            <li><a href="#">Zodiac Sign</a></li>
+                                            <li><a>Luknam</a></li>
+                                            <li><a>Gothra</a></li>
+                                            <li><a>Zodiac Sign</a></li>
                                         </ul>
                                         <ul>
-                                             <li><a href="#"><?php echo $results['lukhnam_name']; ?></a></li>
-                                             <li><a href="#"><?php echo $results['rel_gothra']; ?></a></li>
-                                             <li><a href="#"><?php echo $results['zodiac_name']; ?></a></li>
-                                        </ul>
+                                             <li><a><?php echo $results['lukhnam_name']; ?></a></li>
+                                             <li><a><?php echo $results['rel_gothra']; ?></a></li>
+                                             <li><a><?php echo $results['zodiac_name']; ?></a></li>
+                                        </ul> -->
                                     </div>                                             
                                 </div>
                                 <div class="members_about_box">
@@ -302,11 +381,12 @@ if(!empty($session_search['search_inputs']['offset'])){
                                     </div>                                 
                                     </div>                                             
                                 </div>
-                                <div class="members_about_box">
+                            <div class="members_about_box">
                                 <div id="">
                                 <h3 id="hcolor">Family</h3>
                                 </div>                            
-                                <div class="profile_list">    <div class="row">
+                                <div class="profile_list">    
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="col-md-6 col-xs-6">
                                             <p>Father's Name</p>
@@ -323,7 +403,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                             <div class="col-md-6 col-xs-6">
                                             <p>Father's Occupation</p>
                                             </div>
-                                            <div class="col-md-4 col-xs-6 dark">
+                                            <div class="col-md-4 col-xs-4 dark">
                                                 <p class="text_short"><?php echo $results['comm_father_employment']; ?></p>
                                             </div>
                                             <div class="col-md-1 col-xs-1 tooltips long">
@@ -332,7 +412,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                             <div class="col-md-6 col-xs-6">
                                             <p>Mothers's Occupation</p>
                                             </div>
-                                            <div class="col-md-4 col-xs-6 dark">
+                                            <div class="col-md-4 col-xs-4 dark">
                                                 <p class="text_short"><?php echo $results['comm_mother_employment']; ?></p>
                                             </div>
                                             <div class="col-md-1 col-xs-1 tooltips long">
@@ -405,61 +485,125 @@ if(!empty($session_search['search_inputs']['offset'])){
                                     <div id="">
                                         <h3 id="hcolor">Physical Attributes</h3>
                                     </div>                                
-                                <div class="profile_list">                                    
-                                        <ul>
-                                            <li><a href="#">Height</a></li>
-                                            <li><a href="#">Weight</a></li>
-                                            <li><a href="#">Body Type</a></li>
+                                    <div class="profile_list">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Height</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['phy_height']; ?></p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Weight</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['phy_weight']; ?></p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Body Type</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['body_typename']; ?></p>
+                                                </div>
+                                                                                               
+                                            </div>
+                                            <div class="col-md-6">              
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Complexion</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['complexion_typename']; ?></p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Physical Status</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['phy_physicalstatus']; ?></p>
+                                                </div>                         
+                                            </div>
+                                        </div>               
+                                        <!-- <ul>
+                                            <li><a >Height</a></li>
+                                            <li><a>Weight</a></li>
+                                            <li><a>Body Type</a></li>
                                         </ul>
                                         <ul>
-                                            <li><a href="#"><?php echo $results['phy_height']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['phy_weight']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['body_typename']; ?></a></li>
+                                            <li><a><?php echo $results['phy_height']; ?></a></li>
+                                            <li><a><?php echo $results['phy_weight']; ?></a></li>
+                                            <li><a><?php echo $results['body_typename']; ?></a></li>
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Complexion</a></li>
-                                            <li><a href="#">Physical Status</a></li>
+                                            <li><a>Complexion</a></li>
+                                            <li><a>Physical Status</a></li>
                                         </ul>
                                         <ul>
-                                            <li><a href="#"><?php echo $results['complexion_typename']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['phy_physicalstatus']; ?></a></li>
-                                        </ul>
+                                            <li><a><?php echo $results['complexion_typename']; ?></a></li>
+                                            <li><a><?php echo $results['phy_physicalstatus']; ?></a></li>
+                                        </ul> -->
                                     </div>
                                 </div> 
                                  <div class="members_about_box">
                                     <div id="">
                                     <h3 id="hcolor">Habits</h3>
                                     </div> 
-                                        <div class="profile_list">                                    
-                                            <ul>
-                                                <li><a href="#">Food</a></li>                                     
+                                        <div class="profile_list">    
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Food</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php echo $results['food_name']; ?></p>
+                                                    </div>                                      
+                                                </div>
+                                            </div>                                
+                                            <!-- <ul>
+                                                <li><a>Food</a></li>                                     
                                             </ul>
                                             <ul>
-                                                <li><a href="#"><?php echo $results['food_name']; ?></a></li>                                     
-                                            </ul>                                                                   
+                                                <li><a><?php //echo $results['food_name']; ?></a></li>                                     
+                                            </ul> -->               
                                         </div> 
                                 </div>                               
                                  <div class="members_about_box">
                                     <div id="">
                                     <h3 id="hcolor">Your Personality</h3>
                                     </div> 
-                                        <div class="profile_list">                                    
-                                            <ul>
-                                                <li><a href="#"><?php echo $results['phy_yourpersonality']; ?></a></li>
-                                            </ul>                                                                 
+                                        <div class="profile_list">    
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="col-md-12 col-xs-6">
+                                                    <p><?php echo $results['phy_yourpersonality']; ?></p>
+                                                    </div>                                      
+                                                </div>
+                                            </div>                                
+                                            <!-- <ul>
+                                                <li><a><?php //echo $results['phy_yourpersonality']; ?></a></li>
+                                            </ul> -->                                                                 
                                         </div> 
                                 </div>
                                 <div class="members_about_box">
                                     <div id="">
                                     <h3 id="hcolor">Age Expected</h3>
                                     </div> 
-                                        <div class="profile_list">                                    
-                                            <ul>
-                                                <li><a href="#">Age</a></li>                                      
+                                        <div class="profile_list">    
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Age</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php echo $results['phy_searchage_from']; ?> - <?php echo $results['phy_searchage_to']; ?></p>
+                                                    </div>                                      
+                                                </div>
+                                            </div>                                
+                                            <!-- <ul>
+                                                <li><a>Age</a></li>                                      
                                             </ul> 
                                             <ul>
-                                                <li><a href="#"><?php echo $results['phy_searchage_from']; ?> - <?php echo $results['phy_searchage_to']; ?></a></li>                                    
-                                            </ul>                                                                 
+                                                <li><a><?php echo $results['phy_searchage_from']; ?> - <?php echo $results['phy_searchage_to']; ?></a></li>                                    
+                                            </ul> -->                                                                 
                                         </div> 
                                 </div>
                                 <div class="members_about_box">
@@ -471,11 +615,11 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <div class="col-md-3">
                                                     <p>Education</p>
                                                 </div>
-                                                <div class="col-md-9">
+                                                <div class="col-md-9 li_style">
                                                     <?php 
                                                 if(!empty($expected_education)){
                                                     foreach($expected_education as $key => $value) { ?>
-                                                        <li><b><a href="#"><?php echo $value['edu_name']; ?></a></b></li>
+                                                        <li><b><?php echo $value['edu_name']; ?></b></li>
                                                 <?php }
                                                 }?>     
                                                  </div>
@@ -488,7 +632,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <?php 
                                                 if(!empty($expected_education)){
                                                     foreach($expected_education as $key => $value) { ?>
-                                                        <li><a href="#"><?php echo $value['edu_name']; ?></a></li>
+                                                        <li><a href="#"><?php// echo $value['edu_name']; ?></a></li>
                                                 <?php }
                                                 }?>
                                             </ul>                                                                 
@@ -499,9 +643,26 @@ if(!empty($session_search['search_inputs']['offset'])){
                                     <div id="">
                                     <h3 id="hcolor">Marital Status Expected</h3>
                                     </div> 
-                                        <div class="profile_list">                                    
-                                            <ul>
-                                                <li><a href="#">Marital Status</a></li>                                      
+                                        <div class="profile_list">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Marital Status</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php //echo $results['maritalname']; ?>
+                                                    <?php 
+                                                        if(!empty($expected_maritalstatus)){
+                                                            foreach($expected_maritalstatus as $key => $value) { 
+                                                                ?>
+                                                                <?php echo $value[0]['marital_name']; ?>
+                                                        <?php }
+                                                    }?></p>
+                                                    </div>                                      
+                                                </div>
+                                            </div>                                
+                                            <!-- <ul>
+                                                <li><a>Marital Status</a></li>                                      
                                             </ul> 
                                             <ul>
                                                 <li>                                                     
@@ -510,36 +671,53 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                         if(!empty($expected_maritalstatus)){
                                                             foreach($expected_maritalstatus as $key => $value) { 
                                                                 ?>
-                                                                <li><a href="#"><?php echo $value[0]['marital_name']; ?></a></li>
+                                                                <li><a><?php echo $value[0]['marital_name']; ?></a></li>
                                                         <?php }
                                                     }?>
                                                 </li>                                    
-                                            </ul>                                                                 
+                                            </ul> -->                                                                 
                                         </div> 
                                 </div>
                                 <div class="members_about_box">
                                     <div id="">
                                     <h3 id="hcolor">Food Expected</h3>
                                     </div> 
-                                        <div class="profile_list">                                    
-                                            <ul>
-                                                <li><a href="#">Diet</a></li>                                      
+                                        <div class="profile_list">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Food</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php echo $results['food_name']; ?></p>
+                                                    </div>                                      
+                                                </div>
+                                            </div>                                
+                                            <!-- <ul>
+                                                <li><a>Diet</a></li>                                      
                                             </ul> 
                                             <ul>
-                                             <?php echo $results['food_name']; ?>                              
-                                            </ul>                                                                 
+                                             <li><b><?php //echo $results['food_name']; ?></b></li>                              
+                                            </ul> -->                                                                 
                                         </div> 
                                 </div>
                                 <div class="members_about_box">
                                     <div id="">
                                     <h3 id="hcolor">Expectation About Life Partner</h3>
                                     <div class="profile_list">
-                                    <ul>
-                                                <li><a href="#"></a></li>                                      
+                                        <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="col-md-12 col-xs-6">
+                                                    <p><?php echo $results['phy_expectationabout_lifepartner']; ?></p>
+                                                    </div>                                      
+                                                </div>
+                                            </div>
+                                    <!-- <ul>
+                                                <li><a></a></li>                                      
                                             </ul>
                                     <ul>
                                              <?php echo $results['phy_expectationabout_lifepartner']; ?>                              
-                                            </ul> 
+                                            </ul> --> 
 
                                     </div>
                                     </div>                                                                  
