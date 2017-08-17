@@ -3,7 +3,7 @@ include('include/header.php');
 include('include/menu.php');
 
 // echo '<pre>';
-// print_r($expected_maritalstatus);
+// print_r($results);
 // echo '</pre>';
 // exit();
 
@@ -224,15 +224,15 @@ if(!empty($session_search['search_inputs']['offset'])){
                                 <!-- <div class="profile_list"> -->
                                 <div class="profile_list">                                    
                                         <ul>
-                                            <li><a href="#">TIme of Birth</a></li>
+                                            <li><a href="#">Time of Birth</a></li>
                                             <li><a href="#">Mother Tongue</a></li>
                                             <li><a href="#">Dhosham</a></li>
                                             <li><a href="#">Nakshathra</a></li>                                            
                                         </ul>
                                         <ul>
-                                            <li><a href="#"><?php echo $results['rel_timeofbirth']; ?></a></li>
+                                            <li><a href="#"><?php if(!empty($results['rel_timeofbirth'])){ echo $results['rel_timeofbirth']; }else{echo "NIL";} ?></a></li>
                                             <li><a href="#"><?php echo $results['mother_tongue_name']; ?></a></li>
-                                            <li><a href="#"><?php echo $results['rel_dhosham']; ?></a></li>
+                                            <li><a href="#"><?php if(!empty($results['rel_dhosham'])){ echo $results['rel_dhosham']; }else{echo "-";} ?></a></li>
                                             <li><a href="#"><?php echo $results['nakshathra_name']; ?></a></li>
                                         </ul>
                                         <ul>

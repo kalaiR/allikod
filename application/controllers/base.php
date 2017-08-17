@@ -643,10 +643,12 @@ class Base extends CI_Controller {
 
 				// To get the image slider for search results
 				$data = $this->user_model->get_basicsearch($values, $per_page, $offset);
-				foreach ($data['results'] as $key => $value) {
+				foreach($data['results'] as $key => $value) {
 					$sliderdata[] = $this->user_model->get_customer_images($value['userdetail_id']);
+				}				
+				if(!empty($sliderdata)){
+					$data['slider_images'] = $sliderdata;
 				}
-				$data['slider_images'] = $sliderdata;
 				
 				$this->session->set_userdata('search_inputs',$values);
 
