@@ -2,6 +2,9 @@
 include('include/header.php');
 include('include/menu.php');
 
+// print_r($results);
+
+
 $session_search = $this->session->all_userdata();
 if(!empty($session_search['search_inputs']['show_profile'])){
     $displayresults =  $session_search['search_inputs']['show_profile'];
@@ -213,10 +216,38 @@ if(isset($per_page)&&(!empty($total_rows)))
                                 }?>
                             </p>
                         </div>
+                        <?php 
+                            $user_session = $this->session->userdata("login_status");
+                            if(!empty($user_session)){ ?>
+                                    <div class="col-md-5 col-md-5 col-xs-6 name-box">
+                                        <p><b>Location</b></p>
+                                    </div>
+                                    <div class="col-md-1 ">
+                                    <p> : </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p> 
+                                        <?php if(!empty($value['comm_current_countrycountry'])){ echo $value['comm_current_countrycountry'];}
+                                        ?>
+                                        <?php if(!empty($value['comm_current_city'])){ echo " / ".$value['comm_current_city'];}
+                                        ?>
+                                        <?php if(!empty($value['comm_current_district'])){ echo " / ".$value['comm_current_district'];}
+                                        ?>
+                                        </p>
+                                    </div>
+                            <?php } ?>    
                         <div class="text-box-name pu">
-                          <div class="col-md-6">
-                            <p><a href="<?php echo base_url().'viewdetail/'.$value['userdetail_id'];?>" target="_blank">View Full Details</a></p>
-                          </div>  
+                         <?php
+                           $user_session = $this->session->userdata("login_status");
+                           if(!empty($user_session)){ ?>
+                                <div class="col-md-6">
+                                    <p>
+                                    <a href="<?php echo base_url().'viewdetail/'.$value['userdetail_id'];?>" target="_blank">View Full Details</a>
+                                    </p>
+                                </div>
+                            <?php }else{ ?>
+                                 <a class="popup-with-zoom-anim" href="#small-dialog">View Full Details</a>
+                            <?php } ?>    
                         </div>
                     </div>      
                 <?php } 
