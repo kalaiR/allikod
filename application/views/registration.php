@@ -170,10 +170,10 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                                <input type='text' class="form-control datetimepicker4" name="dob" id="dob" placeholder="Birthday" /> 
+                                                <input type='text' class="form-control datetimepicker4" name="dob" id="dob" placeholder="Birthday" value="" /> 
                                             </div>    
                                                 <div class="col-sm-4 box">
-                                                    <span id="gender_error" class="registration-error"></span>
+                                                    <span id="dob_error" class="registration-error"></span>
                                                 </div> 
                                             <input type='hidden' class="form-control" name="user_age" id="user_age"  value=""/>     
                                         </div>
