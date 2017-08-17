@@ -169,11 +169,14 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                   <h4 id="white">Birthday *</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-4">
-                                                <input type='text' class="form-control datetimepicker4" name="dob" id="dob" placeholder="Birthday" /> 
-                                            </div>    
-                                                <div class="col-sm-4 box">
-                                                    <span id="gender_error" class="registration-error"></span>
+                                            <div class="col-sm-2">
+                                                <input type='text' class="form-control datetimepicker4" name="dob" id="dob" placeholder="Birthday" value="" /> 
+                                            </div> 
+                                            <div class="col-sm-2">
+                                                <input type='text' class="form-control" placeholder="Age" /> 
+                                            </div>   
+                                                <div class="col-sm-2 box">
+                                                    <span id="dob_error" class="registration-error"></span>
                                                 </div> 
                                             <input type='hidden' class="form-control" name="user_age" id="user_age"  value=""/>     
                                         </div>

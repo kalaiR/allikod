@@ -984,15 +984,15 @@
 															</div>	 -->
 															<div class="wrap-upload-buttons">
 																<span id="spanFileName" class="val-error"></span>
-																<ul class="btn-nav">
+																<!-- <ul class="btn-nav">
 																	<li><span class="btn btn-default"> Browers<input type="file" name="cus_profileimage[]" click-type="type1" class="picupload img_view" multiple accept="image/*" / id="picupload"></span></li>
-																</ul>
+																</ul> -->
 															</div>
 															 <div class="edit_img">
 															<div class="modal-body login-box clearfix">
 																<ul id="media-list" class="clearfix">
 																	<li class="myupload">
-																		<span><i class="icon32 icon-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload per-img-box" multiple></span>
+																		<span><i class="icon32 icon-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload per-img-box user-img" multiple></span>
 																	</li>
 																</ul>
 															</div>
