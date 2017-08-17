@@ -90,6 +90,7 @@ ADD `ren_period_in_month` INT( 11 ) NOT NULL AFTER `ren_amount` ;
 17/08/17:
 ALTER TABLE `reg_userdetail` ADD `user_featured_profile_status` TINYINT( 1 ) NOT NULL DEFAULT '0' COMMENT 'Store this status whether it is showing in home page or not' AFTER `user_registeredby` ;
 
+ALTER TABLE `user_images` DROP `image_active_status`;
 
 no need to run(just for reference)
 Query to generate report of active online user from the year 2014 to 2017:
@@ -116,5 +117,5 @@ no image = 13765
 total male and female records = 24325
 
 
-
+SELECT * FROM `reg_userdetail` WHERE user_added_date BETWEEN '2017-07-07' AND '2017-08-17';
 
