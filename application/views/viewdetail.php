@@ -227,23 +227,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p><?php echo $results['marital_name']; ?></p>
                                                 </div>                                       
                                             </div>
-                                        </div>                                    
-                                        <!-- <ul>
-                                            <li><a>Registered By</a></li>
-                                            <li><a>Gender</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['registered_by_name']; ?></a></li>
-                                            <li><a><?php echo $results['user_gender'] != 2 ? 'Male':'Female'; ?></a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a>Date of Birth/ Age</a></li>
-                                            <li><a>Marital Status</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['user_dob']; ?></a></li>
-                                            <li><a><?php echo $results['marital_name']; ?></a></li>
-                                        </ul> -->
+                                        </div>                                  
                                     </div>                                             
                                 </div>
                                 <div class="members_about_box">
@@ -301,29 +285,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p><?php echo $results['zodiac_name']; ?></p>
                                                 </div>                          
                                             </div>
-                                        </div>                                    
-                                        <!-- <ul>
-                                            <li><a>Time of Birth</a></li>
-                                            <li><a>Mother Tongue</a></li>
-                                            <li><a>Dhosham</a></li>
-                                            <li><a>Nakshathra</a></li>                                            
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['rel_timeofbirth']; ?></a></li>
-                                            <li><a><?php echo $results['mother_tongue_name']; ?></a></li>
-                                            <li><a><?php echo $results['rel_dhosham']; ?></a></li>
-                                            <li><a><?php echo $results['nakshathra_name']; ?></a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a>Luknam</a></li>
-                                            <li><a>Gothra</a></li>
-                                            <li><a>Zodiac Sign</a></li>
-                                        </ul>
-                                        <ul>
-                                             <li><a><?php echo $results['lukhnam_name']; ?></a></li>
-                                             <li><a><?php echo $results['rel_gothra']; ?></a></li>
-                                             <li><a><?php echo $results['zodiac_name']; ?></a></li>
-                                        </ul> -->
+                                        </div>
                                     </div>                                             
                                 </div>
                                 <div class="members_about_box">
@@ -387,6 +349,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                 </div>                            
                                 <div class="profile_list">    
                                     <div class="row">
+                                    <div class="col-md-12">
                                         <div class="col-md-6">
                                             <div class="col-md-6 col-xs-6">
                                             <p>Father's Name</p>
@@ -395,7 +358,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p><?php echo $results['comm_father_name']; ?></p>
                                             </div>
                                             <div  class="col-md-6 col-xs-6 ">
-                                            <p>Mothers Name</p>
+                                            <p>Mother's Name</p>
                                             </div>
                                             <div class="col-md-6 col-xs-6 dark">
                                                 <p><?php echo $results['comm_mother_name']; ?></p>
@@ -478,6 +441,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                             <p><?php echo $results['comm_number_of_sisters_yo_mar']; ?></p>
                                             </div>                         
                                         </div>
+                                    </div>
                                     </div>                                
                                 </div>                                             
                             </div>
@@ -522,25 +486,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p><?php echo $results['phy_physicalstatus']; ?></p>
                                                 </div>                         
                                             </div>
-                                        </div>               
-                                        <!-- <ul>
-                                            <li><a >Height</a></li>
-                                            <li><a>Weight</a></li>
-                                            <li><a>Body Type</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['phy_height']; ?></a></li>
-                                            <li><a><?php echo $results['phy_weight']; ?></a></li>
-                                            <li><a><?php echo $results['body_typename']; ?></a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a>Complexion</a></li>
-                                            <li><a>Physical Status</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['complexion_typename']; ?></a></li>
-                                            <li><a><?php echo $results['phy_physicalstatus']; ?></a></li>
-                                        </ul> -->
+                                        </div>
                                     </div>
                                 </div> 
                                  <div class="members_about_box">
@@ -557,13 +503,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                         <p><?php echo $results['food_name']; ?></p>
                                                     </div>                                      
                                                 </div>
-                                            </div>                                
-                                            <!-- <ul>
-                                                <li><a>Food</a></li>                                     
-                                            </ul>
-                                            <ul>
-                                                <li><a><?php //echo $results['food_name']; ?></a></li>                                     
-                                            </ul> -->               
+                                            </div>              
                                         </div> 
                                 </div>                               
                                  <div class="members_about_box">
@@ -577,10 +517,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p><?php echo $results['phy_yourpersonality']; ?></p>
                                                     </div>                                      
                                                 </div>
-                                            </div>                                
-                                            <!-- <ul>
-                                                <li><a><?php //echo $results['phy_yourpersonality']; ?></a></li>
-                                            </ul> -->                                                                 
+                                            </div>        
                                         </div> 
                                 </div>
                                 <div class="members_about_box">
@@ -597,13 +534,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                         <p><?php echo $results['phy_searchage_from']; ?> - <?php echo $results['phy_searchage_to']; ?></p>
                                                     </div>                                      
                                                 </div>
-                                            </div>                                
-                                            <!-- <ul>
-                                                <li><a>Age</a></li>                                      
-                                            </ul> 
-                                            <ul>
-                                                <li><a><?php echo $results['phy_searchage_from']; ?> - <?php echo $results['phy_searchage_to']; ?></a></li>                                    
-                                            </ul> -->                                                                 
+                                            </div>            
                                         </div> 
                                 </div>
                                 <div class="members_about_box">
@@ -624,19 +555,6 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 }?>     
                                                  </div>
                                             </div>
-                                        <!-- <div class="profile_list">                                    
-                                            <ul>
-                                                <li><a href="#">Education</a></li>                                      
-                                            </ul> 
-                                            <ul>
-                                                <?php 
-                                                if(!empty($expected_education)){
-                                                    foreach($expected_education as $key => $value) { ?>
-                                                        <li><a href="#"><?php// echo $value['edu_name']; ?></a></li>
-                                                <?php }
-                                                }?>
-                                            </ul>                                                                 
-                                        </div> --> 
                                 </div>
                                 </div>
                                 <div class="members_about_box">
@@ -660,22 +578,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     }?></p>
                                                     </div>                                      
                                                 </div>
-                                            </div>                                
-                                            <!-- <ul>
-                                                <li><a>Marital Status</a></li>                                      
-                                            </ul> 
-                                            <ul>
-                                                <li>                                                     
-                                                    <?php //echo $results['maritalname']; ?>
-                                                    <?php 
-                                                        if(!empty($expected_maritalstatus)){
-                                                            foreach($expected_maritalstatus as $key => $value) { 
-                                                                ?>
-                                                                <li><a><?php echo $value[0]['marital_name']; ?></a></li>
-                                                        <?php }
-                                                    }?>
-                                                </li>                                    
-                                            </ul> -->                                                                 
+                                            </div>        
                                         </div> 
                                 </div>
                                 <div class="members_about_box">
@@ -692,13 +595,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                         <p><?php echo $results['food_name']; ?></p>
                                                     </div>                                      
                                                 </div>
-                                            </div>                                
-                                            <!-- <ul>
-                                                <li><a>Diet</a></li>                                      
-                                            </ul> 
-                                            <ul>
-                                             <li><b><?php //echo $results['food_name']; ?></b></li>                              
-                                            </ul> -->                                                                 
+                                            </div>                                                              
                                         </div> 
                                 </div>
                                 <div class="members_about_box">
@@ -712,13 +609,6 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     </div>                                      
                                                 </div>
                                             </div>
-                                    <!-- <ul>
-                                                <li><a></a></li>                                      
-                                            </ul>
-                                    <ul>
-                                             <?php echo $results['phy_expectationabout_lifepartner']; ?>                              
-                                            </ul> --> 
-
                                     </div>
                                     </div>                                                                  
                                 </div>                                                          

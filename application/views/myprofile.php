@@ -165,31 +165,7 @@
                                                     <p><?php echo $results['comm_communication_address']; ?></p>
                                                 </div>                                      
                                             </div>
-                                        </div>                                    
-                                        <!-- <ul>
-                                            <li><a>Residence of</a></li>
-                                            <li><a>Current Country</a></li>
-                                            <li><a>Current City</a></li>
-                                            <li><a>Current District</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['comm_residence']; ?></a></li>
-                                            <li><a><?php echo $results['comm_current_countrycountry']; ?></a></li>
-                                            <li><a><?php echo $results['comm_current_city']; ?></a></li>
-                                            <li><a><?php echo $results['comm_current_district']; ?></a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a>Phone Number</a></li>
-                                            <li><a>Mobile No.</a></li>
-                                            <li><a>Address</a></li>
-                                            <li><a>-</a> </li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['comm_phone_no']; ?></a></li>
-                                            <li><a><?php echo $results['comm_mobile_no']; ?></a></li>
-                                            <li><a><?php echo $results['comm_communication_address']; ?></a></li>
-                                            <li><a>- </a></li>
-                                        </ul> -->
+                                        </div>
                                     </div>                                             
                                 </div>
                                 <div class="members_about_box">
@@ -226,23 +202,7 @@
                                                     <p><?php echo $results['marital_name']; ?></p>
                                                 </div>                                       
                                             </div>
-                                        </div>                                    
-                                        <!-- <ul>
-                                            <li><a>Registered By</a></li>
-                                            <li><a>Gender</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['registered_by_name']; ?></a></li>
-                                            <li><a><?php echo $results['user_gender'] != 2 ? 'Male':'Female'; ?></a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a>Date of Birth/ Age</a></li>
-                                            <li><a>Marital Status</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['user_dob']; ?> / <?php echo $results['user_age']; ?></a></li>
-                                            <li><a><?php echo $results['marital_name']; ?></a></li>
-                                        </ul> -->
+                                        </div>
                                     </div>                                             
                                 </div>
                                 <div class="members_about_box">
@@ -300,31 +260,7 @@
                                                     <p><?php echo $results['zodiac_name']; ?></p>
                                                 </div>                          
                                             </div>
-                                        </div>                                    
-                                        <!-- <ul>
-                                            <li><a>Time of Birth</a></li>
-                                            <li><a>Mother Tongue</a></li>
-                                            <li><a>Dhosham</a></li>
-                                            <li><a>Nakshathra</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['rel_timeofbirth']; ?></a></li>
-                                            <li><a><?php echo $results['mother_tongue_name']; ?></a></li>
-                                            <li><a><?php echo $results['rel_dhosham']; ?></a></li>
-                                            <li><a><?php echo $results['nakshathra_name']; ?></a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a>Luknam</a></li>
-                                            <li><a>Gothra</a></li>
-                                            <li><a>Zodiac Sign</a></li>
-                                            <li><a>-</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['lukhnam_name']; ?></a></li>
-                                            <li><a><?php echo $results['rel_gothra']; ?></a></li>
-                                            <li><a><?php echo $results['zodiac_name']; ?></a></li>
-                                            <li><a>-</a></li>        
-                                        </ul> -->
+                                        </div>
                                     </div>                                             
                                 </div>
                                 <div class="members_about_box">
@@ -381,27 +317,7 @@
                                                 <p><?php echo $results['edu_montlyincome']; ?></p>
                                             </div>                                     
                                         </div>
-                                    </div>                                    
-                                        <!-- <ul>
-                                            <li><a>Education</a></li>
-                                            <li><a>Education in Detail</a></li>
-                                            <li><a>Occupation</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['edu_name']; ?></a></li>
-                                            <li><a><?php echo $results['edu_educationdetails']; ?></a></li>
-                                            <li><a><?php echo $results['occupation_name']; ?></a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a>Employed In</a></li>
-                                            <li><a>Monthly Income (<i class="fa fa-inr" aria-hidden="true"></i>)</a></li>
-                                            <li><a>Occupation in Detail</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['empin_name']; ?></a></li>
-                                            <li><a><?php echo $results['edu_montlyincome']; ?></a></li>
-                                            <li><a><?php echo $results['edu_occupationdetail']; ?></a></li>
-                                        </ul> -->
+                                    </div>
                                     </div>                                             
                                 </div>
                                 <div class="members_about_box">
@@ -501,45 +417,7 @@
                                             <p><?php echo $results['comm_number_of_sisters_yo_mar']; ?></p>
                                             </div>                         
                                         </div>
-                                    </div>                                    
-                                        <!-- <ul>
-                                            <li><a>Father's Name</a></li>
-                                            <li><a>Mother's Name</a></li>
-                                            <li><a>Father's Occupation</a></li>
-                                            <li><a>Mother's Occupation</a></li>
-                                            <li><a>Family Status</a></li>
-                                            <li><a>Family Type</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['comm_father_name']; ?></a></li>
-                                            <li><a><?php echo $results['comm_mother_name']; ?></a></li>
-                                            <li><a><?php echo $results['comm_father_employment']; ?></a></li>
-                                            <li><a><?php echo $results['comm_mother_employment']; ?></a></li>
-                                            <li><a><?php echo $results['family_statusname']; ?></a></li>
-                                            <li><a><?php echo $results['family_typename']; ?></a></li>
-                                        </ul>
-
-                                        <ul>
-                                            <li><a>-</a></li>
-                                            <li><a>No. of Brothers</a></li>
-                                            <li><a>No. of Sisters</a></li>
-                                            <li><a>No. of Brothers Married</a></li>
-                                            <li><a>No. of Sisters Married</a></li>                           
-                                        </ul>
-                                        <ul>
-                                            <li><a><b>Elder</b></a></li>
-                                            <li><a><b><?php echo $results['comm_number_of_brothers_el']; ?></b></a></li>
-                                            <li><a><b><?php echo $results['comm_number_of_sisters_el']; ?></b></a></li>
-                                            <li><a><b><?php echo $results['comm_number_of_brothers_el_mar']; ?></b></a></li>
-                                            <li><a><b><?php echo $results['comm_number_of_sisters_el_mar']; ?></b></a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a>younger</a></li>
-                                            <li><a><?php echo $results['comm_number_of_brothers_yo']; ?></a></li>
-                                            <li><a><?php echo $results['comm_number_of_sisters_yo']; ?></a></li>
-                                            <li><a><?php echo $results['comm_number_of_brothers_yo_mar']; ?></a></li>
-                                            <li><a><?php echo $results['comm_number_of_sisters_yo_mar']; ?></a></li>
-                                        </ul> -->
+                                    </div>
                                     </div>                                             
                                 </div>
                                 <div class="members_about_box">
@@ -591,26 +469,7 @@
                                                     <p><?php echo $results['phy_physicalstatus']; ?></p>
                                                 </div>                         
                                             </div>
-                                        </div>                                    
-                                        <!-- <ul>
-                                            <li><a>Height</a></li>
-                                            <li><a>Weight</a></li>
-                                            <li><a>Body Type</a></li>
-                                            
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['phy_height']; ?></a></li>
-                                            <li><a><?php echo $results['phy_weight']; ?></a></li>
-                                            <li><a><?php echo $results['body_typename']; ?></a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a>Complexion</a></li>
-                                            <li><a>Physical Status</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a><?php echo $results['complexion_typename']; ?></a></li>
-                                            <li><a><?php echo $results['phy_physicalstatus']; ?></a></li>
-                                        </ul> -->
+                                        </div>
                                     </div>
                                 </div> 
                                  <div class="members_about_box">
@@ -627,13 +486,7 @@
                                                         <p><?php echo $results['food_name']; ?></p>
                                                     </div>                                      
                                                 </div>
-                                            </div>                                
-                                            <!-- <ul>
-                                                <li><a>Food</a></li>                                     
-                                            </ul>
-                                            <ul>
-                                                <li><a><?php echo $results['food_name']; ?></a></li>                                     
-                                            </ul> -->                                                                   
+                                            </div>                                                                 
                                         </div> 
                                 </div>                               
                                  <div class="members_about_box">
@@ -647,10 +500,7 @@
                                                     <p><b><?php echo $results['phy_yourpersonality']; ?></b></p>
                                                     </div>                                      
                                                 </div>
-                                            </div>                                
-                                            <!-- <ul>
-                                                <li><a><?php echo $results['phy_yourpersonality']; ?></a></li>
-                                            </ul> -->                                                                 
+                                            </div>            
                                         </div> 
                                 </div>
                                 <div class="members_about_box">
