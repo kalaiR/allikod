@@ -589,10 +589,10 @@
                                                     </div>        
                                                 </div>
                                                 <div class="row com-box">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-3">
                                                         <p>Education</p>
                                                     </div>
-                                                    <div class="col-md-6">       
+                                                    <div class="col-md-9">       
                                                         <div class="control-group">                     
                                                             <div class="controls">
                                                                 <!-- <p><b><?php // echo $results['phy_searchedu_status']; ?></b></p> --><p><b>
