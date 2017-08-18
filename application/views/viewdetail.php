@@ -3,7 +3,7 @@ include('include/header.php');
 include('include/menu.php');
 
 // echo '<pre>';
-// print_r($expected_maritalstatus);
+// print_r($results);
 // echo '</pre>';
 // exit();
 

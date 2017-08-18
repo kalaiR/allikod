@@ -225,7 +225,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                                 <input type='text' class="form-control timepicker" id="reg_tim" placeholder="Time of Birth">
+                                            <input type='text' class="form-control timepicker" id="reg_tim" name="reg_tim"placeholder="Time of Birth">
                                             </div>
                                             <div class="col-sm-4 box">
                                                <span id="tim_error" class="registration-error"></span>
