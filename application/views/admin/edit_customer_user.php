@@ -992,7 +992,7 @@
 															<div class="modal-body login-box clearfix">
 																<ul id="media-list" class="clearfix">
 																	<li class="myupload">
-																		<span><i class="icon32 icon-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload per-img-box user-img" multiple></span>
+																		<span class="user-img"><i class="icon32 icon-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload per-img-box user-img" multiple></span>
 																	</li>
 																</ul>
 															</div>
