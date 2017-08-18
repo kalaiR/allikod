@@ -278,17 +278,12 @@
                                             </div>
                                             <p>No photos in your album.Upload Photos.</p> -->  
                                             <input type="file" name="cus_profileimage[]" id="uploadedfile" multiple="">    
-                                            <!-- <div class="wrap-upload-buttons">
-                                                 <span id="spanFileName" class="registration-error"></span>
-                                                <ul class="btn-nav">
-                                                    <li><span class="btn btn-default btn-default"> Browers<input type="file" name="cus_profileimage[]" click-type="type1" class="picupload img_view" multiple accept="image/*" /></span></li>
-                                                </ul>
-                                            </div>
-                                            <div class="edit_img">
+                                           <!--  <div class="edit_img">
+                                                <span id="spanFileName" class="registration-error error-msg"></span>
                                                 <div class="modal-body login-box clearfix">
                                                     <ul id="media-list" class="clearfix">
                                                         <li class="myupload">
-                                                            <span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload  " multiple></span>
+                                                            <span><i class="fa fa-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload  " multiple></span>
                                                         </li>
                                                     </ul>
                                                  </div>
