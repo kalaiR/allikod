@@ -505,8 +505,8 @@
                                                 <div class="col-md-1" style="width:13%">       
                                                     <select name="cus_birthmer" class="form_inputs col-md-2 tb_drop" data-message="Birth Meredian">
                                                         <option value="">Meredian</option>
-                                                        <option value="am" <?php if($time_of_birth[2] == "am") echo "selected"; ?>>AM</option>
-                                                        <option value="pm" <?php if($time_of_birth[2] == "pm") echo "selected"; ?>>PM</option>
+                                                        <option value="am" <?php if(!empty($time_of_birth[2])) if($time_of_birth[2] == "am") echo "selected"; ?>>AM</option>
+                                                        <option value="pm" <?php if(!empty($time_of_birth[2])) if($time_of_birth[2] == "pm") echo "selected"; ?>>PM</option>
                                                     </select>                                         
                                                 </div>
                                             </div>
