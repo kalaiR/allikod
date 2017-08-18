@@ -281,7 +281,8 @@ class User_model extends CI_Model {
  public function checkmail(){
     $model_data['error'] = 0;
     if($this->input->post('email')) {
-      $login_where = '(user_email="'.$this->input->post('email').'" and user_active_status=1)';
+      // $login_where = '(user_email="'.$this->input->post('email').'" and user_active_status=1)';
+      $login_where = '(user_email="'.$this->input->post('email').'")';
       $this->db->select('*');
       $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where);      
         if($userdata_get->num_rows()) {
@@ -995,28 +996,60 @@ class User_model extends CI_Model {
             $this->db->update("reg_userdetail", $userdetail_update_data);
             // echo $this->db->last_query();
 
-            $communication_update_where = '(reg_user_id="'.$id.'")'; 
-            $this->db->set($communication_update_data); 
-            $this->db->where($communication_update_where);
-            $this->db->update("reg_communication_family", $communication_update_data);
+            $comm = $this->db->get_where('reg_communication_family', array('reg_user_id' => $id))->row_array();
+            if(!empty($comm)){
+              $communication_update_where = '(reg_user_id="'.$id.'")'; 
+              $this->db->set($communication_update_data); 
+              $this->db->where($communication_update_where);
+              $this->db->update("reg_communication_family", $communication_update_data);
+            }
+            else{
+              $communication_update_data['reg_user_id'] = $id;
+              $this->db->insert("reg_communication_family", $communication_update_data);
+            }
+            
             // echo $this->db->last_query();
 
-            $religion_ethnicity_update_where = '(reg_user_id="'.$id.'")'; 
-            $this->db->set($religion_ethnicity_update_data); 
-            $this->db->where($religion_ethnicity_update_where);
-            $this->db->update("reg_religion_ethnicity", $religion_ethnicity_update_data);
+            $rel_eth = $this->db->get_where('reg_religion_ethnicity', array('reg_user_id' => $id))->row_array();
+            if(!empty($rel_eth)){
+              $religion_ethnicity_update_where = '(reg_user_id="'.$id.'")'; 
+              $this->db->set($religion_ethnicity_update_data); 
+              $this->db->where($religion_ethnicity_update_where);
+              $this->db->update("reg_religion_ethnicity", $religion_ethnicity_update_data);
+            }
+            else{
+              $communication_update_data['reg_user_id'] = $id;
+              $this->db->insert("reg_religion_ethnicity", $religion_ethnicity_update_data);
+            }
+         
             // echo $this->db->last_query();
 
-            $education_occupation_update_where = '(reg_user_id="'.$id.'")'; 
-            $this->db->set($education_occupation_update_data); 
-            $this->db->where($education_occupation_update_where);
-            $this->db->update("reg_education_occupation", $education_occupation_update_data);
+            $educ = $this->db->get_where('reg_education_occupation', array('reg_user_id' => $id))->row_array();
+            if(!empty($educ)){
+              $education_occupation_update_where = '(reg_user_id="'.$id.'")'; 
+              $this->db->set($education_occupation_update_data); 
+              $this->db->where($education_occupation_update_where);
+              $this->db->update("reg_education_occupation", $education_occupation_update_data);
+            }
+            else{
+              $education_occupation_update_data['reg_user_id'] = $id;
+              $this->db->insert("reg_education_occupation", $education_occupation_update_data);
+            }
+           
             // echo $this->db->last_query();
 
-            $physicalattributes_update_where = '(reg_user_id="'.$id.'")'; 
-            $this->db->set($physicalattributes_update_data); 
-            $this->db->where($physicalattributes_update_where);
-            $this->db->update("reg_physical_expectation", $physicalattributes_update_data);
+            $phy = $this->db->get_where('reg_physical_expectation', array('reg_user_id' => $id))->row_array();
+            if(!empty($phy)){
+              $physicalattributes_update_where = '(reg_user_id="'.$id.'")'; 
+              $this->db->set($physicalattributes_update_data); 
+              $this->db->where($physicalattributes_update_where);
+              $this->db->update("reg_physical_expectation", $physicalattributes_update_data);
+            }
+            else{
+              $education_occupation_update_data['reg_user_id'] = $id;
+              $this->db->insert("reg_physical_expectation", $physicalattributes_update_data);
+            }
+         
             // echo $this->db->last_query();
 
             if(!empty($profile_image)){
@@ -1041,27 +1074,18 @@ class User_model extends CI_Model {
                   $data_horo[$value->key]= $value->value;
                 }
             } 
-            $horoscope_where = '(reg_user_id="'.$id.'")';
-            $this->db->set($data_horo); 
-            $this->db->where($horoscope_where);
-            $this->db->update("reg_image_horoscope", $data_horo);
 
-            //Update expectation for search
-
-            // $expectation_update_data = array(
-            //         'phy_height' => $this->input->post('cus_heightcms'),
-            //         'phy_weight' => $this->input->post('cus_weight'),
-            //         'phy_bodytype' => $this->input->post('cus_bodytype'),
-            //         'phy_complexion' => $this->input->post('cus_complexion'),
-            //         'phy_physicalstatus' => $this->input->post('cus_phystatus'),
-            //         'phy_food' => $this->input->post('cus_food'),
-            //         'phy_yourpersonality' => $this->input->post('cus_personality'),
-            //         'phy_searchage_from' => $this->input->post('cus_startage'),
-            //         'phy_searchage_to' => $this->input->post('cus_endage'),
-            //         'phy_expectationfood' => $this->input->post('cus_expectfood'),
-            //         'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
-            // );
-
+            $horo = $this->db->get_where('reg_image_horoscope', array('reg_user_id' => $id))->row_array();
+            if(!empty($horo)){
+              $horoscope_where = '(reg_user_id="'.$id.'")';
+              $this->db->set($data_horo); 
+              $this->db->where($horoscope_where);
+              $this->db->update("reg_image_horoscope", $data_horo);
+            }
+            else{
+              $data_horo['reg_user_id'] = $id;
+              $this->db->insert("reg_image_horoscope", $data_horo);
+            }
 
             //Storing multiple records for education and occupation
             $condition = "regedu.reg_user_id = ".$id."";
@@ -1094,30 +1118,34 @@ class User_model extends CI_Model {
             $eduold = serialize($edustatus);
             $edunew = serialize($this->input->post('cus_expectedu'));
 
-            $mar_insert_batch = array();
-            foreach ($this->input->post('cus_expectmarstatus') as $value) {
-              $mar_result['reg_user_id'] = $id;
-              $mar_result['marital_category_id'] = $value;
-              array_push($mar_insert_batch, $mar_result);
+            if(!empty($this->input->post('cus_expectmarstatus'))){
+              $mar_insert_batch = array();
+              foreach ($this->input->post('cus_expectmarstatus') as $value) {
+                $mar_result['reg_user_id'] = $id;
+                $mar_result['marital_category_id'] = $value;
+                array_push($mar_insert_batch, $mar_result);
+              }
+              if($marold != $marnew){
+                $this->db->where('reg_user_id', $id);
+                $this->db->delete('reg_selectedmarital'); 
+                $this->db->insert_batch('reg_selectedmarital',$mar_insert_batch);
+              }
             }
-
-            $edu_insert_batch = array();
-            foreach ($this->input->post('cus_expectedu') as $value) {
-              $edu_result['reg_user_id'] = $id;
-              $edu_result['education_id'] = $value;
-              array_push($edu_insert_batch, $edu_result);
-            }
-
-            if($marold != $marnew){
-              $this->db->where('reg_user_id', $id);
-              $this->db->delete('reg_selectedmarital'); 
-              $this->db->insert_batch('reg_selectedmarital',$mar_insert_batch);
-            }
-            if($eduold != $edunew){
-              $this->db->where('reg_user_id', $id);
-              $this->db->delete('reg_selectededucation'); 
-              $this->db->insert_batch('reg_selectededucation',$edu_insert_batch);
-            }
+            
+            if(!empty($this->input->post('cus_expectedu'))){
+              $edu_insert_batch = array();
+              foreach ($this->input->post('cus_expectedu') as $value) {
+                $edu_result['reg_user_id'] = $id;
+                $edu_result['education_id'] = $value;
+                array_push($edu_insert_batch, $edu_result);
+              }
+              if($eduold != $edunew){
+                $this->db->where('reg_user_id', $id);
+                $this->db->delete('reg_selectededucation'); 
+                $this->db->insert_batch('reg_selectededucation',$edu_insert_batch);
+              }
+            }            
+            
             $model_data['status'] = "Updated Successfully";
             $model_data['error'] = 2;
       }

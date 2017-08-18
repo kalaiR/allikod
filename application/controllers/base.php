@@ -173,6 +173,9 @@ class Base extends CI_Controller {
 	public function post_success(){
 		$this->load->view('post');
 	}
+	public function myview(){
+		$this->load->view('myview');
+	}
 
 	public function upload_file(){
 
@@ -233,7 +236,7 @@ class Base extends CI_Controller {
 		  		$data_reg = array(
 						// 'religionethnicity_id'=>'',
 						'reg_user_id'=>$id_userdetails,
-						'rel_timeofbirth'=>$form_data['reg_tim'],
+						'rel_timeofbirth'=>strtolower($form_data['reg_tim']),
 						'rel_mothertongue_id'=>$form_data['mother_tongue'][0],
 						'rel_nakshathra_id'=>$form_data['nakshathra'][0],
 						'rel_zodiacsign_id'=>$form_data['zodiac_sign'][0]
@@ -643,10 +646,12 @@ class Base extends CI_Controller {
 
 				// To get the image slider for search results
 				$data = $this->user_model->get_basicsearch($values, $per_page, $offset);
-				foreach ($data['results'] as $key => $value) {
+				foreach($data['results'] as $key => $value) {
 					$sliderdata[] = $this->user_model->get_customer_images($value['userdetail_id']);
+				}				
+				if(!empty($sliderdata)){
+					$data['slider_images'] = $sliderdata;
 				}
-				$data['slider_images'] = $sliderdata;
 				
 				$this->session->set_userdata('search_inputs',$values);
 
@@ -1138,5 +1143,15 @@ class Base extends CI_Controller {
 			echo "mail sent";
 		else
 			echo "mail not sent";
+	}
+
+	public function viewfeatureprofile(){
+		$per_page = 10;
+		$offset = 0;
+		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);					  		
+  		if(!empty($values[0])){
+  			$data = $this->user_model->get_datauserId($values[0], $per_page, $offset);		  			
+  		}   		
+  		$this->load->view('viewfeatureprofile',$data);
 	}
 }
