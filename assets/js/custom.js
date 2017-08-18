@@ -471,6 +471,15 @@ $(document).ready(function() {
         return false;
     });
 
+    // Active Tab Change
+     $('#next').click(function(){
+  $('.nav-tabs > .active').next('li').find('a').trigger('click');
+});
+
+  $('#back').click(function(){
+  $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+});
+  // Active Tab Change ends
 
     /*Admin customer user edit form Start*/
     $('.customer_edit_form').on('submit',function(e) {

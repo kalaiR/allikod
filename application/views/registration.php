@@ -26,7 +26,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                 <div class="search_option">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs registration-step " role="tablist">
-                        <li role="presentation" class="highlight" id="userdetails">
+                        <li role="presentation" class="highlight active" id="userdetails">
                             <a href="search.html#base" aria-controls="base" role="tab" data-toggle="tab">User Details</a>
                         </li>
                         <li role="presentation" class="#" id="ethnicity">
@@ -1286,7 +1286,8 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                             </div>
                         </div>
                         <!-- Horo Scope End -->
-                        </div>
+                    </div>
+                
                         <div class="col-sm-4 pull-right next-box"> 
                             <div class="search_btn">
                                 <input class=" btnAction next_angkar_btn pull-right" type="button" name="back" id="back" value="Back" style="display:none;">
@@ -1299,13 +1300,14 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                          <input type="hidden" name="result_horoscope_rasi" value="" id="result_horoscope_rasi" />
                          <input type="hidden" name="result_horoscope_asham" value="" id="result_horoscope_asham" />
                          <?php if(!empty($editprocess)){?>
-                <input type="hidden" name="editprocess" id="editprocess" value="<?php echo $editprocess;?>" />
+                        <input type="hidden" name="editprocess" id="editprocess" value="<?php echo $editprocess;?>" />
                          <?php } ?>
                          <?php if(!empty($quickregister_id)){?>
-                <input type="hidden" name="quickregister_id" id="quickregister_id" value="<?php echo $quickregister_id;?>" />
+                        <input type="hidden" name="quickregister_id" id="quickregister_id" value="<?php echo $quickregister_id;?>" />
                          <?php } ?>
-                         </div>    
-                </form>     
+                    </div>    
+                </form>
+            </div>     
        </div>                   
                      
         </section>  

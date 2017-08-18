@@ -21,10 +21,11 @@
                     </ul> 
                 </div><!-- END REVOLUTION SLIDER -->
             </div>
-            <div class="registration_form_area"><!--Ravichandran Adding fields -->
+            <div class="registration_form_area"><!--Ravichandran Adding fields -->            
                 <div class="container">
+                <marquee overflow="hidden"><img src="<?php echo media_url(); ?>assets/img/scroll_text.png"></marquee>
                     <div class="row">
-                    <marquee overflow="hidden"><img src="<?php echo media_url(); ?>assets/img/scroll_text.png"></marquee>
+                    <!-- <marquee overflow="hidden"><img src="<?php //echo media_url(); ?>assets/img/scroll_text.png"></marquee> -->
                         <div class="col-sm-6">
                             <div class="registration_form_s">
                                 <h4>Registration</h4>
