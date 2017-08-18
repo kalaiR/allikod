@@ -360,6 +360,7 @@ $(document).ready(function() {
         var $birthday = $('#dob').val();
         var age = calculateAge($birthday)
         $('#user_age').val(age);
+        $('#display_age').val(age);
     });
 
     $('.search_btn').on('click', '#finish', function(){
@@ -387,7 +388,7 @@ $(document).ready(function() {
             success: function(res){        
                 // alert(JSON.stringify(res));  
                 if(res['status'] == 'hide')
-                    alert("Please renew your account or view another profile");
+                    alert("You have already viewed profile or credit limit exceeded");
                 else
                     $(".slidingDiv").slideToggle(); 
             },

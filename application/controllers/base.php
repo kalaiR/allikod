@@ -174,7 +174,14 @@ class Base extends CI_Controller {
 		$this->load->view('post');
 	}
 	public function myview(){
-		$this->load->view('myview');
+		$login_session = $this->session->userdata("login_session");
+		$user_id = $login_session['userdetail_id'];
+		if(!empty($user_id)){
+			$data['results'] = $this->user_model->get_viewedprofile($user_id);
+			$values = array('userid' => $user_id);
+			$load = $this->session->set_userdata('myview_details',$values);			
+			$this->load->view('myview', $data);
+		}
 	}
 
 	public function upload_file(){
@@ -629,7 +636,8 @@ class Base extends CI_Controller {
 			$this->session->unset_userdata("searchmanual_id");
 			$this->session->unset_userdata("search_dhoshamid");	
 			$this->session->unset_userdata("search_quick");	
-			$this->session->unset_userdata("advance_search_sess");			
+			$this->session->unset_userdata("advance_search_sess");				
+			$this->session->unset_userdata("myview_details");		
 
 			if($form_data['search_type'] =='basicsearch'){
 				// Basic Search //	

@@ -1,9 +1,8 @@
 <?php 
     include('include/header.php');
     include('include/menu.php');
-// echo '<pre>';
-// print_r($results);
-// echo '</pre>';
+
+    $session_search = $this->session->all_userdata();
 
 ?> 
      <!--================Banner Area =================-->
@@ -19,12 +18,17 @@
         <!--================End Banner Area =================-->  
       <section class="blog_grid_area">
             <div class="container">
-                <div class="row">
+                <div class="row">                                          
                     <div class="col-md-12">
                         <div class="members_profile_inners">
                            <div class="members_about_box">
                                 <div class="heads">
-                                    <h3 id="hcolor">Name : Customer
+                                    <h3 id="hcolor">Name : 
+                                    <?php 
+                                    if(!empty($session_search['login_session']['user_fname'])){ 
+                                        echo $session_search['login_session']['user_fname'];
+                                        }
+                                    ?>
                                     <!-- a href="<?php //echo base_url(); ?>myedit" class="btn form-control edit_btn pull-right">Edit</a> -->
                                     </h3>
                                 </div>                               
@@ -37,43 +41,38 @@
                                         <div class="col-md-4">View Date 
                                         </div>
                                     </div>
-                                    <div class="row myview_con">
-                                        <div class="col-md-4"><a href="#"> 456549</a>
-                                        </div>
-                                        <div class="col-md-4">Selva
-                                        </div>
-                                        <div class="col-md-4">12-02-2017 
-                                        </div>
-                                    </div>
-                                    <div class="row myview_nor">
-                                        <div class="col-md-4"><a href="#">987965</a>
-                                        </div>
-                                        <div class="col-md-4">Hari
-                                        </div>
-                                        <div class="col-md-4">12-02-2017 
-                                        </div>
-                                    </div>
-                                    <div class="row myview_con">
-                                        <div class="col-md-4"><a href="#">456549</a>
-                                        </div>
-                                        <div class="col-md-4">Selva
-                                        </div>
-                                        <div class="col-md-4">12-02-2017 
-                                        </div>
-                                    </div>
-                                    <div class="row myview_nor">
-                                        <div class="col-md-4"><a href="#">987965</a>
-                                        </div>
-                                        <div class="col-md-4">Hari
-                                        </div>
-                                        <div class="col-md-4">12-02-2017 
-                                        </div>
-                                    </div>
-
+                                    <?php 
+                                    if(!empty($results)){
+                                        foreach($results as $key => $value) { 
+                                            if($key % 2 == 0){ ?>                                        
+                                                <div class="row myview_con">
+                                                    <div class="col-md-4">
+                                                    <a href="<?php echo base_url()."viewdetail/".$value['profile_id'];?>">
+                                                    <?php echo $value['profile_id'];?>
+                                                    </a>
+                                                    </div>
+                                                    <div class="col-md-4"><?php echo $value['user_fname'];?>
+                                                    </div>
+                                                    <div class="col-md-4"><?php echo $value['added_date'];?>
+                                                    </div>
+                                                </div>
+                                            <?php }else{ ?>
+                                                <div class="row myview_nor">
+                                                    <div class="col-md-4"><a href="<?php echo base_url()."viewdetail/".$value['profile_id'];?>"><?php echo $value['profile_id'];?></a>
+                                                    </div>
+                                                    <div class="col-md-4"><?php echo $value['user_fname'];?>
+                                                    </div>
+                                                    <div class="col-md-4"><?php echo $value['added_date'];?> 
+                                                    </div>
+                                                </div>
+                                            <?php }
+                                        }
+                                    }
+                                    ?>            
                                 </div>                   
-                                </div>
+                            </div>
                         </div>
-                    </div>                    
+                    </div> 
                 </div>
             </div>
         </section>
