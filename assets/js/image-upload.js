@@ -130,7 +130,7 @@
     }
 
     function getImageThumbnailHtml(src) {
-        return '<div><img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px"><i class="fa fa-window-close fa-3 inlay" aria-hidden="true"></i>"</div>';
+        return '<span><i class="fa fa-times fa-2x  inlay" aria-hidden="true"></i><img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px"><a></a>"</span>';
     }
 
     function getFileExtension(path) {
