@@ -1066,7 +1066,8 @@ class Base extends CI_Controller {
 				// print_r($cus_image);
 				foreach ($cus_image as $value) {
 					// echo FCPATH.USER_PROFILE_PATH.$value['images'];
-					@unlink(FCPATH.USER_PROFILE_PATH.$value['images']);
+					if($value['images']!='defalt_male.png' && $value['images']!='defalt_female.png')
+						@unlink(FCPATH.USER_PROFILE_PATH.$value['images']);
 				}
 			}
       		if($data['error'] != 1) {

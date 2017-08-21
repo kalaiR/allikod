@@ -119,3 +119,27 @@ total male and female records = 24325
 
 SELECT * FROM `reg_userdetail` WHERE user_added_date BETWEEN '2017-07-07' AND '2017-08-17';
 
+
+SELECT usr.userdetail_id,img.images,usr.user_gender FROM reg_userdetail as usr LEFT JOIN user_images as img on img.reg_user_id=usr.userdetail_id WHERE usr.user_gender=1 AND img.images='defalt_female.png';
+
+SELECT usr.userdetail_id,img.images,usr.user_gender FROM reg_userdetail as usr LEFT JOIN user_images as img on img.reg_user_id=usr.userdetail_id WHERE usr.user_gender=2 AND img.images='defalt_male.png';
+
+UPDATE user_images SET images='defalt_male.png' WHERE reg_user_id IN (526,2911);
+
+UPDATE user_images SET images='defalt_female.png' WHERE reg_user_id IN (65420,69310,69310,69310,69318,69319,69320,69321,69322,69323,69325,69326,69328,69329,69330,69331,69332,69333,69334,69337,69338,69343,69344,69346,69347,69348,69350,69351,69352,69353,69355,69361,69367);
+
+
+SELECT usr.userdetail_id,img.images,usr.user_gender FROM reg_userdetail as usr LEFT JOIN user_images as img on img.reg_user_id=usr.userdetail_id WHERE usr.user_gender=2 AND img.images='defalt_male.png';
+
+
+
+UPDATE user_images SET images='defalt_female.png' WHERE reg_user_id IN (65420,69310,69310,69310,
+69318,69319,69320,69321,69322,69323,69325,69326,69328,69329,69330,
+69331,69332,69333,69334,69337,69338,69343,69344,69346,69347,69348,69350,69351,69352,69353,69355,69361,69367)
+
+SELECT usr.userdetail_id,img.images,usr.user_gender FROM reg_userdetail as usr LEFT JOIN user_images as img on img.reg_user_id=usr.userdetail_id WHERE usr.user_gender=1 AND img.images='0'
+
+UPDATE user_images SET images='defalt_male.png' WHERE reg_user_id IN (23836,62820,60865,62025,62863,63019,63362,63551,64066,64484,64844,65121,65821,65860,65885,66009,66019,66913,68170,69289)
+
+UPDATE user_images SET images='defalt_female.png' WHERE reg_user_id IN (57195,61236,62899,63955,64686,65618,65810,65818,65828,65829,65831,65836,65984)
+

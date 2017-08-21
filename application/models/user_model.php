@@ -807,7 +807,7 @@ class User_model extends CI_Model {
  public function customer_user_profile($id){
       // View by id
       $condition = "usr.userdetail_id = ".$id."";
-      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name');
+      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,group_concat(images) as images,group_concat(userimages_id) as images_id');
       $this->db->from('reg_userdetail usr');
       $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
       $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
@@ -841,7 +841,9 @@ class User_model extends CI_Model {
       $this->db->join('marital_category mar','mar.maritalcategory_id=regmar.marital_category_id','inner');
       $this->db->where($condition); 
       $model_data['customeruser_multiple_marstatus_values'] = $this->db->get()->result_array();
-
+      // echo "<pre>";
+      // print_r($model_data['customeruser_values']);
+      // echo "</pre>";
       return $model_data;
   }
   public function customer_user_selectiondata(){
