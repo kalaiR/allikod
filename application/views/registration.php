@@ -173,7 +173,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 <input type='text' class="form-control datetimepicker4" name="dob" id="dob" placeholder="Birthday" value="" /> 
                                             </div> 
                                             <div class="col-sm-2">
-                                                <input type='text' class="form-control" placeholder="Age" /> 
+                                                <input type='text' class="form-control" placeholder="Age" name="display_age" id="display_age" value="" /> 
                                             </div>   
                                                 <div class="col-sm-2 box">
                                                     <span id="dob_error" class="registration-error"></span>
@@ -225,7 +225,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                            <input type='text' class="form-control timepicker" id="reg_tim" name="reg_tim"placeholder="Time of Birth">
+                                            <input type='text' class="form-control timepicker" id="reg_tim" name="reg_tim"placeholder="Time of Birth" value="">
                                             </div>
                                             <div class="col-sm-4 box">
                                                <span id="tim_error" class="registration-error"></span>
@@ -291,6 +291,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>
                                             <div class="col-sm-4">
                                                <select class="form-control" name="dhosham[]" id="dhosham">
+                                                   <option value="">Select</option>
                                                     <option value="1">Naga Dhosam</option>
                                                     <option value="2">Chevvai Dhosam</option>
                                                     <option value="3">Raghu Kedhu Dhosam</option>
