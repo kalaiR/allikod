@@ -47,8 +47,6 @@ if(!empty($session_search['search_inputs']['offset'])){
                                 <h3 id="hcolor">Image</h3>
                                 </div>
                                 <div></div>
-                                <!-- <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know extremely painful.</p> -->
-                                <!-- <div class="profile_list"> -->
                                 <div class="profile_list">                                    
                                         <?php //echo "<pre>";print_r($results);echo "</pre>"; ?>
                                           <!-- <img src="<?php //if(!empty($results['image'])) echo base_url()."assets/img/uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No Image" style="vertical-align:bottom;width:170px;height:170px;"> -->
@@ -135,52 +133,66 @@ if(!empty($session_search['search_inputs']['offset'])){
                                         <div class="slidingDiv">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <div class="col-md-6 col-xs-6">
-                                                    <p>Residence</p>
+                                                    <div class="col-xs-12">
+                                                        <div class="col-md-6 col-xs-6">
+                                                        <p>Residence</p>
+                                                        </div>
+                                                        <div class="col-md-6 col-xs-6 dark">
+                                                            <p><?php if(!empty($results['comm_residence'])) echo $results['comm_residence']; else echo "--"; ?></p>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php if(!empty($results['comm_residence'])) echo $results['comm_residence']; else echo "--"; ?></p>
+                                                     <div class="col-xs-12">
+                                                        <div  class="col-md-6 col-xs-6">
+                                                        <p>Current Country</p>
+                                                        </div>
+                                                        <div class="col-md-6 col-xs-6 dark">
+                                                            <p><?php if(!empty($results['comm_current_countrycountry'])) echo $results['comm_current_countrycountry']; else echo "--"; ?></p>
+                                                        </div >
                                                     </div>
-                                                    <div  class="col-md-6 col-xs-6">
-                                                    <p>Current Country</p>
+                                                     <div class="col-xs-12">
+                                                        <div class="col-md-6 col-xs-6">
+                                                        <p>Current City</p>
+                                                        </div>
+                                                        <div class="col-md-6 col-xs-6 dark">
+                                                            <p><?php if(!empty($results['comm_current_city'])) echo $results['comm_current_city']; else echo "--"; ?></p>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php if(!empty($results['comm_current_countrycountry'])) echo $results['comm_current_countrycountry']; else echo "--"; ?></p>
-                                                    </div >
-                                                    <div class="col-md-6 col-xs-6">
-                                                    <p>Current City</p>
-                                                    </div>
-                                                    <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php if(!empty($results['comm_current_city'])) echo $results['comm_current_city']; else echo "--"; ?></p>
-                                                    </div>
-                                                    <div class="col-md-6 col-xs-6 ">
-                                                    <p>District</p>
-                                                    </div>
-                                                    <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php if(!empty($results['comm_current_district'])) echo $results['comm_current_district']; else echo "--"; ?></p>
+                                                    <div class="col-xs-12">
+                                                        <div class="col-md-6 col-xs-6 ">
+                                                        <p>District</p>
+                                                        </div>
+                                                        <div class="col-md-6 col-xs-6 dark">
+                                                            <p><?php if(!empty($results['comm_current_district'])) echo $results['comm_current_district']; else echo "--"; ?></p>
+                                                        </div>
                                                     </div>                          
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div class="col-md-6 col-xs-6 ">
-                                                    <p>Communication Address</p>
+                                                    <div class="col-xs-12">
+                                                        <div class="col-md-6 col-xs-6 ">
+                                                        <p>Communication Address</p>
+                                                        </div>
+                                                        <div class="col-md-4 col-xs-4 dark">
+                                                            <p class="text_short"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></p>
+                                                        </div>
+                                                        <div class="col-md-1 col-xs-1 tooltips long">
+                                                            <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></span>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-4  dark">
-                                                        <p class="text_short"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></p>
+                                                    <div class="col-xs-12">
+                                                        <div  class="col-md-6 col-xs-6 ">
+                                                        <p>Phone Number</p>
+                                                        </div>
+                                                        <div class="col-md-6 col-xs-6 dark">
+                                                            <p><?php if(!empty($results['comm_phone_no'])) echo $results['comm_phone_no']; else echo "--"; ?></p>
+                                                        </div >
                                                     </div>
-                                                    <div class="col-md-1 tooltips long">
-                                                        <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></span>
-                                                    </div>
-                                                    <div  class="col-md-6 col-xs-6 ">
-                                                    <p>Phone Number</p>
-                                                    </div>
-                                                    <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php if(!empty($results['comm_phone_no'])) echo $results['comm_phone_no']; else echo "--"; ?></p>
-                                                    </div >
-                                                    <div class="col-md-6 col-xs-6">
-                                                    <p>Mobile Number</p>
-                                                    </div>
-                                                    <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php if(!empty($results['comm_mobile_no'])) echo $results['comm_mobile_no']; else echo "--"; ?></p>
+                                                    <div class="col-xs-12">
+                                                        <div class="col-md-6 col-xs-6">
+                                                        <p>Mobile Number</p>
+                                                        </div>
+                                                        <div class="col-md-6 col-xs-6 dark">
+                                                            <p><?php if(!empty($results['comm_mobile_no'])) echo $results['comm_mobile_no']; else echo "--"; ?></p>
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6">
                                                     <p><a href="#">Am Interested</a></p>
@@ -192,102 +204,120 @@ if(!empty($session_search['search_inputs']['offset'])){
                                     </div>                                                           
                                 </div>                  
                                 <div class="members_about_box">
-                                <div id="">
-                                <h3 id="hcolor">Profile Details</h3>
-                                </div>
-                                
-                                <!-- <div class="profile_list"> -->
-                                <div class="profile_list">
+                                    <div id="">
+                                    <h3 id="hcolor">Profile Details</h3>
+                                    </div>
+                                    <div class="profile_list">
                                     <div class="row">
-                                            <div class="col-md-6">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="col-xs-12">
                                                 <div class="col-md-6 col-xs-6">
                                                 <p>Registered By</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
                                                     <p><?php echo $results['registered_by_name']; ?></p>
                                                 </div>
+                                            </div>
+                                            <div class="col-xs-12">
                                                 <div class="col-md-6 col-xs-6">
                                                 <p>Gender</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
                                                     <p><?php echo $results['user_gender'] != 2 ? 'Male':'Female'; ?></p>
-                                                </div>                                      
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">              
+                                        </div>
+                                        <div class="col-md-6"> 
+                                            <div class="col-xs-12">              
                                                 <div class="col-md-6 col-xs-6">
-                                                <p>Date of Birth/Age</p>
+                                                <p>DOB/Age</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
                                                     <p><?php echo $results['user_dob']; ?></p>
                                                 </div>
+                                            </div>
+                                            <div class="col-xs-12">
                                                 <div class="col-md-6 col-xs-6">
                                                 <p>Marital Status</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
                                                     <p><?php echo $results['marital_name']; ?></p>
-                                                </div>                                       
-                                            </div>
-                                        </div>                                  
-                                    </div>                                             
+                                                </div>
+                                            </div>                                       
+                                        </div>
+                                    </div>                                  
+                                </div>                                             
                                 </div>
                                 <div class="members_about_box">
                                 <div id="">
                                 <h3 id="hcolor">Religion & Ethnicity</h3>
                                 </div>
-                                <!-- <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know extremely painful.</p> -->
-                                <!-- <div class="profile_list"> -->
                                 <div class="profile_list">
                                      <div class="row">
                                             <div class="col-md-6">
-                                                <div class="col-md-6 col-xs-6">
-                                                <p>Time of Birth</p>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Time of Birth</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php echo $results['rel_timeofbirth']; ?></p>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['rel_timeofbirth']; ?></p>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Mother Tongue</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php echo $results['mother_tongue_name']; ?></p>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 col-xs-6">
-                                                <p>Mother Tongue</p>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Dhosham</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php 
+                                                            if(!empty($results['rel_dhosham'])) echo $results['rel_dhosham']; else echo "--"; ?>
+                                                        </p>                         
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['mother_tongue_name']; ?></p>
-                                                </div>
-                                                <div class="col-md-6 col-xs-6">
-                                                <p>Dhosham</p>
-                                                </div>
-                                                <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php 
-                                                        if(!empty($results['rel_dhosham'])) echo $results['rel_dhosham']; else echo "--"; ?>
-                                                    </p>                         
-                                                </div>
-                                                <div class="col-md-6 col-xs-6">
-                                                <p>Nakshathra</p>
-                                                </div>
-                                                <div class="col-md-6 col-xs-6 dark">               
-                                                    <p><?php 
-                                                    if(!empty($results['nakshathra_name'])) echo $results['nakshathra_name']; else echo "--"; ?>
-                                                    </p> 
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Nakshathra</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">               
+                                                        <p><?php 
+                                                        if(!empty($results['nakshathra_name'])) echo $results['nakshathra_name']; else echo "--"; ?>
+                                                        </p> 
+                                                    </div>
                                                 </div>                                         
                                             </div>
-                                            <div class="col-md-6">              
-                                                <div class="col-md-6 col-xs-6">
-                                                <p>Luknam</p>
+                                            <div class="col-md-6">
+                                                <div class="col-xs-12">              
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Luknam</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">                
+                                                        <p><?php 
+                                                        if(!empty($results['lukhnam_name'])) echo $results['lukhnam_name']; else echo "--"; ?>
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 col-xs-6 dark">                
-                                                    <p><?php 
-                                                    if(!empty($results['lukhnam_name'])) echo $results['lukhnam_name']; else echo "--"; ?>
-                                                    </p>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Gothra</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php echo $results['rel_gothra']; ?></p>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 col-xs-6">
-                                                <p>Gothra</p>
-                                                </div>
-                                                <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['rel_gothra']; ?></p>
-                                                </div>
-                                                <div class="col-md-6 col-xs-6">
-                                                <p>Zodiac Sign</p>
-                                                </div>
-                                                <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['zodiac_name']; ?></p>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Zodiac Sign</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php echo $results['zodiac_name']; ?></p>
+                                                    </div>
                                                 </div>                          
                                             </div>
                                         </div>
@@ -300,49 +330,61 @@ if(!empty($session_search['search_inputs']['offset'])){
                                 <div class="profile_list">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="col-md-6 col-xs-6">
-                                            <p>Education</p>
+                                            <div class="col-xs-12">
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Education</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['edu_name']; ?></p>
+                                                </div >
                                             </div>
-                                            <div class="col-md-6 col-xs-6 dark">
-                                                <p><?php echo $results['edu_name']; ?></p>
-                                            </div >
-                                            <div class="col-md-6 col-xs-6 ">
-                                            <p>Education in Detail</p>
+                                            <div class="col-xs-12">
+                                                <div class="col-md-6 col-xs-6 ">
+                                                <p>Education in Detail</p>
+                                                </div>
+                                                <div class="col-md-4 col-xs-4 dark">
+                                                    <p class="text_short"><?php echo $results['edu_educationdetails']; ?></p>
+                                                </div>
+                                                <div class="col-md-1 col-xs-1 tooltips long">
+                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['edu_educationdetails']; ?></span>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4  dark">
-                                                <p class="text_short"><?php echo $results['edu_educationdetails']; ?></p>
-                                            </div>
-                                            <div class="col-md-1 tooltips long">
-                                                <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['edu_educationdetails']; ?></span>
-                                            </div>
-                                            <div class="col-md-6 col-xs-6">
-                                            <p>Occupation</p>
-                                            </div>
-                                            <div class="col-md-6 col-xs-6 dark">
-                                                <p><?php echo $results['occupation_name']; ?></p>
+                                            <div class="col-xs-12">
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Occupation</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['occupation_name']; ?></p>
+                                                </div>
                                             </div>                                 
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="col-md-6 col-xs-6 ">
-                                            <p>Occupation in Detail</p>
+                                            <div class="col-xs-12">
+                                                <div class="col-md-6 col-xs-6 ">
+                                                <p>Occupation in Detail</p>
+                                                </div>
+                                                <div class="col-md-4 col-xs-4 dark">
+                                                    <p class="text_short"><?php echo $results['edu_occupationdetail']; ?></p>
+                                                </div>
+                                                <div class="col-md-1 col-xs-1 tooltips long">
+                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['edu_occupationdetail']; ?></span>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4  dark">
-                                                <p class="text_short"><?php echo $results['edu_occupationdetail']; ?></p>
+                                            <div class="col-xs-12">
+                                                <div  class="col-md-6 col-xs-6 ">
+                                                <p>Employed In</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['empin_name']; ?></p>
+                                                </div >
                                             </div>
-                                            <div class="col-md-1 tooltips long">
-                                                <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['edu_occupationdetail']; ?></span>
-                                            </div>
-                                            <div  class="col-md-6 col-xs-6 ">
-                                            <p>Employed In</p>
-                                            </div>
-                                            <div class="col-md-6 col-xs-6 dark">
-                                                <p><?php echo $results['empin_name']; ?></p>
-                                            </div >
-                                            <div class="col-md-6 col-xs-6">
-                                            <p>Monthly Income</p>
-                                            </div>
-                                            <div class="col-md-6 col-xs-6 dark">
-                                                <p><?php echo $results['edu_montlyincome']; ?></p>
+                                            <div class="col-xs-12">
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Monthly Income</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['edu_montlyincome']; ?></p>
+                                                </div>
                                             </div>                                     
                                         </div>
                                     </div>                                 
@@ -356,94 +398,116 @@ if(!empty($session_search['search_inputs']['offset'])){
                                     <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-6">
-                                            <div class="col-md-6 col-xs-6">
-                                            <p>Father's Name</p>
+                                            <div class="col-xs-12">
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Father's Name</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['comm_father_name']; ?></p>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6 col-xs-6 dark">
-                                                <p><?php echo $results['comm_father_name']; ?></p>
+                                            <div class="col-xs-12">
+                                                <div  class="col-md-6 col-xs-6 ">
+                                                <p>Mother's Name</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['comm_mother_name']; ?></p>
+                                                </div >
                                             </div>
-                                            <div  class="col-md-6 col-xs-6 ">
-                                            <p>Mother's Name</p>
+                                            <div class="col-xs-12">
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Father's Occupation</p>
+                                                </div>
+                                                <div class="col-md-4 col-xs-4 dark">
+                                                    <p class="text_short"><?php echo $results['comm_father_employment']; ?></p>
+                                                </div>
+                                                <div class="col-md-1 col-xs-1 tooltips long">
+                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['comm_father_employment']; ?></span>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6 col-xs-6 dark">
-                                                <p><?php echo $results['comm_mother_name']; ?></p>
-                                            </div >
-                                            <div class="col-md-6 col-xs-6">
-                                            <p>Father's Occupation</p>
+                                            <div class="col-xs-12">
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Mothers's Occupation</p>
+                                                </div>
+                                                <div class="col-md-4 col-xs-4 dark">
+                                                    <p class="text_short"><?php echo $results['comm_mother_employment']; ?></p>
+                                                </div>
+                                                <div class="col-md-1 col-xs-1 tooltips long">
+                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['comm_mother_employment']; ?></span>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4 col-xs-4 dark">
-                                                <p class="text_short"><?php echo $results['comm_father_employment']; ?></p>
+                                            <div class="col-xs-12">
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Family Status</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['family_statusname']; ?></p>
+                                                </div>
                                             </div>
-                                            <div class="col-md-1 col-xs-1 tooltips long">
-                                                <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['comm_father_employment']; ?></span>
-                                            </div>
-                                            <div class="col-md-6 col-xs-6">
-                                            <p>Mothers's Occupation</p>
-                                            </div>
-                                            <div class="col-md-4 col-xs-4 dark">
-                                                <p class="text_short"><?php echo $results['comm_mother_employment']; ?></p>
-                                            </div>
-                                            <div class="col-md-1 col-xs-1 tooltips long">
-                                                <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['comm_mother_employment']; ?></span>
-                                            </div>
-                                            <div class="col-md-6 col-xs-6">
-                                            <p>Family Status</p>
-                                            </div>
-                                            <div class="col-md-6 col-xs-6 dark">
-                                                <p><?php echo $results['family_statusname']; ?></p>
-                                            </div>
-                                            <div class="col-md-6 col-xs-6">
-                                            <p>Family Type</p>
-                                            </div>
-                                            <div class="col-md-6 col-xs-6 dark">
-                                                <p><?php echo $results['family_typename']; ?></p>
+                                            <div class="col-xs-12">
+                                                <div class="col-md-6 col-xs-6">
+                                                <p>Family Type</p>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 dark">
+                                                    <p><?php echo $results['family_typename']; ?></p>
+                                                </div>
                                             </div>                                                
                                         </div>
-                                        <div class="col-md-6">              
-                                            <div  class="col-md-6 col-xs-6">
-                                            <p></p>
+                                        <div class="col-md-6">
+                                            <div class="col-xs-12">              
+                                                <div  class="col-md-6 col-xs-6">
+                                                <p></p>
+                                                </div>
+                                                <div class="col-md-3 col-xs-3 dark">
+                                                    <p>Elder</p>
+                                                </div >
+                                                <div class="col-md-3 col-xs-3 dark">
+                                                <p>Younger</p>
+                                                </div>
                                             </div>
-                                            <div class="col-md-3 col-xs-3 dark">
-                                                <p>Elder</p>
-                                            </div >
-                                            <div class="col-md-3 col-xs-3 dark">
-                                            <p>Younger</p>
+                                            <div class="col-xs-12">
+                                                <div  class="col-md-6 col-xs-6">
+                                                <p>No.of Brothers</p>
+                                                </div>
+                                                <div class="col-md-3 col-xs-3 dark">
+                                                    <p><?php echo $results['comm_number_of_brothers_el']; ?></p>
+                                                </div >
+                                                <div class="col-md-3 col-xs-3 dark">
+                                                <p><?php echo $results['comm_number_of_brothers_yo']; ?></p>
+                                                </div>
                                             </div>
-                                            <div  class="col-md-6 col-xs-6">
-                                            <p>No.of Brothers</p>
+                                            <div class="col-xs-12">
+                                                <div  class="col-md-6 col-xs-6">
+                                                <p>No.of Sisters</p>
+                                                </div>
+                                                <div class="col-md-3 col-xs-3 dark">
+                                                    <p><?php echo $results['comm_number_of_sisters_el']; ?></p>
+                                                </div >
+                                                <div class="col-md-3 col-xs-3 dark">
+                                                <p><?php echo $results['comm_number_of_sisters_yo']; ?></p>
+                                                </div>
                                             </div>
-                                            <div class="col-md-3 col-xs-3 dark">
-                                                <p><?php echo $results['comm_number_of_brothers_el']; ?></p>
-                                            </div >
-                                            <div class="col-md-3 col-xs-3 dark">
-                                            <p><?php echo $results['comm_number_of_brothers_yo']; ?></p>
+                                            <div class="col-xs-12">
+                                                <div  class="col-md-6 col-xs-6">
+                                                <p>No.of Married Brothers</p>
+                                                </div>
+                                                <div class="col-md-3 col-xs-3 dark">
+                                                    <p><?php echo $results['comm_number_of_brothers_el_mar']; ?></p>
+                                                </div >
+                                                <div class="col-md-3 col-xs-3 dark">
+                                                <p><?php echo $results['comm_number_of_brothers_yo_mar']; ?></p>
+                                                </div>
                                             </div>
-                                            <div  class="col-md-6 col-xs-6">
-                                            <p>No.of Sisters</p>
-                                            </div>
-                                            <div class="col-md-3 col-xs-3 dark">
-                                                <p><?php echo $results['comm_number_of_sisters_el']; ?></p>
-                                            </div >
-                                            <div class="col-md-3 col-xs-3 dark">
-                                            <p><?php echo $results['comm_number_of_sisters_yo']; ?></p>
-                                            </div>
-                                            <div  class="col-md-6 col-xs-6">
-                                            <p>No.of Married Brothers</p>
-                                            </div>
-                                            <div class="col-md-3 col-xs-3 dark">
-                                                <p><?php echo $results['comm_number_of_brothers_el_mar']; ?></p>
-                                            </div >
-                                            <div class="col-md-3 col-xs-3 dark">
-                                            <p><?php echo $results['comm_number_of_brothers_yo_mar']; ?></p>
-                                            </div>
-                                            <div  class="col-md-6 col-xs-6">
-                                            <p>No.of Married Sisters</p>
-                                            </div>
-                                            <div class="col-md-3 col-xs-3 dark">
+                                            <div class="col-xs-12">
+                                                <div  class="col-md-6 col-xs-6">
+                                                <p>No.of Married Sisters</p>
+                                                </div>
+                                                <div class="col-md-3 col-xs-3 dark">
+                                                    <p><?php echo $results['comm_number_of_sisters_yo_mar']; ?></p>
+                                                </div >
+                                                <div class="col-md-3 col-xs-3 dark">
                                                 <p><?php echo $results['comm_number_of_sisters_yo_mar']; ?></p>
-                                            </div >
-                                            <div class="col-md-3 col-xs-3 dark">
-                                            <p><?php echo $results['comm_number_of_sisters_yo_mar']; ?></p>
+                                                </div>
                                             </div>                         
                                         </div>
                                     </div>
@@ -457,38 +521,47 @@ if(!empty($session_search['search_inputs']['offset'])){
                                     <div class="profile_list">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="col-md-6 col-xs-6">
-                                                <p>Height</p>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Height</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php echo $results['phy_height']; ?></p>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['phy_height']; ?></p>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Weight</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php echo $results['phy_weight']; ?></p>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 col-xs-6">
-                                                <p>Weight</p>
-                                                </div>
-                                                <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['phy_weight']; ?></p>
-                                                </div>
-                                                <div class="col-md-6 col-xs-6">
-                                                <p>Body Type</p>
-                                                </div>
-                                                <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['body_typename']; ?></p>
-                                                </div>
-                                                                                               
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Body Type</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php echo $results['body_typename']; ?></p>
+                                                    </div>
+                                                </div>                                   
                                             </div>
-                                            <div class="col-md-6">              
-                                                <div class="col-md-6 col-xs-6">
-                                                <p>Complexion</p>
+                                            <div class="col-md-6">
+                                                <div class="col-xs-12">              
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Complexion</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php echo $results['complexion_typename']; ?></p>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['complexion_typename']; ?></p>
-                                                </div>
-                                                <div class="col-md-6 col-xs-6">
-                                                <p>Physical Status</p>
-                                                </div>
-                                                <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['phy_physicalstatus']; ?></p>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Physical Status</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php echo $results['phy_physicalstatus']; ?></p>
+                                                    </div>
                                                 </div>                         
                                             </div>
                                         </div>

@@ -53,19 +53,19 @@
 										<form class="form-horizontal">
 											<fieldset>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Your Email : </label>
+												<label class="control-label" for="focusedInput">Your Email * : </label>
 												<div class="controls">
 												  <input class="input-xlarge focused" id="focusedInput" type="email" value="">
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Password : </label>
+												<label class="control-label" for="focusedInput">Password * : </label>
 												<div class="controls">
 												  <input class="input-xlarge focused" id="focusedInput" type="Password" value="">
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Confirm Password : </label>
+												<label class="control-label" for="focusedInput">Confirm Password * : </label>
 												<div class="controls">
 												  <input class="input-xlarge focused" id="focusedInput" type="Password" value="">
 												</div>
@@ -203,7 +203,7 @@
 												</div>												
 											  </div>
 											  <div class="control-group">
-												<label class="control-label">Registered By : </label>
+												<label class="control-label">Registered By * : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 												  	<option value="">Select Registerer By</option>
@@ -213,13 +213,13 @@
 												</div>
 											  </div>
 											  	<div class="control-group">
-													<label class="control-label" for="focusedInput">Name : </label>
+													<label class="control-label" for="focusedInput">Name * : </label>
 													<div class="controls">
 													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 													</div>
 											  	</div>
 											  	<div class="control-group">
-												<label class="control-label">Gender : </label>
+												<label class="control-label">Gender * : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 												  	<option value="">Select Gender</option>
@@ -229,14 +229,14 @@
 												</div>
 											  </div>
 											  	<div class="control-group">
-												  <label class="control-label" for="date01">Date of Birth </label>
+												  <label class="control-label" for="date01">Date of Birth * :</label>
 												  <div class="controls">
 													<input type="text" class="input-xlarge datepicker" id="date01" value="">
 												  </div>
 												</div>
 												
 											  <div class="control-group">
-												<label class="control-label">Marital Status : </label>
+												<label class="control-label">Marital Status * : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 												  	<option value="">Select Marital Status</option>
@@ -261,13 +261,13 @@
 										<form class="form-horizontal">
 											<fieldset>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Time of Birth : </label>
+												<label class="control-label" for="focusedInput">Time of Birth * : </label>
 												<div class="controls">
 												  <input class="input-xlarge focused" id="focusedInput" type="time" value="">
 												</div>												
 											  </div>											  
 											  <div class="control-group">
-												<label class="control-label">Mother Tongue : </label>
+												<label class="control-label">Mother Tongue * : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 												  	<option value="">Select Mother Tongue</option>
@@ -277,7 +277,7 @@
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Religion No : </label>
+												<label class="control-label" for="focusedInput">Religion : </label>
 												<div class="controls">
 												  <input class="input-xlarge focused" id="focusedInput" type="text" value="Hindu">
 												</div>												
@@ -295,7 +295,7 @@
 													</div>
 											  	</div>
 											  	<div class="control-group">
-												<label class="control-label">Nakshathra : </label>
+												<label class="control-label">Nakshathra * : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 												  	<option value="">Select Nakshathra</option>
@@ -320,7 +320,7 @@
 													</div>
 											  	</div>
 											  	<div class="control-group">
-												<label class="control-label">Zodiac Sign : </label>
+												<label class="control-label">Zodiac Sign * : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 												  	<option value="">Select Zodiac Sign</option>
@@ -343,7 +343,7 @@
 										<form class="form-horizontal">
 											<fieldset>
 											  <div class="control-group">
-												<label class="control-label">Education<b>*</b> : </label>
+												<label class="control-label">Education * : </label>
 												<div class="control-group">				
 													<div class="controls">
 														<select data-placeholder="Education List" id="selectError2" data-rel="chosen">
@@ -363,13 +363,13 @@
 												  </div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Education in Detail  : </label>
+												<label class="control-label" for="focusedInput">Education in Detail *  : </label>
 												<div class="controls">
 												  <textarea class="input-xlarge focused" id="focusedInput" type="text" value="Hindu"></textarea>
 												</div>												
 											  </div>
 											  <div class="control-group">
-												<label class="control-label">Occupation : </label>
+												<label class="control-label">Occupation * : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 												  	<option value="">Select Occupation</option>
@@ -379,7 +379,7 @@
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label">Employed In : </label>
+												<label class="control-label">Employed In * : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 												  	<option value="">Select Employed In</option>
@@ -389,13 +389,13 @@
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Monthly Income : </label>
+												<label class="control-label" for="focusedInput">Monthly Income * : </label>
 												<div class="controls">
 												  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  	<div class="control-group">
-												<label class="control-label" for="focusedInput">Occupation in Detail  : </label>
+												<label class="control-label" for="focusedInput">Occupation in Detail *  : </label>
 												<div class="controls">
 												  <textarea class="input-xlarge focused" id="focusedInput" type="text" value="Hindu"></textarea>
 												</div>												
@@ -458,7 +458,7 @@
 												</div>												
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Mobile Number : </label>
+												<label class="control-label" for="focusedInput">Mobile Number * : </label>
 												<div class="controls">
 												  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 												</div>												
@@ -545,7 +545,7 @@
 										<form class="form-horizontal">
 											<fieldset>										  
 											  <div class="control-group">
-												<label class="control-label">Food : </label>
+												<label class="control-label">Food * : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 												  	<option value="">Select Food</option>
@@ -568,31 +568,31 @@
 										<form class="form-horizontal">
 											<fieldset>
 											<div class="control-group">
-												<label class="control-label" for="focusedInput">Father's Name : </label>
+												<label class="control-label" for="focusedInput">Father's Name * : </label>
 												<div class="controls">
 													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Father's Employment : </label>
+												<label class="control-label" for="focusedInput">Father's Employment * : </label>
 												<div class="controls">
 													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Mother's Name : </label>
+												<label class="control-label" for="focusedInput">Mother's Name * : </label>
 												<div class="controls">
 													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Mother's Employment : </label>
+												<label class="control-label" for="focusedInput">Mother's Employment * : </label>
 												<div class="controls">
 													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>										  
 											  <div class="control-group">
-												<label class="control-label">Family Status : </label>
+												<label class="control-label">Family Status * : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 												  	<option value="">Select Family Status</option>
@@ -602,7 +602,7 @@
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label">Family Type : </label>
+												<label class="control-label">Family Type * : </label>
 												<div class="controls">
 												  <select data-rel="chosen">
 												  	<option value="">Select Family Type</option>
@@ -615,7 +615,7 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Brothers : </label>
 												<div class="controls">
-													  <input class="span4" id="focusedInput"  type="text" value="Yelder" >
+													  <input class="span4" id="focusedInput"  type="text" value="Elder" >
 												</div>
 												<div class="controls">
 													  <input class="span4" id="focusedInput" type="text" value="Younger" >
@@ -624,7 +624,7 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Sisters : </label>
 												<div class="controls">
-													  <input class="span4" id="focusedInput"  type="text" value="Yelder" >
+													  <input class="span4" id="focusedInput"  type="text" value="Elder" >
 												</div>
 												<div class="controls">
 													  <input class="span4" id="focusedInput" type="text" value="Younger" >
@@ -633,7 +633,7 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Married Brothers : </label>
 												<div class="controls">
-													  <input class="span4" id="focusedInput"  type="text" value="Yelder" >
+													  <input class="span4" id="focusedInput"  type="text" value="Elder" >
 												</div>
 												<div class="controls">
 													  <input class="span4" id="focusedInput" type="text" value="Younger" >
@@ -642,49 +642,12 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Married Sisters : </label>
 												<div class="controls">
-													  <input class="span4" id="focusedInput"  type="text" value="Yelder" >
+													  <input class="span4" id="focusedInput"  type="text" value="Elder" >
 												</div>
 												<div class="controls">
 													  <input class="span4" id="focusedInput" type="text" value="Younger" >
-												</div>												
+												</div>	
 											  </div>
-											  <!-- <div class="control-group">
-												<label class="control-label"> </label>
-													<div class="row-fluid ">
-														<div class="span1">Yelder</div>
-														<div class="span1">Younger</div>		
-													</div>
-												</div>
-												<div class="control-group">
-												<label class="control-label">No. of Brothers : </label>
-													<div class="row-fluid ">
-														<div ><input  class="span1" id="focusedInput" type="text" value="">2</div>
-														<div class="span1">1</div>		
-													</div>
-												</div>
-												<div class="control-group">
-												<label class="control-label"> No. of Sisters :</label>
-													<div class="row-fluid ">
-														<div class="span1">0</div>
-														<div class="span1">1</div>		
-													</div>
-												</div>
-												<div class="control-group">
-												<label class="control-label">Married Brothers</label>
-													<div class="row-fluid ">
-														<div class="span1">0</div>
-														<div class="span1">0</div>		
-													</div>
-												</div>
-												<div class="control-group">
-												<label class="control-label">Married Sisters : </label>
-													<div class="row-fluid ">
-														<div class="span1">2</div>
-														<div class="span1">1</div>		
-													</div>
-												</div> -->
-
-
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">More About family  : </label>
 												<div class="controls">
@@ -724,7 +687,7 @@
 										<form class="form-horizontal">
 											<fieldset>											  
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Age : </label>
+												<label class="control-label" for="focusedInput">Age * : </label>
 												<div class="controls">
 												  <select data-rel="chosen" value="From">
 													<option>20</option>
@@ -739,7 +702,7 @@
 												</div>												
 											  </div>
 											  <div class="control-group">
-												<label class="control-label">Marital Status :</label>
+												<label class="control-label">Marital Status * :</label>
 												<div class="controls">
 												  <label class="checkbox inline">
 													<input type="checkbox" id="inlineCheckbox1" value="option1"> Single
@@ -748,7 +711,7 @@
 													<input type="checkbox" id="inlineCheckbox2" value="option2"> Widowed
 												  </label>
 												  <label class="checkbox inline">
-													<input type="checkbox" id="inlineCheckbox3" value="option3"> Divorsed
+													<input type="checkbox" id="inlineCheckbox3" value="option3"> Divorced
 												  </label>
 												  <label class="checkbox inline">
 													<input type="checkbox" id="inlineCheckbox3" value="option3"> Annualled
@@ -756,7 +719,7 @@
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="selectError1">Education</label>
+												<label class="control-label" for="selectError1">Education * :</label>
 												<div class="controls">
 												  <select id="selectError1" multiple data-rel="chosen">
 													<option>BE/BTech</option>
@@ -768,7 +731,7 @@
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label">Food :</label>
+												<label class="control-label">Food * :</label>
 												<div class="controls">
 												  <label class="radio">
 													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
@@ -819,9 +782,8 @@
 										<form class="form-horizontal">
 											<fieldset>											  
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Image  : </label>
 												<div class="control-group">
-												  <label class="control-label" for="fileInput">Image</label>
+												  <label class="control-label" for="fileInput">Image :</label>
 												  <div class="controls">
 													<input class="input-file uniform_on" id="fileInput" type="file">
 												  </div>
@@ -856,7 +818,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --> Horoscope</h2>	  			
+										<h2><!-- <i class="icon-th"> --> Horoscope *</h2>	  			
 									</div>
 									<div class="box-content">
 											<div class="col-md-12 col-xs-12">	

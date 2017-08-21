@@ -422,45 +422,8 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Married Sisters : </label>
 												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_el_mar']; ?></label>
-												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_yo_mar']; ?></label>												
+												<label style="width: 100px" class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_number_of_sisters_yo_mar']; ?></label>	
 											  </div>
-											  <!-- <div class="control-group">
-												<label class="control-label"> </label>
-													<div class="row-fluid ">
-														<div class="span1">Yelder</div>
-														<div class="span1">Younger</div>		
-													</div>
-												</div>
-												<div class="control-group">
-												<label class="control-label">No. of Brothers : </label>
-													<div class="row-fluid ">
-														<div ><input  class="span1" id="focusedInput" type="text" value="">2</div>
-														<div class="span1">1</div>		
-													</div>
-												</div>
-												<div class="control-group">
-												<label class="control-label"> No. of Sisters :</label>
-													<div class="row-fluid ">
-														<div class="span1">0</div>
-														<div class="span1">1</div>		
-													</div>
-												</div>
-												<div class="control-group">
-												<label class="control-label">Married Brothers</label>
-													<div class="row-fluid ">
-														<div class="span1">0</div>
-														<div class="span1">0</div>		
-													</div>
-												</div>
-												<div class="control-group">
-												<label class="control-label">Married Sisters : </label>
-													<div class="row-fluid ">
-														<div class="span1">2</div>
-														<div class="span1">1</div>		
-													</div>
-												</div> -->
-
-
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">More About family  : </label>
 												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_about_family']; ?></label>
@@ -513,7 +476,7 @@
 												  </label>
 												  <label class="checkbox inline">
 													<!-- <input type="checkbox" id="inlineCheckbox3" value="option3"> -->
-													Divorsed
+													Divorced
 												  </label>
 												  <label class="checkbox inline">
 													<!-- <input type="checkbox" id="inlineCheckbox3" value="option3"> -->
