@@ -909,7 +909,8 @@ ul#media-list {
 .inlay{
     position:absolute;
     top:72px;
-    right:141px
+    right:148px;
+    color:#f90000;
 }
 select .pagination_scrol{
 height:50px;

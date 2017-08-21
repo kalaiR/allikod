@@ -278,12 +278,28 @@
                                             </div>
                                             <p>No photos in your album.Upload Photos.</p> -->  
                                             <input type="file" name="cus_profileimage[]" id="uploadedfile" multiple="">    
-                                           <!--  <div class="edit_img">
+                                            <!-- <div class="edit_img">
                                                 <span id="spanFileName" class="registration-error error-msg"></span>
                                                 <div class="modal-body login-box clearfix">
                                                     <ul id="media-list" class="clearfix">
+                                                        <li>
+                                                            <img class="cus_img" src="<?php echo media_url(); ?>assets/img/view/img1.png" alt="img">
+                                                            <div class="post-thumb">
+                                                                <div class="inner-post-thumb">
+                                                                    <a href="javascript:void(0);" class="remove-pic"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <img class="cus_img" src="<?php echo media_url(); ?>assets/img/reg-img.jpg" alt="img">
+                                                            <div class="post-thumb">
+                                                                <div class="inner-post-thumb">
+                                                                    <a href="javascript:void(0);" class="remove-pic"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
                                                         <li class="myupload">
-                                                            <span><i class="fa fa-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload  " multiple></span>
+                                                            <span><i class="fa fa-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload" multiple></span>
                                                         </li>
                                                     </ul>
                                                  </div>
