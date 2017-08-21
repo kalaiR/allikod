@@ -88,6 +88,7 @@
                                                                         <span>Browse</span>
                                                                          <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" />
                                                                     </label>
+                                                                    
                                                                  </div>
                                                                 <!-- <input type="button" id="upload_post" value="upload" name ="upload_post"> -->
                                                             </div>

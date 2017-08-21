@@ -31,7 +31,7 @@ $(document).ready(function() {
         var width = '';
 
     /*  ===========         Registration Form Validation Start     ===================   */
-     $(document).on('submit','.reg_form,.post_success_form,.form_inner',function(e) {
+     $(document).on('submit','.reg_form,.post_success_form,.form_inner,.user_login,.forgot_form',function(e) {
        // alert("linked");
         if($(this).find('.bootstrap-select').hasClass('form_inputs')) {
             $(this).find('.bootstrap-select').removeClass('form_inputs');

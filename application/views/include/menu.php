@@ -1,15 +1,20 @@
 <div class="login_form_inner zoom-anim-dialog mfp-hide" id="small-dialog">
    <h4>User Login</h4>
-   <form method="post" action="<?php echo base_url(); ?>login_ajax" name="userlogin" id="userlogin">
+   <form method="post" action="<?php echo base_url(); ?>login_ajax" name="userlogin" id="userlogin" class="user_login">
+        <div class="row">
+            <div class="box">
+                <span class="val_status" style="display: block;"></span>
+            </div>
+        </div> 
        <p class="admin_status"> </p>
-       <input type="email" placeholder="Username" name="email_id" name="email_id">
-       <input type="password" placeholder="Password" name="password" name="password">
+       <input type="email" placeholder="email" name="email_id" name="email_id" class="form_inputs">
+       <input type="password" placeholder="Password" name="password" name="password" class="form_inputs">
        <div class="login_btn_area">
            <button type="submit" value="LogIn" class="btn form-control login_btn" name="user-submit" id="user_submit">LogIn</button>
            <div class="login_social">
               <h5>Not yet?</h5>
               <a href="<?php echo base_url(); ?>registration">Register</a><br>
-              <a href="<?php echo base_url(); ?>registration">Forgot Password?</a>
+           <a class="popup-with-zoom-anim" href="#forgot_form">Forgot Password?</a>
                <!-- <ul>  
                    <li><a href="index.html"><i class="fa fa-facebook"></i></a></li>
                    <li><a href="index.html"><i class="fa fa-google-plus"></i></a></li>
@@ -20,7 +25,23 @@
    </form>
    <img class="mfp-close" src="<?php echo media_url(); ?>assets/img/close-btn.png" alt="">
 </div>
-       
+<div class="login_form_inner zoom-anim-dialog mfp-hide" id="forgot_form">
+   <h4>User Login</h4>
+   <form method="post" action="<?php echo base_url(); ?>login_ajax" name="userlogin" id="userlogin" class="forgot_form">
+    <div class="row">
+        <div class="box">
+            <span class="val_status" style="display: block;"></span>
+        </div>
+     </div> 
+     <div class="box">
+        <input type="email" placeholder="email" name="email_id" name="email_id" class="form_inputs">
+     </div>   
+       <div class="login_btn_area">
+           <button type="submit" value="LogIn" class="btn form-control login_btn" name="user-submit" id="user_submit">Send</button>
+       </div>
+   </form>
+   <img class="mfp-close" src="<?php echo media_url(); ?>assets/img/close-btn.png" alt="">
+</div>       
         <div class="register_form_inner zoom-anim-dialog mfp-hide" id="register_form">
             <div class="row">
                 <div class="col-md-6">
@@ -151,6 +172,7 @@
                             <ul class="dropdown-menu">
                                 <!--li><a href="<?php //echo base_url(); ?>mymatches">Matches</a></li-->
                                 <li><a href="<?php echo base_url(); ?>myprofile">My Profile</a></li>
+                                <li><a href="<?php echo base_url(); ?>myview">My View</a></li>
                                 <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
                             </ul>
                         </li>

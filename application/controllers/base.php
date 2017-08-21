@@ -173,6 +173,16 @@ class Base extends CI_Controller {
 	public function post_success(){
 		$this->load->view('post');
 	}
+	public function myview(){
+		$login_session = $this->session->userdata("login_session");
+		$user_id = $login_session['userdetail_id'];
+		if(!empty($user_id)){
+			$data['results'] = $this->user_model->get_viewedprofile($user_id);
+			$values = array('userid' => $user_id);
+			$load = $this->session->set_userdata('myview_details',$values);			
+			$this->load->view('myview', $data);
+		}
+	}
 
 	public function upload_file(){
 
@@ -233,7 +243,7 @@ class Base extends CI_Controller {
 		  		$data_reg = array(
 						// 'religionethnicity_id'=>'',
 						'reg_user_id'=>$id_userdetails,
-						'rel_timeofbirth'=>$form_data['reg_tim'],
+						'rel_timeofbirth'=>strtolower($form_data['reg_tim']),
 						'rel_mothertongue_id'=>$form_data['mother_tongue'][0],
 						'rel_nakshathra_id'=>$form_data['nakshathra'][0],
 						'rel_zodiacsign_id'=>$form_data['zodiac_sign'][0]
@@ -626,7 +636,8 @@ class Base extends CI_Controller {
 			$this->session->unset_userdata("searchmanual_id");
 			$this->session->unset_userdata("search_dhoshamid");	
 			$this->session->unset_userdata("search_quick");	
-			$this->session->unset_userdata("advance_search_sess");			
+			$this->session->unset_userdata("advance_search_sess");				
+			$this->session->unset_userdata("myview_details");		
 
 			if($form_data['search_type'] =='basicsearch'){
 				// Basic Search //	
@@ -1140,5 +1151,15 @@ class Base extends CI_Controller {
 			echo "mail sent";
 		else
 			echo "mail not sent";
+	}
+
+	public function viewfeatureprofile(){
+		$per_page = 10;
+		$offset = 0;
+		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);					  		
+  		if(!empty($values[0])){
+  			$data = $this->user_model->get_datauserId($values[0], $per_page, $offset);		  			
+  		}   		
+  		$this->load->view('viewfeatureprofile',$data);
 	}
 }

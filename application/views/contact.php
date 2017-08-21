@@ -733,14 +733,20 @@
                     <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
                 <div class="row">
+
                     <form action="<?php echo base_url(); ?>contact" method="post" id="contactForm" class="form_inner">
-                        <div class="col-md-6">
+                        <div class="row">
+                            <div class="box">
+                                <span class="val_status" style="display: block;"></span>
+                            </div>
+                        </div>    
+                        <div class="col-md-6 box">
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                    <input type="email" class="form-control form_inputs" name="email" id="email" placeholder="Email">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
@@ -752,7 +758,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-12 box">
                                     <textarea id="comment" placeholder="Message" id="message" name="message" rows="2"></textarea>
                                 </div>
                             </div>

@@ -48,7 +48,19 @@
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Photo* : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused" id="focusedInput" type="file" value="">
+								 <!--  <input class="input-xlarge focused" id="focusedInput" type="file" value=""> -->
+								 <div class="imageupload panel panel-default">
+                                        <div class="panel-heading clearfix">
+                                            <h3 class="panel-title">Upload Image *</h3>
+                                            <span id="upimg_error" class="registration-error"></span>
+                                        </div>
+                                        <div class="file-tab panel-body">
+                                            <label class="btn btn-default btn-file">
+                                                <span>Browse</span>
+                                                 <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" />
+                                            </label>
+                                        </div>
+	                                </div>
 								</div>
 							  </div>
 							   <div class="control-group">

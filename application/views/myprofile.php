@@ -599,7 +599,7 @@
                                                                 <?php 
                                                                 if(!empty($expected_education)){
                                                                     foreach($expected_education as $key => $value) { ?>
-                                                                            <li><?php echo $value['edu_name']; ?></li>
+                                                                            <li style="margin-left: 10px;"><?php echo $value['edu_name']; ?></li>
                                                                     <?php }
                                                                 }?>  
                                                                 </b></p>

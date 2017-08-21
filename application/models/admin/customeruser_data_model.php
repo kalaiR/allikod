@@ -86,7 +86,7 @@ class Customeruser_data_model extends CI_Model {
 	                                'comm_number_of_sisters_yo_mar' => $this->input->post('cus_sisyoungmar'),
 	                                'comm_about_family' => $this->input->post('cus_abtfamily'),
 	            					);
-	            	print_r($communication_update_data);
+	            	// print_r($communication_update_data);
 	                $physicalattributes_update_data = array(
 	                				'phy_height' => $this->input->post('cus_heightcms'),
 	                                'phy_weight' => $this->input->post('cus_weight'),
@@ -128,23 +128,30 @@ class Customeruser_data_model extends CI_Model {
 	        // $this->db->where($education_occupation_update_where);
 	        // $this->db->update("reg_education_occupation", $education_occupation_update_data);
 
-	        $communication_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
-	        $this->db->set($communication_update_data); 
-	        $this->db->where($communication_update_where);
-	        $this->db->update("reg_communication_family", $communication_update_data);
-
-	        $physicalattributes_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
-	        $this->db->set($physicalattributes_update_data); 
-	        $this->db->where($physicalattributes_update_where);
-	        $this->db->update("reg_physical_expectation", $physicalattributes_update_data);
-
-	        // $profileimage_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
-	        // $this->db->set($profileimage_update_data); 
-	        // $this->db->where($profileimage_update_where);
-	        // $this->db->update("user_images", $profileimage_update_data);
-
-	        // echo $this->input->post('cus_paymentstartdate');
-	        // echo $this->input->post('cus_paymentenddate');
+	        $comm = $this->db->get_where('reg_communication_family', array('reg_user_id' => $this->input->post('rid')))->row_array();
+	        if(!empty($comm)){
+	        	$communication_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+		        $this->db->set($communication_update_data); 
+		        $this->db->where($communication_update_where);
+		        $this->db->update("reg_communication_family", $communication_update_data);	
+	        }
+	        else{
+	        	$communication_update_data['reg_user_id'] = $this->input->post('rid');
+	        	$this->db->insert("reg_communication_family", $communication_update_data);
+	        }
+	        // echo $this->db->last_query();
+	        $phy = $this->db->get_where('reg_physical_expectation', array('reg_user_id' => $this->input->post('rid')))->row_array();
+	        if(!empty($phy)){
+	        	$physicalattributes_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+		        $this->db->set($physicalattributes_update_data); 
+		        $this->db->where($physicalattributes_update_where);
+		        $this->db->update("reg_physical_expectation", $physicalattributes_update_data);	
+	        }
+	        else{
+	        	$physicalattributes_update_data['reg_user_id'] = $this->input->post('rid');
+	        	$this->db->insert("reg_physical_expectation", $physicalattributes_update_data);
+	        }
+	        // echo $this->db->last_query();
 			$paymentinitial_data = array(
 				'reg_user_id' => $this->input->post('rid'),
 				'payment_type' => $this->input->post('cus_paymenttype'),

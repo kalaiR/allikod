@@ -255,22 +255,27 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Dhosham</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['rel_dhosham']; ?></p>
+                                                    <p><?php 
+                                                        if(!empty($results['rel_dhosham'])) echo $results['rel_dhosham']; else echo "--"; ?>
+                                                    </p>                         
                                                 </div>
                                                 <div class="col-md-6 col-xs-6">
                                                 <p>Nakshathra</p>
                                                 </div>
-                                                <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['nakshathra_name']; ?></p>
-                                                </div>
-                                                                                               
+                                                <div class="col-md-6 col-xs-6 dark">               
+                                                    <p><?php 
+                                                    if(!empty($results['nakshathra_name'])) echo $results['nakshathra_name']; else echo "--"; ?>
+                                                    </p> 
+                                                </div>                                         
                                             </div>
                                             <div class="col-md-6">              
                                                 <div class="col-md-6 col-xs-6">
                                                 <p>Luknam</p>
                                                 </div>
-                                                <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['lukhnam_name']; ?></p>
+                                                <div class="col-md-6 col-xs-6 dark">                
+                                                    <p><?php 
+                                                    if(!empty($results['lukhnam_name'])) echo $results['lukhnam_name']; else echo "--"; ?>
+                                                    </p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6">
                                                 <p>Gothra</p>
@@ -550,7 +555,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <?php 
                                                 if(!empty($expected_education)){
                                                     foreach($expected_education as $key => $value) { ?>
-                                                        <li><b><?php echo $value['edu_name']; ?></b></li>
+                                                        <li style="margin-left: 10px;"><b><?php echo $value['edu_name']; ?></b></li>
                                                 <?php }
                                                 }?>     
                                                  </div>
