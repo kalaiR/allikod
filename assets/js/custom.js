@@ -369,8 +369,7 @@ $(document).ready(function() {
     });        
 
     // Show and Hide Search Div
-    $(".slidingDiv").hide();
-
+     $(".slidingDiv").hide();
     $('.view_communication').click(function(){
         if($('.slidingDiv').length != 0){
             var data = {};
