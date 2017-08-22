@@ -9,6 +9,7 @@
         disable: disable,
         enable: enable,
         reset: reset
+        
     };
 
     // -----------------------------------------------------------------------------
@@ -114,7 +115,6 @@
         var $imageupload = this;
         init.call($imageupload, options);
     }
-
     // -----------------------------------------------------------------------------
     // Private Methods
     // -----------------------------------------------------------------------------
@@ -128,9 +128,8 @@
         html.push('</div>');
         return html.join('');
     }
-
     function getImageThumbnailHtml(src) {
-        return '<span><i class="fa fa-times fa-2x  inlay" aria-hidden="true"></i><img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px"><a></a>"</span>';
+        return '<div class="profile-img-container adibha"><img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px"><a href="#" class="selva"><span class="fa fa-times fa-2x close-btn" id="selva"></span></a></div>';
     }
 
     function getFileExtension(path) {
@@ -309,7 +308,7 @@
                         div.innerHTML = "<img class='cus_img' src='" + picFile.result + "'" +
                             "title='" + picFile.name + "'/><div  class='post-thumb'><div class='inner-post-thumb'><a href='javascript:void(0);' data-id='" + event.target.fileName + "' class='remove-pic'><i class='fa fa-times' aria-hidden='true'></i></a><div></div>";
 
-                        $("#media-list").prepend(div);
+                        $("#media-list").append(div);
                          var counts=$(document).find('.cus_img').length;
                         
                         if(counts >= 8){
@@ -348,5 +347,5 @@
       });
 
 }(jQuery));
- /* End Image upload in edit page*/
+ /* End Image upload in edit page*/ 
 

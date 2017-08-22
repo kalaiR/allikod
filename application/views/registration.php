@@ -1130,11 +1130,13 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                         <div class="panel-heading clearfix">
                                             <h3 class="panel-title">Upload Image</h3>
                                         </div>
-                                        <div class="file-tab panel-body">
-                                            <label class="btn btn-default btn-file">
-                                            <span>Browse</span>
-                                        <input type="file" name="uploadedfile" id="uploadedfile" name="uploadedfile">
-                                            </label>
+                                        <div class="file-tab panel-body img-post-box">
+                                            <div>
+                                                <label class="btn btn-default btn-file">
+                                                    <span>Browse</span>
+                                                    <input type="file" name="uploadedfile" id="uploadedfile" name="uploadedfile">
+                                                </label>
+                                             </div>   
                                         </div>
                                     </div>
                             </div>

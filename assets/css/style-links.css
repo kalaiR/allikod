@@ -901,7 +901,7 @@ ul#media-list {
 .dir_page{
   display:inline-block;padding:20px
 }
-.main_photo{
+/*.main_photo{
     position:relative;
     width:170px;
     height:170px
@@ -911,7 +911,7 @@ ul#media-list {
     top:72px;
     right:148px;
     color:#f90000;
-}
+}*/
 select .pagination_scrol{
 height:50px;
 overflow-y: scroll;
@@ -924,3 +924,47 @@ overflow-y: scroll;
 {
   padding-left: 10px;
 }
+.profile-img-container {
+    position: relative;
+    display: inline-block; /* added */
+    color: red;
+    overflow: hidden; /* added */
+}
+
+.profile-img-container img {width:100%;} /* remove if using in grid system */
+
+
+.profile-img-container img:hover {
+    opacity: 0.5
+}
+.profile-img-container:hover a {
+    opacity: 1; /* added */
+    top: 0; /* added */
+    z-index: 500;
+}
+/* added */
+.profile-img-container:hover a span {
+    top: 10%;
+    position: absolute;
+    right:8px;
+    transform: translateY(-50%);
+}
+/* added */
+.profile-img-container a {
+    display: block;
+    position: absolute;
+    top: -100%;
+    opacity: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    color: inherit;
+}
+.img-post-box
+{
+  width: 394px;
+
+}
+
+
