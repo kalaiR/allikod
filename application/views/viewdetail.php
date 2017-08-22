@@ -695,7 +695,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                     <div class="profile_list"> 
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="col-md-6">
+                                                <div class="col-md-6" style="padding-bottom: 20px;">
                                             <!-- Rasi Horoscope - Start -->
                                                     <div id="horo_container">
                                                         <div class="horo_row" id="product">

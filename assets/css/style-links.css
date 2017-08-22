@@ -651,7 +651,7 @@
 
 /* View Details - Horoscope*/
 #horo_container{
-    padding:5px;
+    /*padding:5px;*/
     width:282px;
     height:282px;
     display:block;   
