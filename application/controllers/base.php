@@ -657,9 +657,9 @@ class Base extends CI_Controller {
 				foreach($data['results'] as $key => $value) {
 					$sliderdata[] = $this->user_model->get_customer_images($value['userdetail_id']);
 				}				
-				if(!empty($sliderdata)){
-					$data['slider_images'] = $sliderdata;
-				}
+				// if(!empty($sliderdata)){
+				// 	$data['slider_images'] = $sliderdata;
+				// }
 				
 				$this->session->set_userdata('search_inputs',$values);
 
@@ -735,7 +735,7 @@ class Base extends CI_Controller {
 				foreach ($data['results'] as $key => $value) {
 					$sliderdata[] = $this->user_model->get_customer_images($value['userdetail_id']);
 				}
-				$data['slider_images'] = $sliderdata;
+				// $data['slider_images'] = $sliderdata;
 
 			}elseif(!empty($search_quick)){
 				$session_data = $this->session->userdata('search_quick');

@@ -75,7 +75,7 @@
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
                                                     <p><?php
-                                                $remaining_profile= $results['totalno_of_profile'] - $results['no_of_profiles_viewed'];
+                                                echo $remaining_profile= $results['totalno_of_profile'] - $results['no_of_profiles_viewed'];
                                             ?></p>
                                                 </div>                          
                                             </div>
