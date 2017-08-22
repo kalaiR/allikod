@@ -101,7 +101,10 @@
 
         //Admin base url declaration (route path)
         var admin_baseurl = "<?php echo base_url(); ?>admin/";
-    </script>
+        //Image upload
+        var $imageupload = $('.imageupload');
+        $imageupload.imageupload();
+    </script>	
 	
 		
 </body>

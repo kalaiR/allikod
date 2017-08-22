@@ -84,10 +84,12 @@
                                                                     <span id="upimg_error" class="registration-error"></span>
                                                                 </div>
                                                                 <div class="file-tab panel-body">
+                                                                <!-- <i class="fa fa-times fa-2x  inlay" aria-hidden="true"></i> -->
                                                                     <label class="btn btn-default btn-file">
                                                                         <span>Browse</span>
                                                                          <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" />
                                                                     </label>
+                                                                    
                                                                  </div>
                                                                 <!-- <input type="button" id="upload_post" value="upload" name ="upload_post"> -->
                                                             </div>

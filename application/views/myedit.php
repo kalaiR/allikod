@@ -277,22 +277,44 @@
                                                 </div>
                                             </div>
                                             <p>No photos in your album.Upload Photos.</p> -->  
-                                            <input type="file" name="cus_profileimage[]" id="uploadedfile" multiple="">    
-                                            <!-- <div class="wrap-upload-buttons">
-                                                 <span id="spanFileName" class="registration-error"></span>
-                                                <ul class="btn-nav">
-                                                    <li><span class="btn btn-default btn-default"> Browers<input type="file" name="cus_profileimage[]" click-type="type1" class="picupload img_view" multiple accept="image/*" /></span></li>
-                                                </ul>
-                                            </div>
+                                            <!-- <input type="file" name="cus_profileimage[]" id="uploadedfile" multiple="">     -->
                                             <div class="edit_img">
+                                                <span id="spanFileName" class="registration-error error-msg"></span>
                                                 <div class="modal-body login-box clearfix">
                                                     <ul id="media-list" class="clearfix">
+                                                        <?php 
+                                                        if(!empty($customeruser_values['images_id'])){
+                                                            $images_id = explode(",",$customeruser_values['images_id']);
+                                                            $images = explode(",",$customeruser_values['images']);
+                                                            $img_data = array_map(null,$images_id,$images);
+                                                            // echo "<pre>";
+                                                            // print_r($img_data);
+                                                            // echo "</pre>";
+                                                            foreach ($img_data as $value) {
+                                                        ?>
+                                                        <li>
+                                                            <img class="cus_img" src="<?php echo media_url().USER_PROFILE_PATH."th_".$value[1]; ?>" alt="img" data-id="<?php echo $value[0]; ?>">
+                                                            <div class="post-thumb">
+                                                                <div class="inner-post-thumb">
+                                                                    <a href="javascript:void(0);" class="remove-pic remove_act"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <?php }} ?>
+                                                        <!-- <li>
+                                                            <img class="cus_img" src="<?php //echo media_url(); ?>assets/img/reg-img.jpg" alt="img">
+                                                            <div class="post-thumb">
+                                                                <div class="inner-post-thumb">
+                                                                    <a href="javascript:void(0);" class="remove-pic"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </li> -->
                                                         <li class="myupload">
-                                                            <span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload  " multiple></span>
+                                                            <span><i class="fa fa-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload" name="cus_profileimage[]" multiple></span>
                                                         </li>
                                                     </ul>
                                                  </div>
-                                            </div> -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

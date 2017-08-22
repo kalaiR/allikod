@@ -676,7 +676,8 @@
     width:23%;
     margin:1%;
     height:65px;
-    font-family:Courier; color:transparent; font-size: 20px;    
+    font-family:Courier; color:transparent; font-size: 20px;
+    /*visibility: hidden;*/
 }
 
 .asham_horo_row{
@@ -869,10 +870,10 @@ ul#media-list {
     padding: 0;
     margin: 0
 }
-.edit_img
+/*.edit_img
 {
   display: none;
-}
+}*/
 .wrap-upload-buttons
 {
   padding-left: 30px;
@@ -907,10 +908,19 @@ ul#media-list {
 }
 .inlay{
     position:absolute;
-    top:5px;
-    right:5px
+    top:72px;
+    right:148px;
+    color:#f90000;
 }
 select .pagination_scrol{
 height:50px;
 overflow-y: scroll;
+}
+.user-img
+{
+    cursor: pointer;
+}
+.error-msg
+{
+  padding-left: 10px;
 }

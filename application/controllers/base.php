@@ -1061,13 +1061,14 @@ class Base extends CI_Controller {
 					    break;
 					}
 				}
-				//Remove old image
-				$cus_image = $this->user_model->get_customer_images($id); 
+				// //Remove old image
+				// $cus_image = $this->user_model->get_customer_images($id); 
 				// print_r($cus_image);
-				foreach ($cus_image as $value) {
-					// echo FCPATH.USER_PROFILE_PATH.$value['images'];
-					@unlink(FCPATH.USER_PROFILE_PATH.$value['images']);
-				}
+				// foreach ($cus_image as $value) {
+				// 	// echo FCPATH.USER_PROFILE_PATH.$value['images'];
+				// 	if($value['images']!='defalt_male.png' && $value['images']!='defalt_female.png')
+				// 		@unlink(FCPATH.USER_PROFILE_PATH.$value['images']);
+				// }
 			}
       		if($data['error'] != 1) {
 	    		$data_values = $this->user_model->update_customer_user($id,$profile_image); 

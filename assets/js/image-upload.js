@@ -130,7 +130,7 @@
     }
 
     function getImageThumbnailHtml(src) {
-        return '<img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px">';
+        return '<span><i class="fa fa-times fa-2x  inlay" aria-hidden="true"></i><img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px"><a></a>"</span>';
     }
 
     function getFileExtension(path) {
@@ -237,17 +237,15 @@
 
  /* End Image upload in reg page*/
   /* Start Image upload in edit page*/
-
-     $('.img_view').click(function(){
-          $(".edit_img").show();
-          $(".btn-nav").hide();
-    });
     var names = [];
     $('.edit-mult-img').on('change', '.picupload', function(event) {
         var getAttr = $(this).attr('click-type');
         var files = event.target.files;
         var output = document.getElementById("media-list");
         var z = 0
+        var height = '';
+        var width = '';
+        var file_size = $("#picupload")[0].files[0].size;
 
                     var fileExtension = ['jpeg', 'jpg','png','gif'];
                     if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
@@ -256,8 +254,15 @@
                     }
                     else {
                         $('#spanFileName').html("");
-                    } 
-                    
+                    }
+                    if (file_size >1000000) {
+                         $('#spanFileName').html("Upload image size less than 1 MB");
+                         $('.myupload').hide();       
+                    }
+                    // if (width < 350 || height < 300) {
+                    //     $('#spanFileName').html("Upload image height and width below 300 X 350");
+                    //      $('.myupload').hide();       
+                    // }
         if (getAttr == 'type1') {
             $('#media-list').html('');
             $('#media-list').html('<li class="myupload"><span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload" multiple></span></li>');
@@ -286,7 +291,8 @@
                 picReader.readAsDataURL(file);
             }
             console.log(names);
-        } else if (getAttr == 'type2') {
+        } 
+        else if (getAttr == 'type2') {
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
                 names.push($(this).get(0).files[i].name);
@@ -300,10 +306,16 @@
 
                         var div = document.createElement("li");
 
-                        div.innerHTML = "<img src='" + picFile.result + "'" +
+                        div.innerHTML = "<img class='cus_img' src='" + picFile.result + "'" +
                             "title='" + picFile.name + "'/><div  class='post-thumb'><div class='inner-post-thumb'><a href='javascript:void(0);' data-id='" + event.target.fileName + "' class='remove-pic'><i class='fa fa-times' aria-hidden='true'></i></a><div></div>";
 
                         $("#media-list").prepend(div);
+                         var counts=$(document).find('.cus_img').length;
+                        
+                        if(counts >= 8){
+                            
+                            $('.myupload').hide();
+                        }
 
                     });
                 } 
@@ -323,6 +335,13 @@
 
         if (yet != -1) {
             names.splice(yet, 1);
+        }
+         var count=$(document).find('.cus_img').length;
+        if(count >= 8){
+            $('.myupload').hide();
+        }
+        else{
+            $('.myupload').show();   
         }
         // return array of file name
         console.log(names);
