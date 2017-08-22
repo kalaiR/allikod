@@ -78,23 +78,27 @@
                                                                     </div>
                                                                 </div> -->
                                                             <div class="col-md-10 base-box">
-                                                            <div class="imageupload panel panel-default">
-                                                                <div class="panel-heading clearfix">
-                                                                    <h3 class="panel-title">Upload Image *</h3>
-                                                                    <span id="upimg_error" class="registration-error"></span>
+                                                                <div class="imageupload panel panel-default edit-mult-img">
+                                                                    <div class="panel-heading clearfix">
+                                                                        <h3 class="panel-title">Upload Image *</h3>
+                                                                    </div>
+                                                                    <div class="edit_img">
+                                                                        <!-- <span id="spanFileName" class="registration-error error-msg"></span> -->
+                                                                        <div class="file-tab panel-body img-post-box">
+                                                                            <ul>
+                                                                                <li class="btn btn-default btn-file">
+                                                                                    <span>Browse</span>
+                                                                                    <input type="file" click-type="type1" id="picupload" class="picupload" multiple>
+                                                                                </li>
+                                                                            </ul>     
+                                                                        </div>
+                                                                            <div class="img-post"> 
+                                                                                <ul id="media-list" class="clearfix">
+                                                                                </ul>    
+                                                                            </div>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="file-tab panel-body img-post-box">
-                                                                <!-- <i class="fa fa-times fa-2x  inlay" aria-hidden="true"></i> -->
-                                                                    <div>
-                                                                      <label class="btn btn-default btn-file">
-                                                                            <span>Browse</span>
-                                                                             <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" />
-                                                                        </label> 
-                                                                     </div>    
-                                                                 </div>
-                                                                <!-- <input type="button" id="upload_post" value="upload" name ="upload_post"> -->
-                                                            </div>
-                                                        </div>   
+                                                            </div>       
                                                     <div class="comment_form_area next-box">
                                                         <textarea id="comment" class="form-control" name="comment" placeholder="Comment" rows="5"></textarea>
                                                     </div>    

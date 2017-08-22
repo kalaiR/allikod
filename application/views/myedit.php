@@ -277,10 +277,10 @@
                                                 </div>
                                             </div>
                                             <p>No photos in your album.Upload Photos.</p> -->  
-                                            <input type="file" name="cus_profileimage[]" id="uploadedfile" multiple="">    
-                                            <!-- <div class="edit_img">
+                                            <!-- <input type="file" name="cus_profileimage[]" id="uploadedfile" multiple="">     -->
+                                            <div class="edit_img">
                                                 <span id="spanFileName" class="registration-error error-msg"></span>
-                                                <div class="modal-body login-box clearfix">
+                                                <div class="modal-body login-box clearfix imageupload">
                                                     <ul id="media-list" class="clearfix">
                                                         <li>
                                                             <img class="cus_img" src="<?php echo media_url(); ?>assets/img/view/img1.png" alt="img">
@@ -303,7 +303,7 @@
                                                         </li>
                                                     </ul>
                                                  </div>
-                                            </div> -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -783,9 +783,23 @@
 											<fieldset>											  
 											  <div class="control-group">
 												<div class="control-group">
-												  <label class="control-label" for="fileInput">Image :</label>
+												  <!-- <label class="control-label" for="fileInput">Image :</label>
 												  <div class="controls">
 													<input class="input-file uniform_on" id="fileInput" type="file">
+												  </div> -->
+												  <div class="edit-mult-img">
+												  		<div class="wrap-upload-buttons">
+															<span id="spanFileName" class="val-error"></span>
+														</div>
+														<div class="edit_img">
+															<div class="modal-body login-box clearfix">
+																<ul id="media-list" class="clearfix">
+																	<li class="myupload">
+																		<span class="user-img"><i class="icon32 icon-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload per-img-box user-img" multiple></span>
+																	</li>
+																</ul>
+															</div>
+														</div>			
 												  </div>
 												</div>												
 											  </div>  					  							  
