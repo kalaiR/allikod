@@ -180,8 +180,4 @@
                 //console.log( canvas.toDataURL( "image/png" ) );
             //};
             $(".chosen-select").chosen();
-
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-        });
      </script>

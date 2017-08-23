@@ -474,12 +474,12 @@
             $('.blog_slider_inner').owlCarousel({
                 loop:true,
                 margin:0,
-                items: 4,
-                nav:true,
+                items: 5,
+                // nav:true,
                 autoplay: true,
                 smartSpeed: 1800,
-                navContainer: '.blog_slider_inner',
-                navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
+                // navContainer: '.blog_slider_inner',
+                // navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
                 responsive:{
                     0:{
                         items:1
@@ -491,7 +491,7 @@
                         items:3
                     },
                     900:{
-                        items:4
+                        items:5
                     }
                 }
             })
@@ -506,8 +506,8 @@
         if ( $('.slider_adms_active').length ){
             $('.slider_adms_active').owlCarousel({
                 loop:true,
-                margin:30,
-                items: 4,
+                margin:20,
+                // items: 4,
                 nav:true,
                 autoplay: true,
                 smartSpeed: 1800,
@@ -536,24 +536,24 @@
             $('.r_members_inner').owlCarousel({
                 loop:true,
                 margin:28,
-                items: 6,
-                nav:true,
+                items: 4,
+                // nav:true,
                 autoplay: true,
                 smartSpeed: 1800,
-                navContainer: '.r_members_inner',
-                navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                // navContainer: '.r_members_inner',
+                // navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
                 responsive:{
                     0:{
                         items:2
                     },
                     400:{
-                        items:3
+                        items:2
                     },
                     520:{
-                        items:4
+                        items:3
                     },
                     991:{
-                        items:6
+                        items:4
                     }
                 }
             })
@@ -569,21 +569,21 @@
             $('.sticky_slider').owlCarousel({
                 loop:true,
                 margin:30,
-                items: 3,
-                nav:true,
-                autoplay: false,
+                items: 4,
+                // nav:true,
+                autoplay: true,
                 smartSpeed: 1800,
-                navContainer: '.sticky_slider',
-                navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                // navContainer: '.sticky_slider',
+                // navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
                 responsive:{
                     0:{
                         items:1
                     },
                     480:{
-                        items:2
+                        items:1
                     },
                     768:{
-                        items:3
+                        items:4
                     }
                 }
             })
@@ -599,11 +599,11 @@
             $('.simillar_product_slider').owlCarousel({
                 loop:true,
                 margin:30,
-                items: 3,
-                nav:true,
+                items: 4,
+                // nav:true,
                 autoplay: true,
                 smartSpeed: 1800,
-                navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                // navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
                 responsive:{
                     0:{
                         items:1
@@ -612,7 +612,7 @@
                         items:2
                     },
                     680:{
-                        items:3
+                        items:4
                     }
                 }
             })

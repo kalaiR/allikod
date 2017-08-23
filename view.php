@@ -161,8 +161,42 @@
                                 <!-- <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know extremely painful.</p> -->
                                 <!-- <div class="profile_list"> -->
                                 <div class="profile_list">                                    
-                                        
-                                          <img src="img/view/img1.png" alt="Durga" style="vertical-align:bottom;">
+                                        <ul>
+                                            <li><a href="#lightbox" data-toggle="modal"> <img src="img/view/img1.png" alt="Durga" style="vertical-align:bottom;"></a></li>
+                                        </ul>
+                                        <div class="modal fade and carousel slide lig" id="lightbox">
+                                            <div class="modal-dialog ">
+                                                <div class="modal-body">
+                                  <ol class="carousel-indicators">
+                                    <li data-target="#lightbox" data-slide-to="0" class="active"></li>
+                                    <li data-target="#lightbox" data-slide-to="1"></li>
+                                    <li data-target="#lightbox" data-slide-to="2"></li>
+                                  </ol>
+                                  <div class="carousel-inner">
+                                   
+                                    <div class="item active">
+                                       <div class="numbertext">1 / 3</div>
+                                      <img class="lig-box"src="img/reg-img.jpg" alt="First slide">
+                                    </div>
+                                    <div class="item">
+                                      <div class="numbertext">2 / 3</div>
+                                      <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Second slide">
+                                    </div>
+                                    <div class="item">
+                                     <div class="numbertext">3 / 3</div>
+                                      <img class="lig-box" src="img/search-result-page/img1.jpg" alt="Third slide">
+                                    </div>
+                                  </div>
+                                  <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                  </a>
+                                  <a class="right carousel-control" href="#lightbox" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                  </a>
+                              </div>
+                                            </div>
+                                        </div>    
+                                         
                                             
                                             <ul>
                                             <li><a href="#">Name</a></li>
@@ -394,10 +428,10 @@
                                                 <div class="col-md-6 col-xs-6 ">
                                                 <p>Education in Detail</p>
                                                 </div>
-                                                <div class="col-md-4  dark">
-                                                    <p class="text_short">Degree completed in 2008</p>
+                                                <div class="col-md-4 dark">
+                                                    <p class="text_short">Degree</p>
                                                 </div>
-                                                <div class="col-md-1 tooltips">
+                                                <div class="col-md-1 tooltips long">
                                                     <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext">Degree completed in 2008</span>
                                                 </div>
                                             </div>
@@ -416,11 +450,12 @@
                                                 <p class="text_short">
 Currently Not Working. For 6 years she has worked as an Assistant Professor in Engineering Colleges and she is willing to work in future.</p>
                                             </div>
-                                            <div class="col-md-1 tooltips">
+                                            <div class="col-md-1 tooltips long">
                                                 <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext">
 Currently Not Working. For 6 years she has worked as an Assistant Professor in Engineering Colleges and she is willing to work in future.</span>
                                             </div>
-                                            <div  class="col-md-6 col-xs-6 ">
+                                            <div  class="col-md-6 col-xs-6 
+                                            ">
                                             <p>Employed In</p>
                                             </div>
                                             <div class="col-md-6 col-xs-6 dark">
@@ -481,7 +516,7 @@ Currently Not Working. For 6 years she has worked as an Assistant Professor in E
                                             <div class="col-md-4 col-xs-6 dark">
                                                 <p class="text_short">Professor Rtd., Alagappa Government Arts College, Karaikudi.</p>
                                             </div>
-                                            <div class="col-md-1 col-xs-1 tooltips">
+                                            <div class="col-md-1 col-xs-1 tooltips long">
                                                 <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext">Professor Rtd., Alagappa Government Arts College, Karaikudi.</span>
                                             </div>
                                             <div class="col-md-6 col-xs-6">
@@ -490,7 +525,7 @@ Currently Not Working. For 6 years she has worked as an Assistant Professor in E
                                             <div class="col-md-4 col-xs-6 dark">
                                                 <p class="text_short">Professor Rtd., Alagappa Government Arts College, Karaikudi.</p>
                                             </div>
-                                            <div class="col-md-1 col-xs-1 tooltips">
+                                            <div class="col-md-1 col-xs-1 tooltips long">
                                                 <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext">Professor Rtd., Alagappa Government Arts College, Karaikudi.</span>
                                             </div>
                                             <div class="col-md-6 col-xs-6">

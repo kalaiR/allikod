@@ -87,7 +87,8 @@
 	<script src="js/jquery.history.js"></script>
 	<!-- application script for Charisma demo -->
 	<script src="js/charisma.js"></script>
-	<script src="js/custom.js"></script>	
+	<script src="js/custom.js"></script>
+	<script src="js/admin-img-upload.js"></script>	
 	<script src="js/sidebar-menu.js"></script>
 	 <script>
     $.sidebarMenu($('.sidebar-menu'))

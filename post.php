@@ -45,18 +45,18 @@
                                                 </div> 
                                                 <div class="col-sm-8 text-box">   
                                                     <div class="form-group"> 
-                                                            <input type="text" name="vallikodi_id" class="form-control form_inputs" id="vallikodi_id" placeholder="Vallikodi ID">  
+                                                            <input type="text" name="vallikodi_id" class="form-control " id="vallikodi_id" placeholder="Vallikodi ID">  
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-8 text-box">    
                                                     <div class="form-group">
-                                                            <input type="text" name="email_id" class="form-control form_inputs email_value" id="email_id" placeholder="Email">
+                                                            <input type="text" name="email_id" class="form-control  email_value" id="email_id" placeholder="Email">
                                                     </div>
                                                 </div>    
                                                 <div class="col-sm-8 text-box">
                                                     <div class="form-group">
                                                         <div class="datepicker">
-                                                            <input type='text' name="marriage_date" class="form-control form_inputs datetimepicker4" placeholder="Marriage" />
+                                                            <input type='text' name="marriage_date" class="form-control  datetimepicker4" placeholder="Marriage" />
                                                             <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                                         </div>
                                                     </div>
