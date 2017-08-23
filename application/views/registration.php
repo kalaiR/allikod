@@ -1126,19 +1126,27 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>
                                         </div>        
                                     </div> -->
-                                    <div class="imageupload panel panel-default">
-                                        <div class="panel-heading clearfix">
-                                            <h3 class="panel-title">Upload Image</h3>
+                                  
+                                        <div class="imageupload panel panel-default edit-mult-img">
+                                            <div class="panel-heading clearfix">
+                                                     <h3 class="panel-title">Upload Image *</h3>
+                                            </div>
+                                            <div class="edit_img">
+                                                <div class="file-tab panel-body img-post-box">
+                                                    <ul>
+                                                        <li class="btn btn-default btn-file">
+                                                            <span>Browse</span>
+                                                            <input type="file" click-type="type1" id="picupload" class="picupload" multiple>
+                                                        </li>
+                                                    </ul>     
+                                                </div>
+                                                <div class="img-post"> 
+                                                    <ul id="media-list" class="clearfix">
+
+                                                    </ul>    
+                                                 </div>
+                                            </div>
                                         </div>
-                                        <div class="file-tab panel-body img-post-box">
-                                            <div>
-                                                <label class="btn btn-default btn-file">
-                                                    <span>Browse</span>
-                                                    <input type="file" name="uploadedfile" id="uploadedfile" name="uploadedfile">
-                                                </label>
-                                             </div>   
-                                        </div>
-                                    </div>
                             </div>
                         </div>
                         <!-- Horo Scope Start -->
