@@ -505,8 +505,20 @@
                                             </div>
                                             <div class="col-md-6">       
                                                 <select class="selectpicker">
-                                                    <option>BCA</option>
-                                                    <option>BE/B Tech</option>
+                                                    <option value="">Select</option>
+                                                            <optgroup class="a" label="Bachelors - Engineering/ Computers">
+                                                            <option  selected="selected"  value="1">BE/B Tech</option>
+                                                            <option  value="2">BCA</option>
+                                                            <option  value="3">Aeronautical Engineering</option>
+                                                            <option  value="4">B Arch</option>
+                                                            <option  value="5">B Plan</option>
+                                                            </optgroup>
+                                                            <optgroup class="a" label="Masters - Engineering/ Computers">
+                                                            <option  value="6">MCA/PGDCA</option>
+                                                            <option  value="7">ME/M Tech</option>
+                                                            <option  value="8">MS (Engg.)</option>
+                                                            <option  value="9">M Arch</option>
+                                                            </optgroup>
                                                 </select>     
                                              </div>
                                         </div>
@@ -857,17 +869,19 @@
                                                     <div class="controls">
                                                         <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4">
                                                             <option value="">Select</option>
-                                                            <optgroup class="a" label="Bachelors - Engineering/ Computers"></optgroup>
+                                                            <optgroup class="a" label="Bachelors - Engineering/ Computers">
                                                             <option  selected="selected"  value="1">BE/B Tech</option>
                                                             <option  value="2">BCA</option>
                                                             <option  value="3">Aeronautical Engineering</option>
                                                             <option  value="4">B Arch</option>
                                                             <option  value="5">B Plan</option>
-                                                            <optgroup class="a" label="Masters - Engineering/ Computers"></optgroup>
+                                                            </optgroup>
+                                                            <optgroup class="a" label="Masters - Engineering/ Computers">
                                                             <option  value="6">MCA/PGDCA</option>
                                                             <option  value="7">ME/M Tech</option>
                                                             <option  value="8">MS (Engg.)</option>
                                                             <option  value="9">M Arch</option>
+                                                            </optgroup>
                                                         </select>
                                                     </div>
                                                 </div>     

@@ -839,7 +839,7 @@
 										<form class="form-horizontal">
 											<fieldset>											  
 											  <div class="control-group">
-												<label class="control-label">Image Active :</label>
+												<label class="control-label">Image Active :<br>(for feature image)</label>
 												<div class="controls">
 												  <select data-rel="chosen">
 												  	<option value="">Select Active Status</option>

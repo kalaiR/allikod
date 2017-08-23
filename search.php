@@ -481,27 +481,36 @@
                                                 <div class="registration_form_s_box" id="registration_form_s_box">
                                                     <form>
                                                          <div class="col-sm-6 ">
-                                                                <div class="height_item">
-                                                                    <select class="selectpicker">
-                                                                        <option>Naga Dhosam</option>
-                                                                        <option>Chevvai Dhosam</option>
-                                                                        <option>Raghu Kedhu Dhosam</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>     
-                                                        </div>
+                                                            <div class="height_item">
+                                                                <select class="selectpicker">
+                                                                    <option>Naga Dhosam</option>
+                                                                    <option>Chevvai Dhosam</option>
+                                                                    <option>Raghu Kedhu Dhosam</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>     
                                                     </form>
-                                                 </div>
+                                                </div>                                                    
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 butn-box-dho">
-                                            <div class="reg_chose form-group ">
-                                                <a href="search_result.php" class="register_angkar_btn">Search</a>
-                                            </div>
-                                        </div>                                           
-                                    </div>    
-                                </div>     
-                           </div>
+                                    </div>
+                                    <div class="col-sm-6 butn-box-dho">
+                                        <div class="reg_chose form-group ">
+                                            <a href="search_result.php" class="register_angkar_btn">Search</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 aline-center-box ">
+                                        <div class="col-sm-6 ">
+                                            <form>
+                                                <div class="col-sm-6 ">
+                                                    <input style="width: 160px" type="text" name="" class="form-control">
+                                                </div>     
+                                            </form>
+                                        </div>                                                    
+                                    </div>                                                               
+                                </div>    
+                            </div>     
+                        </div>
 
 
                     </div>

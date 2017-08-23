@@ -528,96 +528,109 @@
                                         </div> 
                                 </div>
                                 <div class="members_about_box">
-                                    <div id="">
-                                    <h3 id="hcolor">Expectation About Life</h3>
-                                    <div class="profile_list"> 
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                           <h3 id="hcolor">Expecation About Life Partner</h3>
+                                        </div>
+                                        <div class="col-md-10 text-box">
+                                            <textarea id="comment" placeholder="" rows="4" cols="50"></textarea>
+                                        </div>
                                     </div>
-                                    </div>                                                                  
                                 </div>
-                                 <div class="members_about_box">
-                                    <div id="">
-                                    <h3 id="hcolor">Search(Expectation/Looking for)</h3>
-                                    </div> 
-                                        <div class="profile_list">
-                                            <ul>
-                                                <li><a href="#">Age</a></li>
-                                            </ul>
-                                            <ul>
-                                                <li><a href="#">From 24 To 28</a></li>
-                                            </ul>
+                                <div class="members_about_box"> 
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                           <h3 id="hcolor">Search (Expectation / Looking For)</h3>
                                         </div>
-                                        <div class="col-sm-12  aline-center-box ">
-                                           <div class="row">
-                                                <div class="profile_list">
-                                                    <!-- <div class="height_item profile_list"> -->
-                                                        <p>Marital Status</p>
-                                                    <!-- </div>     -->
-                                                  <!--   <div class="col-sm-8 "> -->
-                                                    <!-- <div class="height_item "> -->
-                                                        <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="">
-                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                                                Single
-                                                    </label>
-                                                    <label>
-                                                        <input type="checkbox" value="">
-                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                                                Widowed
-                                                    </label>
-                                                    <label>
-                                                        <input type="checkbox" value="">
-                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                                                Annualled
-                                                    </label>
-                                                    <label>
-                                                        <input type="checkbox" value="">
-                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                                                Divorced
-                                                    </label>
-                                                    </div>
-                                                        <!-- <label class="checkbox-inline"><input type="checkbox" value="">Single</label>
-                                                        <label class="checkbox-inline"><input type="checkbox" value="">Widowed</label>
-                                                        <label class="checkbox-inline"><input type="checkbox" value="">Annualled</label>
-                                                        <label class="checkbox-inline"><input type="checkbox" value="">Divorced</label>
-                                                    </div> -->
-                                                <!-- </div> -->
+                                        <div class="col-md-6 text-boxs">
+                                            <div class="row com-box">
+                                                <div class="col-md-3">
+                                                    <p><b>Age</b></p>
                                                 </div>
-                                                
-                                            </div>        
+                                                <div class="col-md-2">        
+                                                    <select>
+                                                        <option>18 </option>
+                                                        <option>19 </option>
+                                                    </select> 
+                                                </div>
+                                                <div class="col-md-1">        
+                                                    <p><b>To</b></p> 
+                                                </div>
+                                                <div class="col-md-2">        
+                                                    <select>
+                                                        <option>28 </option>
+                                                        <option>39 </option>
+                                                    </select> 
+                                                </div>
+                                            </div>
+                                            <div class="row com-box">
+                                                <div class="col-md-3 text-box">
+                                                    <p><b>Marital Status</b></p>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" value="">
+                                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                                Single
+                                                        </label>
+                                                        <label>
+                                                            <input type="checkbox" value="">
+                                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                                Widowed
+                                                        </label>
+                                                        <label>
+                                                            <input type="checkbox" value="">
+                                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                                Divorced Annulled
+                                                        </label>
+                                                    </div>
+                                                </div>                                           
+                                            </div>
+                                            <div class="row com-box">
+                                                <div class="col-md-3">
+                                                    <p><b>Education</b></p>
+                                                </div>
+                                                <div class="col-md-6">       
+                                                    <div class="control-group">                     
+                                                        <div class="controls">
+                                                            <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4">
+                                                                <option value="">Select</option>
+                                                                <optgroup class="a" label="Bachelors - Engineering/ Computers"></optgroup>
+                                                                <option  selected="selected"  value="1">BE/B Tech</option>
+                                                                <option  value="2">BCA</option>
+                                                                <option  value="3">Aeronautical Engineering</option>
+                                                                <option  value="4">B Arch</option>
+                                                                <option  value="5">B Plan</option>
+                                                                <optgroup class="a" label="Masters - Engineering/ Computers"></optgroup>
+                                                                <option  value="6">MCA/PGDCA</option>
+                                                                <option  value="7">ME/M Tech</option>
+                                                                <option  value="8">MS (Engg.)</option>
+                                                                <option  value="9">M Arch</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>     
+                                                 </div>
+                                            </div>
+                                            <div class="row com-box">
+                                                <div class="col-md-3">
+                                                    <p><b>Diet</b></p>
+                                                </div>
+                                                <div class="col-md-8">       
+                                                    <div class="radio-inline">
+                                                        <label><input type="radio" name="Vegetarian">Vegetarian</label>
+                                                    </div>
+                                                    <div class="radio-inline">
+                                                        <label><input type="radio" name="Vegetarian">Non-Vegetarian</label>
+                                                    </div>
+                                                    <div class="radio-inline">
+                                                        <label><input type="radio" name="Vegetarian">Eggetarian</label>
+                                                    </div>
+                                                 </div>
+                                            </div>
                                         </div>
-                                        <div class="profile_list">
-                                            <ul>
-                                                <li><a href="#">Education</a></li>
-                                                <!-- <li><a href="#">Mother's Name</a></li>
-                                                <li><a href="#">Father's Occupation</a></li>
-                                                <li><a href="#">Mother's Occupation</a></li>
-                                                <li><a href="#">Family Status</a></li>
-                                                <li><a href="#">Family Type</a></li>
- -->                                                <!-- <li><a href="#">Work as</a></li> -->
-                                            </ul> 
-                                            <ol>
-                                                <li><a href="#">BCA</a></li>
-                                                <li><a href="#">BE/BTech</a></li>
-                                                <li><a href="#">BSc</a></li>
-                                                <li><a href="#">B Com</a></li>
-                                                <!-- <li><a href="#">Family Status</a></li>
-                                                <li><a href="#">Family Type</a></li>
-                                                <li><a href="#">Work as</a></li> -->
-                                            <ol>
-                                        </div>
-                                        <div class="profile_list">
-                                            <ul>
-                                                <li><a href="#">Expectation Food</a></li>
-                                            </ul>
-                                            <ul>
-                                                <li><a href="#">Non-Vegetarian</a></li>
-                                            </ul>
-                                        </div>  
-
+                                    </div>
                                 </div>
-
-                         
                             <div class="members_about_box">
                                 <h3 id="hcolor">Horoscope</h3>
                                 <div class="profile_list"> 

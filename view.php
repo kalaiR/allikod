@@ -236,10 +236,13 @@
                                                         <p>4589632</p>
                                                     </div >
                                                     <div class="col-md-6 col-xs-6">
-                                                    <p>Phone Number</p>
+                                                    <p>Mobie Number</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
                                                         <p>9865324170</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p><a href="#">Am Interested</a></p>
                                                     </div>                                     
                                                 </div>
                                             </div>  <!-- row ends -->                            
