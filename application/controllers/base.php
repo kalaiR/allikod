@@ -149,16 +149,15 @@ class Base extends CI_Controller {
   	}
 
 	public function search(){
-		$data['martial_status'] = $this->user_model->get_martialstatus();
-		$data['mother_tongue'] = $this->user_model->get_mothertongue();	
 		$data['education'] = $this->user_model->get_education();
 		$data['education_category'] = $this->user_model->get_educationcategory();
 		$data['country'] = $this->user_model->get_country();
 		$data['occupation'] = $this->user_model->get_occupation();
 		$data['occupation_category'] = $this->user_model->get_occupationcategory();
 		$data['bodytype'] = $this->user_model->get_bodytype();
-		$data['martial_status'] = $this->user_model->get_martialstatus();
+		$data['dhosham'] = $this->user_model->get_dhosham();
 		$data['mother_tongue'] = $this->user_model->get_mothertongue();
+		$data['martial_status'] = $this->user_model->get_martialstatus();
 		$this->load->view('search', $data);
 	}
 	public function contact(){
@@ -597,6 +596,7 @@ class Base extends CI_Controller {
 		  		$data['martial_status'] = $this->user_model->get_martialstatus();
 		  		$data['mother_tongue'] = $this->user_model->get_mothertongue();
 		  		$data['nakshathra'] = $this->user_model->get_nakshathra();
+		  		$data['dhosham'] = $this->user_model->get_dhosham();
 		  		$data['luknam'] = $this->user_model->get_luknam();
 		  		$data['zodiac'] = $this->user_model->get_zodiac();
 		  		$data['education'] = $this->user_model->get_education();
@@ -708,7 +708,7 @@ class Base extends CI_Controller {
 			}elseif($form_data['search_type'] =='search_dhosham'){
 				// Search by Dhosham ID //
 				$search_dhoshamid = $form_data['dhosham'][0];				
-				$data = $this->user_model->get_dhoshamsearch($search_dhoshamid, $per_page, $offset);
+				$data = $this->user_model->get_dhoshamsearch($search_dhoshamid, $per_page, $offset);				
 				$this->session->set_userdata('search_dhoshamid',$search_dhoshamid);				
 				$search_dhoshamid = $this->session->userdata('search_dhoshamid');
 			}else{
@@ -722,7 +722,7 @@ class Base extends CI_Controller {
 			// Pagination Session Data			
 			$search_inputs = $this->session->userdata('search_inputs');
 			$search_quick = $this->session->userdata('search_quick');
-			$search_dhosham = $this->session->userdata('search_dhoshamid');
+			$search_dhosham = $this->session->userdata('search_dhoshamid');			
 			$advance_search = $this->session->userdata('advance_search_sess');						
 
 			if(!empty($search_inputs)){
@@ -749,7 +749,8 @@ class Base extends CI_Controller {
 					preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);							
 					$session_data['offset'] = $values[0];
 				}				
-				$data = $this->user_model->get_dhoshamsearch($search_dhosham, $per_page, $offset);
+				$data = $this->user_model->get_dhoshamsearch($search_dhosham, $per_page, $offset);				
+				
 			}elseif(!empty($advance_search)){
 				$session_data = $this->session->userdata('advance_search_sess');
 				$session_data['offset'] = $values[0];

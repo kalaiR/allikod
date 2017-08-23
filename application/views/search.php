@@ -607,10 +607,15 @@ include('include/menu.php');
                                                     <div class="registration_form_s_box" id="registration_form_s_box">
                                                              <div class="col-sm-6 ">
                                                                     <div class="height_item">
-                                                                        <select class="selectpicker" name="dhosham[]" id="dhosham">
-                                                                            <option value="1">Naga Dhosam</option>
-                                                                            <option value="2">Chevvai Dhosam</option>
-                                                                            <option value="3">Raghu Kedhu Dhosam</option>
+                                                                     <select class="selectpicker" name="dhosham[]" id="dhosham">
+                                                                           <option value="">Select</option>
+                                                                               <?php 
+                                                                                if(!empty($dhosham)) :
+                                                                                    foreach ($dhosham as $cls_val) {
+                                                                                        echo "<option value='" . $cls_val['dhosham_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
                                                                         </select>
                                                                     </div>
                                                                 </div>     
