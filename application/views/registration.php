@@ -488,7 +488,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4">
-                                                   <input type="text" class="form-control" id="reg_income" placeholder="Income" name="reg_income">
+                                                   <input type="text" class="form-control income-box" id="reg_income" placeholder="Income" name="reg_income">
                                                 </div>
                                                 <div class="col-sm-4 box">
                                                   <span id="reg_income_error" class="registration-error"></span>

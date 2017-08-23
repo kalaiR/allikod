@@ -263,7 +263,7 @@
                                         <div class="col-md-12">
                                            <h3 id="hcolor">Image</h3>
                                         </div>
-                                        <div class="col-md-12 text-boxs edit-mult-img">
+                                        <div class="col-md-12 text-boxs imageupload edit-mult-img">
                                         <!--      <div class="imageupload panel panel-default">
                                                 <div class="panel-heading clearfix">
                                                     <h3 class="panel-title">Upload Image</h3>
@@ -278,7 +278,7 @@
                                             </div>
                                             <p>No photos in your album.Upload Photos.</p> -->  
                                             <!-- <input type="file" name="cus_profileimage[]" id="uploadedfile" multiple="">     -->
-                                            <div class="edit_img">
+                                            <div class="edit_img ">
                                                 <span id="spanFileName" class="registration-error error-msg"></span>
                                                 <div class="modal-body login-box clearfix imageupload">
                                                     <ul id="media-list" class="clearfix">
@@ -691,7 +691,7 @@
                                                     <p><b>Monthly Income(In Indian-Rs) *</b></p>
                                                 </div>
                                                 <div class="col-md-5">       
-                                                    <input type="text" class="form-control form_inputs" data-message="Monthly Income" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; ?>" name="cus_moninc">
+                                                    <input type="text" class="form-control income-box form_inputs" data-message="Monthly Income" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; ?>" name="cus_moninc">
                                                  </div>
                                             </div>
                                             <div class="row com-box">
