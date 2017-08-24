@@ -554,7 +554,22 @@
                                                     <p><b>Dhosham</b></p>
                                                 </div>
                                                 <div class="col-md-5">       
-                                                    <input type="text" class="form-control" id="reg_Name" placeholder="Dhosham" value="<?php if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; ?>" name="cus_dosham">   
+                                                   <!--  <input type="text" class="form-control" id="reg_Name" placeholder="Dhosham" value="<?php //if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; ?>" name="cus_dosham">  -->
+
+                                                    <select class="form-control customize_plan" name="cus_dosham" id="reg_Name">
+                                                        <option value="">Select Dhosham</option>
+                                                        <?php 
+                                                        if(!empty($dhosham)) :
+                                                            foreach ($dhosham as $cls_val) {
+                                                                if($customeruser_values['rel_dhosham']==$cls_val['dhosham_id']){
+                                                                    echo "<option value='" . $cls_val['dhosham_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
+                                                                }else{
+                                                                    echo "<option value='" . $cls_val['dhosham_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                }
+                                                            }
+                                                        endif;
+                                                        ?>
+                                                    </select>
                                                  </div>
                                             </div>
                                             <div class="row com-box">

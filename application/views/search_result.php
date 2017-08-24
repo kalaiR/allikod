@@ -71,75 +71,89 @@ if(isset($per_page)&&(!empty($total_rows)))
                 <div class="row">
                 <div class="col-md-9">
                 <?php
-                if(!empty($results)){
+                if(!empty($results)){                    
                 foreach($results as $key => $value) { 
-                    // echo $value['images']."<br>";
-                    // echo base_url()."uploads/profile/".$value['images'];
-                    // echo "image_status"."<br>".file_exists(base_url()."uploads/profile/".$value['images'])."<br>";
                     $prefix = '';
                     $prefix_one = 'th_';
                     $prefix_two = 'new_';
+                    $prefix_latest_images = '';
+                    $default_images = '';
+                    $latest_images = '';  
+                    unset($current_images);
+                    $current_images = array();                      
                     if(!empty($value['images'])){
-                        $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$value['images']);
-                        $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$value['images']);
+                        $current_images = explode(',', $value['images'] );
+                        $latest_images = end($current_images);                       
+                        $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$latest_images);
+                        $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$latest_images); 
+                        $prefix_latest_images = file_exists(FCPATH."uploads/profile/".$latest_images); 
                     }
-                    // if(file_exists(FCPATH."uploads/profile/".$value['images'])){
-                ?>                        
+                    // To get Gender based image for display //
+                    if((!empty($value['user_gender']))&&($value['user_gender']!=1)){
+                            $default_images = "defalt_female.png";
+                    }else{
+                            $default_images = "defalt_male.png";
+                    }
+                    ?>                        
                     <div class="col-md-4 col-sm-6">                    
-                         <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                         <?php                             
                             if(!empty($prefix_one_status))
                                 $prefix = $prefix_one;
                             else if(!empty($prefix_two_status))
-                                $prefix = $prefix_two;
+                                $prefix = $prefix_two;                            
+
+                        // echo  "prefix===========>".$prefix;                                   
                         ?>
                         <!-- <div class="main_photo"> -->
                         <img src="<?php 
-                            if(!empty($value['images'])): 
-                                echo media_url()."uploads/profile/".$prefix.$value['images']; 
+                            if((!empty($value['images']))&&(!empty($prefix))): 
+                                echo media_url()."uploads/profile/".$prefix.$latest_images; 
                             else:
-                                echo media_url()."assets/img/no_image.jpg"; 
+                                echo media_url()."uploads/profile/".$default_images; 
                             endif; 
                         ?>" alt="Image not loaded" style="width:170px;height:170px;">
-                        <!-- <img class="inlay" src="<?php //echo media_url(); ?>assets/img/lock-icon.png"> -->
-                        <!-- </div> -->
-                          <!-- <div><a href="#">More Images</a></div>  -->
                           <div>
                            <ul class="">
-                              <li><a href="#lightbox" data-toggle="modal">More Images</a></li>
+                              <li><a href="#lightbox<?php echo $key;?>" data-toggle="modal">More Images</a></li>
                             </ul>
                           </div> 
-                          <div class="modal fade and carousel slide lig" id="lightbox">
+                          <?php 
+                          // echo '<pre>';
+                          // print_r($current_images);
+                          // echo '</pre>';
+                          ?>
+                          <div class="modal fade and carousel slide lig" id="lightbox<?php echo $key;?>">
                            <div class="modal-dialog ">
                               <div class="modal-body">
-                                  <!-- <ol class="carousel-indicators">
-                                       <?php 
-                                        //if(!empty($slider_images)){
-                                        //foreach($slider_images as $key => $value) { ?>
-                                            <li data-target="#lightbox" data-slide-to="<?php //echo $key;?>"></li>
-                                       <?php //} }?>
-                                  </ol> -->
+                                  <ol class="carousel-indicators">
+                                        <?php 
+                                        if(!empty($current_images)){
+                                        foreach($current_images as $ckey => $cvalue) { ?>
+                                            <li data-target="#lightbox" data-slide-to="<?php echo $ckey;?>"></li>
+                                        <?php } }?>
+                                  </ol>
                                   <div class="carousel-inner">
                                             <?php 
-                                                if(!empty($slider_images[$key])){
-                                                    foreach($slider_images[$key] as $skey => $svalue) {       
+                                                if(!empty($value['images'])){              
+                                                    foreach($current_images as $skey => $svalue) {       
                                                         if($skey!=0){?>
                                                             <div class="item">
-                                                                    <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($slider_images[$key]);?></div>
-                                                                    <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$svalue['images'];?>" alt="First slide">
+                                                                    <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($current_images);?></div>
+                                                                    <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix_two.$svalue;?>" alt="First slide">
                                                             </div>
                                                         <?php }else{?>
                                                              <div class="item active">
-                                                                <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($slider_images[$key]);?></div>
-                                                                <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$svalue['images'];?>" alt="First slide">
+                                                                <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($current_images);?></div>
+                                                                <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix_two.$svalue;?>" alt="First slide">
                                                                 </div>
                                                         <?php }
                                                     }
                                             } ?>
                                   </div>
-                                  <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev">
+                                  <a class="left carousel-control" href="#lightbox<?php echo $key;?>" role="button" data-slide="prev">
                                     <span class="glyphicon glyphicon-chevron-left"></span>
                                   </a>
-                                  <a class="right carousel-control" href="#lightbox" role="button" data-slide="next">
+                                  <a class="right carousel-control" href="#lightbox<?php echo $key;?>" role="button" data-slide="next">
                                     <span class="glyphicon glyphicon-chevron-right"></span>
                                   </a>
                               </div>

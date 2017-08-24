@@ -79,25 +79,40 @@ if(isset($per_page)&&(!empty($total_rows)))
                     $prefix = '';
                     $prefix_one = 'th_';
                     $prefix_two = 'new_';
+                    $prefix_latest_images = '';
+                    $default_images = '';
+                    $latest_images = '';  
+                    unset($current_images);
+                    $current_images = array();                      
                     if(!empty($value['images'])){
-                        $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$value['images']);
-                        $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$value['images']);
+                        $current_images = explode(',', $value['images'] );
+                        $latest_images = end($current_images);                       
+                        $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$latest_images);
+                        $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$latest_images);
+                        $prefix_latest_images = file_exists(FCPATH."uploads/profile/".$latest_images); 
                     }
                     // if(file_exists(FCPATH."uploads/profile/".$value['images'])){
+                     // To get Gender based image for display //
+                    if((!empty($value['user_gender']))&&($value['user_gender']!=1)){
+                            $default_images = "defalt_female.png";
+                    }else{
+                            $default_images = "defalt_male.png";
+                    }
+                    
                 ?>                        
                     <div class="col-md-4 col-sm-6">                    
-                         <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                         <?php // echo FCPATH."uploads/profile/".$value['images']; 
                             if(!empty($prefix_one_status))
                                 $prefix = $prefix_one;
                             else if(!empty($prefix_two_status))
-                                $prefix = $prefix_two;
+                                $prefix = $prefix_two;                            
                         ?>
                         <!-- <div class="main_photo"> -->
                         <img src="<?php 
-                            if(!empty($value['images'])): 
-                                echo media_url()."uploads/profile/".$prefix.$value['images']; 
+                            if((!empty($value['images']))&&(!empty($prefix))): 
+                                echo media_url()."uploads/profile/".$prefix.$latest_images; 
                             else:
-                                echo media_url()."assets/img/no_image.jpg"; 
+                                echo media_url()."uploads/profile/".$default_images; 
                             endif; 
                         ?>" alt="Image not loaded" style="width:170px;height:170px;">
                         <!-- <img class="inlay" src="<?php //echo media_url(); ?>assets/img/lock-icon.png"> -->
@@ -111,26 +126,28 @@ if(isset($per_page)&&(!empty($total_rows)))
                           <div class="modal fade and carousel slide lig" id="lightbox">
                            <div class="modal-dialog ">
                               <div class="modal-body">
-                                  <!-- <ol class="carousel-indicators">
+                                  <ol class="carousel-indicators">
                                        <?php 
-                                        //if(!empty($slider_images)){
-                                        //foreach($slider_images as $key => $value) { ?>
-                                            <li data-target="#lightbox" data-slide-to="<?php //echo $key;?>"></li>
-                                       <?php //} }?>
-                                  </ol> -->
+                                        if(!empty($current_images)){
+                                        foreach($current_images as $key => $dvalue) { ?>
+                                            <li data-target="#lightbox" data-slide-to="<?php echo $key;?>"></li>
+                                       <?php 
+                                            }
+                                        }?>
+                                  </ol> 
                                   <div class="carousel-inner">
                                             <?php 
-                                                if(!empty($slider_images[$key])){
-                                                    foreach($slider_images[$key] as $skey => $svalue) {       
+                                                if(!empty($current_images)){
+                                                    foreach($current_images as $skey => $svalue) {       
                                                         if($skey!=0){?>
                                                             <div class="item">
-                                                                    <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($slider_images[$key]);?></div>
-                                                                    <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$svalue['images'];?>" alt="First slide">
+                                                                    <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($current_images);?></div>
+                                                                    <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$svalue;?>" alt="First slide">
                                                             </div>
                                                         <?php }else{?>
                                                              <div class="item active">
-                                                                <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($slider_images[$key]);?></div>
-                                                                <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$svalue['images'];?>" alt="First slide">
+                                                                <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($current_images);?></div>
+                                                                <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$svalue;?>" alt="First slide">
                                                                 </div>
                                                         <?php }
                                                     }
