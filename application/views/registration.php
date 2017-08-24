@@ -25,7 +25,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                 </div>
                 <div class="search_option">
                     <!-- Nav tabs -->
-                    <ul class="nav nav-tabs registration-step " role="tablist">
+                    <ul class="nav nav-tabs registration-step" role="tablist">
                         <li role="presentation" class="highlight active" id="userdetails">
                             <a href="search.html#base" aria-controls="base" role="tab" data-toggle="tab">User Details</a>
                         </li>
@@ -488,7 +488,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4">
-                                                   <input type="text" class="form-control" id="reg_income" placeholder="Income" name="reg_income">
+                                                   <input type="text" class="form-control income-box" id="reg_income" placeholder="Income" name="reg_income">
                                                 </div>
                                                 <div class="col-sm-4 box">
                                                   <span id="reg_income_error" class="registration-error"></span>
