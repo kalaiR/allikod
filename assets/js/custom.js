@@ -184,8 +184,7 @@ function reg_validate() {
                  $("#search_age_from_error").html("Required");
              }
 
-        }  
-
+        }
         if($("#horoscope-field").css('display')!= 'none') {
              if(!($("#crasi_name").val())) {
                  output = false;
@@ -414,8 +413,8 @@ $(document).ready(function() {
         var output = reg_validate();
         ajx_output = reg_mailcheckuser();
         // alert('end-ajax-control'+ajx_output);
-        // if((output)&&(ajx_output)) {
-        if(output) {
+        if((output)&&(ajx_output)) {
+        // if(output) {
             var current = $(".highlight");
             var next = $(".highlight").next("li");
             if(next.length>0) {                
@@ -478,7 +477,6 @@ $(document).ready(function() {
 //      $('#next').click(function(){
 //   $('.nav-tabs > .active').next('li').find('a').trigger('click');
 // });
-
 //   $('#back').click(function(){
 //   $('.nav-tabs > .active').prev('li').find('a').trigger('click');
 // });
@@ -655,3 +653,25 @@ $(window).load(function(){
         }
       });
 });
+
+$(".income-box").keypress(function (e) {
+    // var income =$(this).val();
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        return false;
+       }
+       // var income =$(this).val();
+       // if (income<0 && income>100){
+       //  return false;
+       // }
+       // alert(income);
+
+   
+});
+// $(".income-box").blur(function (e) {
+//      var income =parseInt($(this).val());
+//        if (income<0 || income>100){
+//         // return false;
+//         $(this).val('');
+//        }
+//        // alert(income);
+// });
