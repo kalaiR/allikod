@@ -68,7 +68,7 @@
                                          </div>
                                         <div class="col-md-6">  
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs" id="reg_Name" placeholder="Your Name" name="reg_Name">
+                                                <input type="text" class="form-control form_inputs alphaonly" id="reg_Name" placeholder="Your Name" name="reg_Name">
                                             </div>
                                         </div>    
                                     </div>    
@@ -78,7 +78,7 @@
                                          </div>
                                         <div class="col-md-6">     
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs" id="reg_age" placeholder="Your Age" name="reg_age">
+                                                <input type="text" class="form-control form_inputs age_reg" id="reg_age" placeholder="Your Age" name="reg_age">
                                             </div>
                                         </div>    
                                     </div>    
@@ -126,7 +126,7 @@
                                          </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs" id="reg_Mobile" name="reg_Mobile" placeholder="Mobile Number">
+                                                <input type="text" class="form-control form_inputs mob_num" id="reg_Mobile" name="reg_Mobile" placeholder="Mobile Number">
                                             </div>
                                         </div>
                                     </div>    

@@ -654,7 +654,7 @@ $(window).load(function(){
       });
 });
 
-$(".income-box").keypress(function (e) {
+$(".income-box,.bro_sis,.ph_num,.mob_num,.valli_id,.man_id,.age_reg").keypress(function (e) {
     // var income =$(this).val();
      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
         return false;
@@ -667,6 +667,17 @@ $(".income-box").keypress(function (e) {
 
    
 });
+$(".alphaonly").keypress(function(event){
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+    });
+// $('.alphaonly').bind('keyup blur',function(){ 
+//     var node = $(this);
+//     node.val(node.val().replace(/[^a-z]/g,'') ); }
+// );
 // $(".income-box").blur(function (e) {
 //      var income =parseInt($(this).val());
 //        if (income<0 || income>100){
@@ -675,3 +686,15 @@ $(".income-box").keypress(function (e) {
 //        }
 //        // alert(income);
 // });
+// var max_chars = 2;
+$('.bro_sis,.age_reg').keypress( function(e){
+    if ($(this).val().length >= 1) { 
+        $(this).val($(this).val().substr(0, 1));
+    }
+});
+// $('.income-box').keypress( function(e){
+//     if ($(this).val().length >= 7) { 
+//         $(this).val($(this).val().substr(1, 7));
+//     }
+// });
+     

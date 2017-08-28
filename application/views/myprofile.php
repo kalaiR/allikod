@@ -335,7 +335,7 @@
                                             </div>
                                             <div class="col-xs-12">
                                                 <div class="col-md-6 col-xs-6">
-                                                <p>Monthly Income</p>
+                                                <p>Monthly Income (र)</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
                                                     <p><?php echo $results['edu_montlyincome']; ?></p>

@@ -930,3 +930,7 @@ overflow-y: scroll;
 {
   padding-left: 10px;
 }
+/*Padding for elder and younger input box*/
+.low_pad{
+  padding: 8px;
+}
