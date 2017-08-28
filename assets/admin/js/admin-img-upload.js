@@ -130,7 +130,7 @@
     }
 
     function getImageThumbnailHtml(src) {
-        return '<img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px">';
+        // return '<img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px">';
     }
 
     function getFileExtension(path) {
@@ -138,13 +138,7 @@
     }
 
     function isValidImageFile(file, callback) {
-        // Check file size.
-        if (file.size / 1024 > options.maxFileSizeKb)
-        {
-            callback(false, 'File is too large (max ' + options.maxFileSizeKb + 'kB).');
-            return;
-        }
-
+        
         // Check image format by file extension.
         var fileExtension = getFileExtension(file.name);
         if ($.inArray(fileExtension, options.allowedFormats) > -1) {
@@ -152,7 +146,22 @@
         }
         else {
             callback(false, 'File type is not allowed.');
+            return;
         }
+        //Check file size.
+        if (file.size / 1024 > options.maxFileSizeKb)
+        {
+            callback(false, 'File is too large (max ' + options.maxFileSizeKb + 'kB).');
+            $('.img-post').hide();  
+             return;
+
+        }
+        else{
+             $('.img-post').show();  
+           
+        }
+
+
     }
 
 
@@ -244,19 +253,17 @@
         var z = 0
         var height = '';
         var width = '';
-        var file_size = $("#picupload")[0].files[0].size;
+        // var file_size = $("#picupload")[0].files[0].size;
 
                     var fileExtension = ['jpeg', 'jpg','png','gif'];
                     if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
                        
                         $('#spanFileName').html("Only jpeg,jpg,png,gif formats are allowed.");
+                        return false;
                     }
-                    else {
-                        $('#spanFileName').html("");
-                    }
-                    if (file_size >1000000) {
+                    if (this.files[0].size >1000000) {
                          $('#spanFileName').html("Upload image size less than 1 MB");
-                         $('.myupload').hide();       
+                         return false;       
                     }
                     // if (width < 350 || height < 300) {
                     //     $('#spanFileName').html("Upload image height and width below 300 X 350");
@@ -264,7 +271,7 @@
                     // }
         if (getAttr == 'type1') {
             $('#media-list').html('');
-            $('#media-list').html('<li class="myupload"><span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload" multiple></span></li>');
+            // $('#media-list').html('<li class="myupload"><span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload" multiple></span></li>');
             $('#hint_brand').modal('show');
 
             for (var i = 0; i < files.length; i++) {
@@ -279,7 +286,7 @@
                         var div = document.createElement("li");
 
 
-                        div.innerHTML = "<img class='cus_img' src='" + picFile.result + "'" +
+                        div.innerHTML = "<img class='cuss_img' src='" + picFile.result + "'" +
                             "title='" + picFile.name + "'/><div  class='post-thumb'><div class='inner-post-thumb'><a href='javascript:void(0);' data-id='" + event.target.fileName + "' class='remove-pic'><i class='icon icon-color icon-close' aria-hidden='true'></i></a><div></div>";
 
 
@@ -333,7 +340,7 @@
         $(this).parent().parent().parent().remove();
         var removeItem = $(this).attr('data-id');
         var yet = names.indexOf(removeItem);
-
+        $('.file-tab').find('span').text('Browse');
         if (yet != -1) {
             names.splice(yet, 1);
         }

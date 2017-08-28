@@ -240,18 +240,21 @@
 						                        ?>
 											</td>											
 											<td class="center">
-												<div style="width: 160px;">
+												<div style="width: 193px;">
 													<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
-														<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-															<i class="icon-zoom-in icon-white" title="View"></i>  
+													<a class="btn btn-primary cboxElement"  href="http://libertyshoewarehouse.com/mt-content/uploads/2016/12/comingsoon.png">
+														<i class="icon-picture icon-white" title="Image"></i> 
 													</a>
-														<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-															<i class="icon-edit icon-white" title="Edit"></i>  
+													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+														<i class="icon-zoom-in icon-white" title="View"></i>  
 													</a>
-														<a class="btn btn-danger btn-setting" href="#">
-															<i class="icon-trash icon-white" title="Delete"></i> 
+													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+														<i class="icon-edit icon-white" title="Edit"></i>  
+													</a>
+													<a class="btn btn-danger btn-setting" href="#">
+														<i class="icon-trash icon-white" title="Delete"></i> 
 													</a>
 												</div>
 											</td>

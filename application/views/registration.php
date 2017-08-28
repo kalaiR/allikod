@@ -25,7 +25,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                 </div>
                 <div class="search_option">
                     <!-- Nav tabs -->
-                    <ul class="nav nav-tabs registration-step " role="tablist">
+                    <ul class="nav nav-tabs registration-step" role="tablist">
                         <li role="presentation" class="highlight active" id="userdetails">
                             <a href="search.html#base" aria-controls="base" role="tab" data-toggle="tab">User Details</a>
                         </li>
@@ -488,7 +488,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4">
-                                                   <input type="text" class="form-control" id="reg_income" placeholder="Income" name="reg_income">
+                                                   <input type="text" class="form-control income-box" id="reg_income" placeholder="Income" name="reg_income">
                                                 </div>
                                                 <div class="col-sm-4 box">
                                                   <span id="reg_income_error" class="registration-error"></span>
@@ -1126,17 +1126,27 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>
                                         </div>        
                                     </div> -->
-                                    <div class="imageupload panel panel-default">
-                                        <div class="panel-heading clearfix">
-                                            <h3 class="panel-title">Upload Image</h3>
+                                  
+                                        <div class="imageupload panel panel-default edit-mult-img">
+                                            <div class="panel-heading clearfix">
+                                                     <h3 class="panel-title">Upload Image *</h3>
+                                            </div>
+                                            <div class="edit_img">
+                                                <div class="file-tab panel-body img-post-box">
+                                                    <ul>
+                                                        <li class="btn btn-default btn-file">
+                                                            <span>Browse</span>
+                                                            <input type="file" click-type="type1" id="picupload" class="picupload" multiple>
+                                                        </li>
+                                                    </ul>     
+                                                </div>
+                                                <div class="img-post"> 
+                                                    <ul id="media-list" class="clearfix">
+
+                                                    </ul>    
+                                                 </div>
+                                            </div>
                                         </div>
-                                        <div class="file-tab panel-body">
-                                            <label class="btn btn-default btn-file">
-                                            <span>Browse</span>
-                                        <input type="file" name="uploadedfile" id="uploadedfile" name="uploadedfile">
-                                            </label>
-                                        </div>
-                                    </div>
                             </div>
                         </div>
                         <!-- Horo Scope Start -->
