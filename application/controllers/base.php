@@ -945,6 +945,9 @@ class Base extends CI_Controller {
 		$data['slider_images'] = $this->user_model->get_customer_images($id);
 		$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
 		$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
+		if(!empty($data['results']['rel_dhosham'])){
+			$data['dhosham'] = $this->user_model->get_dhosham($data['results']['rel_dhosham']);	
+		}
 
 		$data['eeducation'] = $this->user_model->get_selected_education($id);
 		foreach($data['eeducation'] as $key => $value) {
@@ -971,6 +974,9 @@ class Base extends CI_Controller {
 			$data['results'] = $this->user_model->get_viewdetails_byid($id);
 			$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
 			$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
+			if(!empty($data['results']['rel_dhosham'])){
+				$data['dhosham'] = $this->user_model->get_dhosham($data['results']['rel_dhosham']);					
+			}
 
 			// Education Excepted from Selected Education Table
 			$data['eeducation'] = $this->user_model->get_selected_education($id);

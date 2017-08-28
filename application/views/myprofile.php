@@ -2,8 +2,9 @@
     include('include/header.php');
     include('include/menu.php');
 // echo '<pre>';
-// print_r($results);
+// print_r($dhosham["name"]);  
 // echo '</pre>';
+// exit();
 
 ?> 
      <!--================Banner Area =================-->
@@ -230,7 +231,7 @@
                                                 <p>Dhosham</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['rel_dhosham']; ?></p>
+                                                    <p><?php if(!empty($dhosham['name'])) echo $dhosham['name']; else echo "--"; ?></p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6">
                                                 <p>Nakshathra</p>

@@ -14,6 +14,7 @@ function reg_mailcheckuser(){
                     var data = {};
                     data[csrf_name] = csfrData[csrf_name];
                     data['email'] = $("#register_email").val();
+                    data['userid'] = $("#quickregister_id").val();
                     // alert(data);
                     $.ajax({
                         url: baseurl+"register_mailcheck",

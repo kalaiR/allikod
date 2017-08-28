@@ -282,9 +282,18 @@ class User_model extends CI_Model {
     $model_data['error'] = 0;
     if($this->input->post('email')) {
       // $login_where = '(user_email="'.$this->input->post('email').'" and user_active_status=1)';
-      $login_where = '(user_email="'.$this->input->post('email').'")';
+      if(!empty($this->input->post('userid'))){
+          $login_where = '(user_email="'.$this->input->post('email').'" and userdetail_id="'.$this->input->post('userid').'")';
+      }else{
+          $login_where = '(user_email="'.$this->input->post('email').'")';  
+      }
       $this->db->select('*');
-      $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where);      
+      $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where);  
+      if((!empty($this->input->post('userid')))&&($userdata_get->num_rows())){
+          $model_data['cstatus'] = 'email_notavailable';
+          $model_data['status'] = "Email Available";
+          $model_data['error'] = 1;
+      }else{    
         if($userdata_get->num_rows()) {
           $model_data['cstatus'] = "email_available";
           $model_data['status'] = "Email Already Registered";
@@ -295,14 +304,14 @@ class User_model extends CI_Model {
           $model_data['status'] = "Email Available";
           $model_data['error'] = 1;
         }
-    }
-    else {
+      }  
+  }else{
       $model_data['status']= "Input Required";
       $model_data['error'] = 1;
-    }
-    // print_r($model_data);
-    // exit();
-    return $model_data;
+  }
+  // print_r($model_data);
+  // exit();
+  return $model_data;
   }
   
 
@@ -1556,7 +1565,8 @@ class User_model extends CI_Model {
         $this->db->where($condition);      
         $this->db->order_by('dhos.dhosham_id','asc');
         $query = $this->db->get()->result_array();          
-      }             
+      }
+      // echo $this->db->last_query();             
       return $query;
   }
  

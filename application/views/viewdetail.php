@@ -2,10 +2,10 @@
 include('include/header.php');
 include('include/menu.php');
 
-// echo '<pre>';
-// print_r($results);
-// echo '</pre>';
-// exit();
+echo '<pre>';
+print_r($dhosham);
+echo '</pre>';
+exit();
 
 
 $session_search = $this->session->all_userdata();
@@ -275,9 +275,9 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <div class="col-md-6 col-xs-6">
                                                 <p>Dhosham</p>
                                                 </div>
-                                                <div class="col-md-6 col-xs-6 dark">
+                                                <div class="col-md-6 col-xs-6 dark">                                                   
                                                     <p><?php 
-                                                        if(!empty($results['rel_dhosham'])) echo $results['rel_dhosham']; else echo "--"; ?>
+                                                        if(!empty($dhosham['name'])) echo $dhosham['name']; else echo "--"; ?>
                                                     </p>                         
                                                 </div>
                                                 <div class="col-md-6 col-xs-6">
