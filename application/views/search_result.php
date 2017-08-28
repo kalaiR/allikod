@@ -160,450 +160,130 @@ if(isset($per_page)&&(!empty($total_rows)))
                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 border_box det_border">
-                      <div class="head-box"><h4>Vallikodi ID : V1
-                      <?php if(!empty($value['userdetail_id'])){ echo $value['userdetail_id'];}?></h4></div>
-                        <div class="text-box-name">
-                          <div class="col-md-5 col-xs-6 name-box">
-                            <p><b>Name</b></p>
-                          </div>
-                            <div class="col-md-1 ">
-                              <p> : </p>
+                    <div class="col-md-6 col-xs-12 border_box det_border">
+                        <div class="head-box"><h4>Vallikodi ID : V1
+                          <?php if(!empty($value['userdetail_id'])){ echo $value['userdetail_id'];}?></h4>
+                        </div>
+                        <!-- <div class="text-box-name"> -->
+                            <div class="col-md-5 col-xs-5 name-box">
+                                <p><b>Name</b></p>
                             </div>
-                            <div class="col-md-6 ">
-                             <p><?php if(!empty($value['user_fname'])){ echo $value['user_fname'];}?></p>
+                            <div class="col-md-6 col-xs-6">
+                                <p><?php if(!empty($value['user_fname'])){ echo $value['user_fname'];}?></p>
                             </div>
-                        </div>    
-                        <div class="col-md-5 col-xs-6 name-box">
-                          <p><b>DOB / Age</b></p>
-                        </div>
-                        <div class="col-md-1 ">
-                              <p> : </p>
+                            <!-- </div>     -->
+                            <div class="col-md-5 col-xs-5 name-box">
+                              <p><b>DOB/Age</b></p>
                             </div>
-                        <div class="col-md-6">
-                            <p> <?php if(!empty($value['user_dob'])){ echo $value['user_dob'];}?></p>
-                        </div>
-                        <div class="col-md-5 col-xs-6 name-box">
-                            <p><b>Star</b></p>
-                        </div>
-                        <div class="col-md-1 ">
-                              <p> : </p>
-                        </div>
-                        <div class="col-md-6">
-                          <p>  <?php if(!empty($value['rel_nakshathra_id'])){                             
-                            $val = $this->user_model->get_nakshathra($value['rel_nakshathra_id']);
-                            echo $val['name'];
-                            }?></p>
-                        </div>
-                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
-                          <p><b>Religion</b></p>
-                        </div>
-                        <div class="col-md-1 ">
-                              <p> : </p>
-                        </div>
-                        <div class="col-md-6">
-                            <p> <?php if(!empty($value['rel_religion'])){ echo $value['rel_religion'];}?></p>
-                        </div>
-                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
-                          <p><b>Education</b></p>
-                        </div>
-                        <div class="col-md-1 ">
-                              <p> : </p>
-                        </div>
-                        <div class="col-md-6">
-                            <p> <?php if(!empty($value['edu_education'])){ 
-                                $val = $this->user_model->get_education($value['edu_education']);
-                                echo $val['edu_name'];
-                                }?>
-                            </p>
-                        </div>
-                        <div class="col-md-5 col-md-5 col-xs-6 name-box">
-                          <p><b>Occupation</b></p>
-                        </div>
-                        <div class="col-md-1 ">
-                              <p> : </p>
-                        </div>
-                        <div class="col-md-6">
-                            <p> <?php if(!empty($value['edu_occupation'])){ 
-                                $val = $this->user_model->get_occupation($value['edu_occupation']);
-                                echo $val['occupation_name'];
-                                }?>
-                            </p>
-                        </div>
-                        <?php 
-                            $user_session = $this->session->userdata("login_status");
-                            if(!empty($user_session)){ ?>
-                                    <div class="col-md-5 col-md-5 col-xs-6 name-box">
-                                        <p><b>Location</b></p>
-                                    </div>
-                                    <div class="col-md-1 ">
-                                    <p> : </p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p> 
-                                        <?php if(!empty($value['comm_current_countrycountry'])){ echo $value['comm_current_countrycountry'];}
-                                        ?>
-                                        <?php if(!empty($value['comm_current_city'])){ echo " / ".$value['comm_current_city'];}
-                                        ?>
-                                        <?php if(!empty($value['comm_current_district'])){ echo " / ".$value['comm_current_district'];}
-                                        ?>
+                            <div class="col-md-6 col-xs-6">
+                                <p> <?php if(!empty($value['user_dob'])){ echo $value['user_dob'];}?></p>
+                            </div>
+                            <div class="col-md-5 col-xs-5 name-box">
+                                <p><b>Star</b></p>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                              <p>  <?php if(!empty($value['rel_nakshathra_id'])){                             
+                                $val = $this->user_model->get_nakshathra($value['rel_nakshathra_id']);
+                                echo $val['name'];
+                                }?></p>
+                            </div>
+                            <div class="col-md-5 col-xs-5 name-box">
+                              <p><b>Religion</b></p>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <p> <?php if(!empty($value['rel_religion'])){ echo $value['rel_religion'];}?></p>
+                            </div>
+                            <div class="col-md-5 col-xs-5 name-box">
+                              <p><b>Education</b></p>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <p> <?php if(!empty($value['edu_education'])){ 
+                                    $val = $this->user_model->get_education($value['edu_education']);
+                                    echo $val['edu_name'];
+                                    }?>
+                                </p>
+                            </div>
+                            <div class="col-md-5 col-xs-5 name-box">
+                              <p><b>Occupation</b></p>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <p> <?php if(!empty($value['edu_occupation'])){ 
+                                    $val = $this->user_model->get_occupation($value['edu_occupation']);
+                                    echo $val['occupation_name'];
+                                    }?>
+                                </p>
+                            </div>
+                            <?php 
+                                $user_session = $this->session->userdata("login_status");
+                                if(!empty($user_session)){ ?>
+                                        <div class="col-md-5 col-xs-5 name-box">
+                                            <p><b>Location</b></p>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6">
+                                            <p> 
+                                            <?php if(!empty($value['comm_current_countrycountry'])){ echo $value['comm_current_countrycountry'];}
+                                            ?>
+                                            <?php if(!empty($value['comm_current_city'])){ echo " / ".$value['comm_current_city'];}
+                                            ?>
+                                            <?php if(!empty($value['comm_current_district'])){ echo " / ".$value['comm_current_district'];}
+                                            ?>
+                                            </p>
+                                        </div>
+                                <?php } ?>    
+                            <div class="text-box-name">
+                             <?php
+                               $user_session = $this->session->userdata("login_status");
+                               if(!empty($user_session)){ ?>
+                                    <div class="col-md-6 col-xs-9">
+                                        <p>
+                                        <a href="<?php echo base_url().'viewdetail/'.$value['userdetail_id'];?>" target="_blank">View Full Details</a>
                                         </p>
                                     </div>
-                            <?php } ?>    
-                        <div class="text-box-name pu">
-                         <?php
-                           $user_session = $this->session->userdata("login_status");
-                           if(!empty($user_session)){ ?>
-                                <div class="col-md-6">
-                                    <p>
-                                    <a href="<?php echo base_url().'viewdetail/'.$value['userdetail_id'];?>" target="_blank">View Full Details</a>
-                                    </p>
-                                </div>
-                            <?php }else{ ?>
-                                 <a class="popup-with-zoom-anim" href="#small-dialog">View Full Details</a>
-                            <?php } ?>    
-                        </div>
+                                <?php }else{ ?>
+                                     <a class="popup-with-zoom-anim" href="#small-dialog">View Full Details</a>
+                                <?php } ?>    
+                            </div>
+                        <!-- </div> -->
                     </div>      
-                <?php } 
-                }else{?>
-                     <div class="text-box-name" align="center">
-                        <p>No Record Found</p>
-                     </div>
-                <?php }
-                ?>
-                </div>
-                    <!-- <div class="col-md-3">
-                        <div class="right_sidebar_area">
-                            <aside class="s_widget categories_widget">
-                                <div class="s_title">
-                                    <h4>Searching Options</h4>
-                                    <img src="<?php //echo media_url(); ?>assets/img/widget-title-border.png" alt="">
-                                </div>
-                                <ul>
-                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Age Limit</b></a></li>
-                                </ul>
-                                <div class="s_widget price_widget age-box">
-                                    <div id="price_select"></div>
-                                        <div class="price_inner">
-                                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                                        <!-- <a href="#">$50</a>
-                                        <a href="#">$350</a> ->
-                                    </div>
-                                </div>
-                                </aside>    
-                        </div>
-                    
-                        <div class="right_sidebar_area">
-                            <aside class="s_widget categories_widget">
-                                <ul>
-                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Height Limit</b></a></li>
-
-                                </ul>
-                                <div class="s_widget price_widget age-box">
-                                    <div id="height_select"></div>
-                                        <div class="price_inner">
-                                        <input type="text" id="height" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                                        <!-- <a href="#">$50</a>
-                                        <a href="#">$350</a> ->
-                                    </div>
-                                </div>  
-                                </aside>  
-                        </div>
-                   
-                        <div class="right_sidebar_area">
-                            <aside class="s_widget categories_widget">
-                                <ul>
-                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Weight Limit</b></a></li>
-                                </ul>
-                                <div class="s_widget price_widget age-box">
-                                    <div id="weight_select"></div>
-                                        <div class="price_inner">
-                                        <input type="text" id="weight" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                                        <!-- <a href="#">$50</a>
-                                        <a href="#">$350</a> ->
-                                    </div>
-                                </div> 
-                                </aside>   
-                        </div>
-                   
-                        <div class="right_sidebar_area">
-                            <aside class="s_widget categories_widget">
-                                <ul>
-                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Marital Status</b></a></li>
-                                </ul>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Single
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Widowed
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Divorced
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Annulled
-                                    </label>
-                                </div>
-                                </aside>
-                        </div>
-                    
-                        <div class="right_sidebar_area">
-                            <aside class="s_widget categories_widget">
-                                <ul>
-                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Occupation</b></a></li>
-                                </ul>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Admin
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Airline
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Agriculture
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Other
-                                    </label>
-                                </div>
-                                </aside>
-                        </div>
-                   
-                        <div class="right_sidebar_area">
-                            <aside class="s_widget categories_widget">
-                                <ul>
-                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Education</b></a></li>
-                                </ul>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Bachelor of Architecture - B.Arch.
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Bachelor of Arts - B.A.
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Bachelor of Computer Applications - B.C.A.
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Other
-                                    </label>
-                                </div>
-                                </aside>
-                        </div>
-                    
-                        <div class="right_sidebar_area">
-                            <aside class="s_widget categories_widget">
-                                <ul>
-                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Employed In</b></a></li>
-                                </ul>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Business
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Defence
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                           Self Employed
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Other
-                                    </label>
-                                </div>
-                                </aside>
-                        </div>
-                   
-                        <div class="right_sidebar_area">
-                            <aside class="s_widget categories_widget">
-                                <ul>
-                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Food</b></a></li>
-                                </ul>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                           Vegtarian
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                           Non - Vegtarian
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                            Eggetartion
-                                    </label>
-                                </div>
-                                </aside>
-                        </div>
-                    
-                        <div class="right_sidebar_area">
-                            <aside class="s_widget categories_widget">
-                                <ul>
-                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Complexion</b></a></li>
-                                </ul>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                           Very Fair
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                           Fair
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                           Wheatish
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                           Dark
-                                    </label>
-                                </div>
-                                </aside>
-                        </div>
-                    
-                        <div class="right_sidebar_area">
-                            <aside class="s_widget categories_widget">
-                                <ul>
-                                    <li><a href="#"><img src="<?php //echo media_url(); ?>assets/img/categories-list.png" alt=""><b>Body Type</b></a></li>
-                                </ul>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                           Average
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                          Althletic
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                          Slim
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                           Heavy
-                                    </label>
-                                </div>
-                                </aside>
-                        </div>
-                    </div> -->
-
-                    <div class="col-md-12" style="display: inline-block;"">
-                        <div>
-                        <?php
-                        if(!empty($links)) :
-                            echo "<div class='col-md-8 nopadding pull-right '>
-                                        <div class='col-md-5 pagination-box clearfix' style='display:inline-block'>" .$links . "
-                                        </div>";
-                                        if(!empty($pages)) : ?>
-                                        <div class="col-md-1 goto">Go to</div>
-                                        <div class="col-md-1 dir_page">
-                                          <select class="extra_drop pagination_scrol" name="pagination_dropdown" id="pagination_dropdown" 
-                                          onchange="location = this.value;">                                               
-                                                <?php                     
-                                                for($i=1;$i<=$pages;$i++){
-                                                    if($i!=$values[0]){?>
-                                                    <option value="<?php echo base_url()."search_result/".$i;?>">
-                                                        <?php echo $i; 
-                                                    ?>
-                                                    </option>
-                                                    <?php }else{?>
-                                                    <option value="<?php echo base_url()."search_result/".$i;?>" selected>
-                                                        <?php echo $i;?>
-                                                    </option>
-                                                    <?php }
-                                                }?>
-                                        </select>
+                    <?php } 
+                    }else{?>
+                         <div class="text-box-name" align="center">
+                            <p>No Record Found</p>
+                         </div>
+                    <?php }
+                    ?>
+                        <div class="col-md-12" style="display: inline-block;"">
+                            <div>
+                            <?php
+                            if(!empty($links)) :
+                                echo "<div class='col-md-8 nopadding pull-right '>
+                                            <div class='col-md-5 pagination-box clearfix' style='display:inline-block'>" .$links . "
+                                            </div>";
+                                            if(!empty($pages)) : ?>
+                                            <div class="col-md-1 goto">Go to</div>
+                                            <div class="col-md-1 dir_page">
+                                              <select class="extra_drop pagination_scrol" name="pagination_dropdown" id="pagination_dropdown" 
+                                              onchange="location = this.value;">                                               
+                                                    <?php                     
+                                                    for($i=1;$i<=$pages;$i++){
+                                                        if($i!=$values[0]){?>
+                                                        <option value="<?php echo base_url()."search_result/".$i;?>">
+                                                            <?php echo $i; 
+                                                        ?>
+                                                        </option>
+                                                        <?php }else{?>
+                                                        <option value="<?php echo base_url()."search_result/".$i;?>" selected>
+                                                            <?php echo $i;?>
+                                                        </option>
+                                                        <?php }
+                                                    }?>
+                                            </select>
+                                            </div>
+                                            <?php endif; ?>
                                         </div>
-                                        <?php endif; ?>
-                                    </div>
-                        <?php endif;
-                        ?>
-                        </div>
+                            <?php endif;
+                            ?>
+                            </div>
                     </div>
                 </div>        
             </div>

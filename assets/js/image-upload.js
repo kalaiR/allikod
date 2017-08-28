@@ -9,6 +9,7 @@
         disable: disable,
         enable: enable,
         reset: reset
+        
     };
 
     // -----------------------------------------------------------------------------
@@ -114,7 +115,6 @@
         var $imageupload = this;
         init.call($imageupload, options);
     }
-
     // -----------------------------------------------------------------------------
     // Private Methods
     // -----------------------------------------------------------------------------
@@ -128,9 +128,8 @@
         html.push('</div>');
         return html.join('');
     }
-
     function getImageThumbnailHtml(src) {
-        return '<span><i class="fa fa-times fa-2x  inlay" aria-hidden="true"></i><img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px"><a></a>"</span>';
+        // return '<div class="profile-img-container adibha"><img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px"><a href="#" class="selva"><span class="fa fa-times fa-2x close-btn" id="selva"></span></a></div>';
     }
 
     function getFileExtension(path) {
@@ -138,13 +137,7 @@
     }
 
     function isValidImageFile(file, callback) {
-        // Check file size.
-        if (file.size / 1024 > options.maxFileSizeKb)
-        {
-            callback(false, 'File is too large (max ' + options.maxFileSizeKb + 'kB).');
-            return;
-        }
-
+        
         // Check image format by file extension.
         var fileExtension = getFileExtension(file.name);
         if ($.inArray(fileExtension, options.allowedFormats) > -1) {
@@ -152,7 +145,22 @@
         }
         else {
             callback(false, 'File type is not allowed.');
+            return;
         }
+        //Check file size.
+        if (file.size / 1024 > options.maxFileSizeKb)
+        {
+            callback(false, 'File is too large (max ' + options.maxFileSizeKb + 'kB).');
+            $('.img-post').hide();  
+             return;
+
+        }
+        else{
+             $('.img-post').show();  
+           
+        }
+
+
     }
 
 
@@ -245,27 +253,27 @@
         var z = 0
         var height = '';
         var width = '';
-        var file_size = $("#picupload")[0].files[0].size;
-
+        // var filesize = [0].files[0].size;
                     var fileExtension = ['jpeg', 'jpg','png','gif'];
                     if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
                        
                         $('#spanFileName').html("Only jpeg,jpg,png,gif formats are allowed.");
+                            return false;
                     }
                     else {
                         $('#spanFileName').html("");
                     }
-                    if (file_size >1000000) {
+                    if (this.files[0].size>1000000) {
                          $('#spanFileName').html("Upload image size less than 1 MB");
-                         $('.myupload').hide();       
+                         return false;
                     }
                     // if (width < 350 || height < 300) {
                     //     $('#spanFileName').html("Upload image height and width below 300 X 350");
-                    //      $('.myupload').hide();       
+                    //            
                     // }
         if (getAttr == 'type1') {
             $('#media-list').html('');
-            $('#media-list').html('<li class="myupload"><span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload" multiple></span></li>');
+            // $('#media-list').html('<li class="myupload"><span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload" multiple></span></li>');
             $('#hint_brand').modal('show');
 
             for (var i = 0; i < files.length; i++) {
@@ -276,15 +284,17 @@
                     picReader.fileName = file.name
                     picReader.addEventListener("load", function(event) {
                         var picFile = event.target;
-
                         var div = document.createElement("li");
-
-
-                        div.innerHTML = "<img src='" + picFile.result + "'" +
+                        div.innerHTML = "<img  class='cuss_img' src='" + picFile.result + "'" +
                             "title='" + picFile.name + "'/><div  class='post-thumb'><div class='inner-post-thumb'><a href='javascript:void(0);' data-id='" + event.target.fileName + "' class='remove-pic'><i class='fa fa-times' aria-hidden='true'></i></a><div></div>";
 
                         $("#media-list").prepend(div);
-
+                        var counts=$(document).find('.cuss_img').length;
+                        
+                        // if(counts >=1){
+                            
+                        //     $('.myuploads').hide();
+                        // }
 
                     });
                 } 
@@ -332,7 +342,7 @@
         $(this).parent().parent().parent().remove();
         var removeItem = $(this).attr('data-id');
         var yet = names.indexOf(removeItem);
-
+        $('.file-tab').find('span').text('Browse');
         if (yet != -1) {
             names.splice(yet, 1);
         }
@@ -343,10 +353,17 @@
         else{
             $('.myupload').show();   
         }
+        var count=$(document).find('.cuss_img').length;
+        // if(count=1){
+        //     $('.myuploads').hide();
+        // }
+        //  else{
+        //     $('.myuploads').show();   
+        // }
         // return array of file name
         console.log(names);
       });
 
 }(jQuery));
- /* End Image upload in edit page*/
+ /* End Image upload in edit page*/ 
 

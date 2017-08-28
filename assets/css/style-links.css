@@ -651,7 +651,7 @@
 
 /* View Details - Horoscope*/
 #horo_container{
-    padding:5px;
+    /*padding:5px;*/
     width:282px;
     height:282px;
     display:block;   
@@ -767,10 +767,11 @@ li.myupload span input {
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0
+    right: 0;
+    cursor: pointer;
 }
 
-li.myupload span i {
+.myupload span i {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -870,6 +871,7 @@ ul#media-list {
     padding: 0;
     margin: 0
 }
+
 /*.edit_img
 {
   display: none;
@@ -901,7 +903,7 @@ ul#media-list {
 .dir_page{
   display:inline-block;padding:20px
 }
-.main_photo{
+/*.main_photo{
     position:relative;
     width:170px;
     height:170px
@@ -911,7 +913,7 @@ ul#media-list {
     top:72px;
     right:148px;
     color:#f90000;
-}
+}*/
 select .pagination_scrol{
 height:50px;
 overflow-y: scroll;
@@ -921,6 +923,10 @@ overflow-y: scroll;
     cursor: pointer;
 }
 .error-msg
+{
+  padding-left: 10px;
+}
+.img-post
 {
   padding-left: 10px;
 }
