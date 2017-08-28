@@ -2,10 +2,10 @@
 include('include/header.php');
 include('include/menu.php');
 
-echo '<pre>';
-print_r($dhosham);
-echo '</pre>';
-exit();
+// echo '<pre>';
+// print_r($dhosham);
+// echo '</pre>';
+// exit();
 
 
 $session_search = $this->session->all_userdata();
