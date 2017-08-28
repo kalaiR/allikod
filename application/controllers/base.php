@@ -385,8 +385,8 @@ class Base extends CI_Controller {
 						'phy_food'=>$form_data['food'][0],							
 						'phy_searchage_from'=>$form_data['search_age_from'][0],
 						'phy_searchage_to'=>$form_data['search_age_to'][0],
-						'phy_searchmarital_status'=>'',
-						'phy_searchedu_status'=>''
+						// 'phy_searchmarital_status'=>'',
+						// 'phy_searchedu_status'=>''
 				);
 		  		
 

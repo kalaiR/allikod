@@ -98,14 +98,19 @@ class Customeruser_Data extends CI_Controller {
 			}
 		}
 		else{
+			$data['customerid_status'] = TRUE;
 			$id = $this->uri->segment(3);
-			$data_values = $this->customeruser_data_model->customer_user_profile($id);
-			$data['customeruser_values'] = $data_values['customeruser_values'];
-			// echo "<pre>";
-			// print_r($data['customeruser_values']);
-			// echo "</pre>";
-			//Get Selection option data's for edit
-			$data['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
+			if(is_numeric($id)){
+				$data_values = $this->customeruser_data_model->customer_user_profile($id);
+				$data['customeruser_values'] = $data_values['customeruser_values'];
+				// echo "<pre>";
+				// print_r($data['customeruser_values']);
+				// echo "</pre>";
+				//Get Selection option data's for edit
+				$data['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
+			}
+			if(empty($data_values['customeruser_values']))
+				$data['customerid_status'] = FALSE;		
 			$this->load->view('admin/edit_customer_user',$data);
 		}		
 	}

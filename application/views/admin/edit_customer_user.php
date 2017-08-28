@@ -15,10 +15,11 @@
 				</ul>
 			</div>
 			<!-- Table -->
-			<form method="POST" action="edit_customer_user/<?php echo $customeruser_values['userdetail_id']; ?>" class="customer_edit_form" name="customer_edit_form" enctype="multipart/form-data" data-id="<?php echo $this->uri->segment(3); ?>">
+			<form method="POST" action="edit_customer_user/<?php if(!empty($customeruser_values['userdetail_id'])) echo $customeruser_values['userdetail_id']; ?>" class="customer_edit_form" name="customer_edit_form" enctype="multipart/form-data" data-id="<?php echo $this->uri->segment(3); ?>">
 <?php } ?>	
 					<?php
 					  // print_r($zodiac_data);
+					if($customerid_status == TRUE){
 	                  if(!empty($status)) :
 	                    echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
 	                  endif;
@@ -1126,7 +1127,8 @@
 							</div><!--/span-->
 						</div><!--/row-->
 					</div><!--/.fluid-container-->
-<?php if(!$this->input->is_ajax_request()) { ?>
+<?php }else echo "No record found to edit for this ID"; 
+	if(!$this->input->is_ajax_request()) { ?>
 				</form>
 		</div>  <!-- span10 end -->
 		<!-- external javascript

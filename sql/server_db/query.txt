@@ -99,7 +99,9 @@ SELECT * FROM reg_userdetail as usr INNER JOIN reg_payment as pay ON pay.reg_use
 old db check report:
 SELECT * FROM `user_detail` WHERE profile_id=0 AND active_status = 1 AND EXTRACT(YEAR FROM created_date) >= '2014' ORDER BY id DESC
 
-
+set global sql_mode=''
+If we want to enable strict mode again, we can use this:
+SET sql_mode = 'STRICT_ALL_TABLES';
 
 total:42289
 male: 16395
@@ -142,4 +144,6 @@ SELECT usr.userdetail_id,img.images,usr.user_gender FROM reg_userdetail as usr L
 UPDATE user_images SET images='defalt_male.png' WHERE reg_user_id IN (23836,62820,60865,62025,62863,63019,63362,63551,64066,64484,64844,65121,65821,65860,65885,66009,66019,66913,68170,69289)
 
 UPDATE user_images SET images='defalt_female.png' WHERE reg_user_id IN (57195,61236,62899,63955,64686,65618,65810,65818,65828,65829,65831,65836,65984)
+
+
 
