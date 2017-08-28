@@ -551,6 +551,8 @@ $(document).ready(function() {
             formData.append(csrf_name,csfrData[csrf_name]);
             formData.append('action',"update");
             formData.append('rid', $(this).data('id'));
+            formData.append('removed_images', image_array);
+            // alert(image_array);
             // var formData = $(this).serialize();
             // alert(JSON.stringify(formData)); // It returns empty when stringify json data, but data has been passed
             rasi = [];
@@ -633,7 +635,13 @@ $(document).ready(function() {
         var age = nowYear - pastYear;
         $('#cus_age').val(age);
     });
-    
+    //get id and store in array for removed images while edit profile
+    var image_array = [];
+    $('.remove_act').on('click', function(){
+        var image_id = $(this).parents("li").find('.cus_img').data('id');
+        if ($.inArray(image_id.toString(), image_array) != 0)
+            image_array.push(image_id);
+    });    
 });
 
 // $(window).load(function(){

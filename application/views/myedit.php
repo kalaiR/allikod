@@ -278,28 +278,39 @@
                                             </div>
                                             <p>No photos in your album.Upload Photos.</p> -->  
                                             <!-- <input type="file" name="cus_profileimage[]" id="uploadedfile" multiple="">     -->
-                                            <div class="edit_img ">
+                                            <div class="edit_img">
                                                 <span id="spanFileName" class="registration-error error-msg"></span>
                                                 <div class="modal-body login-box clearfix imageupload">
                                                     <ul id="media-list" class="clearfix">
+                                                        <?php 
+                                                        if(!empty($customeruser_values['images_id'])){
+                                                            $images_id = explode(",",$customeruser_values['images_id']);
+                                                            $images = explode(",",$customeruser_values['images']);
+                                                            $img_data = array_map(null,$images_id,$images);
+                                                            // echo "<pre>";
+                                                            // print_r($img_data);
+                                                            // echo "</pre>";
+                                                            foreach ($img_data as $value) {
+                                                        ?>
                                                         <li>
-                                                            <img class="cus_img" src="<?php echo media_url(); ?>assets/img/view/img1.png" alt="img">
+                                                            <img class="cus_img" src="<?php echo media_url().USER_PROFILE_PATH."th_".$value[1]; ?>" alt="img" data-id="<?php echo $value[0]; ?>">
+                                                            <div class="post-thumb">
+                                                                <div class="inner-post-thumb">
+                                                                    <a href="javascript:void(0);" class="remove-pic remove_act"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <?php }} ?>
+                                                        <!-- <li>
+                                                            <img class="cus_img" src="<?php //echo media_url(); ?>assets/img/reg-img.jpg" alt="img">
                                                             <div class="post-thumb">
                                                                 <div class="inner-post-thumb">
                                                                     <a href="javascript:void(0);" class="remove-pic"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                                 </div>
                                                             </div>
-                                                        </li>
-                                                        <li>
-                                                            <img class="cus_img" src="<?php echo media_url(); ?>assets/img/reg-img.jpg" alt="img">
-                                                            <div class="post-thumb">
-                                                                <div class="inner-post-thumb">
-                                                                    <a href="javascript:void(0);" class="remove-pic"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
+                                                        </li> -->
                                                         <li class="myupload">
-                                                            <span><i class="fa fa-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload" multiple></span>
+                                                            <span><i class="fa fa-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload" name="cus_profileimage[]" multiple></span>
                                                         </li>
                                                     </ul>
                                                  </div>
@@ -542,8 +553,24 @@
                                                 <div class="col-md-5">
                                                     <p><b>Dhosham</b></p>
                                                 </div>
-                                                <div class="col-md-5">       
-                                                    <input type="text" class="form-control alphaonly" id="reg_Name" placeholder="Dhosham" value="<?php if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; ?>" name="cus_dosham">   
+                                                <div class="col-md-5">
+                                                    <input type="text" class="form-control alphaonly" id="reg_Name" placeholder="Dhosham" value="<?php if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; ?>" name="cus_dosham">
+                                                   <!--  <input type="text" class="form-control" id="reg_Name" placeholder="Dhosham" value="<?php //if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; ?>" name="cus_dosham">  -->
+
+                                                    <select class="form-control customize_plan" name="cus_dosham" id="reg_Name">
+                                                        <option value="">Select Dhosham</option>
+                                                        <?php 
+                                                        if(!empty($dhosham)) :
+                                                            foreach ($dhosham as $cls_val) {
+                                                                if($customeruser_values['rel_dhosham']==$cls_val['dhosham_id']){
+                                                                    echo "<option value='" . $cls_val['dhosham_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
+                                                                }else{
+                                                                    echo "<option value='" . $cls_val['dhosham_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                }
+                                                            }
+                                                        endif;
+                                                        ?>
+                                                    </select>
                                                  </div>
                                             </div>
                                             <div class="row com-box">
