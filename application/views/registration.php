@@ -291,10 +291,14 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>
                                             <div class="col-sm-4">
                                                <select class="form-control" name="dhosham[]" id="dhosham">
-                                                   <option value="">Select</option>
-                                                    <option value="1">Naga Dhosam</option>
-                                                    <option value="2">Chevvai Dhosam</option>
-                                                    <option value="3">Raghu Kedhu Dhosam</option>
+                                                   <option value="">Select</option>                    
+                                                       <?php 
+                                                        if(!empty($dhosham)) :
+                                                            foreach ($dhosham as $cls_val) {
+                                                                echo "<option value='" . $cls_val['dhosham_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                            }
+                                                        endif;
+                                                        ?>
                                                 </select>
                                             </div>
                                             <!-- <div class="col-sm-4 box">

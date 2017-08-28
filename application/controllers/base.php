@@ -149,16 +149,15 @@ class Base extends CI_Controller {
   	}
 
 	public function search(){
-		$data['martial_status'] = $this->user_model->get_martialstatus();
-		$data['mother_tongue'] = $this->user_model->get_mothertongue();	
 		$data['education'] = $this->user_model->get_education();
 		$data['education_category'] = $this->user_model->get_educationcategory();
 		$data['country'] = $this->user_model->get_country();
 		$data['occupation'] = $this->user_model->get_occupation();
 		$data['occupation_category'] = $this->user_model->get_occupationcategory();
 		$data['bodytype'] = $this->user_model->get_bodytype();
-		$data['martial_status'] = $this->user_model->get_martialstatus();
+		$data['dhosham'] = $this->user_model->get_dhosham();
 		$data['mother_tongue'] = $this->user_model->get_mothertongue();
+		$data['martial_status'] = $this->user_model->get_martialstatus();
 		$this->load->view('search', $data);
 	}
 	public function contact(){
@@ -478,15 +477,16 @@ class Base extends CI_Controller {
 						);	
 						$id_images = $this->user_model->insert_registration('user_images',$data_images);
 					}
-                }else{
-                		if($data['user_gender']!=2){$default_images = "defalt_male.png";}else{$default_images = "defalt_female.png";}
-                		$data_images = array(
-								// 'userimages_id'=>'',
-								'reg_user_id'=>$id_userdetails,						
-								'images'=>$default_images
-						);	
-						$id_images = $this->user_model->insert_registration('user_images',$data_images);
                 }
+      //        else{
+      //           		if($data['user_gender']!=2){$default_images = "defalt_male.png";}else{$default_images = "defalt_female.png";}
+      //           		$data_images = array(
+						// 		// 'userimages_id'=>'',
+						// 		'reg_user_id'=>$id_userdetails,						
+						// 		'images'=>$default_images
+						// );	
+						// $id_images = $this->user_model->insert_registration('user_images',$data_images);
+      //           }
 
                 // Insert Horoscope // 
                 if(!empty($form_data['result_horoscope_rasi'])) {
@@ -585,18 +585,20 @@ class Base extends CI_Controller {
 								if($data['error']!=1){	
 								$data_images = array('reg_user_id'=>$this->input->post('quickregister_id'),'images'=>$stored_filename);	
 								}
-							}else{
-								if($data['user_gender']!=2){$default_images = "defalt_male.png";}else{$default_images = "defalt_female.png";}
-								$data_images = array('reg_user_id'=>$this->input->post('quickregister_id'), 'images'=>$default_images);	
-						}						
+							}
+							// else{
+							// 	if($data['user_gender']!=2){$default_images = "defalt_male.png";}else{$default_images = "defalt_female.png";}
+							// 	$data_images = array('reg_user_id'=>$this->input->post('quickregister_id'), 'images'=>$default_images);	
+							// }						
 					$this->user_model->update_quickregister($this->input->post('quickregister_id'), $data_images);
 		  	    }
-		  		// Edit Process - End Here		  		
+		  		// Edit Process - End Here //  		
 
 		  		$data['register'] = $this->user_model->get_registerid();		  							
 		  		$data['martial_status'] = $this->user_model->get_martialstatus();
 		  		$data['mother_tongue'] = $this->user_model->get_mothertongue();
 		  		$data['nakshathra'] = $this->user_model->get_nakshathra();
+		  		$data['dhosham'] = $this->user_model->get_dhosham();
 		  		$data['luknam'] = $this->user_model->get_luknam();
 		  		$data['zodiac'] = $this->user_model->get_zodiac();
 		  		$data['education'] = $this->user_model->get_education();
@@ -652,15 +654,7 @@ class Base extends CI_Controller {
 				$show_profile = $form_data['images'][0];
 				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'education'=>$education, 'show_profile'=>$show_profile);				
 
-				// To get the image slider for search results
 				$data = $this->user_model->get_basicsearch($values, $per_page, $offset);
-				foreach($data['results'] as $key => $value) {
-					$sliderdata[] = $this->user_model->get_customer_images($value['userdetail_id']);
-				}				
-				if(!empty($sliderdata)){
-					$data['slider_images'] = $sliderdata;
-				}
-				
 				$this->session->set_userdata('search_inputs',$values);
 
 			}elseif($form_data['search_type'] =='advance_search'){
@@ -708,7 +702,7 @@ class Base extends CI_Controller {
 			}elseif($form_data['search_type'] =='search_dhosham'){
 				// Search by Dhosham ID //
 				$search_dhoshamid = $form_data['dhosham'][0];				
-				$data = $this->user_model->get_dhoshamsearch($search_dhoshamid, $per_page, $offset);
+				$data = $this->user_model->get_dhoshamsearch($search_dhoshamid, $per_page, $offset);				
 				$this->session->set_userdata('search_dhoshamid',$search_dhoshamid);				
 				$search_dhoshamid = $this->session->userdata('search_dhoshamid');
 			}else{
@@ -722,7 +716,7 @@ class Base extends CI_Controller {
 			// Pagination Session Data			
 			$search_inputs = $this->session->userdata('search_inputs');
 			$search_quick = $this->session->userdata('search_quick');
-			$search_dhosham = $this->session->userdata('search_dhoshamid');
+			$search_dhosham = $this->session->userdata('search_dhoshamid');			
 			$advance_search = $this->session->userdata('advance_search_sess');						
 
 			if(!empty($search_inputs)){
@@ -730,13 +724,6 @@ class Base extends CI_Controller {
 				$session_data['offset'] = $values[0];
 				$this->session->set_userdata("search_inputs", $session_data);
 				$data = $this->user_model->get_basicsearch($search_inputs, $per_page, $offset);	
-				
-				// To get the image slider for search results
-				foreach ($data['results'] as $key => $value) {
-					$sliderdata[] = $this->user_model->get_customer_images($value['userdetail_id']);
-				}
-				$data['slider_images'] = $sliderdata;
-
 			}elseif(!empty($search_quick)){
 				$session_data = $this->session->userdata('search_quick');
 				$session_data['offset'] = $values[0];
@@ -749,7 +736,8 @@ class Base extends CI_Controller {
 					preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);							
 					$session_data['offset'] = $values[0];
 				}				
-				$data = $this->user_model->get_dhoshamsearch($search_dhosham, $per_page, $offset);
+				$data = $this->user_model->get_dhoshamsearch($search_dhosham, $per_page, $offset);				
+				
 			}elseif(!empty($advance_search)){
 				$session_data = $this->session->userdata('advance_search_sess');
 				$session_data['offset'] = $values[0];
@@ -1061,14 +1049,14 @@ class Base extends CI_Controller {
 					    break;
 					}
 				}
-				//Remove old image
-				$cus_image = $this->user_model->get_customer_images($id); 
+				// //Remove old image
+				// $cus_image = $this->user_model->get_customer_images($id); 
 				// print_r($cus_image);
-				foreach ($cus_image as $value) {
-					// echo FCPATH.USER_PROFILE_PATH.$value['images'];
-					if($value['images']!='defalt_male.png' && $value['images']!='defalt_female.png')
-						@unlink(FCPATH.USER_PROFILE_PATH.$value['images']);
-				}
+				// foreach ($cus_image as $value) {
+				// 	// echo FCPATH.USER_PROFILE_PATH.$value['images'];
+				// 	if($value['images']!='defalt_male.png' && $value['images']!='defalt_female.png')
+				// 		@unlink(FCPATH.USER_PROFILE_PATH.$value['images']);
+				// }
 			}
       		if($data['error'] != 1) {
 	    		$data_values = $this->user_model->update_customer_user($id,$profile_image); 
@@ -1105,6 +1093,7 @@ class Base extends CI_Controller {
 				$data['selection_values'] = $this->user_model->customer_user_selectiondata();
 				$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
 				$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
+				$data['dhosham'] = $this->user_model->get_dhosham();
 				// echo "<pre>";
 				// print_r($data['selection_values']);
 				// echo "</pre>";

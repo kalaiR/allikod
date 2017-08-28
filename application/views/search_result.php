@@ -69,168 +69,183 @@ if(isset($per_page)&&(!empty($total_rows)))
                      </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-9">
-                    <?php
-                    if(!empty($results)){
-                    foreach($results as $key => $value) { 
-                        // echo $value['images']."<br>";
-                        // echo base_url()."uploads/profile/".$value['images'];
-                        // echo "image_status"."<br>".file_exists(base_url()."uploads/profile/".$value['images'])."<br>";
-                        $prefix = '';
-                        $prefix_one = 'th_';
-                        $prefix_two = 'new_';
-                        if(!empty($value['images'])){
-                            $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$value['images']);
-                            $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$value['images']);
-                        }
-                        // if(file_exists(FCPATH."uploads/profile/".$value['images'])){
+<<<<<<< HEAD
+                <div class="col-md-9">
+                <?php
+                if(!empty($results)){                    
+                foreach($results as $key => $value) { 
+                    $prefix = '';
+                    $prefix_one = 'th_';
+                    $prefix_two = 'new_';
+                    $prefix_latest_images = '';
+                    $default_images = '';
+                    $latest_images = '';  
+                    unset($current_images);
+                    $current_images = array();                      
+                    if(!empty($value['images'])){
+                        $current_images = explode(',', $value['images'] );
+                        $latest_images = end($current_images);                       
+                        $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$latest_images);
+                        $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$latest_images); 
+                        $prefix_latest_images = file_exists(FCPATH."uploads/profile/".$latest_images); 
+                    }
+                    // To get Gender based image for display //
+                    if((!empty($value['user_gender']))&&($value['user_gender']!=1)){
+                            $default_images = "defalt_female.png";
+                    }else{
+                            $default_images = "defalt_male.png";
+                    }
                     ?>                        
-                        <div class="col-md-4 col-sm-6">                    
-                             <?php //echo FCPATH."uploads/profile/".$value['images']; 
-                                if(!empty($prefix_one_status))
-                                    $prefix = $prefix_one;
-                                else if(!empty($prefix_two_status))
-                                    $prefix = $prefix_two;
-                            ?>
-                            <!-- <div class="main_photo"> -->
-                            <img src="<?php 
-                                if(!empty($value['images'])): 
-                                    echo media_url()."uploads/profile/".$prefix.$value['images']; 
-                                else:
-                                    echo media_url()."assets/img/no_image.jpg"; 
-                                endif; 
-                            ?>" alt="Image not loaded" style="width:170px;height:170px;">
-                            <!-- <img class="inlay" src="<?php //echo media_url(); ?>assets/img/lock-icon.png"> -->
-                            <!-- </div> -->
-                              <!-- <div><a href="#">More Images</a></div>  -->
-                              <div>
-                               <ul class="">
-                                  <li><a href="#lightbox" data-toggle="modal">More Images</a></li>
-                                </ul>
-                              </div> 
-                            <div class="modal fade and carousel slide lig" id="lightbox">
-                               <div class="modal-dialog ">
-                                  <div class="modal-body">
-                                      <!-- <ol class="carousel-indicators">
-                                           <?php 
-                                            //if(!empty($slider_images)){
-                                            //foreach($slider_images as $key => $value) { ?>
-                                                <li data-target="#lightbox" data-slide-to="<?php //echo $key;?>"></li>
-                                           <?php //} }?>
-                                      </ol> -->
-                                      <div class="carousel-inner">
-                                                <?php 
-                                                    if(!empty($slider_images[$key])){
-                                                        foreach($slider_images[$key] as $skey => $svalue) {       
-                                                            if($skey!=0){?>
-                                                                <div class="item">
-                                                                        <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($slider_images[$key]);?></div>
-                                                                        <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$svalue['images'];?>" alt="First slide">
+                    <div class="col-md-4 col-sm-6">                    
+                         <?php                             
+                            if(!empty($prefix_one_status))
+                                $prefix = $prefix_one;
+                            else if(!empty($prefix_two_status))
+                                $prefix = $prefix_two;                            
+
+                        // echo  "prefix===========>".$prefix;                                   
+                        ?>
+                        <!-- <div class="main_photo"> -->
+                        <img src="<?php 
+                            if((!empty($value['images']))&&(!empty($prefix))): 
+                                echo media_url()."uploads/profile/".$prefix.$latest_images; 
+                            else:
+                                echo media_url()."uploads/profile/".$default_images; 
+                            endif; 
+                        ?>" alt="Image not loaded" style="width:170px;height:170px;">
+                          <div>
+                           <ul class="">
+                              <li><a href="#lightbox<?php echo $key;?>" data-toggle="modal">More Images</a></li>
+                            </ul>
+                          </div> 
+                          <?php 
+                          // echo '<pre>';
+                          // print_r($current_images);
+                          // echo '</pre>';
+                          ?>
+                          <div class="modal fade and carousel slide lig" id="lightbox<?php echo $key;?>">
+                           <div class="modal-dialog ">
+                              <div class="modal-body">
+                                  <ol class="carousel-indicators">
+                                        <?php 
+                                        if(!empty($current_images)){
+                                        foreach($current_images as $ckey => $cvalue) { ?>
+                                            <li data-target="#lightbox" data-slide-to="<?php echo $ckey;?>"></li>
+                                        <?php } }?>
+                                  </ol>
+                                  <div class="carousel-inner">
+                                            <?php 
+                                                if(!empty($value['images'])){              
+                                                    foreach($current_images as $skey => $svalue) {       
+                                                        if($skey!=0){?>
+                                                            <div class="item">
+                                                                    <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($current_images);?></div>
+                                                                    <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix_two.$svalue;?>" alt="First slide">
+                                                            </div>
+                                                        <?php }else{?>
+                                                             <div class="item active">
+                                                                <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($current_images);?></div>
+                                                                <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix_two.$svalue;?>" alt="First slide">
                                                                 </div>
-                                                            <?php }else{?>
-                                                                 <div class="item active">
-                                                                    <div class="numbertext"><?php echo $skey+1;?> / <?php echo count($slider_images[$key]);?></div>
-                                                                    <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$svalue['images'];?>" alt="First slide">
-                                                                    </div>
-                                                            <?php }
-                                                        }
-                                                } ?>
-                                      </div>
-                                      <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev">
-                                        <span class="glyphicon glyphicon-chevron-left"></span>
-                                      </a>
-                                      <a class="right carousel-control" href="#lightbox" role="button" data-slide="next">
-                                        <span class="glyphicon glyphicon-chevron-right"></span>
-                                      </a>
+                                                        <?php }
+                                                    }
+                                            } ?>
                                   </div>
-                               </div>
-                            </div>
+                                  <a class="left carousel-control" href="#lightbox<?php echo $key;?>" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                  </a>
+                                  <a class="right carousel-control" href="#lightbox<?php echo $key;?>" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                  </a>
+                              </div>
+                           </div>
                         </div>
-                        <div class="col-md-6 col-xs-12 border_box det_border">
-                            <div class="head-box"><h4>Vallikodi ID : V1
-                              <?php if(!empty($value['userdetail_id'])){ echo $value['userdetail_id'];}?></h4>
+                    </div>
+                    <div class="col-md-6 col-xs-12 border_box det_border">
+                        <div class="head-box"><h4>Vallikodi ID : V1
+                          <?php if(!empty($value['userdetail_id'])){ echo $value['userdetail_id'];}?></h4>
+                        </div>
+                        <!-- <div class="text-box-name"> -->
+                            <div class="col-md-5 col-xs-5 name-box">
+                                <p><b>Name</b></p>
                             </div>
-                            <!-- <div class="text-box-name"> -->
-                                <div class="col-md-5 col-xs-5 name-box">
-                                    <p><b>Name</b></p>
-                                </div>
-                                <div class="col-md-6 col-xs-6">
-                                    <p><?php if(!empty($value['user_fname'])){ echo $value['user_fname'];}?></p>
-                                </div>
-                                <!-- </div>     -->
-                                <div class="col-md-5 col-xs-5 name-box">
-                                  <p><b>DOB/Age</b></p>
-                                </div>
-                                <div class="col-md-6 col-xs-6">
-                                    <p> <?php if(!empty($value['user_dob'])){ echo $value['user_dob'];}?></p>
-                                </div>
-                                <div class="col-md-5 col-xs-5 name-box">
-                                    <p><b>Star</b></p>
-                                </div>
-                                <div class="col-md-6 col-xs-6">
-                                  <p>  <?php if(!empty($value['rel_nakshathra_id'])){                             
-                                    $val = $this->user_model->get_nakshathra($value['rel_nakshathra_id']);
-                                    echo $val['name'];
-                                    }?></p>
-                                </div>
-                                <div class="col-md-5 col-xs-5 name-box">
-                                  <p><b>Religion</b></p>
-                                </div>
-                                <div class="col-md-6 col-xs-6">
-                                    <p> <?php if(!empty($value['rel_religion'])){ echo $value['rel_religion'];}?></p>
-                                </div>
-                                <div class="col-md-5 col-xs-5 name-box">
-                                  <p><b>Education</b></p>
-                                </div>
-                                <div class="col-md-6 col-xs-6">
-                                    <p> <?php if(!empty($value['edu_education'])){ 
-                                        $val = $this->user_model->get_education($value['edu_education']);
-                                        echo $val['edu_name'];
-                                        }?>
-                                    </p>
-                                </div>
-                                <div class="col-md-5 col-xs-5 name-box">
-                                  <p><b>Occupation</b></p>
-                                </div>
-                                <div class="col-md-6 col-xs-6">
-                                    <p> <?php if(!empty($value['edu_occupation'])){ 
-                                        $val = $this->user_model->get_occupation($value['edu_occupation']);
-                                        echo $val['occupation_name'];
-                                        }?>
-                                    </p>
-                                </div>
-                                <?php 
-                                    $user_session = $this->session->userdata("login_status");
-                                    if(!empty($user_session)){ ?>
-                                            <div class="col-md-5 col-xs-5 name-box">
-                                                <p><b>Location</b></p>
-                                            </div>
-                                            <div class="col-md-6 col-xs-6">
-                                                <p> 
-                                                <?php if(!empty($value['comm_current_countrycountry'])){ echo $value['comm_current_countrycountry'];}
-                                                ?>
-                                                <?php if(!empty($value['comm_current_city'])){ echo " / ".$value['comm_current_city'];}
-                                                ?>
-                                                <?php if(!empty($value['comm_current_district'])){ echo " / ".$value['comm_current_district'];}
-                                                ?>
-                                                </p>
-                                            </div>
-                                    <?php } ?>    
-                                <div class="text-box-name">
-                                 <?php
-                                   $user_session = $this->session->userdata("login_status");
-                                   if(!empty($user_session)){ ?>
-                                        <div class="col-md-6 col-xs-9">
-                                            <p>
-                                            <a href="<?php echo base_url().'viewdetail/'.$value['userdetail_id'];?>" target="_blank">View Full Details</a>
+                            <div class="col-md-6 col-xs-6">
+                                <p><?php if(!empty($value['user_fname'])){ echo $value['user_fname'];}?></p>
+                            </div>
+                            <!-- </div>     -->
+                            <div class="col-md-5 col-xs-5 name-box">
+                              <p><b>DOB/Age</b></p>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <p> <?php if(!empty($value['user_dob'])){ echo $value['user_dob'];}?></p>
+                            </div>
+                            <div class="col-md-5 col-xs-5 name-box">
+                                <p><b>Star</b></p>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                              <p>  <?php if(!empty($value['rel_nakshathra_id'])){                             
+                                $val = $this->user_model->get_nakshathra($value['rel_nakshathra_id']);
+                                echo $val['name'];
+                                }?></p>
+                            </div>
+                            <div class="col-md-5 col-xs-5 name-box">
+                              <p><b>Religion</b></p>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <p> <?php if(!empty($value['rel_religion'])){ echo $value['rel_religion'];}?></p>
+                            </div>
+                            <div class="col-md-5 col-xs-5 name-box">
+                              <p><b>Education</b></p>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <p> <?php if(!empty($value['edu_education'])){ 
+                                    $val = $this->user_model->get_education($value['edu_education']);
+                                    echo $val['edu_name'];
+                                    }?>
+                                </p>
+                            </div>
+                            <div class="col-md-5 col-xs-5 name-box">
+                              <p><b>Occupation</b></p>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <p> <?php if(!empty($value['edu_occupation'])){ 
+                                    $val = $this->user_model->get_occupation($value['edu_occupation']);
+                                    echo $val['occupation_name'];
+                                    }?>
+                                </p>
+                            </div>
+                            <?php 
+                                $user_session = $this->session->userdata("login_status");
+                                if(!empty($user_session)){ ?>
+                                        <div class="col-md-5 col-xs-5 name-box">
+                                            <p><b>Location</b></p>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6">
+                                            <p> 
+                                            <?php if(!empty($value['comm_current_countrycountry'])){ echo $value['comm_current_countrycountry'];}
+                                            ?>
+                                            <?php if(!empty($value['comm_current_city'])){ echo " / ".$value['comm_current_city'];}
+                                            ?>
+                                            <?php if(!empty($value['comm_current_district'])){ echo " / ".$value['comm_current_district'];}
+                                            ?>
                                             </p>
                                         </div>
-                                    <?php }else{ ?>
-                                         <a class="popup-with-zoom-anim" href="#small-dialog">View Full Details</a>
-                                    <?php } ?>    
-                                </div>
-                            <!-- </div> -->
-                        </div>      
+                                <?php } ?>    
+                            <div class="text-box-name">
+                             <?php
+                               $user_session = $this->session->userdata("login_status");
+                               if(!empty($user_session)){ ?>
+                                    <div class="col-md-6 col-xs-9">
+                                        <p>
+                                        <a href="<?php echo base_url().'viewdetail/'.$value['userdetail_id'];?>" target="_blank">View Full Details</a>
+                                        </p>
+                                    </div>
+                                <?php }else{ ?>
+                                     <a class="popup-with-zoom-anim" href="#small-dialog">View Full Details</a>
+                                <?php } ?>    
+                            </div>
+                        <!-- </div> -->
+                    </div>      
                     <?php } 
                     }else{?>
                          <div class="text-box-name" align="center">

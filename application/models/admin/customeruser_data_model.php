@@ -47,7 +47,7 @@ class Customeruser_data_model extends CI_Model {
 	            					'rel_mothertongue_id' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
 	            					'rel_religion' => $this->input->post('cus_religion'),
 	            					'rel_caste' => $this->input->post('cus_caste'),
-	            					'rel_dhosham' => $this->input->post('cus_dosham'),
+	            					// 'rel_dhosham' => ($this->input->post('cus_dosham')) ? $this->input->post('cus_dosham') : NULL,
 	            					'rel_nakshathra_id' => ($this->input->post('cus_nakshathra')) ? $this->input->post('cus_nakshathra') : NULL,
 	            					'rel_luknam_id' => ($this->input->post('cus_lukhnam')) ? $this->input->post('cus_lukhnam') : NULL,
 	            					'rel_gothra' => "Sambu Maharishi Gothra",

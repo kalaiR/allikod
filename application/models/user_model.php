@@ -308,26 +308,29 @@ class User_model extends CI_Model {
 
   public function get_recent_profile(){
       //Female
-      $query['bride'] = $this->db->query("select usr.userdetail_id, usr_img.images, usr.user_gender from reg_userdetail as usr 
-        INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
-        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' AND usr.user_gender = 2 ORDER BY usr.userdetail_id DESC limit 10")->result_array();
+      $bride_query = $this->db->query("select usr.userdetail_id, group_concat(usr_img.images) as images, usr.user_gender from reg_userdetail as usr 
+        LEFT JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
+        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' AND usr.user_gender = 2 GROUP BY usr.userdetail_id ORDER BY usr.userdetail_id DESC limit 10");
+      $query['bride'] = $bride_query->result_array(); 
+
       //Male
-      $query['groom'] = $this->db->query("select usr.userdetail_id, usr_img.images, usr.user_gender from reg_userdetail as usr 
-        INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
-        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' AND usr.user_gender = 1 ORDER BY usr.userdetail_id DESC limit 10")->result_array();
+      $groom_query = $this->db->query("select usr.userdetail_id, group_concat(usr_img.images) as images, usr.user_gender from reg_userdetail as usr 
+        LEFT JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
+        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' AND usr.user_gender = 1 GROUP BY usr.userdetail_id ORDER BY usr.userdetail_id DESC limit 10");
+      $query['groom'] = $groom_query->result_array();
       return $query;
   }
 
-  //Changed by Kalai due to syntax error when empty data passed
+  
   public function get_basicsearch($values, $limit, $start){ 
       if(!empty($values)) {
         if(!empty($values['show_profile'])) {
             if($values['show_profile'] =='with_photo'){
-               $show_profile = '(img.images!="" AND img.images!="defalt_male.png" AND img.images!="defalt_female.png")';
+               $show_profile = '(img.images!="")';
              }elseif($values['show_profile'] =='without_photo') {
-               $show_profile = '(img.images ="" OR img.images ="defalt_male.png" OR img.images="defalt_female.png")';              
+               $show_profile = '(img.images IS NULL)';              
              }else{
-               $show_profile = '(img.images ="" OR img.images!="" OR img.images ="defalt_male.png" AND img.images="defalt_female.png")';
+               $show_profile = '(img.images ="" OR img.images!="" OR img.images IS NULL)';
              }  
         }
                 
@@ -373,7 +376,7 @@ class User_model extends CI_Model {
         // exit();
 
         $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND '.$like_wheres.' AND '.$show_profile.' AND '.$like_where.' AND usr.user_delete_status!=1 AND usr.user_active_status!=0)';
-        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_gender, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district');
+        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_gender, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, group_concat(img.images) as images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district');
         $this->db->from('reg_userdetail usr');
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
@@ -382,7 +385,8 @@ class User_model extends CI_Model {
         $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');
         $this->db->limit($limit,$start);
         $this->db->where($user_where);
-        $this->db->order_by('usr.userdetail_id','desc');
+        $this->db->order_by('usr.userdetail_id','desc');  
+        $this->db->group_by('usr.userdetail_id','desc');              
         $query['results'] = $this->db->get()->result_array(); 
         // echo $this->db->last_query();
 
@@ -395,6 +399,7 @@ class User_model extends CI_Model {
         $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');
         $this->db->where($user_where);
         $this->db->order_by('usr.userdetail_id','desc');
+        $this->db->group_by('usr.userdetail_id','desc');        
         $query['total_rows'] = $this->db->get()->num_rows();
       }  
       // print_r($query);
@@ -407,19 +412,19 @@ class User_model extends CI_Model {
       if(!empty($values)) {
         // $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND usr.user_gender !=3 AND usr.user_delete_status!=1 AND usr.user_active_status!=0 AND (img.images!="" AND img.images!="defalt_male.png" AND img.images!="defalt_female.png"))';
 
-        $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND usr.user_gender !=3 AND usr.user_delete_status!=1 AND usr.user_active_status!=0 )';
-        
+        $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND usr.user_gender!=3 AND usr.user_delete_status!=1 AND usr.user_active_status!=0 )';        
 
-        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_gender, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district');
+        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_gender, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, group_concat(img.images) as images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district');
         $this->db->from('reg_userdetail usr');
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
-        $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');        
+        $this->db->join('reg_communication_family regcomm','regcomm.reg_user_id = usr.userdetail_id','inner');        
         $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');
-        $this->db->join('reg_communication_family regcomm','regcomm.reg_user_id = usr.userdetail_id','inner');
         $this->db->limit($limit,$start);
         $this->db->where($user_where);
-        $this->db->order_by('usr.userdetail_id','desc');
+        $this->db->order_by('usr.userdetail_id','desc');        
+        $this->db->group_by('usr.userdetail_id','desc'); 
         $query['results'] = $this->db->get()->result_array();
         // echo $this->db->last_query();
         // Total rows
@@ -427,11 +432,12 @@ class User_model extends CI_Model {
         $this->db->from('reg_userdetail usr');
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
-        $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
-        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');        
         $this->db->join('reg_communication_family regcomm','regcomm.reg_user_id = usr.userdetail_id','inner');
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');
         $this->db->where($user_where);
-        $this->db->order_by('usr.userdetail_id','desc');
+        $this->db->order_by('usr.userdetail_id','desc'); 
+        $this->db->group_by('usr.userdetail_id','desc');        
         $query['total_rows'] = $this->db->get()->num_rows();
         // echo $this->db->last_query();
       }  
@@ -442,7 +448,7 @@ class User_model extends CI_Model {
   /** Search by vallikodi Id **/
   public function get_datauserId($values, $limit, $start){     
         $user_where = '(usr.userdetail_id="'.$values.'" AND usr.user_delete_status!=1 AND usr.user_gender !=3 AND usr.user_active_status!=0)';
-        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district');
+        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, group_concat(img.images) as images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district, usr.user_gender');
         $this->db->from('reg_userdetail usr');
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
@@ -452,6 +458,7 @@ class User_model extends CI_Model {
         $this->db->limit($limit,$start);
         $this->db->where($user_where);
         $this->db->order_by('usr.userdetail_id','desc');
+        $this->db->group_by('usr.userdetail_id','desc');
         $model_data['results'] = $this->db->get()->result_array();
         // echo $this->db->last_query();
 
@@ -462,7 +469,7 @@ class User_model extends CI_Model {
   public function get_datauser_manualId($values, $limit, $start){     
 
         $user_where = '(usr.userdetail_profile_id="'.$values.'" AND usr.user_delete_status!=1 AND usr.user_gender !=3 AND usr.user_active_status!=0)';        
-        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_gender, usr.user_active_status, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district');
+        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_gender, usr.user_active_status, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, group_concat(img.images) as images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district');
         $this->db->from('reg_userdetail usr');
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
@@ -472,16 +479,8 @@ class User_model extends CI_Model {
         $this->db->limit($limit,$start);
         $this->db->where($user_where);
         $this->db->order_by('usr.userdetail_profile_id','desc');
+         $this->db->group_by('usr.userdetail_id','desc');
         $model_data['results'] = $this->db->get()->result_array();
-
-        // // Total rows
-        // $this->db->select('*');
-        // $this->db->from('reg_userdetail usr');
-        // $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
-        // $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
-        // $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
-        // $this->db->where($user_where);
-        // $model_data['total_rows'] = $this->db->get()->num_rows();
 
     return $model_data;
   }
@@ -606,21 +605,22 @@ class User_model extends CI_Model {
   public function get_dhoshamsearch($values, $limit, $start){ 
       $dhosham_1 = '';       
 
-        if($values == 1){
-          $dhosham_1 = "(rel.rel_dhosham LIKE '%nag%') or (rel.rel_dhosham LIKE 'n%g%') or(rel.rel_dhosham LIKE '%nak%')) and ((rel.rel_dhosham LIKE '%n%ga%')or (rel.rel_dhosham LIKE '%n%ka%')or (rel.rel_dhosham LIKE '%n%ha%') or (rel.rel_dhosham LIKE '%n%gha%') or (rel.rel_dhosham LIKE '%n%kha%') or (rel.rel_dhosham LIKE '%nah%') or (rel.rel_dhosham LIKE '%aga%') or (rel.rel_dhosham LIKE '%a%g%') or (rel.rel_dhosham LIKE '%na%ga%')";
-        } 
+        // if($values == 1){
+        //   $dhosham_1 = "(rel.rel_dhosham LIKE '%nag%') or (rel.rel_dhosham LIKE 'n%g%') or(rel.rel_dhosham LIKE '%nak%')) and ((rel.rel_dhosham LIKE '%n%ga%')or (rel.rel_dhosham LIKE '%n%ka%')or (rel.rel_dhosham LIKE '%n%ha%') or (rel.rel_dhosham LIKE '%n%gha%') or (rel.rel_dhosham LIKE '%n%kha%') or (rel.rel_dhosham LIKE '%nah%') or (rel.rel_dhosham LIKE '%aga%') or (rel.rel_dhosham LIKE '%a%g%') or (rel.rel_dhosham LIKE '%na%ga%')";
+        // } 
 
-        if($values == 2){
-            $dhosham_1 = "(rel.rel_dhosham LIKE 's%v%')or(rel.rel_dhosham LIKE 'c%v%')or(rel.rel_dhosham LIKE '%se%v%')or(rel.rel_dhosham LIKE '%ce%v%')or(rel.rel_dhosham LIKE '%she%v%')or(rel.rel_dhosham LIKE '%che%v%')or(rel.rel_dhosham LIKE '%sha%v%')or(rel.rel_dhosham LIKE '%cha%v%')) and ((rel.rel_dhosham LIKE '%av%i%') or (rel.rel_dhosham LIKE '%ev%i%') or (rel.rel_dhosham LIKE '%ev%y%') or (rel.rel_dhosham LIKE '%av%y%') or (rel.rel_dhosham LIKE '%e%va%'))and ((rel.rel_dhosham LIKE '%vai%')or(rel.rel_dhosham LIKE '%vay%')or(rel.rel_dhosham LIKE '%vi%')or(rel.rel_dhosham LIKE '%vy%')or(rel.rel_dhosham LIKE '%va%')or(rel.rel_dhosham LIKE '%vha%')) and ((rel.rel_dhosham LIKE '%eva%')or(rel.rel_dhosham LIKE '%vva%')or(rel.rel_dhosham LIKE '%evv%')or(rel.rel_dhosham LIKE '%evva%')";
-        }
+        // if($values == 2){
+        //     $dhosham_1 = "(rel.rel_dhosham LIKE 's%v%')or(rel.rel_dhosham LIKE 'c%v%')or(rel.rel_dhosham LIKE '%se%v%')or(rel.rel_dhosham LIKE '%ce%v%')or(rel.rel_dhosham LIKE '%she%v%')or(rel.rel_dhosham LIKE '%che%v%')or(rel.rel_dhosham LIKE '%sha%v%')or(rel.rel_dhosham LIKE '%cha%v%')) and ((rel.rel_dhosham LIKE '%av%i%') or (rel.rel_dhosham LIKE '%ev%i%') or (rel.rel_dhosham LIKE '%ev%y%') or (rel.rel_dhosham LIKE '%av%y%') or (rel.rel_dhosham LIKE '%e%va%'))and ((rel.rel_dhosham LIKE '%vai%')or(rel.rel_dhosham LIKE '%vay%')or(rel.rel_dhosham LIKE '%vi%')or(rel.rel_dhosham LIKE '%vy%')or(rel.rel_dhosham LIKE '%va%')or(rel.rel_dhosham LIKE '%vha%')) and ((rel.rel_dhosham LIKE '%eva%')or(rel.rel_dhosham LIKE '%vva%')or(rel.rel_dhosham LIKE '%evv%')or(rel.rel_dhosham LIKE '%evva%')";
+        // }
 
-        if($values == 3){
-            $dhosham_1 = "(rel.rel_dhosham LIKE 'ra%')or(rel.rel_dhosham LIKE 'ka%')or(rel.rel_dhosham LIKE 'ke%')or(rel.rel_dhosham LIKE 'ga%')or(rel.rel_dhosham LIKE 'ge%')or(rel.rel_dhosham LIKE '%raag%u%')or(rel.rel_dhosham LIKE '%rag%u%')or(rel.rel_dhosham LIKE '%kaet%u%')or(rel.rel_dhosham LIKE '%ket%u%')or(rel.rel_dhosham LIKE '%kaed%u%')or(rel.rel_dhosham LIKE '%ked%u%')or(rel.rel_dhosham LIKE '%gaet%u%')or(rel.rel_dhosham LIKE '%get%u%')or(rel.rel_dhosham LIKE '%gaed%u%')or(rel.rel_dhosham LIKE '%ged%u%')) and ((rel.rel_dhosham LIKE '%r%ghu%')or (rel.rel_dhosham LIKE '%r%khu%')or (rel.rel_dhosham LIKE '%r%gu%')or(rel.rel_dhosham LIKE '%hu%')or(rel.rel_dhosham LIKE '%gu%')or(rel.rel_dhosham LIKE '%du%')or (rel.rel_dhosham LIKE '%r%ku%')or (rel.rel_dhosham LIKE '%k%thu%')or (rel.rel_dhosham LIKE '%k%tu%')or (rel.rel_dhosham LIKE '%k%du%')";
-        }
+        // if($values == 3){
+        //     $dhosham_1 = "(rel.rel_dhosham LIKE 'ra%')or(rel.rel_dhosham LIKE 'ka%')or(rel.rel_dhosham LIKE 'ke%')or(rel.rel_dhosham LIKE 'ga%')or(rel.rel_dhosham LIKE 'ge%')or(rel.rel_dhosham LIKE '%raag%u%')or(rel.rel_dhosham LIKE '%rag%u%')or(rel.rel_dhosham LIKE '%kaet%u%')or(rel.rel_dhosham LIKE '%ket%u%')or(rel.rel_dhosham LIKE '%kaed%u%')or(rel.rel_dhosham LIKE '%ked%u%')or(rel.rel_dhosham LIKE '%gaet%u%')or(rel.rel_dhosham LIKE '%get%u%')or(rel.rel_dhosham LIKE '%gaed%u%')or(rel.rel_dhosham LIKE '%ged%u%')) and ((rel.rel_dhosham LIKE '%r%ghu%')or (rel.rel_dhosham LIKE '%r%khu%')or (rel.rel_dhosham LIKE '%r%gu%')or(rel.rel_dhosham LIKE '%hu%')or(rel.rel_dhosham LIKE '%gu%')or(rel.rel_dhosham LIKE '%du%')or (rel.rel_dhosham LIKE '%r%ku%')or (rel.rel_dhosham LIKE '%k%thu%')or (rel.rel_dhosham LIKE '%k%tu%')or (rel.rel_dhosham LIKE '%k%du%')";
+        // }
         
 
-      $user_where = '(rel.rel_dhosham='.$values.' AND usr.user_delete_status!=1 AND usr.user_gender !=3 AND '.$dhosham_1.')';
-        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_gender, usr.user_active_status, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, rel.rel_dhosham, edu.edu_education, edu.edu_occupation, img.images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district');
+        // $user_where = '(rel.rel_dhosham='.$values.' AND usr.user_delete_status!=1 AND usr.user_gender !=3 AND '.$dhosham_1.')';
+      $user_where = '(rel.rel_dhosham='.$values.' AND usr.user_delete_status!=1 AND usr.user_gender !=3)';
+      $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_gender, usr.user_active_status, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, rel.rel_dhosham, edu.edu_education, edu.edu_occupation, group_concat(img.images) as images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district');
         $this->db->from('reg_religion_ethnicity rel');
         $this->db->join('reg_userdetail usr','usr.userdetail_id = rel.reg_user_id','inner'); 
         $this->db->join('reg_education_occupation edu','edu.reg_user_id = rel.reg_user_id','inner');
@@ -629,6 +629,7 @@ class User_model extends CI_Model {
         $this->db->limit($limit,$start);
         $this->db->where($user_where);
         $this->db->order_by('rel.reg_user_id','desc');
+        $this->db->group_by('usr.userdetail_id','desc');
         $model_data['results'] = $this->db->get()->result_array(); 
         // echo $this->db->last_query();  
 
@@ -640,11 +641,12 @@ class User_model extends CI_Model {
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = rel.reg_user_id','inner');
         $this->db->join('reg_education_occupation edu','edu.reg_user_id = rel.reg_user_id','inner');
         $this->db->join('reg_communication_family regcomm','regcomm.reg_user_id = usr.userdetail_id','inner');
-        $this->db->join('user_images img','img.reg_user_id = rel.reg_user_id','inner');
+        $this->db->join('user_images img','img.reg_user_id = rel.reg_user_id','left');
         $this->db->where($user_where);
-        $this->db->order_by('rel.reg_user_id','desc');
-        $model_data['total_rows'] = $this->db->get()->num_rows();         
-
+        $this->db->order_by('rel.reg_user_id','desc'); 
+        $this->db->group_by('usr.userdetail_id','desc');               
+        $model_data['total_rows'] = $this->db->get()->num_rows(); 
+        // echo $this->db->last_query(); 
     return $model_data;
   }
 
@@ -692,15 +694,25 @@ class User_model extends CI_Model {
   if(!empty($values)) {
 
         // With Photo - Without photo //
+        // if(!empty($values['show_profile'])) {
+        //     if($values['show_profile'] =='with_photo'){
+        //        $show_profile = '(img.images!="" AND img.images!="defalt_male.png" AND img.images!="defalt_female.png")';
+        //     }elseif($values['show_profile'] =='without_photo') {
+        //        $show_profile = '(img.images ="" OR img.images ="defalt_male.png" OR img.images="defalt_female.png")';
+        //     }else{
+        //        $show_profile = '(img.images ="" OR img.images!="" OR img.images ="defalt_male.png" AND img.images="defalt_female.png")';
+        //     } 
+        // } 
+
         if(!empty($values['show_profile'])) {
             if($values['show_profile'] =='with_photo'){
-               $show_profile = '(img.images!="" AND img.images!="defalt_male.png" AND img.images!="defalt_female.png")';
-            }elseif($values['show_profile'] =='without_photo') {
-               $show_profile = '(img.images ="" OR img.images ="defalt_male.png" OR img.images="defalt_female.png")';
-            }else{
-               $show_profile = '(img.images ="" OR img.images!="" OR img.images ="defalt_male.png" AND img.images="defalt_female.png")';
-            } 
-        } 
+               $show_profile = '(img.images!="")';
+             }elseif($values['show_profile'] =='without_photo') {
+               $show_profile = '(img.images IS NULL)';              
+             }else{
+               $show_profile = '(img.images ="" OR img.images!="" OR img.images IS NULL)';
+             }  
+        }
 
        if(!empty($values['mother_tongue'])) {
          // Get mother tongue category based on mother tongue
@@ -771,7 +783,7 @@ class User_model extends CI_Model {
           $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND '.$mothertongue_wheres.' AND '.$show_profile.' AND usr.user_delete_status!=1 AND usr.user_active_status!=0)';
         }
 
-        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_gender, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, img.images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district');
+        $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_gender, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, group_concat(img.images) as images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district');
         $this->db->from('reg_userdetail usr');
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
@@ -781,6 +793,7 @@ class User_model extends CI_Model {
         $this->db->limit($limit,$start);        
         $this->db->where($user_where);       
         $this->db->order_by('usr.userdetail_id','desc');
+        $this->db->group_by('usr.userdetail_id','desc');
         $query['results'] = $this->db->get()->result_array(); 
         // echo $this->db->last_query();
         // exit();
@@ -794,6 +807,7 @@ class User_model extends CI_Model {
         $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');
         $this->db->where($user_where);        
         $this->db->order_by('usr.userdetail_id','desc');
+        $this->db->group_by('usr.userdetail_id','desc');        
         $query['total_rows'] = $this->db->get()->num_rows();
         // echo $this->db->last_query();
       }  
@@ -936,7 +950,7 @@ class User_model extends CI_Model {
                     'rel_mothertongue_id' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
                     // 'rel_religion' => $this->input->post('cus_religion'),
                     // 'rel_caste' => $this->input->post('cus_caste'),
-                    'rel_dhosham' => $this->input->post('cus_dosham'),
+                    'rel_dhosham' => ($this->input->post('cus_dosham')) ? $this->input->post('cus_dosham') : NULL,
                     'rel_nakshathra_id' => ($this->input->post('cus_nakshathra')) ? $this->input->post('cus_nakshathra') : NULL,
                     'rel_luknam_id' => ($this->input->post('cus_lukhnam')) ? $this->input->post('cus_lukhnam') : NULL,
                     'rel_gothra' => "Sambu Maharishi Gothra",
@@ -1054,12 +1068,37 @@ class User_model extends CI_Model {
          
             // echo $this->db->last_query();
 
-            if(!empty($profile_image)){
-                $image_delete_where = '(reg_user_id="'.$id.'")';
-                $this->db->delete("user_images", $image_delete_where); 
-                foreach ($profile_image as $value)
-                  $this->db->insert('user_images',array('reg_user_id' => $id,'images' =>$value));
-            }
+            // if(!empty($this->input->post('removed_images'))){
+            //   //Remove old image
+            //   echo "removed_images";
+            //   print_r($this->input->post('removed_images'));
+            //   $cus_image = $this->get_customer_images($id); 
+            //   print_r($cus_image);
+            //   $imagevalues = array();
+            //   foreach ($cus_image as $key => $value) {
+            //       array_push($imagevalues, $value['images']);
+            //   }
+            //   print_r($imagevalues);
+            //   foreach ($imagevalues as $value) {
+            //     // echo FCPATH.USER_PROFILE_PATH.$value['images'];
+            //     echo $value;
+            //     echo "in_array_result".in_array($value, $imagevalues);
+            //     if($value!='defalt_male.png' && $value!='defalt_female.png' && in_array($value, $imagevalues)){
+            //       $image_delete_where = '(reg_user_id="'.$id.'" && images="'.$value.'")';
+            //       $this->db->delete("user_images", $image_delete_where); 
+            //       echo $this->db->last_query();
+            //       @unlink(FCPATH.USER_PROFILE_PATH."th_".$value);
+            //       @unlink(FCPATH.USER_PROFILE_PATH."new_".$value);
+            //     }
+            //   }
+            // }
+
+            // if(!empty($profile_image)){
+            //     // $image_delete_where = '(reg_user_id="'.$id.'")';
+            //     // $this->db->delete("user_images", $image_delete_where); 
+            //     foreach ($profile_image as $value)
+            //       $this->db->insert('user_images',array('reg_user_id' => $id,'images' =>$value));
+            // }
 
             //Update Raasi and Amsam
             $rasi  = $this->input->post('rasi');
@@ -1352,7 +1391,7 @@ class User_model extends CI_Model {
                     // 'rel_mothertongue_id' => ($this->input->post('mother_tongue')[0]) ? $this->input->post('mother_tongue')[0] : NULL,
                     'rel_religion' => $this->input->post('reg_religion'),
                     'rel_caste' => $this->input->post('reg_caste'),
-                    'rel_dhosham' => $this->input->post('dhosham')[0],
+                    'rel_dhosham' => ($this->input->post('dhosham')[0]) ? $this->input->post('dhosham')[0] : NULL,
                     'rel_nakshathra_id' => ($this->input->post('nakshathra')[0]) ? $this->input->post('nakshathra')[0] : NULL,
                     'rel_luknam_id' => ($this->input->post('luknam')[0]) ? $this->input->post('luknam')[0] : NULL,
                     'rel_gothra' => $this->input->post('reg_gothra'),
@@ -1497,6 +1536,27 @@ class User_model extends CI_Model {
         $query = $this->db->get()->result_array(); 
         // echo $this->db->last_query();
 
+      return $query;
+  }
+
+  public function get_dhosham($dhosham_id=""){
+
+      if($dhosham_id!=''){
+        // get_nakshathra Id Id based search    
+        $condition = "dhos.active_status = 1 AND dhos.dhosham_id = ".$dhosham_id."";  
+        $this->db->select('*');
+        $this->db->from('dhosham AS dhos');
+        $this->db->where($condition);      
+        $this->db->order_by('dhos.dhosham_id','asc');
+        $query = $this->db->get()->row_array();          
+      }else{
+        $condition = "dhos.active_status = 1";  
+        $this->db->select('*');
+        $this->db->from('dhosham AS dhos');
+        $this->db->where($condition);      
+        $this->db->order_by('dhos.dhosham_id','asc');
+        $query = $this->db->get()->result_array();          
+      }             
       return $query;
   }
  
