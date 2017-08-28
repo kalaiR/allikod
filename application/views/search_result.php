@@ -69,7 +69,6 @@ if(isset($per_page)&&(!empty($total_rows)))
                      </div>
                 </div>
                 <div class="row">
-<<<<<<< HEAD
                 <div class="col-md-9">
                 <?php
                 if(!empty($results)){                    
