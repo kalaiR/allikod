@@ -184,8 +184,7 @@ function reg_validate() {
                  $("#search_age_from_error").html("Required");
              }
 
-        }  
-
+        }
         if($("#horoscope-field").css('display')!= 'none') {
              if(!($("#crasi_name").val())) {
                  output = false;
@@ -369,8 +368,7 @@ $(document).ready(function() {
     });        
 
     // Show and Hide Search Div
-    $(".slidingDiv").hide();
-
+     $(".slidingDiv").hide();
     $('.view_communication').click(function(){
         if($('.slidingDiv').length != 0){
             var data = {};
@@ -425,12 +423,13 @@ $(document).ready(function() {
                 $("#back").show();
                 $("#finish").hide();
                 $(".highlight").removeClass("highlight");
-                next.addClass("highlight");                                
+                next.addClass("highlight");    
                 if($(".highlight").attr("id") == 'horoscope') {
                     $("#next").hide();
                     $("#finish").show();                
                 }
             }
+            $('.nav-tabs > .active').next('li').find('a').trigger('click');
         }
     });
 
@@ -472,14 +471,15 @@ $(document).ready(function() {
         return false;
     });
 
-    // Active Tab Change
-     $('#next').click(function(){
-  $('.nav-tabs > .active').next('li').find('a').trigger('click');
-});
+// Tab Toggle
 
-  $('#back').click(function(){
-  $('.nav-tabs > .active').prev('li').find('a').trigger('click');
-});
+    // Active Tab Change
+//      $('#next').click(function(){
+//   $('.nav-tabs > .active').next('li').find('a').trigger('click');
+// });
+//   $('#back').click(function(){
+//   $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+// });
   // Active Tab Change ends
 
     /*Admin customer user edit form Start*/
@@ -661,3 +661,25 @@ $(window).load(function(){
         }
       });
 });
+
+$(".income-box").keypress(function (e) {
+    // var income =$(this).val();
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        return false;
+       }
+       // var income =$(this).val();
+       // if (income<0 && income>100){
+       //  return false;
+       // }
+       // alert(income);
+
+   
+});
+// $(".income-box").blur(function (e) {
+//      var income =parseInt($(this).val());
+//        if (income<0 || income>100){
+//         // return false;
+//         $(this).val('');
+//        }
+//        // alert(income);
+// });

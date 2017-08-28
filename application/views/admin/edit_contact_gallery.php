@@ -45,11 +45,11 @@
 								  <textarea class="input-xlarge focused" id="focusedInput" type="text" value=""></textarea>
 								</div>
 							  </div>
-							  <div class="control-group">
+							<div class="control-group">
 								<label class="control-label" for="focusedInput">Photo* : </label>
-								<div class="controls">
+								<div class="controls edit-mult-img">
 								 <!--  <input class="input-xlarge focused" id="focusedInput" type="file" value=""> -->
-								 <div class="imageupload panel panel-default">
+								 <!-- <div class="imageupload panel panel-default">
                                         <div class="panel-heading clearfix">
                                             <h3 class="panel-title">Upload Image *</h3>
                                             <span id="upimg_error" class="registration-error"></span>
@@ -60,9 +60,29 @@
                                                  <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" />
                                             </label>
                                         </div>
+	                                </div> -->
+	                                <div class="imageupload panel panel-default">
+										<div class="panel-heading clearfix">
+										    <h4 class="panel-title">Upload Image</h4>
+										</div>
+										<div class="edit_img">
+										    <!-- <span id="spanFileName" class="registration-error error-msg"></span> -->
+										    <div class="file-tab panel-body img-post-box">
+										        <ul>
+										            <li class="btn btn-default btn-file">
+										                <span>Browse</span>
+										                <input type="file" click-type="type1" id="picupload" class="picupload" multiple>
+										            </li>
+										        </ul>     
+										    </div>
+									        <div class="img-post"> 
+									            <ul id="media-list" class="clearfix">
+									            </ul>    
+									        </div>
+										</div>
 	                                </div>
 								</div>
-							  </div>
+							</div>
 							   <div class="control-group">
 								<label class="control-label">Active Status : </label>
 								<div class="controls">
