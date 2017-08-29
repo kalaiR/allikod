@@ -38,7 +38,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                         </li>
                         <li role="presentation" class="#" id="com">
                             <a href="search.html#manual-id" aria-controls="manual-id" role="tab" data-toggle="tab">
-                            Family</a>
+                            Communication</a>
                         </li>
                         <li role="presentation" class="#" id="exceptation">
                             <a href="search.html#dh-id" aria-controls="dh-id" role="tab" data-toggle="tab">Expectation</a>
@@ -243,7 +243,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                        <?php 
                                                             if(!empty($mother_tongue)) :
                                                             foreach ($mother_tongue as $cls_val) {
-                                                        if($registered_data['rel_mothertongue_id']==$cls_val['registeredby_id']){
+                                                        if(strtolower($cls_val['name']) == "tamil" ){
                                                         echo "<option value='" . $cls_val['mothertongue_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
                                                         }else{
                                                         echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
@@ -527,7 +527,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                            <div class="row base-box">
                                                 <div class="col-sm-4 box">
                                                     <div class="height_item">
-                                                        <h4>Resident Of</h4>
+                                                        <h4>Residence of</h4>
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4 box">
@@ -536,9 +536,12 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                             <?php 
                                                                 if(!empty($country)) :
                                                                 foreach ($country as $cls_val) {
-                                                                echo "<option value='" . $cls_val[' country_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
-                                                                }
-                                                            endif;
+                                                                    if(strtolower($cls_val['name']) == "india" )
+                                                                    echo "<option value='" . $cls_val['name'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";    
+                                                                else
+                                                                    echo "<option value='" . $cls_val[' country_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                    }
+                                                                endif;
                                                             ?> 
                                                      </select>
                                                 </div>
@@ -558,9 +561,12 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                             <?php 
                                                                 if(!empty($country)) :
                                                                 foreach ($country as $cls_val) {
-                                                                echo "<option value='" . $cls_val[' name'] . "'>" . ucfirst($cls_val['name']) . "</option>";
-                                                                }
-                                                                endif;
+                                                                    if(strtolower($cls_val['name']) == "india" )
+                                                                    echo "<option value='" . $cls_val['name'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";    
+                                                                else
+                                                                    echo "<option value='" . $cls_val[' name'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                    }
+                                                                    endif;
                                                             ?> 
                                                      </select>
                                                 </div>

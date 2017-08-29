@@ -93,7 +93,10 @@
                                                         <?php
                                                         if(!empty($country)) :
                                                             foreach ($country as $cls_val) {
-                                                                echo "<option value='" . $cls_val['name'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                if(strtolower($cls_val['name']) == "india" )
+                                                                    echo "<option value='" . $cls_val['name'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";    
+                                                                else
+                                                                    echo "<option value='" . $cls_val['name'] . "'>" . ucfirst($cls_val['name']) . "</option>";
                                                             }
                                                         endif;
                                                         ?>
@@ -112,7 +115,10 @@
                                                         <?php
                                                         if(!empty($mother_tongue)) :
                                                             foreach ($mother_tongue as $cls_val) {
-                                                                echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                if(strtolower($cls_val['name']) == "tamil" )
+                                                                    echo "<option value='" . $cls_val['name'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";    
+                                                                else
+                                                                    echo "<option value='" . $cls_val['name'] . "'>" . ucfirst($cls_val['name']) . "</option>";
                                                             }
                                                         endif;
                                                         ?>

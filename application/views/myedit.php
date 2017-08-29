@@ -167,7 +167,7 @@
                                         <h3 class="text-box" id="hcolor">Name</h3>
                                     </div>    
                                     <div class="col-md-4 names-boxs">
-                                       <input type="text" class="form-control form_inputs" data-message="User Name" id="reg_email2" placeholder="Username" value="<?php if(!empty($customeruser_values['user_fname'])) echo $customeruser_values['user_fname']; ?>" name="cus_fname">
+                                       <input type="text" class="form-control form_inputs alphaonly" data-message="User Name" id="reg_email2" placeholder="Username" value="<?php if(!empty($customeruser_values['user_fname'])) echo $customeruser_values['user_fname']; ?>" name="cus_fname">
                                     </div>
                                 </div>
                                 <div class="col-md-4 pull-right">
@@ -554,7 +554,7 @@
                                                     <p><b>Dhosham</b></p>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <input type="text" class="form-control alphaonly" id="reg_Name" placeholder="Dhosham" value="<?php if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; ?>" name="cus_dosham">
+                                                    <!-- <input type="text" class="form-control alphaonly" id="reg_Name" placeholder="Dhosham" value="<?php //if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; ?>" name="cus_dosham"> -->
                                                    <!--  <input type="text" class="form-control" id="reg_Name" placeholder="Dhosham" value="<?php //if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; ?>" name="cus_dosham">  -->
 
                                                     <select class="form-control customize_plan" name="cus_dosham" id="reg_Name">
