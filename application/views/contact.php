@@ -743,7 +743,7 @@
                         <div class="col-md-6 box">
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                                    <input type="text" class="form-control alphaonly" name="name" id="name" placeholder="Name">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <input type="email" class="form-control form_inputs" name="email" id="email" placeholder="Email">
@@ -752,14 +752,14 @@
                                     <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control form_inputs" name="subject" id="subject" placeholder="Phone">
+                                    <input type="text" class="form-control form_inputs mob_num" name="subject" id="subject" placeholder="Mobile">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="form-group col-md-12 box">
-                                    <textarea id="comment" placeholder="Message" id="message" name="message" rows="2"></textarea>
+                                    <textarea id="comment" style="height: 282px" placeholder="Message" id="message" name="message" rows="2"></textarea>
                                 </div>
                             </div>
                         </div>

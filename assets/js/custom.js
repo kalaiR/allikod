@@ -665,6 +665,23 @@ $(".income-box,.bro_sis,.ph_num,.mob_num,.valli_id,.man_id,.age_reg").keypress(f
      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
         return false;
        }
+       // var income =$(this).val();
+       // if (income<0 && income>100){
+       //  return false;
+       // }
+       // alert(income)   
+});
+$('.mob_num,.income-box').keypress(function() {
+     /*
+     check for 3 or greater than 3 characters.
+     If you check for only greater than 3, then it will let
+     you write the fourth character because just before writing,
+     it is not greater than three.
+     */
+     if($(this).val().length >= 10) {
+        $(this).val($(this).val().slice(0, 10));
+        return false;
+    }
 });
 $(".alphaonly").keypress(function(event){
         var inputValue = event.which;
@@ -673,10 +690,7 @@ $(".alphaonly").keypress(function(event){
             event.preventDefault(); 
         }
     });
-// $('.alphaonly').bind('keyup blur',function(){ 
-//     var node = $(this);
-//     node.val(node.val().replace(/[^a-z]/g,'') ); }
-// );
+
 // $(".income-box").blur(function (e) {
 //      var income =parseInt($(this).val());
 //        if (income<0 || income>100){
