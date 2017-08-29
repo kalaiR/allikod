@@ -138,7 +138,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                         <p>Residence</p>
                                                         </div>
                                                         <div class="col-md-6 col-xs-6 dark">
-                                                            <p><?php if(!empty($results['comm_residence'])) echo $results['comm_residence']; else echo "--"; ?></p>
+                                                            <p><?php if(!empty($results['comm_residence'])) echo $results['comm_residence']; else echo "None"; ?></p>
                                                         </div>
                                                     </div>
                                                      <div class="col-xs-12">
@@ -146,7 +146,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                         <p>Current Country</p>
                                                         </div>
                                                         <div class="col-md-6 col-xs-6 dark">
-                                                            <p><?php if(!empty($results['comm_current_countrycountry'])) echo $results['comm_current_countrycountry']; else echo "--"; ?></p>
+                                                            <p><?php if(!empty($results['comm_current_countrycountry'])) echo $results['comm_current_countrycountry']; else echo "None"; ?></p>
                                                         </div >
                                                     </div>
                                                      <div class="col-xs-12">
@@ -154,7 +154,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                         <p>Current City</p>
                                                         </div>
                                                         <div class="col-md-6 col-xs-6 dark">
-                                                            <p><?php if(!empty($results['comm_current_city'])) echo $results['comm_current_city']; else echo "--"; ?></p>
+                                                            <p><?php if(!empty($results['comm_current_city'])) echo $results['comm_current_city']; else echo "None"; ?></p>
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-12">
@@ -162,7 +162,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                         <p>District</p>
                                                         </div>
                                                         <div class="col-md-6 col-xs-6 dark">
-                                                            <p><?php if(!empty($results['comm_current_district'])) echo $results['comm_current_district']; else echo "--"; ?></p>
+                                                            <p><?php if(!empty($results['comm_current_district'])) echo $results['comm_current_district']; else echo "None"; ?></p>
                                                         </div>
                                                     </div>                          
                                                 </div>
@@ -172,10 +172,10 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                         <p>Communication Address</p>
                                                         </div>
                                                         <div class="col-md-4 col-xs-4 dark">
-                                                            <p class="text_short"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></p>
+                                                            <p class="text_short"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "None"; ?></p>
                                                         </div>
                                                         <div class="col-md-1 col-xs-1 tooltips long">
-                                                            <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "--"; ?></span>
+                                                            <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php if(!empty($results['comm_communication_address'])) echo $results['comm_communication_address']; else echo "None"; ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-12">
@@ -183,7 +183,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                         <p>Phone Number</p>
                                                         </div>
                                                         <div class="col-md-6 col-xs-6 dark">
-                                                            <p><?php if(!empty($results['comm_phone_no'])) echo $results['comm_phone_no']; else echo "--"; ?></p>
+                                                            <p><?php if(!empty($results['comm_phone_no'])) echo $results['comm_phone_no']; else echo "None"; ?></p>
                                                         </div >
                                                     </div>
                                                     <div class="col-xs-12">
@@ -191,7 +191,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                         <p>Mobile Number</p>
                                                         </div>
                                                         <div class="col-md-6 col-xs-6 dark">
-                                                            <p><?php if(!empty($results['comm_mobile_no'])) echo $results['comm_mobile_no']; else echo "--"; ?></p>
+                                                            <p><?php if(!empty($results['comm_mobile_no'])) echo $results['comm_mobile_no']; else echo "None"; ?></p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6">
@@ -215,7 +215,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Registered By</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['registered_by_name']; ?></p>
+                                                   <p><?php if(!empty($results['registered_by_name'])) echo $results['registered_by_name']; else echo "None"; ?></p>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12">
@@ -233,7 +233,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>DOB/Age</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['user_dob']; ?></p>
+                                                   <p><?php if(!empty($results['user_dob'])) echo $results['user_dob']; else echo "None"; ?></p>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12">
@@ -241,7 +241,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Marital Status</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['marital_name']; ?></p>
+                                                    <p><?php if(!empty($results['marital_name'])) echo $results['marital_name']; else echo "None"; ?></p>
                                                 </div>
                                             </div>                                       
                                         </div>
@@ -260,7 +260,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p>Time of Birth</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php echo $results['rel_timeofbirth']; ?></p>
+                                                        <p><?php if(!empty($results['rel_timeofbirth'])) echo $results['rel_timeofbirth']; else echo "None"; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
@@ -268,7 +268,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p>Mother Tongue</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php echo $results['mother_tongue_name']; ?></p>
+                                                        <p><?php if(!empty($results['mother_tongue_name'])) echo $results['mother_tongue_name']; else echo "None"; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
@@ -277,7 +277,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
                                                         <p><?php 
-                                                            if(!empty($results['rel_dhosham'])) echo $results['rel_dhosham']; else echo "--"; ?>
+                                                            if(!empty($results['rel_dhosham'])) echo $results['rel_dhosham']; else echo "None"; ?>
                                                         </p>                         
                                                     </div>
                                                 </div>
@@ -287,7 +287,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">               
                                                         <p><?php 
-                                                        if(!empty($results['nakshathra_name'])) echo $results['nakshathra_name']; else echo "--"; ?>
+                                                        if(!empty($results['nakshathra_name'])) echo $results['nakshathra_name']; else echo "None"; ?>
                                                         </p> 
                                                     </div>
                                                 </div>                                         
@@ -299,7 +299,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">                
                                                         <p><?php 
-                                                        if(!empty($results['lukhnam_name'])) echo $results['lukhnam_name']; else echo "--"; ?>
+                                                        if(!empty($results['lukhnam_name'])) echo $results['lukhnam_name']; else echo "None"; ?>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -308,7 +308,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p>Gothra</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php echo $results['rel_gothra']; ?></p>
+                                                        <p><?php if(!empty($results['rel_gothra'])) echo $results['rel_gothra']; else echo "None"; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
@@ -316,7 +316,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p>Zodiac Sign</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php echo $results['zodiac_name']; ?></p>
+                                                         <p><?php if(!empty($results['zodiac_name'])) echo $results['zodiac_name']; else echo "None"; ?></p>
                                                     </div>
                                                 </div>                          
                                             </div>
@@ -335,7 +335,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Education</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['edu_name']; ?></p>
+                                                     <p><?php if(!empty($results['edu_name'])) echo $results['edu_name']; else echo "None"; ?></p>
                                                 </div >
                                             </div>
                                             <div class="col-xs-12">
@@ -343,10 +343,10 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Education in Detail</p>
                                                 </div>
                                                 <div class="col-md-4 col-xs-4 dark">
-                                                    <p class="text_short"><?php echo $results['edu_educationdetails']; ?></p>
+                                                    <p><?php if(!empty($results['edu_educationdetails'])) echo $results['edu_educationdetails']; else echo "None"; ?></p>
                                                 </div>
                                                 <div class="col-md-1 col-xs-1 tooltips long">
-                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['edu_educationdetails']; ?></span>
+                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php if(!empty($results['edu_educationdetails'])) echo $results['edu_educationdetails']; else echo "None"; ?></span>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12">
@@ -354,7 +354,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Occupation</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['occupation_name']; ?></p>
+                                                    <p><?php if(!empty($results['occupation_name'])) echo $results['occupation_name']; else echo "None"; ?></p>
                                                 </div>
                                             </div>                                 
                                         </div>
@@ -364,10 +364,10 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Occupation in Detail</p>
                                                 </div>
                                                 <div class="col-md-4 col-xs-4 dark">
-                                                    <p class="text_short"><?php echo $results['edu_occupationdetail']; ?></p>
+                                                    <p class="text_short"><?php if(!empty($results['edu_occupationdetail'])) echo $results['edu_occupationdetail']; else echo "None"; ?></p>
                                                 </div>
                                                 <div class="col-md-1 col-xs-1 tooltips long">
-                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['edu_occupationdetail']; ?></span>
+                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php if(!empty($results['edu_occupationdetail'])) echo $results['edu_occupationdetail']; else echo "None"; ?></span>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12">
@@ -375,7 +375,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Employed In</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['empin_name']; ?></p>
+                                                    <p><?php if(!empty($results['empin_name'])) echo $results['empin_name']; else echo "None"; ?></p>
                                                 </div >
                                             </div>
                                             <div class="col-xs-12">
@@ -383,7 +383,8 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Monthly Income</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['edu_montlyincome']; ?></p>
+                                                    <p><?php if(!empty($results['edu_montlyincome'])) echo $results['edu_montlyincome']; else echo "None"; ?>
+                                                    </p>
                                                 </div>
                                             </div>                                     
                                         </div>
@@ -403,7 +404,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Father's Name</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['comm_father_name']; ?></p>
+                                                    <p><?php if(!empty($results['comm_father_name'])) echo $results['comm_father_name']; else echo "None"; ?></p>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12">
@@ -411,7 +412,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Mother's Name</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['comm_mother_name']; ?></p>
+                                                    <p><?php if(!empty($results['comm_mother_name'])) echo $results['comm_mother_name']; else echo "None"; ?></p>
                                                 </div >
                                             </div>
                                             <div class="col-xs-12">
@@ -419,10 +420,10 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Father's Occupation</p>
                                                 </div>
                                                 <div class="col-md-4 col-xs-4 dark">
-                                                    <p class="text_short"><?php echo $results['comm_father_employment']; ?></p>
+                                                    <p class="text_short"><?php if(!empty($results['comm_father_employment'])) echo $results['comm_father_employment']; else echo "None"; ?></p>
                                                 </div>
                                                 <div class="col-md-1 col-xs-1 tooltips long">
-                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['comm_father_employment']; ?></span>
+                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php if(!empty($results['comm_father_employment'])) echo $results['comm_father_employment']; else echo "None"; ?></span>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12">
@@ -430,10 +431,12 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Mothers's Occupation</p>
                                                 </div>
                                                 <div class="col-md-4 col-xs-4 dark">
-                                                    <p class="text_short"><?php echo $results['comm_mother_employment']; ?></p>
+                                                    <p class="text_short">
+                                                    <?php if(!empty($results['comm_mother_employment'])) echo $results['comm_mother_employment']; else echo "None"; ?>
+                                                    </p>
                                                 </div>
                                                 <div class="col-md-1 col-xs-1 tooltips long">
-                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php echo $results['comm_mother_employment']; ?></span>
+                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php if(!empty($results['comm_mother_employment'])) echo $results['comm_mother_employment']; else echo "None"; ?></span>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12">
@@ -441,7 +444,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Family Status</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['family_statusname']; ?></p>
+                                                    <p><?php if(!empty($results['family_statusname'])) echo $results['family_statusname']; else echo "None"; ?></p>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12">
@@ -449,7 +452,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>Family Type</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
-                                                    <p><?php echo $results['family_typename']; ?></p>
+                                                    <p><?php if(!empty($results['family_typename'])) echo $results['family_typename']; else echo "None"; ?></p>
                                                 </div>
                                             </div>                                                
                                         </div>
@@ -470,10 +473,10 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>No.of Brothers</p>
                                                 </div>
                                                 <div class="col-md-3 col-xs-3 dark">
-                                                    <p><?php echo $results['comm_number_of_brothers_el']; ?></p>
+                                                    <p><?php if(!empty($results['comm_number_of_brothers_el'])) echo $results['comm_number_of_brothers_el']; else echo "-"; ?></p>
                                                 </div >
                                                 <div class="col-md-3 col-xs-3 dark">
-                                                <p><?php echo $results['comm_number_of_brothers_yo']; ?></p>
+                                                <p><?php if(!empty($results['comm_number_of_brothers_yo'])) echo $results['comm_number_of_brothers_yo']; else echo "-"; ?></p>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12">
@@ -481,10 +484,10 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>No.of Sisters</p>
                                                 </div>
                                                 <div class="col-md-3 col-xs-3 dark">
-                                                    <p><?php echo $results['comm_number_of_sisters_el']; ?></p>
+                                                    <p><?php if(!empty($results['comm_number_of_sisters_el'])) echo $results['comm_number_of_sisters_el']; else echo "-"; ?></p>
                                                 </div >
                                                 <div class="col-md-3 col-xs-3 dark">
-                                                <p><?php echo $results['comm_number_of_sisters_yo']; ?></p>
+                                                <p><?php if(!empty($results['comm_number_of_sisters_yo'])) echo $results['comm_number_of_sisters_yo']; else echo "-"; ?></p>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12">
@@ -492,10 +495,10 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>No.of Married Brothers</p>
                                                 </div>
                                                 <div class="col-md-3 col-xs-3 dark">
-                                                    <p><?php echo $results['comm_number_of_brothers_el_mar']; ?></p>
+                                                    <p><?php if(!empty($results['comm_number_of_brothers_el_mar'])) echo $results['comm_number_of_brothers_el_mar']; else echo "-"; ?></p>
                                                 </div >
                                                 <div class="col-md-3 col-xs-3 dark">
-                                                <p><?php echo $results['comm_number_of_brothers_yo_mar']; ?></p>
+                                                <p><?php if(!empty($results['comm_number_of_brothers_yo_mar'])) echo $results['comm_number_of_brothers_yo_mar']; else echo "-"; ?></p>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12">
@@ -503,10 +506,11 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>No.of Married Sisters</p>
                                                 </div>
                                                 <div class="col-md-3 col-xs-3 dark">
-                                                    <p><?php echo $results['comm_number_of_sisters_yo_mar']; ?></p>
+                                                    <p><?php if(!empty($results['comm_number_of_sisters_yo_mar'])) echo $results['comm_number_of_sisters_el_mar']; else echo "-"; ?></p>
                                                 </div >
                                                 <div class="col-md-3 col-xs-3 dark">
-                                                <p><?php echo $results['comm_number_of_sisters_yo_mar']; ?></p>
+                                                <p><?php if(!empty($results['comm_number_of_sisters_yo_mar'])) echo $results['comm_number_of_sisters_yo_mar']; else echo "-"; ?>
+                                                </p>
                                                 </div>
                                             </div>                         
                                         </div>
@@ -526,7 +530,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p>Height</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php echo $results['phy_height']; ?></p>
+                                                        <p><?php if(!empty($results['phy_height'])) echo $results['phy_height']; else echo "-"; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
@@ -534,7 +538,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p>Weight</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php echo $results['phy_weight']; ?></p>
+                                                        <p><?php if(!empty($results['phy_weight'])) echo $results['phy_weight']; else echo "-"; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
@@ -542,7 +546,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p>Body Type</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php echo $results['body_typename']; ?></p>
+                                                        <p><?php if(!empty($results['body_typename'])) echo $results['body_typename']; else echo "None"; ?></p>
                                                     </div>
                                                 </div>                                   
                                             </div>
@@ -552,7 +556,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p>Complexion</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php echo $results['complexion_typename']; ?></p>
+                                                        <p><?php if(!empty($results['complexion_typename'])) echo $results['complexion_typename']; else echo "None"; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
@@ -560,7 +564,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p>Physical Status</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php echo $results['phy_physicalstatus']; ?></p>
+                                                        <p><?php if(!empty($results['phy_physicalstatus'])) echo $results['phy_physicalstatus']; else echo "None"; ?></p>
                                                     </div>
                                                 </div>                         
                                             </div>
@@ -578,7 +582,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p>Food</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php echo $results['food_name']; ?></p>
+                                                        <p><?php if(!empty($results['food_name'])) echo $results['food_name']; else echo "None"; ?></p>
                                                     </div>                                      
                                                 </div>
                                             </div>              
@@ -592,7 +596,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                             <div class="row">
                                                 <div class="col-md-9">
                                                     <div class="col-md-12 col-xs-6">
-                                                    <p><?php echo $results['phy_yourpersonality']; ?></p>
+                                                    <p><?php if(!empty($results['phy_yourpersonality'])) echo $results['phy_yourpersonality']; else echo "None"; ?></p>
                                                     </div>                                      
                                                 </div>
                                             </div>        
@@ -670,7 +674,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p>Food</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php echo $results['food_name']; ?></p>
+                                                        <p><?php if(!empty($results['food_name'])) echo $results['food_name']; else echo "None"; ?></p>
                                                     </div>                                      
                                                 </div>
                                             </div>                                                              
@@ -683,7 +687,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                         <div class="row">
                                                 <div class="col-md-9">
                                                     <div class="col-md-12 col-xs-6">
-                                                    <p><?php echo $results['phy_expectationabout_lifepartner']; ?></p>
+                                                    <p><?php if(!empty($results['phy_expectationabout_lifepartner'])) echo $results['phy_expectationabout_lifepartner']; else echo "None"; ?></p>
                                                     </div>                                      
                                                 </div>
                                             </div>
@@ -761,10 +765,10 @@ if(!empty($session_search['search_inputs']['offset'])){
         </section>
         <!--================End search_reslut grid Area =================-->
         
-        <div id="largeContent" style="display:none;">
+        <!-- <div id="largeContent" style="display:none;">
             <div class="media tool_content">
                 <div class="media-left">
-                    <img src="<?php echo media_url(); ?>assets/img/map-persion.png" alt="">
+                    <img src="<?php //echo media_url(); ?>assets/img/map-persion.png" alt="">
                 </div>
                 <div class="media-body">
                     <h3>Sandi Williams</h3>
@@ -773,7 +777,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                     <h5>Distance 16 km</h5>
                 </div>
             </div>
-        </div>
+        </div> -->
 <?php 
 include('include/footer.php');
 // echo '<pre>';

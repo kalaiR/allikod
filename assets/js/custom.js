@@ -473,6 +473,7 @@ $(document).ready(function() {
     // Active Tab Change
      $('#next').click(function(){
 
+
         $('.nav-tabs > .active').next('li').find('a').trigger('click');
     });
 
@@ -655,16 +656,11 @@ $(window).load(function(){
 
 $(".income-box").keypress(function (e) {
     // var income =$(this).val();
+    // var income =parseInt($(this).val());
+    // var s = e.which;
      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
         return false;
        }
-       // var income =$(this).val();
-       // if (income<0 && income>100){
-       //  return false;
-       // }
-       // alert(income);
-
-   
 });
 // $(".income-box").blur(function (e) {
 //      var income =parseInt($(this).val());
