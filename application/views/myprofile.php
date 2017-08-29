@@ -89,7 +89,7 @@
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
                                                         <p><?php
-                                                        echo $remaining_profile= $results['totalno_of_profile'] - $results['no_of_profiles_viewed'];
+                                                    echo $remaining_profile= $results['totalno_of_profile'] - $results['no_of_profiles_viewed'];
                                                 ?></p>
                                                     </div>
                                                 </div>                          
@@ -343,7 +343,7 @@
                                             </div>
                                             <div class="col-xs-12">
                                                 <div class="col-md-6 col-xs-6">
-                                                <p>Monthly Income</p>
+                                                <p>Monthly Income (र)</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
                                                     <p><?php if(!empty($results['edu_montlyincome'])) echo $results['edu_montlyincome']; else echo "None"; ?></p>

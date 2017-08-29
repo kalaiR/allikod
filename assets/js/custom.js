@@ -184,7 +184,7 @@ function reg_validate() {
                  $("#search_age_from_error").html("Required");
              }
 
-        }  
+        }
         if($("#horoscope-field").css('display')!= 'none') {
              if(!($("#crasi_name").val())) {
                  output = false;
@@ -423,12 +423,13 @@ $(document).ready(function() {
                 $("#back").show();
                 $("#finish").hide();
                 $(".highlight").removeClass("highlight");
-                next.addClass("highlight");                                
+                next.addClass("highlight");    
                 if($(".highlight").attr("id") == 'horoscope') {
                     $("#next").hide();
                     $("#finish").show();                
                 }
             }
+            $('.nav-tabs > .active').next('li').find('a').trigger('click');
         }
     });
 
@@ -446,6 +447,7 @@ $(document).ready(function() {
                 $("#back").hide();          
             }
         }
+        $('.nav-tabs > .active').prev('li').find('a').trigger('click');
     });
 
     $('form#userlogin').submit(function() {
@@ -470,16 +472,14 @@ $(document).ready(function() {
         return false;
     });
 
+// Tab Toggle
     // Active Tab Change
-     $('#next').click(function(){
-
-
-        $('.nav-tabs > .active').next('li').find('a').trigger('click');
-    });
-
-  $('#back').click(function(){
-  $('.nav-tabs > .active').prev('li').find('a').trigger('click');
-});
+//      $('#next').click(function(){
+//   $('.nav-tabs > .active').next('li').find('a').trigger('click');
+// });
+//   $('#back').click(function(){
+//   $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+// });
   // Active Tab Change ends
 
     /*Admin customer user edit form Start*/
@@ -551,6 +551,8 @@ $(document).ready(function() {
             formData.append(csrf_name,csfrData[csrf_name]);
             formData.append('action',"update");
             formData.append('rid', $(this).data('id'));
+            formData.append('removed_images', image_array);
+            // alert(image_array);
             // var formData = $(this).serialize();
             // alert(JSON.stringify(formData)); // It returns empty when stringify json data, but data has been passed
             rasi = [];
@@ -633,7 +635,13 @@ $(document).ready(function() {
         var age = nowYear - pastYear;
         $('#cus_age').val(age);
     });
-    
+    //get id and store in array for removed images while edit profile
+    var image_array = [];
+    $('.remove_act').on('click', function(){
+        var image_id = $(this).parents("li").find('.cus_img').data('id');
+        if ($.inArray(image_id.toString(), image_array) != 0)
+            image_array.push(image_id);
+    });    
 });
 
 // $(window).load(function(){
@@ -654,7 +662,7 @@ $(window).load(function(){
       });
 });
 
-$(".income-box").keypress(function (e) {
+$(".income-box,.bro_sis,.ph_num,.mob_num,.valli_id,.man_id,.age_reg").keypress(function (e) {
     // var income =$(this).val();
     // var income =parseInt($(this).val());
     // var s = e.which;
@@ -662,6 +670,17 @@ $(".income-box").keypress(function (e) {
         return false;
        }
 });
+$(".alphaonly").keypress(function(event){
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+    });
+// $('.alphaonly').bind('keyup blur',function(){ 
+//     var node = $(this);
+//     node.val(node.val().replace(/[^a-z]/g,'') ); }
+// );
 // $(".income-box").blur(function (e) {
 //      var income =parseInt($(this).val());
 //        if (income<0 || income>100){
@@ -670,3 +689,15 @@ $(".income-box").keypress(function (e) {
 //        }
 //        // alert(income);
 // });
+// var max_chars = 2;
+$('.bro_sis,.age_reg').keypress( function(e){
+    if ($(this).val().length >= 1) { 
+        $(this).val($(this).val().substr(0, 1));
+    }
+});
+// $('.income-box').keypress( function(e){
+//     if ($(this).val().length >= 7) { 
+//         $(this).val($(this).val().substr(1, 7));
+//     }
+// });
+     

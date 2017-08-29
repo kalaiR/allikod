@@ -68,7 +68,7 @@
                                          </div>
                                         <div class="col-md-6">  
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs" id="reg_Name" placeholder="Your Name" name="reg_Name">
+                                                <input type="text" class="form-control form_inputs alphaonly" id="reg_Name" placeholder="Your Name" name="reg_Name">
                                             </div>
                                         </div>    
                                     </div>    
@@ -78,7 +78,7 @@
                                          </div>
                                         <div class="col-md-6">     
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs" id="reg_age" placeholder="Your Age" name="reg_age">
+                                                <input type="text" class="form-control form_inputs age_reg" id="reg_age" placeholder="Your Age" name="reg_age">
                                             </div>
                                         </div>    
                                     </div>    
@@ -126,7 +126,7 @@
                                          </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs" id="reg_Mobile" name="reg_Mobile" placeholder="Mobile Number">
+                                                <input type="text" class="form-control form_inputs mob_num" id="reg_Mobile" name="reg_Mobile" placeholder="Mobile Number">
                                             </div>
                                         </div>
                                     </div>    
@@ -316,33 +316,37 @@
                 <div class="row">
                     <div class="col-sm-10 aline-center-box">
                         <div class="r_members_inner">
-                            <?php 
-                            //echo "<pre>";print_r($recent_profile); echo "</pre>";
-                            if(!empty($recent_profile['bride'])) :
+                            <?php                             
+                            if(!empty($recent_profile['bride'])) :                                
                               foreach ($recent_profile['bride']as $rec) :
                                 $prefix = '';
                                 $prefix_one = 'th_';
                                 $prefix_two = 'new_';
+                                $current_images = explode(',', $rec['images'] );
+                                $latest_images = end($current_images);                       
                                 if(!empty($rec['images'])){
-                                    $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$rec['images']);
-                                    $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$rec['images']);
+                                    $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$latest_images);
+                                    $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$latest_images);
+                                    $prefix_latest_images = file_exists(FCPATH."uploads/profile/".$latest_images); 
                                 }
-                                if($prefix_one_status || $prefix_two_status):
+                                if($prefix_one_status || $prefix_two_status || $prefix_latest_images):
                             ?>
                             <?php if($rec['user_gender'] == 2): ?>
                                 <?php //echo FCPATH."uploads/profile/".$value['images']; 
                                         if(!empty($prefix_one_status))
-                                            $prefix = $prefix_one;
+                                            $prefix = $prefix_one.$latest_images;
                                         else if(!empty($prefix_two_status))
-                                            $prefix = $prefix_two;
+                                            $prefix = $prefix_two.$latest_images;
+                                        else if(!empty($prefix_latest_images))
+                                            $prefix = $prefix_latest_images;
                             ?>
                             <?php
                                 $user_session = $this->session->userdata("login_status");
                                 if(!empty($user_session)){ ?>
                                     <div class="item">
                                         <a href="<?php echo base_url()."viewdetail/".$rec['userdetail_id'];?>"><img src="<?php 
-                                            if(!empty($rec['images'])): 
-                                                echo media_url()."uploads/profile/".$prefix.$rec['images']; 
+                                            if(!empty($prefix)): 
+                                                echo media_url()."uploads/profile/".$prefix; 
                                             else:
                                                 echo media_url()."assets/img/no_image.jpg"; 
                                             endif; 
@@ -353,8 +357,8 @@
                                     <div class="item">
                                         <a href="<?php echo base_url()."viewfeatureprofile/".$rec['userdetail_id'];?>">
                                         <img src="<?php 
-                                        if(!empty($rec['images'])): 
-                                        echo media_url()."uploads/profile/".$prefix.$rec['images']; 
+                                        if(!empty($prefix)): 
+                                        echo media_url()."uploads/profile/".$prefix; 
                                         else:
                                         echo media_url()."assets/img/no_image.jpg"; 
                                         endif; 
@@ -380,11 +384,14 @@
                                     $prefix = '';
                                     $prefix_one = 'th_';
                                     $prefix_two = 'new_';
+                                    $current_images = explode(',', $rec['images'] );
+                                    $latest_images = end($current_images);    
                                     if(!empty($rec['images'])){
-                                        $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$rec['images']);
-                                        $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$rec['images']);
+                                        $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$latest_images);
+                                        $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$latest_images);
+                                        $prefix_latest_images = file_exists(FCPATH."uploads/profile/".$latest_images); 
                                     }
-                                    if($prefix_one_status || $prefix_two_status):
+                                    if($prefix_one_status || $prefix_two_status || $prefix_latest_images):
                             ?>
                             <?php if($rec['user_gender'] == 1): ?>
                             <?php //echo FCPATH."uploads/profile/".$value['images']; 
@@ -392,14 +399,16 @@
                                         $prefix = $prefix_one;
                                     else if(!empty($prefix_two_status))
                                         $prefix = $prefix_two;
+                                    else if(!empty($prefix_latest_images))
+                                            $prefix = $prefix_latest_images;
                             ?>                            
                             <?php 
                                 $user_session = $this->session->userdata("login_status");
                                 if(!empty($user_session)){ ?>
                                     <div class="item">
                                         <a href="<?php echo base_url()."viewdetail/".$rec['userdetail_id'];?>"><img src="<?php 
-                                            if(!empty($rec['images'])): 
-                                                echo media_url()."uploads/profile/".$prefix.$rec['images']; 
+                                            if(!empty($prefix)): 
+                                                echo media_url()."uploads/profile/".$prefix; 
                                             else:
                                                 echo media_url()."assets/img/no_image.jpg"; 
                                             endif; 
@@ -410,8 +419,8 @@
                                     <div class="item">
                                         <a href="<?php echo base_url()."viewfeatureprofile/".$rec['userdetail_id'];?>">
                                         <img src="<?php 
-                                        if(!empty($rec['images'])): 
-                                        echo media_url()."uploads/profile/".$prefix.$rec['images']; 
+                                        if(!empty($prefix)): 
+                                        echo media_url()."uploads/profile/".$prefix; 
                                         else:
                                         echo media_url()."assets/img/no_image.jpg"; 
                                         endif; 

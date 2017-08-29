@@ -531,7 +531,7 @@ include('include/menu.php');
                                                 <div class="registration_form_area form-box" id="registration_form_are_box">
                                                     <div class="registration_form_s_box" id="registration_form_s_box">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" id="searchby_id" name="searchby_id" placeholder="" value="" required>      
+                                                                <input type="text" class="form-control valli_id" id="searchby_id" name="searchby_id" placeholder="" value="" required>      
                                                             </div>
                                                      </div>
                                                 </div>
@@ -565,10 +565,10 @@ include('include/menu.php');
                                     <form method="post" class="box basic_search" action="search_result" id="search_manual" name="search_manual" >
                                         <div class="col-sm-6 aline-center-box ">
                                             <div class="col-sm-6 ">
-                                                <div class="registration_form_area form-box" id="registration_form_are_box">
+                                                <div class="registration_form_area form-box " id="registration_form_are_box">
                                                     <div class="registration_form_s_box" id="registration_form_s_box">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" id="search_manual_id" name="search_manual_id" placeholder="" required>      
+                                                                <input type="text" class="form-control man_id" id="search_manual_id" name="search_manual_id" placeholder="" required>      
                                                             </div>
                                                      </div>
                                                 </div>
@@ -607,10 +607,15 @@ include('include/menu.php');
                                                     <div class="registration_form_s_box" id="registration_form_s_box">
                                                              <div class="col-sm-6 ">
                                                                     <div class="height_item">
-                                                                        <select class="selectpicker" name="dhosham[]" id="dhosham">
-                                                                            <option value="1">Naga Dhosam</option>
-                                                                            <option value="2">Chevvai Dhosam</option>
-                                                                            <option value="3">Raghu Kedhu Dhosam</option>
+                                                                     <select class="selectpicker" name="dhosham[]" id="dhosham">
+                                                                           <option value="">Select</option>
+                                                                               <?php 
+                                                                                if(!empty($dhosham)) :
+                                                                                    foreach ($dhosham as $cls_val) {
+                                                                                        echo "<option value='" . $cls_val['dhosham_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                                    }
+                                                                                endif;
+                                                                                ?>
                                                                         </select>
                                                                     </div>
                                                                 </div>     

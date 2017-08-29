@@ -278,28 +278,39 @@
                                             </div>
                                             <p>No photos in your album.Upload Photos.</p> -->  
                                             <!-- <input type="file" name="cus_profileimage[]" id="uploadedfile" multiple="">     -->
-                                            <div class="edit_img ">
+                                            <div class="edit_img">
                                                 <span id="spanFileName" class="registration-error error-msg"></span>
                                                 <div class="modal-body login-box clearfix imageupload">
                                                     <ul id="media-list" class="clearfix">
+                                                        <?php 
+                                                        if(!empty($customeruser_values['images_id'])){
+                                                            $images_id = explode(",",$customeruser_values['images_id']);
+                                                            $images = explode(",",$customeruser_values['images']);
+                                                            $img_data = array_map(null,$images_id,$images);
+                                                            // echo "<pre>";
+                                                            // print_r($img_data);
+                                                            // echo "</pre>";
+                                                            foreach ($img_data as $value) {
+                                                        ?>
                                                         <li>
-                                                            <img class="cus_img" src="<?php echo media_url(); ?>assets/img/view/img1.png" alt="img">
+                                                            <img class="cus_img" src="<?php echo media_url().USER_PROFILE_PATH."th_".$value[1]; ?>" alt="img" data-id="<?php echo $value[0]; ?>">
+                                                            <div class="post-thumb">
+                                                                <div class="inner-post-thumb">
+                                                                    <a href="javascript:void(0);" class="remove-pic remove_act"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <?php }} ?>
+                                                        <!-- <li>
+                                                            <img class="cus_img" src="<?php //echo media_url(); ?>assets/img/reg-img.jpg" alt="img">
                                                             <div class="post-thumb">
                                                                 <div class="inner-post-thumb">
                                                                     <a href="javascript:void(0);" class="remove-pic"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                                 </div>
                                                             </div>
-                                                        </li>
-                                                        <li>
-                                                            <img class="cus_img" src="<?php echo media_url(); ?>assets/img/reg-img.jpg" alt="img">
-                                                            <div class="post-thumb">
-                                                                <div class="inner-post-thumb">
-                                                                    <a href="javascript:void(0);" class="remove-pic"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
+                                                        </li> -->
                                                         <li class="myupload">
-                                                            <span><i class="fa fa-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload" multiple></span>
+                                                            <span><i class="fa fa-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload" name="cus_profileimage[]" multiple></span>
                                                         </li>
                                                     </ul>
                                                  </div>
@@ -352,7 +363,7 @@
                                                     <p><b>Current City</b></p>
                                                 </div>
                                                 <div class="col-md-5">       
-                                                    <input type="text" class="form-control" id="reg_Name" placeholder="Current City" value="<?php if(!empty($customeruser_values['comm_current_city'])) echo $customeruser_values['comm_current_city']; ?>" name="cus_curcity">   
+                                                    <input type="text" class="form-control alphaonly" id="reg_Name" placeholder="Current City" value="<?php if(!empty($customeruser_values['comm_current_city'])) echo $customeruser_values['comm_current_city']; ?>" name="cus_curcity">   
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -360,7 +371,7 @@
                                                     <p><b>Current District</b></p>
                                                 </div>
                                                 <div class="col-md-5">       
-                                                    <input type="text" class="form-control" id="reg_Name" placeholder="Current District" value="<?php if(!empty($customeruser_values['comm_current_district'])) echo $customeruser_values['comm_current_district']; ?>" name="cus_curdistrict">                                       
+                                                    <input type="text" class="form-control alphaonly" id="reg_Name" placeholder="Current District" value="<?php if(!empty($customeruser_values['comm_current_district'])) echo $customeruser_values['comm_current_district']; ?>" name="cus_curdistrict">                                       
                                                 </div>
                                             </div> 
                                         </div>    
@@ -370,7 +381,7 @@
                                                     <p><b>Phone Number</b></p>
                                                  </div>
                                                 <div class="col-md-4">        
-                                                     <input type="text" class="form-control" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['comm_phone_no'])) echo $customeruser_values['comm_phone_no']; ?>" name="cus_phone">                                            
+                                                     <input type="text" class="form-control ph_num" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['comm_phone_no'])) echo $customeruser_values['comm_phone_no']; ?>" name="cus_phone">                                            
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -378,7 +389,7 @@
                                                     <p><b>Mobile Number</b></p>
                                                  </div>
                                                 <div class="col-md-4">        
-                                                     <input type="text" class="form-control form_inputs" data-message="Mobile Number" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['comm_mobile_no'])) echo $customeruser_values['comm_mobile_no']; ?>" name="cus_mobile">                                            
+                                                     <input type="text" class="form-control form_inputs mob_num" data-message="Mobile Number" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['comm_mobile_no'])) echo $customeruser_values['comm_mobile_no']; ?>" name="cus_mobile">                                            
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -542,8 +553,24 @@
                                                 <div class="col-md-5">
                                                     <p><b>Dhosham</b></p>
                                                 </div>
-                                                <div class="col-md-5">       
-                                                    <input type="text" class="form-control" id="reg_Name" placeholder="Dhosham" value="<?php if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; ?>" name="cus_dosham">   
+                                                <div class="col-md-5">
+                                                    <input type="text" class="form-control alphaonly" id="reg_Name" placeholder="Dhosham" value="<?php if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; ?>" name="cus_dosham">
+                                                   <!--  <input type="text" class="form-control" id="reg_Name" placeholder="Dhosham" value="<?php //if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; ?>" name="cus_dosham">  -->
+
+                                                    <select class="form-control customize_plan" name="cus_dosham" id="reg_Name">
+                                                        <option value="">Select Dhosham</option>
+                                                        <?php 
+                                                        if(!empty($dhosham)) :
+                                                            foreach ($dhosham as $cls_val) {
+                                                                if($customeruser_values['rel_dhosham']==$cls_val['dhosham_id']){
+                                                                    echo "<option value='" . $cls_val['dhosham_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
+                                                                }else{
+                                                                    echo "<option value='" . $cls_val['dhosham_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                }
+                                                            }
+                                                        endif;
+                                                        ?>
+                                                    </select>
                                                  </div>
                                             </div>
                                             <div class="row com-box">
@@ -688,7 +715,7 @@
                                             </div>
                                             <div class="row com-box">
                                                 <div class="col-md-5">
-                                                    <p><b>Monthly Income(In Indian-Rs) *</b></p>
+                                                    <p><b>Monthly Income(र) *</b></p>
                                                 </div>
                                                 <div class="col-md-5">       
                                                     <input type="text" class="form-control income-box form_inputs" data-message="Monthly Income" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; ?>" name="cus_moninc">
@@ -716,7 +743,7 @@
                                                     <p><b>Father's Name *</b></p>
                                                 </div>
                                                 <div class="col-md-5">        
-                                                    <input type="text" class="form-control form_inputs" data-message="Father's Name" id="reg_Name" placeholder="Father's Name" value="<?php if(!empty($customeruser_values['comm_father_name'])) echo $customeruser_values['comm_father_name']; ?>" name="cus_fathername">
+                                                    <input type="text" class="form-control form_inputs alphaonly" data-message="Father's Name" id="reg_Name" placeholder="Father's Name" value="<?php if(!empty($customeruser_values['comm_father_name'])) echo $customeruser_values['comm_father_name']; ?>" name="cus_fathername">
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -724,7 +751,7 @@
                                                     <p><b>Mother's Name *</b></p>
                                                 </div>
                                                 <div class="col-md-5">        
-                                                    <input type="text" class="form-control form_inputs" data-message="Mother's Name" id="reg_Name" placeholder="Mother's Name" value="<?php if(!empty($customeruser_values['comm_mother_name'])) echo $customeruser_values['comm_mother_name']; ?>" name="cus_mothername">
+                                                    <input type="text" class="form-control form_inputs alphaonly" data-message="Mother's Name" id="reg_Name" placeholder="Mother's Name" value="<?php if(!empty($customeruser_values['comm_mother_name'])) echo $customeruser_values['comm_mother_name']; ?>" name="cus_mothername">
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -732,7 +759,7 @@
                                                     <p><b>Father's Employment *</b></p>
                                                 </div>
                                                 <div class="col-md-5">        
-                                                    <input type="text" class="form-control form_inputs" data-message="Father's Employment" id="reg_Name" placeholder="Father's Employment" value="<?php if(!empty($customeruser_values['comm_father_employment'])) echo $customeruser_values['comm_father_employment']; ?>" name="cus_fatheremp">
+                                                    <input type="text" class="form-control form_inputs alphaonly" data-message="Father's Employment" id="reg_Name" placeholder="Father's Employment" value="<?php if(!empty($customeruser_values['comm_father_employment'])) echo $customeruser_values['comm_father_employment']; ?>" name="cus_fatheremp">
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -740,7 +767,7 @@
                                                     <p><b>Mother's Employment *</b></p>
                                                 </div>
                                                 <div class="col-md-5">        
-                                                    <input type="text" class="form-control form_inputs" data-message="Mother's Employment" id="reg_Name" placeholder="Mother's Employment" value="<?php if(!empty($customeruser_values['comm_mother_employment'])) echo $customeruser_values['comm_mother_employment']; ?>" name="cus_motheremp">
+                                                    <input type="text" class="form-control form_inputs alphaonly" data-message="Mother's Employment" id="reg_Name" placeholder="Mother's Employment" value="<?php if(!empty($customeruser_values['comm_mother_employment'])) echo $customeruser_values['comm_mother_employment']; ?>" name="cus_motheremp">
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -792,10 +819,10 @@
                                                     <p><b>Number Of Brothers</b></p>
                                                 </div>
                                                 <div class="col-md-2 pull-right">
-                                                     <input type="text" class="form-control" id="reg_Name" placeholder="Younger" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_yo'])) echo $customeruser_values['comm_number_of_brothers_yo']; ?>" name="cus_broyoung">
+                                                     <input type="text" class="form-control bro_sis low_pad" id="reg_Name" placeholder="Younger" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_yo'])) echo $customeruser_values['comm_number_of_brothers_yo']; ?>" name="cus_broyoung">
                                                 </div>
                                                 <div class="col-md-2 pull-right">
-                                                     <input type="text" class="form-control" id="reg_Name" placeholder="Elder" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el'])) echo $customeruser_values['comm_number_of_brothers_el']; ?>" name="cus_broelder">
+                                                     <input type="text" class="form-control bro_sis low_pad" id="reg_Name" placeholder="Elder" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el'])) echo $customeruser_values['comm_number_of_brothers_el']; ?>" name="cus_broelder">
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -803,10 +830,10 @@
                                                     <p><b>Number Of Sisters</b></p>
                                                 </div>
                                                 <div class="col-md-2 pull-right">
-                                                     <input type="text" class="form-control" id="reg_Name" placeholder="Younger" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_yo'])) echo $customeruser_values['comm_number_of_sisters_yo_mar']; ?>" name="cus_sisyoung">
+                                                     <input type="text" class="form-control bro_sis low_pad" id="reg_Name" placeholder="Younger" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_yo'])) echo $customeruser_values['comm_number_of_sisters_yo_mar']; ?>" name="cus_sisyoung">
                                                 </div>
                                                 <div class="col-md-2 pull-right">
-                                                     <input type="text" class="form-control" id="reg_Name" placeholder="Elder" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el'])) echo $customeruser_values['comm_number_of_sisters_el']; ?>" name="cus_siselder">
+                                                     <input type="text" class="form-control bro_sis low_pad" id="reg_Name" placeholder="Elder" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el'])) echo $customeruser_values['comm_number_of_sisters_el']; ?>" name="cus_siselder">
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -814,10 +841,10 @@
                                                     <p><b>Number Of Brothers Married</b></p>
                                                 </div>
                                                 <div class="col-md-2 pull-right">
-                                                     <input type="text" class="form-control" id="reg_Name" placeholder="Younger" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_yo_mar'])) echo $customeruser_values['comm_number_of_brothers_yo_mar']; ?>" name="cus_broyoungmar">
+                                                     <input type="text" class="form-control bro_sis low_pad" id="reg_Name" placeholder="Younger" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_yo_mar'])) echo $customeruser_values['comm_number_of_brothers_yo_mar']; ?>" name="cus_broyoungmar">
                                                 </div>
                                                 <div class="col-md-2 pull-right">
-                                                     <input type="text" class="form-control" id="reg_Name" placeholder="Elder" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el_mar'])) echo $customeruser_values['comm_number_of_brothers_el_mar']; ?>" name="cus_broeldermar">
+                                                     <input type="text" class="form-control bro_sis low_pad" id="reg_Name" placeholder="Elder" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el_mar'])) echo $customeruser_values['comm_number_of_brothers_el_mar']; ?>" name="cus_broeldermar">
                                                 </div>
                                             </div>
                                             <div class="row com-box">
@@ -825,10 +852,10 @@
                                                     <p><b>Number Of Sisters Married</b></p>
                                                 </div>
                                                 <div class="col-md-2 pull-right">
-                                                     <input type="text" class="form-control" id="reg_Name" placeholder="Younger" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_yo_mar'])) echo $customeruser_values['comm_number_of_sisters_yo_mar']; ?>" name="cus_sisyoungmar">
+                                                     <input type="text" class="form-control bro_sis low_pad" id="reg_Name" placeholder="Younger" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_yo_mar'])) echo $customeruser_values['comm_number_of_sisters_yo_mar']; ?>" name="cus_sisyoungmar">
                                                 </div>
                                                 <div class="col-md-2 pull-right">
-                                                     <input type="text" class="form-control" id="reg_Name" placeholder="Elder" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el_mar'])) echo $customeruser_values['comm_number_of_sisters_el_mar']; ?>" name="cus_siseldermar">
+                                                     <input type="text" class="form-control bro_sis low_pad" id="reg_Name" placeholder="Elder" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el_mar'])) echo $customeruser_values['comm_number_of_sisters_el_mar']; ?>" name="cus_siseldermar">
                                                 </div>
                                             </div>
                                         </div>    

@@ -54,12 +54,33 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 $prefix = '';
                                                 $prefix_one = 'th_';
                                                 $prefix_two = 'new_';
-                                                $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$results['images']);
-                                                $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$results['images']);
-                                                if($prefix_one_status)
-                                                    $prefix = $prefix_one;
-                                                else if($prefix_two_status)
-                                                    $prefix = $prefix_two;
+                                                $prefix_latest_images = '';
+                                                $prefix_latest_images = '';
+                                                $default_images = '';
+                                                $latest_images = '';  
+                                                unset($current_images);
+                                                $current_images = array(); 
+                                            if(!empty($results['images'])){
+                                                        $current_images = explode(',', $results['images'] );
+                                                        $latest_images = end($current_images);                       
+                                                    $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$results['images']);
+                                                    $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$results['images']);
+                                                    $prefix_latest_images = file_exists(FCPATH."uploads/profile/".$latest_images); 
+                                                }
+
+                                                // To get Gender based image for display //
+                                                if((!empty($results['user_gender']))&&($results['user_gender']!=1)){
+                                                        $default_images = "defalt_female.png";
+                                                }else{
+                                                        $default_images = "defalt_male.png";
+                                                }
+
+                                                if(!empty($results['images'])){    
+                                                    if($prefix_one_status)
+                                                        $prefix = $prefix_one;
+                                                    else if($prefix_two_status)
+                                                        $prefix = $prefix_two;
+                                                }
                                             ?>
                                             <ul>
                                             <li><a href="#lightbox" data-toggle="modal"> 
@@ -89,12 +110,12 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                                 if($key!=0){?>
                                                                 <div class="item">
                                                                         <div class="numbertext"><?php echo $key+1;?> / <?php echo count($slider_images);?></div>
-                                                                        <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$value['images'];?>" alt="First slide">
+                                                                        <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix_two.$value['images'];?>" alt="First slide">
                                                                 </div>
                                                                 <?php }else{?>
                                                                      <div class="item active">
                                                                         <div class="numbertext"><?php echo $key+1;?> / <?php echo count($slider_images);?></div>
-                                                                        <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix.$value['images'];?>" alt="First slide">
+                                                                        <img class="lig-box"src="<?php echo media_url()."uploads/profile/".$prefix_two.$value['images'];?>" alt="First slide">
                                                                         </div>
                                                                 <?php }
                                                             }
@@ -380,7 +401,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                             </div>
                                             <div class="col-xs-12">
                                                 <div class="col-md-6 col-xs-6">
-                                                <p>Monthly Income</p>
+                                                <p>Monthly Income (र)</p>
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 dark">
                                                     <p><?php if(!empty($results['edu_montlyincome'])) echo $results['edu_montlyincome']; else echo "None"; ?>

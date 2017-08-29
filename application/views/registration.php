@@ -25,7 +25,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                 </div>
                 <div class="search_option">
                     <!-- Nav tabs -->
-                    <ul class="nav nav-tabs registration-step " role="tablist">
+                    <ul class="nav nav-tabs registration-step" role="tablist">
                         <li role="presentation" class="highlight active" id="userdetails">
                             <a href="search.html#base" aria-controls="base" role="tab" data-toggle="tab">User Details</a>
                         </li>
@@ -132,7 +132,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                               <input type="text" class="form-control" id="reg_Nam" placeholder="Name" name="reg_name" value="<?php if(!empty($registered_data)) echo $registered_data['user_fname']; ?>"/>
+                                               <input type="text" class="form-control alphaonly" id="reg_Nam" placeholder="Name" name="reg_name" value="<?php if(!empty($registered_data)) echo $registered_data['user_fname']; ?>"/>
                                             </div>
                                             <div class="col-sm-4 box">
                                                 <span id="reg_nam_error" class="registration-error"></span>
@@ -291,10 +291,14 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>
                                             <div class="col-sm-4">
                                                <select class="form-control" name="dhosham[]" id="dhosham">
-                                                   <option value="">Select</option>
-                                                    <option value="1">Naga Dhosam</option>
-                                                    <option value="2">Chevvai Dhosam</option>
-                                                    <option value="3">Raghu Kedhu Dhosam</option>
+                                                   <option value="">Select</option>                    
+                                                       <?php 
+                                                        if(!empty($dhosham)) :
+                                                            foreach ($dhosham as $cls_val) {
+                                                                echo "<option value='" . $cls_val['dhosham_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                            }
+                                                        endif;
+                                                        ?>
                                                 </select>
                                             </div>
                                             <!-- <div class="col-sm-4 box">
@@ -571,7 +575,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4 box">
-                                                   <input type="text" class="form-control" id="reg_city" placeholder="City" name="reg_city">
+                                                   <input type="text" class="form-control alphaonly" id="reg_city" placeholder="City" name="reg_city">
                                                 </div>
                                                 <!-- <div class="col-sm-4 box">
                                                   <span id="cur_country_error" class="registration-error"></span>
@@ -584,7 +588,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4 box">
-                                                    <input type="text" class="form-control" id="reg_district" placeholder="District" name="reg_district">
+                                                    <input type="text" class="form-control alphaonly" id="reg_district" placeholder="District" name="reg_district">
                                                 </div>
                                                 <!-- <div class="col-sm-4 box">
                                                   <span id="cur_country_error" class="registration-error"></span>
@@ -610,7 +614,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4 box">
-                                                    <input type="text" class="form-control" id="reg_phone" placeholder="Phone" name="reg_phone">
+                                                    <input type="text" class="form-control ph_num" id="reg_phone" placeholder="Phone" name="reg_phone">
                                                 </div>
                                                 <!-- <div class="col-sm-4 box">
                                                   <span id="cur_country_error" class="registration-error"></span>
@@ -623,7 +627,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4 box">
-                                                     <input type="text" class="form-control" id="reg_mobile" placeholder="Mobile" name="reg_mobile">
+                                                     <input type="text" class="form-control mob_num" id="reg_mobile" placeholder="Mobile" name="reg_mobile">
                                                 </div>
                                                 <div class="col-sm-4 box">
                                                  <span id="reg_mobile_error" class="registration-error"></span>
@@ -641,7 +645,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4 box">
-                                                    <input type="text" class="form-control" id="reg_fname" placeholder="FName" name="reg_fname">
+                                                    <input type="text" class="form-control alphaonly" id="reg_fname" placeholder="FName" name="reg_fname">
                                                 </div>
                                                 <div class="col-sm-4 box">
                                                   <span id="reg_fname_error" class="registration-error"></span>
@@ -654,7 +658,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4 box">
-                                                     <input type="text" class="form-control" id="reg_mname" placeholder="MName" name="reg_mname">
+                                                     <input type="text" class="form-control alphaonly" id="reg_mname" placeholder="MName" name="reg_mname">
                                                 </div>
                                                 <div class="col-sm-4 box">
                                                  <span id="reg_mname_error" class="registration-error"></span>
@@ -667,7 +671,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4 box">
-                                                    <input type="text" class="form-control" id="reg_femployment" placeholder="FEmployment" name="reg_femployment">
+                                                    <input type="text" class="form-control alphaonly" id="reg_femployment" placeholder="FEmployment" name="reg_femployment">
                                                 </div>
                                                 <div class="col-sm-4 box">
                                                  <span id="reg_femployment_error" class="registration-error"></span>
@@ -680,7 +684,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4 box">
-                                                    <input type="text" class="form-control" id="reg_memployment" placeholder="MEmployment" name="reg_memployment">
+                                                    <input type="text" class="form-control alphaonly" id="reg_memployment" placeholder="MEmployment" name="reg_memployment">
                                                 </div>
                                                 <div class="col-sm-4 box">
                                                  <span id="reg_memployment_error" class="registration-error"></span>
@@ -747,10 +751,10 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-2 box">
-                                                     <input type="text" class="form-control" id="reg_EBrother" placeholder="0" name="reg_EBrother">
+                                                     <input type="text" class="form-control bro_sis" id="reg_EBrother" placeholder="0" name="reg_EBrother">
                                                 </div>
                                                 <div class="col-sm-2 box">
-                                                      <input type="text" class="form-control" id="reg_YBrother" placeholder="0" name="reg_YBrother">
+                                                      <input type="text" class="form-control bro_sis" id="reg_YBrother" placeholder="0" name="reg_YBrother">
                                                 </div>
                                                <!--  <div class="col-sm-4 box">
                                                  <span id="reg_mobile_error" class="registration-error"></span>
@@ -763,10 +767,10 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-2 box">
-                                                     <input type="text" class="form-control" id="reg_ESister" placeholder="0" name="reg_ESister">
+                                                     <input type="text" class="form-control bro_sis" id="reg_ESister" placeholder="0" name="reg_ESister">
                                                 </div>
                                                 <div class="col-sm-2 box">
-                                                      <input type="text" class="form-control" id="reg_YSister" placeholder="0" name="reg_YSister">
+                                                      <input type="text" class="form-control bro_sis" id="reg_YSister" placeholder="0" name="reg_YSister">
                                                 </div>
                                                <!--  <div class="col-sm-4 box">
                                                  <span id="reg_mobile_error" class="registration-error"></span>
@@ -779,10 +783,10 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-2 box">
-                                                      <input type="text" class="form-control" id="reg_MEBrother" placeholder="0" name="reg_MEBrother">
+                                                      <input type="text" class="form-control bro_sis" id="reg_MEBrother" placeholder="0" name="reg_MEBrother">
                                                 </div>
                                                 <div class="col-sm-2 box">
-                                                      <input type="text" class="form-control" id="reg_MYBrother" placeholder="0" name="reg_MYBrother">
+                                                      <input type="text" class="form-control bro_sis" id="reg_MYBrother" placeholder="0" name="reg_MYBrother">
                                                 </div>
                                                <!--  <div class="col-sm-4 box">
                                                  <span id="reg_mobile_error" class="registration-error"></span>
@@ -795,10 +799,10 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-2 box">
-                                                    <input type="text" class="form-control" id="reg_MESister" placeholder="0" name="reg_MESister">
+                                                    <input type="text" class="form-control bro_sis" id="reg_MESister" placeholder="0" name="reg_MESister">
                                                 </div>
                                                 <div class="col-sm-2 box">
-                                                    <input type="text" class="form-control" id="reg_MYSister" placeholder="0" name="reg_MYSister">
+                                                    <input type="text" class="form-control bro_sis" id="reg_MYSister" placeholder="0" name="reg_MYSister">
                                                 </div>
                                                <!--  <div class="col-sm-4 box">
                                                  <span id="reg_mobile_error" class="registration-error"></span>
