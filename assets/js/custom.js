@@ -447,6 +447,7 @@ $(document).ready(function() {
                 $("#back").hide();          
             }
         }
+        $('.nav-tabs > .active').prev('li').find('a').trigger('click');
     });
 
     $('form#userlogin').submit(function() {
@@ -472,7 +473,6 @@ $(document).ready(function() {
     });
 
 // Tab Toggle
-
     // Active Tab Change
 //      $('#next').click(function(){
 //   $('.nav-tabs > .active').next('li').find('a').trigger('click');
@@ -664,6 +664,8 @@ $(window).load(function(){
 
 $(".income-box,.bro_sis,.ph_num,.mob_num,.valli_id,.man_id,.age_reg").keypress(function (e) {
     // var income =$(this).val();
+    // var income =parseInt($(this).val());
+    // var s = e.which;
      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
         return false;
        }
