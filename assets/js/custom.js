@@ -675,18 +675,18 @@ $(".income-box,.bro_sis,.ph_num,.mob_num,.valli_id,.man_id,.age_reg").keypress(f
        // }
        // alert(income)   
 });
-$('.mob_num,.income-box').keypress(function() {
-     /*
-     check for 3 or greater than 3 characters.
-     If you check for only greater than 3, then it will let
-     you write the fourth character because just before writing,
-     it is not greater than three.
-     */
-     if($(this).val().length >= 10) {
-        $(this).val($(this).val().slice(0, 10));
-        return false;
-    }
-});
+// $('.mob_num,.income-box').keypress(function() {
+     
+//      check for 3 or greater than 3 characters.
+//      If you check for only greater than 3, then it will let
+//      you write the fourth character because just before writing,
+//      it is not greater than three.
+     
+//      if($(this).val().length >= 10) {
+//         $(this).val($(this).val().substr(0, 10));
+//         return false;
+//     }
+// });
 $(".alphaonly").keypress(function(event){
         var inputValue = event.which;
         // allow letters and whitespaces only.
@@ -709,9 +709,9 @@ $('.bro_sis,.age_reg').keypress( function(e){
         $(this).val($(this).val().substr(0, 1));
     }
 });
-// $('.income-box').keypress( function(e){
-//     if ($(this).val().length >= 7) { 
-//         $(this).val($(this).val().substr(1, 7));
-//     }
-// });
+$('.mob_num,.income-box').keypress( function(e){
+    if ($(this).val().length >= 10) { 
+        $(this).val($(this).val().substr(0, 9));
+    }
+});
      
