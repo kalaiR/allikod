@@ -1313,7 +1313,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                             <div class="search_btn">
                                 <input class=" btnAction next_angkar_btn pull-right" type="button" name="back" id="back" value="Back" style="display:none;">
                                 <input class=" btnAction next_angkar_btn pull-right" type="button" name="next" id="next" value="Next" >
-                                <input class="btnAction next_angkar_btn pull-right" type="submit" name="finish" id="finish" value="Finish" style="display:none;">
+                                <input class="btnAction next_angkar_btn pull-right login_btn popup-with-zoom-anim" href="#reg_finish" type="submit" name="finish" id="finish" value="Finish" style="display:none;">
                             </div>
                         </div>
 
@@ -1326,7 +1326,16 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                          <?php if(!empty($quickregister_id)){?>
                         <input type="hidden" name="quickregister_id" id="quickregister_id" value="<?php echo $quickregister_id;?>" />
                          <?php } ?>
-                    </div>    
+                    </div>
+                    <div class="login_form_inner zoom-anim-dialog mfp-hide" id="reg_finish">
+                        <div class="box first_reg">
+                            <p>Registration process successfully completed . Your profile will be registered in vallikodi matrimonial</p>
+                        </div>
+                        <div class="low_pad">
+                            <button type="submit" value="LogIn" class="btn form-control login_btn pull-right" name="user-submit" id="user_submit">Ok</button>
+                            <img class="mfp-close" src="<?php echo media_url(); ?>assets/img/close-btn.png" alt="">
+                        </div>
+                    </div>     
                 </form>
             </div>     
        </div>                   
