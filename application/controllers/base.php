@@ -1005,7 +1005,6 @@ class Base extends CI_Controller {
 		//Get current login user id from session
 		$login_session = $this->session->userdata("login_session");
 		$id = $login_session['userdetail_id'];
-		$profile_image = array();
 		$data['error'] = 0;
 		if($_POST){
 	   		// Update data
@@ -1026,7 +1025,11 @@ class Base extends CI_Controller {
 		 //        }
 	  //     	}
 			$filesCount = sizeof($_FILES['cus_profileimage']['name']);
+			$profile_image = array();
+			// echo "uploaded file";
+			// print_r($_FILES['cus_profileimage']['name']);
 			if(!empty($_FILES['cus_profileimage']['name'][0]) && $filesCount > 0){
+				// echo "if";
 				for($i = 0; $i < $filesCount; $i++){
 					// $profile_image = $_FILES['cus_profileimage']['name'];
 					$_FILES['userFile']['name'] = $_FILES['cus_profileimage']['name'][$i];
@@ -1063,8 +1066,10 @@ class Base extends CI_Controller {
 				// 	if($value['images']!='defalt_male.png' && $value['images']!='defalt_female.png')
 				// 		@unlink(FCPATH.USER_PROFILE_PATH.$value['images']);
 				// }
+				// print_r($profile_image);
 			}
       		if($data['error'] != 1) {
+      			// print_r($profile_image);
 	    		$data_values = $this->user_model->update_customer_user($id,$profile_image); 
 	    		$data['error'] = $data_values['error'];
 		        $data['status'] = $data_values['status'];	
