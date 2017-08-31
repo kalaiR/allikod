@@ -412,9 +412,9 @@
                             <?php if($rec['user_gender'] == 1): ?>
                             <?php //echo FCPATH."uploads/profile/".$value['images']; 
                                     if(!empty($prefix_one_status))
-                                        $prefix = $prefix_one;
+                                        $prefix = $prefix_one.$latest_images;
                                     else if(!empty($prefix_two_status))
-                                        $prefix = $prefix_two;
+                                        $prefix = $prefix_two.$latest_images;
                                     else if(!empty($prefix_latest_images))
                                             $prefix = $prefix_latest_images;
                             ?>                            
