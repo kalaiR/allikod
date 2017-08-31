@@ -146,4 +146,78 @@ UPDATE user_images SET images='defalt_male.png' WHERE reg_user_id IN (23836,6282
 UPDATE user_images SET images='defalt_female.png' WHERE reg_user_id IN (57195,61236,62899,63955,64686,65618,65810,65818,65828,65829,65831,65836,65984)
 
 
+================Group by email id to generate all records ============
+SELECT usr.*,rb.name as registered_by_name, mt.name as mother_tongue_name, nak.name as nakshathra_name, ein.name as empin_name, zod.name as zodiac_name, famst.name as family_statusname, famtype.name as family_typename, bdy_type.typename as body_typename, comp.name as complexion_typename, fod.name as food_name, fode.name as phy_expectationfood_name, mc.marital_name as maritalname, luk.name as lukhnam_name, ren.totalno_of_profile as ren_totalno_of_profile,usr1.count
+FROM reg_userdetail usr
+JOIN
+(SELECT userdetail_id,user_email,count(*) as count
+ FROM reg_userdetail where user_email!='0' AND user_email!=' 0' AND user_email!='' AND user_email!='00' AND user_email!='000' AND user_email!='0000' AND user_email!='-' GROUP BY user_email having count(*)>1) usr1
+ON usr1.user_email=usr.user_email
+LEFT JOIN reg_religion_ethnicity re ON re.reg_user_id=usr.userdetail_id 
+LEFT JOIN reg_education_occupation eo ON eo.reg_user_id=usr.userdetail_id 
+LEFT JOIN reg_communication_family cf ON cf.reg_user_id=usr.userdetail_id 
+LEFT JOIN reg_physical_expectation pe ON pe.reg_user_id=usr.userdetail_id 
+LEFT JOIN reg_image_horoscope ih ON ih.reg_user_id=usr.userdetail_id 
+LEFT JOIN reg_payment pm ON pm.reg_user_id=usr.userdetail_id 
+LEFT JOIN renew_detail ren ON ren.reg_user_id=usr.userdetail_id 
+LEFT JOIN user_images img ON img.reg_user_id=usr.userdetail_id 
+LEFT JOIN registered_by rb ON rb.registeredby_id=usr.user_registeredby 
+LEFT JOIN marital_category mc ON mc.maritalcategory_id=usr.user_maritalstatus 
+LEFT JOIN mother_tongue mt ON mt.mothertongue_id=re.rel_mothertongue_id 
+LEFT JOIN nakshathra nak ON nak.nakshathra_id=re.rel_nakshathra_id 
+LEFT JOIN luknam luk ON luk.luknam_id=re.rel_luknam_id 
+LEFT JOIN zodiac_sign zod ON zod.zodiacsign_id=re.rel_zodiacsign_id
+LEFT JOIN education ed ON ed.education_id=eo.edu_education 
+LEFT JOIN occupation occ ON occ.occupation_id=eo.edu_occupation 
+LEFT JOIN employed_in ein ON ein.employedin_id=eo.edu_employedin 
+LEFT JOIN family_status famst ON famst.familystatus_id=cf.comm_family_status 
+LEFT JOIN family_type famtype ON famtype.familytype_id=cf.comm_family_type 
+LEFT JOIN body_type bdy_type ON bdy_type.bodytype_id=pe.phy_bodytype 
+LEFT JOIN complexion comp ON comp.complexion_id=pe.phy_complexion 
+LEFT JOIN food fod ON fod.food_id=pe.phy_food 
+LEFT JOIN food fode ON fode.food_id=pe.phy_expectationfood order by usr.userdetail_id DESC
+
+Incorrect data updation query:
+update reg_education_occupation set edu_montlyincome='' where reg_user_id IN (68893,68880,68879,68871,68865,68854,68851,68847,68844,68840,68835,68833,68831,68829,68827,68825,68823,68821,68819,68817,68815,68813,68811,68809,68807,68805,68803,68799,68797,68795,68793,68791,68789,68784,68779,68773,68761,68749,68743,68737,68736,68543,68532,68526,68512,68487,68474,68461,68406,68398,68391,68383,68257,68250,68178,68172,68149,68134,68133,68124,68090,68086,68081,68066,68051,68039,68028,68024,68022,68017,67961,67934,67910,67900,67875,67871,67850,67818,67797,67758,67717,67714,67712,67710,67547,67538,67537,67513,67473,67468,67450,67403,67385,67380,67368,67367,67364,67362,67326,67279,67180,67171,67156,67154,67151,67149,67148,67147,67144,67142,67141,67140,67139,67104,67100,67096,67058,67055,67052,66960,66944,66921,66919,66870,66851,66835,66834,66805,66804,66741,66729,66699,66693,66689,66685,66663,66614,66602,66599,66575,66573,66567,66542,66540,66525,66515,66498,66497,66441,66424,66421,66416,66382,66377,66350,66347,66339,66334,66327,66319,66309,66298,66286,66283,66269,66227,66173,66160,66118,66115,66080,66074,66057,66043,66039,66037,66035,66029,66018,66005,65998,65991,65984,65951,65941,65938,65935,65928,65899,65874,65870,65863,65836,65828,65800,65782,65765,65753,65726,65723,65721,65714,65686,65679,65666,65661,65646,65618,65613,65599,65593,65591,65571,65570,65568,65564,65560,65507,65503,65502,65500,65499,65495,65486,65481,65479,65463,65456,65394,65365,65342,65330,65301,65297,65264,65260,65255,65250,65246,65244,65243,65193,65189,65164,65135,65100,65077,65064,65063,65062,65033,64946,64927,64901,64882,64878,64843,64842,64836,64832,64830,64824,64803,64798,64785,64783,64781,64779,64775,64772,64746,64738,64694,64678,64665,64653,64647,64643,64639,64633,64585,64582,64546,64539,64528,64525,64523,64512,64496,64492,64478,64476,64470,64469,64446,64428,64394,64388,64353,64296,64269,64267,64264,64237,64199,64138,64121,64119,64108,64054,64005,64000,63971,63966,63964,63931,63875,63869,63867,63857,63838,63835,63767,63737,63724,63719,63695,63668,63666,63626,63582,63573,63569,63539,63506,63495,63489,63426,63415,63387,63381,63379,63358,63282,63272,63243,63241,63232,63221,63201,63172,63157,63144,63143,63142,63112,63087,63084,63083,63008,62984,62939,62929,62922,62917,62912,62896,62895,62880,62879,62846,62798,62788,62777,62775,62715,62711,62681,62657,62653,62638,62619,62607,62584,62574,62544,62527,62484,62483,62438,62421,62416,62380,62375,62369,62364,62332,62328,62313,62268,62266,62243,62242,62240,62203,62195,62192,62171,62105,61971,61931,61889,61878,61851,61850,61796,61777,61746,61726,61721,61696,61692,61674,61671,61668,61626,61577,61442,61435,61425,61415,61350,61338,61323,61306,61291,61274,61259,61243,61234,61227,61226,61159,61155,61151,61141,61131,61106,61105,61102,61040,61014,60986,60935,60916,60895,60849,60830,60822,60821,60819,60747,60745,60679,60649,60609,60605,60572,60521,60517,60507,60504,60493,60491,60406,60400,60376,60374,60264,60240,60236,60223,60199,60162,60138,60103,60042,60039,60008,59999,59940,59901,59855,59838,59783,59779,59659,59589,59577,59569,59544,59537,59419,59404,59289,59267,59259,59243,59195,59165,59079,59073,59042,59040,58904,58818,58738,58672,58648,58641,58640,58520,58517,58504,58500,58493,58478,58388,58372,58371,58302,58258,58218,58209,58199,58186,58184,58178,58161,58159,58037,58020,58019,57969,57953,57940,57924,57920,57890,57842,57776,57754,57746,57745,57603,57552,57534,57511,57428,57279,57230,57198,57189,56971,56956,56942,56835,56742,56675,56669,56668,56658,56615,56586,56504,56419,56254,56246,56153,56132,56075,56073,55877,55868,55840,55604,55376,54779,54654,54461,54183,54131,54071,53949,53936,53719,53665,53574,53109,53095,53091,53078,53058,53037,53011,52725,52599,52581,52429,52048,51740,51504,50816,50803,50710,50597,50596,50592,50588,50572,50544,46033,45822,45592,45585,45557,45545,45356,32885,32180,31704,31687,30729,28971,26936,26379,22362)
+total: 637
+
+update reg_education_occupation set edu_montlyincome='' where reg_user_id IN (68834,68040,68021,68015,67956,67935,67475,67393,67352,67185,66746,66705,66684,66627,66613,66518,66501,66320,66157,66004,65902,65768,65719,65711,65708,65682,65651,65251,65155,65034,65023,64935,64934,64802,64759,64711,64637,64577,64564,64432,64368,64367,63755,63345,63342,63341,63237,63049,62862,62859,62534,62440,62415,62385,62089,61917,61867,61738,61681,61352,61339,61309,61060,60996,60993,60781,60644,60536,60393,59406,59111,56697,53993,53099,51416,51254,23145,22679,22013,2348,2326,2157,2149)
+total: 83
+
+update reg_religion_ethnicity set rel_religion="Hindu" WHERE rel_religion != 'Hindu';
+
+update reg_religion_ethnicity set rel_caste="Vanniar" WHERE rel_caste != 'Vanniar';
+
+ALTER TABLE `reg_religion_ethnicity` CHANGE `rel_religion` `rel_religion` VARCHAR( 50 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'Hindu',
+CHANGE `rel_caste` `rel_caste` VARCHAR( 50 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'Vanniyar',
+CHANGE `rel_gothra` `rel_gothra` VARCHAR( 255 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'Sambu Maharishi Gothra';
+
+update reg_religion_ethnicity set rel_gothra="Sambu Maharishi Gothra" WHERE rel_gothra != 'Sambu Maharishi Gothra';
+
+update reg_religion_ethnicity set rel_timeofbirth='0-0-am' where rel_timeofbirth='' AND rel_timeofbirth='0' AND rel_timeofbirth='N/A';
+
+UPDATE  `valli_live_25_08_17`.`reg_religion_ethnicity` SET  `rel_timeofbirth` =  '8-15-pm' WHERE  `reg_religion_ethnicity`.`reg_user_id` =69354;
+
+update reg_communication_family set comm_mobile_no='' where comm_mobile_no='nil';
+
+update reg_communication_family set comm_mobile_no='' where comm_mobile_no='-' OR comm_mobile_no=0 OR comm_mobile_no='l';
+
+SELECT * FROM  `reg_physical_expectation` WHERE phy_height LIKE  '%cm%';
+
+UPDATE reg_physical_expectation SET phy_height = REPLACE (phy_height, 'cm', '') WHERE phy_height LIKE  '%cm%';
+
+UPDATE reg_physical_expectation SET phy_height = '' WHERE phy_height=0;
+
+UPDATE reg_physical_expectation SET phy_weight = '' WHERE phy_weight=0;
+
+UPDATE reg_physical_expectation SET phy_weight = REPLACE (phy_weight, 'kg', '') WHERE phy_weight LIKE  '%kg%';
+
+update reg_communication_family set comm_phone_no='' where comm_phone_no='-' OR comm_phone_no=0 OR comm_phone_no='nil' OR comm_phone_no='Nil' OR comm_phone_no='NILL' OR comm_phone_no='kjhjk' OR comm_phone_no='ghu' ;
+
+delete FROM `reg_selectededucation` WHERE education_id=0;
+
+delete FROM `reg_selectedmarital` WHERE marital_category_id=0;
+
+
+
 
