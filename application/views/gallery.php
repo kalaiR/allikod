@@ -93,7 +93,7 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_7481IMG_2002.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/branch/Chengalpatu.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -108,42 +108,42 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_84IMG_20141002_110125.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/branch/Puducherry.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                        <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_2301IMG_0842.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/branch/Kalpakkam.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_2407IMG_1676.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/branch/Gingee.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_6060IMG_0879.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/branch/Cuddalore.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_6628IMG_0823.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/branch/Chidambaram.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img class="lightbox" src="<?php echo media_url(); ?>assets/img/valli/new_7436IMG_0814.jpg" alt="">
+                                    <img class="lightbox" src="<?php echo media_url(); ?>assets/img/branch/Chethpet.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -157,7 +157,7 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="blog_grid_item">
                                 <div class="blog_grid_img">
-                                    <img src="<?php echo media_url(); ?>assets/img/valli/new_8953IMG_1121.jpg" alt="">
+                                    <img src="<?php echo media_url(); ?>assets/img/branch/Kalakurichi.jpg" alt="">
                                 </div>
                             </div>
                         </div>

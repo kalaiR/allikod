@@ -148,8 +148,10 @@
                          <li id="search"><a href="<?php echo base_url(); ?>search">Search</a></li>
                          <li id="gallery"><a href="<?php echo base_url(); ?>gallery">Gallery</a></li>
                          <li id="stories" class="dropdown submenu">
-                            <a href="<?php echo base_url(); ?>success_stories">Success Stories</a>
+                            <!-- <a href="">Success Stories</a> -->
+                            <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Succes Stories</a>
                             <ul class="dropdown-menu">
+                                <li><a href="<?php echo base_url(); ?>success_stories">Success Stories</a></li>
                                 <li><a href="<?php echo base_url(); ?>post_success">Post Your Story</a></li>
                                 <!-- <li><a href="http://shtheme.com/html/verodate/shop-left.html">Shop Left</a></li>
                                 <li><a href="http://shtheme.com/html/verodate/shop-right.html">Shop Right</a></li>
@@ -177,14 +179,12 @@
                             </ul>
                         </li>
                         <?php }else{ ?>
-                                </ul>
-
                                 <ul class="nav navbar-nav navbar-right">
                                 <li id="login"><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
                                 <li id="register"><a href="<?php echo base_url(); ?>registration"><i class="fa fa-user-plus"></i>Registration</a></li>
                                 </ul>
                         <?php } ?>
-                    
+                        </ul>
                     </div><!-- /.navbar-collapse (selva) -->
                 </div><!-- /.container-fluid  (selva)-->
             </nav>

@@ -531,7 +531,7 @@ include('include/menu.php');
                                                 <div class="registration_form_area form-box" id="registration_form_are_box">
                                                     <div class="registration_form_s_box" id="registration_form_s_box">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" id="searchby_id" name="searchby_id" placeholder="" value="" required>      
+                                                                <input type="text" class="form-control valli_id" id="searchby_id" name="searchby_id" placeholder="" value="" required>      
                                                             </div>
                                                      </div>
                                                 </div>
@@ -565,10 +565,10 @@ include('include/menu.php');
                                     <form method="post" class="box basic_search" action="search_result" id="search_manual" name="search_manual" >
                                         <div class="col-sm-6 aline-center-box ">
                                             <div class="col-sm-6 ">
-                                                <div class="registration_form_area form-box" id="registration_form_are_box">
+                                                <div class="registration_form_area form-box " id="registration_form_are_box">
                                                     <div class="registration_form_s_box" id="registration_form_s_box">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" id="search_manual_id" name="search_manual_id" placeholder="" required>      
+                                                                <input type="text" class="form-control man_id" id="search_manual_id" name="search_manual_id" placeholder="" required>      
                                                             </div>
                                                      </div>
                                                 </div>

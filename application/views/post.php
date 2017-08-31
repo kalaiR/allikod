@@ -30,7 +30,7 @@
                                     </span>
                                                     <div class="form-group featured-box">
                                                         <div class="col-md-10">
-                                                            <input type="text" class="form-control form_inputs" id="bride_name" placeholder="Bride Name (Female) *" name="bride_name">
+                                                            <input type="text" class="form-control form_inputs alphaonly" id="bride_name" placeholder="Bride Name (Female) *" name="bride_name">
                                                         </div>
                                                          <div class="tooltips" style="display: inline-block;">
                                                          <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Type the name of the Girl</span>
@@ -38,7 +38,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-10">
-                                                            <input type="text" class="form-control form_inputs" id="groom_name" placeholder="Groom Name (Male) *" name="groom_name">
+                                                            <input type="text" class="form-control form_inputs alphaonly" id="groom_name" placeholder="Groom Name (Male) *" name="groom_name">
                                                         </div>    
                                                         <div class="tooltips" style="display: inline-block;">
                                                             <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Type the name of the Boy</span>
@@ -46,7 +46,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-10">
-                                                            <input type="text" class="form-control" id="vallikodi_id" placeholder="Vallikodi ID" name="vallikodi_id">
+                                                            <input type="text" class="form-control valli_id" id="vallikodi_id" placeholder="Vallikodi ID" name="vallikodi_id">
                                                         </div>   
                                                         <div class="tooltips" style="display: inline-block;">
                                                             <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Mention the Vallikodi ID of the Bride or Groom</span>
