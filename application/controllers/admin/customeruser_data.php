@@ -41,14 +41,14 @@ class Customeruser_Data extends CI_Controller {
 			  		$id = $this->input->post('rid');
 			  		$action_post = $this->input->post('action');
 			   		$validation_rules = array(
-			   			array('field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|required|xss_clean|max_length[50]|edit_unique[reg_userdetail.userdetail_id.user_email.'.$id.']' ),);
+			   			array('field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|xss_clean|max_length[50]|edit_unique[reg_userdetail.userdetail_id.user_email.'.$id.']' ),);
 			    }
 
 			  	// Save data
 		    	else if($this->input->post('action')=='save') {
 		    		$action_post = $this->input->post('action');
 		      		$validation_rules = array(
-		            	array( 'field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|required|xss_clean|max_length[50]|is_unique[reg_userdetail.user_email]' ),);
+		            	array( 'field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|xss_clean|max_length[50]|is_unique[reg_userdetail.user_email]' ),);
 				        
 		      	}
 
