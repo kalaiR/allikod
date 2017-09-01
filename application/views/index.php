@@ -180,17 +180,19 @@
                                     </div>
                                     <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
                                     <div class="reg_chose form-group">
-                                        <button type="submit" value="LogIn" class="btn form-control login_btn popup-with-zoom-anim" href="#reg_form">Register</button>
+                                        <!--  Here popup-with-zoom-anim class required for registration popup successful -->
+                                        <!-- <button type="submit" value="LogIn" class="btn form-control login_btn popup-with-zoom-anim" href="#reg_form">Register</button> -->
+                                        <button type="submit" value="LogIn" class="btn form-control login_btn" href="#reg_form">Register</button>
                                     </div>
-                                    <div class="login_form_inner zoom-anim-dialog mfp-hide" id="reg_form">
+                                    <!-- <div class="login_form_inner zoom-anim-dialog mfp-hide" id="reg_form">
                                         <div class="box first_reg">
                                             <p>First level registraion has been successfully completed !!!</p>
                                         </div>
                                         <div class="low_pad">
                                             <button type="submit" value="LogIn" class="btn form-control login_btn pull-right" name="user-submit" id="user_submit">Ok</button>
-                                            <img class="mfp-close" src="<?php echo media_url(); ?>assets/img/close-btn.png" alt="">
+                                            <img class="mfp-close" src="<?php //echo media_url(); ?>assets/img/close-btn.png" alt="">
                                         </div>
-                                    </div>    
+                                    </div>     -->
                                 </form>
                             </div>
                         </div>
@@ -410,9 +412,9 @@
                             <?php if($rec['user_gender'] == 1): ?>
                             <?php //echo FCPATH."uploads/profile/".$value['images']; 
                                     if(!empty($prefix_one_status))
-                                        $prefix = $prefix_one;
+                                        $prefix = $prefix_one.$latest_images;
                                     else if(!empty($prefix_two_status))
-                                        $prefix = $prefix_two;
+                                        $prefix = $prefix_two.$latest_images;
                                     else if(!empty($prefix_latest_images))
                                             $prefix = $prefix_latest_images;
                             ?>                            

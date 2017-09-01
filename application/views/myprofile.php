@@ -2,8 +2,9 @@
     include('include/header.php');
     include('include/menu.php');
 // echo '<pre>';
-// print_r($results);
+// print_r($dhosham["name"]);  
 // echo '</pre>';
+// exit();
 
 ?> 
      <!--================Banner Area =================-->
@@ -221,7 +222,7 @@
                                     </div>
                                     <div class="profile_list">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-6">                                                
                                                 <div class="col-xs-12">
                                                     <div class="col-md-6 col-xs-6">
                                                     <p>Time of Birth</p>
@@ -245,7 +246,7 @@
                                                     <p>Dhosham</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php if(!empty($results['rel_dhosham'])) echo $results['rel_dhosham']; else echo "None"; ?></p>
+                                                         <p><?php if(!empty($dhosham['name'])) echo $dhosham['name']; else echo "None"; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">

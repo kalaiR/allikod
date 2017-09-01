@@ -3,7 +3,7 @@ include('include/header.php');
 include('include/menu.php');
 
 // echo '<pre>';
-// print_r($results);
+// print_r($dhosham);
 // echo '</pre>';
 // exit();
 
@@ -283,7 +283,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <div class="col-md-6 col-xs-6 dark">
                                                         <p><?php if(!empty($results['rel_timeofbirth'])) echo $results['rel_timeofbirth']; else echo "None"; ?></p>
                                                     </div>
-                                                </div>
+                                                </div>        
                                                 <div class="col-xs-12">
                                                     <div class="col-md-6 col-xs-6">
                                                     <p>Mother Tongue</p>
@@ -298,7 +298,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
                                                         <p><?php 
-                                                            if(!empty($results['rel_dhosham'])) echo $results['rel_dhosham']; else echo "None"; ?>
+                                                            if(!empty($dhosham['name'])) echo $dhosham['name']; else echo "None"; ?>
                                                         </p>                         
                                                     </div>
                                                 </div>

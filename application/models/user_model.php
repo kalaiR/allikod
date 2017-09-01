@@ -282,9 +282,18 @@ class User_model extends CI_Model {
     $model_data['error'] = 0;
     if($this->input->post('email')) {
       // $login_where = '(user_email="'.$this->input->post('email').'" and user_active_status=1)';
-      $login_where = '(user_email="'.$this->input->post('email').'")';
+      if(!empty($this->input->post('userid'))){
+          $login_where = '(user_email="'.$this->input->post('email').'" and userdetail_id="'.$this->input->post('userid').'")';
+      }else{
+          $login_where = '(user_email="'.$this->input->post('email').'")';  
+      }
       $this->db->select('*');
-      $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where);      
+      $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where);  
+      if((!empty($this->input->post('userid')))&&($userdata_get->num_rows())){
+          $model_data['cstatus'] = 'email_notavailable';
+          $model_data['status'] = "Email Available";
+          $model_data['error'] = 1;
+      }else{    
         if($userdata_get->num_rows()) {
           $model_data['cstatus'] = "email_available";
           $model_data['status'] = "Email Already Registered";
@@ -295,14 +304,14 @@ class User_model extends CI_Model {
           $model_data['status'] = "Email Available";
           $model_data['error'] = 1;
         }
-    }
-    else {
+      }  
+  }else{
       $model_data['status']= "Input Required";
       $model_data['error'] = 1;
-    }
-    // print_r($model_data);
-    // exit();
-    return $model_data;
+  }
+  // print_r($model_data);
+  // exit();
+  return $model_data;
   }
   
 
@@ -487,7 +496,7 @@ class User_model extends CI_Model {
   public function get_viewdetails_byid($id){
       // View by id
       $condition = "usr.userdetail_id = ".$id."";     
-      $this->db->select('*,rb.name as registered_by_name, pe.phy_searchedu_status as eduexpected, mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name, zod.name as zodiac_name, famst.name as family_statusname, famtype.name as family_typename, bdy_type.typename as body_typename, comp.name as complexion_typename, fod.name as food_name, fode.name as phy_expectationfood_name, mc.marital_name as maritalname,luk.name as lukhnam_name');
+      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name, zod.name as zodiac_name, famst.name as family_statusname, famtype.name as family_typename, bdy_type.typename as body_typename, comp.name as complexion_typename, fod.name as food_name, fode.name as phy_expectationfood_name, mc.marital_name as maritalname,luk.name as lukhnam_name');
       $this->db->from('reg_userdetail usr');
       $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
       $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
@@ -1068,37 +1077,36 @@ class User_model extends CI_Model {
          
             // echo $this->db->last_query();
 
-            // if(!empty($this->input->post('removed_images'))){
-            //   //Remove old image
-            //   echo "removed_images";
-            //   print_r($this->input->post('removed_images'));
-            //   $cus_image = $this->get_customer_images($id); 
-            //   print_r($cus_image);
-            //   $imagevalues = array();
-            //   foreach ($cus_image as $key => $value) {
-            //       array_push($imagevalues, $value['images']);
-            //   }
-            //   print_r($imagevalues);
-            //   foreach ($imagevalues as $value) {
-            //     // echo FCPATH.USER_PROFILE_PATH.$value['images'];
-            //     echo $value;
-            //     echo "in_array_result".in_array($value, $imagevalues);
-            //     if($value!='defalt_male.png' && $value!='defalt_female.png' && in_array($value, $imagevalues)){
-            //       $image_delete_where = '(reg_user_id="'.$id.'" && images="'.$value.'")';
-            //       $this->db->delete("user_images", $image_delete_where); 
-            //       echo $this->db->last_query();
-            //       @unlink(FCPATH.USER_PROFILE_PATH."th_".$value);
-            //       @unlink(FCPATH.USER_PROFILE_PATH."new_".$value);
-            //     }
-            //   }
-            // }
+            if(!empty($this->input->post('removed_images'))){
+              //Remove old image
+              $removed_images = explode(",",$this->input->post('removed_images'));
+              // print_r($removed_images);
+              $cus_image = $this->get_customer_images($id); 
+              $imagevalues = array();
+              foreach ($cus_image as $key => $value) {
+                  array_push($imagevalues, $value['userimages_id']);
+              }
+              // print_r($imagevalues);
+              foreach ($imagevalues as $value) {
+                if($value!='defalt_male.png' && $value!='defalt_female.png' && in_array($value, $removed_images)){
+                    //remove images from folder
+                    $image_delete_where = '(reg_user_id="'.$id.'" && userimages_id="'.$value.'")';
+                    $this->db->select('images');
+                    $imageselected = $this->db->get_where('user_images', $image_delete_where)->row_array();
+                    @unlink(FCPATH.USER_PROFILE_PATH."th_".$imageselected['images']);
+                    @unlink(FCPATH.USER_PROFILE_PATH."new_".$imageselected['images']);
 
-            // if(!empty($profile_image)){
-            //     // $image_delete_where = '(reg_user_id="'.$id.'")';
-            //     // $this->db->delete("user_images", $image_delete_where); 
-            //     foreach ($profile_image as $value)
-            //       $this->db->insert('user_images',array('reg_user_id' => $id,'images' =>$value));
-            // }
+                    //remvove images from database
+                    $this->db->delete("user_images", $image_delete_where); 
+                }
+              }
+            }
+            if(!empty($profile_image)){
+                // $image_delete_where = '(reg_user_id="'.$id.'")';
+                // $this->db->delete("user_images", $image_delete_where); 
+                foreach ($profile_image as $value)
+                  $this->db->insert('user_images',array('reg_user_id' => $id,'images' =>$value));
+            }
 
             //Update Raasi and Amsam
             $rasi  = $this->input->post('rasi');
@@ -1334,7 +1342,7 @@ class User_model extends CI_Model {
   public function get_customer_images($id){
     // $this->db->select('images');
     // $image_data = $this->db->get_where('user_images', array('reg_user_id' => $id ))->result();
-    $this->db->select('images'); 
+    $this->db->select('userimages_id,images'); 
     $this->db->from('user_images');   
     $this->db->where('reg_user_id', $id);
     return $this->db->get()->result_array();
@@ -1556,7 +1564,8 @@ class User_model extends CI_Model {
         $this->db->where($condition);      
         $this->db->order_by('dhos.dhosham_id','asc');
         $query = $this->db->get()->result_array();          
-      }             
+      }
+      // echo $this->db->last_query();             
       return $query;
   }
  

@@ -41,14 +41,14 @@ class Customeruser_Data extends CI_Controller {
 			  		$id = $this->input->post('rid');
 			  		$action_post = $this->input->post('action');
 			   		$validation_rules = array(
-			   			array('field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|required|xss_clean|max_length[50]|edit_unique[reg_userdetail.userdetail_id.user_email.'.$id.']' ),);
+			   			array('field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|xss_clean|max_length[50]|edit_unique[reg_userdetail.userdetail_id.user_email.'.$id.']' ),);
 			    }
 
 			  	// Save data
 		    	else if($this->input->post('action')=='save') {
 		    		$action_post = $this->input->post('action');
 		      		$validation_rules = array(
-		            	array( 'field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|required|xss_clean|max_length[50]|is_unique[reg_userdetail.user_email]' ),);
+		            	array( 'field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|xss_clean|max_length[50]|is_unique[reg_userdetail.user_email]' ),);
 				        
 		      	}
 
@@ -98,14 +98,19 @@ class Customeruser_Data extends CI_Controller {
 			}
 		}
 		else{
+			$data['customerid_status'] = TRUE;
 			$id = $this->uri->segment(3);
-			$data_values = $this->customeruser_data_model->customer_user_profile($id);
-			$data['customeruser_values'] = $data_values['customeruser_values'];
-			// echo "<pre>";
-			// print_r($data['customeruser_values']);
-			// echo "</pre>";
-			//Get Selection option data's for edit
-			$data['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
+			if(is_numeric($id)){
+				$data_values = $this->customeruser_data_model->customer_user_profile($id);
+				$data['customeruser_values'] = $data_values['customeruser_values'];
+				// echo "<pre>";
+				// print_r($data['customeruser_values']);
+				// echo "</pre>";
+				//Get Selection option data's for edit
+				$data['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
+			}
+			if(empty($data_values['customeruser_values']))
+				$data['customerid_status'] = FALSE;		
 			$this->load->view('admin/edit_customer_user',$data);
 		}		
 	}

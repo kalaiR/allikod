@@ -15,10 +15,11 @@
 				</ul>
 			</div>
 			<!-- Table -->
-			<form method="POST" action="edit_customer_user/<?php echo $customeruser_values['userdetail_id']; ?>" class="customer_edit_form" name="customer_edit_form" enctype="multipart/form-data" data-id="<?php echo $this->uri->segment(3); ?>">
+			<form method="POST" action="edit_customer_user/<?php if(!empty($customeruser_values['userdetail_id'])) echo $customeruser_values['userdetail_id']; ?>" class="customer_edit_form" name="customer_edit_form" enctype="multipart/form-data" data-id="<?php echo $this->uri->segment(3); ?>">
 <?php } ?>	
 					<?php
 					  // print_r($zodiac_data);
+					if($customerid_status == TRUE){
 	                  if(!empty($status)) :
 	                    echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
 	                  endif;
@@ -67,19 +68,19 @@
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Customer Email : </label>
 															<div class="controls">
-															  <input class="input-xlarge focused form_inputs" type="email" value="<?php if(!empty($customeruser_values['user_email'])) echo $customeruser_values['user_email'];  ?>" name="cus_email">
+															  <input class="input-xlarge focused" type="email" value="<?php if(!empty($customeruser_values['user_email'])) echo $customeruser_values['user_email'];  ?>" name="cus_email">
 															</div>
 														  </div>
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Password : </label>
 															<div class="controls">
-															  <input class="input-xlarge focused form_inputs" type="text" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_password" id="new_pass">
+															  <input class="input-xlarge focused" type="text" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_password" id="new_pass">
 															</div>
 														  </div>
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Confirm Password : </label>
 															<div class="controls">
-															  <input class="input-xlarge focused form_inputs" type="text" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_confpassword" id="confirm_pass">
+															  <input class="input-xlarge focused" type="text" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_confpassword" id="confirm_pass">
 															</div>
 														  </div>
 														  <!-- <div class="control-group">
@@ -1126,7 +1127,8 @@
 							</div><!--/span-->
 						</div><!--/row-->
 					</div><!--/.fluid-container-->
-<?php if(!$this->input->is_ajax_request()) { ?>
+<?php }else echo "No record found to edit for this ID"; 
+	if(!$this->input->is_ajax_request()) { ?>
 				</form>
 		</div>  <!-- span10 end -->
 		<!-- external javascript

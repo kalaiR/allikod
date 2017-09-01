@@ -385,8 +385,8 @@ class Base extends CI_Controller {
 						'phy_food'=>$form_data['food'][0],							
 						'phy_searchage_from'=>$form_data['search_age_from'][0],
 						'phy_searchage_to'=>$form_data['search_age_to'][0],
-						'phy_searchmarital_status'=>'',
-						'phy_searchedu_status'=>''
+						// 'phy_searchmarital_status'=>'',
+						// 'phy_searchedu_status'=>''
 				);
 		  		
 
@@ -945,6 +945,9 @@ class Base extends CI_Controller {
 		$data['slider_images'] = $this->user_model->get_customer_images($id);
 		$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
 		$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
+		if(!empty($data['results']['rel_dhosham'])){
+			$data['dhosham'] = $this->user_model->get_dhosham($data['results']['rel_dhosham']);	
+		}
 
 		$data['eeducation'] = $this->user_model->get_selected_education($id);
 		foreach($data['eeducation'] as $key => $value) {
@@ -971,6 +974,9 @@ class Base extends CI_Controller {
 			$data['results'] = $this->user_model->get_viewdetails_byid($id);
 			$data['rasi'] = $this->user_model->getrasi_viewdetails_byid($id);		
 			$data['amsham'] = $this->user_model->getamsham_viewdetails_byid($id);
+			if(!empty($data['results']['rel_dhosham'])){
+				$data['dhosham'] = $this->user_model->get_dhosham($data['results']['rel_dhosham']);					
+			}
 
 			// Education Excepted from Selected Education Table
 			$data['eeducation'] = $this->user_model->get_selected_education($id);
@@ -999,7 +1005,6 @@ class Base extends CI_Controller {
 		//Get current login user id from session
 		$login_session = $this->session->userdata("login_session");
 		$id = $login_session['userdetail_id'];
-		$profile_image = array();
 		$data['error'] = 0;
 		if($_POST){
 	   		// Update data
@@ -1020,7 +1025,11 @@ class Base extends CI_Controller {
 		 //        }
 	  //     	}
 			$filesCount = sizeof($_FILES['cus_profileimage']['name']);
+			$profile_image = array();
+			// echo "uploaded file";
+			// print_r($_FILES['cus_profileimage']['name']);
 			if(!empty($_FILES['cus_profileimage']['name'][0]) && $filesCount > 0){
+				// echo "if";
 				for($i = 0; $i < $filesCount; $i++){
 					// $profile_image = $_FILES['cus_profileimage']['name'];
 					$_FILES['userFile']['name'] = $_FILES['cus_profileimage']['name'][$i];
@@ -1031,7 +1040,8 @@ class Base extends CI_Controller {
 					// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
 					$config['upload_path'] = FCPATH.USER_PROFILE_PATH; 
 					$config['allowed_types'] = FILETYPE_ALLOWED;//FILETYPE_ALLOWED which is defined constantly in constants file
-					$config['file_name'] = "th_".$_FILES['cus_profileimage']['name'][$i];
+					$config['file_name'] = "new_".$_FILES['cus_profileimage']['name'][$i];
+					// $config['thumbfile_name'] = "th_".$_FILES['cus_profileimage']['name'][$i];
 					// $config['max_size']  = '1000';
 					// $config['max_width'] = '450';
 					// $config['max_height'] = '600';
@@ -1039,8 +1049,24 @@ class Base extends CI_Controller {
 					$this->upload->initialize($config);
 					if($this->upload->do_upload('userFile')){
 					    $uploadData = $this->upload->data();
+					    // print_r($uploadData);
 					    array_push($profile_image,USER_PROFILE_PATH.$uploadData['file_name']);
-						$profile_image[$i] = str_replace("th_","",$uploadData['file_name']);
+						$profile_image[$i] = str_replace("new_","",$uploadData['file_name']);
+						//thumbnail code creation
+						$userprofile_logo_thumb['image_library'] = 'gd2';						
+						$userprofile_logo_thumb['source_image'] = FCPATH.USER_PROFILE_PATH.$uploadData['file_name'];
+						$userprofile_logo_thumb['create_thumb'] = FALSE;						
+						$userprofile_logo_thumb['maintain_ratio'] = TRUE;
+						$userprofile_logo_thumb['width']  = 260;
+						$userprofile_logo_thumb['height']  = 260;
+						$userprofile_logo_thumb['new_image'] = "th_".$profile_image[$i];
+						$this->load->library('image_lib');
+						$this->image_lib->initialize($userprofile_logo_thumb);
+						// Resize operation
+						if (!$this->image_lib->resize()){
+	                		$data['status'] = strip_tags($this->image_lib->display_errors()); 
+						}
+						$this->image_lib->clear();
 					}else{
 						$data['error'] = 1;
 						$data['status'] = $this->upload->display_errors();
@@ -1057,8 +1083,10 @@ class Base extends CI_Controller {
 				// 	if($value['images']!='defalt_male.png' && $value['images']!='defalt_female.png')
 				// 		@unlink(FCPATH.USER_PROFILE_PATH.$value['images']);
 				// }
+				// print_r($profile_image);
 			}
       		if($data['error'] != 1) {
+      			// print_r($profile_image);
 	    		$data_values = $this->user_model->update_customer_user($id,$profile_image); 
 	    		$data['error'] = $data_values['error'];
 		        $data['status'] = $data_values['status'];	

@@ -486,7 +486,7 @@
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="selectError1">Education</label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_searchedu_status']; ?></label>
+												<label class="control-label" for="focusedInput"><?php //echo $customeruser_values['phy_searchedu_status']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Food :</label>
