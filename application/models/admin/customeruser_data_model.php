@@ -45,13 +45,15 @@ class Customeruser_data_model extends CI_Model {
 	                                );
 	            	// print_r($userdetail_update_data);
 	            	$religion_ethnicity_update_data = array(
+	            					// 'rel_timeofbirth' => $this->input->post('cus_birthhours')."-".$this->input->post('cus_birthmins')."-".$this->input->post('cus_birthmer'),
+	            					'rel_timeofbirth' => $this->input->post('cus_birthtime'),
 	            					'rel_mothertongue_id' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
-	            					'rel_religion' => $this->input->post('cus_religion'),
-	            					'rel_caste' => $this->input->post('cus_caste'),
-	            					// 'rel_dhosham' => ($this->input->post('cus_dosham')) ? $this->input->post('cus_dosham') : NULL,
+	            					// 'rel_religion' => $this->input->post('cus_religion'),
+	            					// 'rel_caste' => $this->input->post('cus_caste'),
+	            					'rel_dhosham' => ($this->input->post('cus_dosham')) ? $this->input->post('cus_dosham') : NULL,
 	            					'rel_nakshathra_id' => ($this->input->post('cus_nakshathra')) ? $this->input->post('cus_nakshathra') : NULL,
 	            					'rel_luknam_id' => ($this->input->post('cus_lukhnam')) ? $this->input->post('cus_lukhnam') : NULL,
-	            					'rel_gothra' => "Sambu Maharishi Gothra",
+	            					// 'rel_gothra' => "Sambu Maharishi Gothra",
 	            					'rel_zodiacsign_id' => ($this->input->post('cus_zodiac')) ? $this->input->post('cus_zodiac') : NULL,
 	                                );
 	            	// print_r($religion_ethnicity_update_data);
@@ -61,6 +63,7 @@ class Customeruser_data_model extends CI_Model {
 	            					'edu_occupation' => ($this->input->post('cus_occupation')) ? $this->input->post('cus_occupation') : NULL,
 	            					'edu_employedin' => ($this->input->post('cus_empin')) ? $this->input->post('cus_empin') : NULL,
 	            					'edu_montlyincome' => $this->input->post('cus_moninc'),
+	            					'edu_occupationdetail' => $this->input->post('cus_ocudetail'),
 	            					);
 	            	// print_r($education_occupation_update_data);
 	            	$communication_update_data = array(
@@ -115,6 +118,17 @@ class Customeruser_data_model extends CI_Model {
 	        $this->db->where($userdetail_update_where);
 	        $this->db->update("reg_userdetail", $userdetail_update_data);
 
+	        $rel = $this->db->get_where('reg_religion_ethnicity', array('reg_user_id' => $this->input->post('rid')))->row_array();
+	        if(!empty($rel)){
+	        	$religion_ethnicity_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+		        $this->db->set($religion_ethnicity_update_data); 
+		        $this->db->where($religion_ethnicity_update_where);
+		        $this->db->update("reg_religion_ethnicity", $religion_ethnicity_update_data);	
+	        }
+	        else{
+	        	$religion_ethnicity_update_data['reg_user_id'] = $this->input->post('rid');
+	        	$this->db->insert("reg_religion_ethnicity", $religion_ethnicity_update_data);
+	        }
 	        // $religion_ethnicity_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
 	        // $this->db->set($religion_ethnicity_update_data); 
 	        // $this->db->where($religion_ethnicity_update_where);
@@ -124,6 +138,18 @@ class Customeruser_data_model extends CI_Model {
 	        // $this->db->set($education_occupation_update_data); 
 	        // $this->db->where($education_occupation_update_where);
 	        // $this->db->update("reg_education_occupation", $education_occupation_update_data);
+
+	        $edu_ocu = $this->db->get_where('reg_education_occupation', array('reg_user_id' => $this->input->post('rid')))->row_array();
+	        if(!empty($edu_ocu)){
+	        	$education_occupation_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+		        $this->db->set($education_occupation_update_data); 
+		        $this->db->where($education_occupation_update_where);
+		        $this->db->update("reg_education_occupation", $education_occupation_update_data);	
+	        }
+	        else{
+	        	$education_occupation_update_where['reg_user_id'] = $this->input->post('rid');
+	        	$this->db->insert("reg_education_occupation", $education_occupation_update_data);
+	        }
 
 	        $comm = $this->db->get_where('reg_communication_family', array('reg_user_id' => $this->input->post('rid')))->row_array();
 	        if(!empty($comm)){
@@ -351,18 +377,52 @@ class Customeruser_data_model extends CI_Model {
   		$model_data['familystatus_values'] = $this->db->order_by('familystatus_id','asc')->get_where('family_status',array('active_status'=>1))->result_array();
   		$model_data['familytype_values'] = $this->db->order_by('familytype_id','asc')->get_where('family_type',array('active_status'=>1))->result_array();
   		$model_data['height_values'] = $this->db->order_by('heightrelation_id','asc')->get_where('height_relation')->result_array();
+  		$model_data['dhosham_values'] = $this->db->order_by('dhosham_id','asc')->get_where('dhosham')->result_array();
 
-  		//Category and Subcategory values
-  		// $model_data['education_values'] = $this->db->order_by('education_id','asc')->get_where('education')->result_array();
-  		// $model_data['occupation_values'] = $this->db->order_by('occupation_id','asc')->get_where('occupation')->result_array();
-  		
-  		$condition = "edu.active_status = 1";
-    	$this->db->select('edu.education_id,edu.edu_name,edu_cat.cat_name,edu.edu_categoryid');
-	    $this->db->from('education edu');
-	    $this->db->join('education_category edu_cat','edu_cat.educationcategory_id=edu.edu_categoryid','inner');
-	    $this->db->where($condition);
-	    // $this->db->group_by('edu_cat.cat_name');
-	    $model_data['education_values'] = $this->db->get()->result_array();
+  		//Education and Occuaption with category
+	      $condition = "edu.active_status = 1";
+	      $this->db->select('edu.education_id,edu.edu_name,edu_cat.cat_name,edu.edu_categoryid');
+	      $this->db->from('education edu');
+	      $this->db->join('education_category edu_cat','edu_cat.educationcategory_id=edu.edu_categoryid','inner');
+	      $this->db->where($condition);
+	      // $this->db->group_by('edu_cat.cat_name');
+	      $model_data['education_values'] = $this->db->get()->result_array();
+	      // echo "<pre>";
+	      // print_r($model_data['education_values']);
+	      // echo "</pre>";
+	      $educategory = array();
+	      foreach ($model_data['education_values'] as $val) {
+	        $cat_name = $val['cat_name'];
+	        $education_id = $val['education_id'];
+	        $edu_name = $val['edu_name'];
+	        $educategory[$cat_name][$education_id] = $edu_name;
+	      }
+	      // echo "<pre>";
+	      // print_r($educategory);
+	      // echo "</pre>";
+	      $model_data['education_values'] = $educategory;
+
+	      $condition = "occ.active_status = 1";
+	      $this->db->select('occ.occupation_id,occ.occupation_name as occ_name,occ_cat.occupation_name as occ_cat,occ.occupation_catid');
+	      $this->db->from('occupation occ');
+	      $this->db->join('occupation_category occ_cat','occ_cat.occ_category_id=occ.occupation_catid','inner');
+	      $this->db->where($condition);
+	      $model_data['occupation_values'] = $this->db->get()->result_array();
+	      // echo $this->db->last_query();
+	      // echo "<pre>";
+	      // print_r($model_data['occupation_values']);
+	      // echo "</pre>";
+	      $occupationcategory = array();
+	      foreach ($model_data['occupation_values'] as $val) {
+	        $cat_name = $val['occ_cat'];
+	        $occupation_id = $val['occupation_id'];
+	        $occ_name = $val['occ_name'];
+	        $occupationcategory[$cat_name][$occupation_id] = $occ_name;
+	      }
+	      // echo "<pre>";
+	      // print_r($occupationcategory);
+	      // echo "</pre>";
+	      $model_data['occupation_values'] = $occupationcategory;
   		return $model_data;
   }
 
