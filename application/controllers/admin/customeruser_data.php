@@ -24,7 +24,8 @@ class Customeruser_Data extends CI_Controller {
 	    }
 	}
 	public function customer_user(){
-		$data_values = $this->customeruser_data_model->customer_user('init');
+		$profile_image = array();
+		$data_values = $this->customeruser_data_model->customer_user('init',$profile_image);
 		$data['customeruser_values'] = $data_values['customeruser_values'];
 		// // $data['mapped_data'] = $data_values['mapped_data'];
 		$this->load->view('admin/customer_user',$data);
@@ -74,11 +75,11 @@ class Customeruser_Data extends CI_Controller {
 				        }
 			      	}
 		      		else {
-		      					      		$filesCount = sizeof($_FILES['cus_profileimage']['name']);
-					$profile_image = array();
 					// echo "uploaded file";
 					// print_r($_FILES['cus_profileimage']['name']);
+		      		$profile_image = array();
 					if(!empty($_FILES['cus_profileimage']['name'][0]) && $filesCount > 0){
+							$filesCount = sizeof($_FILES['cus_profileimage']['name']);
 							// echo "if";
 							for($i = 0; $i < $filesCount; $i++){
 								// $profile_image = $_FILES['cus_profileimage']['name'];

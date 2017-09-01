@@ -369,19 +369,28 @@
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Religion : </label>
 															<div class="controls">
-															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['rel_religion'])) echo $customeruser_values['rel_religion']; ?>" name="cus_religion">
+															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['rel_religion'])) echo $customeruser_values['rel_religion']; ?>" name="cus_religion" disabled>
 															</div>												
 														  </div>
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Caste : </label>
 															<div class="controls">
-															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['rel_caste'])) echo $customeruser_values['rel_caste']; ?>" name="cus_caste">
+															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['rel_caste'])) echo $customeruser_values['rel_caste']; ?>" name="cus_caste" disabled>
 															</div>												
 														  </div>
 														  	<div class="control-group">
 																<label class="control-label" for="focusedInput">Dhosham : </label>
 																<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; ?>" name="cus_dosham">
+																<select data-rel="chosen" name="cus_dosham">
+																  <option value="">Select Dhosham</option>
+																  <?php 
+												                    foreach ($selection_values['dhosham_values'] as $dho_val):      
+												                        if($dho_val['dhosham_id'] == $customeruser_values['rel_dhosham'])  
+												                        	echo "<option selected value='".$dho_val['dhosham_id']."'>".$dho_val['name']."</option>";
+												                        else
+												                            echo "<option value='".$dho_val['dhosham_id']."'>".$dho_val['name']."</option>";                       
+												                    endforeach; ?>
+																  </select>
 																</div>
 														  	</div>
 														  	<div class="control-group">
@@ -416,7 +425,7 @@
 														  <div class="control-group">
 																<label class="control-label" for="focusedInput">Gothra : </label>
 																<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['rel_gothra'])) echo $customeruser_values['rel_gothra']; ?>" name="cus_gothra">
+																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['rel_gothra'])) echo $customeruser_values['rel_gothra']; ?>" name="cus_gothra" disabled>
 																</div>
 														  	</div>
 														  	<div class="control-group">
@@ -453,16 +462,17 @@
 																<div class="controls">
 																	<select data-placeholder="Education List" id="selectError2" data-rel="chosen" name="cus_education" class="form_inputs">
 																		<option value="">Select Education</option>
-																		<optgroup label="Bachelors- Engineering">
-																		  <option value="1">BE</option>
-																		  <option value="2">BTech</option>
-																		  <option value="3">BArch</option>
-																		</optgroup>
-																		<optgroup label="Bachelors- Arts and Science">
-																		  <option value="4">BSc</option>
-																		  <option value="5">BCom</option>
-																		  <option value="6">BCA</option>
-																		</optgroup>						
+				                                                        <?php 
+				                                                            foreach ($selection_values['education_values'] as $key => $edu_val):    
+				                                                                echo "<optgroup class='a' label='".$key."'>"; 
+				                                                                foreach ($edu_val as $e_id => $edu): 
+				                                                                    if($e_id == $customeruser_values['edu_education'])  
+				                                                                        echo "<option selected value='".$e_id."'>".$edu."</option>";
+				                                                                    else
+				                                                                        echo "<option value='".$e_id."'>".$edu."</option>";
+				                                                                endforeach;
+				                                                                echo "</optgroup>";
+				                                                            endforeach; ?>				
 																  </select>
 																</div>
 															  </div>
@@ -477,8 +487,18 @@
 															<label class="control-label">Occupation<b>*</b> : </label>
 															<div class="controls">
 															  <select data-rel="chosen" name="cus_occupation" class="form_inputs">
-																<option>Admin</option>
-																<option>Manager</option>
+																<option value="">Select Occupation</option>
+		                                                        <?php 
+		                                                            foreach ($selection_values['occupation_values'] as $key => $occ_val):    
+		                                                                echo "<optgroup class='a' label='".$key."'>"; 
+		                                                                foreach ($occ_val as $o_id => $ocu): 
+		                                                                    if($o_id == $customeruser_values['edu_occupation'])  
+		                                                                        echo "<option selected value='".$o_id."'>".$ocu."</option>";
+		                                                                    else
+		                                                                        echo "<option value='".$o_id."'>".$ocu."</option>";
+		                                                                endforeach;
+		                                                                echo "</optgroup>";
+		                                                            endforeach; ?>
 															  </select>
 															</div>
 														  </div>
@@ -956,10 +976,12 @@
 															<div class="modal-body login-box clearfix">
 																<ul id="media-list" class="clearfix">
 																<?php 
+																$image_count = 0;
 		                                                        if(!empty($customeruser_values['images_id'])){
 		                                                            $images_id = explode(",",$customeruser_values['images_id']);
 		                                                            $images = explode(",",$customeruser_values['images']);
 		                                                            $img_data = array_map(null,$images_id,$images);
+		                                                            $image_count = sizeof($img_data);
 		                                                            // echo "<pre>";
 		                                                            // print_r($img_data);
 		                                                            // echo "</pre>";
@@ -973,10 +995,11 @@
 		                                                                </div>
 		                                                            </div>
 		                                                        </li>
-		                                                        <?php }} ?>
+		                                                        <?php }} //if($image_count <8){ ?>
 																	<li class="myupload">
 																		<span class="user-img"><i class="icon32 icon-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload per-img-box user-img" name="cus_profileimage[]" multiple></span>
 																	</li>
+																<?php //} ?>	
 																</ul>
 															</div>
 															</div>											
