@@ -627,7 +627,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4 box">
-                                                     <input type="text" class="form-control" id="reg_mobile" placeholder="Mobile" name="reg_mobile">
+                                                     <input type="text" class="form-control" id="reg_mobile" placeholder="Mobile" name="reg_mobile" value="<?php if(!empty($registered_data)) echo $registered_data['comm_mobile_no']; ?>">                                                     
                                                 </div>
                                                 <div class="col-sm-4 box">
                                                  <span id="reg_mobile_error" class="registration-error"></span>
