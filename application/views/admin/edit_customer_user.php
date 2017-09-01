@@ -500,7 +500,7 @@
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Monthly Income<b>*</b> : </label>
 															<div class="controls">
-															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; ?>" name="cus_moninc" class="form_inputs">
+															  <input class="input-xlarge focused income-box" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; ?>" name="cus_moninc" class="form_inputs">
 															</div>											
 															</div>
 														  	<div class="control-group">
