@@ -659,7 +659,7 @@ $(window).load(function(){
       });
 });
 
-$(".bro_sis,.ph_num,.mob_num,.valli_id,.man_id,.age_reg").keypress(function (e) {
+$(".bro_sis,.mob_num,.valli_id,.man_id,.age_reg").keypress(function (e) {
     // var income =$(this).val();
     // var income =parseInt($(this).val());
     // var s = e.which;
@@ -692,6 +692,10 @@ $(".income-box").keyup(function (e) {
     }     
     
 });
+$(".ph_num").keyup(function (e) {
+    this.value = this.value.replace(/[^0-9 . , -]+/, '');
+        return false;    
+});
 // $('.mob_num,.income-box').keypress(function() {
      
 //      check for 3 or greater than 3 characters.
@@ -705,11 +709,14 @@ $(".income-box").keyup(function (e) {
 //     }
 // });
 $(".alphaonly").keypress(function(event){
-        var inputValue = event.which;
-        // allow letters and whitespaces only.
-        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
-            event.preventDefault(); 
-        }
+         var ew = event.which;
+        if(ew == 32)
+            return true;
+        if(65 <= ew && ew <= 90)
+            return true;
+        if(97 <= ew && ew <= 122)
+            return true;
+        return false;
     });
 
 // $(".income-box").blur(function (e) {
@@ -726,7 +733,7 @@ $('.bro_sis,.age_reg').keypress( function(e){
         $(this).val($(this).val().substr(0, 1));
     }
 });
-$('.mob_num,.income-box').keypress( function(e){
+$('.mob_num').keypress( function(e){
     if ($(this).val().length >= 10) { 
         $(this).val($(this).val().substr(0, 9));
     }

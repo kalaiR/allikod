@@ -67,7 +67,7 @@
                             <li id="links_list"><a href="<?php echo base_url(); ?>gallery">Gallery</a></li>
                             <li id="links_list"><a href="<?php echo base_url(); ?>success_stories">Success Stories</a></li>
                             <li id="links_list"><a href="<?php echo base_url(); ?>vanniyar">My Vanniyar</a></li>
-                            <li id="links_list"><a href="<?php echo base_url(); ?>payment">Payments</a></li>
+                            <li id="links_list"><a href="<?php echo base_url(); ?>payment">Payment</a></li>
                             <li id="links_list"><a href="<?php echo base_url(); ?>contact">Contact</a></li>
                         </ul>
                         </div>

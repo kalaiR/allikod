@@ -436,13 +436,13 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Current City : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+												  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Current District : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+												  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
@@ -454,13 +454,13 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Phone Number : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+												  <input class="input-xlarge focused ph_num" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Mobile Number * : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+												  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>					  							  
 											</fieldset>
@@ -570,25 +570,25 @@
 											<div class="control-group">
 												<label class="control-label" for="focusedInput">Father's Name * : </label>
 												<div class="controls">
-													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+													  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Father's Employment * : </label>
 												<div class="controls">
-													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+													  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Mother's Name * : </label>
+												<label class="control-label " for="focusedInput">Mother's Name * : </label>
 												<div class="controls">
-													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+													  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Mother's Employment * : </label>
 												<div class="controls">
-													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+													  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>										  
 											  <div class="control-group">
@@ -615,37 +615,37 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Brothers : </label>
 												<div class="controls">
-													  <input class="span4" id="focusedInput"  type="text" value="Elder" >
+													  <input class="span4 bro_sis" id="focusedInput"  type="text" value="Elder" >
 												</div>
 												<div class="controls">
-													  <input class="span4" id="focusedInput" type="text" value="Younger" >
+													  <input class="span4 bro_sis" id="focusedInput" type="text" value="Younger" >
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Sisters : </label>
 												<div class="controls">
-													  <input class="span4" id="focusedInput"  type="text" value="Elder" >
+													  <input class="span4 bro_sis" id="focusedInput"  type="text" value="Elder" >
 												</div>
 												<div class="controls">
-													  <input class="span4" id="focusedInput" type="text" value="Younger" >
+													  <input class="span4 bro_sis" id="focusedInput" type="text" value="Younger" >
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Married Brothers : </label>
 												<div class="controls">
-													  <input class="span4" id="focusedInput"  type="text" value="Elder" >
+													  <input class="span4 bro_sis" id="focusedInput"  type="text" value="Elder" >
 												</div>
 												<div class="controls">
-													  <input class="span4" id="focusedInput" type="text" value="Younger" >
+													  <input class="span4 bro_sis" id="focusedInput" type="text" value="Younger" >
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Married Sisters : </label>
 												<div class="controls">
-													  <input class="span4" id="focusedInput"  type="text" value="Elder" >
+													  <input class="span4 bro_sis" id="focusedInput"  type="text" value="Elder" >
 												</div>
 												<div class="controls">
-													  <input class="span4" id="focusedInput" type="text" value="Younger" >
+													  <input class="span4 bro_sis" id="focusedInput" type="text" value="Younger" >
 												</div>	
 											  </div>
 											  <div class="control-group">

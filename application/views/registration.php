@@ -1314,8 +1314,8 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                 <input class=" btnAction next_angkar_btn pull-right" type="button" name="back" id="back" value="Back" style="display:none;">
                                 <input class=" btnAction next_angkar_btn pull-right" type="button" name="next" id="next" value="Next" >
                                 <!--  Here popup-with-zoom-anim class required for registration popup successful -->
-                                <!-- <input class="btnAction next_angkar_btn pull-right login_btn popup-with-zoom-anim" href="#reg_finish" type="submit" name="finish" id="finish" value="Finish" style="display:none;"> -->
-                                <input class="btnAction next_angkar_btn pull-right login_btn" href="#reg_finish" type="submit" name="finish" id="finish" value="Finish" style="display:none;">
+                                <!-- <input class="btnAction next_angkar_btn pull-right popup-with-zoom-anim" href="#reg_finish" type="submit" name="finish" id="finish" value="Finish" style="display:none;"> -->
+                                <input class="btnAction next_angkar_btn pull-right" href="#reg_finish" type="submit" name="finish" id="finish" value="Finish" style="display:none;">
                             </div>
                         </div>
 

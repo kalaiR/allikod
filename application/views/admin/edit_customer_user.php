@@ -555,13 +555,13 @@
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Current City : </label>
 															<div class="controls">
-															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_current_city'])) echo $customeruser_values['comm_current_city']; ?>" name="cus_curcity">
+															  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_current_city'])) echo $customeruser_values['comm_current_city']; ?>" name="cus_curcity">
 															</div>												
 														  </div>
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Current District : </label>
 															<div class="controls">
-															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_current_district'])) echo $customeruser_values['comm_current_district']; ?>" name="cus_curdistrict">
+															  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_current_district'])) echo $customeruser_values['comm_current_district']; ?>" name="cus_curdistrict">
 															</div>												
 														  </div>
 														  <div class="control-group">
@@ -573,13 +573,13 @@
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Phone Number : </label>
 															<div class="controls">
-															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_phone_no'])) echo $customeruser_values['comm_phone_no']; ?>" name="cus_phone">
+															  <input class="input-xlarge focused ph_num" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_phone_no'])) echo $customeruser_values['comm_phone_no']; ?>" name="cus_phone">
 															</div>												
 														  </div>
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Mobile Number : </label>
 															<div class="controls">
-															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_mobile_no'])) echo $customeruser_values['comm_mobile_no']; ?>" name="cus_mobile">
+															  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_mobile_no'])) echo $customeruser_values['comm_mobile_no']; ?>" name="cus_mobile">
 															</div>												
 														  </div>					  							  
 														</fieldset>
@@ -718,25 +718,25 @@
 														<div class="control-group">
 															<label class="control-label" for="focusedInput">Father's Name<b>*</b> : </label>
 															<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_father_name'])) echo $customeruser_values['comm_father_name']; ?>" name="cus_fathername" class="form_inputs">
+																  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_father_name'])) echo $customeruser_values['comm_father_name']; ?>" name="cus_fathername" class="form_inputs">
 															</div>												
 														  </div>
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Father's Employment<b>*</b> : </label>
 															<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_father_employment'])) echo $customeruser_values['comm_father_employment']; ?>" name="cus_fatheremp" class="form_inputs">
+																  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_father_employment'])) echo $customeruser_values['comm_father_employment']; ?>" name="cus_fatheremp" class="form_inputs">
 															</div>												
 														  </div>
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Mother's Name<b>*</b> : </label>
 															<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_mother_name'])) echo $customeruser_values['comm_mother_name']; ?>" name="cus_mothername" class="form_inputs">
+																  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_mother_name'])) echo $customeruser_values['comm_mother_name']; ?>" name="cus_mothername" class="form_inputs">
 															</div>												
 														  </div>
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Mother's Employment<b>*</b> : </label>
 															<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_mother_employment'])) echo $customeruser_values['comm_mother_employment']; ?>" name="cus_motheremp" class="form_inputs">
+																  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_mother_employment'])) echo $customeruser_values['comm_mother_employment']; ?>" name="cus_motheremp" class="form_inputs">
 															</div>												
 														  </div>										  
 														  <div class="control-group">
@@ -774,8 +774,8 @@
 															<label class="control-label" for="prependedInput">No. of Brothers :</label>
 															<div class="controls">
 																<div class="input-prepend">
-																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el'])) echo $customeruser_values['comm_number_of_brothers_el']; ?>" name="cus_broelder">
-																  <span class="add-on">Younger</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_yo'])) echo $customeruser_values['comm_number_of_brothers_yo']; ?>" name="cus_broyoung">
+																  <span class="add-on">Elder</span><input class="span4 bro_sis" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el'])) echo $customeruser_values['comm_number_of_brothers_el']; ?>" name="cus_broelder">
+																  <span class="add-on">Younger</span><input class="span4 bro_sis" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_yo'])) echo $customeruser_values['comm_number_of_brothers_yo']; ?>" name="cus_broyoung">
 																</div>
 															</div>								
 														  </div>
@@ -783,8 +783,8 @@
 															<label class="control-label" for="prependedInput">No. of Sisters : </label>
 															<div class="controls">
 																<div class="input-prepend">
-																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el'])) echo $customeruser_values['comm_number_of_sisters_el']; ?>" name="cus_siselder">
-																   <span class="add-on">Younger</span><input class="span4" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_yo'])) echo $customeruser_values['comm_number_of_sisters_yo']; ?>" name="cus_sisyoung">
+																  <span class="add-on">Elder</span><input class="span4 bro_sis" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el'])) echo $customeruser_values['comm_number_of_sisters_el']; ?>" name="cus_siselder">
+																   <span class="add-on">Younger</span><input class="span4 bro_sis" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_yo'])) echo $customeruser_values['comm_number_of_sisters_yo']; ?>" name="cus_sisyoung">
 																  </div>
 															</div>								
 														  </div>
@@ -792,8 +792,8 @@
 															<label class="control-label" for="prependedInput">No. of Married Brothers : </label>
 															<div class="controls">
 																<div class="input-prepend">
-																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el_mar'])) echo $customeruser_values['comm_number_of_brothers_el_mar']; ?>" name="cus_broeldermar">
-																  <span class="add-on">Younger</span><input class="span4" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_yo_mar'])) echo $customeruser_values['comm_number_of_brothers_yo_mar']; ?>" name="cus_broyoungmar">
+																  <span class="add-on">Elder</span><input class="span4 bro_sis" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_el_mar'])) echo $customeruser_values['comm_number_of_brothers_el_mar']; ?>" name="cus_broeldermar">
+																  <span class="add-on">Younger</span><input class="span4 bro_sis" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['comm_number_of_brothers_yo_mar'])) echo $customeruser_values['comm_number_of_brothers_yo_mar']; ?>" name="cus_broyoungmar">
 																 </div>
 															</div>								
 														  </div>
@@ -801,8 +801,8 @@
 															<label class="control-label" for="prependedInput">No. of Married Sisters : </label>
 															<div class="controls">
 																<div class="input-prepend">
-																  <span class="add-on">Elder</span><input class="span4" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el_mar'])) echo $customeruser_values['comm_number_of_sisters_el_mar']; ?>" name="cus_siseldermar">
-																  <span class="add-on">younger</span><input class="span4" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_yo_mar'])) echo $customeruser_values['comm_number_of_sisters_yo_mar']; ?>" name="cus_sisyoungmar">
+																  <span class="add-on">Elder</span><input class="span4 bro_sis" id="prependedInput" style="width: 100px" type="text" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_el_mar'])) echo $customeruser_values['comm_number_of_sisters_el_mar']; ?>" name="cus_siseldermar">
+																  <span class="add-on">younger</span><input class="span4 bro_sis" id="prependedInput" type="text" style="width: 100px" value="<?php if(!empty($customeruser_values['comm_number_of_sisters_yo_mar'])) echo $customeruser_values['comm_number_of_sisters_yo_mar']; ?>" name="cus_sisyoungmar">
 																 </div>
 															</div>								
 														  </div>
