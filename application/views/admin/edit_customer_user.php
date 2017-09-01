@@ -955,8 +955,27 @@
 															 <div class="edit_img">
 															<div class="modal-body login-box clearfix">
 																<ul id="media-list" class="clearfix">
+																<?php 
+		                                                        if(!empty($customeruser_values['images_id'])){
+		                                                            $images_id = explode(",",$customeruser_values['images_id']);
+		                                                            $images = explode(",",$customeruser_values['images']);
+		                                                            $img_data = array_map(null,$images_id,$images);
+		                                                            // echo "<pre>";
+		                                                            // print_r($img_data);
+		                                                            // echo "</pre>";
+		                                                            foreach ($img_data as $value) {
+		                                                        ?>
+		                                                        <li>
+		                                                            <img class="cus_img" src="<?php echo media_url().USER_PROFILE_PATH."th_".$value[1]; ?>" alt="img" data-id="<?php echo $value[0]; ?>">
+		                                                            <div class="post-thumb">
+		                                                                <div class="inner-post-thumb">
+		                                                                    <a href="javascript:void(0);" class="remove-pic remove_act"><i class="icon icon-color icon-close" aria-hidden="true"></i></a>
+		                                                                </div>
+		                                                            </div>
+		                                                        </li>
+		                                                        <?php }} ?>
 																	<li class="myupload">
-																		<span class="user-img"><i class="icon32 icon-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload per-img-box user-img" multiple></span>
+																		<span class="user-img"><i class="icon32 icon-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload per-img-box user-img" name="cus_profileimage[]" multiple></span>
 																	</li>
 																</ul>
 															</div>

@@ -221,7 +221,7 @@ $(document).ready(function() {
             formData.append('rid', $(this).data('id'));
             // var formData = $(this).serialize();
             // alert(JSON.stringify(formData)); // It returns empty when stringify json data, but data has been passed
-            
+            formData.append('removed_images', image_array);
             rasi = [];
             $('.horo_row div').each(function() {
                 if($(this).find('img').length){
@@ -338,6 +338,13 @@ $(document).ready(function() {
       var paymenttype = $(this).val();
       // alert(paymenttype);
     });
+    //get id and store in array for removed images while edit profile
+    var image_array = [];
+    $('.remove_act').on('click', function(){
+        var image_id = $(this).parents("li").find('.cus_img').data('id');
+        if ($.inArray(image_id.toString(), image_array) != 0)
+            image_array.push(image_id);
+    });   
     
 
 });

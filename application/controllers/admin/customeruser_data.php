@@ -6,6 +6,7 @@ class Customeruser_Data extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('admin/customeruser_data_model');
+		$this->load->library('upload');
 	}
 	//edit_unique is predefined function. To overwrite here to pass custom message while validation
 	function edit_unique($value, $params) 
@@ -33,6 +34,7 @@ class Customeruser_Data extends CI_Controller {
 	}
 	public function edit_customer_user(){
 		if($_POST){
+			// print_r($_POST);
 			$secure_error = '';
 			// Validate add and update data
 		   	if($this->input->post('action')=='update' || $this->input->post('action')=='save') {
@@ -72,11 +74,72 @@ class Customeruser_Data extends CI_Controller {
 				        }
 			      	}
 		      		else {
-			    		$data_values = $this->customeruser_data_model->customer_user($action_post); 
+		      					      		$filesCount = sizeof($_FILES['cus_profileimage']['name']);
+					$profile_image = array();
+					// echo "uploaded file";
+					// print_r($_FILES['cus_profileimage']['name']);
+					if(!empty($_FILES['cus_profileimage']['name'][0]) && $filesCount > 0){
+							// echo "if";
+							for($i = 0; $i < $filesCount; $i++){
+								// $profile_image = $_FILES['cus_profileimage']['name'];
+								$_FILES['userFile']['name'] = $_FILES['cus_profileimage']['name'][$i];
+				                $_FILES['userFile']['type'] = $_FILES['cus_profileimage']['type'][$i];
+				                $_FILES['userFile']['tmp_name'] = $_FILES['cus_profileimage']['tmp_name'][$i];
+				                // $_FILES['userFile']['error'] = $_FILES['cus_profileimage']['error'][$i];
+				                $_FILES['userFile']['size'] = $_FILES['cus_profileimage']['size'][$i];
+								// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
+								$config['upload_path'] = FCPATH.USER_PROFILE_PATH; 
+								$config['allowed_types'] = FILETYPE_ALLOWED;//FILETYPE_ALLOWED which is defined constantly in constants file
+								$config['file_name'] = "new_".$_FILES['cus_profileimage']['name'][$i];
+								// $config['thumbfile_name'] = "th_".$_FILES['cus_profileimage']['name'][$i];
+								// $config['max_size']  = '1000';
+								// $config['max_width'] = '450';
+								// $config['max_height'] = '600';
+
+								$this->upload->initialize($config);
+								if($this->upload->do_upload('userFile')){
+								    $uploadData = $this->upload->data();
+								    // print_r($uploadData);
+								    array_push($profile_image,USER_PROFILE_PATH.$uploadData['file_name']);
+									$profile_image[$i] = str_replace("new_","",$uploadData['file_name']);
+									//thumbnail code creation
+									$userprofile_logo_thumb['image_library'] = 'gd2';						
+									$userprofile_logo_thumb['source_image'] = FCPATH.USER_PROFILE_PATH.$uploadData['file_name'];
+									$userprofile_logo_thumb['create_thumb'] = FALSE;						
+									$userprofile_logo_thumb['maintain_ratio'] = TRUE;
+									$userprofile_logo_thumb['width']  = 260;
+									$userprofile_logo_thumb['height']  = 260;
+									$userprofile_logo_thumb['new_image'] = "th_".$profile_image[$i];
+									$this->load->library('image_lib');
+									$this->image_lib->initialize($userprofile_logo_thumb);
+									// Resize operation
+									if (!$this->image_lib->resize()){
+				                		$data['status'] = strip_tags($this->image_lib->display_errors()); 
+									}
+									$this->image_lib->clear();
+								}else{
+									$data['error'] = 1;
+									$data['status'] = $this->upload->display_errors();
+								    // array_push($product_image,'');
+								    $profile_image[$i] = '';
+								    break;
+								}
+							}
+							// //Remove old image
+							// $cus_image = $this->user_model->get_customer_images($id); 
+							// print_r($cus_image);
+							// foreach ($cus_image as $value) {
+							// 	// echo FCPATH.USER_PROFILE_PATH.$value['images'];
+							// 	if($value['images']!='defalt_male.png' && $value['images']!='defalt_female.png')
+							// 		@unlink(FCPATH.USER_PROFILE_PATH.$value['images']);
+							// }
+							// print_r($profile_image);
+						}
+			    		$data_values = $this->customeruser_data_model->customer_user($action_post,$profile_image); 
 			    		$data['error'] = $data_values['error'];
 				        $data['status'] = $data_values['status'];	
 		      		}
-		      	}
+				}
 	      	}
 	      	if($data['error']==1) {
 				$result['status'] = $data['status'];
@@ -84,6 +147,7 @@ class Customeruser_Data extends CI_Controller {
 				echo json_encode($result);
 			}
 			else if($data['error']==2) {
+				$data_ajax['customerid_status'] = TRUE;
 				$data_ajax['customeruser_values'] = $data_values['customeruser_values'];
 				$data_ajax['status'] = $data['status'];
 				// $data_ajax['mapped_data'] = $data_values['mapped_data'];
