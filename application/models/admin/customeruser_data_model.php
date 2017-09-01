@@ -8,7 +8,7 @@ class Customeruser_data_model extends CI_Model {
   }
 
   // zodiac_sign - Add Edit Delete View
-  public function customer_user($status){
+  public function customer_user($status,$profile_image){
 	  	// $model_data['status'] = 0;
 	   //  $model_data['error'] = 0;
 
@@ -22,6 +22,7 @@ class Customeruser_data_model extends CI_Model {
 
 	    // Update data
 	    if($status=='update') {
+	      $id = $this->input->post('rid');
 	    	// echo $this->input->post('cus_dob');
 	      $res = $this->db->get_where('reg_userdetail', array('userdetail_id' => $this->input->post('rid')))->row_array();
 	      if(is_numeric($this->input->post('rid')) && !empty($res))
@@ -98,10 +99,6 @@ class Customeruser_data_model extends CI_Model {
 	                                'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
 	                                );
 	                // print_r($physicalattributes_update_data);
-	                $profileimage_update_data = array(
-	                				'images' => $this->input->post('cus_profileimage'),	
-	                              );
-					// print_r($profileimage_update_data);
 	        // }
 	        // else {
 	        //   $zodiac_update_data = array( 
@@ -207,6 +204,37 @@ class Customeruser_data_model extends CI_Model {
 		        $this->db->update("renew_detail", $paymentrenewal_data);
 			}
 
+			if(!empty($this->input->post('removed_images'))){
+              //Remove old image
+              $removed_images = explode(",",$this->input->post('removed_images'));
+              // print_r($removed_images);
+              $cus_image = $this->get_customer_images($id); 
+              $imagevalues = array();
+              foreach ($cus_image as $key => $value) {
+                  array_push($imagevalues, $value['userimages_id']);
+              }
+              // print_r($imagevalues);
+              foreach ($imagevalues as $value) {
+                if($value!='defalt_male.png' && $value!='defalt_female.png' && in_array($value, $removed_images)){
+                    //remove images from folder
+                    $image_delete_where = '(reg_user_id="'.$id.'" && userimages_id="'.$value.'")';
+                    $this->db->select('images');
+                    $imageselected = $this->db->get_where('user_images', $image_delete_where)->row_array();
+                    @unlink(FCPATH.USER_PROFILE_PATH."th_".$imageselected['images']);
+                    @unlink(FCPATH.USER_PROFILE_PATH."new_".$imageselected['images']);
+
+                    //remvove images from database
+                    $this->db->delete("user_images", $image_delete_where); 
+                }
+              }
+            }
+            if(!empty($profile_image)){
+                // $image_delete_where = '(reg_user_id="'.$id.'")';
+                // $this->db->delete("user_images", $image_delete_where); 
+                foreach ($profile_image as $value)
+                  $this->db->insert('user_images',array('reg_user_id' => $id,'images' =>$value));
+            }
+
 	        // echo $this->db->last_query(); 
 	        $model_data['status'] = "Updated Successfully";
 	        $model_data['error'] = 2;
@@ -264,14 +292,15 @@ class Customeruser_data_model extends CI_Model {
   public function customer_user_profile($id){
   		// View by id
   		$condition = "usr.userdetail_id = ".$id."";
-    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,pay.*,ren.*,pay.totalno_of_profile as paytotprofile,ren.totalno_of_profile as rentotprofile,ren.active_status as renewalstatus');
+    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,pay.*,ren.*,pay.totalno_of_profile as paytotprofile,ren.totalno_of_profile as rentotprofile,ren.active_status as renewalstatus,
+    		group_concat(images) as images,group_concat(userimages_id) as images_id');
 	    $this->db->from('reg_userdetail usr');
 	    $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
 	    $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
 	    $this->db->join('reg_communication_family cf','cf.reg_user_id=usr.userdetail_id','left');
 	    $this->db->join('reg_physical_expectation pe','pe.reg_user_id=usr.userdetail_id','left');
 	    $this->db->join('reg_image_horoscope ih','ih.reg_user_id=usr.userdetail_id','left');
-	    $this->db->join('reg_payment pm','pm.reg_user_id=usr.userdetail_id','left');
+	    // $this->db->join('reg_payment pm','pm.reg_user_id=usr.userdetail_id','left');
 	    $this->db->join('user_images img','img.reg_user_id=usr.userdetail_id','left');
 	    $this->db->join('registered_by rb','rb.registeredby_id=usr.user_registeredby','left');
 	    $this->db->join('marital_category mc','mc.maritalcategory_id=usr.user_maritalstatus','left');
@@ -286,6 +315,21 @@ class Customeruser_data_model extends CI_Model {
 	    $this->db->join('renew_detail ren','ren.reg_user_id=usr.userdetail_id','left');
 	    $this->db->where($condition); 
 	    $model_data['customeruser_values'] = $this->db->get()->row_array();
+
+	    $condition = "regedu.reg_user_id = ".$id."";
+      	$this->db->select('regedu.*,edu.education_id,edu.edu_name');
+      	$this->db->from('reg_selectededucation regedu');
+      	$this->db->join('education edu','edu.education_id=regedu.education_id','inner');
+      	$this->db->where($condition); 
+      	$model_data['customeruser_multiple_edu_values'] = $this->db->get()->result_array();
+
+      	$condition = "regmar.reg_user_id = ".$id."";
+      	$this->db->select('mar.maritalcategory_id');
+      	$this->db->from('reg_selectedmarital regmar');
+      	$this->db->join('marital_category mar','mar.maritalcategory_id=regmar.marital_category_id','inner');
+      	$this->db->where($condition); 
+      	$model_data['customeruser_multiple_marstatus_values'] = $this->db->get()->result_array();
+
 	   //  echo $this->db->last_query();
 	   //  echo "<pre>";
   		// print_r($model_data['customeruser_values']);
@@ -510,4 +554,12 @@ class Customeruser_data_model extends CI_Model {
         return;
       }
   }    
+  public function get_customer_images($id){
+    // $this->db->select('images');
+    // $image_data = $this->db->get_where('user_images', array('reg_user_id' => $id ))->result();
+    $this->db->select('userimages_id,images'); 
+    $this->db->from('user_images');   
+    $this->db->where('reg_user_id', $id);
+    return $this->db->get()->result_array();
+  }
 }
