@@ -44,24 +44,21 @@ function reg_validate() {
          $(".registration-error").html('');
 
         if($("#userdetails-field").css('display') != 'none') {
-
             if(!($("#register_email").val())) {
                 output = false;
                 $("#register_email-error").html("Required");
             } 
-            
             if($("#register_email").val()){
                 if(!$("#register_email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
                     $("#register_email-error").html("Invalid Email Id");
                     output = false;
                 }
-
             }
-            
-             if(!($("#reg_pass1").val())) {
-                 output = false;
+            if(!($("#reg_pass1").val() )){
+                  output = false;
                  $("#reg_passed_error").html("Required");
-             } 
+                
+            }
              if(!($("#reg_con_pass2").val())) {
                  output = false;
                  $("#reg_con_error").html("Required");
@@ -433,7 +430,6 @@ $(document).ready(function() {
             $('.nav-tabs > .active').next('li').find('a').trigger('click');
         }
     });
-
     $("#back").click(function(){ 
         var current = $(".highlight");
         var prev = $(".highlight").prev("li");
@@ -448,6 +444,7 @@ $(document).ready(function() {
                 $("#back").hide();          
             }
         }
+        $('.nav-tabs > .active').prev('li').find('a').trigger('click');
     });
 
     $('form#userlogin').submit(function() {
@@ -473,7 +470,6 @@ $(document).ready(function() {
     });
 
 // Tab Toggle
-
     // Active Tab Change
 //      $('#next').click(function(){
 //   $('.nav-tabs > .active').next('li').find('a').trigger('click');
@@ -663,8 +659,10 @@ $(window).load(function(){
       });
 });
 
-$(".income-box").keypress(function (e) {
+$(".income-box,.bro_sis,.ph_num,.mob_num,.valli_id,.man_id,.age_reg").keypress(function (e) {
     // var income =$(this).val();
+    // var income =parseInt($(this).val());
+    // var s = e.which;
      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
         return false;
        }
@@ -672,10 +670,28 @@ $(".income-box").keypress(function (e) {
        // if (income<0 && income>100){
        //  return false;
        // }
-       // alert(income);
-
-   
+       // alert(income)   
 });
+// $('.mob_num,.income-box').keypress(function() {
+     
+//      check for 3 or greater than 3 characters.
+//      If you check for only greater than 3, then it will let
+//      you write the fourth character because just before writing,
+//      it is not greater than three.
+     
+//      if($(this).val().length >= 10) {
+//         $(this).val($(this).val().substr(0, 10));
+//         return false;
+//     }
+// });
+$(".alphaonly").keypress(function(event){
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+    });
+
 // $(".income-box").blur(function (e) {
 //      var income =parseInt($(this).val());
 //        if (income<0 || income>100){
@@ -684,3 +700,15 @@ $(".income-box").keypress(function (e) {
 //        }
 //        // alert(income);
 // });
+// var max_chars = 2;
+$('.bro_sis,.age_reg').keypress( function(e){
+    if ($(this).val().length >= 1) { 
+        $(this).val($(this).val().substr(0, 1));
+    }
+});
+$('.mob_num,.income-box').keypress( function(e){
+    if ($(this).val().length >= 10) { 
+        $(this).val($(this).val().substr(0, 9));
+    }
+});
+     

@@ -1077,37 +1077,36 @@ class User_model extends CI_Model {
          
             // echo $this->db->last_query();
 
-            // if(!empty($this->input->post('removed_images'))){
-            //   //Remove old image
-            //   echo "removed_images";
-            //   print_r($this->input->post('removed_images'));
-            //   $cus_image = $this->get_customer_images($id); 
-            //   print_r($cus_image);
-            //   $imagevalues = array();
-            //   foreach ($cus_image as $key => $value) {
-            //       array_push($imagevalues, $value['images']);
-            //   }
-            //   print_r($imagevalues);
-            //   foreach ($imagevalues as $value) {
-            //     // echo FCPATH.USER_PROFILE_PATH.$value['images'];
-            //     echo $value;
-            //     echo "in_array_result".in_array($value, $imagevalues);
-            //     if($value!='defalt_male.png' && $value!='defalt_female.png' && in_array($value, $imagevalues)){
-            //       $image_delete_where = '(reg_user_id="'.$id.'" && images="'.$value.'")';
-            //       $this->db->delete("user_images", $image_delete_where); 
-            //       echo $this->db->last_query();
-            //       @unlink(FCPATH.USER_PROFILE_PATH."th_".$value);
-            //       @unlink(FCPATH.USER_PROFILE_PATH."new_".$value);
-            //     }
-            //   }
-            // }
+            if(!empty($this->input->post('removed_images'))){
+              //Remove old image
+              $removed_images = explode(",",$this->input->post('removed_images'));
+              // print_r($removed_images);
+              $cus_image = $this->get_customer_images($id); 
+              $imagevalues = array();
+              foreach ($cus_image as $key => $value) {
+                  array_push($imagevalues, $value['userimages_id']);
+              }
+              // print_r($imagevalues);
+              foreach ($imagevalues as $value) {
+                if($value!='defalt_male.png' && $value!='defalt_female.png' && in_array($value, $removed_images)){
+                    //remove images from folder
+                    $image_delete_where = '(reg_user_id="'.$id.'" && userimages_id="'.$value.'")';
+                    $this->db->select('images');
+                    $imageselected = $this->db->get_where('user_images', $image_delete_where)->row_array();
+                    @unlink(FCPATH.USER_PROFILE_PATH."th_".$imageselected['images']);
+                    @unlink(FCPATH.USER_PROFILE_PATH."new_".$imageselected['images']);
 
-            // if(!empty($profile_image)){
-            //     // $image_delete_where = '(reg_user_id="'.$id.'")';
-            //     // $this->db->delete("user_images", $image_delete_where); 
-            //     foreach ($profile_image as $value)
-            //       $this->db->insert('user_images',array('reg_user_id' => $id,'images' =>$value));
-            // }
+                    //remvove images from database
+                    $this->db->delete("user_images", $image_delete_where); 
+                }
+              }
+            }
+            if(!empty($profile_image)){
+                // $image_delete_where = '(reg_user_id="'.$id.'")';
+                // $this->db->delete("user_images", $image_delete_where); 
+                foreach ($profile_image as $value)
+                  $this->db->insert('user_images',array('reg_user_id' => $id,'images' =>$value));
+            }
 
             //Update Raasi and Amsam
             $rasi  = $this->input->post('rasi');
@@ -1343,7 +1342,7 @@ class User_model extends CI_Model {
   public function get_customer_images($id){
     // $this->db->select('images');
     // $image_data = $this->db->get_where('user_images', array('reg_user_id' => $id ))->result();
-    $this->db->select('images'); 
+    $this->db->select('userimages_id,images'); 
     $this->db->from('user_images');   
     $this->db->where('reg_user_id', $id);
     return $this->db->get()->result_array();

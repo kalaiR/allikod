@@ -185,13 +185,13 @@ if(isset($per_page)&&(!empty($total_rows)))
                               <p>  <?php if(!empty($value['rel_nakshathra_id'])){                             
                                 $val = $this->user_model->get_nakshathra($value['rel_nakshathra_id']);
                                 echo $val['name'];
-                                }?></p>
+                                }else "None";?></p>
                             </div>
                             <div class="col-md-5 col-xs-5 name-box">
                               <p><b>Religion</b></p>
                             </div>
                             <div class="col-md-6 col-xs-6">
-                                <p> <?php if(!empty($value['rel_religion'])){ echo $value['rel_religion'];}?></p>
+                                <p> <?php if(!empty($value['rel_religion'])){ echo $value['rel_religion'];} else "None"; ?></p>
                             </div>
                             <div class="col-md-5 col-xs-5 name-box">
                               <p><b>Education</b></p>
@@ -200,7 +200,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                                 <p> <?php if(!empty($value['edu_education'])){ 
                                     $val = $this->user_model->get_education($value['edu_education']);
                                     echo $val['edu_name'];
-                                    }?>
+                                    } else "None"; ?>
                                 </p>
                             </div>
                             <div class="col-md-5 col-xs-5 name-box">
@@ -210,7 +210,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                                 <p> <?php if(!empty($value['edu_occupation'])){ 
                                     $val = $this->user_model->get_occupation($value['edu_occupation']);
                                     echo $val['occupation_name'];
-                                    }?>
+                                    } else "None";?>
                                 </p>
                             </div>
                             <?php 

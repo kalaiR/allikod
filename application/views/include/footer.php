@@ -86,11 +86,11 @@
                         <ul>
                             <li><a href="<?php echo base_url(); ?>" class="fa fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="<?php echo base_url(); ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                            <!-- <li><a href="<?php echo base_url(); ?>"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li> -->
                             <li><a href="<?php echo base_url(); ?>"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                            <!-- <li><a href="<?php echo base_url(); ?>"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
+                            <!-- <li><a href="<?php echo base_url(); ?>"><i class="fa fa-flickr" aria-hidden="true"></i></a></li> -->
+                            <!-- <li><a href="<?php echo base_url(); ?>"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li> -->
                             <li><a href="<?php echo base_url(); ?>"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
