@@ -78,9 +78,11 @@ class Customeruser_Data extends CI_Controller {
 					// echo "uploaded file";
 					// print_r($_FILES['cus_profileimage']['name']);
 		      		$profile_image = array();
+		      		// print_r($_FILES['cus_profileimage']);
+		      		$filesCount = (!empty($_FILES['cus_profileimage']['name'][0])) ? sizeof($_FILES['cus_profileimage']['name']) : 0;
 					if(!empty($_FILES['cus_profileimage']['name'][0]) && $filesCount > 0){
-							$filesCount = sizeof($_FILES['cus_profileimage']['name']);
 							// echo "if";
+							// echo $filesCount;
 							for($i = 0; $i < $filesCount; $i++){
 								// $profile_image = $_FILES['cus_profileimage']['name'];
 								$_FILES['userFile']['name'] = $_FILES['cus_profileimage']['name'][$i];
