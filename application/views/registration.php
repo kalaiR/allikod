@@ -1146,7 +1146,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     <ul>
                                                         <li class="btn btn-default btn-file">
                                                             <span>Browse</span>
-                                                            <input type="file" click-type="type1" id="picupload" class="picupload" multiple>
+                                                            <input type="file" click-type="type1" id="uploadedfile" class="picupload" name="uploadedfile">
                                                         </li>
                                                     </ul>     
                                                 </div>
