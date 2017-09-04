@@ -44,7 +44,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                             <a href="search.html#dh-id" aria-controls="dh-id" role="tab" data-toggle="tab">Expectation</a>
                         </li>
                         <li role="presentation" class="#" id="horoscope">
-                            <a href="search.html#dh-id" aria-controls="dh-id" role="tab" data-toggle="tab">Image &amp;Horoscope</a>
+                            <a href="search.html#dh-id" aria-controls="dh-id" role="tab" data-toggle="tab">Image &amp; Horoscope</a>
                         </li>
                     </ul>
                 <form name="frmRegistration" id="registration-form" method="post" action="registration" enctype="multipart/form-data">    
@@ -525,12 +525,12 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                         </div>
                                         <div class="col-sm-8 aline-center-box base-box">
                                            <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                         <h4>Residence of</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <select class="form-control" name="resident[]" id="resident">
                                                            <option value="">Select</option>
                                                             <?php 
@@ -545,17 +545,17 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                             ?> 
                                                      </select>
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                    <span id="resident_error" class="registration-error"></span>
                                                 </div>     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                        <h4>Current Country</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <select class="form-control" name="cur_country[]" id="cur_country">
                                                             <option value="">Select</option>
                                                             <?php 
@@ -570,17 +570,17 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                             ?> 
                                                      </select>
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                   <span id="cur_country_error" class="registration-error"></span>
                                                 </div>     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                        <h4>Current City</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                    <input type="text" class="form-control alphaonly" id="reg_city" placeholder="City" name="reg_city">
                                                 </div>
                                                 <!-- <div class="col-sm-4 box">
@@ -588,12 +588,12 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div> -->     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                         <h4>District</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <input type="text" class="form-control alphaonly" id="reg_district" placeholder="District" name="reg_district">
                                                 </div>
                                                 <!-- <div class="col-sm-4 box">
@@ -601,12 +601,12 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div> -->     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                         <h4>Communication Address</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <textarea class="form-control" rows="5" id="comm_address" placeholder="Address" name="comm_address"></textarea>
                                                 </div>
                                                 <!-- <div class="col-sm-4 box">
@@ -614,12 +614,12 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div> -->     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                         <h4>Phone Number</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <input type="text" class="form-control ph_num" id="reg_phone" placeholder="Phone" name="reg_phone">
                                                 </div>
                                                 <!-- <div class="col-sm-4 box">
@@ -627,15 +627,15 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div> -->     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                          <h4>Mobile Number *</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                      <input type="text" class="form-control mob_num" id="reg_mobile" placeholder="Mobile" name="reg_mobile" value="<?php if(!empty($registered_data)) echo $registered_data['comm_mobile_no']; ?>">                                                     
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                  <span id="reg_mobile_error" class="registration-error"></span>
                                                 </div>     
                                             </div>
@@ -658,51 +658,51 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                         <h4>Mother's Name *</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                      <input type="text" class="form-control alphaonly" id="reg_mname" placeholder="MName" name="reg_mname">
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                  <span id="reg_mname_error" class="registration-error"></span>
                                                 </div>     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                         <h4>Father's Employment *</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <input type="text" class="form-control alphaonly" id="reg_femployment" placeholder="FEmployment" name="reg_femployment">
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                  <span id="reg_femployment_error" class="registration-error"></span>
                                                 </div>     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                         <h4>Mother's Employment *</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <input type="text" class="form-control alphaonly" id="reg_memployment" placeholder="MEmployment" name="reg_memployment">
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                  <span id="reg_memployment_error" class="registration-error"></span>
                                                 </div>     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                        <h4>Family Status *</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <select class="form-control" id="family_status" name="family_status[]">
                                                         <option value="">Select</option>
                                                         <?php 
@@ -714,17 +714,17 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                         ?>   
                                                     </select>
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                  <span id="family_status_error" class="registration-error"></span>
                                                 </div>     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                        <h4>Family Type *</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <select class="form-control" id="family_type" name="family_type[]">
                                                         <option value="">Select</option>
                                                         <?php 
@@ -736,81 +736,81 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                         ?>   
                                                     </select>
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                  <span id="family_type_error" class="registration-error"></span>
                                                 </div>     
                                             </div>
                                             <div class="row base-box">
                                                 <div class="col-sm-4">    
                                                 </div>
-                                                <div class="col-sm-2"> 
+                                                <div class="col-sm-2 box"> 
                                                     <label id="white">Elder</label>
                                                     </div> 
-                                                    <div class="col-sm-2"> 
+                                                    <div class="col-sm-2 box"> 
                                                     <label id="white">Younger</label>
                                                 </div> 
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                        <h4>No. of Brothers</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-2 box">
+                                                <div class="col-sm-2">
                                                      <input type="text" class="form-control bro_sis" id="reg_EBrother" placeholder="0" name="reg_EBrother">
                                                 </div>
-                                                <div class="col-sm-2 box">
+                                                <div class="col-sm-2">
                                                       <input type="text" class="form-control bro_sis" id="reg_YBrother" placeholder="0" name="reg_YBrother">
                                                 </div>
-                                               <!--  <div class="col-sm-4 box">
+                                               <!--  <div class="col-sm-4">
                                                  <span id="reg_mobile_error" class="registration-error"></span>
                                                 </div> -->     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                        <h4>No. of Sisters</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-2 box">
+                                                <div class="col-sm-2">
                                                      <input type="text" class="form-control bro_sis" id="reg_ESister" placeholder="0" name="reg_ESister">
                                                 </div>
-                                                <div class="col-sm-2 box">
+                                                <div class="col-sm-2">
                                                       <input type="text" class="form-control bro_sis" id="reg_YSister" placeholder="0" name="reg_YSister">
                                                 </div>
-                                               <!--  <div class="col-sm-4 box">
+                                               <!--  <div class="col-sm-4">
                                                  <span id="reg_mobile_error" class="registration-error"></span>
                                                 </div> -->     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                        <h4>No. of Married Brothers</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-2 box">
+                                                <div class="col-sm-2">
                                                       <input type="text" class="form-control bro_sis" id="reg_MEBrother" placeholder="0" name="reg_MEBrother">
                                                 </div>
-                                                <div class="col-sm-2 box">
+                                                <div class="col-sm-2">
                                                       <input type="text" class="form-control bro_sis" id="reg_MYBrother" placeholder="0" name="reg_MYBrother">
                                                 </div>
-                                               <!--  <div class="col-sm-4 box">
+                                               <!--  <div class="col-sm-4">
                                                  <span id="reg_mobile_error" class="registration-error"></span>
                                                 </div> -->     
                                             </div>
                                             <div class="row base-box">
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                     <div class="height_item">
                                                        <h4>No. of Married Sisters</h4>
                                                     </div>    
                                                 </div>
-                                                <div class="col-sm-2 box">
+                                                <div class="col-sm-2">
                                                     <input type="text" class="form-control bro_sis" id="reg_MESister" placeholder="0" name="reg_MESister">
                                                 </div>
-                                                <div class="col-sm-2 box">
+                                                <div class="col-sm-2">
                                                     <input type="text" class="form-control bro_sis" id="reg_MYSister" placeholder="0" name="reg_MYSister">
                                                 </div>
-                                               <!--  <div class="col-sm-4 box">
+                                               <!--  <div class="col-sm-4">
                                                  <span id="reg_mobile_error" class="registration-error"></span>
                                                 </div> -->     
                                             </div>
@@ -873,12 +873,12 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>   -->   
                                     </div>
                                     <div class="row base-box">
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                                 <div class="height_item">
                                                    <h4>Weight in KGs</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-4 box">                                                
+                                            <div class="col-sm-4">                                                
                                                  <select class="form-control" name="weight_in_kgs[]" id="weight_in_kgs">
                                                                                <?php 
                                                     for($i=37;$i<=113;$i++){
@@ -889,17 +889,17 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     ?>
                                                                             </select>
                                             </div>
-                                            <!-- <div class="col-sm-4 box">
+                                            <!-- <div class="col-sm-4">
                                                <span id="resident_error" class="registration-error"></span>
                                             </div>   -->   
                                     </div>
                                     <div class="row base-box">
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                                 <div class="height_item">
                                                     <h4>Body Type</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                                <select class="form-control" name="body_type[]" id="body_type">
                                                        <option value="">Select</option>
                                                          <?php 
@@ -911,17 +911,17 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                         ?>
                                                  </select>
                                             </div>
-                                            <!-- <div class="col-sm-4 box">
+                                            <!-- <div class="col-sm-4">
                                                <span id="resident_error" class="registration-error"></span>
                                             </div>   -->   
                                     </div>
                                     <div class="row base-box">
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                                 <div class="height_item">
                                                      <h4>Complexion</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                                <select class="form-control" name="complexion[]" id="complexion" >
                                                         <option value="">Select</option>
                                                         <?php 
@@ -933,24 +933,24 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                         ?>
                                                  </select>
                                             </div>
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                                <span id="complexion_error" class="registration-error"></span>
                                             </div>     
                                     </div>
                                     <div class="row base-box">
-                                            <div class="col-sm-4 base-box box">
+                                            <div class="col-sm-4 base-box">
                                                 <div class="height_item">
                                                     <h4 id="white">Physical Status</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                                <select class="form-control" name="physical_status[]" id="physical_status">
                                                         <option value="">Select</option>
                                                         <option value="1">Physically Challenged</option>
                                                         <option value="2">Normal</option>
                                                  </select>
                                             </div>
-                                            <!-- <div class="col-sm-4 box">
+                                            <!-- <div class="col-sm-4">
                                                <span id="physical_status_error" class="registration-error"></span>
                                             </div> -->     
                                     </div>
@@ -960,7 +960,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                    <h4>Food *</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                             <!-- *** -->
                                                <select class="form-control" name="food[]" id="food">
                                                        <option value="">Select</option>
@@ -973,17 +973,17 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                         ?>     
                                                  </select>
                                             </div>
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                             <span id="food_error" class="registration-error"></span>
                                             </div>     
                                     </div>
                                     <div class="row base-box">                                    
-                                            <div class="col-sm-4 base-box box">
+                                            <div class="col-sm-4 base-box">
                                                 <div class="height_item">
                                                  <h4>Your Personality</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                                <textarea class="form-control" rows="5" id="personality" name="personality" placeholder="Personality in Detail"></textarea>
                                             </div>
                                             <!-- <div class="col-sm-4 box">
@@ -1028,12 +1028,12 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>     
                                     </div>
                                      <div class="row base-box">
-                                            <div class="col-sm-4 base-box box">
+                                            <div class="col-sm-4 base-box">
                                                 <div class="height_item">
                                                    <h4>Marital Status *</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-8 box">
+                                            <div class="col-sm-8">
                                                <label class="checkbox-inline" id="white">
                                                
                                                 <input type="checkbox" value="Any" name="check_list[]" id="marital_status_any">Any</label>
@@ -1046,7 +1046,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     <label class="checkbox-inline"id="white">
                                                 <input type="checkbox" name="check_list[]" id="marital_status_divorced" value="marital_status_divorced">Divorced</label>
                                             </div>
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                                <!--  <span id="food_error" class="registration-error"></span> -->
                                             </div>     
                                     </div>
@@ -1068,12 +1068,12 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                             ?>
                                                      </select>
                                                 </div>
-                                                <div class="col-sm-4 box">
+                                                <div class="col-sm-4">
                                                    <span id="edu_error" class="registration-error"></span>
                                                 </div>     
                                             </div>
                                     <div class="row base-box">
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                                 <div class="height_item">
                                                     <h4>Diet *</h4>
                                                 </div>    
@@ -1091,17 +1091,17 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 <input type="radio" name="diet_egg" id="diet_egg" value="3">
                                                 Eggetarian</label> 
                                             </div>
-                                            <!-- <div class="col-sm-4 box">
+                                            <!-- <div class="col-sm-4">
                                                <span id="resident_error" class="registration-error"></span>
                                             </div>   -->   
                                     </div>
                                     <div class="row base-box">
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                                 <div class="height_item">
                                                    <h4>Expectation about Life Partner</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-4">
                                                    <textarea class="form-control" rows="5" id="expectation" placeholder="Expectation" name="expectation" id="expectation"></textarea>
                                             </div>
                                             <!-- <div class="col-sm-4 box">
