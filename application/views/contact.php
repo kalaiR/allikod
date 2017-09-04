@@ -412,7 +412,7 @@
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                                <div id="googleMap0" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                                <div id="googleMap00" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                         </div>
                     </div>
             </div>
@@ -470,7 +470,7 @@
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                                <div id="googleMap0" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                                <div id="googleMap123" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                                 <!--<div id="mapBox" class="mapBox row m0" 
                                     data-lat="12.225525" 
                                     data-lon="79.074697" 
@@ -509,7 +509,7 @@
                         <div class="address_item">
                             <h3>Location</h3>                            
         <!--================Map Area =================-->
-                            <div id="googleMap0" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
+                            <div id="googleMap321" style="width:600px; height:200px; position: relative; margin:0 0 0 0; background-color: rgb(229, 227, 223);"></div> 
                                 <!--<div id="mapBox" class="mapBox row m0" 
                                     data-lat="12.225525" 
                                     data-lon="79.074697" 
@@ -840,7 +840,87 @@ function initialize() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>             
+<!--==================================Map321=============================-->
+<script type="text/javascript">    
+    var map;
+function initialize() {
+  var mapOptions = {
+    zoom: 14,
+    center: {lat: 11.557544, lng: 79.555008}
+  };
+  map = new google.maps.Map(document.getElementById('googleMap321'),
+      mapOptions);
 
+  var marker = new google.maps.Marker({
+    
+    position: {lat: 11.557544, lng: 79.555008},
+    map: map
+  });
+
+  
+  var infowindow = new google.maps.InfoWindow({
+    content: '<p>Marker Location:' + marker.getPosition() + '</p>'
+  });
+
+  
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script> 
+<!--==================================Map123=============================-->
+<script type="text/javascript">    
+    var map;
+function initialize() {
+  var mapOptions = {
+    zoom: 14,
+    center: {lat: 12.504132, lng: 79.603149}
+  };
+  map = new google.maps.Map(document.getElementById('googleMap123'),
+      mapOptions);
+
+  var marker = new google.maps.Marker({
+    
+    position: {lat: 12.504132, lng: 79.603149},
+    map: map
+  });
+
+  
+  var infowindow = new google.maps.InfoWindow({
+    content: '<p>Marker Location:' + marker.getPosition() + '</p>'
+  });
+
+  
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<!--==================================Map00=============================-->
+<script type="text/javascript">    
+    var map;
+function initialize() {
+  var mapOptions = {
+    zoom: 14,
+    center: {lat: 12.827567, lng: 79.703423}
+  };
+  map = new google.maps.Map(document.getElementById('googleMap00'),
+      mapOptions);
+
+  var marker = new google.maps.Marker({
+    
+    position: {lat: 12.827567, lng: 79.703423},
+    map: map
+  });
+
+  
+  var infowindow = new google.maps.InfoWindow({
+    content: '<p>Marker Location:' + marker.getPosition() + '</p>'
+  });
+
+  
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>  
 <!--==================================Map3=============================-->
 
 <script type="text/javascript">    
