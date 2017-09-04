@@ -693,9 +693,14 @@ $(".income-box").keypress(function (e) {
     
 });
 $(".ph_num").keypress(function (e) {
-     $(this).val($(this).val().replace(/[^\d]+/, ""));
-        return false;    
+    // this.value = this.value.replace(/[^0-9 . , -]+/, '');
+        // return false;  
+        if (e.which != 46 && e.which != 45 && e.which != 46 &&
+      !(e.which >= 48 && e.which <= 57)) {
+    return false;
+  }  
 });
+
 // $('.mob_num,.income-box').keypress(function() {
      
 //      check for 3 or greater than 3 characters.

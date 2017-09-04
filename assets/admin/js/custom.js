@@ -339,25 +339,6 @@ $(document).ready(function() {
       // alert(paymenttype);
     });
 
-  $(".income-box").keyup(function (e) {
-    var inc =$(".income-box");
-    var key = String.fromCharCode( e.charCode || e.which);
-    var income =parseInt($(this).val());
-    var come = (inc.get(0).selectionStart - 1);
-     $(this).val($(this).val().replace(/[^\d]+/, ""));
-      if ( income == '0') {
-             $(this).val($(this).val().substr(0, 0));
-               
-            }
-    if(come == '0' && key == '0'){
-          $(this).val($(this).val().substr(0, 0));
-                    return false;
-          }
-     if($(this).val().length >= 8) {
-        $(this).val($(this).val().slice(0, 8));
-        return false;
-    }     
-  });  
     //get id and store in array for removed images while edit profile
     var image_array = [];
     $('.remove_act').on('click', function(){
@@ -366,7 +347,7 @@ $(document).ready(function() {
             image_array.push(image_id);
     });
        
-    $(".bro_sis,.mob_num,.valli_id,.man_id,.age_reg").keypress(function (e) {
+    $(".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_reg").keypress(function (e) {
     // var income =$(this).val();
     // var income =parseInt($(this).val());
     // var s = e.which;
@@ -379,12 +360,12 @@ $(document).ready(function() {
        // }
        // alert(income)   
 });
-$(".income-box").keyup(function (e) {
+$(".income-box").keypress(function (e) {
     var inc =$(".income-box");
     var key = String.fromCharCode( e.charCode || e.which);
     var income =parseInt($(this).val());
-    var come = (inc.get(0).selectionStart - 1);
-     $(this).val($(this).val().replace(/[^\d]+/, ""));
+    var come = (inc.get(0).selectionStart - 0);
+     // $(this).val($(this).val().replace(/[^\d]+/, ""));
       if ( income == '0') {
              $(this).val($(this).val().substr(0, 0));
                
@@ -399,9 +380,13 @@ $(".income-box").keyup(function (e) {
     }     
     
 });
-$(".ph_num").keyup(function (e) {
-    this.value = this.value.replace(/[^0-9 . , -]+/, '');
-        return false;    
+$(".ph_num").keypress(function (e) {
+    // this.value = this.value.replace(/[^0-9 . , -]+/, '');
+        // return false;  
+        if (e.which != 46 && e.which != 45 && e.which != 46 &&
+      !(e.which >= 48 && e.which <= 57)) {
+    return false;
+  }  
 });
 // $('.mob_num,.income-box').keypress(function() {
      
