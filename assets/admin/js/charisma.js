@@ -107,7 +107,25 @@ function docReady(){
 	
 	//datepicker
 	$('.datepicker').datepicker({dateFormat:'yy-mm-dd'});
-	
+		// Year change Getter
+	var changeYear = $( ".datepicker" ).datepicker( "option", "changeYear" );
+	 // Setter
+	$( ".datepicker" ).datepicker( "option", "changeYear", true );
+	// Month Change
+	$( ".datepicker" ).datepicker({
+	  changeMonth: true
+	});
+	var changeMonth = $( ".selector" ).datepicker( "option", "changeMonth" );
+	 // Setter
+	$( ".datepicker" ).datepicker( "option", "changeMonth", true );
+	// Year Range
+	$( ".datepicker" ).datepicker({
+	  yearRange: "1950:2000"
+	});
+	// Getter
+	var yearRange = $( ".datepicker" ).datepicker( "option", "yearRange" );
+	 // Setter
+	$( ".datepicker" ).datepicker( "option", "yearRange", "1950:2000" );	
 	//notifications
 	$('.noty').click(function(e){
 		e.preventDefault();
