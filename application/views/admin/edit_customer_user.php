@@ -183,7 +183,7 @@
 														  	<div class="control-group">
 															  <label class="control-label" for="date01">Date of Birth </label>
 															  <div class="controls">
-																<input type="text" class="input-xlarge" id="datepicker" value="<?php if(!empty($customeruser_values['user_dob'])) echo date("Y-m-d", strtotime($customeruser_values['user_dob'])); ?>" name="cus_dob">
+																<input type="text" class="input-xlarge datepicker" value="<?php if(!empty($customeruser_values['user_dob'])) echo date("Y-m-d", strtotime($customeruser_values['user_dob'])); ?>" name="cus_dob">
 															  </div>
 															</div>
 															

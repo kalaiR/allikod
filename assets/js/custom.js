@@ -204,86 +204,6 @@ function remove(array, property, value) {
 }
 
 $(document).ready(function() {
-	$(".bro_sis,.mob_num,.valli_id,.man_id,.age_reg").keypress(function (e) {
-    // var income =$(this).val();
-    // var income =parseInt($(this).val());
-    // var s = e.which;
-     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-        return false;
-       }
-       // var income =$(this).val();
-       // if (income<0 && income>100){
-       //  return false;
-       // }
-       // alert(income)   
-});
-$(".income-box").keyup(function (e) {
-    var inc =$(".income-box");
-    var key = String.fromCharCode( e.charCode || e.which);
-    var income =parseInt($(this).val());
-    var come = (inc.get(0).selectionStart - 1);
-     $(this).val($(this).val().replace(/[^\d]+/, ""));
-      if ( income == '0') {
-             $(this).val($(this).val().substr(0, 0));
-               
-            }
-    if(come == '0' && key == '0'){
-          $(this).val($(this).val().substr(0, 0));
-                    return false;
-          }
-     if($(this).val().length >= 8) {
-        $(this).val($(this).val().slice(0, 8));
-        return false;
-    }     
-    
-});
-$(".ph_num").keyup(function (e) {
-    this.value = this.value.replace(/[^0-9 . , -]+/, '');
-        return false;    
-});
-// $('.mob_num,.income-box').keypress(function() {
-     
-//      check for 3 or greater than 3 characters.
-//      If you check for only greater than 3, then it will let
-//      you write the fourth character because just before writing,
-//      it is not greater than three.
-     
-//      if($(this).val().length >= 10) {
-//         $(this).val($(this).val().substr(0, 10));
-//         return false;
-//     }
-// });
-$(".alphaonly").keypress(function(event){
-         var ew = event.which;
-        if(ew == 32)
-            return true;
-        if(65 <= ew && ew <= 90)
-            return true;
-        if(97 <= ew && ew <= 122)
-            return true;
-        return false;
-    });
-
-// $(".income-box").blur(function (e) {
-//      var income =parseInt($(this).val());
-//        if (income<0 || income>100){
-//         // return false;
-//         $(this).val('');
-//        }
-//        // alert(income);
-// });
-// var max_chars = 2;
-$('.bro_sis,.age_reg').keypress( function(e){
-    if ($(this).val().length >= 1) { 
-        $(this).val($(this).val().substr(0, 1));
-    }
-});
-$('.mob_num').keypress( function(e){
-    if ($(this).val().length >= 10) { 
-        $(this).val($(this).val().substr(0, 9));
-    }
-});
-
      $('.long').hide();
     // Rasi Horoscope - Start //
     var results_array = [];     
@@ -435,7 +355,7 @@ $('.mob_num').keypress( function(e){
 
     $("#dob").blur(function(){      
         var $birthday = $('#dob').val();
-        var age = calculateAge($birthday);
+        var age = calculateAge($birthday)
         $('#user_age').val(age);
         $('#display_age').val(age);
     });
@@ -739,5 +659,88 @@ $(window).load(function(){
       });
 });
 
+$(".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_reg").keypress(function (e) {
+    // var income =$(this).val();
+    // var income =parseInt($(this).val());
+    // var s = e.which;
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        return false;
+       }
+       // var income =$(this).val();
+       // if (income<0 && income>100){
+       //  return false;
+       // }
+       // alert(income)   
+});
+$(".income-box").keypress(function (e) {
+    var inc =$(".income-box");
+    var key = String.fromCharCode( e.charCode || e.which);
+    var income =parseInt($(this).val());
+    var come = (inc.get(0).selectionStart - 0);
+     // $(this).val($(this).val().replace(/[^\d]+/, ""));
+      if ( income == '0') {
+             $(this).val($(this).val().substr(0, 0));
+               
+            }
+    if(come == '0' && key == '0'){
+          $(this).val($(this).val().substr(0, 0));
+                    return false;
+          }
+     if($(this).val().length >= 8) {
+        $(this).val($(this).val().slice(0, 8));
+        return false;
+    }     
+    
+});
+$(".ph_num").keypress(function (e) {
+    // this.value = this.value.replace(/[^0-9 . , -]+/, '');
+        // return false;  
+        if (e.which != 46 && e.which != 45 && e.which != 46 &&
+      !(e.which >= 48 && e.which <= 57)) {
+    return false;
+  }  
+});
 
+// $('.mob_num,.income-box').keypress(function() {
+     
+//      check for 3 or greater than 3 characters.
+//      If you check for only greater than 3, then it will let
+//      you write the fourth character because just before writing,
+//      it is not greater than three.
+     
+//      if($(this).val().length >= 10) {
+//         $(this).val($(this).val().substr(0, 10));
+//         return false;
+//     }
+// });
+$(".alphaonly").keypress(function(event){
+         var ew = event.which;
+        if(ew == 32)
+            return true;
+        if(65 <= ew && ew <= 90)
+            return true;
+        if(97 <= ew && ew <= 122)
+            return true;
+        return false;
+    });
+
+// $(".income-box").blur(function (e) {
+//      var income =parseInt($(this).val());
+//        if (income<0 || income>100){
+//         // return false;
+//         $(this).val('');
+//        }
+//        // alert(income);
+// });
+// var max_chars = 2;
+$('.bro_sis,.age_reg').keypress( function(e){
+    if ($(this).val().length >= 1) { 
+        $(this).val($(this).val().substr(0, 1));
+    }
+});
+$('.mob_num').keypress( function(e){
+    if ($(this).val().length >= 10) { 
+        $(this).val($(this).val().substr(0, 9));
+    }
+});
      
