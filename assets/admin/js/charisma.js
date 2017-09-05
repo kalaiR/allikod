@@ -125,7 +125,16 @@ function docReady(){
 	// Getter
 	var yearRange = $( ".datepicker" ).datepicker( "option", "yearRange" );
 	 // Setter
-	$( ".datepicker" ).datepicker( "option", "yearRange", "1950:2000" );	
+	$( ".datepicker" ).datepicker( "option", "yearRange", "1950:2000" );
+	
+	// Time
+	$('#basic_example_2').timepicker();	
+	
+	$('#slider_example_4andHalf').timepicker({
+	controlType: 'select',
+	oneLine: true,
+	timeFormat: 'hh:mm tt'
+});
 	//notifications
 	$('.noty').click(function(e){
 		e.preventDefault();

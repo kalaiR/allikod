@@ -505,7 +505,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4">
-                                                     <textarea class="form-control" rows="5" id="occupationdetail" placeholder="Education in detail" name="occupationdetail"></textarea>
+                                                     <textarea class="form-control" rows="5" id="occupationdetail" placeholder="Occupation in detail" name="occupationdetail"></textarea>
                                                 </div>
                                                 <div class="col-sm-4 box">
                                                    <span id="occupationdetail_error" class="registration-error"></span>
