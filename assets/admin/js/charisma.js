@@ -128,7 +128,7 @@ function docReady(){
 	$( ".datepicker" ).datepicker( "option", "yearRange", "1950:2000" );
 	
 	// Time
-	$('#basic_example_2').timepicker();	
+	// $('#basic_example_2').timepicker();	
 	
 	$('#slider_example_4andHalf').timepicker({
 	controlType: 'select',
