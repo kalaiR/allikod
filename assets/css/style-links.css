@@ -698,7 +698,7 @@
     width:25%;
     margin-left: 0px;
     padding: 1px;
-    height:65px;
+    height:69px;
     font-family:Courier; color:white; font-size: 20px;
 }
 
@@ -938,4 +938,8 @@ overflow-y: scroll;
   font-size: 18px;
   font-style: normal;
   font-weight: bold;
+}
+.val_error
+{
+	text-align: center;
 }

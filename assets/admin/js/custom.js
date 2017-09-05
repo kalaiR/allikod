@@ -379,30 +379,19 @@ $(document).ready(function() {
        // }
        // alert(income)   
 });
-$(".income-box").keyup(function (e) {
-    var inc =$(".income-box");
-    var key = String.fromCharCode( e.charCode || e.which);
-    var income =parseInt($(this).val());
-    var come = (inc.get(0).selectionStart - 1);
-     $(this).val($(this).val().replace(/[^\d]+/, ""));
-      if ( income == '0') {
-             $(this).val($(this).val().substr(0, 0));
-               
-            }
-    if(come == '0' && key == '0'){
-          $(this).val($(this).val().substr(0, 0));
-                    return false;
-          }
-     if($(this).val().length >= 8) {
-        $(this).val($(this).val().slice(0, 8));
-        return false;
-    }     
-    
-});
+$(".income-box").keypress(function (e) {
+		    var inc =$(".income-box");
+		    var key = String.fromCharCode( e.charCode || e.which);
+		    var come = (inc.get(0).selectionStart - 0);
+		    if(come == '0' && key == '0'){
+		                    return false;
+		       }
+		        $(this).val($(this).val().slice(0, 7));
+		       	    
+		});
 $(".ph_num").keyup(function (e) {
-    this.value = this.value.replace(/[^0-9 . , -]+/, '');
-        return false;    
-});
+		    $(this).val($(this).val().replace(/[^\d , -]+/, ""));
+		});
 // $('.mob_num,.income-box').keypress(function() {
      
 //      check for 3 or greater than 3 characters.
@@ -415,25 +404,17 @@ $(".ph_num").keyup(function (e) {
 //         return false;
 //     }
 // });
-$(".alphaonly").keypress(function(event){
-         var ew = event.which;
-        if(ew == 32)
-            return true;
-        if(65 <= ew && ew <= 90)
-            return true;
-        if(97 <= ew && ew <= 122)
-            return true;
-        return false;
-    });
+// $(".alphaonly").keypress(function(event){
+         // var ew = event.which;
+        // if(ew == 32)
+            // return true;
+        // if(65 <= ew && ew <= 90)
+            // return true;
+        // if(97 <= ew && ew <= 122)
+            // return true;
+        // return false;
+    // });
 
-// $(".income-box").blur(function (e) {
-//      var income =parseInt($(this).val());
-//        if (income<0 || income>100){
-//         // return false;
-//         $(this).val('');
-//        }
-//        // alert(income);
-// });
 // var max_chars = 2;
 $('.bro_sis,.age_reg').keypress( function(e){
     if ($(this).val().length >= 1) { 
