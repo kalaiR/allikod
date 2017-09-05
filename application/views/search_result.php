@@ -160,7 +160,8 @@ if(isset($per_page)&&(!empty($total_rows)))
                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xs-12 border_box det_border">
+                    <!-- <div class=" col-xs-12"></div> -->
+                    <div class="col-md-6 border_box det_border">
                         <div class="head-box"><h4>Vallikodi ID : V1
                           <?php if(!empty($value['userdetail_id'])){ echo $value['userdetail_id'];}?></h4>
                         </div>
@@ -240,7 +241,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                                         </p>
                                     </div>
                                 <?php }else{ ?>
-                                     <a class="popup-with-zoom-anim" href="#small-dialog">View Full Details</a>
+                                     <a class="popup-with-zoom-anim low_pad" href="#small-dialog">View Full Details</a>
                                 <?php } ?>    
                             </div>
                         <!-- </div> -->
@@ -283,10 +284,10 @@ if(isset($per_page)&&(!empty($total_rows)))
                                         </div>
                             <?php endif;
                             ?>
-                            </div>
-                    </div>
-                </div>        
-            </div>
+                            </div> <!-- col-md-12 ends -->
+                    </div> <!-- col-md-9 -->
+                </div> <!-- row ends  -->    
+            </div> <!-- container ends -->
         </section>
 <?php 
     include('include/footer.php');

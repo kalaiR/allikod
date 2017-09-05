@@ -30,6 +30,7 @@
 	<link href="<?php echo media_url(); ?>assets/admin/css/bootstrap-responsive.css" rel="stylesheet">
 	<link href="<?php echo media_url(); ?>assets/admin/css/charisma-app.css" rel="stylesheet">
 	<link href="<?php echo media_url(); ?>assets/admin/css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+	<link href="<?php echo media_url(); ?>assets/admin/css/jquery-ui-timepicker-addon.css" rel="stylesheet">
 	<link href='<?php echo media_url(); ?>assets/admin/css/fullcalendar.css' rel='stylesheet'>
 	<link href='<?php echo media_url(); ?>assets/admin/css/fullcalendar.print.css' rel='stylesheet'  media='print'>
 	<link href='<?php echo media_url(); ?>assets/admin/css/chosen.css' rel='stylesheet'>

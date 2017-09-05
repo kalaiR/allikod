@@ -317,15 +317,17 @@ class User_model extends CI_Model {
 
   public function get_recent_profile(){
       //Female
-      $bride_query = $this->db->query("select usr.userdetail_id, group_concat(usr_img.images) as images, usr.user_gender from reg_userdetail as usr 
-        LEFT JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
-        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' AND usr.user_gender = 2 GROUP BY usr.userdetail_id ORDER BY usr.userdetail_id DESC limit 10");
+      // $bride_query = $this->db->query("select usr.userdetail_id, group_concat(usr_img.images) as images, usr.user_gender from reg_userdetail as usr 
+      //   LEFT JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
+      //   usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' AND usr.user_gender = 2 GROUP BY usr.userdetail_id ORDER BY usr.userdetail_id DESC limit 10");
+      $bride_query = $this->db->query("select usr.userdetail_id, group_concat(usr_img.images) as images, usr.user_gender from reg_userdetail as usr INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where usr.user_active_status =1 AND usr.user_featured_profile_status=1 AND usr.user_gender=1 group by reg_user_id ORDER BY usr.userdetail_id DESC limit 10");
       $query['bride'] = $bride_query->result_array(); 
 
       //Male
-      $groom_query = $this->db->query("select usr.userdetail_id, group_concat(usr_img.images) as images, usr.user_gender from reg_userdetail as usr 
-        LEFT JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
-        usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' AND usr.user_gender = 1 GROUP BY usr.userdetail_id ORDER BY usr.userdetail_id DESC limit 10");
+      // $groom_query = $this->db->query("select usr.userdetail_id, group_concat(usr_img.images) as images, usr.user_gender from reg_userdetail as usr 
+      //   LEFT JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where 
+      //   usr.user_active_status =1 AND usr_img.images != '' AND usr_img.images != 'defalt_male.png' AND usr_img.images != 'defalt_female.png' AND usr.user_gender = 1 GROUP BY usr.userdetail_id ORDER BY usr.userdetail_id DESC limit 10");
+      $groom_query = $this->db->query("select usr.userdetail_id, group_concat(usr_img.images) as images, usr.user_gender from reg_userdetail as usr INNER JOIN user_images as usr_img on usr_img.reg_user_id = usr.userdetail_id where usr.user_active_status =1 AND usr.user_featured_profile_status=1 AND usr.user_gender=2 group by reg_user_id ORDER BY usr.userdetail_id DESC limit 10");
       $query['groom'] = $groom_query->result_array();
       return $query;
   }
