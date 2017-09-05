@@ -30,9 +30,7 @@
                             <div class="registration_form_s">
                                 <h4>Registration</h4>
                                 <form method="post" action="<?php echo base_url(); ?>index" name="index_reg" id="index_reg" class="reg_form">
-                                <span class="val_status" style="display: block;">
-                                    <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
-                                </span>
+                                <span id="reg_Name_error" class="registration-error"></span>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <span data-bind="label" class="text-font">Registered By *</span>
@@ -49,7 +47,7 @@
                                                         <li><a href="<?php //echo base_url(); ?>#">Sister</a></li>
                                                     </ul> -->
                                                     
-                                                    <select class="form-control customize_plan form_inputs" name="register_by[]" id="register_by" placeholder="RegisterBy-Name">
+                                                    <select class="form-control customize_plan register_by" name="register_by[]" id="register_by" value="" placeholder="RegisterBy-Name">
                                                         <option value="">Select</option>
                                                         <?php
                                                         if(!empty($register)) :
@@ -68,7 +66,7 @@
                                          </div>
                                         <div class="col-md-6">  
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs alphaonly" id="reg_Name" placeholder="Your Name" name="reg_Name">
+                                                <input type="text" class="form-control reg_Name alphaonly" id="reg_Name" value="" placeholder="Your Name" name="reg_Name">
                                             </div>
                                         </div>    
                                     </div>    
@@ -182,7 +180,7 @@
                                     <div class="reg_chose form-group">
                                         <!--  Here popup-with-zoom-anim class required for registration popup successful -->
                                         <!-- <button type="submit" value="LogIn" class="btn form-control login_btn popup-with-zoom-anim" href="#reg_form">Register</button> -->
-                                        <button type="submit" value="LogIn" class="btn form-control login_btn" href="#reg_form">Register</button>
+                                        <button type="submit" value="LogIn" class="btn form-control login_btn" href="#reg_form" id="q-reg">Register</button>
                                     </div>
                                     <!-- <div class="login_form_inner zoom-anim-dialog mfp-hide" id="reg_form">
                                         <div class="box first_reg">

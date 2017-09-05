@@ -38,11 +38,23 @@ function reg_mailcheckuser(){
                     return ajx_output;
             }
 }
-
+function qreg_validate(){
+    var output = true;   
+    $(".registration-error").html('');
+        if($(".reg_form").css('display') != 'none') {
+        	var test =$(".reg_Name").val();
+   
+        	if(!($(".reg_Name").val())) {
+        		alert(test);
+                output = false;
+                $(".reg_Name-error").html("Required");
+            }                                                                                                                                                                                                                                                                    
+        } 
+        return output;     
+   }
 function reg_validate() {
     var output = true;     
          $(".registration-error").html('');
-
         if($("#userdetails-field").css('display') != 'none') {
             if(!($("#register_email").val())) {
                 output = false;
@@ -481,7 +493,9 @@ $(document).ready(function() {
         }
         
     });
-
+    $("#q-reg").click(function(){
+    	 var output = qreg_validate();
+   });
     $("#next, #finish").click(function(){
         var ajx_output;            
         var output = reg_validate();

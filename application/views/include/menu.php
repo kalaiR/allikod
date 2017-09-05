@@ -27,7 +27,7 @@
 </div>
 <div class="login_form_inner zoom-anim-dialog mfp-hide" id="forgot_form">
    <h4>User Login</h4>
-   <form method="post" action="<?php echo base_url(); ?>login_ajax" name="userlogin" id="userlogin" class="forgot_form">
+   <form method="post" action="#" name="user_forgot" id="user_forgot" class="forgot_form">
     <div class="row">
         <div class="box">
             <span class="val_status" style="display: block;"></span>
