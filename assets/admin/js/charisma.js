@@ -128,12 +128,10 @@ function docReady(){
 	$( ".datepicker" ).datepicker( "option", "yearRange", "1950:2000" );
 	
 	// Time
-	// $('#basic_example_2').timepicker();	
-	
-	$('#slider_example_4andHalf').timepicker({
-	controlType: 'select',
-	oneLine: true,
-	timeFormat: 'hh:mm tt'
+	$('.slider_example_1').timepicker({
+	hourGrid: 4,
+	minuteGrid: 10,
+	timeFormat: 'hh-mm-tt'
 });
 	//notifications
 	$('.noty').click(function(e){
