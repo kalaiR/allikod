@@ -939,3 +939,7 @@ overflow-y: scroll;
   font-style: normal;
   font-weight: bold;
 }
+.val_error
+{
+	text-align: center;
+}
