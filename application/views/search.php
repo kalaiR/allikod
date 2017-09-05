@@ -39,7 +39,7 @@ include('include/menu.php');
                                             </div>
                                             <!-- Basic Search -->
                                             <form method="post" class="box basic_search" action="search_result" id="basic_search" name="basic_search" >
-                                            <span class="val_status" style="display: block;">
+                                            <span class="val_status">
                                             <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
                                             </span>
                                             <div class="col-sm-10  aline-center-box">
@@ -247,6 +247,7 @@ include('include/menu.php');
                                 </div>    
                                         </div>
                                         <form method="post" class="box basic_search" action="<?php echo base_url();?>search_result" id="advance_search_form" name="advance_search_form" >
+                                        <span class="val_status"></span>
                                         <div class="col-sm-10  aline-center-box">
                                             <div class="row">
                                                 <div class="col-sm-4 base-box">
@@ -434,7 +435,7 @@ include('include/menu.php');
                                                 </div>
                                                 <div class="col-sm-6 box">
                                                      <div class="col-sm-5 box">
-                                                        <select multiple style="width:300px;" tabindex="4" class="chosen-select form-control customize_plan" data-placeholder="Please Select" name="mother_tongue[]" id="mother_tongue second">
+                                                        <select multiple style="width:300px;" tabindex="4" class="chosen-select form-control customize_plan form_inputs" data-message="Mother Tongue" data-placeholder="Please Select" name="mother_tongue[]" id="mother_tongue second">
                                                             <?php 
                                                                         if(!empty($mother_tongue)) :
                                                                         foreach ($mother_tongue as $cls_val) {
@@ -462,7 +463,7 @@ include('include/menu.php');
                                                 <div class="col-sm-6 box">
                                                     <div class="col-sm-5 box">                          
 
-                                                        <select multiple style="width:300px;" tabindex="4" class="chosen-select form-control" data-placeholder="Please Select" name="education[]" id="education second">
+                                                        <select multiple style="width:300px;" tabindex="4" class="chosen-select form-control form_inputs" data-message="Education" data-placeholder="Please Select" name="education[]" id="education second">
                                                         <?php 
                                                         if(!empty($education_category)) :
                                                             foreach ($education_category as $cls_val) {
@@ -525,13 +526,14 @@ include('include/menu.php');
                                     </div>
                                 </div>
                                 <div class="row">
-                                <form method="post" class="box" action="search_result" id="search_id" name="search_id" >
+                                <form method="post" class="box basic_search" action="search_result" id="search_id" name="search_id" >
+                                	<span class="val_status"></span>
                                         <div class="col-sm-6 aline-center-box ">
                                             <div class="col-sm-6 ">
                                                 <div class="registration_form_area form-box" id="registration_form_are_box">
                                                     <div class="registration_form_s_box" id="registration_form_s_box">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control valli_id" id="searchby_id" name="searchby_id" placeholder="" value="" required>      
+                                                                <input type="text" class="form-control valli_id form_inputs" data-message="vallikodi ID"  id="searchby_id" name="searchby_id" placeholder="" value="">      
                                                             </div>
                                                      </div>
                                                 </div>
@@ -563,12 +565,13 @@ include('include/menu.php');
                                 </div>
                                 <div class="row">                                    
                                     <form method="post" class="box basic_search" action="search_result" id="search_manual" name="search_manual" >
+                                    	<span class="val_status"></span>
                                         <div class="col-sm-6 aline-center-box ">
                                             <div class="col-sm-6 ">
                                                 <div class="registration_form_area form-box " id="registration_form_are_box">
                                                     <div class="registration_form_s_box" id="registration_form_s_box">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control man_id" id="search_manual_id" name="search_manual_id" placeholder="" required>      
+                                                                <input type="text" class="form-control man_id form_inputs" data-message="manual ID" id="search_manual_id" name="search_manual_id" placeholder="">      
                                                             </div>
                                                      </div>
                                                 </div>
@@ -601,13 +604,14 @@ include('include/menu.php');
                                 </div>
                                 <div class="row">
                                     <form action="<?php echo base_url(); ?>search_result" class="box basic_search" method="post" id="search_dhosham" name="search_dhosham">
+                                    	<span class="val_status"></span>
                                         <div class="col-sm-6 aline-center-box ">
                                             <div class="col-sm-6 ">
                                                 <div class="registration_form_area form-box" id="registration_form_are_box">
                                                     <div class="registration_form_s_box" id="registration_form_s_box">
                                                              <div class="col-sm-6 ">
                                                                     <div class="height_item">
-                                                                     <select class="selectpicker" name="dhosham[]" id="dhosham">
+                                                                     <select class="selectpicker form_inputs form-field-error" data-message="dhoam" name="dhosham[]" id="dhosham">
                                                                            <option value="">Select</option>
                                                                                <?php 
                                                                                 if(!empty($dhosham)) :

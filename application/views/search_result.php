@@ -95,7 +95,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                             $default_images = "defalt_male.png";
                     }
                     ?>                        
-                    <div class="col-md-4 col-sm-6">                    
+                    <div class="col-md-4 col-xs-6">                    
                          <?php                             
                             if(!empty($prefix_one_status))
                                 $prefix = $prefix_one;
@@ -104,7 +104,6 @@ if(isset($per_page)&&(!empty($total_rows)))
 
                         // echo  "prefix===========>".$prefix;                                   
                         ?>
-                        <!-- <div class="main_photo"> -->
                         <img src="<?php 
                             if((!empty($value['images']))&&(!empty($prefix))): 
                                 echo media_url()."uploads/profile/".$prefix.$latest_images; 
@@ -160,8 +159,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                            </div>
                         </div>
                     </div>
-                    <!-- <div class=" col-xs-12"></div> -->
-                    <div class="col-md-6 border_box det_border">
+                    <div class="col-md-6 col-xs-12 border_box det_border">
                         <div class="head-box"><h4>Vallikodi ID : V1
                           <?php if(!empty($value['userdetail_id'])){ echo $value['userdetail_id'];}?></h4>
                         </div>
@@ -241,7 +239,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                                         </p>
                                     </div>
                                 <?php }else{ ?>
-                                     <a class="popup-with-zoom-anim low_pad" href="#small-dialog">View Full Details</a>
+                                     <a class="popup-with-zoom-anim" href="#small-dialog">View Full Details</a>
                                 <?php } ?>    
                             </div>
                         <!-- </div> -->
@@ -261,7 +259,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                                             <div class='col-md-5 pagination-box clearfix' style='display:inline-block'>" .$links . "
                                             </div>";
                                             if(!empty($pages)) : ?>
-                                            <div class="col-md-1 goto">Go to</div>
+                                            <div class="col-md-2 goto">Go to</div>
                                             <div class="col-md-1 dir_page">
                                               <select class="extra_drop pagination_scrol" name="pagination_dropdown" id="pagination_dropdown" 
                                               onchange="location = this.value;">                                               
