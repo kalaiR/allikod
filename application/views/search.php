@@ -611,7 +611,7 @@ include('include/menu.php');
                                                     <div class="registration_form_s_box" id="registration_form_s_box">
                                                              <div class="col-sm-6 ">
                                                                     <div class="height_item">
-                                                                     <select class="selectpicker" data-message="dhoam" name="dhosham[]" id="dhosham">
+                                                                     <select class="selectpicker form_inputs form-field-error" data-message="dhosham" name="dhosham[]" id="dhosham">
                                                                            <option value="">Select</option>
                                                                                <?php 
                                                                                 if(!empty($dhosham)) :
