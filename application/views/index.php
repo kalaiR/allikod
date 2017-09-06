@@ -30,7 +30,8 @@
                             <div class="registration_form_s">
                                 <h4>Registration</h4>
                                 <form method="post" action="<?php echo base_url(); ?>index" name="index_reg" id="index_reg" class="reg_form">
-                                <span id="reg_Name_error" class="registration-error"></span>
+                                
+                                <!-- <span class="val_status"></span> -->
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <span data-bind="label" class="text-font">Registered By *</span>
@@ -47,7 +48,7 @@
                                                         <li><a href="<?php //echo base_url(); ?>#">Sister</a></li>
                                                     </ul> -->
                                                     
-                                                    <select class="form-control customize_plan register_by" name="register_by[]" id="register_by" value="" placeholder="RegisterBy-Name">
+                                                    <select class="form-control customize_plan register_by" name="register_by[]" id="register_by"  placeholder="RegisterBy-Name">
                                                         <option value="">Select</option>
                                                         <?php
                                                         if(!empty($register)) :
@@ -57,6 +58,7 @@
                                                         endif;
                                                         ?>
                                                     </select>
+                                                    <span id="register_by_error" class="registration-error"></span>
                                                 </div>
                                             </div>    
                                     </div>
@@ -66,17 +68,19 @@
                                          </div>
                                         <div class="col-md-6">  
                                             <div class="form-group">
-                                                <input type="text" class="form-control reg_Name alphaonly" id="reg_Name" value="" placeholder="Your Name" name="reg_Name">
+                                                <input type="text" class="form-control reg_Name alphaonly" id="reg_Name" value="" placeholder="Your Name" name="reg_Name" value="">
+                                                <span id="reg_Name_error" class="registration-error"></span>
                                             </div>
                                         </div>    
                                     </div>    
                                     <div class="row">
                                         <div class="col-sm-6 box">
-                                            <span data-bind="label" class="text-font">Age *</span>
+                                            <span data-bind="label" class="text-font">Age *</span>  
                                          </div>
                                         <div class="col-md-6">     
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs age_reg" id="reg_age" placeholder="Your Age" name="reg_age">
+                                                <input type="text" class="form-control form_inputs age_reg" id="reg_age" placeholder="Your Age" name="reg_age" value="">
+                                                 <span id="reg_age_error" class="registration-error"></span>
                                             </div>
                                         </div>    
                                     </div>    
@@ -86,7 +90,7 @@
                                          </div>
                                         <div class="col-md-6">    
                                             <div class="form-group">
-                                                <select class="form-control customize_plan form_inputs" name="country[]" id="country" placeholder="Country Name">
+                                                <select class="form-control customize_plan form_inputs country" name="country[]" id="country" placeholder="Country Name" value="">
                                                         <option value="">Select</option>
                                                         <?php
                                                         if(!empty($country)) :
@@ -99,6 +103,7 @@
                                                         endif;
                                                         ?>
                                                     </select>
+                                                    <span id="country_error" class="registration-error"></span>
                                             </div>
                                         </div>    
                                     </div>
@@ -108,7 +113,7 @@
                                          </div>
                                         <div class="col-md-6">
                                             <div class="form-group">                                                
-                                                <select class="form-control customize_plan form_inputs" name="mother_tongue[]" id="mother_tongue" placeholder="MotherTongue">
+                                                <select class="form-control customize_plan form_inputs mother_tongue" name="mother_tongue[]" id="mother_tongue" placeholder="MotherTongue" value="">
                                                         <option value="">Select</option>
                                                         <?php
                                                         if(!empty($mother_tongue)) :
@@ -121,6 +126,7 @@
                                                         endif;
                                                         ?>
                                                     </select>
+                                                    <span id="mother_tongue_error" class="registration-error"></span>
                                             </div>
                                         </div>         
                                     </div>
@@ -130,7 +136,8 @@
                                          </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs mob_num" id="reg_Mobile" name="reg_Mobile" placeholder="Mobile Number">
+                                                <input type="text" class="form-control form_inputs mob_num reg_Mobile" id="reg_Mobile" name="reg_Mobile" placeholder="Mobile Number" value="">
+                                                <span id="reg_Mobile_error" class="registration-error"></span>
                                             </div>
                                         </div>
                                     </div>    
@@ -140,7 +147,8 @@
                                          </div>
                                          <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="email" class="form-control form_inputs" id="reg_email2" name="reg_email2" placeholder="Email Id">
+                                                <input type="text" class="form-control form_inputs" id="reg_email2" name="reg_email2" placeholder="Email Id" value="">
+                                                <span id="reg_email2_error" class="registration-error"></span>
                                             </div>
                                          </div>   
                                     </div>    
@@ -150,7 +158,8 @@
                                          </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="password" class="form-control form_inputs" id="reg_pass2" name="reg_pass2" placeholder="Password">
+                                                <input type="password" class="form-control form_inputs reg_pass2" id="reg_pass2" name="reg_pass2" placeholder="Password" value="">
+                                                <span id="reg_pass2_error" class="registration-error"></span>
                                             </div>
                                         </div>   
                                     </div>    
@@ -160,11 +169,12 @@
                                          </div>
                                          <div class="col-md-6">
                                             <div class="form-group">
-                                                <select class="form-control customize_plan form_inputs" name="gender[]" id="gender">
+                                                <select class="form-control customize_plan form_inputs gender" name="gender[]" id="gender" value="">
                                                         <option value="">Select</option>
                                                         <option value="1">Male</option>
                                                         <option value="2">Female</option>
                                                 </select>
+                                                <span id="gender_error" class="registration-error"></span>
                                             </div>
                                         </div>
                                         <!-- <div class="col-md-6">

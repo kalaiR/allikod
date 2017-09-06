@@ -39,23 +39,66 @@ function reg_mailcheckuser(){
             }
 }
 function qreg_validate(){
-    var output = true;   
-    $(".registration-error").html('');
+	var output = true;     
+	  $(".registration-error").html('');
         if($(".reg_form").css('display') != 'none') {
-        	var test =$(".reg_Name").val();
-   
         	if(!($(".reg_Name").val())) {
-        		alert(test);
-                output = false;
-                $(".reg_Name-error").html("Required");
-            }                                                                                                                                                                                                                                                                    
-        } 
-        return output;     
+        	   	 output = false;
+        	   	 $("#reg_Name_error").html("Required");
+        	   } 
+        	   if(!($("#reg_age").val())) {
+        	   	 output = false;
+        	   	 $("#reg_age_error").html("Required");
+        	   }
+        	   var mobile =$(".reg_Mobile").val();
+		        if(!(/^([0-9-+]{10})+$/.test(mobile)) && mobile.length!=10){
+		            output = false;
+		            $("#reg_Mobile_error").html("Required");
+		        }  
+        	   if(!($("#reg_email2").val())) {
+        	   	 output = false;
+        	   	 $("#reg_email2_error").html("Required");
+        	   } 
+        	   if($("#reg_email2").val()){
+                if(!$("#reg_email2").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+                   $("#reg_email2_error").html("Invalid Email Id");
+                    output = false;
+                	}
+            	}
+        	   if(!($(".reg_pass2").val())) {
+        	   	 output = false;
+        	   	 $("#reg_pass2_error").html("Required");
+        	   } 
+        	   if(!($(".gender").val())) {
+        	   	 output = false;
+        	   	 $("#gender_error").html("Required");
+        	   } 
+        	   if(!($(".mother_tongue").val())) {
+        	   	 output = false;
+        	   	 $("#mother_tongue_error").html("Required");
+        	   }
+        	   if(!($(".mother_tongue").val())) {
+        	   	 output = false;
+        	   	 $("#mother_tongue_error").html("Required");
+        	   }
+        	   if(!($(".country").val())) {
+        	   	 output = false;
+        	   	 $("#country_error").html("Required");
+        	   }
+        	   if(!($(".register_by  ").val())) {
+        	   	 output = false;
+        	   	 $("#register_by_error").html("Required");
+        	   }                                                                                                                                                                                                                                                         
+        }
+        return output;
+            
    }
+   
 function reg_validate() {
     var output = true;     
          $(".registration-error").html('');
         if($("#userdetails-field").css('display') != 'none') {
+        	
             if(!($("#register_email").val())) {
                 output = false;
                 $("#register_email-error").html("Required");
@@ -493,9 +536,15 @@ $(document).ready(function() {
         }
         
     });
-    $("#q-reg").click(function(){
-    	 var output = qreg_validate();
-   });
+    $('#q-reg').click(function(){  	
+   		 var out = qreg_validate();	
+   		 if(out == false){
+   		 	
+   		 	 	return false;
+   		 }
+   		 
+	});
+
     $("#next, #finish").click(function(){
         var ajx_output;            
         var output = reg_validate();
