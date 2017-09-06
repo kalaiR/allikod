@@ -172,7 +172,7 @@ $(document).ready(function() {
         /*  ===========         Basic_Search Form Validation Start     ===================   */
      $(document).on('submit','.basic_search',function(e) {
         if($(this).find('.bootstrap-select').hasClass('form_inputs')) {
-            $(this).find('.bootstrap-select').removeClass(' ');
+            $(this).find('.bootstrap-select').removeClass('form_inputs');
         }       
         var error = '';
         var error_msg = $(this).find('.val_status');
