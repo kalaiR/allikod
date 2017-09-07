@@ -1,9 +1,4 @@
 $(document).ready(function() {
-	$('#slider_example_1').timepicker({
-	hourGrid: 4,
-	minuteGrid: 10,
-	timeFormat: 'hh:mm tt'
-});
   // Show and Hide Search Div
 
         $(".slidingDiv").hide();
