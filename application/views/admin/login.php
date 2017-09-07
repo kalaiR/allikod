@@ -109,6 +109,7 @@
 	<script src="<?php echo media_url(); ?>assets/admin/js/jquery-ui-1.8.21.custom.min.js"></script>
 	<!-- transition / effect library -->
 	<script src="<?php echo media_url(); ?>assets/admin/js/bootstrap-transition.js"></script>
+	<script src="<?php echo media_url(); ?>assets/admin/js/jquery-ui-timepicker-addon.js"></script>
 	<!-- alert enhancer library -->
 	<script src="<?php echo media_url(); ?>assets/admin/js/bootstrap-alert.js"></script>
 	<!-- modal / dialog library -->

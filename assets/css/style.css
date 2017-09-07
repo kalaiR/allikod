@@ -2397,7 +2397,8 @@ p2
 }
 
 .registration_form_area .registration_form_s .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  position:relative;
 }
 
 .registration_form_area .registration_form_s .form-group input {
@@ -7867,14 +7868,12 @@ p2
 /* Validation Error*/
 .val_error{
     color: #822e0a;
-    padding: 8px 20px 0px 14px !important;
-    /*text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) !important;*/
-    display:none;
+    display:block;
+    margin-right: 123px;
 }
 
 .val_status {
     text-align: center;
-    display: none;
 }
 /* End of Validation Error*/
 /*----------------------------------------------------*/

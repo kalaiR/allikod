@@ -23,7 +23,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
+						<a class="btn btn-primary pull-right" id="add" href="#">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Save
 					    </a>
