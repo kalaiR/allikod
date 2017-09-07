@@ -389,7 +389,7 @@
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Monthly Income * : </label>
+												<label class="control-label" for="focusedInput">Monthly Income : </label>
 												<div class="controls">
 												  <input class="input-xlarge focused income-box" id="focusedInput" type="text" value="">
 												</div>												

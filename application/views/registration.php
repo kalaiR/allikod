@@ -488,7 +488,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             <div class="row base-box">
                                                 <div class="col-sm-4">
                                                     <div class="height_item">
-                                                         <h4>Monthly Income *</h4>
+                                                         <h4>Monthly Income</h4>
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4">
