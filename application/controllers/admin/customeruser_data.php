@@ -197,9 +197,10 @@ class Customeruser_Data extends CI_Controller {
         echo json_encode($results);
     }
     public function customer_user_new(){
-		$data_values = $this->customeruser_data_model->customer_user('init');
+		$profile_image = array();
+		$data_values = $this->customeruser_data_model->customer_user('init',$profile_image);
 		$data['customeruser_values'] = $data_values['customeruser_values'];
 		// // $data['mapped_data'] = $data_values['mapped_data'];
-		$this->load->view('admin/customer_user',$data);
+		$this->load->view('admin/customer_user_new',$data);
 	}
 }

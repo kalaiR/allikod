@@ -946,3 +946,6 @@ overflow-y: scroll;
 {
 	text-align: center;
 }
+.bgtrans{
+	 background-color:rgba(255,255,255,0.9)
+}
