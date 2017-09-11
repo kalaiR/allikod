@@ -38,6 +38,7 @@ function reg_mailcheckuser(){
                     return ajx_output;
             }
 }
+
 function qreg_validate(){
 	var output = true;     
 	  $(".registration-error").html('');

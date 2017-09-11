@@ -1185,4 +1185,10 @@ class Base extends CI_Controller {
   		}   		
   		$this->load->view('viewfeatureprofile',$data);
 	}
+	public function error404_page(){
+		$this->load->view('404page');
+	}
+	public function error500_page(){
+		$this->load->view('500page');
+	}
 }
