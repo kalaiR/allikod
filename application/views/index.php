@@ -302,6 +302,10 @@
     </section>  -->
      <section class="adms_slider_area">
             <div class="container">
+            	<div class="welcome_title">
+                    <h3>Success Stories</h3>
+                    <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
+                </div>
                 <div class="adms_inners">
                     <div class="adms_slider_inners">
                         <div class="slider_adms_active team_inner_area">                            

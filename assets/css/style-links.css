@@ -619,6 +619,9 @@
 .registration-error
 {
   color: #822e0a;
+  position:absolute;
+  left:3px;
+  bottom:-25px;
 }
 .hr-box
 {

@@ -647,7 +647,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                         <div class="profile_list">
                                         <div class="row com-box">
                                                 <div class="col-md-3">
-                                                    <p>Education</p>
+                                                    Education
                                                 </div>
                                                 <div class="col-md-9 li_style">
                                                     <?php 
@@ -668,17 +668,17 @@ if(!empty($session_search['search_inputs']['offset'])){
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="col-md-6 col-xs-6">
-                                                    <p>Marital Status</p>
+                                                    Marital Status
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php //echo $results['maritalname']; ?>
+                                                        <?php //echo $results['maritalname']; ?>
                                                     <?php 
                                                         if(!empty($expected_maritalstatus)){
                                                             foreach($expected_maritalstatus as $key => $value) { 
                                                                 ?>
-                                                                <?php echo $value[0]['marital_name']; ?>
+                                                                <li><?php echo $value[0]['marital_name']; ?></li>
                                                         <?php }
-                                                    }?></p>
+                                                    }?>
                                                     </div>                                      
                                                 </div>
                                             </div>        

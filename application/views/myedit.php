@@ -715,10 +715,10 @@
                                             </div>
                                             <div class="row com-box">
                                                 <div class="col-md-5">
-                                                    <p><b>Monthly Income(र) *</b></p>
+                                                    <p><b>Monthly Income(र)</b></p>
                                                 </div>
                                                 <div class="col-md-5">       
-                                                    <input type="text" class="form-control income-box form_inputs" data-message="Monthly Income" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; ?>" name="cus_moninc">
+                                                    <input type="text" class="form-control income-box" data-message="Monthly Income" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['edu_montlyincome'])) echo $customeruser_values['edu_montlyincome']; ?>" name="cus_moninc">
                                                  </div>
                                             </div>
                                             <div class="row com-box">

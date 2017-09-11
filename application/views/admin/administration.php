@@ -61,7 +61,7 @@
 			                      	  	?>
 										<td><?php echo $adm_val['admin_username']; ?></td>
 										<td class="center">
-									<span class="label label-success">
+									<span class="label label-success"> <!--class for Not-Activated <span class="label label-danger"> -->
 										<?php 
 				                          if ($adm_val['active_status'] == 1) 
 				                            echo "Activated";
@@ -71,7 +71,7 @@
 									</span>
 								</td>
 								<td class="center">
-									<span class="label label-success">
+									<span class="label label-success"> <!--class for Deleted <span class="label label-important"> -->
 										<?php 
 				                          if ($adm_val['delete_status'] == 1) 
 				                            echo "Deleted";
@@ -87,7 +87,7 @@
 			                        ?> 
 								</td>
 								<td class="center">
-									<span class="label label-success">
+									<span class="label label-success"> <!--class for selling admin <span class="label label-warning"> -->
 										<?php 
 				                          if ($adm_val['admin_permission'] == 1) 
 				                            echo "Admin";

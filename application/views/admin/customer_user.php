@@ -204,7 +204,7 @@
 											</td> -->
 											<!-- <td class="center">0 / 60</td> -->
 											<td class="center">
-												<span class="label label-success">
+												<span class="label label-success"> <!--class for simpleuser <span class="label label-warning"> -->
 													<?php 
 							                          if ($cus_val['user_online_or_simple'] == 'online') 
 							                            echo "Online";
@@ -214,7 +214,7 @@
 												</span>
 											</td>
 											<td class="center">
-												<span class="label label-success">
+												<span class="label label-success"> <!--class for Not-activated <span class="label label-Danger"> -->
 													<?php 
 							                          if ($cus_val['user_active_status'] == 1) 
 							                            echo "Activated";
@@ -224,7 +224,7 @@
 				                        		</span>
 											</td>
 											<td class="center">
-												<span class="label label-success">
+												<span class="label label-success"> <!--class for not-paid <span class="label label-important"> -->
 													<?php 
 							                          if ($cus_val['payment_status'] == 1) 
 							                            echo "Paid";
@@ -319,7 +319,7 @@
 						                        ?>
 						                    </td>
 											<td class="center">
-												<span class="label label-success">
+												<span class="label label-success"> <!--class for Not-Activated <span class="label label-danger"> -->
 													<?php 
 							                          if ($cus_val['user_active_status'] == 1) 
 							                            echo "Activated";
@@ -329,7 +329,7 @@
 				                        		</span>
 											</td>
 											<td class="center">
-												<span class="label label-success">
+												<span class="label label-success"> <!--class for not paid <span class="label label-important"> -->
 													<?php 
 							                          if ($cus_val['payment_status'] == 1) 
 							                            echo "Paid";
@@ -422,7 +422,7 @@
 						                        ?>
 						                    </td>
 											<td class="center">
-												<span class="label label-success">
+												<span class="label label-success"> <!--class for Not-Activated <span class="label label-danger"> -->
 													<?php 
 							                          if ($cus_val['user_active_status'] == 1) 
 							                            echo "Activated";
@@ -432,7 +432,7 @@
 				                        		</span>
 											</td>
 											<td class="center">
-												<span class="label label-success">
+												<span class="label label-success"> <!--class for Not-paid <span class="label label-important"> -->
 													<?php 
 							                          if ($cus_val['payment_status'] == 1) 
 							                            echo "Paid";
@@ -525,7 +525,7 @@
 						                        ?>
 						                    </td>
 											<td class="center">
-												<span class="label label-success">
+												<span class="label label-success"> <!--class for Not-Activated <span class="label label-danger"> -->
 													<?php 
 							                          if ($cus_val['user_active_status'] == 1) 
 							                            echo "Activated";
@@ -535,7 +535,7 @@
 				                        		</span>
 											</td>
 											<td class="center">
-												<span class="label label-success">
+												<span class="label label-success"> <!--class for Not-Activated <span class="label label-important"> -->
 													<?php 
 							                          if ($cus_val['payment_status'] == 1) 
 							                            echo "Paid";

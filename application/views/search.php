@@ -40,7 +40,6 @@ include('include/menu.php');
                                             <!-- Basic Search -->
                                             <form method="post" class="box basic_search" action="search_result" id="basic_search" name="basic_search" >
                                             <span class="val_status">
-                                            <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
                                             </span>
                                             <div class="col-sm-10  aline-center-box">
                                                 <div class="row">
@@ -56,7 +55,6 @@ include('include/menu.php');
                                                                 <option value="1">Male</option>
                                                             </select>
                                                         </div>
-                                             
                                                     </div>
                                                 </div>        
                                             </div>    

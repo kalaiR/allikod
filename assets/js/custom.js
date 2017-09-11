@@ -191,10 +191,10 @@ function reg_validate() {
                  output = false;
                  $("#employed_in_error").html("Required");
              }
-             if(!($("#reg_income").val())) {
-                 output = false;
-                 $("#reg_income_error").html("Required");
-             }  
+             // if(!($("#reg_income").val())) {
+                 // output = false;
+                 // $("#reg_income_error").html("Required");
+             // }  
         }
     if($("#com-field").css('display') != 'none') {
         var mobile =$("#reg_mobile").val();

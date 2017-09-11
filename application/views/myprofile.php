@@ -608,20 +608,20 @@
                                             <div class="row com-box">
                                                 <div class="col-xs-12">
                                                     <div class="col-md-3 col-xs-6">
-                                                        <p>Marital Status</p>
+                                                        Marital Status
                                                     </div>
                                                     <div class="col-md-9 col-xs-6">
                                                         <div class="checkbox">
-                                                        <p><b>
+                                                        <b>
                                                         <!-- <input type="checkbox" value=""> -->
                                                         <!-- <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span> -->
                                                                 <!-- <b><?php // echo $results['maritalname']; ?></b> -->
                                                         <?php if(!empty($expected_maritalstatus)){
                                                             foreach($expected_maritalstatus as $key => $value) { ?>
-                                                                <?php echo $value[0]['marital_name']; ?>
+                                                                <li><?php echo $value[0]['marital_name']; ?></li>
                                                                 <?php 
                                                         }} ?>
-                                                        </b></p>
+                                                        </b>
                                                     <!-- </div>     -->
                                                   <!--   <div class="col-sm-8 "> -->
                                                     <!-- <div class="height_item "> -->
@@ -660,19 +660,20 @@
                                                 <div class="row com-box">
                                                     <div class="col-xs-12">
                                                         <div class="col-md-3 col-xs-6">
-                                                            <p>Education</p>
+                                                            Education
                                                         </div>
                                                         <div class="col-md-9 col-xs-6">       
                                                             <div class="control-group">
                                                                 <div class="controls">
-                                                                    <!-- <p><b><?php // echo $results['phy_searchedu_status']; ?></b></p> --><p><b>
+                                                                    <!-- <p><b><?php // echo $results['phy_searchedu_status']; ?></b></p> -->
+                                                                    <b>
                                                                     <?php 
                                                                     if(!empty($expected_education)){
                                                                         foreach($expected_education as $key => $value) { ?>
-                                                                                <li style="margin-left: 10px;"><?php echo $value['edu_name']; ?></li>
+                                                                                <li><?php echo $value['edu_name']; ?></li>
                                                                         <?php }
                                                                     }?>  
-                                                                    </b></p>
+                                                                    </b>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -23,7 +23,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
+						<a class="btn btn-primary pull-right" id="add" href="#">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Save
 					    </a>
@@ -389,7 +389,7 @@
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Monthly Income * : </label>
+												<label class="control-label" for="focusedInput">Monthly Income : </label>
 												<div class="controls">
 												  <input class="input-xlarge focused income-box" id="focusedInput" type="text" value="">
 												</div>												
