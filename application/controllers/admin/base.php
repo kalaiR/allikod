@@ -164,6 +164,9 @@ class Base extends CI_Controller {
 	public function edit_occupation(){
 		$this->load->view('admin/edit_occupation');
 	}
+	public function customer_user_new(){
+		$this->load->view('admin/customer_user_new');
+	}
 	// public function customer_user(){
 	// 	$this->load->view('admin/customer_user');
 	// }

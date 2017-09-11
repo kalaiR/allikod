@@ -27,7 +27,7 @@
                     <div class="row">
                     <!-- <marquee overflow="hidden"><img src="<?php //echo media_url(); ?>assets/img/scroll_text.png"></marquee> -->
                         <div class="col-sm-6">
-                            <div class="registration_form_s">
+                            <div class="registration_form_s" style="background-color:rgba(255,255,255,0.9)">
                                 <h4>Registration</h4>
                                 <form method="post" action="<?php echo base_url(); ?>index" name="index_reg" id="index_reg" class="reg_form">
                                 
