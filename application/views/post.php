@@ -12,7 +12,7 @@
         </section>
         <!--================End Banner Area =================-->  
        <!--================post grid Area =================-->
-        <section class="blog_grid_area">
+ <section class="blog_grid_area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 aline-center-box">
@@ -20,7 +20,7 @@
                                 <h3 align="center">Post your success stories here !</h3>          
                             </div>
                             <div class="registration_form_area" id="registration_form_are">
-                                    <div class="row">
+                                <div class="row">
                                     <form action="success_stories" class="post_success_form" method="post" name="success_stories" id="success_stories" enctype="multipart/form-data">
                                         <div class="col-md-12">
                                             <div class="registration_form_s aline-center-box det_border" id="registration_form_s">
@@ -71,7 +71,7 @@
                                                                         </div>         
                                                                     </div>
                                                             </div>
-                                                            </div>
+                                                        </div>
                                                                 <!-- <div class="col-md-6 upload_box next-box">
                                                                    <div>
                                                                         <input type="file" id="uploadedfile" name="uploadedfile" class="form_inputs" class="next-box" />
@@ -98,17 +98,21 @@
                                                                             </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>       
-                                                    <div class="comment_form_area next-box">
-                                                        <textarea id="comment" class="form-control" name="comment" placeholder="Comment" rows="5"></textarea>
+                                                            </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10 text_area">
+                                                            <div class="form-group">               
+                                                                <div class="comment_form_area">
+                                                                    <textarea id="comment" class="form-control" name="comment" placeholder="Comment" rows="5"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>        
                                                     </div>    
                                                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash();?>" />
-                                                    <div class="reg_chose form-group">
                                                             <!-- <input type="submit" value="LogIn" id="post_submit" name="post_submit" class="btn form-control login_btn"> -->
                                                         <div class="reg_chose form-group">
                                                             <button type="submit" value="LogIn" class="btn login_btn" name="submit">Post</button>
-                                                        </div> 
-                                                    </div>     
+                                                        </div>     
                                             </div>
                                         </div>                                         
                                     </form>    
@@ -124,22 +128,9 @@
                     </div>-->
                 </div>
             </div>
-        </section>
+        </section>     	
         <!--================End post grid Area =================-->
        
-        <div id="largeContent" style="display:none;">
-            <div class="media tool_content">
-                <div class="media-left">
-                    <img src="<?php echo media_url(); ?>assets/img/map-persion.png" alt="">
-                </div>
-                <div class="media-body">
-                    <h3>Sandi Williams</h3>
-                    <h5>21 years old</h5>
-                    <h5>From Paris</h5>
-                    <h5>Distance 16 km</h5>
-                </div>
-            </div>
-        </div>
 <?php 
     include('include/footer.php');
 ?>
