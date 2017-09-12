@@ -139,13 +139,13 @@
 														  <div class="control-group">
 																<label class="control-label" for="focusedInput">Profile Id: </label>
 																<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['userdetail_profile_id'])) echo $customeruser_values['userdetail_profile_id'];  ?>" name="cus_profileid">
+																  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['userdetail_profile_id'])) echo $customeruser_values['userdetail_profile_id'];  ?>" name="cus_profileid">
 																</div>
 														  </div>
 														  <div class="control-group">
 																<label class="control-label" for="focusedInput">File Id: </label>
 																<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['userdetail_file_id'])) echo $customeruser_values['userdetail_file_id'];  ?>" name="cus_fileid">
+																  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['userdetail_file_id'])) echo $customeruser_values['userdetail_file_id'];  ?>" name="cus_fileid">
 																</div>
 														  </div>
 														  <div class="control-group">
@@ -262,13 +262,13 @@
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Bill Number </label>
 															<div class="controls">
-															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if($selected == 'initial') echo $customeruser_values['bill_number']; if($selected == 'renewal') echo $customeruser_values['ren_bill_number']; ?>" name="cus_billnumber">
+															  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="<?php if($selected == 'initial') echo $customeruser_values['bill_number']; if($selected == 'renewal') echo $customeruser_values['ren_bill_number']; ?>" name="cus_billnumber">
 															</div>
 														</div>
 														<div class="control-group">
 															<label class="control-label" for="focusedInput">Amount </label>
 															<div class="controls">
-															  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if($selected == 'initial') echo $customeruser_values['amount']; if($selected == 'renewal') echo $customeruser_values['ren_amount']; ?>" name="cus_amount">
+															  <input class="input-xlarge focused income-box" id="focusedInput" type="text" value="<?php if($selected == 'initial') echo $customeruser_values['amount']; if($selected == 'renewal') echo $customeruser_values['ren_amount']; ?>" name="cus_amount">
 															</div>
 														</div>
 														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">
@@ -290,7 +290,7 @@
 																<label class="control-label" for="focusedInput">Total No. of profile: </label>
 																<div class="controls">
 																  <!-- <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php //if(!empty($customeruser_values['totalno_of_profile'])) echo $customeruser_values['totalno_of_profile'];  ?>" name="cus_totprofile" disabled> -->
-																	<input class="input-xlarge focused" id="cus_totprofile" type="text" value="<?php if($customeruser_values['user_online_or_simple'] == "online"): if($selected == 'initial') echo $customeruser_values['paytotprofile']; if($selected == 'renewal') echo $customeruser_values['rentotprofile']; endif;  ?>" name="cus_totprofile">
+																	<input class="input-xlarge focused mob_num" id="cus_totprofile" type="text" value="<?php if($customeruser_values['user_online_or_simple'] == "online"): if($selected == 'initial') echo $customeruser_values['paytotprofile']; if($selected == 'renewal') echo $customeruser_values['rentotprofile']; endif;  ?>" name="cus_totprofile">
 																</div>
 														  	</div>
 														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">
