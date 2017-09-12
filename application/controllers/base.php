@@ -117,7 +117,7 @@ class Base extends CI_Controller {
 
 	//Changed the above login ajax function temporarily by kalai as per vinoth request(don't allow user to login,only one specified user can login for testing purporse)
 	public function login_ajax(){
-		echo "login_ajax";
+		// echo "login_ajax";
 		$data['register'] = $this->user_model->get_registerid();
 		$data['martial_status'] = $this->user_model->get_martialstatus();
 		$data['success_stories'] = $this->user_model->get_success_stories_limit();
@@ -126,11 +126,11 @@ class Base extends CI_Controller {
 		$data['country'] = $this->user_model->get_country();
 		if($this->input->post()){
 			$data_values = $this->user_model->user_login();
-			print_r($data_values);
+			// print_r($data_values);
 			if($data_values['status']!=='login_success'){
 				$data['status'] = $data_values['status'];
 				$data['error'] = $data_values['error'];	
-				echo $data['status'];
+				// echo $data['status'];
 				redirect(base_url().'index');
 			}else{
 			// if($_POST['email_id'] == 'sample21@gmail.com' || 'rajeswari.moto@gmail.com' || 'saranvishwaja@gmail.com' || 'kalasugumar1959@gmail.com' || 'mmappan@gmail.com' || 'komalsvrj@gmail.com' || 'mailtouthayan@gmail.com' || 'anbu21@gmail.com' || 'viji.matsat@gmail.com' || 'dhivya21@gmail.com' || 'sankari21@gmail.com'){
