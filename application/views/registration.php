@@ -1345,14 +1345,16 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
         </section>  
 <?php 
 include('include/footer.php');
+//sms message for quick registration
 if(!empty($registered_data)){
-    $msg = 'Dear Customer Thanks for registering with us in vallikodivanniarmatrimonial.in';
+    $msg = 'Dear Customer Thanks for registering with us in vallikodivanniarmatrimonial.in. You have completed only quick registration. You account will be activated once you done the payment with full registration.';
     $sms_mobileno = $registered_data['comm_mobile_no'];
 }
 // print_r($comm_mobile_no);
 // exit();
+//sms message for full registration
 if(!empty($comm_mobile_no)){
-    $msg = 'Dear Customer Thanks for registering with us in vallikodivanniarmatrimonial.in';
+    $msg = 'Dear Customer Thanks for completed your full registration process with us in vallikodivanniarmatrimonial.in.';
     $sms_mobileno = $comm_mobile_no;
 }
 ?>

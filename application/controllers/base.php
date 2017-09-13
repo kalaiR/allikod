@@ -50,8 +50,9 @@ class Base extends CI_Controller {
                 $this->email->to($form_data['reg_email2']);
     			$this->email->subject('Registrations Process Completed');
     			// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
-    			// $message = $this->load->view('email_template/registration', $data, TRUE);
-    			$message = "Hello";
+    			$data['user_id'] = $id_userdetails;
+    			$data['reg_purpose'] = "quick_reg";
+    			$message = $this->load->view('email_template/registration', $data, TRUE);
     			$this->email->message($message);
 
     			if($this->email->send())
@@ -513,27 +514,29 @@ class Base extends CI_Controller {
 				$id_images = $this->user_model->insert_registration('reg_image_horoscope',$data_horo);
 
 				// //Email Process
-				// 			$ci =& get_instance();	
-				// 			$ci->config->load('email', true);
-				// 			$emailsetup = $ci->config->item('email');
-				// 			$this->load->library('email', $emailsetup);
-				// 			$from_email = $emailsetup['smtp_user'];
-				// 			$this->email->initialize($emailsetup);
-				// 			$this->email->from($from_email, '');
-				//             $this->email->to($user_values['admin_user_email']);
-				// 			$this->email->subject('Get your forgotten Password');
-				// 			// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
-				// 			$message = $this->load->view('email_template/registration', $user_values, TRUE);
-				// 			$this->email->message($message);
+				$ci =& get_instance();	
+				$ci->config->load('email', true);
+				$emailsetup = $ci->config->item('email');
+				$this->load->library('email', $emailsetup);
+				$from_email = $emailsetup['smtp_user'];
+				$this->email->initialize($emailsetup);
+				$this->email->from($from_email, '');
+	            $this->email->to($form_data['register_email']);
+				$this->email->subject('Get your forgotten Password');
+				// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
+				$data['user_id'] = $id_userdetails;
+    			$data['reg_purpose'] = "full_reg";
+				$message = $this->load->view('email_template/registration', $data, TRUE);
+				$this->email->message($message);
 
-				// 			if($this->email->send())
-				// 			{
-				//     			echo "Your email was sent.!";
-				// 			}
-				// 			else 
-				// 			{
-				//     			echo "Your email was not sent.!";
-				// 			}		  					  		
+				if($this->email->send())
+				{
+	    			echo "Your email was sent.!";
+				}
+				else 
+				{
+	    			echo "Your email was not sent.!";
+				}		  					  		
 		  		$this->load->view('registration',$data_reg_com);
 
 		  	}else{
