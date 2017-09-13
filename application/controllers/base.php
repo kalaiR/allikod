@@ -40,27 +40,28 @@ class Base extends CI_Controller {
 				);	
 		  		$this->user_model->insert_registration('reg_religion_ethnicity', $data_religion);
 		  		//Email Process
-				// $ci =& get_instance();	
-				// $ci->config->load('email', true);
-				// $emailsetup = $ci->config->item('email');
-				// $this->load->library('email', $emailsetup);
-				// $from_email = $emailsetup['smtp_user'];
-				// $this->email->initialize($emailsetup);
-				// $this->email->from($from_email, '');
-    //             $this->email->to($form_data['reg_email2']);
-    // 			$this->email->subject('Registrations Process Completed');
-    // 			// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
-    // 			$message = $this->load->view('email_template/registration', $data, TRUE);
-    // 			$this->email->message($message);
+				$ci =& get_instance();	
+				$ci->config->load('email', true);
+				$emailsetup = $ci->config->item('email');
+				$this->load->library('email', $emailsetup);
+				$from_email = $emailsetup['smtp_user'];
+				$this->email->initialize($emailsetup);
+				$this->email->from($from_email, '');
+                $this->email->to($form_data['reg_email2']);
+    			$this->email->subject('Registrations Process Completed');
+    			// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
+    			// $message = $this->load->view('email_template/registration', $data, TRUE);
+    			$message = "Hello";
+    			$this->email->message($message);
 
-    // 			if($this->email->send())
-    // 			{
-    //     			echo "Your email was sent.!";
-    // 			}
-    // 			else 
-    // 			{
-    //     			echo "Your email was not sent.!";
-    // 			}
+    			if($this->email->send())
+    			{
+        			echo "Your email was sent.!";
+    			}
+    			else 
+    			{
+        			echo "Your email was not sent.!";
+    			}
 
 		  		redirect('registration/'.$id_userdetails);
 		}else{
@@ -1167,8 +1168,8 @@ class Base extends CI_Controller {
 		$this->email->to($to_email);
 		$this->email->subject($subject);
 		$this->email->message($message);
-		// $this->email->send();
-		// echo $this->email->print_debugger();
+		$this->email->send();
+		echo $this->email->print_debugger();
 		/* Check whether mail send or not*/
 		if($this->email->send()) 
 			echo "mail sent";

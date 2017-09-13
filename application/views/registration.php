@@ -1357,7 +1357,7 @@ if(!empty($comm_mobile_no)){
 }
 ?>
 <!-- SMS Script for Vallikodi for Home Register process - Start -->
-<!--script type="text/javascript">
+<script type="text/javascript">
 function sendMsg(msg,no){
     no = no;
     // alert('test');
@@ -1371,7 +1371,7 @@ function sendMsg(msg,no){
         });
 }
 sendMsg('<?php echo $msg;?>','<?php echo $sms_mobileno;?>');
-</script-->
+</script>
 <?php
 if(!empty($comm_mobile_no))
         redirect('registration');
