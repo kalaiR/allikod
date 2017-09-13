@@ -1,10 +1,20 @@
 $(document).ready(function() {
   // Show and Hide Search Div
 
-        $(".slidingDiv").hide();
-        $('.search_customer').click(function(){
-        $(".slidingDiv").slideToggle();
-        });
+ $(function(){
+  $('.search_customer').click(function() {
+  $('.slidingDiv').show("slow"); 
+
+  });
+  $('#myTab').click(function(){  
+  $('.slidingDiv').hide(); 
+  });
+});
+        // $(".slidingDiv").hide();
+        // $('.search_customer').click(function(){
+        // // $(".slidingDiv").slideToggle();
+        // $(".slidingDiv").show("slow");
+        // });
 
         // Nosorting
         $('.nosorting').dataTable({
@@ -16,10 +26,14 @@ $(document).ready(function() {
             },
             "bSort": false           
         });
+        
 // Form Reset
-// $('.reset').click(function() {
-   // $('#admin_form').get(0).reset();
-// });
+$('#reset').click(function() {
+   
+   // $(".dropdrop").chosen("destroy");
+   $('.dropdrop').val('').trigger('liszt:updated');
+   $('#admin_form').get(0).reset();
+});
     // Active menu
  $("li").click(function () {
             var id = $(this).attr("id");

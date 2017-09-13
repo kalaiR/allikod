@@ -24,7 +24,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal add_form" method="post" action="administration">
+						<form class="form-horizontal add_form" method="post" action="administration" id="admin_form">
 <?php } ?>						
 							<?php
 			                  if(!empty($status)) :
@@ -36,7 +36,7 @@
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Admin : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="adm_name">
+								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="adm_name" value="<?php if(!empty($admin_data)) echo $admin_data['admin_username']; ?>">
 								</div>
 							  </div>
 							  <div class="control-group">
@@ -48,7 +48,7 @@
 							  <div class="control-group">
 								<label class="control-label">Active Status : </label>
 								<div class="controls">
-								  <select class="form_inputs" data-rel="chosen" name="adm_status">
+								  <select class="form_inputs dropdrop" id="" data-rel="chosen" name="adm_status">
 									<option value="">Select Status</option>
 									<option value="1">Enabled</option>
 									<option value="0">Disabled</option>
@@ -58,7 +58,7 @@
 							   <div class="control-group">
 								<label class="control-label">Select Admin Type : </label>
 								<div class="controls">
-								  <select class="form_inputs" data-rel="chosen" name="adm_type">
+								  <select class="form_inputs dropdrop" id="" data-rel="chosen" name="adm_type">
 									<option value="">Admin Type</option>
 									<option value="1">Admin</option>
 									<option value="0">Selling Admin</option>
@@ -67,7 +67,7 @@
 							  </div>
 							  <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button type="reset" class="btn">Reset</button>
+								<button type="reset" class="btn" id="reset">Reset</button>
 							  </div>
 							</fieldset>
 <?php if(!$this->input->is_ajax_request()) { ?>							

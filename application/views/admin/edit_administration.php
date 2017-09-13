@@ -24,7 +24,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal edit_form" method="post" action="administration" data-id="<?php echo $this->uri->segment(3); ?>">
+						<form class="form-horizontal edit_form" method="post" action="administration" id="admin_form" data-id="<?php echo $this->uri->segment(3); ?>">
 <?php } ?>
 							<?php
 			                  if(!empty($status)) :
@@ -36,19 +36,19 @@
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Admin : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="adm_name" value="<?php if(!empty($admin_data)) echo $admin_data['admin_username']; ?>">
+								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="adm_name" >
 								</div>
 							  </div>
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput_pwd">Password : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused form_inputs" id="focusedInput_pwd" type="password" name="adm_password" value="<?php if(!empty($admin_data)) echo $admin_data['admin_pwd']; ?>">
+								  <input class="input-xlarge focused form_inputs" id="focusedInput_pwd" type="password" name="adm_password" >
 								</div>
 							  </div>
 							  <div class="control-group">
 								<label class="control-label">Active Status : </label>
 								<div class="controls">
-								  <select class="form_inputs" data-rel="chosen" name="adm_status">
+								  <select class="form_inputs dropdrop" data-rel="chosen" name="adm_status">
 									<option value="">Select Status</option>
 									<option value="1" <?php if ($admin_data['active_status'] == 1) echo "selected"; ?>>Enabled</option>
 									<option value="0" <?php if ($admin_data['active_status'] == 0) echo "selected"; ?>>Disabled</option>
@@ -58,7 +58,7 @@
 							   <div class="control-group">
 								<label class="control-label">Admin Type : </label>
 								<div class="controls">
-								  <select class="form_inputs" data-rel="chosen" name="adm_type">
+								  <select class="form_inputs dropdrop" data-rel="chosen" name="adm_type">
 									<option value="">Select Admin Type</option>
 									<option value="1" <?php if ($admin_data['admin_permission'] == 1) echo "selected"; ?>>Admin</option>
 									<option value="2" <?php if ($admin_data['admin_permission'] == 0) echo "selected"; ?>>Selling Admin</option>
@@ -67,7 +67,7 @@
 							  </div>
 							  <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button type="reset" class="btn">Reset</button>
+								<button type="reset" class="btn" id="reset">Reset</button>
 							  </div>
 							</fieldset>
 <?php if(!$this->input->is_ajax_request()) { ?>							
