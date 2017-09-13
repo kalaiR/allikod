@@ -142,7 +142,7 @@
 											  	<div class="control-group">
 													<label class="control-label" for="focusedInput">No. of profile : </label>
 													<div class="controls">
-													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+													  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="">
 													</div>
 											  	</div>
 											  	<div class="control-group">
@@ -193,13 +193,13 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Profile No : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+												  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">File No : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+												  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
@@ -263,7 +263,7 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Time of Birth * : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="time" value="">
+												  <input class="input-xlarge focused slider_example_1" id="focusedInput" type="time" value="">
 												</div>												
 											  </div>											  
 											  <div class="control-group">
@@ -615,37 +615,37 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Brothers : </label>
 												<div class="controls">
-													  <input class="span4 bro_sis" id="focusedInput"  type="text" value="Elder" >
+													  <input class="span4 bro_sis" id="focusedInput"  type="text" placeholder="Elder" >
 												</div>
 												<div class="controls">
-													  <input class="span4 bro_sis" id="focusedInput" type="text" value="Younger" >
+													  <input class="span4 bro_sis" id="focusedInput" type="text" placeholder="Younger" >
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Sisters : </label>
 												<div class="controls">
-													  <input class="span4 bro_sis" id="focusedInput"  type="text" value="Elder" >
+													  <input class="span4 bro_sis" id="focusedInput"  type="text" placeholder="Elder" >
 												</div>
 												<div class="controls">
-													  <input class="span4 bro_sis" id="focusedInput" type="text" value="Younger" >
+													  <input class="span4 bro_sis" id="focusedInput" type="text" placeholder="Younger" >
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Married Brothers : </label>
 												<div class="controls">
-													  <input class="span4 bro_sis" id="focusedInput"  type="text" value="Elder" >
+													  <input class="span4 bro_sis" id="focusedInput"  type="text" placeholder="Elder" >
 												</div>
 												<div class="controls">
-													  <input class="span4 bro_sis" id="focusedInput" type="text" value="Younger" >
+													  <input class="span4 bro_sis" id="focusedInput" type="text" placeholder="Younger" >
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">No. of Married Sisters : </label>
 												<div class="controls">
-													  <input class="span4 bro_sis" id="focusedInput"  type="text" value="Elder" >
+													  <input class="span4 bro_sis" id="focusedInput"  type="text" placeholder="Elder" >
 												</div>
 												<div class="controls">
-													  <input class="span4 bro_sis" id="focusedInput" type="text" value="Younger" >
+													  <input class="span4 bro_sis" id="focusedInput" type="text" placeholder="Younger" >
 												</div>	
 											  </div>
 											  <div class="control-group">
@@ -690,14 +690,26 @@
 												<label class="control-label" for="focusedInput">Age * : </label>
 												<div class="controls">
 												  <select data-rel="chosen" value="From">
-													<option>20</option>
-													<option>23</option>
+													<!-- <option>20</option>
+													<option>23</option> -->
+													<?php 
+                                                            for($i=18;$i<=60;$i++){ ?>
+                                                            <option <?php if($i==18){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                            <?php
+                                                            } ?>
 												  </select>
 												</div>
 												<div class="controls">
 												  <select data-rel="chosen">
-													<option>25</option>
-													<option>26</option>
+													<!-- <option>25</option>
+													<option>26</option> -->
+													<?php 
+                                                                            for($i=18;$i<=60;$i++){
+                                                                            ?>
+                                                                            <option  <?php if($i==34){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                            <?php
+                                                                            }
+                                                                            ?>
 												  </select>
 												</div>												
 											  </div>

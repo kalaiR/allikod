@@ -20,7 +20,7 @@
                             <h6>Error</h6>
                             <h3>404</h3>
                             <h5>Page Not Found</h5>
-                            <a class="register_angkar_btn" href="#">Go to Home Page</a>
+                            <a class="register_angkar_btn" href="<?php echo base_url(); ?>">Go to Home Page</a>
                         </div>
                     </div>
                     <div class="col-md-3"></div>

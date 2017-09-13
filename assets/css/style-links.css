@@ -631,6 +631,10 @@
 {
   padding-top: 20px;
 }
+.text_area
+{
+  padding-left: 30px;
+}
 .modal.and.carousel 
 {
   position: fixed; 
@@ -942,7 +946,7 @@ overflow-y: scroll;
   font-style: normal;
   font-weight: bold;
 }
-.val_error
+.val_errors
 {
 	text-align: center;
 }

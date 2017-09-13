@@ -43,6 +43,7 @@
 
 /*Style For Hide and Show*/
 .slidingDiv {
+	display:none;
 }
 
 .search_customer {
@@ -301,3 +302,4 @@ ul#media-list {
 }
 
 .paginations a:hover:not(.active) {background-color: #ddd;}
+/*Style for customer_user_new page without data table ends*/

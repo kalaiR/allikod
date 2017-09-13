@@ -259,8 +259,8 @@ if(isset($per_page)&&(!empty($total_rows)))
                                             <div class='col-md-5 pagination-box clearfix' style='display:inline-block'>" .$links . "
                                             </div>";
                                             if(!empty($pages)) : ?>
-                                            <div class="col-md-2 goto">Go to</div>
-                                            <div class="col-md-1 dir_page">
+                                            <!-- <div class="col-md-2 goto">Go to</div> -->
+                                            <div class="col-md-4 dir_page">Go to
                                               <select class="extra_drop pagination_scrol" name="pagination_dropdown" id="pagination_dropdown" 
                                               onchange="location = this.value;">                                               
                                                     <?php                     
