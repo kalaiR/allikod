@@ -18,7 +18,7 @@ $to_mailForSender ="valli.vallikodi@gmail.com";
 //$to_mailForSender  = "$customeremail,$vallikodiemail";
 //$to_mailForSender  = "rajeswari@atomicka.com,yogi.a89@gmail.com";
 $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
-// message --> -->
+// message --> 
 <!-- $message_mailForSender = ' -->
 
 <div style=" width:960px;height:auto;margin:0 auto;">
@@ -27,13 +27,13 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
         </div>
         <div style="background-color:#74872e;height: 30px;">
             <div style=" width: 200px; padding-top:5px;padding-left: 5px; color: white;display: inline-block; ">
-                <p1>Date : 17/08/2017</p1>
+                <p1>Date : <?php echo date("d-M-Y") ?></p1>
             </div>
             <div style="width: 200px; display: inline-block;margin-left: 150px; text-align: center; color: #fff;">
                 <p1>Login Details</p1>
             </div>
             <div style="width: 200px; display: inline-block;margin-left: 150px; text-align: center; color: #fff;">
-                <p1>No : 12345678910</p1>
+                <p1>Vallikodi ID : <?php echo "VM".$user_id; ?></p1>
             </div>
         </div>
         <div>
@@ -41,27 +41,34 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                 <img src="images/banner.png">
             </div>
             <div style="color: #3c6a3c;margin-top: 30px; margin-left: 30px; font-size:25px; font-weight: bold;">
-                <p1>Dear : selva kumar<p1>
+                <p1>Dear <?php echo $user_fname; ?><p1>
             </div>
             <div style="color:black;margin-top:5px; margin-left: 45px; ">
-                <p1>Welcome to Vallikodi Vanniar Matrimonial.Thanks for Registered with us.Our support team will contact you soon for Verification process.We will activate your account once finished our Verification process. (Net Banking payment will be avilable)<p1>
+                <!-- <p1>Welcome to Vallikodi Vanniar Matrimonial.Thanks for Registered with us.Our support team will contact you soon for Verification process.We will activate your account once finished our Verification process. (Net Banking payment will be avilable)<p1> -->
+                <?php if($reg_purpose == "quick_reg"){ ?>
+                    <p1>Welcome to Vallikodi Vanniar Matrimonial.Thanks for Registered with us. You have completed only quick registration process. Still you have to give more data's to complete your registration process with us. Once you finished all those through full registration page, Our support team will contact you soon for Verification process. We will activate your account once finished our Verification process. (Net Banking payment will be avilable)<p1>
+                <?php }else{ ?>
+                    <p1>Welcome to Vallikodi Vanniar Matrimonial.Thanks for Registered with us.Our support team will contact you soon for Verification process.We will activate your account once finished our Verification process. (Net Banking payment will be avilable)<p1>
+                <?php } ?>
             </div>
             <div style="color:black;margin-top:5px; margin-left: 30px; font-weight: bold; ">
                 <p1>Your Login Credentials :- <p1>
             </div>
             <div style="color:black;margin-top:5px; margin-left: 45px;">
-                <div style="width: 200px; display: inline-block;">
-                    <p1>Vallikodi ID <p1>
-                </div>
-                <div style="width: 200px; display: inline-block;">
-                    <p1>: selva kumar<p1>
-                </div>
+                <div style="padding-top: 10px;">
+                    <div style="width: 200px; display: inline-block;">
+                        <p1>Vallikodi ID <p1>
+                    </div>
+                    <div style="width: 200px; display: inline-block;">
+                        <p1>: <?php echo "VM".$user_id; ?><p1>
+                    </div>
+                </div> 
                 <div style="padding-top: 10px;">
                     <div style="width: 200px;display: inline-block;">
                         <p1>User Name/Login ID<p1>
                     </div>
                     <div style="width: 200px; display: inline-block;">
-                        <p1>: selva kumar12345<p1>
+                        <p1>: <?php echo $user_email; ?><p1>
                     </div>
                 </div> 
                 <div style="padding-top: 10px;">
@@ -69,7 +76,7 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                         <p1>Password<p1>
                     </div>
                     <div style="width: 200px; display: inline-block;">
-                        <p1>: selva kumar12345<p1>
+                        <p1>: <?php echo $user_pwd; ?><p1>
                     </div>
                 </div>
             </div>            
