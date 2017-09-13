@@ -83,7 +83,13 @@ include('include/menu.php');
 		                              		<div class="row">
 		                              			<form action="<?php echo base_url(); ?>success_stories"class=" form_inner">
 			                              			<div class="form-group col-md-12 sucess-box">
-		                                    			<textarea id="comment" placeholder="Comment" rows="1" disabled="disabled"><?php echo $value['description'];?></textarea>
+									                     <?php
+				                                           	$patterns = array("/\s+/", "/\s([?.!])/");
+											                  $replacer = array(" ","$1");
+											                  $str = preg_replace( $patterns, $replacer, $value['description'] ); 
+											                                         
+						                                   ?>
+		                                    			<textarea id="comment" placeholder="No Comments" rows="1" disabled="disabled"><?php echo $str;?></textarea>
 		                                			</div>		
 		                                		</form>	
 		                              		</div>

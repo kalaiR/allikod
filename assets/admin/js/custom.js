@@ -16,7 +16,10 @@ $(document).ready(function() {
             },
             "bSort": false           
         });
-
+// Form Reset
+// $('.reset').click(function() {
+   // $('#admin_form').get(0).reset();
+// });
     // Active menu
  $("li").click(function () {
             var id = $(this).attr("id");

@@ -4259,6 +4259,7 @@ p2
   resize: none;
   outline: none !important;
   box-shadow: none !important;
+  text-align: justify;
 }
 
 .comment_form_area .form_inner .form-group textarea.placeholder {

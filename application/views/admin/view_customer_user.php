@@ -84,7 +84,7 @@
 											  </div>	 -->
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">User Type :  </label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['user_online_or_simple']; ?> </label>												
+												<span class="label label-success"><?php echo $customeruser_values['user_online_or_simple']; ?> </span>	<!--class for simple user <span class="label label-warning"> -->											
 											  </div>							  
 											  <div class="control-group">
 												<label class="control-label">Registered By : </label>
@@ -161,23 +161,23 @@
 												</div>
 											  <div class="control-group">
 												<label class="control-label">Payment Active Status : </label>
-												<label class="control-label" for="focusedInput">
+												<span class="label label-success"> <!--class for not-paid <span class="label label-important"> -->
 													<?php 
 							                          if ($customeruser_values['payment_status'] == 1) 
 							                            echo "Paid";
 							                          else
 							                            echo "Not Paid";
-							                        ?>   </label>
+							                        ?>   </span>
 												</div>
 											   <div class="control-group">
 												<label class="control-label">Profile Active Status : </label>
-												<label class="control-label" for="focusedInput">
+												<span class="label label-success"> <!--class for Not-activated <span class="label label-Danger"> -->
 													<?php 
 							                          if ($customeruser_values['user_active_status'] == 1) 
 							                            echo "Activated";
 							                          else
 							                            echo "Not-Activated";
-							                        ?>  </label>
+							                        ?>  </span>
 											  </div>											  
 											</fieldset>
 										  </form>
@@ -394,11 +394,11 @@
 												<label class="control-label">Family Type : </label>
 												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_family_status']; ?></label>
 											  </div>
-											  <div class="control-group">
+											  <!-- <div class="control-group">
 												<label class="control-label" for="focusedInput"></label>
 												<label class="control-label" for="focusedInput">Elder</label>
 												<label class="control-label" for="focusedInput">Younger</label>	
-											  </div>
+											  </div> -->
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput"></label>
 												<label style="width: 100px" class="control-label" for="focusedInput">Elder</label>

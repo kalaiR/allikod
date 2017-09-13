@@ -47,20 +47,28 @@
 									<div class="controls">
 									  <select data-rel="chosen" style="width: 75px">
 										<option value="">From</option>
-										<option>25</option>
-										<option>26</option>
+										<?php 
+                                            for($i=18;$i<=60;$i++){ ?>
+                                            <option <?php if($i==18) ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                            <?php
+                                            } ?>
 									  </select>
 									  <select data-rel="chosen" style="width: 75px">
 										<option value="">To</option>
-										<option>35</option>
-										<option>36</option>
+										<?php 
+	                                        for($i=18;$i<=60;$i++){
+	                                        ?>
+	                                        <option  <?php if($i==34) ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+	                                        <?php
+	                                        }
+                                        ?>
 									  </select>
 									</div>
 								  </div>
 								  <div class="control-group">
 									<label class="control-label" for="focusedInput">Vallikodi ID</label>
 									<div class="controls">
-									  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px">
+									  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" style="width: 150px">
 									</div>
 								  </div>
 								 </fieldset>
@@ -78,7 +86,7 @@
 								  <div class="control-group">
 									<label class="control-label" for="focusedInput">Reg ID</label>
 									<div class="controls">
-									  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px">
+									  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" style="width: 150px">
 									</div>
 								  </div>
 								  <div class="control-group">
@@ -102,7 +110,7 @@
 								  <div class="control-group">
 									<label class="control-label" for="focusedInput">File No ID</label>
 									<div class="controls">
-									  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px">
+									  <input class="input-xlarge focused mob_num" id="focusedInput" type="text"  style="width: 150px">
 									</div>
 								  </div>
 								  <div class="control-group">
@@ -118,7 +126,7 @@
                   </div>
 				</div><!--/span-->
 			</div><!--/row-->
-			<!-- Hidden Search Div Begins -->
+			<!-- Hidden Search Div Ends -->
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header well">
