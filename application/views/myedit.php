@@ -350,7 +350,7 @@
                                                         <option value="">Select Country</option>
                                                           <?php 
                                                             foreach ($selection_values['country_values'] as $con_val):      
-                                                                if($con_val['name'] == $customeruser_values['comm_residence'])  
+                                                                if($con_val['name'] == $customeruser_values['comm_current_countrycountry'])  
                                                                     echo "<option selected value='".$con_val['name']."'>".$con_val['name']."</option>";
                                                                 else
                                                                     echo "<option value='".$con_val['name']."'>".$con_val['name']."</option>";                       

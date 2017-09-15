@@ -27,13 +27,13 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
         </div>
         <div style="background-color:#74872e;height: 30px;">
             <div style=" width: 200px; padding-top:5px;padding-left: 5px; color: white;display: inline-block; ">
-                <p1>Date : 17/08/2017</p1>
+                <p1>Date : <?php echo date("d-M-Y") ?></p1>
             </div>
             <div style="width: 200px; display: inline-block;margin-left: 150px; text-align: center; color: #fff;">
                 <p1>Login Details</p1>
             </div>
             <div style="width: 200px; display: inline-block;margin-left: 150px; text-align: center; color: #fff;">
-                <p1>Vallikodi ID : 12345678910</p1>
+                <p1>Vallikodi ID : <?php echo "VM".$user_id; ?></p1>
             </div>
         </div>
         <div>
@@ -41,10 +41,10 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                 <img src="images/banner.png">
             </div>
             <div style="color: #3c6a3c;margin-top: 30px; margin-left: 30px; font-size:25px; font-weight: bold;">
-                <p1>Dear Selva Kumar VM67450, </p1>
+                <p1>Dear <?php echo $user_fname."  VM".$user_id.","; ?> </p1>
             </div>
             <div style="color:black;margin-top:5px; margin-left: 45px; ">
-                <p1><!-- Dear Selva Kumar VM67450, --> Your profile has been Activated. For further Details please check your mail. Thanks By Vallikodi Team.</p1>
+                <p1><!-- Dear Selva Kumar VM67450, --> Your profile has been Activated. Kindly check the following details to access your account.</p1>
             </div>
             
             <div style="color:black;margin-top:5px; margin-left: 30px; font-weight: bold; ">
@@ -55,14 +55,14 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                     <p1>Vallikodi ID </p1>
                 </div>
                 <div style="width: 200px; display: inline-block;">
-                    <p1>: selva kumar</p1>
+                    <p1>: <?php echo "VM".$user_id; ?></p1>
                 </div>
                 <div style="padding-top: 10px;">
                     <div style="width: 200px;display: inline-block;">
                         <p1>User Name/Login ID</p1>
                     </div>
                     <div style="width: 200px; display: inline-block;">
-                        <p1>: selva kumar12345</p1>
+                        <p1>: <?php echo $user_email; ?></p1>
                     </div>
                 </div> 
                 <div style="padding-top: 10px;">
@@ -70,7 +70,7 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                         <p1>Password</p1>
                     </div>
                     <div style="width: 200px; display: inline-block;">
-                        <p1>: selva kumar12345</p1>
+                        <p1>: <?php echo $user_pwd; ?></p1>
                     </div>
                 </div>
             </div>
@@ -78,18 +78,20 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                 <p1>Other Details :- </p1>
             </div>
             <div style="color:black;margin-top:5px; margin-left: 45px;">
-                <div style="width: 200px; display: inline-block;">
-                    <p1>Period in Months</p1>
-                </div>
-                <div style="width: 200px; display: inline-block;">
-                    <p1>: 3</p1>
-                </div>
+                <?php if($user_online_or_simple == "online"){ ?>
+                    <div style="width: 200px; display: inline-block;">
+                        <p1>Period in Months</p1>
+                    </div>
+                    <div style="width: 200px; display: inline-block;">
+                        <p1>: <?php echo $period_in_month; ?></p1>
+                    </div>
+                <?php } ?>
                 <div style="padding-top: 10px;">
                     <div style="width: 200px;display: inline-block;">
                         <p1>Start Date</p1>
                     </div>
                     <div style="width: 200px; display: inline-block;">
-                        <p1>: 12-05-2017</p1>
+                        <p1>: <?php echo $startdate; ?></p1>
                     </div>
                 </div> 
                 <div style="padding-top: 10px;">
@@ -97,7 +99,7 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                         <p1>End Date</p1>
                     </div>
                     <div style="width: 200px; display: inline-block;">
-                        <p1>: 12-09-2017</p1>
+                        <p1>: <?php echo $enddate; ?></p1>
                     </div>
                 </div>
                 <div style="padding-top: 10px;">
@@ -105,17 +107,17 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                         <p1>Total no. Profiles</p1>
                     </div>
                     <div style="width: 200px; display: inline-block;">
-                        <p1>: 60</p1>
+                        <p1>: <?php echo $totalno_of_profile; ?></p1>
                     </div>
                 </div>
-                <div style="padding-top: 10px;">
+                <!-- <div style="padding-top: 10px;">
                     <div style="width: 200px;display: inline-block;">
                         <p1>Payment Status<p1>
                     </div>
                     <div style="width: 200px; display: inline-block;">
                         <p1>: Active</p1>
                     </div>
-                </div>
+                </div> -->
             </div>            
         </div>
         <div style="color:black;padding-top:40px; margin-left: 45px;">

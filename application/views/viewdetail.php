@@ -215,9 +215,9 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                             <p><?php if(!empty($results['comm_mobile_no'])) echo $results['comm_mobile_no']; else echo "None"; ?></p>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-xs-6">
+                                                    <!-- <div class="col-md-6 col-xs-6">
                                                     <p><a href="#">Am Interested</a></p>
-                                                    </div>                                     
+                                                    </div>   -->                                   
                                                 </div>
                                             </div>  <!-- row ends -->             
                                          </div> 

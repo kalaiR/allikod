@@ -24,8 +24,10 @@
 	                    echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
 	                  endif;
 	                ?> 
-					<p class='val_error'> <p>
-					<div class="row-fluid sortable">		
+					<!-- <p class='val_error'> </p> -->
+					<div class="row-fluid sortable">
+							<input type="hidden" name="cus_profileoldactivestatus" 
+							value="<?php echo $customeruser_values['user_active_status'] ?>">		
 							<div class="box span12">
 								<div class="box-header well" data-original-title>
 									<h2><i class="icon-user"></i> Edit Customer User</h2>
@@ -1179,6 +1181,6 @@
 
 
 	<?php 
-	    include('templates/footer.php')
+	    include('templates/footer.php');
 	?>
 <?php } ?>
