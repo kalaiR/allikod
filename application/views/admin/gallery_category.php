@@ -24,7 +24,7 @@
 						</div>
 					</div>
 						<div class="box-content">
-							<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>index.php/admin/add_gallery_category">
+							<a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_gallery_category">
 							        <i class="glyphicon glyphicon-edit icon-white"></i>
 							        Add
 							    </a>

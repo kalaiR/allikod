@@ -55,13 +55,13 @@
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Vallikodi ID of Bride or Groom : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="suc_vallikodiid" value="<?php if(!empty($successtory_data)) echo $successtory_data['vallikodi_id']; ?>">
+								  <input class="input-xlarge focused form_inputs mob_num" id="focusedInput" type="text" name="suc_vallikodiid" value="<?php if(!empty($successtory_data)) echo $successtory_data['vallikodi_id']; ?>">
 								</div>
 							  </div>
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Success Story : </label>
 								<div class="controls">
-								  <textarea class="input-xlarge focused form_inputs" id="focusedInput" type="text" rows="5" name="suc_description"><?php if(!empty($successtory_data)) echo $successtory_data['description']; ?></textarea>
+								  <textarea class="input-xlarge focused form_inputs" id="focusedInput" type="text" rows="5" name="suc_description" value="<?php if(!empty($successtory_data)) echo $successtory_data['description']; ?>"> </textarea>
 								</div>
 							  </div>
 							  <div class="control-group">
@@ -104,7 +104,7 @@
 							  </div>
 								<label class="control-label">Status : </label>
 								<div class="controls">
-								  <select data-rel="chosen" class="form_inputs" name="suc_status">
+								  <select data-rel="chosen" class="form_inputs dropdrop" name="suc_status">
 								  	<option value="">Select Status</option>
 									<option value="1" <?php if ($successtory_data['active_status'] == 1) echo "selected"; ?>>Active</option>
 									<option value="0" <?php if ($successtory_data['active_status'] == 0) echo "selected"; ?>>Inactive</option>							
@@ -112,7 +112,7 @@
 								</div>
 							    <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button class="btn">Cancel</button>
+								<button type="reset" id="reset" class="btn reset">Reset</button>
 							  </div>
 							</fieldset>
 <?php if(!$this->input->is_ajax_request()) { ?>

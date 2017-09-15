@@ -28,12 +28,13 @@ $(document).ready(function() {
         });
         
 // Form Reset
-$('#reset').click(function() {
-   
-   // $(".dropdrop").chosen("destroy");
+$('.reset').click(function() {
+	$('input').attr('value', '');
    $('.dropdrop').val('').trigger('liszt:updated');
-   $('#admin_form').get(0).reset();
+   // $('.checker').get(0).reset();
+   // $("#focusedInput_pwd").val('');
 });
+
     // Active menu
  $("li").click(function () {
             var id = $(this).attr("id");
@@ -383,7 +384,7 @@ $('#reset').click(function() {
             image_array.push(image_id);
     });
        
-    $(".bro_sis,.mob_num,.valli_id,.man_id,.age_reg").keypress(function (e) {
+    $(".bro_sis,.mob_num,.valli_id,.man_id,.age_reg,.only_num").keypress(function (e) {
     // var income =$(this).val();
     // var income =parseInt($(this).val());
     // var s = e.which;

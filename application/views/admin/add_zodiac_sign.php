@@ -44,7 +44,7 @@
 								  <div class="control-group">
 									<label class="control-label">Active Status : </label>
 									<div class="controls">
-									  <select class="form_inputs" data-rel="chosen" name="zod_status">
+									  <select class="form_inputs dropdrop" data-rel="chosen" name="zod_status">
 									    <option value="">Select Status</option>
 										<option value="1">Enabled</option>
 										<option value="0">Disabled</option>
@@ -52,7 +52,7 @@
 									</div>
 								    <div class="form-actions">
 										<button type="submit" class="btn btn-primary">Save changes</button>
-										<button type="reset" class="btn">Reset</button>
+										<button type="reset" class="btn reset">Reset</button>
 								    </div>
 								  </div>
 								</fieldset>

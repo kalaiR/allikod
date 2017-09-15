@@ -107,6 +107,7 @@ function docReady(){
 	
 	//datepicker
 	$('.datepicker').datepicker({dateFormat:'yy-mm-dd'});
+	// Date for DOB
 		// Year change Getter
 	var changeYear = $( ".datepicker" ).datepicker( "option", "changeYear" );
 	 // Setter
@@ -126,7 +127,21 @@ function docReady(){
 	var yearRange = $( ".datepicker" ).datepicker( "option", "yearRange" );
 	 // Setter
 	$( ".datepicker" ).datepicker( "option", "yearRange", "1950:2000" );
-	
+	// Date for Marrige date, Starting and Ending Date
+	$( ".datepicker1" ).datepicker({
+	  changeMonth: true
+	});
+		// Year change Getter
+	var changeYear = $( ".datepicker1" ).datepicker( "option", "changeYear" );
+	 // Setter
+	$( ".datepicker1" ).datepicker( "option", "changeYear", true );
+	// Month Change
+	$( ".datepicker1" ).datepicker({
+	  changeMonth: true
+	});
+	var changeMonth = $( ".selector" ).datepicker( "option", "changeMonth" );
+	 // Setter
+	$( ".datepicker1" ).datepicker( "option", "changeMonth", true );
 	// Time
 	$('.slider_example_1').timepicker({
 	hourGrid: 4,
