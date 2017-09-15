@@ -946,10 +946,6 @@ overflow-y: scroll;
   font-style: normal;
   font-weight: bold;
 }
-.val_errors
-{
-	text-align: center;
-}
 .bgtrans{
 	 background-color:rgba(255,255,255,0.9)
 }

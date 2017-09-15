@@ -7,6 +7,33 @@ var calculateAge = function(birthday) {
  
     return age;
 };
+// function mailcheckuser(){        
+    // if($("#reg_email2").val()){
+                    // var data = {};
+                    // data[csrf_name] = csfrData[csrf_name];
+                    // data['email'] = $("#reg_email2").val();
+                    // $.ajax({
+                        // url: baseurl+"register_mailcheck",
+                        // data: data,
+                        // type: "post",
+                        // async: false,
+                        // success: function(results_array){
+                            // // alert(JSON.stringify(results_array));
+                            // if(results_array!="1"){
+                                // ajx_output = 1;
+                                // // alert("ajax-fasle");
+                                // $("#register_email-error").html(" Email Already Registered ");
+                                // return ajx_output;      
+                            // }else{
+                                // ajx_output = 0;
+                                // // alert("ajax-true");
+                                // return ajx_output;      
+                            // }
+                        // }
+                    // });
+                    // return ajx_output;
+            // }
+// }
 
 function reg_mailcheckuser(){        
     if($("#register_email").val()){
@@ -26,7 +53,7 @@ function reg_mailcheckuser(){
                             if(results_array!="1"){
                                 ajx_output = false;
                                 // alert("ajax-fasle");
-                                $("#register_email-error").html(" Email Already Registered ");
+                                $("#reg_email2_error").html(" Email Already Registered ");
                                 return ajx_output;      
                             }else{
                                 ajx_output = true;
@@ -39,61 +66,62 @@ function reg_mailcheckuser(){
             }
 }
 
-function qreg_validate(){
-	var output = true;     
-	  $(".registration-error").html('');
-        if($(".reg_form").css('display') != 'none') {
-        	if(!($(".reg_Name").val())) {
-        	   	 output = false;
-        	   	 $("#reg_Name_error").html("Required");
-        	   } 
-        	   if(!($("#reg_age").val())) {
-        	   	 output = false;
-        	   	 $("#reg_age_error").html("Required");
-        	   }
-        	   var mobile =$(".reg_Mobile").val();
-		        if(!(/^([0-9-+]{10})+$/.test(mobile)) && mobile.length!=10){
-		            output = false;
-		            $("#reg_Mobile_error").html("Required");
-		        }  
-        	   if(!($("#reg_email2").val())) {
-        	   	 output = false;
-        	   	 $("#reg_email2_error").html("Required");
-        	   } 
-        	   if($("#reg_email2").val()){
-                if(!$("#reg_email2").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
-                   $("#reg_email2_error").html("Invalid Email Id");
-                    output = false;
-                	}
-            	}
-        	   if(!($(".reg_pass2").val())) {
-        	   	 output = false;
-        	   	 $("#reg_pass2_error").html("Required");
-        	   } 
-        	   if(!($(".gender").val())) {
-        	   	 output = false;
-        	   	 $("#gender_error").html("Required");
-        	   } 
-        	   if(!($(".mother_tongue").val())) {
-        	   	 output = false;
-        	   	 $("#mother_tongue_error").html("Required");
-        	   }
-        	   if(!($(".mother_tongue").val())) {
-        	   	 output = false;
-        	   	 $("#mother_tongue_error").html("Required");
-        	   }
-        	   if(!($(".country").val())) {
-        	   	 output = false;
-        	   	 $("#country_error").html("Required");
-        	   }
-        	   if(!($(".register_by  ").val())) {
-        	   	 output = false;
-        	   	 $("#register_by_error").html("Required");
-        	   }                                                                                                                                                                                                                                                         
-        }
-        return output;
-            
-   }
+// function qreg_validate(){
+	// var output = true;     
+	  // $(".registration-error").html('');
+        // if($(".reg_form").css('display') != 'none') {
+        	// if(!($(".reg_Name").val())) {
+        	   	 // output = false;
+        	   	 // $("#reg_Name_error").html("Required");
+        	   // } 
+        	   // if(!($("#reg_age").val())) {
+        	   	 // output = false;
+        	   	 // $("#reg_age_error").html("Required");
+        	   // }
+        	   // var mobile =$(".reg_Mobile").val();
+		        // if(!(/^([0-9-+]{10})+$/.test(mobile)) && mobile.length!=10){
+		            // output = false;
+		            // $("#reg_Mobile_error").html("Required");
+		        // }  
+        	   // if(!($("#reg_email2").val())) {
+        	   	// var email = mailcheckuser();
+        	   	 // output = false;
+        	   	 // $("#reg_email2_error").html("Required");
+        	   // } 
+        	   // if($("#reg_email2").val()){
+                // if(!$("#reg_email2").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+                   // $("#reg_email2_error").html("Invalid Email Id");
+                    // output = false;
+                	// }
+            	// }
+        	   // if(!($(".reg_pass2").val())) {
+        	   	 // output = false;
+        	   	 // $("#reg_pass2_error").html("Required");
+        	   // } 
+        	   // if(!($(".gender").val())) {
+        	   	 // output = false;
+        	   	 // $("#gender_error").html("Required");
+        	   // } 
+        	   // if(!($(".mother_tongue").val())) {
+        	   	 // output = false;
+        	   	 // $("#mother_tongue_error").html("Required");
+        	   // }
+        	   // if(!($(".mother_tongue").val())) {
+        	   	 // output = false;
+        	   	 // $("#mother_tongue_error").html("Required");
+        	   // }
+        	   // if(!($(".country").val())) {
+        	   	 // output = false;
+        	   	 // $("#country_error").html("Required");
+        	   // }
+        	   // if(!($(".register_by  ").val())) {
+        	   	 // output = false;
+        	   	 // $("#register_by_error").html("Required");
+        	   // }                                                                                                                                                                                                                                                         
+        // }
+        // return output;
+//             
+   // }
    
 function reg_validate() {
     var output = true;     
@@ -537,14 +565,14 @@ $(document).ready(function() {
         }
         
     });
-    $('#q-reg').click(function(){  	
-   		 var out = qreg_validate();	
-   		 if(out == false){
-   		 	
-   		 	 	return false;
-   		 }
-   		 
-	});
+    // $('#q-reg').click(function(){  	
+   		 // var out = qreg_validate();	
+   		 // if(out == false){
+//    		 	
+   		 	 	// return false;
+   		 // }
+//    		 
+	// });
 
     $("#next, #finish").click(function(){
         var ajx_output;            
@@ -588,8 +616,86 @@ $(document).ready(function() {
     });
 
     $('form#userlogin').submit(function() {
+    	 if($(this).find('.bootstrap-select').hasClass('form_inputs')) {
+            $(this).find('.bootstrap-select').removeClass('form_inputs');
+        }  
+        var error = '';
+        var error_msg = $(this).find('.val_error');
+        var message = '';
+       /* Validate Input and Select element */
+        $(this).find('.form_inputs').each(function() {
+            var this_val = $.trim($(this).val()); 
+            var tag_name = $(this).prop("tagName").toLowerCase();
+            // alert(tag_name);           
+            if(this_val == '') {
+                // alert($(this).attr('name'));
+                error = 1;
+                message ="Please fill "+$(this).data('message');
+                $(this).focus();
+                // alert(message);
+                // alert($(this).attr('name'));
+                $(this).addClass('form-field-error');
+                return false;
+            }
+             else {            
+                $(this).removeClass('form-field-error');
+            }
+        });
+        /* Validate mobile*/     
+        if(error == '') {
+            var mobile = $(this).find('.mobile_value');
+            if ((/^([0-9-+]{10})+$/.test(mobile.val())) && mobile.length > 0) {
+                mobile.removeClass("form-field-error");
+                // alert("mobile validation");
+            }
+            else if (mobile.length > 0) {
+                error = 1;
+                message = "Enter Valid Mobile Number!";
+                mobile.addClass("form-field-error");
+            }
+        }
+         if(error == '') {
+            var email = $(this).find('.email_value');
+             var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            if ((!emailReg.test(email.val())) ) {
+                error = 1;
+                message = "Enter Valid Email Address!";
+                email.addClass("form-field-error");
+            }
+            else {
+                email.removeClass("form-field-error");
+            }
+        }
+
+        // /* Validate email exits */
+        if(error == '') {
+            var email1 = $(this).find('#reg_email2');
+            var email = mailcheckuser();                                
+              if(email){
+                error = 1;
+                message = "Email Already Registered !";
+                email1.addClass("form-field-error");
+              }else{
+                email.removeClass("form-field-error");
+                // alert("false=>");              
+              }
+        }
+        if($(this).find('input,select,textarea').hasClass('form-field-error')) {
+            // if(message == '') {
+                // message ="Please fill "+data('message');
+            // }
+            $('html, body').animate({scrollTop:0},500);
+            error_msg.html(message).fadeIn(350);
+            return false;
+        }
+        else {
+            error = 0;
+            error_msg.fadeOut('fast').html('');
+            // alert("success3");
+            return true;
+        } 
         var formData = new FormData(this);
-        var this_status = $(this).find('.admin_status');        
+        var this_status = $(this).find('.val_error');        
         $.ajax({
             type : "POST",
             url : 'login_ajax',
