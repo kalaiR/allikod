@@ -35,7 +35,7 @@
 							  <div class="control-group">
 								<label class="control-label">Parent Category : </label>
 								<div class="controls">
-								  <select data-rel="chosen">
+								  <select data-rel="chosen" class="dropdrop">
 								  	<option value="">Select Category</option>
 									<option>Bachelors</option>
 									<option>Masters</option>
@@ -47,7 +47,7 @@
 								</div>
 								<label class="control-label">Status : </label>
 								<div class="controls">
-								  <select data-rel="chosen">
+								  <select data-rel="chosen" class="dropdrop">
 								  	<option value="">Select Status</option>
 									<option>Activated</option>
 									<option>Diabled</option>									
@@ -55,7 +55,7 @@
 								</div>
 							    <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button class="btn">Cancel</button>
+								<button class="btn reset">Reset</button>
 							  </div>
 							</fieldset>
 						  </form>

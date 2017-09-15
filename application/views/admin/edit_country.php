@@ -42,7 +42,7 @@
 							  <div class="control-group">
 								<label class="control-label">Active Status : </label>
 								<div class="controls">
-								  <select class="form_inputs" data-rel="chosen" name="cou_status">
+								  <select class="form_inputs dropdrop" data-rel="chosen" name="cou_status">
 									<option value="">Select Status</option>
 									<option value="1" <?php if ($country_data['active_status'] == 1) echo "selected"; ?>>Enabled</option>
 									<option value="0" <?php if ($country_data['active_status'] == 0) echo "selected"; ?>>Disabled</option>
@@ -50,7 +50,7 @@
 								</div>
 							    <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button type="reset" class="btn">Reset</button>
+								<button type="reset" class="btn reset">Reset</button>
 							  </div>
 							</fieldset>
 <?php if(!$this->input->is_ajax_request()) { ?>							

@@ -303,3 +303,8 @@ ul#media-list {
 
 .paginations a:hover:not(.active) {background-color: #ddd;}
 /*Style for customer_user_new page without data table ends*/
+
+.filters{
+	float: left; 
+	width: 124px;
+}

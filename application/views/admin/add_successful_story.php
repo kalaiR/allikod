@@ -48,14 +48,14 @@
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Marriage Date : </label>
 								<div class="controls">
-								<input type="text" class="input-xlarge focused form_inputs datepicker" id="date01" name="suc_marriagedate">
+								<input type="text" class="input-xlarge focused form_inputs datepicker1" id="date01" name="suc_marriagedate">
 								  <!-- <input class="input-xlarge focused form_inputs" id="focusedInput" type="date" name="suc_marriagedate"> -->
 								</div>
 							  </div>
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Vallikodi ID of Bride or Groom : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="suc_vallikodiid">
+								  <input class="input-xlarge focused form_inputs mob_num" id="focusedInput" type="text" name="suc_vallikodiid">
 								</div>
 							  </div>
 							  <div class="control-group">
@@ -72,7 +72,7 @@
 							  </div>
 								<label class="control-label">Status : </label>
 								<div class="controls">
-								  <select data-rel="chosen" class="form_inputs" name="suc_status">
+								  <select data-rel="chosen" class="form_inputs dropdrop" name="suc_status">
 								  	<option value="">Select Status</option>
 									<option value="1">Active</option>
 									<option value="0">Inactive</option>									
@@ -80,7 +80,7 @@
 								</div>
 							    <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button type="reset" class="btn">Cancel</button>
+								<button type="reset" id="reset" class="btn reset">Reset</button>
 							  </div>
 							</fieldset>
 <?php if(!$this->input->is_ajax_request()) { ?>

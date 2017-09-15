@@ -24,7 +24,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal edit_form" method="post" action="administration" id="admin_form" data-id="<?php echo $this->uri->segment(3); ?>">
+						<form class="form-horizontal edit_form form_reset" method="post" action="administration" data-id="<?php echo $this->uri->segment(3); ?>">
 <?php } ?>
 							<?php
 			                  if(!empty($status)) :
@@ -36,13 +36,13 @@
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Admin : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="adm_name" >
+								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="adm_name" value="<?php if(!empty($admin_data)) echo $admin_data['admin_username']; ?>">
 								</div>
 							  </div>
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput_pwd">Password : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused form_inputs" id="focusedInput_pwd" type="password" name="adm_password" >
+								  <input class="input-xlarge focused form_inputs" id="focusedInput_pwd" type="password" name="adm_password" value="<?php if(!empty($admin_data)) echo $admin_data['admin_pwd']; ?>">
 								</div>
 							  </div>
 							  <div class="control-group">
@@ -67,7 +67,7 @@
 							  </div>
 							  <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button type="reset" class="btn" id="reset">Reset</button>
+								<button type="reset" class="btn reset" id="reset">Reset</button>
 							  </div>
 							</fieldset>
 <?php if(!$this->input->is_ajax_request()) { ?>							
