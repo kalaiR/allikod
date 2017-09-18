@@ -29,9 +29,10 @@
                         <div class="col-sm-6">
                             <div class="registration_form_s" style="background-color:rgba(255,255,255,0.9)">
                                 <h4>Registration</h4>
-                                <form method="post" action="<?php echo base_url(); ?>index" name="index_reg" id="index_reg" class="reg_form">
-                                
+                                	
+                                <form method="post" action="<?php echo base_url(); ?>index" name="index_reg" id="" class="reg_formss">
                                 <!-- <span class="val_status"></span> -->
+                                 <p class='val_error val_status'></p>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <span data-bind="label" class="text-font">Registered By *</span>
@@ -48,7 +49,7 @@
                                                         <li><a href="<?php //echo base_url(); ?>#">Sister</a></li>
                                                     </ul> -->
                                                     
-                                                    <select class="form-control customize_plan register_by" name="register_by[]" id="register_by"  placeholder="RegisterBy-Name">
+                                                    <select class="form-control customize_plan form_inputs" name="register_by[]" id="register_by" data-message="Registered By"  placeholder="RegisterBy-Name">
                                                         <option value="">Select</option>
                                                         <?php
                                                         if(!empty($register)) :
@@ -58,7 +59,6 @@
                                                         endif;
                                                         ?>
                                                     </select>
-                                                    <span id="register_by_error" class="registration-error"></span>
                                                 </div>
                                             </div>    
                                     </div>
@@ -68,8 +68,7 @@
                                          </div>
                                         <div class="col-md-6">  
                                             <div class="form-group">
-                                                <input type="text" class="form-control reg_Name alphaonly" id="reg_Name" value="" placeholder="Your Name" name="reg_Name" value="">
-                                                <span id="reg_Name_error" class="registration-error"></span>
+                                                <input type="text" class="form-control form_inputs" id="reg_Name" value="" data-message="User Name" placeholder="Your Name" name="reg_Name" value="">
                                             </div>
                                         </div>    
                                     </div>    
@@ -79,8 +78,8 @@
                                          </div>
                                         <div class="col-md-6">     
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs age_reg" id="reg_age" placeholder="Your Age" name="reg_age" value="">
-                                                 <span id="reg_age_error" class="registration-error"></span>
+                                                <input type="text" class="form-control form_inputs age_reg" id="reg_age" data-message="Age" placeholder="Your Age" name="reg_age" value="">
+                                                
                                             </div>
                                         </div>    
                                     </div>    
@@ -90,7 +89,7 @@
                                          </div>
                                         <div class="col-md-6">    
                                             <div class="form-group">
-                                                <select class="form-control customize_plan form_inputs country" name="country[]" id="country" placeholder="Country Name" value="">
+                                                <select class="form-control customize_plan form_inputs country" name="country[]" data-message="Country" id="country" placeholder="Country Name" value="">
                                                         <option value="">Select</option>
                                                         <?php
                                                         if(!empty($country)) :
@@ -103,7 +102,7 @@
                                                         endif;
                                                         ?>
                                                     </select>
-                                                    <span id="country_error" class="registration-error"></span>
+                                                    
                                             </div>
                                         </div>    
                                     </div>
@@ -113,7 +112,7 @@
                                          </div>
                                         <div class="col-md-6">
                                             <div class="form-group">                                                
-                                                <select class="form-control customize_plan form_inputs mother_tongue" name="mother_tongue[]" id="mother_tongue" placeholder="MotherTongue" value="">
+                                                <select class="form-control customize_plan form_inputs mother_tongue" name="mother_tongue[]" data-message="Mother Tongue" id="mother_tongue" placeholder="MotherTongue" value="">
                                                         <option value="">Select</option>
                                                         <?php
                                                         if(!empty($mother_tongue)) :
@@ -126,7 +125,7 @@
                                                         endif;
                                                         ?>
                                                     </select>
-                                                    <span id="mother_tongue_error" class="registration-error"></span>
+                                                    
                                             </div>
                                         </div>         
                                     </div>
@@ -136,8 +135,8 @@
                                          </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs mob_num reg_Mobile" id="reg_Mobile" name="reg_Mobile" placeholder="Mobile Number" value="">
-                                                <span id="reg_Mobile_error" class="registration-error"></span>
+                                                <input type="text" class="form-control form_inputs mob_num mobile_value" id="reg_Mobile" data-message="Mobile" name="reg_Mobile" placeholder="Mobile Number" value="">
+                                               
                                             </div>
                                         </div>
                                     </div>    
@@ -147,8 +146,8 @@
                                          </div>
                                          <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs" id="reg_email2" name="reg_email2" placeholder="Email Id" value="">
-                                                <span id="reg_email2_error" class="registration-error"></span>
+                                                <input type="text" class="form-control form_inputs email_value" id="reg_email2" name="reg_email2" data-message="Email"  placeholder="Email Id" value="">
+                                               
                                             </div>
                                          </div>   
                                     </div>    
@@ -158,8 +157,8 @@
                                          </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="password" class="form-control form_inputs reg_pass2" id="reg_pass2" name="reg_pass2" placeholder="Password" value="">
-                                                <span id="reg_pass2_error" class="registration-error"></span>
+                                                <input type="password" class="form-control form_inputs reg_pass2" id="reg_pass2" data-message="Password" name="reg_pass2" placeholder="Password" value="">
+                                
                                             </div>
                                         </div>   
                                     </div>    
@@ -169,12 +168,11 @@
                                          </div>
                                          <div class="col-md-6">
                                             <div class="form-group">
-                                                <select class="form-control customize_plan form_inputs gender" name="gender[]" id="gender" value="">
+                                                <select class="form-control customize_plan form_inputs gender" name="gender[]" data-message="Gender" id="gender" value="">
                                                         <option value="">Select</option>
                                                         <option value="1">Male</option>
                                                         <option value="2">Female</option>
                                                 </select>
-                                                <span id="gender_error" class="registration-error"></span>
                                             </div>
                                         </div>
                                         <!-- <div class="col-md-6">
@@ -190,7 +188,7 @@
                                     <div class="reg_chose form-group">
                                         <!--  Here popup-with-zoom-anim class required for registration popup successful -->
                                         <!-- <button type="submit" value="LogIn" class="btn form-control login_btn popup-with-zoom-anim" href="#reg_form">Register</button> -->
-                                        <button type="submit" value="LogIn" class="btn form-control login_btn" href="#reg_form" id="q-reg">Register</button>
+                                        <button type="submit" value="LogIn" class="btn form-control form_inputs login_btn" href="#reg_form">Register</button>
                                     </div>
                                     <!-- <div class="login_form_inner zoom-anim-dialog mfp-hide" id="reg_form">
                                         <div class="box first_reg">

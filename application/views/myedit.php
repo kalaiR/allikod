@@ -154,7 +154,7 @@
               //   echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
               // endif;
             ?> 
-            <p class='val_errors'></p>
+            <p class='val_error val_status '></p>
             <section class="blog_grid_area" >
                 <div class="container">
                     <div class="row">

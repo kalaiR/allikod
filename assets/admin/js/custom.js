@@ -434,16 +434,18 @@ $(".ph_num").keyup(function (e) {
 //         return false;
 //     }
 // });
-// $(".alphaonly").keypress(function(event){
-         // var ew = event.which;
-        // if(ew == 32)
-            // return true;
-        // if(65 <= ew && ew <= 90)
-            // return true;
-        // if(97 <= ew && ew <= 122)
-            // return true;
-        // return false;
-    // });
+$(".alp").keypress(function(event){
+         var ew = event.which;
+        if(ew == 32)
+            return true;
+        if(65 <= ew && ew <= 90)
+            return true;
+        if(97 <= ew && ew <= 122)
+            return true;
+        if( ew == 8 || ew == 46 )
+        	return true;
+        return false;
+    });
 
 // var max_chars = 2;
 $('.bro_sis,.age_reg').keypress( function(e){

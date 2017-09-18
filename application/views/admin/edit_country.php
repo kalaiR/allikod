@@ -36,7 +36,7 @@
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Country : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused form_inputs" id="focusedInput" type="text" name="cou_name" value="<?php if(!empty($country_data)) echo $country_data['name']; ?>">
+								  <input class="input-xlarge focused form_inputs alp" id="focusedInput" type="text" name="cou_name" value="<?php if(!empty($country_data)) echo $country_data['name']; ?>">
 								</div>
 							  </div>
 							  <div class="control-group">
