@@ -14,7 +14,7 @@
 				</ul>
 			</div>
 			<!-- Table -->
-			<form>
+			<form id="online_form">
 		<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header well" data-original-title>
@@ -24,9 +24,10 @@
 						</div>
 					</div>
 					<div class="box-content">
-					    <button class="btn pull-right reset"> 
+					    <!-- <button class="btn pull-right reset"> 
 					        Reset
-					    </button>
+					    </button> -->
+					    <button class="btn pull-right">Cancel</button>
 						<a class="btn btn-primary pull-right" id="add" href="#">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Save
@@ -717,16 +718,16 @@
 												<label class="control-label">Marital Status * :</label>
 												<div class="controls">
 												  <label class="checkbox inline">
-													<input type="checkbox" id="inlineCheckbox1" value="option1"> Single
+													<input class="checks" type="checkbox" id="inlineCheckbox1" value="option1"> Single
 												  </label>
 												  <label class="checkbox inline">
-													<input type="checkbox" id="inlineCheckbox2" value="option2"> Widowed
+													<input class="checks" type="checkbox" id="inlineCheckbox2" value="option2"> Widowed
 												  </label>
 												  <label class="checkbox inline">
-													<input type="checkbox" id="inlineCheckbox3" value="option3"> Divorced
+													<input class="checks" type="checkbox" id="inlineCheckbox3" value="option3"> Divorced
 												  </label>
 												  <label class="checkbox inline">
-													<input type="checkbox" id="inlineCheckbox3" value="option3"> Annualled
+													<input class="checks" type="checkbox" id="inlineCheckbox3" value="option3"> Annualled
 												  </label>
 												</div>
 											  </div>
@@ -973,7 +974,8 @@
 									</div>
 								<div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save</button>	
-								<button type="reset" id="reset" rel="reset" class="btn reset">Reset</button>						
+								<button type="reset" id="reset" rel="reset" class="btn reset">Reset</button>
+															<!-- <button class="btn">Cancel</button> -->
 							  </div>            
 					</div>
 				</div><!--/span

@@ -26,15 +26,27 @@ $(document).ready(function() {
             },
             "bSort": false           
         });
-        
 // Form Reset
 $('.reset').click(function() {
+	$( ".checked" ).prop( "checked", false );
+	// alert($(this).parents('form').find('span').html());
 	$('input').attr('value', '');
    $('.dropdrop').val('').trigger('liszt:updated');
    // $('.checker').get(0).reset();
    // $("#focusedInput_pwd").val('');
 });
 
+// $(".reset").click(function () {
+    // var ele = $(this).find(':checkbox');
+    // if ($(':checked').length) {
+      // ele.prop('checked', false);
+      // $(this).removeClass('checked');
+    // } else {
+      // ele.prop('checked', true);
+      // $(this).addClass('checked');
+    // }
+ // });
+ 
     // Active menu
  $("li").click(function () {
             var id = $(this).attr("id");
