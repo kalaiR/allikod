@@ -38,7 +38,7 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
         </div>
         <div>
             <div style="margin-left: 50px;">
-                <img src="images/banner.png">
+                <img src="<?php echo media_url(); ?>assets/img/logo1.png">
             </div>
             <div style="color: #3c6a3c;margin-top: 30px; margin-left: 30px; font-size:25px; font-weight: bold;">
                 <p1>Dear <?php echo $user_fname."  VM".$user_id.","; ?> </p1>
@@ -129,7 +129,7 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                 <p1>VALLIKODI VANNIAR MATRIMONIAL TEAM.</p1>
             </div>
             <div>
-                <img src="images/logo.png">
+                <img src="<?php echo media_url(); ?>assets/img/fav.ico">
             </div>
         </div>
         <div style="background-color: #5c7500;height: 1px;">
