@@ -28,10 +28,11 @@
 					        Reset
 					    </button> -->
 					    <button class="btn pull-right">Cancel</button>
-						<a class="btn btn-primary pull-right" id="add" href="#">
+					    <button type="submit" class="btn btn-primary pull-right">Save</button>
+						<!-- <a class="btn btn-primary pull-right" id="add" href="#">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Save
-					    </a>
+					    </a> -->
     						 <div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
@@ -617,8 +618,8 @@
 												<label class="control-label" for="prependedInput">No. of Brothers :</label>
 												<div class="controls">
 													<div class="input-prepend">
-													  <span class="add-on">Elder</span><input class="span4 bro_sis" id="prependedInput" style="width: 100px" type="text" value="">
-													  <span class="add-on">Younger</span><input class="span4 bro_sis" id="prependedInput" style="width: 100px" type="text" value="">
+													  <span class="add-on">Elder</span><input class="span4 bro_sis eldyou" id="prependedInput1" style="width: 100px" type="text" value="">
+													  <span class="add-on">Younger</span><input class="span4 bro_sis eldyou" id="prependedInput2" style="width: 100px" type="text" value="">
 													</div>
 												</div>								
 											  </div>
@@ -626,8 +627,8 @@
 												<label class="control-label" for="prependedInput">No. of Sisters : </label>
 												<div class="controls">
 													<div class="input-prepend">
-													  <span class="add-on">Elder</span><input class="span4 bro_sis" id="prependedInput" style="width: 100px" type="text" value="">
-													   <span class="add-on">Younger</span><input class="span4 bro_sis" id="prependedInput" type="text" style="width: 100px" value="">
+													  <span class="add-on">Elder</span><input class="span4 bro_sis eldyou" id="prependedInput3" style="width: 100px" type="text" value="">
+													   <span class="add-on">Younger</span><input class="span4 bro_sis eldyou" id="prependedInput4" type="text" style="width: 100px" value="">
 													  </div>
 												</div>								
 											  </div>
@@ -635,8 +636,8 @@
 												<label class="control-label" for="prependedInput">No. of Married Brothers : </label>
 												<div class="controls">
 													<div class="input-prepend">
-													  <span class="add-on">Elder</span><input class="span4 bro_sis" id="prependedInput" style="width: 100px" type="text" value="">
-													  <span class="add-on">Younger</span><input class="span4 bro_sis" id="prependedInput" type="text" style="width: 100px" value="">
+													  <span class="add-on">Elder</span><input class="span4 bro_sis eldyou" id="prependedInput5" style="width: 100px" type="text" value="">
+													  <span class="add-on">Younger</span><input class="span4 bro_sis eldyou" id="prependedInput6" type="text" style="width: 100px" value="">
 													 </div>
 												</div>								
 											  </div>
@@ -644,8 +645,8 @@
 												<label class="control-label" for="prependedInput">No. of Married Sisters : </label>
 												<div class="controls">
 													<div class="input-prepend">
-													  <span class="add-on">Elder</span><input class="span4 bro_sis" id="prependedInput" style="width: 100px" type="text" value="">
-													  <span class="add-on">younger</span><input class="span4 bro_sis" id="prependedInput" type="text" style="width: 100px" value="">
+													  <span class="add-on">Elder</span><input class="span4 bro_sis eldyou" id="prependedInput7" style="width: 100px" type="text" value="">
+													  <span class="add-on">younger</span><input class="span4 bro_sis eldyou" id="prependedInput8" type="text" style="width: 100px" value="">
 													 </div>
 												</div>								
 											  </div>

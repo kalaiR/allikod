@@ -1,6 +1,26 @@
+function compare()
+{
+ var firstNumber = document.getElementById("prependedInput1").value;
+ var secondNumber = document.getElementById("prependedInput5").value;
+ if(firstNumber == secondNumber)
+ {
+  alert("The numbers are equal");
+  return true;
+ }
+ else if(firstNumber > secondNumber)
+ {
+  alert("The first number is larger");
+  return true;
+ }
+ else
+ {
+  alert("The second number is larger");
+ 	return false;
+ }
+}
+
 $(document).ready(function() {
   // Show and Hide Search Div
-
  $(function(){
   $('.search_customer').click(function() {
   $('.slidingDiv').show("slow"); 
@@ -15,7 +35,7 @@ $(document).ready(function() {
         // // $(".slidingDiv").slideToggle();
         // $(".slidingDiv").show("slow");
         // });
-
+  
         // Nosorting
         $('.nosorting').dataTable({
             "bDestroy": true,
@@ -232,6 +252,32 @@ $('.reset').click(function() {
                  $("#confirm_pass").removeClass("form-field-error"); 
               } 
         }
+         var noofBro = document.getElementById("prependedInput1").value;
+ 		var noofMarBro = document.getElementById("prependedInput5").value;
+ 		var noofSister = document.getElementById("prependedInput3").value;
+ 		var noofMarSister = document.getElementById("prependedInput7").value;
+ 		 var noofyBro = document.getElementById("prependedInput2").value;
+ 		var noofyMarBro = document.getElementById("prependedInput6").value;
+ 		var noofySister = document.getElementById("prependedInput4").value;
+ 		var noofyMarSister = document.getElementById("prependedInput8").value;
+ 		// var firstNumber = $('.first').val();
+ 		// var secondNumber = $('.second').val();
+		 if((noofBro == noofMarBro) && (noofSister == noofMarSister) && (noofyBro == noofyMarBro) && (noofySister == noofyMarSister))
+		 {
+		  // alert("The numbers are equal");
+		  // return true;
+		 }
+		 else if((noofBro > noofMarBro) && (noofSister > noofMarSister) && (noofyBro > noofyMarBro) && (noofySister > noofyMarSister))
+		 {
+		  // alert("The first number is larger");
+		  // return true;
+		 }
+		 else
+		 {
+		  alert("The No. of Married Brother should be less than or equal to No. of Brothers");
+		 	return false;
+		 }
+        
         /* Check whether the input and select element has error or not */
         if($(this).find('input,select').hasClass('form-field-error')) {
             if(message == '') {
@@ -240,7 +286,7 @@ $('.reset').click(function() {
             $('html, body').animate({scrollTop:0},500);
             error_msg.html(message).fadeIn(350);
             return false;
-        }
+        }     
         else {
             error = 0;
             error_msg.fadeOut('fast').html('');
