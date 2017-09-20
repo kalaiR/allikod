@@ -27,6 +27,12 @@
                     <div class="row">
                     <!-- <marquee overflow="hidden"><img src="<?php //echo media_url(); ?>assets/img/scroll_text.png"></marquee> -->
                         <div class="col-sm-6">
+                        	<?php 
+                            // if(empty($this->session->userdata("login_status"))){ 
+                            $user_session = $this->session->userdata("login_status");
+                            $user_session_data = $this->session->userdata("login_session");
+                            if (empty($user_session)){
+                        ?>
                             <div class="registration_form_s" style="background-color:rgba(255,255,255,0.9)">
                                 <h4>Registration</h4>
                                 	
@@ -198,6 +204,7 @@
 									</div>   -->
                                 </form>
                             </div>
+                            <?php }?>
                         </div>
                         <!--<div class="col-sm-6">
                             <div class="form_man">
