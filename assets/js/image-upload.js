@@ -129,7 +129,7 @@
         return html.join('');
     }
     function getImageThumbnailHtml(src) {
-        // return '<div class="profile-img-container adibha"><img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px"><a href="#" class="selva"><span class="fa fa-times fa-2x close-btn" id="selva"></span></a></div>';
+        // return '<div class="profile-img-container adibha"><img src="' + src + '" alt="Image preview" class="thumbnail" style="max-width: ' + options.maxWidth + 'px; max-height: ' + options.maxHeight + 'px"><a href="#" class=""><span class="fa fa-times fa-2x close-btn" id=""></span></a></div>';
     }
 
     function getFileExtension(path) {

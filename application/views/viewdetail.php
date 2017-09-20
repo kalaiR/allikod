@@ -456,7 +456,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <?php if(!empty($results['comm_mother_employment'])) echo $results['comm_mother_employment']; else echo "None"; ?>
                                                     </p>
                                                 </div>
-                                                <div class="col-md-1 col-xs-1 tooltips long">
+                                                <div class="col-md-1 col-xs-1 tooltip long">
                                                     <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php if(!empty($results['comm_mother_employment'])) echo $results['comm_mother_employment']; else echo "None"; ?></span>
                                                 </div>
                                             </div>

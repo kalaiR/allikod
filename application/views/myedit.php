@@ -4,6 +4,7 @@
 ?>      <?php 
             include('include/menu.php');
         ?> 
+        
      <!--================Banner Area =================-->
         <section class="banner_area">
             <div class="container">
@@ -170,14 +171,13 @@
                                        <input type="text" class="form-control form_inputs alphaonly" data-message="User Name" id="reg_email2" placeholder="Username" value="<?php if(!empty($customeruser_values['user_fname'])) echo $customeruser_values['user_fname']; ?>" name="cus_fname">
                                     </div>
                                 </div>
-                                <div class="col-md-4 pull-right">
-                                    <!-- <button type="submit" value="LogIn" herf="#" class="btn form-control edit_btn pull-right">Cancel</button> -->
-                                    <button type="submit" value="LogIn" herf="#" class="btn form-control edit_btn pull-right">Save</button>
+                                <div class="col-md-4 pull-right update">
+                                    <!-- <button type="submit" value="LogIn"  class="btn form-control edit_btn pull-right popup-with-zoom-anim" href="#edit_form">Save</button> -->
+                                	<button type="submit" value="LogIn"  class="btn form-control edit_btn pull-right"  id="">Save</button>
                                 </div>
                             </div>
                         </div>
                             
-                                
                         <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-6 text-boxs">
@@ -1259,7 +1259,13 @@
                                         </div>
                                 </div>    
                                 </div>                              
-                    </div>        
+                    </div> 
+                               <div id="simpleModals" class="modals">
+									<div class="modals-content">
+										  <p class="edit_error"></p>
+											<a href="<?php echo base_url(); ?>myprofile" class="btn form-control edit_btn pull-right">Ok</a>
+									</div>		
+							</div>    
                 </div>
             </section>
 <?php if(!$this->input->is_ajax_request()) { ?>

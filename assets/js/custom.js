@@ -288,6 +288,9 @@ function remove(array, property, value) {
 }
 
 $(document).ready(function() {
+	// $("#modalsBtn").click(function(){
+          // $(".modals").show();
+      // });
 	// reg page validation //
 			$(".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_reg").keypress(function (e) {
 		    // var income =$(this).val();
@@ -565,14 +568,6 @@ $(document).ready(function() {
         }
         
     });
-    // $('#q-reg').click(function(){  	
-   		 // var out = qreg_validate();	
-   		 // if(out == false){
-//    		 	
-   		 	 	// return false;
-   		 // }
-//    		 
-	// });
 
     $("#next, #finish").click(function(){
         var ajx_output;            
@@ -842,7 +837,7 @@ $(document).ready(function() {
                contentType: false,
                processData: false,
                dataType: 'json', 
-               success: function(res) {  
+               success: function(res) {                
                   if(res.error==1) {
                       $('.val_error').html("<i class='icon-remove-sign'></i>  "+res.status);
                       $('html, body').animate({scrollTop:0},500);
@@ -850,7 +845,10 @@ $(document).ready(function() {
                       $('.val_error').fadeOut(5000);
                   }
                     else if(res.error==2) {
-                      $('.val_error').html("<i class='icon-ok-sign'></i>  "+res.status);
+                      // $('.val_error').html("<i class='icon-ok-sign'></i>  "+res.status);
+                       $('.edit_error').html("<i class='icon-ok-sign'></i>  "+res.status);
+                      //alert(res.status);
+               		  $(".modals").show();
                       $(this).html(res.output);
                       $('html, body').animate({scrollTop:0},500);
                       $('.val_error').fadeIn(500);
@@ -895,14 +893,16 @@ $(document).ready(function() {
 //          'margin-left': -width / 2 + "px"
 //      });
 // });
+
 $(window).load(function(){
 
       $(".text_short").each(function() {
-        var adi = $(this).text().length;
-        if(adi>=12){
+        var icons = $(this).text().length;
+        if(icons>=12){
              $(this).parent('.dark').siblings('.tooltips').show();   
         }
       });
 });
+
 
   
