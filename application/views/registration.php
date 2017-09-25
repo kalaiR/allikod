@@ -847,27 +847,27 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>    
                                             </div>
                                             <div class="col-sm-2 box">                                                
-                                                <select class="form-control" name="height_in_cms[]" id="height_in_cms">
+                                                <select class="form-control height_act" name="height_in_cms[]" id="height_in_cms">
                                                     <?php 
-                                                    for($i=137;$i<=213;$i++){
-                                                    ?>
-                                                    <option  <?php if($i==137){?> selected="selected" <?php } ?>  value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                    <?php
-                                                    }
-                                                    ?>
+                                                        if(!empty($height_relation['cms'])) :
+                                                            foreach ($height_relation['cms'] as $hrel_val) {
+                                                        echo "<option value='" . $hrel_val['heightrelation_id'] . "'>" . $hrel_val['cms'] . "</option>";
+                                                            }
+                                                    endif;
+                                                    ?>   
                                                 </select>
                                             </div>
-                                            <!-- <div class="col-sm-2 box">                                                
-                                                <select class="form-control" name="height_in_cms[]" id="height_in_cms">
+                                            <div class="col-sm-2 box">                                                
+                                                <select class="form-control feet_act" name="height_in_feets" id="height_in_feet">
                                                     <?php 
-                                                    //for($i=137;$i<=213;$i++){
-                                                    ?>
-                                                    <option  <?php //if($i==137){?> selected="selected" <?php //} ?>  value="<?php //echo $i; ?>"><?php //echo $i; ?></option>
-                                                    <?php
-                                                   // }
-                                                    ?>
+                                                        if(!empty($height_relation['feet'])) :
+                                                            foreach ($height_relation['feet'] as $hrel_val) {
+                                                        echo "<option value='" . $hrel_val['feet'] . "' data-heightcms='".$hrel_val['hcms']."'>" . $hrel_val['feet'] . "</option>";
+                                                            }
+                                                    endif;
+                                                    ?> 
                                                 </select>
-                                            </div> -->
+                                            </div>
                                             <!-- <div class="col-sm-4 box">
                                                <span id="resident_error" class="registration-error"></span>
                                             </div>   -->   

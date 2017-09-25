@@ -221,3 +221,10 @@ delete FROM `reg_selectedmarital` WHERE marital_category_id=0;
 
 
 
+
+
+ALTER TABLE `reg_physical_expectation` ADD `phy_feet` VARCHAR( 50 ) NOT NULL AFTER `phy_height` ;
+(feet design need to update,height feet calculation in db,payment table duplicate record need to remove using query)
+
+
+

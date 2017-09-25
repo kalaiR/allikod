@@ -778,7 +778,12 @@ $(document).ready(function() {
         var image_id = $(this).parents("li").find('.cus_img').data('id');
         if ($.inArray(image_id.toString(), image_array) != 0)
             image_array.push(image_id);
-    });    
+    });   
+    //To find height in feet for selected height in cms
+    $('.height_act').on('change', function(){
+        height_cms = $('.height_act :selected').text();
+        $('.feet_act option[data-heightcms*="' + height_cms + '"]').attr("selected","selected");       
+    });  
 });
 
 // $(window).load(function(){

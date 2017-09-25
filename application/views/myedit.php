@@ -882,16 +882,26 @@
                                                     <p><b>Height</b></p>
                                                 </div>
                                                 <div class="col-md-6">        
-                                                   <select class="selectpicker" name="cus_heightcms">
-                                                        <option value="">Height in cm</option>
+                                                    <select class="height_act" name="cus_heightcms">
+                                                        <option value="">In cms</option>
                                                         <?php 
-                                                            foreach ($selection_values['height_values'] as $height_val):  
+                                                            foreach ($selection_values['height_values']['cms'] as $height_val):  
                                                                 if (strpos($customeruser_values['phy_height'], 'cm') == false) 
                                                                     $customeruser_values['phy_height'] += "cm";   
                                                                 if($height_val['cms']."cm" == $customeruser_values['phy_height'])  
                                                                     echo "<option selected value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";
                                                                 else
                                                                     echo "<option value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";                       
+                                                            endforeach; ?>
+                                                    </select> 
+                                                    <select class="feet_act" name="cus_heightfeets">
+                                                        <option value="">In feet</option>
+                                                        <?php 
+                                                            foreach ($selection_values['height_values']['feet'] as $height_val):    
+                                                                if($height_val['feet'] == $customeruser_values['phy_feet'])  
+                                                                    echo "<option selected value='".$height_val['feet']."' data-heightcms='".$hrel_val['hcms']."'>".$height_val['feet']."</option>";
+                                                                else
+                                                                    echo "<option value='".$height_val['feet']."' data-heightcms='".$height_val['hcms']."'>".$height_val['feet']."</option>";                       
                                                             endforeach; ?>
                                                     </select> 
                                                     <!-- <select>

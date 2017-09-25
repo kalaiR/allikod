@@ -93,6 +93,7 @@ class Customeruser_data_model extends CI_Model {
 	            	// print_r($communication_update_data);
 	                $physicalattributes_update_data = array(
 	                				'phy_height' => $this->input->post('cus_heightcms'),
+	                				'phy_feet' => $this->input->post('cus_heightfeets'),
 	                                'phy_weight' => $this->input->post('cus_weight'),
 	                                'phy_bodytype' => $this->input->post('cus_bodytype'),
 	                                'phy_complexion' => $this->input->post('cus_complexion'),
@@ -376,10 +377,15 @@ class Customeruser_data_model extends CI_Model {
   		$model_data['food_values'] = $this->db->order_by('food_id','asc')->get_where('food',array('active_status'=>1))->result_array();
   		$model_data['familystatus_values'] = $this->db->order_by('familystatus_id','asc')->get_where('family_status',array('active_status'=>1))->result_array();
   		$model_data['familytype_values'] = $this->db->order_by('familytype_id','asc')->get_where('family_type',array('active_status'=>1))->result_array();
-  		$model_data['height_values'] = $this->db->order_by('heightrelation_id','asc')->get_where('height_relation')->result_array();
   		$model_data['dhosham_values'] = $this->db->order_by('dhosham_id','asc')->get_where('dhosham')->result_array();
-
-  		//Education and Occuaption with category
+  		$model_data['height_values']['cms'] = $this->db->order_by('heightrelation_id','asc')->get_where('height_relation')->result_array();
+	      //To fetch height in feet
+	      $this->db->select('*,group_concat(hrel.cms) as hcms');
+	      $this->db->from('height_relation AS hrel');
+	      $this->db->group_by('hrel.feet_value');
+	      $this->db->order_by('hrel.heightrelation_id');
+	      $model_data['height_values']['feet'] = $this->db->get()->result_array();
+  		  //Education and Occuaption with category
 	      $condition = "edu.active_status = 1";
 	      $this->db->select('edu.education_id,edu.edu_name,edu_cat.cat_name,edu.edu_categoryid');
 	      $this->db->from('education edu');

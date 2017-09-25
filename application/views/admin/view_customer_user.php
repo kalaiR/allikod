@@ -321,8 +321,12 @@
 										<form class="form-horizontal">
 											<fieldset>										  
 											  <div class="control-group">
-												<label class="control-label">Height : </label>
+												<label class="control-label">Height in CM : </label>
 												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_height']; ?></label>
+											  </div>
+											  <div class="control-group">
+												<label class="control-label">Height in Feet: </label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_feet']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Weight : </label>

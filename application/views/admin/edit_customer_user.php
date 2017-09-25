@@ -620,8 +620,8 @@
 														  <div class="control-group">
 															<label class="control-label">Height : </label>
 															<div class="controls">
-															  <select data-rel="chosen" name="cus_heightcms" class="span3">
-															  	<option value="">Height in cm</option>
+															  <select data-rel="chosen" name="cus_heightcms" class="span3 height_act">
+															  	<option value="">In cm</option>
 		                                                        <?php 
 		                                                            foreach ($selection_values['height_values'] as $height_val):  
 		                                                                if (strpos($customeruser_values['phy_height'], 'cm') == false) 
@@ -632,6 +632,16 @@
 		                                                                    echo "<option value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";                       
 		                                                            endforeach; ?>
 															  </select>
+															  <select data-rel="chosen" name="cus_heightfeets" class="span3 feet_act">
+		                                                        <option value="">In feet</option>
+		                                                        <?php 
+		                                                            foreach ($selection_values['height_values']['feet'] as $height_val):    
+		                                                                if($height_val['feet'] == $customeruser_values['phy_feet'])  
+		                                                                    echo "<option selected value='".$height_val['feet']."' data-heightcms='".$hrel_val['hcms']."'>".$height_val['feet']."</option>";
+		                                                                else
+		                                                                    echo "<option value='".$height_val['feet']."' data-heightcms='".$height_val['hcms']."'>".$height_val['feet']."</option>";                       
+		                                                            endforeach; ?>
+		                                                    </select> 
 															  <!-- <select data-rel="chosen" name="cus_heightfeet" class="span3">
 																<option value="">In Feet</option>
 																<option>5</option>

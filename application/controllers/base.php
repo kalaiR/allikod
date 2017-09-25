@@ -428,6 +428,9 @@ class Base extends CI_Controller {
 				if(!empty($form_data['height_in_cms'][0])){
 					$data_reg_phy['phy_height']= $form_data['height_in_cms'][0];
 				}
+				if(!empty($form_data['height_in_feets'][0])){
+					$data_reg_phy['phy_feet']= $form_data['height_in_feets'][0];
+				}
 				if(!empty($form_data['weight_in_kgs'][0])){
 					$data_reg_phy['phy_weight']= $form_data['weight_in_kgs'][0];
 				}
@@ -721,6 +724,7 @@ class Base extends CI_Controller {
 		  		$data['bodytype'] = $this->user_model->get_bodytype();
 		  		$data['complexion'] = $this->user_model->get_complexion();		  		
 		  		$data['food'] = $this->user_model->get_food();
+		  		$data['height_relation'] = $this->user_model->get_height_relation();
 		  		// echo "<pre>";
 		  		// print_r($data);
 		  		// echo "</pre>";
