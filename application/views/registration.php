@@ -1329,15 +1329,12 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                         <input type="hidden" name="quickregister_id" id="quickregister_id" value="<?php echo $quickregister_id;?>" />
                          <?php } ?>
                     </div>
-                    <!-- <div class="login_form_inner zoom-anim-dialog mfp-hide" id="reg_finish">
-                        <div class="box first_reg">
-                            <p>Registration process successfully completed . Your profile will be registered in vallikodi matrimonial</p>
-                        </div>
-                        <div class="low_pad">
-                            <button type="submit" value="LogIn" class="btn form-control login_btn pull-right" name="user-submit" id="user_submit">Ok</button>
-                            <img class="mfp-close" src="<?php //echo media_url(); ?>assets/img/close-btn.png" alt="">
-                        </div>
-                    </div>   -->   
+                     <!-- <div id="simpleModals" class="modals">
+							<div class="modals-content">
+								  <p class="edit_error"></p>
+									<a href="<?php echo base_url(); ?>myprofile" class="btn form-control edit_btn pull-right">Ok</a>
+							</div>		
+					</div>   -->
                 </form>
             </div>     
        </div>                   

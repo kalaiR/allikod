@@ -22,15 +22,13 @@
                             <div class="registration_form_area" id="registration_form_are">
                                 <div class="row">
                                     <form action="success_stories" class="post_success_form" method="post" name="success_stories" id="success_stories" enctype="multipart/form-data">
+                                    	 <p class='val_error val_status'></p>
                                         <div class="col-md-12">
                                             <div class="registration_form_s aline-center-box det_border" id="registration_form_s">
                                                     <!-- <h2>Post Your Story</h2> -->
-                                                    <span class="val_status" style="display: block;">
-                                    <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
-                                    </span>
                                                     <div class="form-group featured-box">
                                                         <div class="col-md-10">
-                                                            <input type="text" class="form-control form_inputs alphaonly" id="bride_name" placeholder="Bride Name (Female) *" name="bride_name">
+                                                            <input type="text" class="form-control form_inputs alphaonly" id="bride_name" data-message="Female Name" placeholder="Bride Name (Female) *" name="bride_name">
                                                         </div>
                                                          <div class="tooltips" style="display: inline-block;">
                                                          <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Type the name of the Girl</span>
@@ -38,7 +36,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-10">
-                                                            <input type="text" class="form-control form_inputs alphaonly" id="groom_name" placeholder="Groom Name (Male) *" name="groom_name">
+                                                            <input type="text" class="form-control form_inputs alphaonly" id="groom_name" data-message="Male Name" placeholder="Groom Name (Male) *" name="groom_name">
                                                         </div>    
                                                         <div class="tooltips" style="display: inline-block;">
                                                             <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Type the name of the Boy</span>
@@ -88,7 +86,7 @@
                                                                             <ul>
                                                                                 <li class="btn btn-default btn-file">
                                                                                     <span>Browse</span>
-                                                                                    <input type="file" click-type="type1" id="picupload" class="picupload">
+                                                                                    <input type="file" click-type="type1" id="picupload" class="picupload form_inputs" data-message="Upload Image">
                                                                                 </li>
                                                                             </ul>     
                                                                         </div>
@@ -112,9 +110,19 @@
                                                             <!-- <input type="submit" value="LogIn" id="post_submit" name="post_submit" class="btn form-control login_btn"> -->
                                                         <div class="reg_chose form-group">
                                                             <button type="submit" value="LogIn" class="btn login_btn" name="submit">Post</button>
-                                                        </div>     
+                                                        </div>
+                                                         <!-- Here popup-with-zoom-anim class required for post popup successful -->
+                                                         <!-- <div class="reg_chose form-group">
+                                							<button type="submit" value="LogIn" class="btn form-control login_btn popup-with-zoom-anim" href="#post_form">Post</button> 
+                                                        </div>   -->   
                                             </div>
-                                        </div>                                         
+                                        </div> 
+                                		  <!-- <div id="simpleModals" class="modals">
+												<div class="modals-content">
+													  <p class="edit_error"></p>
+														<a href="<?php echo base_url(); ?>myprofile" class="btn form-control edit_btn pull-right">Ok</a>
+												</div>		
+											</div>  --> 
                                     </form>    
                                             <div class="col-sm-4">
                                                 <div class="form_man">

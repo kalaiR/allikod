@@ -27,46 +27,41 @@ function mailcheckuser(){
 }
 
 $(document).ready(function() {
-        var height = '';
-        var width = '';
 
-    /*  ===========         Registration Form Validation Start     ===================   */
-     $(document).on('submit','.post_success_form,.form_inner,.user_login,.forgot_form',function(e) {
-       // alert("linked");
+    // $(document).on('submit','.user_login,.reg_formss,.post_success_form,.forgot_forms',function(e) {
+    $('.reg_formss,.post_success_form,.forgot_forms').on('submit',function(e) {
+    	// e.preventDefault();
         if($(this).find('.bootstrap-select').hasClass('form_inputs')) {
             $(this).find('.bootstrap-select').removeClass('form_inputs');
-        }       
+        }  
         var error = '';
-        var error_msg = $(this).find('.val_status');
+        var error_msg = $(this).find('.val_error');
         var message = '';
-        $('.val_error').css('display','none');
-        /* Validate Input and Select element */
+       /* Validate Input and Select element */
         $(this).find('.form_inputs').each(function() {
-            var tag_name = $(this).prop("tagName").toLowerCase();
             var this_val = $.trim($(this).val()); 
-            // alert(this_val);           
+            var tag_name = $(this).prop("tagName").toLowerCase();
+            // alert(tag_name);           
             if(this_val == '') {
                 // alert($(this).attr('name'));
                 error = 1;
-                message ="Please Provide Valid Information!";
+                message ="Please fill "+$(this).data('message');
+                $(this).focus();
+                // alert(message);
+                // alert($(this).attr('name'));
                 $(this).addClass('form-field-error');
-                if(tag_name == "select") {
-                     $(this).addClass('form-field-error');
-                }
+                return false;
             }
              else {            
                 $(this).removeClass('form-field-error');
-                if(tag_name == "select") {
-                    $(this).removeClass('form-field-error');
-                }
             }
         });
         /* Validate mobile*/     
         if(error == '') {
             var mobile = $(this).find('.mobile_value');
-            //if ((/^([0-9-+]{10})+$/.test(mobile.val())) && mobile.length > 10) {
-            	  if(!(/^([0-9-+]{10})+$/.test(mobile)) && mobile.length!=10){
+            if ((/^([0-9-+]{10})+$/.test(mobile.val())) && mobile.length > 0) {
                 mobile.removeClass("form-field-error");
+                // alert("mobile validation");
             }
             else if (mobile.length > 0) {
                 error = 1;
@@ -74,8 +69,7 @@ $(document).ready(function() {
                 mobile.addClass("form-field-error");
             }
         }
-       // /* Validate email */
-        if(error == '') {
+         if(error == '') {
             var email = $(this).find('.email_value');
              var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
             if ((!emailReg.test(email.val())) ) {
@@ -101,73 +95,25 @@ $(document).ready(function() {
                 // alert("false=>");              
               }
         }
-
-       //  /* Image Upload on Submit*/ 
-            if($(this).hasClass('post_success_form')){
-                if($("#uploadedfile")[0].files[0]){
-                    var file_size = $("#uploadedfile")[0].files[0].size;
-                    var ext = $("#uploadedfile").val().split('.').pop().toLowerCase();
-                    if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
-                        error = 1;
-                        message = "Invalid extension, only gif, png, jpg, jpeg are allowed";
-                        $("#uploadedfile").addClass("form-field-error");
-                    }
-                    else if (width > 350 || height > 300) {
-                        error = 1;
-                        message = "Upload image height and width below 300 X 350";
-                        $("#uploadedfile").addClass("form-field-error");
-                    }
-                    else if (file_size > 1000000) {
-                        error = 1;
-                        message = "Upload image size less than 1 MB";
-                        $("#uploadedfile").addClass("form-field-error");
-                    }
-                    else{
-                        $("#uploadedfile").removeClass("form-field-error");
-                    } 
-                }
-            }
-        /* Check whether the input and select element has error or not */
-        if($(this).find('input,select').hasClass('form-field-error')) {
-            // alert("message===>"+message);
-            if(message == '') {
-                message ="Please Provide All Mandatory Field !";
-            }
-            error_msg.addClass('val_error');
+        if($(this).find('input,select,textarea').hasClass('form-field-error')) {
+            // if(message == '') {
+                // message ="Please fill "+data('message');
+            // }
+            $('html, body').animate({scrollTop:0},500);
             error_msg.html(message).fadeIn(350);
             return false;
         }
         else {
             error = 0;
             error_msg.fadeOut('fast').html('');
-            // alert("success");
+            // alert("success3");
             return true;
-        }        
-  }); // End document
-  $(".image_act").on('change',function(){
-        //Get reference of FileUpload.
-        var fileUpload = $(this)[0];
-        if (typeof (fileUpload.files) != "undefined") {
-            //Initiate the FileReader object.
-            var reader = new FileReader();
-            //Read the contents of Image File.
-            reader.readAsDataURL(fileUpload.files[0]);
-            reader.onload = function (e) {
-            //Initiate the JavaScript Image object.
-            var image = new Image();
-            //Set the Base64 string return from FileReader as source.
-            image.src = e.target.result;
-            image.onload = function () {
-                //Determine the Height and Width.
-                height = this.height;
-                width = this.width;
-            };
-          }
-        }
-    });
-});
+        }  
       
+    });
 
+
+/*enduser validation*/
     
         /*  ===========         Basic_Search Form Validation Start     ===================   */
      $(document).on('submit','.basic_search',function(e) {
@@ -202,6 +148,7 @@ $(document).ready(function() {
                 }
             }
         });
+        
        //  /* Validate mobile*/     
        //  if(error == '') {
        //      var mobile = $(this).find('.mobile_value');
@@ -253,11 +200,11 @@ $(document).ready(function() {
        //      }
          /* Check whether the input and select element has error or not */
         if($(this).find('input,select').hasClass('form-field-error')) {
-            if(message == '') {
-                // message ="Please Provide All Mandatory Field !";
-                // message ="Please fill "+$(this).data('message');
-                // $(this).focus();
-            }
+            // if(message == '') {
+                // // message ="Please Provide All Mandatory Field !";
+                // // message ="Please fill "+$(this).data('message');
+                // // $(this).focus();
+            // }
             error_msg.addClass('val_error');
             error_msg.html(message).fadeIn(350);
             return false;
@@ -291,3 +238,5 @@ $(document).ready(function() {
     //       }
     //     }
     // }); 
+    
+    }); 

@@ -2397,7 +2397,7 @@ p2
 }
 
 .registration_form_area .registration_form_s .form-group {
-  margin-bottom: 30px;
+  margin-bottom:25px;
   position:relative;
 }
 
@@ -7869,7 +7869,7 @@ p2
 .val_error{
     color: #822e0a;
     display:block;
-    margin-right: 123px;
+    /*margin-right: 123px;*/
 }
 
 .val_status {

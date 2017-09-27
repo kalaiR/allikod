@@ -158,10 +158,11 @@
 								    <div class="control-group pull-left">
 										<label class="control-label" for="selectError3"></label>
 										<div class="controls">
-										  <select id="selectError3" style="float: left; width: 80px">
+										  <select id="selectError3" class="filters">
 											<option>Active</option>
 											<option>Inactive</option>
 											<option>Delete</option>
+											<option>Featured Profile</option>
 										</select>
 										  	<a class="btn btn-primary search_customer" id="search" href="#" style="float: left; margin-left: 5px;">
 									        <i class="glyphicon glyphicon-edit icon-white"></i>

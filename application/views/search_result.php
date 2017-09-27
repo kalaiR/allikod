@@ -234,8 +234,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                                $user_session = $this->session->userdata("login_status");
                                if(!empty($user_session)){ ?>
                                     <div class="col-md-6 col-xs-9">
-                                        <p>
-                                        <a href="<?php echo base_url().'viewdetail/'.$value['userdetail_id'];?>" target="_blank">View Full Details</a>
+                                        <p><a href="<?php echo base_url().'viewdetail/'.$value['userdetail_id'];?>" target="_blank">View Full Details</a>
                                         </p>
                                     </div>
                                 <?php }else{ ?>
@@ -256,7 +255,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                             <?php
                             if(!empty($links)) :
                                 echo "<div class='col-md-8 nopadding pull-right '>
-                                            <div class='col-md-5 pagination-box clearfix' style='display:inline-block'>" .$links . "
+                                            <div class='col-md-5 col-xs-12 pagination-box clearfix' style='display:inline-block'>" .$links . "
                                             </div>";
                                             if(!empty($pages)) : ?>
                                             <!-- <div class="col-md-2 goto">Go to</div> -->

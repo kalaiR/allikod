@@ -28,7 +28,7 @@
 							  <div class="control-group">
 								<label class="control-label">Category* : </label>
 								<div class="controls">
-								  <select data-rel="chosen">
+								  <select data-rel="chosen" class="dropdrop">
 								  	<option value="">Select Category</option>
 									<option>Pondicherry</option>
 									<option>Tindivanam</option>
@@ -86,7 +86,7 @@
 							   <div class="control-group">
 								<label class="control-label">Active Status : </label>
 								<div class="controls">
-								  <select data-rel="chosen">
+								  <select data-rel="chosen" class="dropdrop">
 								  	<option value="">Select Status</option>
 									<option>Enabled</option>
 									<option>Disabled</option>
@@ -95,7 +95,7 @@
 							  </div>
 							  <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button class="btn">Cancel</button>
+								<button type="reset" id="reset" class="btn reset">Reset</button>
 							  </div>
 							</fieldset>
 						  </form>

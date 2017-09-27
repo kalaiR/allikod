@@ -24,7 +24,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal add_form" method="post" action="administration" id="admin_form">
+						<form class="form-horizontal add_form form_reset" method="post" action="administration" id="admin_form">
 <?php } ?>						
 							<?php
 			                  if(!empty($status)) :
@@ -67,7 +67,7 @@
 							  </div>
 							  <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button type="reset" class="btn" id="reset">Reset</button>
+								<button type="reset" class="btn reset" id="reset">Reset</button>
 							  </div>
 							</fieldset>
 <?php if(!$this->input->is_ajax_request()) { ?>							

@@ -55,7 +55,7 @@
 			                        ?> 
 								</td>
 								<td class="center">
-									<span class="label label-success">
+									<span class="label label-success"> <!--class for not activated <span class="label label-danger"> -->
 										<?php 
 				                          if ($suc_val['active_status'] == 1) 
 				                            echo "Activated";
@@ -65,7 +65,7 @@
 				                    </span>
 								</td>
 								<td class="center">
-									<span class="label label-success">
+									<span class="label label-success"> <!--class for Deleted <span class="label label-important"> -->
 										<?php 
 				                          if ($suc_val['delete_status'] == 1) 
 				                            echo "Deleted";
