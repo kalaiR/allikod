@@ -1,23 +1,3 @@
-function compare()
-{
- var firstNumber = document.getElementById("prependedInput1").value;
- var secondNumber = document.getElementById("prependedInput5").value;
- if(firstNumber == secondNumber)
- {
-  alert("The numbers are equal");
-  return true;
- }
- else if(firstNumber > secondNumber)
- {
-  alert("The first number is larger");
-  return true;
- }
- else
- {
-  alert("The second number is larger");
- 	return false;
- }
-}
 
 $(document).ready(function() {
   // Show and Hide Search Div
@@ -262,21 +242,38 @@ $('.reset').click(function() {
  		var noofyMarSister = document.getElementById("prependedInput8").value;
  		// var firstNumber = $('.first').val();
  		// var secondNumber = $('.second').val();
-		 if((noofBro == noofMarBro) && (noofSister == noofMarSister) && (noofyBro == noofyMarBro) && (noofySister == noofyMarSister))
-		 {
-		  // alert("The numbers are equal");
-		  // return true;
-		 }
-		 else if((noofBro > noofMarBro) && (noofSister > noofMarSister) && (noofyBro > noofyMarBro) && (noofySister > noofyMarSister))
-		 {
-		  // alert("The first number is larger");
-		  // return true;
-		 }
-		 else
-		 {
-		  alert("The No. of Married Brother should be less than or equal to No. of Brothers");
-		 	return false;
-		 }
+        if(error == '' ) {
+             if(!((noofBro >= noofMarBro) && (noofSister >= noofMarSister) && (noofyBro >= noofyMarBro) && (noofySister >= noofyMarSister))){
+                  error = 1;
+                  message = "Married brother or sister less than Brother or sister";
+                  $("#prependedInput1").addClass("form-field-error");
+              }
+              else {
+                 $("#prependedInput1").removeClass("form-field-error"); 
+              } 
+        }
+        // if(error == '' ) {
+             // if(!(noofBro >= noofMarBro)){
+                  // error = 1;
+                  // message = "It should be less than  brothers";
+                  // $("#prependedInput1").addClass("form-field-error");
+                  // // alert("podaga");
+              // }
+              // else {
+                 // $("#prependedInput1").removeClass("form-field-error"); 
+              // } 
+        // }
+        // if(error == '' ) {
+             // if(!(noofBro >= noofMarBro)){
+                  // error = 1;
+                  // message = "It should be less than  brothers";
+                  // $("#prependedInput1").addClass("form-field-error");
+                  // // alert("podaga");
+              // }
+              // else {
+                 // $("#prependedInput1").removeClass("form-field-error"); 
+              // } 
+        // }
         
         /* Check whether the input and select element has error or not */
         if($(this).find('input,select').hasClass('form-field-error')) {

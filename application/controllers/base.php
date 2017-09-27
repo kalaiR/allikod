@@ -542,7 +542,7 @@ class Base extends CI_Controller {
 		  	}else{
 		  		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);			  		
 		  		if(!empty($values[0])){
-		  			$data['registered_data'] = $this->user_model->get_registerdata($values[0]);		  			
+		  			$data['registered_data'] = $this->user_model->get_registerdata($values[0]);			  			
 		  		}
 		  		
 		  		// Edit Process - Start Here

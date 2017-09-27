@@ -196,12 +196,12 @@
                                         <!-- <button type="submit" value="LogIn" class="btn form-control login_btn popup-with-zoom-anim" href="#reg_form">Register</button> -->
                                         <button type="submit" value="LogIn" class="btn form-control form_inputs login_btn" href="#reg_form">Register</button>
                                     </div>
-                                      <!-- <div id="simpleModals" class="modals">
+                                      <!-- <div id="simpleModals" class="modals modalqreg_act">
 											<div class="modals-content">
 												  <p class="edit_error"></p>
 													<a href="<?php echo base_url(); ?>myprofile" class="btn form-control edit_btn pull-right">Ok</a>
 											</div>		
-									</div>   -->
+									</div> -->  
                                 </form>
                             </div>
                             <?php }?>
@@ -316,15 +316,13 @@
                                 foreach ($success_stories as $suc) :
                             ?>
                             <div class="item">
-                                <div class="team_items">
-                                    <div class="product_div">
-                                        <img src="<?php if(!empty($suc['image'])) echo media_url()."assets/img/uploads/success/th_".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>"class="product_div" alt="Image">
+                                <div class="test_div product_test_div">
+                                        <img src="<?php if(!empty($suc['image'])) echo media_url()."assets/img/uploads/success/th_".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>"class="img_divs owl-lazy" alt="Image">
                                         <div class="overlay">
-                                            <div class="success-text"><?php echo $suc['male_name']."&". $suc['female_name'] ?>
+                                            <div class="success-text"><p><?php echo $suc['male_name']."&". $suc['female_name'] ?></p>
                                             </div>
                                         </div> 
-                                    </div>    
-                                </div>
+                               </div>    
                             </div>
                             <?php
                               endforeach;
@@ -337,7 +335,7 @@
         </section>
     <!--================ End Success (selva)=================--> 
     <!--================ Featured (selva)=================--> 
-    <section class="register_members_slider">
+   <section class="register_members_slider">
             <div class="container">
                 <div class="welcome_title">
                     <h3>Featured Profiles</h3>
@@ -374,17 +372,19 @@
                                 $user_session = $this->session->userdata("login_status");
                                 if(!empty($user_session)){ ?>
                                     <div class="item">
-                                        <a href="<?php echo base_url()."viewdetail/".$rec['userdetail_id'];?>"><img src="<?php 
-                                            if(!empty($prefix)): 
-                                                echo media_url()."uploads/profile/".$prefix; 
-                                            else:
-                                                echo media_url()."assets/img/no_image.jpg"; 
-                                            endif; 
-                                        ?>" alt="Image not loaded" class ="featured_div">
-                                        </a>
+                                    	<div class="test_div">
+	                                        <a href="<?php echo base_url()."viewdetail/".$rec['userdetail_id'];?>"><img src="<?php 
+	                                            if(!empty($prefix)): 
+	                                                echo media_url()."uploads/profile/".$prefix; 
+	                                            else:
+	                                                echo media_url()."assets/img/no_image.jpg"; 
+	                                            endif; 
+	                                        ?>" alt="Image not loaded" class ="img_div">
+	                                        </a>
                                     </div>
                                 <?php }else{ ?>
                                     <div class="item">
+                                    		<div class="test_div">
                                         <a href="<?php echo base_url()."viewfeatureprofile/".$rec['userdetail_id'];?>">
                                         <img src="<?php 
                                         if(!empty($prefix)): 
@@ -392,8 +392,9 @@
                                         else:
                                         echo media_url()."assets/img/no_image.jpg"; 
                                         endif; 
-                                        ?>" alt="Image not loaded" class ="featured_div">
+                                        ?>" alt="Image not loaded" class ="img_div">
                                         </a>
+                                       </div> 
                                     </div>
                                 <?php } ?>
                             <?php endif; ?>
@@ -436,17 +437,20 @@
                                 $user_session = $this->session->userdata("login_status");
                                 if(!empty($user_session)){ ?>
                                     <div class="item">
+                                    		<div class="test_div">
                                         <a href="<?php echo base_url()."viewdetail/".$rec['userdetail_id'];?>"><img src="<?php 
                                             if(!empty($prefix)): 
                                                 echo media_url()."uploads/profile/".$prefix; 
                                             else:
                                                 echo media_url()."assets/img/no_image.jpg"; 
                                             endif; 
-                                        ?>" alt="Image not loaded" class ="featured_div">
+                                        ?>" alt="Image not loaded" class="img_div">
                                         </a>
+                                       </div> 
                                     </div>
                                 <?php }else{ ?>
                                     <div class="item">
+                                    	<div class="test_div">
                                         <a href="<?php echo base_url()."viewfeatureprofile/".$rec['userdetail_id'];?>">
                                         <img src="<?php 
                                         if(!empty($prefix)): 
@@ -454,8 +458,9 @@
                                         else:
                                         echo media_url()."assets/img/no_image.jpg"; 
                                         endif; 
-                                        ?>" alt="Image not loaded" class ="featured_div">
+                                        ?>" alt="Image not loaded" class ="img_div">
                                         </a>
+                                        </div>
                                     </div>
                                 <?php } ?>
                             <?php endif; ?>
@@ -468,9 +473,157 @@
                     </div>    
                 </div>  
             </div>
-        </section>    
-<!--================ End Featured (selva)=================-->       
- 
+        </section> 
+<!--================ End Featured (selva)=================-->
+               
+  <!--================ test img code (selva)=================-->       
+        <!-- <section class="adms_slider_area">
+            <div class="container">
+            	<div class="welcome_title">
+                    <h3>Success Stories</h3>
+                    <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
+                </div>
+                <div class="adms_inners">
+                    <div class="adms_slider_inners">
+                        <div class="slider_adms_active team_inner_area">                            
+                            <div class="item">
+                                       <div class="test_div product_test_div">
+            								<img src="<?php echo media_url(); ?>assets/img/1134Balamurugan-weds-Rajavandhi.jpg" class="img_divs">
+            								<div class="overlay">
+                                            	<div class="success-text">
+                                            		<p>asdfghjk@qwertyui</p>
+                                                </div>
+                                        	</div> 
+          							</div>
+                            </div>
+                            <div class="item">
+                                       <div class="test_div product_test_div">
+            								<img src="<?php echo media_url(); ?>assets/img/uploads/success/1440588269.jpg" class="img_divs">
+            								<div class="overlay">
+                                            	<div class="success-text">
+                                            		<p>asdfghjk@qwertyui dsgdfgdfh</p>
+                                                </div>
+                                        	</div>
+          							</div>
+                                </div>
+                            <div class="item">
+                                       <div class="test_div product_test_div">
+            								<img src="<?php echo media_url(); ?>assets/img/uploads/success/3.jpg" class="img_divs">
+            								<div class="overlay">
+                                            	<div class="success-text">
+                                            		<p>asdfgui</p>
+                                                </div>
+                                        	</div>
+          							</div>
+                            </div>
+                            <div class="item">
+                                       <div class="test_div product_test_div">
+            								<img src="<?php echo media_url(); ?>assets/img/uploads/success/27arulselvan-weds-jayanthi.jpg" class="img_divs">
+            								<div class="overlay">
+                                            	<div class="success-text">
+                                            		<p>asdfghjk@qwgfdhdhdfhdfhdfhertyui</p>
+                                                </div>
+                                        	</div>
+          							</div>
+                            </div>
+                            <div class="item">
+                                       <div class="test_div product_test_div">
+            								<img src="<?php echo media_url(); ?>assets/img/uploads/success/6763Anandhakumar-weds-Rajeswari.jpg" class="img_divs">
+            								<div class="overlay">
+                                            	<div class="success-text">
+                                            		<p>atyui</p>
+                                                </div>
+                                        	</div>
+          							</div>
+                            </div>
+                            <div class="item">
+                                       <div class="test_div product_test_div">
+            								<img src="<?php echo media_url(); ?>assets/img/1134Balamurugan-weds-Rajavandhi.jpg" class="img_divs">
+            								<div class="overlay">
+                                            	<div class="success-text">
+                                            		<p>asdfghjk@qwertyui</p>
+                                                </div>
+                                        	</div>
+          							</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> 
+ <section class="register_members_slider">
+            <div class="container">
+                <div class="welcome_title">
+                    <h3>Featured Profiles</h3>
+                     <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 aline-center-box">
+                        <div class="r_members_inner">
+                            <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/1134Balamurugan-weds-Rajavandhi.jpg" class="img_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/img1.png" class="img_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/reg-img.jpg" class="img_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/download_bg.jpg" class="img_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/283output.jpg" class="img_div">
+          							</div>
+                            </div>
+                            
+                        </div>
+                    </div>    
+                </div>
+                <div class="row featured-box">
+                    <div class="col-sm-10 aline-center-box">
+                        <div class="r_members_inner">
+                            <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/1134Balamurugan-weds-Rajavandhi.jpg" class="img_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/img1.png" class="img_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/reg-img.jpg" class="img_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/download_bg.jpg" class="img_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/283output.jpg" class="img_div">
+          							</div>
+                            </div>
+                            
+                        </div>
+                    </div>    
+                </div>    
+            </div>
+        </section>  -->
+        <!--================ End test img code (selva)=================-->          
 <?php 
     include('include/footer.php');
 ?>  
