@@ -1,10 +1,15 @@
+ $(function() {
+    $('.scroll-down').click (function() {
+      $('html, body').animate({scrollTop: $('section.ok').offset().top }, 'slow');
+      return false;
+    });
+  });
 var calculateAge = function(birthday) {
 	var now = new Date();
 	var past = new Date(birthday);
 	var nowYear = now.getFullYear();
 	var pastYear = past.getFullYear();
 	var age = nowYear - pastYear;
-
 	return age;
 };
 // function mailcheckuser(){

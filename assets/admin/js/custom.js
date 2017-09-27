@@ -252,6 +252,7 @@ $('.reset').click(function() {
                  $("#confirm_pass").removeClass("form-field-error"); 
               } 
         }
+        // Elder younger validation
          var noofBro = document.getElementById("prependedInput1").value;
  		var noofMarBro = document.getElementById("prependedInput5").value;
  		var noofSister = document.getElementById("prependedInput3").value;
