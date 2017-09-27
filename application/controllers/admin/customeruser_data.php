@@ -151,15 +151,78 @@ class Customeruser_Data extends CI_Controller {
 			}
 			else if($data['error']==2) {
 				$data_ajax['customerid_status'] = TRUE;
-				$data_ajax['customeruser_values'] = $data_values['customeruser_values'];
+				// $data_ajax['customeruser_values'] = $data_values['customeruser_values'];
 				$data_ajax['status'] = $data['status'];
 				// $data_ajax['mapped_data'] = $data_values['mapped_data'];
 				$result['error'] = $data['error'];
 				$result['status'] = $data['status'];
-				// $data_ajax['zodiac_data'] = $this->master_data_model->zodiac_sign('edit')['zodiac_data'];
 				$data_res = $this->customeruser_data_model->customer_user_profile($id);
+				// print_r($data_res);
 				$data_ajax['customeruser_values'] = $data_res['customeruser_values'];
 				$data_ajax['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
+
+				//Sending mail and sms once profile activated with payment status
+				$old_active_status =  $this->input->post('cus_profileoldactivestatus');
+				$new_active_status =  $this->input->post('cus_profileactivestatus');
+				$payment_status =  $this->input->post('cus_paymentactivestatus');
+				if($old_active_status == 0 && $new_active_status == 1 && $payment_status == 1){
+					$data_activation = array(
+						'user_id' => $this->input->post('rid'),
+						'user_email' => $this->input->post('cus_email'),
+	                    'user_pwd' => $this->input->post('cus_password'),
+	                    'user_fname' => $this->input->post('cus_fname'),
+	                    'user_online_or_simple' => $this->input->post('cus_usertype'),
+	                    'period_in_month' => $this->input->post('cus_period'),
+	                    'startdate' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
+						'enddate' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
+						'totalno_of_profile' => $this->input->post('cus_totprofile'),
+						'payment_status' => $this->input->post('cus_paymentactivestatus'),
+						'user_active_status' => $this->input->post('cus_profileactivestatus'),
+						'comm_mobile_no' => $this->input->post('cus_mobile'),
+					);
+					//Email process
+					$ci =& get_instance();	
+					$ci->config->load('email', true);
+					$emailsetup = $ci->config->item('email');
+					$this->load->library('email', $emailsetup);
+					$from_email = $emailsetup['smtp_user'];
+					$this->email->initialize($emailsetup);
+					$this->email->from($from_email, '');
+	                $this->email->to($data_activation['user_email']);
+	    			$this->email->subject('Profile Activated Confirmation');
+	    			// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
+	    			$message = $this->load->view('admin/email_template/customeruser_profile_activation',$data_activation, TRUE);
+	    			$this->email->message($message);
+	    			$this->email->send();
+
+	    			//SMS process
+	    			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
+					$fields = array(
+					    'user'=> 'VALLIK',
+					    'pass'=> 'abcd1234',
+					    'sender'=> 'VALLIK',
+					    'phone'=> $data_activation['comm_mobile_no'],
+					    'text'=>"Your profile VM".$data_activation['user_id']."has been Activated. For further Details please check your mail. Thanks By Vallikodi Team",
+					    'priority'=>'ndnd',
+					    'stype'=>'normal'
+					);
+					$ch = curl_init();
+					curl_setopt($ch, CURLOPT_URL, $smsurl);
+					curl_setopt($ch, CURLOPT_POST, count($fields));
+					curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($fields));
+					curl_exec($ch);
+					curl_close($ch);
+
+	    			// if($this->email->send())
+	    			// {
+	       //  			echo "Your email was sent.!";
+	    			// }
+	    			// else 
+	    			// {
+	       //  			echo "Your email was not sent.!";
+	    			// }
+	    		}
+
 				$result['output'] = $this->load->view('admin/edit_customer_user',$data_ajax,true);
 				echo json_encode($result);
 			}

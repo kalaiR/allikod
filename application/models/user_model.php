@@ -218,6 +218,23 @@ class User_model extends CI_Model {
       return $query;
   }
 
+  public function get_height_relation(){
+      //To fetch height in cms
+      $this->db->select('*');
+      $this->db->from('height_relation AS hrel');
+      $query['cms'] = $this->db->get()->result_array(); 
+      //To fetch height in feet
+      $this->db->select('*,group_concat(hrel.cms) as hcms');
+      $this->db->from('height_relation AS hrel');
+      $this->db->group_by('hrel.feet_value');
+      $this->db->order_by('hrel.heightrelation_id');
+      $query['feet'] = $this->db->get()->result_array();  
+      // echo "<pre>";
+      // print_r($query['feet']);  
+      // echo "</pre>";    
+      return $query;
+  }
+
   public function get_success_stories($limit, $start){
 
       $user_where = 'sstories.active_status = 1';
@@ -885,8 +902,13 @@ class User_model extends CI_Model {
       $model_data['food_values'] = $this->db->order_by('food_id','asc')->get_where('food',array('active_status'=>1))->result_array();
       $model_data['familystatus_values'] = $this->db->order_by('familystatus_id','asc')->get_where('family_status',array('active_status'=>1))->result_array();
       $model_data['familytype_values'] = $this->db->order_by('familytype_id','asc')->get_where('family_type',array('active_status'=>1))->result_array();
-      $model_data['height_values'] = $this->db->order_by('heightrelation_id','asc')->get_where('height_relation')->result_array();
-
+      $model_data['height_values']['cms'] = $this->db->order_by('heightrelation_id','asc')->get_where('height_relation')->result_array();
+      //To fetch height in feet
+      $this->db->select('*,group_concat(hrel.cms) as hcms');
+      $this->db->from('height_relation AS hrel');
+      $this->db->group_by('hrel.feet_value');
+      $this->db->order_by('hrel.heightrelation_id');
+      $model_data['height_values']['feet'] = $this->db->get()->result_array();
       //Category and Subcategory values
       // $model_data['education_values'] = $this->db->order_by('education_id','asc')->get_where('education')->result_array();
       // $model_data['occupation_values'] = $this->db->order_by('occupation_id','asc')->get_where('occupation')->result_array();
@@ -1004,6 +1026,7 @@ class User_model extends CI_Model {
             // print_r($communication_update_data);
             $physicalattributes_update_data = array(
                     'phy_height' => $this->input->post('cus_heightcms'),
+                    'phy_feet' => $this->input->post('cus_heightfeets'),
                     'phy_weight' => $this->input->post('cus_weight'),
                     'phy_bodytype' => $this->input->post('cus_bodytype'),
                     'phy_complexion' => $this->input->post('cus_complexion'),
@@ -1449,6 +1472,7 @@ class User_model extends CI_Model {
             $physicalattributes_update_data = array(
                     'reg_user_id'=> $userid,
                     'phy_height' => $this->input->post('height_in_cms')[0],
+                    'phy_feet' => $this->input->post('height_in_feets')[0],
                     'phy_weight' => $this->input->post('weight_in_kgs')[0],
                     'phy_bodytype' => $this->input->post('body_type')[0],
                     'phy_complexion' => $this->input->post('complexion')[0],

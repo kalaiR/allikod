@@ -765,7 +765,7 @@ $(document).ready(function() {
 	// });
 	// Active Tab Change ends
 
-	/*Admin customer user edit form Start*/
+	/*End user customer user edit form Start*/
 	$('.customer_edit_form').on('submit', function(e) {
 		e.preventDefault();
 		if ($(this).find('.bootstrap-select').hasClass('form_inputs')) {
@@ -902,7 +902,9 @@ $(document).ready(function() {
 						$('.val_error').fadeIn(500);
 						$('.val_error').fadeOut(5000);
 					} else if (res.error == 2) {
-						$('.val_error').html("<i class='icon-ok-sign'></i>  " + res.status);
+						// $('.val_error').html("<i class='icon-ok-sign'></i>  " + res.status);
+						$('.edit_error').html("<i class='icon-ok-sign'></i>  " + res.status);
+						 $(".modals").show();
 						$(this).html(res.output);
 						$('html, body').animate({
 							scrollTop : 0
@@ -917,30 +919,33 @@ $(document).ready(function() {
 		}
 	});
 
-	/*Admin customer user edit form End*/
-
+	/*End user customer user edit form End*/
 	$(".find_age,#cus_age").keypress(function(event) {
 		event.preventDefault();
 	});
-
-	$('.find_age').on('blur', function() {
-		date_value = $(this).val().split('-');
-		// dob = $.datepicker.formatDate('dd/mm/yy', new Date(date_value[2],date_value[1]-1,date_value[0]));
-		// var today = $.datepicker.formatDate('dd/mm/yy', new Date());
-		var dob = new Date(date_value[0], date_value[1] - 1, date_value[2]);
-		var today = new Date();
-		var nowYear = today.getYear();
-		var pastYear = dob.getYear();
-		var age = nowYear - pastYear;
-		$('#cus_age').val(age);
-	});
-	//get id and store in array for removed images while edit profile
-	var image_array = [];
-	$('.remove_act').on('click', function() {
-		var image_id = $(this).parents("li").find('.cus_img').data('id');
-		if ($.inArray(image_id.toString(), image_array) != 0)
-			image_array.push(image_id);
-	});
+    $('.find_age').on('blur', function(){
+        date_value = $(this).val().split('-');
+        // dob = $.datepicker.formatDate('dd/mm/yy', new Date(date_value[2],date_value[1]-1,date_value[0]));
+        // var today = $.datepicker.formatDate('dd/mm/yy', new Date());
+        var dob = new Date(date_value[0],date_value[1]-1,date_value[2]);
+        var today = new Date();
+        var nowYear = today.getYear();
+        var pastYear = dob.getYear();
+        var age = nowYear - pastYear;
+        $('#cus_age').val(age);
+    });
+    //get id and store in array for removed images while edit profile
+    var image_array = [];
+    $('.remove_act').on('click', function(){
+        var image_id = $(this).parents("li").find('.cus_img').data('id');
+        if ($.inArray(image_id.toString(), image_array) != 0)
+            image_array.push(image_id);
+    });   
+    //To find height in feet for selected height in cms
+    $('.height_act').on('change', function(){
+        height_cms = $('.height_act :selected').text();
+        $('.feet_act option[data-heightcms*="' + height_cms + '"]').attr("selected","selected");       
+    });  
 });
 
 // $(window).load(function(){
@@ -954,8 +959,8 @@ $(document).ready(function() {
 $(window).load(function() {
 
 	$(".text_short").each(function() {
-		var adi = $(this).text().length;
-		if (adi >= 12) {
+		var icons = $(this).text().length;
+		if (icons >= 12) {
 			$(this).parent('.dark').siblings('.tooltips').show();
 		}
 	});

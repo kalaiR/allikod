@@ -221,3 +221,50 @@ delete FROM `reg_selectedmarital` WHERE marital_category_id=0;
 
 
 
+
+
+ALTER TABLE `reg_physical_expectation` ADD `phy_feet` VARCHAR( 50 ) NOT NULL AFTER `phy_height` ;
+(feet design need to update,height feet calculation in db,payment table duplicate record need to remove using query)
+
+
+================Group by email id to generate all records(final query) ============
+SELECT usr.*,pm.*,ren.*, ren.totalno_of_profile as ren_totalno_of_profile,GROUP_CONCAT(images) images,re.*,eo.*,cf.*,pe.*,ih.*,rb.name as registered_by_name, mt.name as mother_tongue_name,dos.name as dhosham_name,
+nak.name as nakshathra_name,luk.name as lukhnam_name,zod.name as zodiac_name,ed.edu_name,occ.occupation_name,
+ein.name as empin_name,famst.name as family_statusname, famtype.name as family_typename, bdy_type.typename as body_typename,
+comp.name as complexion_typename,fod.name as food_name,fode.name as phy_expectationfood_name,mc.marital_name as maritalname,
+usr1.count
+FROM reg_userdetail usr
+JOIN
+(SELECT userdetail_id,user_email,count(*) as count
+ FROM reg_userdetail where user_email!='0' AND user_email!=' 0' AND user_email!='' AND user_email!='00' AND user_email!='000' AND user_email!='0000' AND user_email!='-' GROUP BY user_email having count(*)>1) usr1
+ON usr1.user_email=usr.user_email
+LEFT JOIN reg_religion_ethnicity re ON re.reg_user_id=usr.userdetail_id 
+LEFT JOIN reg_education_occupation eo ON eo.reg_user_id=usr.userdetail_id 
+LEFT JOIN reg_communication_family cf ON cf.reg_user_id=usr.userdetail_id 
+LEFT JOIN reg_physical_expectation pe ON pe.reg_user_id=usr.userdetail_id 
+LEFT JOIN reg_image_horoscope ih ON ih.reg_user_id=usr.userdetail_id 
+LEFT JOIN reg_payment pm ON pm.reg_user_id=usr.userdetail_id 
+LEFT JOIN renew_detail ren ON ren.reg_user_id=usr.userdetail_id 
+LEFT JOIN registered_by rb ON rb.registeredby_id=usr.user_registeredby 
+LEFT JOIN marital_category mc ON mc.maritalcategory_id=usr.user_maritalstatus 
+LEFT JOIN mother_tongue mt ON mt.mothertongue_id=re.rel_mothertongue_id 
+LEFT JOIN nakshathra nak ON nak.nakshathra_id=re.rel_nakshathra_id 
+LEFT JOIN luknam luk ON luk.luknam_id=re.rel_luknam_id 
+LEFT JOIN zodiac_sign zod ON zod.zodiacsign_id=re.rel_zodiacsign_id
+LEFT JOIN education ed ON ed.education_id=eo.edu_education 
+LEFT JOIN occupation occ ON occ.occupation_id=eo.edu_occupation 
+LEFT JOIN employed_in ein ON ein.employedin_id=eo.edu_employedin 
+LEFT JOIN family_status famst ON famst.familystatus_id=cf.comm_family_status 
+LEFT JOIN family_type famtype ON famtype.familytype_id=cf.comm_family_type 
+LEFT JOIN body_type bdy_type ON bdy_type.bodytype_id=pe.phy_bodytype 
+LEFT JOIN complexion comp ON comp.complexion_id=pe.phy_complexion 
+LEFT JOIN food fod ON fod.food_id=pe.phy_food 
+LEFT JOIN food fode ON fode.food_id=pe.phy_expectationfood 
+LEFT JOIN dhosham dos ON dos.dhosham_id=re.rel_dhosham 
+LEFT JOIN user_images img ON img.reg_user_id=usr.userdetail_id 
+group by usr.userdetail_id order by usr.user_email
+
+
+
+
+

@@ -110,9 +110,19 @@
                                                             <!-- <input type="submit" value="LogIn" id="post_submit" name="post_submit" class="btn form-control login_btn"> -->
                                                         <div class="reg_chose form-group">
                                                             <button type="submit" value="LogIn" class="btn login_btn" name="submit">Post</button>
-                                                        </div>     
+                                                        </div>
+                                                         <!-- Here popup-with-zoom-anim class required for post popup successful -->
+                                                         <!-- <div class="reg_chose form-group">
+                                							<button type="submit" value="LogIn" class="btn form-control login_btn popup-with-zoom-anim" href="#post_form">Post</button> 
+                                                        </div>   -->   
                                             </div>
-                                        </div>                                         
+                                        </div> 
+                                		  <!-- <div id="simpleModals" class="modals">
+												<div class="modals-content">
+													  <p class="edit_error"></p>
+														<a href="<?php echo base_url(); ?>myprofile" class="btn form-control edit_btn pull-right">Ok</a>
+												</div>		
+											</div>  --> 
                                     </form>    
                                             <div class="col-sm-4">
                                                 <div class="form_man">

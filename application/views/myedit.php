@@ -4,6 +4,7 @@
 ?>      <?php 
             include('include/menu.php');
         ?> 
+        
      <!--================Banner Area =================-->
         <section class="banner_area">
             <div class="container">
@@ -170,14 +171,13 @@
                                        <input type="text" class="form-control form_inputs alphaonly" data-message="User Name" id="reg_email2" placeholder="Username" value="<?php if(!empty($customeruser_values['user_fname'])) echo $customeruser_values['user_fname']; ?>" name="cus_fname">
                                     </div>
                                 </div>
-                                <div class="col-md-4 pull-right">
-                                    <!-- <button type="submit" value="LogIn" herf="#" class="btn form-control edit_btn pull-right">Cancel</button> -->
-                                    <button type="submit" value="LogIn" herf="#" class="btn form-control edit_btn pull-right">Save</button>
+                                <div class="col-md-4 pull-right update">
+                                    <!-- <button type="submit" value="LogIn"  class="btn form-control edit_btn pull-right popup-with-zoom-anim" href="#edit_form">Save</button> -->
+                                	<button type="submit" value="LogIn"  class="btn form-control edit_btn pull-right"  id="">Save</button>
                                 </div>
                             </div>
                         </div>
                             
-                                
                         <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-6 text-boxs">
@@ -350,7 +350,7 @@
                                                         <option value="">Select Country</option>
                                                           <?php 
                                                             foreach ($selection_values['country_values'] as $con_val):      
-                                                                if($con_val['name'] == $customeruser_values['comm_residence'])  
+                                                                if($con_val['name'] == $customeruser_values['comm_current_countrycountry'])  
                                                                     echo "<option selected value='".$con_val['name']."'>".$con_val['name']."</option>";
                                                                 else
                                                                     echo "<option value='".$con_val['name']."'>".$con_val['name']."</option>";                       
@@ -882,16 +882,26 @@
                                                     <p><b>Height</b></p>
                                                 </div>
                                                 <div class="col-md-6">        
-                                                   <select class="selectpicker" name="cus_heightcms">
-                                                        <option value="">Height in cm</option>
+                                                    <select class="height_act" name="cus_heightcms">
+                                                        <option value="">In cms</option>
                                                         <?php 
-                                                            foreach ($selection_values['height_values'] as $height_val):  
+                                                            foreach ($selection_values['height_values']['cms'] as $height_val):  
                                                                 if (strpos($customeruser_values['phy_height'], 'cm') == false) 
                                                                     $customeruser_values['phy_height'] += "cm";   
                                                                 if($height_val['cms']."cm" == $customeruser_values['phy_height'])  
                                                                     echo "<option selected value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";
                                                                 else
                                                                     echo "<option value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";                       
+                                                            endforeach; ?>
+                                                    </select> 
+                                                    <select class="feet_act" name="cus_heightfeets">
+                                                        <option value="">In feet</option>
+                                                        <?php 
+                                                            foreach ($selection_values['height_values']['feet'] as $height_val):    
+                                                                if($height_val['feet'] == $customeruser_values['phy_feet'])  
+                                                                    echo "<option selected value='".$height_val['feet']."' data-heightcms='".$hrel_val['hcms']."'>".$height_val['feet']."</option>";
+                                                                else
+                                                                    echo "<option value='".$height_val['feet']."' data-heightcms='".$height_val['hcms']."'>".$height_val['feet']."</option>";                       
                                                             endforeach; ?>
                                                     </select> 
                                                     <!-- <select>
@@ -1259,7 +1269,13 @@
                                         </div>
                                 </div>    
                                 </div>                              
-                    </div>        
+                    </div> 
+                               <div id="simpleModals" class="modals">
+									<div class="modals-content">
+										  <p class="edit_error"></p>
+											<a href="<?php echo base_url(); ?>myprofile" class="btn form-control edit_btn pull-right">Ok</a>
+									</div>		
+							</div>    
                 </div>
             </section>
 <?php if(!$this->input->is_ajax_request()) { ?>
