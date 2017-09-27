@@ -49,7 +49,7 @@ $(document).ready(function() {
 // Form Reset
 $('.reset').click(function() {
 	$( ".checked" ).prop( "checked", false );
-	// alert($(this).parents('form').find('span').html());
+	$("span").removeClass("checked");
 	$('input').attr('value', '');
    $('.dropdrop').val('').trigger('liszt:updated');
    // $('.checker').get(0).reset();
