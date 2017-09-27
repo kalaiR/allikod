@@ -508,6 +508,7 @@
                 loop:true,
                 margin:30,
                 // items: 4,
+                lazyLoad : true,
                 nav:true,
                 autoplay:true,
                 smartSpeed: 1800,

@@ -58,7 +58,7 @@ function reg_mailcheckuser() {
 				if (results_array != "1") {
 					ajx_output = false;
 					// alert("ajax-fasle");
-					$("#reg_email2_error").html(" Email Already Registered ");
+					$("#register_email_error").html(" Email Already Registered ");
 					return ajx_output;
 				} else {
 					ajx_output = true;
@@ -71,68 +71,11 @@ function reg_mailcheckuser() {
 	}
 }
 
-// function qreg_validate(){
-// var output = true;
-// $(".registration-error").html('');
-// if($(".reg_form").css('display') != 'none') {
-// if(!($(".reg_Name").val())) {
-// output = false;
-// $("#reg_Name_error").html("Required");
-// }
-// if(!($("#reg_age").val())) {
-// output = false;
-// $("#reg_age_error").html("Required");
-// }
-// var mobile =$(".reg_Mobile").val();
-// if(!(/^([0-9-+]{10})+$/.test(mobile)) && mobile.length!=10){
-// output = false;
-// $("#reg_Mobile_error").html("Required");
-// }
-// if(!($("#reg_email2").val())) {
-// var email = mailcheckuser();
-// output = false;
-// $("#reg_email2_error").html("Required");
-// }
-// if($("#reg_email2").val()){
-// if(!$("#reg_email2").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
-// $("#reg_email2_error").html("Invalid Email Id");
-// output = false;
-// }
-// }
-// if(!($(".reg_pass2").val())) {
-// output = false;
-// $("#reg_pass2_error").html("Required");
-// }
-// if(!($(".gender").val())) {
-// output = false;
-// $("#gender_error").html("Required");
-// }
-// if(!($(".mother_tongue").val())) {
-// output = false;
-// $("#mother_tongue_error").html("Required");
-// }
-// if(!($(".mother_tongue").val())) {
-// output = false;
-// $("#mother_tongue_error").html("Required");
-// }
-// if(!($(".country").val())) {
-// output = false;
-// $("#country_error").html("Required");
-// }
-// if(!($(".register_by  ").val())) {
-// output = false;
-// $("#register_by_error").html("Required");
-// }
-// }
-// return output;
-//
-// }
 
 function reg_validate() {
 	var output = true;
 	$(".registration-error").html('');
 	if ($("#userdetails-field").css('display') != 'none') {
-
 		if (!($("#register_email").val())) {
 			output = false;
 			$("#register_email-error").html("Required");
@@ -140,7 +83,7 @@ function reg_validate() {
 		}
 		if ($("#register_email").val()) {
 			if (!$("#register_email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
-				$("#register_email-error").html("Invalid Email Id");
+				$("#register_email_error").html("Invalid Email Id");
 				output = false;
 				$("#register_email").focus();
 
@@ -291,28 +234,49 @@ function reg_validate() {
 			$("#family_type_error").html("Required");
 			$("#family_type").focus();
 		}
-	}
-	if ($("#exceptation-field").css('display') != 'none') {
-
-		if (!($("#food").val())) {
+		if (!($("#reg_EBrother").val() >= $("#reg_MEBrother").val())) {	
 			output = false;
-			$("#food_error").html("Required");
-			$("#food").focus();
+			$("#reg_EBrother_error").html("It should be less than  brothers");
+			// $("#reg_EBrother").focus();
 		}
-		if (!($("#search_age_from").val())) {
+		if (!($("#reg_ESister").val() >= $("#reg_MESister").val())) {	
 			output = false;
-			$("#search_age_from_error").html("Required");
-			$("#search_age_from").focus();
+			// alert("selva");
+			$("#reg_ESister_error").html("It should be less than sister");
+			$("#reg_ESister").focus();
 		}
-
-	}
-	if ($("#horoscope-field").css('display') != 'none') {
-		if (!($("#crasi_name").val())) {
+		if (!($("#reg_YBrother").val() >= $("#reg_MYBrother").val())) {	
 			output = false;
-			$("#crasi_name_error").html("Required");
-			$("#crasi_name").focus();
+			$("#reg_EBrother_error").html("It should be less than younger brothers");
+			// $("#family_type").focus();
+		}
+		if (!($("#reg_YSister").val() >= $("#reg_MYSister").val())) {	
+			output = false;
+			$("#reg_ESister_error").html("It should be less than  younger sister");
+			// $("#family_type").focus();
 		}
 	}
+	// if ($("#exceptation-field").css('display') != 'none') {
+// 
+		// if (!($("#food").val())) {
+			// output = false;
+			// $("#food_error").html("Required");
+			// $("#food").focus();
+		// }
+		// if (!($("#search_age_from").val())) {
+			// output = false;
+			// $("#search_age_from_error").html("Required");
+			// $("#search_age_from").focus();
+		// }
+// 
+	// }
+	// if ($("#horoscope-field").css('display') != 'none') {
+		// if (!($("#crasi_name").val())) {
+			// output = false;
+			// $("#crasi_name_error").html("Required");
+			// $("#crasi_name").focus();
+		// }
+	// }
 	return output;
 }
 
@@ -331,6 +295,7 @@ function remove(array, property, value) {
 
 
 $(document).ready(function() {
+	 $('.position_images').css('display','none');
 	// reg page validation //
 	$(".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_reg").keypress(function(e) {
 		// var income =$(this).val();
@@ -622,8 +587,8 @@ $(document).ready(function() {
 		var output = reg_validate();
 		ajx_output = reg_mailcheckuser();
 		// alert('end-ajax-control'+ajx_output);
-		if ((output) && (ajx_output)) {
-			// if(output) {
+		// if ((output) && (ajx_output)) {
+			if(output) {
 			var current = $(".highlight");
 			var next = $(".highlight").next("li");
 			if (next.length > 0) {
@@ -816,6 +781,26 @@ $(document).ready(function() {
 		//       }
 		// }
 		// /* Check whether the input and select element has error or not */
+		var noofBro = document.getElementById("prependedInput1").value;
+ 		var noofMarBro = document.getElementById("prependedInput5").value;
+ 		var noofSister = document.getElementById("prependedInput3").value;
+ 		var noofMarSister = document.getElementById("prependedInput7").value;
+ 		 var noofyBro = document.getElementById("prependedInput2").value;
+ 		var noofyMarBro = document.getElementById("prependedInput6").value;
+ 		var noofySister = document.getElementById("prependedInput4").value;
+ 		var noofyMarSister = document.getElementById("prependedInput8").value;
+ 		// var firstNumber = $('.first').val();
+ 		// var secondNumber = $('.second').val();
+        if(error == '' ) {
+             if(!((noofBro >= noofMarBro) && (noofSister >= noofMarSister) && (noofyBro >= noofyMarBro) && (noofySister >= noofyMarSister))){
+                  error = 1;
+                  message = "Married brother or sister less than Brother or sister";
+                  $("#prependedInput1").addClass("form-field-error");
+              }
+              else {
+                 $("#prependedInput1").removeClass("form-field-error"); 
+              } 
+        }
 		if ($(this).find('input,select,textarea').hasClass('form-field-error')) {
 			// if(message == '') {
 			//     message ="Please fill "+data('message');
@@ -893,6 +878,11 @@ $(document).ready(function() {
 				contentType : false,
 				processData : false,
 				dataType : 'json',
+				beforeSend: function () 
+				{ // traitements JS à faire AVANT l'envoi
+                    // $('.customer_edit_form');
+                    $("#overlay").show();
+                },
 				success : function(res) {
 					if (res.error == 1) {
 						$('.val_error').html("<i class='icon-remove-sign'></i>  " + res.status);
@@ -902,6 +892,7 @@ $(document).ready(function() {
 						$('.val_error').fadeIn(500);
 						$('.val_error').fadeOut(5000);
 					} else if (res.error == 2) {
+						$(".loader_holder").hide();
 						// $('.val_error').html("<i class='icon-ok-sign'></i>  " + res.status);
 						$('.edit_error').html("<i class='icon-ok-sign'></i>  " + res.status);
 						 $(".modals").show();
@@ -956,13 +947,28 @@ $(document).ready(function() {
 //          'margin-left': -width / 2 + "px"
 //      });
 // });
-$(window).load(function() {
-
-	$(".text_short").each(function() {
-		var icons = $(this).text().length;
-		if (icons >= 12) {
-			$(this).parent('.dark').siblings('.tooltips').show();
-		}
-	});
-});
-
+	/*image center and loader*/ 
+// $(window).load(function()
+// {
+    // $('.position_images').css('display','none');
+    // $('.home_category_image').addClass('product_loader');
+	// centerContent();
+// });
+// $(window).resize(function()
+// {
+    // $('.position_images,').css('display','none');
+    // $('.home_category_image').addClass('product_loader');
+	// centerContent();
+// });
+// function centerContent()
+// {   
+    // setTimeout(function(){ 
+        // $('.home_category_image').removeClass('product_loader');
+    	// $('.position_images,.product_position,.home_product_images').each(function(){
+    		// $(this).css("margin-left", -($(this).width())/2);
+    		// $(this).css("margin-top", -($(this).height())/2);
+            // $(this).fadeIn(200);
+    	// });
+    // },1000);
+// }
+/* End image center and loader*/ 

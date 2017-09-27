@@ -762,9 +762,9 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 <div class="col-sm-2">
                                                       <input type="text" class="form-control bro_sis" id="reg_YBrother" placeholder="0" name="reg_YBrother">
                                                 </div>
-                                               <!--  <div class="col-sm-4">
-                                                 <span id="reg_mobile_error" class="registration-error"></span>
-                                                </div> -->     
+                                                <div class="col-sm-4">
+                                                 <span id="reg_EBrother_error" class="registration-error base-box"></span>
+                                                </div>   
                                             </div>
                                             <div class="row base-box">
                                                 <div class="col-sm-4">
@@ -778,9 +778,9 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 <div class="col-sm-2">
                                                       <input type="text" class="form-control bro_sis" id="reg_YSister" placeholder="0" name="reg_YSister">
                                                 </div>
-                                               <!--  <div class="col-sm-4">
-                                                 <span id="reg_mobile_error" class="registration-error"></span>
-                                                </div> -->     
+                                                <div class="col-sm-4">
+                                                 <span id="reg_ESister_error" class="registration-error base-box"></span>
+                                                </div>  
                                             </div>
                                             <div class="row base-box">
                                                 <div class="col-sm-4">
@@ -1139,7 +1139,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                   
                                         <div class="imageupload panel panel-default edit-mult-img">
                                             <div class="panel-heading clearfix">
-                                                     <h3 class="panel-title">Upload Image *</h3>
+                                                     <h3 class="panel-title">Upload Image</h3>
                                             </div>
                                             <div class="edit_img">
                                                 <div class="file-tab panel-body img-post-box">
@@ -1336,7 +1336,13 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
 							</div>		
 					</div>   -->
                 </form>
-            </div>     
+            </div>   
+            <div id="simpleModals" class="modals modalqreg_act">
+                                            <div class="modals-content">
+                                                  <p>Quick registration successfully completed. Please continue the full registration to activate the Acount</p>
+                                                    <a  class="btn form-control edit_btn pull-right qreg_act">Ok</a>
+                                            </div>      
+                                    </div>  
        </div>                   
                      
         </section>  
