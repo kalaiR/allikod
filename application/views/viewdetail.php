@@ -215,9 +215,9 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                             <p><?php if(!empty($results['comm_mobile_no'])) echo $results['comm_mobile_no']; else echo "None"; ?></p>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-xs-6">
+                                                    <!-- <div class="col-md-6 col-xs-6">
                                                     <p><a href="#">Am Interested</a></p>
-                                                    </div>                                     
+                                                    </div>   -->                                   
                                                 </div>
                                             </div>  <!-- row ends -->             
                                          </div> 
@@ -548,10 +548,18 @@ if(!empty($session_search['search_inputs']['offset'])){
                                             <div class="col-md-6">
                                                 <div class="col-xs-12">
                                                     <div class="col-md-6 col-xs-6">
-                                                    <p>Height</p>
+                                                    <p>Height in CM</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
                                                         <p><?php if(!empty($results['phy_height'])) echo $results['phy_height']; else echo "-"; ?></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Height in Feet</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php if(!empty($results['phy_feet'])) echo $results['phy_feet']; else echo "-"; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">

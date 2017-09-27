@@ -27,7 +27,7 @@
 					    <!-- <button class="btn pull-right reset"> 
 					        Reset
 					    </button> -->
-					    <button class="btn pull-right">Cancel</button>
+					    <button type="reset" id="reset" rel="reset" class="btn reset pull-right">Reset</button>
 					    <button type="submit" class="btn btn-primary pull-right">Save</button>
 						<!-- <a class="btn btn-primary pull-right" id="add" href="#">
 					        <i class="glyphicon glyphicon-edit icon-white"></i>

@@ -847,27 +847,27 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>    
                                             </div>
                                             <div class="col-sm-2 box">                                                
-                                                <select class="form-control" name="height_in_cms[]" id="height_in_cms">
+                                                <select class="form-control height_act" name="height_in_cms[]" id="height_in_cms">
                                                     <?php 
-                                                    for($i=137;$i<=213;$i++){
-                                                    ?>
-                                                    <option  <?php if($i==137){?> selected="selected" <?php } ?>  value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                    <?php
-                                                    }
-                                                    ?>
+                                                        if(!empty($height_relation['cms'])) :
+                                                            foreach ($height_relation['cms'] as $hrel_val) {
+                                                        echo "<option value='" . $hrel_val['heightrelation_id'] . "'>" . $hrel_val['cms'] . "</option>";
+                                                            }
+                                                    endif;
+                                                    ?>   
                                                 </select>
                                             </div>
-                                            <!-- <div class="col-sm-2 box">                                                
-                                                <select class="form-control" name="height_in_cms[]" id="height_in_cms">
+                                            <div class="col-sm-2 box">                                                
+                                                <select class="form-control feet_act" name="height_in_feets" id="height_in_feet">
                                                     <?php 
-                                                    //for($i=137;$i<=213;$i++){
-                                                    ?>
-                                                    <option  <?php //if($i==137){?> selected="selected" <?php //} ?>  value="<?php //echo $i; ?>"><?php //echo $i; ?></option>
-                                                    <?php
-                                                   // }
-                                                    ?>
+                                                        if(!empty($height_relation['feet'])) :
+                                                            foreach ($height_relation['feet'] as $hrel_val) {
+                                                        echo "<option value='" . $hrel_val['feet'] . "' data-heightcms='".$hrel_val['hcms']."'>" . $hrel_val['feet'] . "</option>";
+                                                            }
+                                                    endif;
+                                                    ?> 
                                                 </select>
-                                            </div> -->
+                                            </div>
                                             <!-- <div class="col-sm-4 box">
                                                <span id="resident_error" class="registration-error"></span>
                                             </div>   -->   
@@ -1349,34 +1349,37 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
 <?php 
 include('include/footer.php');
 //sms message for quick registration
-if(!empty($registered_data)){
-    $msg = 'Dear Customer Thanks for registering with us in vallikodivanniarmatrimonial.in. You have completed only quick registration. You account will be activated once you done the payment with full registration.';
-    $sms_mobileno = $registered_data['comm_mobile_no'];
-}
+// if(!empty($registered_status)){
+//     echo "full registration";
+//     $msg = 'Dear Customer Thanks for completed your full registration process with us in vallikodivanniarmatrimonial.in.';
+//     $sms_mobileno = $registered_data['comm_mobile_no'];
+// }
 // print_r($comm_mobile_no);
 // exit();
 //sms message for full registration
-if(!empty($comm_mobile_no)){
-    $msg = 'Dear Customer Thanks for completed your full registration process with us in vallikodivanniarmatrimonial.in.';
-    $sms_mobileno = $comm_mobile_no;
-}
+// if(!empty($comm_mobile_no)){
+//     echo "full registration";
+//     echo $comm_mobile_no;
+//     $msg = 'Dear Customer Thanks for completed your full registration process with us in vallikodivanniarmatrimonial.in.';
+//     $sms_mobileno = $comm_mobile_no;
+// }
 ?>
 <!-- SMS Script for Vallikodi for Home Register process - Start -->
-<script type="text/javascript">
-function sendMsg(msg,no){
-    no = no;
-    // alert('test');
-    $.ajax(
-        {
-            type: 'GET',
-            url:'http://dnd.blackholesolution.com/api/sendmsg.php?user=VALLIK&pass=abcd1234&sender=VALLIK&phone='+no+'&text='+msg+'&priority=ndnd&stype=normal',
-            data:'',
-            success: function(data){
-            },
-        });                                                                                                                                                   
-}
-sendMsg('<?php //echo $msg;?>','<?php //echo $sms_mobileno;?>');
-</script>
+<!-- <script type="text/javascript">
+// function sendMsg(msg,no){
+//     no = no;
+//     // alert('test');
+//     $.ajax(
+//         {
+//             type: 'GET',
+//             url:'http://dnd.blackholesolution.com/api/sendmsg.php?user=VALLIK&pass=abcd1234&sender=VALLIK&phone='+no+'&text='+msg+'&priority=ndnd&stype=normal',
+//             data:'',
+//             success: function(data){
+//             },
+//         });
+// }
+// sendMsg('<?php //echo $msg;?>','<?php //echo $sms_mobileno;?>');
+</script> -->
 <?php
 if(!empty($comm_mobile_no))
         redirect('registration');

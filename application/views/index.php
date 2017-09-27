@@ -4,7 +4,8 @@
 ?> 
         
         <!--================Slider Reg Area (selva)=================-->
-        <section class="slider_area">
+        <section class="slider_area scroll_icon">
+        	
             <div class="slider_inner">
                 <div class="rev_slider"  data-version="5.3.0.2" id="home-slider">
                     <ul> 
@@ -16,12 +17,14 @@
                             <!-- MAIN IMAGE -->
                             <img src="<?php echo media_url(); ?>assets/img/slider-img/slider-2.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
+                            <a href="#" class="scroll-down" address="true"></a>
                         </li>
                         
                     </ul> 
                 </div><!-- END REVOLUTION SLIDER -->
             </div>
-            <div class="registration_form_area"><!--Ravichandran Adding fields -->            
+            <div class="registration_form_area"><!--Ravichandran Adding fields -->
+            	<!-- <a href="#" class="scroll-down" address="true"></a> -->            
                 <div class="container">
                 <marquee overflow="hidden"><img src="<?php echo media_url(); ?>assets/img/scroll_text.png"></marquee>
                     <div class="row">
@@ -214,10 +217,11 @@
                     </div>
                 </div>
             </div>
+           <section></section>
         </section>
         <!--================End Slider Reg Area =================-->
          <!--================Advanced Search Area (selva)=================-->
-        <section class="advanced_search_area search_area2">
+        <section class="advanced_search_area search_area2 ok">
             <div class="container">
                 <div class="welcome_title">
                     <h3>Quick Search</h3>

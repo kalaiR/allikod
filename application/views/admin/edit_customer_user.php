@@ -24,8 +24,10 @@
 	                    echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
 	                  endif;
 	                ?> 
-					<p class='val_error'> <p>
-					<div class="row-fluid sortable">		
+					<!-- <p class='val_error'> </p> -->
+					<div class="row-fluid sortable">
+							<input type="hidden" name="cus_profileoldactivestatus" 
+							value="<?php echo $customeruser_values['user_active_status'] ?>">		
 							<div class="box span12">
 								<div class="box-header well" data-original-title>
 									<h2><i class="icon-user"></i> Edit Customer User</h2>
@@ -618,8 +620,8 @@
 														  <div class="control-group">
 															<label class="control-label">Height : </label>
 															<div class="controls">
-															  <select data-rel="chosen" name="cus_heightcms" class="span3">
-															  	<option value="">Height in cm</option>
+															  <select data-rel="chosen" name="cus_heightcms" class="span3 height_act">
+															  	<option value="">In cm</option>
 		                                                        <?php 
 		                                                            foreach ($selection_values['height_values'] as $height_val):  
 		                                                                if (strpos($customeruser_values['phy_height'], 'cm') == false) 
@@ -630,6 +632,16 @@
 		                                                                    echo "<option value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";                       
 		                                                            endforeach; ?>
 															  </select>
+															  <select data-rel="chosen" name="cus_heightfeets" class="span3 feet_act">
+		                                                        <option value="">In feet</option>
+		                                                        <?php 
+		                                                            foreach ($selection_values['height_values']['feet'] as $height_val):    
+		                                                                if($height_val['feet'] == $customeruser_values['phy_feet'])  
+		                                                                    echo "<option selected value='".$height_val['feet']."' data-heightcms='".$hrel_val['hcms']."'>".$height_val['feet']."</option>";
+		                                                                else
+		                                                                    echo "<option value='".$height_val['feet']."' data-heightcms='".$height_val['hcms']."'>".$height_val['feet']."</option>";                       
+		                                                            endforeach; ?>
+		                                                    </select> 
 															  <!-- <select data-rel="chosen" name="cus_heightfeet" class="span3">
 																<option value="">In Feet</option>
 																<option>5</option>
@@ -1179,6 +1191,6 @@
 
 
 	<?php 
-	    include('templates/footer.php')
+	    include('templates/footer.php');
 	?>
 <?php } ?>

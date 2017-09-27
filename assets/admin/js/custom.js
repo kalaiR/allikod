@@ -232,6 +232,7 @@ $('.reset').click(function() {
                  $("#confirm_pass").removeClass("form-field-error"); 
               } 
         }
+        // Elder younger validation
          var noofBro = document.getElementById("prependedInput1").value;
  		var noofMarBro = document.getElementById("prependedInput5").value;
  		var noofSister = document.getElementById("prependedInput3").value;
@@ -348,12 +349,13 @@ $('.reset').click(function() {
                   }
                     else if(res.error==2) {
                       // alert("no error");
-                      $('.val_error').html("<i class='icon-ok-sign'></i>  "+res.status);
-                      $(this).html(res.output);
+                      // alert(res.output);
+                      // $('.val_error').html("<i class='icon-ok-sign'></i>  "+res.status);
+                      $('.customer_edit_form').html(res.output);
                       $('html, body').animate({scrollTop:0},500);
                       $('.val_error').fadeIn(500);
                       $('.val_error').fadeOut(5000);
-                      // $('.db_status').fadeOut(10000);
+                      $('.db_status').fadeOut(10000);
                   }
                 }
             });

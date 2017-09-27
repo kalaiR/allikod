@@ -38,7 +38,7 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
         </div>
         <div>
             <div style="margin-left: 50px;">
-                <img src="images/banner.png">
+                <img src="<?php echo media_url(); ?>assets/img/logo1.png">
             </div>
             <div style="color: #3c6a3c;margin-top: 30px; margin-left: 30px; font-size:25px; font-weight: bold;">
                 <p1>Dear <?php echo $user_fname; ?><p1>
@@ -82,6 +82,30 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                 </div>
             </div>            
         </div>
+        <div style="color:black;margin-top:5px; margin-left: 30px; font-weight: bold; ">
+            <p1>Payment Details :-<p1>
+        </div>
+        <div style="color:black;padding-top:10px; margin-left: 70px;">
+            <p1> Please check the payment details in below link: </br>
+            <a href="<?php echo base_url()."payment" ?>"><?php echo base_url()."payment" ?></a>
+            </p1>
+        </div>
+        <!-- <div style="color:black;margin-top:10px; margin-left: 45px; font-weight: bold; ">
+            <p1>1) Fee structure details in INDIA :-</p1>
+        </div> -->
+        <!-- <div style="color:black;padding-top:10px; margin-left: 70px;">
+            <p1>3 Months validity & display data with photo Rs.2500/- [60 Profiles can be viewed];<br>
+                6 Months validity & display data with photo Rs.4000/- [120 Profiles can be viewed];
+            </p1>
+        </div> -->
+        <!-- <div style="color:black;margin-top:10px; margin-left: 45px; font-weight: bold; ">
+            <p1>2) Fee structure details in Renewal fee:-</p1>
+        </div>
+        <div style="color:black;padding-top:10px; margin-left: 70px;">
+            <p1>3 Months validity & display data with photo Rs.2000/- [60 Profiles can be viewed];<br>
+                6 Months validity & display data with photo Rs.3500/- [120 Profiles can be viewed];
+            </p1>
+        </div> -->
         <div style="color:black;padding-top:40px; margin-left: 45px;">
             <p1>Thank you for being a Vallikodi Vanniar Matrimonial family member,</p1>
         </div>
@@ -91,7 +115,7 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                 <p1>VALLIKODI VANNIAR MATRIMONIAL TEAM.</p1>
             </div>
             <div>
-                <img src="images/logo.png">
+                <img src="<?php echo media_url(); ?>assets/img/fav.ico">
             </div>
         </div>
         <div style="background-color: #5c7500;height: 1px;">
