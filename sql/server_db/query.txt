@@ -194,7 +194,7 @@ CHANGE `rel_gothra` `rel_gothra` VARCHAR( 255 ) CHARACTER SET latin1 COLLATE lat
 
 update reg_religion_ethnicity set rel_gothra="Sambu Maharishi Gothra" WHERE rel_gothra != 'Sambu Maharishi Gothra';
 
-update reg_religion_ethnicity set rel_timeofbirth='0-0-am' where rel_timeofbirth='' AND rel_timeofbirth='0' AND rel_timeofbirth='N/A';
+update reg_religion_ethnicity set rel_timeofbirth='0-0-am' where rel_timeofbirth='' OR rel_timeofbirth='0' OR rel_timeofbirth='N/A';
 
 UPDATE  `valli_live_25_08_17`.`reg_religion_ethnicity` SET  `rel_timeofbirth` =  '8-15-pm' WHERE  `reg_religion_ethnicity`.`reg_user_id` =69354;
 
@@ -222,7 +222,7 @@ delete FROM `reg_selectedmarital` WHERE marital_category_id=0;
 
 
 
-
+FEET Query:
 ALTER TABLE `reg_physical_expectation` ADD `phy_feet` VARCHAR( 50 ) NOT NULL AFTER `phy_height` ;
 (feet design need to update,height feet calculation in db,payment table duplicate record need to remove using query)
 
