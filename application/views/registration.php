@@ -109,12 +109,12 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                <select class="form-control customize_plan " name="register_by[]" id="register_by">
                                                    <option value="">Select</option>
                                                     <?php
-                                                    if(!empty($register)) :
-                                                    foreach ($register as $cls_val) {
-                                                        if($registered_data['user_registeredby']==$cls_val['registeredby_id']){
-                                                             echo "<option value='" . $cls_val['registeredby_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
+                                                    if(!empty($registered_by)) :
+                                                    foreach ($registered_by as $reg_val) {
+                                                        if($reg_val['registeredby_id']==$reg_val['registeredby_id']){
+                                                             echo "<option value='" . $reg_val['registeredby_id'] . "' selected>" . ucfirst($reg_val['name']) . "</option>";
                                                         }else{    
-                                                        echo "<option value='" . $cls_val['registeredby_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                        echo "<option value='" . $reg_val['registeredby_id'] . "'>" . ucfirst($reg_val['name']) . "</option>";
                                                         }
                                                        } 
                                                     endif;
@@ -146,17 +146,14 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>
                                             <div class="col-sm-4">
                                                 <select class="form-control customize_plan" name="gender[]" id="gender">
-                                                <?php
-                                                if(!empty($registered_data) && $registered_data['user_gender']!=1){
-                                                    echo "<option value='" . $registered_data['user_gender'] . "' selected>Female</option>";
-                                                }elseif(!empty($registered_data) && $registered_data['user_gender']!=2){
-                                                    echo "<option value='" . $registered_data['user_gender'] . "' selected>Male</option>";
-                                                }else{
-                                                    echo "<option value=''>Select</option>"; 
-                                                    echo "<option value='1'>Male</option>";    
-                                                    echo "<option value='2'>Female</option>";
-                                                }
-                                                ?>          
+                                                    <option value="">Select</option>
+                                                    <?php foreach (unserialize(GENDER) as $key => $val): if(!empty($registered_data['user_gender'])){?>
+                                                        <option value="<?php echo $key; ?>" <?php if($registered_data['user_gender'] == $key) echo "selected"; ?>><?php echo $val; ?>
+    
+                                                        </option>
+                                                    <?php }else{?>
+                                                        <option value="<?php echo $key; ?>" ><?php echo $val; ?></option>
+                                                    <?php }endforeach; ?>       
                                                 </select>
                                             </div>    
                                                 <div class="col-sm-4 box">
@@ -187,7 +184,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                                <select class="form-control customize_plan" name="marital_status[]"id="marital">
+                                                <select class="form-control customize_plan" name="marital_status[]" id="marital">
                                                       <option value="">Select</option>
                                                         <?php 
                                                             if(!empty($martial_status)) :
@@ -851,7 +848,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     <?php 
                                                         if(!empty($height_relation['cms'])) :
                                                             foreach ($height_relation['cms'] as $hrel_val) {
-                                                        echo "<option value='" . $hrel_val['heightrelation_id'] . "'>" . $hrel_val['cms'] . "</option>";
+                                                        echo "<option value='" . $hrel_val['cms'] . "'>" . $hrel_val['cms'] . "</option>";
                                                             }
                                                     endif;
                                                     ?>   
@@ -1014,14 +1011,14 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>
                                             <div class="col-sm-4 box">
                                                 <select class="form-control" name="search_age_to[]" id="search_age_to">
-                                                                                        <?php 
-                                                                                        for($i=18;$i<=60;$i++){
-                                                                                        ?>
-                                                                                        <option  <?php if($i==34){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                                                        <?php
-                                                                                        }
-                                                                                        ?>
-                                                                        </select>
+                                                    <?php 
+                                                    for($i=18;$i<=60;$i++){
+                                                    ?>
+                                                    <option  <?php if($i==34){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </select>
                                             </div>
                                             <div class="col-sm-2 box">
                                                 <span id="search_age_from_error" class="registration-error"></span>
@@ -1034,17 +1031,23 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>    
                                             </div>
                                             <div class="col-sm-8">
-                                               <label class="checkbox-inline" id="white">
-                                               
-                                                <input type="checkbox" value="Any" name="check_list[]" id="marital_status_any">Any</label>
-                                                    <label class="checkbox-inline" id="white">
-                                                <input type="checkbox" value="1" id="marital_status_single" name="check_list[]">Single</label>
-                                                    <label class="checkbox-inline"  id="white">
-                                                <input type="checkbox" value="2" id="marital_status_windowed" name="check_list[]">Widowed</label>
-                                                    <label class="checkbox-inline" id="white">
-                                                <input type="checkbox" value="3" id="marital_status_annualled" name="check_list[] white">Annualled</label>
-                                                    <label class="checkbox-inline"id="white">
-                                                <input type="checkbox" name="check_list[]" id="marital_status_divorced" value="marital_status_divorced">Divorced</label>
+                                                <?php foreach ($martial_status as $mar_val) { ?>
+                                                    <label class="checkbox-inline" id="white">  
+                                                        <input type="checkbox" value="<?php echo $mar_val['maritalcategory_id'] ?>" name="check_list[]" id="marital_status_any"><?php echo ucfirst($mar_val['marital_name']) ?>
+                                                    </label>
+                                                <?php } ?>
+                                                <!-- <label class="checkbox-inline" id="white">
+                                                    <input type="checkbox" value="1" id="marital_status_single" name="check_list[]">Single
+                                                </label>
+                                                <label class="checkbox-inline"  id="white">
+                                                    <input type="checkbox" value="2" id="marital_status_windowed" name="check_list[]">Widowed
+                                                </label>
+                                                <label class="checkbox-inline" id="white">
+                                                    <input type="checkbox" value="3" id="marital_status_annualled" name="check_list[] white">Annualled
+                                                </label>
+                                                <label class="checkbox-inline"id="white">
+                                                    <input type="checkbox" name="check_list[]" id="marital_status_divorced" value="marital_status_divorced">Divorced
+                                                </label> -->
                                             </div>
                                             <div class="col-sm-4">
                                                <!--  <span id="food_error" class="registration-error"></span> -->

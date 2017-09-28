@@ -158,6 +158,16 @@ class User_model extends CI_Model {
       return $query;
   }
 
+  public function get_registered_by(){
+        $condition = "reg.active_status = 1";
+        $this->db->select('*');
+        $this->db->from('registered_by AS reg');
+        $this->db->where($condition);      
+        $this->db->order_by('reg.registeredby_id','asc');
+        $query = $this->db->get()->result_array(); 
+      return $query;
+  }
+
   public function get_familystatus($family_statusid=""){
        if($family_statusid!=''){
         // Education Id Id based search    
@@ -974,7 +984,7 @@ class User_model extends CI_Model {
                               'user_dob' => date('Y-m-d',strtotime($this->input->post('cus_dob'))),
                               'user_age' => $this->input->post('cus_age'),
                               // 'user_active_status' => $this->input->post('cus_profileactivestatus'),
-                              'user_maritalstatus' => $this->input->post('cus_marstatus'),
+                              'user_maritalstatus' => ($this->input->post('cus_marstatus'))?$this->input->post('cus_marstatus'):NULL,
                               'user_registeredby' => ($this->input->post('cus_regby')) ? $this->input->post('cus_regby') : NULL,
                               );
             // print_r($userdetail_update_data);
@@ -1011,8 +1021,8 @@ class User_model extends CI_Model {
                     'comm_mother_name' => $this->input->post('cus_mothername'),
                     'comm_father_employment' => $this->input->post('cus_fatheremp'),
                     'comm_mother_employment' => $this->input->post('cus_motheremp'),
-                    'comm_family_status' => $this->input->post('cus_familystatus'),
-                    'comm_family_type' => $this->input->post('cus_familytype'),
+                    'comm_family_status' => ($this->input->post('cus_familystatus'))?$this->input->post('cus_familystatus'):NULL,
+                    'comm_family_type' => ($this->input->post('cus_familytype'))?$this->input->post('cus_familytype'):NULL,
                     'comm_number_of_brothers_el' => $this->input->post('cus_broelder'),
                     'comm_number_of_brothers_yo' => $this->input->post('cus_broyoung'),
                     'comm_number_of_brothers_el_mar' => $this->input->post('cus_broeldermar'),
@@ -1028,14 +1038,14 @@ class User_model extends CI_Model {
                     'phy_height' => $this->input->post('cus_heightcms'),
                     'phy_feet' => $this->input->post('cus_heightfeets'),
                     'phy_weight' => $this->input->post('cus_weight'),
-                    'phy_bodytype' => $this->input->post('cus_bodytype'),
-                    'phy_complexion' => $this->input->post('cus_complexion'),
+                    'phy_bodytype' => ($this->input->post('cus_bodytype'))?$this->input->post('cus_bodytype'):NULL,
+                    'phy_complexion' => ($this->input->post('cus_complexion'))?$this->input->post('cus_complexion'):NULL,
                     'phy_physicalstatus' => $this->input->post('cus_phystatus'),
-                    'phy_food' => $this->input->post('cus_food'),
+                    'phy_food' => ($this->input->post('cus_food'))?$this->input->post('cus_food'):NULL,
                     'phy_yourpersonality' => $this->input->post('cus_personality'),
                     'phy_searchage_from' => $this->input->post('cus_startage'),
                     'phy_searchage_to' => $this->input->post('cus_endage'),
-                    'phy_expectationfood' => $this->input->post('cus_expectfood'),
+                    'phy_expectationfood' => ($this->input->post('cus_expectfood'))?$this->input->post('cus_expectfood'):NULL,
                     'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
             );
             // print_r($physicalattributes_update_data);
@@ -1403,25 +1413,23 @@ class User_model extends CI_Model {
       return $query;
   }
 
-  public function update_quickregister($userid, $updateresults){
-      if(is_numeric($userid) && !empty($updateresults))
+  public function update_quickregister($userid, $data_images){
+      if(is_numeric($userid))
       { 
             $userdetail_update_data = array(
-                              // 'user_email' => $this->input->post('cus_email'),
-                              // 'user_pwd' => $this->input->post('cus_password'),
-                              // 'user_fname' => $this->input->post('cus_fname'),
-                              // 'user_gender' => $this->input->post('gender')[0],
+                              'user_email' => $this->input->post('register_email'),
+                              'user_pwd' => $this->input->post('reg_pass1'),
+                              'user_fname' => $this->input->post('reg_name'),
+                              'user_gender' => $this->input->post('gender')[0],
                               'user_dob' => date('Y-m-d',strtotime($this->input->post('dob'))),
-                              // 'user_age' => $this->input->post('cus_age'),
-                              // 'user_active_status' => $this->input->post('cus_profileactivestatus'),
-                              'user_maritalstatus' => $this->input->post('marital_status')[0],
-                              // 'user_registeredby' => ($this->input->post('register_by')[0]) ? $this->input->post('register_by')[0] : NULL,
+                              'user_age' => $this->input->post('cus_age'),
+                              'user_maritalstatus' => ($this->input->post('marital_status')[0])?$this->input->post('marital_status')[0]:NULL,
+                              'user_registeredby' => ($this->input->post('register_by')[0]) ? $this->input->post('register_by')[0] : NULL,
                               );
-            // print_r($userdetail_update_data); 
 
             $religion_ethnicity_update_data = array(
                     'rel_timeofbirth' => $this->input->post('reg_tim'),
-                    // 'rel_mothertongue_id' => ($this->input->post('mother_tongue')[0]) ? $this->input->post('mother_tongue')[0] : NULL,
+                    'rel_mothertongue_id' => ($this->input->post('mother_tongue')[0]) ? $this->input->post('mother_tongue')[0] : NULL,
                     'rel_religion' => $this->input->post('reg_religion'),
                     'rel_caste' => $this->input->post('reg_caste'),
                     'rel_dhosham' => ($this->input->post('dhosham')[0]) ? $this->input->post('dhosham')[0] : NULL,
@@ -1429,8 +1437,7 @@ class User_model extends CI_Model {
                     'rel_luknam_id' => ($this->input->post('luknam')[0]) ? $this->input->post('luknam')[0] : NULL,
                     'rel_gothra' => $this->input->post('reg_gothra'),
                     'rel_zodiacsign_id' => ($this->input->post('zodiac_sign')[0]) ? $this->input->post('zodiac_sign')[0] : NULL,
-                     );
-            // print_r($religion_ethnicity_update_data);            
+                     );            
 
             $education_occupation_update_data = array(
                     'reg_user_id' => $userid,
@@ -1440,8 +1447,7 @@ class User_model extends CI_Model {
                     'edu_employedin' => ($this->input->post('employed_in')[0]) ? $this->input->post('employed_in')[0] : NULL,
                     'edu_montlyincome' => $this->input->post('reg_income'),
                     'edu_occupationdetail' => $this->input->post('occupationdetail'),
-                    );
-            // print_r($education_occupation_update_data);            
+                    );          
 
             $communication_update_data = array(
                     'comm_residence' => $this->input->post('resident')[0],
@@ -1455,8 +1461,8 @@ class User_model extends CI_Model {
                     'comm_mother_name' => $this->input->post('reg_mname'),
                     'comm_father_employment' => $this->input->post('reg_femployment'),
                     'comm_mother_employment' => $this->input->post('reg_memployment'),
-                    'comm_family_status' => $this->input->post('family_status')[0],
-                    'comm_family_type' => $this->input->post('family_type')[0],
+                    'comm_family_status' => ($this->input->post('family_status')[0])?$this->input->post('family_status')[0]:NULL,
+                    'comm_family_type' => ($this->input->post('family_type')[0])?$this->input->post('family_type')[0]:NULL,
                     'comm_number_of_brothers_el' => $this->input->post('reg_EBrother'),
                     'comm_number_of_brothers_yo' => $this->input->post('reg_YBrother'),
                     'comm_number_of_brothers_el_mar' => $this->input->post('reg_MEBrother'),
@@ -1467,21 +1473,20 @@ class User_model extends CI_Model {
                     'comm_number_of_sisters_yo_mar' => $this->input->post('reg_MYSister'),
                     'comm_about_family' => $this->input->post('more_abt_family'),
                     );
-            // print_r($communication_update_data);
 
             $physicalattributes_update_data = array(
                     'reg_user_id'=> $userid,
                     'phy_height' => $this->input->post('height_in_cms')[0],
-                    'phy_feet' => $this->input->post('height_in_feets')[0],
+                    'phy_feet' => $this->input->post('height_in_feets'),
                     'phy_weight' => $this->input->post('weight_in_kgs')[0],
-                    'phy_bodytype' => $this->input->post('body_type')[0],
-                    'phy_complexion' => $this->input->post('complexion')[0],
+                    'phy_bodytype' => ($this->input->post('body_type')[0])?$this->input->post('body_type')[0]:NULL,
+                    'phy_complexion' => ($this->input->post('complexion')[0])?$this->input->post('complexion')[0]:NULL,
                     'phy_physicalstatus' => $this->input->post('physical_status')[0],
-                    'phy_food' => $this->input->post('food')[0],
+                    'phy_food' => ($this->input->post('food')[0])?$this->input->post('food')[0]:NULL,
                     'phy_yourpersonality' => $this->input->post('personality'),
                     'phy_searchage_from' => $this->input->post('search_age_from')[0],
                     'phy_searchage_to' => $this->input->post('search_age_to')[0],                    
-                    'phy_expectationfood' => $this->input->post('diet_nonveg'),
+                    'phy_expectationfood' => ($this->input->post('diet_nonveg'))?$this->input->post('diet_nonveg'):NULL,
                     'phy_expectationabout_lifepartner' => $this->input->post('expectation'),
             );
             // print_r($physicalattributes_update_data);
@@ -1493,21 +1498,56 @@ class User_model extends CI_Model {
             $this->db->update("reg_userdetail", $userdetail_update_data);
             // echo $this->db->last_query();
 
-            $communication_update_where = '(reg_user_id="'.$userid.'")'; 
-            $this->db->set($communication_update_data); 
-            $this->db->where($communication_update_where);
-            $this->db->update("reg_communication_family", $communication_update_data);
-            // echo $this->db->last_query();
+            $comm = $this->db->get_where('reg_communication_family', array('reg_user_id' => $userid))->row_array();
+            if(!empty($comm)){
+              $communication_update_where = '(reg_user_id="'.$userid.'")'; 
+              $this->db->set($communication_update_data); 
+              $this->db->where($communication_update_where);
+              $this->db->update("reg_communication_family", $communication_update_data);  
+            }
+            else{
+              $communication_update_data['reg_user_id'] = $userid;
+              $this->db->insert("reg_communication_family", $communication_update_data);
+            }
 
-            $religion_ethnicity_update_where = '(reg_user_id="'.$userid.'")'; 
-            $this->db->set($religion_ethnicity_update_data); 
-            $this->db->where($religion_ethnicity_update_where);
-            $this->db->update("reg_religion_ethnicity", $religion_ethnicity_update_data);
-            // echo $this->db->last_query();
+            $rel = $this->db->get_where('reg_religion_ethnicity', array('reg_user_id' => $userid))->row_array();
+            if(!empty($rel)){
+              $religion_ethnicity_update_where = '(reg_user_id="'.$userid.'")'; 
+              $this->db->set($religion_ethnicity_update_data); 
+              $this->db->where($religion_ethnicity_update_where);
+              $this->db->update("reg_religion_ethnicity", $religion_ethnicity_update_data); 
+            }
+            else{
+              $religion_ethnicity_update_data['reg_user_id'] = $userid;
+              $this->db->insert("reg_religion_ethnicity", $religion_ethnicity_update_data);
+            }
 
-            $this->insert_registration("reg_education_occupation", $education_occupation_update_data);
-            $this->insert_registration("reg_physical_expectation", $physicalattributes_update_data);
-            $this->insert_registration("user_images", $updateresults); 
+            $edu_ocu = $this->db->get_where('reg_education_occupation', array('reg_user_id' => $userid))->row_array();
+            if(!empty($edu_ocu)){
+              $education_occupation_update_where = '(reg_user_id="'.$userid.'")'; 
+              $this->db->set($education_occupation_update_data); 
+              $this->db->where($education_occupation_update_where);
+              $this->db->update("reg_education_occupation", $education_occupation_update_data); 
+            }
+            else{
+              $education_occupation_update_where['reg_user_id'] = $userid;
+              $this->db->insert("reg_education_occupation", $education_occupation_update_data);
+            }
+
+            $phy = $this->db->get_where('reg_physical_expectation', array('reg_user_id' => $userid))->row_array();
+            if(!empty($phy)){
+              $physicalattributes_update_where = '(reg_user_id="'.$userid.'")'; 
+              $this->db->set($physicalattributes_update_data); 
+              $this->db->where($physicalattributes_update_where);
+              $this->db->update("reg_physical_expectation", $physicalattributes_update_data); 
+            }
+            else{
+              $physicalattributes_update_data['reg_user_id'] = $userid;
+              $this->db->insert("reg_physical_expectation", $physicalattributes_update_data);
+            }
+
+            if(!empty($data_images))
+              $this->insert_registration("user_images", $data_images); 
 
             //Update Raasi and Amsam
             $rasi  = $this->input->post('result_horoscope_rasi');
@@ -1526,11 +1566,27 @@ class User_model extends CI_Model {
                   $data_horo[$value->key]= $value->value;
                 }
             } 
-            $this->insert_registration("reg_image_horoscope", $data_horo); 
+
+            $horo = $this->db->get_where('reg_image_horoscope', array('reg_user_id' => $userid))->row_array();
+            if(!empty($horo)){
+              $horoscope_where = '(reg_user_id="'.$userid.'")';
+              $this->db->set($data_horo); 
+              $this->db->where($horoscope_where);
+              $this->db->update("reg_image_horoscope", $data_horo);
+            }
+            else{
+              $data_horo['reg_user_id'] = $id;
+              $this->db->insert("reg_image_horoscope", $data_horo);
+            } 
 
             $expected_education = array();
             if(!empty($this->input->post('reg_Education'))){
               $expected_education = $this->input->post('reg_Education');
+              $seledu = $this->db->get_where('reg_selectededucation', array('reg_user_id' => $userid))->row_array();
+              if(!empty($seledu)){
+                  $this->db->where('reg_user_id', $userid);
+                  $this->db->delete('reg_selectededucation'); 
+              }            
               foreach ($expected_education as $key => $value) {             
                   $data_expected = array('reg_user_id'=>$userid,'education_id'=>$value);
                   $reg_Education = $this->insert_registration('reg_selectededucation',$data_expected);
@@ -1540,13 +1596,18 @@ class User_model extends CI_Model {
             $expected_maritalstatus = array();
             if(!empty($this->input->post('check_list'))){
                 $expected_maritalstatus = $this->input->post('check_list');
-                  foreach ($expected_maritalstatus as $key => $value) {
-                    $searchmarital_status = array(
-                    'reg_user_id'=>$userid,           
-                    'marital_category_id'=>$value
-                  );
-              $phy_searchmarital_status = $this->insert_registration('reg_selectedmarital',$searchmarital_status);
-                  }
+                $selmar = $this->db->get_where('reg_selectedmarital', array('reg_user_id' => $userid))->row_array();
+                if(!empty($selmar)){
+                    $this->db->where('reg_user_id', $userid);
+                    $this->db->delete('reg_selectedmarital'); 
+                } 
+                foreach ($expected_maritalstatus as $key => $value) {
+                  $searchmarital_status = array(
+                  'reg_user_id'=>$userid,           
+                  'marital_category_id'=>$value
+                );
+                $phy_searchmarital_status = $this->insert_registration('reg_selectedmarital',$searchmarital_status);
+                }
             }
 
             $model_data['status'] = "Updated Successfully";
