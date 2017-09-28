@@ -36,7 +36,7 @@ class Base extends CI_Controller {
 		  		$data_religion = array(
 		  			// 'religionethnicity_id'=>'',
 		  			'reg_user_id'=>$id_userdetails,			  			
-					'rel_mothertongue_id'=>$form_data['mother_tongue'][0]
+					'rel_mothertongue_id'=>($form_data['mother_tongue'][0]) ? $form_data['mother_tongue'][0] : NULL,
 				);	
 		  		$this->user_model->insert_registration('reg_religion_ethnicity', $data_religion);
 		  		
@@ -55,15 +55,7 @@ class Base extends CI_Controller {
     			$data['reg_purpose'] = "quick_reg";
     			$message = $this->load->view('email_template/registration', $data, TRUE);
     			$this->email->message($message);
-
-    			if($this->email->send())
-    			{
-        			echo "Your email was sent.!";
-    			}
-    			else 
-    			{
-        			echo "Your email was not sent.!";
-    			}
+    			$this->email->send();
 
     			//SMS process
     			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
@@ -83,6 +75,9 @@ class Base extends CI_Controller {
 				curl_exec($ch);
 				curl_close($ch);
 
+				// setcookie("register_status", "success", time() + (86400 * 30), "/");
+				// setcookie("register_status", "success", time() + 1, "/");
+				setcookie("register_status", "success", time() + 1, "/");
 		  		redirect('registration/'.$id_userdetails);
 		}else{
 			$data['register'] = $this->user_model->get_registerid();
@@ -551,15 +546,8 @@ class Base extends CI_Controller {
     			$data['reg_purpose'] = "full_reg";
 				$message = $this->load->view('email_template/registration', $data, TRUE);
 				$this->email->message($message);
-
-				if($this->email->send())
-				{
-	    			echo "Your email was sent.!";
-				}
-				else 
-				{
-	    			echo "Your email was not sent.!";
-				}		
+				$this->email->send();
+		
 				//SMS process
 				// echo "sms_process";
 				// print_r($data_reg_com);
@@ -594,7 +582,8 @@ class Base extends CI_Controller {
 		  		}
 		  		
 		  		// Edit Process - Start Here
-		  		if($this->input->post('editprocess') == "edit"){								  			
+		  		if($this->input->post('editprocess') == "edit"){								  	
+		  				$data_images = '';
 						$form_data = $this->input->post();					
 
 							if(!empty($_FILES['uploadedfile']['name'])){
@@ -641,14 +630,14 @@ class Base extends CI_Controller {
 
 								if($data['error']!=1){	
 								$data_images = array('reg_user_id'=>$this->input->post('quickregister_id'),'images'=>$stored_filename);	
-								$this->user_model->update_quickregister($this->input->post('quickregister_id'), $data_images);
+									// $data_images = $stored_filename;	
 								}
 							}
 							// else{
 							// 	if($data['user_gender']!=2){$default_images = "defalt_male.png";}else{$default_images = "defalt_female.png";}
 							// 	$data_images = array('reg_user_id'=>$this->input->post('quickregister_id'), 'images'=>$default_images);	
 							// }						
-					// $this->user_model->update_quickregister($this->input->post('quickregister_id'), $data_images);
+					$this->user_model->update_quickregister($this->input->post('quickregister_id'),$data_images);
 			  	    
 			  	    $data = array(
 						// 'userdetail_id'=>'',
@@ -678,15 +667,8 @@ class Base extends CI_Controller {
 	    			$data['reg_purpose'] = "full_reg";
 					$message = $this->load->view('email_template/registration', $data, TRUE);
 					$this->email->message($message);
+					$this->email->send();
 
-					if($this->email->send())
-					{
-		    			echo "Your email was sent.!";
-					}
-					else 
-					{
-		    			echo "Your email was not sent.!";
-					}	
 					//SMS process
 	    			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
 					$fields = array(
@@ -720,7 +702,9 @@ class Base extends CI_Controller {
 		  		$data['employed_in'] = $this->user_model->get_employedin();
 		  		$data['country'] = $this->user_model->get_country();
 		  		$data['familystatus'] = $this->user_model->get_familystatus();
-		  		$data['familytype'] = $this->user_model->get_familytype();		  				  		
+		  		$data['familytype'] = $this->user_model->get_familytype();		  				  	
+		  		$data['registered_by'] = $this->user_model->get_registered_by();
+
 		  		$data['bodytype'] = $this->user_model->get_bodytype();
 		  		$data['complexion'] = $this->user_model->get_complexion();		  		
 		  		$data['food'] = $this->user_model->get_food();
