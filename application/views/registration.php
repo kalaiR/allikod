@@ -1335,22 +1335,33 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                      <!-- <div id="simpleModals" class="modals">
 							<div class="modals-content">
 								  <p class="edit_error"></p>
-									<a href="<?php echo base_url(); ?>myprofile" class="btn form-control edit_btn pull-right">Ok</a>
+									<a href="<?php //echo base_url(); ?>myprofile" class="btn form-control edit_btn pull-right">Ok</a>
 							</div>		
 					</div>   -->
                 </form>
             </div>   
             <div id="simpleModals" class="modals modalqreg_act">
-                                            <div class="modals-content">
-                                                  <p>Quick registration successfully completed. Please continue the full registration to activate the Acount</p>
-                                                    <a  class="btn form-control edit_btn pull-right qreg_act">Ok</a>
-                                            </div>      
-                                    </div>  
+                    <div class="modals-content">
+                          <p class="edit_error"></p>
+                            <a class="btn form-control edit_btn pull-right qreg_act">Ok</a>
+                    </div>      
+            </div>  
        </div>                   
                      
         </section>  
 <?php 
 include('include/footer.php');
+if(isset($_COOKIE["register_status"])) {
+    // echo "<script type='text/javscript'>
+    //     $(document).ready(function(){
+    //         $('.modals').show();
+    //         $('.edit_error').html('<i class='icon-ok-sign'></i> Quick registration successfully completed. Please continue the full registration to activate the Acount');
+            
+    //     });
+    // </script>";
+    echo "<script>alert('Quick registration successfully completed. Please continue the full registration to activate the Acount')</script>";
+    unset($_COOKIE["register_status"]);
+}
 //sms message for quick registration
 // if(!empty($registered_status)){
 //     echo "full registration";

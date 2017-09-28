@@ -55,15 +55,7 @@ class Base extends CI_Controller {
     			$data['reg_purpose'] = "quick_reg";
     			$message = $this->load->view('email_template/registration', $data, TRUE);
     			$this->email->message($message);
-
-    			if($this->email->send())
-    			{
-        			echo "Your email was sent.!";
-    			}
-    			else 
-    			{
-        			echo "Your email was not sent.!";
-    			}
+    			$this->email->send();
 
     			//SMS process
     			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
@@ -83,6 +75,9 @@ class Base extends CI_Controller {
 				curl_exec($ch);
 				curl_close($ch);
 
+				// setcookie("register_status", "success", time() + (86400 * 30), "/");
+				// setcookie("register_status", "success", time() + 1, "/");
+				setcookie("register_status", "success", time() + 1, "/");
 		  		redirect('registration/'.$id_userdetails);
 		}else{
 			$data['register'] = $this->user_model->get_registerid();
@@ -551,15 +546,8 @@ class Base extends CI_Controller {
     			$data['reg_purpose'] = "full_reg";
 				$message = $this->load->view('email_template/registration', $data, TRUE);
 				$this->email->message($message);
-
-				if($this->email->send())
-				{
-	    			echo "Your email was sent.!";
-				}
-				else 
-				{
-	    			echo "Your email was not sent.!";
-				}		
+				$this->email->send();
+		
 				//SMS process
 				// echo "sms_process";
 				// print_r($data_reg_com);
@@ -679,15 +667,8 @@ class Base extends CI_Controller {
 	    			$data['reg_purpose'] = "full_reg";
 					$message = $this->load->view('email_template/registration', $data, TRUE);
 					$this->email->message($message);
+					$this->email->send();
 
-					if($this->email->send())
-					{
-		    			echo "Your email was sent.!";
-					}
-					else 
-					{
-		    			echo "Your email was not sent.!";
-					}	
 					//SMS process
 	    			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
 					$fields = array(
