@@ -78,7 +78,7 @@ function reg_validate() {
 	if ($("#userdetails-field").css('display') != 'none') {
 		if (!($("#register_email").val())) {
 			output = false;
-			$("#register_email-error").html("Required");
+			$("#register_email_error").html("Required");
 			$("#register_email").focus();
 		}
 		if ($("#register_email").val()) {
@@ -587,8 +587,8 @@ $(document).ready(function() {
 		var output = reg_validate();
 		ajx_output = reg_mailcheckuser();
 		// alert('end-ajax-control'+ajx_output);
-		// if ((output) && (ajx_output)) {
-			if(output) {
+		if ((output) && (ajx_output)) {
+			// if(output) {
 			var current = $(".highlight");
 			var next = $(".highlight").next("li");
 			if (next.length > 0) {
