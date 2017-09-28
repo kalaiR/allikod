@@ -259,8 +259,8 @@ class Base extends CI_Controller {
 					'user_age'=>$form_data['user_age'],
 					'user_dob'=>$form_data['dob'],
 					'user_online_or_simple'=>'online',					
-					'user_maritalstatus'=>$form_data['marital_status'][0],
-					'user_registeredby'=>$form_data['register_by'][0]
+					'user_maritalstatus'=>($form_data['marital_status'][0])?$form_data['marital_status'][0]:NULL,
+					'user_registeredby'=>($form_data['register_by'][0])?$form_data['register_by'][0]:NULL
 				);
 		  		$id_userdetails = $this->user_model->insert_registration('reg_userdetail',$data);		  		
 
@@ -269,9 +269,9 @@ class Base extends CI_Controller {
 						// 'religionethnicity_id'=>'',
 						'reg_user_id'=>$id_userdetails,
 						'rel_timeofbirth'=>strtolower($form_data['reg_tim']),
-						'rel_mothertongue_id'=>$form_data['mother_tongue'][0],
-						'rel_nakshathra_id'=>$form_data['nakshathra'][0],
-						'rel_zodiacsign_id'=>$form_data['zodiac_sign'][0]
+						'rel_mothertongue_id'=>($form_data['mother_tongue'][0])?$form_data['mother_tongue'][0]:NULL,
+						'rel_nakshathra_id'=>($form_data['nakshathra'][0])?$form_data['nakshathra'][0]:NULL,
+						'rel_zodiacsign_id'=>($form_data['zodiac_sign'][0])?$form_data['zodiac_sign'][0]:NULL
 				);
 		  		if(!empty($form_data['reg_religion'])){
 					$data_reg['rel_religion']= $form_data['reg_religion'];
@@ -297,10 +297,10 @@ class Base extends CI_Controller {
 		  		$data_regedu = array(
 						// 'educationoccupation_id'=>'',
 						'reg_user_id'=>$id_userdetails,
-						'edu_education'=>$form_data['education'][0],
+						'edu_education'=>($form_data['education'][0])?$form_data['education'][0]:NULL,
 						'edu_educationdetails'=>$form_data['education_detail'],
-						'edu_occupation'=>$form_data['occupation'][0],
-						'edu_employedin'=>$form_data['employed_in'][0],					
+						'edu_occupation'=>($form_data['occupation'][0])?$form_data['occupation'][0]:NULL,
+						'edu_employedin'=>($form_data['employed_in'][0])?$form_data['employed_in'][0]:NULL,
 						'edu_montlyincome'=>$form_data['reg_income'],
 						'edu_occupationdetail'=>$form_data['occupationdetail']	
 				);
@@ -315,8 +315,8 @@ class Base extends CI_Controller {
 						'comm_mother_name'=>$form_data['reg_mname'],
 						'comm_father_employment'=>$form_data['reg_femployment'],
 						'comm_mother_employment'=>$form_data['reg_memployment'],
-						'comm_family_status'=>$form_data['family_status'][0],
-						'comm_family_type'=>$form_data['family_type'][0]
+						'comm_family_status'=>($form_data['family_status'][0])?$form_data['family_status'][0]:NULL,
+						'comm_family_type'=>($form_data['family_type'][0])?$form_data['family_type'][0]:NULL
 				);	
 
 				if(!empty($form_data['resident'][0])){
@@ -408,7 +408,7 @@ class Base extends CI_Controller {
 		  		$data_reg_phy = array(
 						// 'physicalexpectation_id'=>'',
 						'reg_user_id'=>$id_userdetails,						
-						'phy_food'=>$form_data['food'][0],							
+						'phy_food'=>($form_data['food'][0])?$form_data['food'][0]:NULL,
 						'phy_searchage_from'=>$form_data['search_age_from'][0],
 						'phy_searchage_to'=>$form_data['search_age_to'][0],
 						// 'phy_searchmarital_status'=>'',
