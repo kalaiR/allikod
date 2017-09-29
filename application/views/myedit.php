@@ -531,8 +531,8 @@
                                                 <div class="col-md-1" style="width:13%">       
                                                     <select name="cus_birthmer" class="form_inputs col-md-2 tb_drop" data-message="Birth Meredian">
                                                         <option value="">Meredian</option>
-                                                        <option value="am" <?php if(!empty($time_of_birth[2])) if($time_of_birth[2] == "am") echo "selected"; ?>>AM</option>
-                                                        <option value="pm" <?php if(!empty($time_of_birth[2])) if($time_of_birth[2] == "pm") echo "selected"; ?>>PM</option>
+                                                        <option value="am" <?php if(!empty($time_of_birth[2])) if(strtolower($time_of_birth[2]) == "am") echo "selected"; ?>>AM</option>
+                                                        <option value="pm" <?php if(!empty($time_of_birth[2])) if(strtolower($time_of_birth[2]) == "pm") echo "selected"; ?>>PM</option>
                                                     </select>                                         
                                                 </div>
                                             </div>
@@ -903,7 +903,7 @@
                                                         <?php 
                                                             foreach ($selection_values['height_values']['feet'] as $height_val):    
                                                                 if($height_val['feet'] == $customeruser_values['phy_feet'])  
-                                                                    echo "<option selected value='".$height_val['feet']."' data-heightcms='".$hrel_val['hcms']."'>".$height_val['feet']."</option>";
+                                                                    echo "<option selected value='".$height_val['feet']."' data-heightcms='".$height_val['hcms']."'>".$height_val['feet']."</option>";
                                                                 else
                                                                     echo "<option value='".$height_val['feet']."' data-heightcms='".$height_val['hcms']."'>".$height_val['feet']."</option>";                       
                                                             endforeach; ?>
