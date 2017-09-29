@@ -118,16 +118,20 @@ class Base extends CI_Controller {
 	public function register_mailcheck(){
 		$data['status'] = '';
 		if($this->input->post()){			
-			$data_values = $this->user_model->checkmail(); 			
-			if($data_values['cstatus']!='email_available'){
-				$data['status'] = $data_values['status'];
-				$data['error'] = $data_values['error'];	
-				echo $data['error'];
-			}else{
-				$data['status'] = $data_values['status'];
-				$data['error'] = $data_values['error'];	
-				echo $data['error'];
-			}
+			$data_values = $this->user_model->checkmail(); 
+			// print_r($data_values);		
+			$data['status'] = $data_values['status'];
+			$data['error'] = $data_values['error'];	
+			echo $data['error'];	
+			// if($data_values['cstatus']!='email_available'){
+			// 	$data['status'] = $data_values['status'];
+			// 	$data['error'] = $data_values['error'];	
+			// 	echo $data['error'];
+			// }else{
+			// 	$data['status'] = $data_values['status'];
+			// 	$data['error'] = $data_values['error'];	
+			// 	echo $data['error'];
+			// }
 		}
 	}
 

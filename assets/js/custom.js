@@ -58,7 +58,9 @@ function reg_mailcheckuser() {
 				if (results_array != "1") {
 					ajx_output = false;
 					// alert("ajax-fasle");
-					$("#register_email_error").html(" Email Already Registered ");
+					// $("#register_email_error").html(" Email Already Registered ");
+					//updated above line by kalai on sept 29th
+					$("#register_email-error").html(" Email Already Registered ");
 					return ajx_output;
 				} else {
 					ajx_output = true;
@@ -83,7 +85,9 @@ function reg_validate() {
 		}
 		if ($("#register_email").val()) {
 			if (!$("#register_email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
-				$("#register_email_error").html("Invalid Email Id");
+				// $("#register_email_error").html("Invalid Email Id");
+				//changes the above line by kalai
+				$("#register_email-error").html("Invalid Email Id");
 				output = false;
 				$("#register_email").focus();
 
@@ -585,10 +589,14 @@ $(document).ready(function() {
 		// alert(count);
 		var ajx_output;
 		var output = reg_validate();
-		ajx_output = reg_mailcheckuser();
+		// ajx_output = reg_mailcheckuser();
+		//updated above line by kalai on sept 29th
+		if(output)
+			ajx_output = reg_mailcheckuser();
 		// alert('end-ajax-control'+ajx_output);
-		// if ((output) && (ajx_output)) {
-			if(output) {
+		//updated below line by kalai on sept 29th
+		if ((output) && (ajx_output)) {
+			// if(output) {
 			var current = $(".highlight");
 			var next = $(".highlight").next("li");
 			if (next.length > 0) {

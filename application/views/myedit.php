@@ -401,7 +401,7 @@
                                                     <p><b>Communication Address</b></p>
                                                  </div>
                                                 <div class="col-md-4">        
-                                                     <textarea class="form_inputs" data-message="Communication Address" id="comment" placeholder="" rows="4" name="cus_address"><?php if(!empty($customeruser_values['comm_communication_address'])) echo $customeruser_values['comm_communication_address']; ?></textarea>                                            
+                                                     <textarea class="" data-message="Communication Address" id="comment" placeholder="" rows="4" name="cus_address"><?php if(!empty($customeruser_values['comm_communication_address'])) echo $customeruser_values['comm_communication_address']; ?></textarea>                                            
                                                 </div>
                                             </div>   
                                         </div>      

@@ -310,16 +310,25 @@ class User_model extends CI_Model {
     if($this->input->post('email')) {
       // $login_where = '(user_email="'.$this->input->post('email').'" and user_active_status=1)';
       if(!empty($this->input->post('userid'))){
-          $login_where = '(user_email="'.$this->input->post('email').'" and userdetail_id="'.$this->input->post('userid').'")';
+          // $login_where = '(user_email="'.$this->input->post('email').'" and userdetail_id="'.$this->input->post('userid').'")';
+          //updated above line by kalai on sept 29th
+          $login_where = '(user_email="'.$this->input->post('email').'" and userdetail_id!="'.$this->input->post('userid').'")';
       }else{
           $login_where = '(user_email="'.$this->input->post('email').'")';  
       }
       $this->db->select('*');
-      $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where);  
+      // $userdata_get = $this->db->get_where('reg_userdetail as usr',$login_where); 
+      //updated above line by kalai on sept 29th 
+      $userdata_get = $this->db->get_where('reg_userdetail',$login_where); 
+      // echo $this->db->last_query();
       if((!empty($this->input->post('userid')))&&($userdata_get->num_rows())){
-          $model_data['cstatus'] = 'email_notavailable';
-          $model_data['status'] = "Email Available";
-          $model_data['error'] = 1;
+          // $model_data['cstatus'] = 'email_notavailable';
+          // $model_data['status'] = "Email Available";
+          // $model_data['error'] = 1;
+          //updated above 3 lines by kalai on sept 29th
+          $model_data['cstatus'] = "email_available";
+          $model_data['status'] = "Email Already Registered";
+          $model_data['error'] = 0;
       }else{    
         if($userdata_get->num_rows()) {
           $model_data['cstatus'] = "email_available";
@@ -1575,7 +1584,7 @@ class User_model extends CI_Model {
               $this->db->update("reg_image_horoscope", $data_horo);
             }
             else{
-              $data_horo['reg_user_id'] = $id;
+              $data_horo['reg_user_id'] = $userid;
               $this->db->insert("reg_image_horoscope", $data_horo);
             } 
 
