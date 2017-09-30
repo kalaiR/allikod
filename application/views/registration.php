@@ -238,13 +238,16 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 <select class="form-control customize_plan" name="mother_tongue[]" id="mother">
                                                     <option value="">Select</option>
                                                        <?php 
-                                                            if(!empty($mother_tongue)) :
-                                                            foreach ($mother_tongue as $cls_val) {
-                                                        if(strtolower($cls_val['name']) == "tamil" ){
-                                                        echo "<option value='" . $cls_val['mothertongue_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
-                                                        }else{
-                                                        echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                        if(!empty($mother_tongue)) :
+                                                        foreach ($mother_tongue as $cls_val) {
+                                                            if(strtolower($cls_val['mothertongue_id']) == $registered_data['rel_mothertongue_id'] ){
+                                                            echo "<option value='" . $cls_val['mothertongue_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
                                                             }
+                                                            else if(strtolower($cls_val['name']) == "tamil" ){
+                                                            echo "<option value='" . $cls_val['mothertongue_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";
+                                                            }else{
+                                                            echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                }
                                                         }
                                                         endif;
                                                         ?>

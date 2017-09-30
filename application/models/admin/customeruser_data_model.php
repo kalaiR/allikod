@@ -207,11 +207,32 @@ class Customeruser_data_model extends CI_Model {
 			if(($this->input->post('payment_mode') == "not_paid") AND ($this->input->post('cus_paymentmode') == "initial")){
 				// echo "if1";
 				// print_r($paymentinitial_data);
-				$this->db->insert("reg_payment", $paymentinitial_data);
+				$payment = $this->db->get_where('reg_payment', array('reg_user_id' => $this->input->post('rid')))->row_array();
+				if(!empty($payment)){
+					$payment_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+			        $this->db->set($paymentinitial_data); 
+			        $this->db->where($payment_update_where);
+			        $this->db->update("reg_physical_expectation", $paymentinitial_data);
+				}
+				else{
+					$paymentinitial_data['reg_user_id'] = $this->input->post('rid');
+	        		$this->db->insert("reg_payment", $paymentinitial_data);
+				}			
 			}
 			else if(($this->input->post('payment_mode') == "initial") AND ($this->input->post('cus_paymentmode') == "renewal")){
 				// echo "if2";
 				// print_r($paymentrenewal_data);
+				$renewal = $this->db->get_where('renew_detail', array('reg_user_id' => $this->input->post('rid')))->row_array();
+				if(!empty($renewal)){
+					$renewal_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
+			        $this->db->set($paymentrenewal_data); 
+			        $this->db->where($renewal_update_where);
+			        $this->db->update("renew_detail", $paymentrenewal_data);
+				}
+				else{
+					$paymentrenewal_data['reg_user_id'] = $this->input->post('rid');
+	        		$this->db->insert("renew_detail", $paymentrenewal_data);
+				}	
 				$this->db->insert("renew_detail", $paymentrenewal_data);
 			}
 			else if(($this->input->post('payment_mode') == "initial") AND ($this->input->post('cus_paymentmode') == "initial")){
