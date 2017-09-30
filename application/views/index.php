@@ -385,6 +385,8 @@
 	                                            endif; 
 	                                        ?>" alt="Image not loaded" class ="img_div">
 	                                        </a>
+                                        <!-- updated by kalai on sept 30th (closing div missing in server) -->
+                                        </div>
                                     </div>
                                 <?php }else{ ?>
                                     <div class="item">

@@ -212,7 +212,7 @@ class Customeruser_data_model extends CI_Model {
 					$payment_update_where = '(reg_user_id="'.$this->input->post('rid').'")'; 
 			        $this->db->set($paymentinitial_data); 
 			        $this->db->where($payment_update_where);
-			        $this->db->update("reg_physical_expectation", $paymentinitial_data);
+			        $this->db->update("reg_payment", $paymentinitial_data);
 				}
 				else{
 					$paymentinitial_data['reg_user_id'] = $this->input->post('rid');
