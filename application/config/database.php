@@ -83,7 +83,7 @@ else{
 	$db['default']['hostname'] = 'localhost';
 	$db['default']['username'] = 'root';
 	$db['default']['password'] = 'root';
-	$db['default']['database'] = 'vallikodi';
+	$db['default']['database'] = 'vallikodi_live_30_09_17';
 }
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';

@@ -36,7 +36,7 @@ class Base extends CI_Controller {
 		  		$data_religion = array(
 		  			// 'religionethnicity_id'=>'',
 		  			'reg_user_id'=>$id_userdetails,			  			
-					'rel_mothertongue_id'=>$form_data['mother_tongue'][0]
+					'rel_mothertongue_id'=>($form_data['mother_tongue'][0]) ? $form_data['mother_tongue'][0] : NULL,
 				);	
 		  		$this->user_model->insert_registration('reg_religion_ethnicity', $data_religion);
 		  		
@@ -55,15 +55,7 @@ class Base extends CI_Controller {
     			$data['reg_purpose'] = "quick_reg";
     			$message = $this->load->view('email_template/registration', $data, TRUE);
     			$this->email->message($message);
-
-    			if($this->email->send())
-    			{
-        			echo "Your email was sent.!";
-    			}
-    			else 
-    			{
-        			echo "Your email was not sent.!";
-    			}
+    			$this->email->send();
 
     			//SMS process
     			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
@@ -83,6 +75,9 @@ class Base extends CI_Controller {
 				curl_exec($ch);
 				curl_close($ch);
 
+				// setcookie("register_status", "success", time() + (86400 * 30), "/");
+				// setcookie("register_status", "success", time() + 1, "/");
+				setcookie("register_status", "success", time() + 1, "/");
 		  		redirect('registration/'.$id_userdetails);
 		}else{
 			$data['register'] = $this->user_model->get_registerid();
@@ -123,16 +118,20 @@ class Base extends CI_Controller {
 	public function register_mailcheck(){
 		$data['status'] = '';
 		if($this->input->post()){			
-			$data_values = $this->user_model->checkmail(); 			
-			if($data_values['cstatus']!='email_available'){
-				$data['status'] = $data_values['status'];
-				$data['error'] = $data_values['error'];	
-				echo $data['error'];
-			}else{
-				$data['status'] = $data_values['status'];
-				$data['error'] = $data_values['error'];	
-				echo $data['error'];
-			}
+			$data_values = $this->user_model->checkmail(); 
+			// print_r($data_values);		
+			$data['status'] = $data_values['status'];
+			$data['error'] = $data_values['error'];	
+			echo $data['error'];	
+			// if($data_values['cstatus']!='email_available'){
+			// 	$data['status'] = $data_values['status'];
+			// 	$data['error'] = $data_values['error'];	
+			// 	echo $data['error'];
+			// }else{
+			// 	$data['status'] = $data_values['status'];
+			// 	$data['error'] = $data_values['error'];	
+			// 	echo $data['error'];
+			// }
 		}
 	}
 
@@ -259,8 +258,8 @@ class Base extends CI_Controller {
 					'user_age'=>$form_data['user_age'],
 					'user_dob'=>$form_data['dob'],
 					'user_online_or_simple'=>'online',					
-					'user_maritalstatus'=>$form_data['marital_status'][0],
-					'user_registeredby'=>$form_data['register_by'][0]
+					'user_maritalstatus'=>($form_data['marital_status'][0])?$form_data['marital_status'][0]:NULL,
+					'user_registeredby'=>($form_data['register_by'][0])?$form_data['register_by'][0]:NULL
 				);
 		  		$id_userdetails = $this->user_model->insert_registration('reg_userdetail',$data);		  		
 
@@ -269,9 +268,9 @@ class Base extends CI_Controller {
 						// 'religionethnicity_id'=>'',
 						'reg_user_id'=>$id_userdetails,
 						'rel_timeofbirth'=>strtolower($form_data['reg_tim']),
-						'rel_mothertongue_id'=>$form_data['mother_tongue'][0],
-						'rel_nakshathra_id'=>$form_data['nakshathra'][0],
-						'rel_zodiacsign_id'=>$form_data['zodiac_sign'][0]
+						'rel_mothertongue_id'=>($form_data['mother_tongue'][0])?$form_data['mother_tongue'][0]:NULL,
+						'rel_nakshathra_id'=>($form_data['nakshathra'][0])?$form_data['nakshathra'][0]:NULL,
+						'rel_zodiacsign_id'=>($form_data['zodiac_sign'][0])?$form_data['zodiac_sign'][0]:NULL
 				);
 		  		if(!empty($form_data['reg_religion'])){
 					$data_reg['rel_religion']= $form_data['reg_religion'];
@@ -297,10 +296,10 @@ class Base extends CI_Controller {
 		  		$data_regedu = array(
 						// 'educationoccupation_id'=>'',
 						'reg_user_id'=>$id_userdetails,
-						'edu_education'=>$form_data['education'][0],
+						'edu_education'=>($form_data['education'][0])?$form_data['education'][0]:NULL,
 						'edu_educationdetails'=>$form_data['education_detail'],
-						'edu_occupation'=>$form_data['occupation'][0],
-						'edu_employedin'=>$form_data['employed_in'][0],					
+						'edu_occupation'=>($form_data['occupation'][0])?$form_data['occupation'][0]:NULL,
+						'edu_employedin'=>($form_data['employed_in'][0])?$form_data['employed_in'][0]:NULL,
 						'edu_montlyincome'=>$form_data['reg_income'],
 						'edu_occupationdetail'=>$form_data['occupationdetail']	
 				);
@@ -315,8 +314,8 @@ class Base extends CI_Controller {
 						'comm_mother_name'=>$form_data['reg_mname'],
 						'comm_father_employment'=>$form_data['reg_femployment'],
 						'comm_mother_employment'=>$form_data['reg_memployment'],
-						'comm_family_status'=>$form_data['family_status'][0],
-						'comm_family_type'=>$form_data['family_type'][0]
+						'comm_family_status'=>($form_data['family_status'][0])?$form_data['family_status'][0]:NULL,
+						'comm_family_type'=>($form_data['family_type'][0])?$form_data['family_type'][0]:NULL
 				);	
 
 				if(!empty($form_data['resident'][0])){
@@ -408,7 +407,7 @@ class Base extends CI_Controller {
 		  		$data_reg_phy = array(
 						// 'physicalexpectation_id'=>'',
 						'reg_user_id'=>$id_userdetails,						
-						'phy_food'=>$form_data['food'][0],							
+						'phy_food'=>($form_data['food'][0])?$form_data['food'][0]:NULL,
 						'phy_searchage_from'=>$form_data['search_age_from'][0],
 						'phy_searchage_to'=>$form_data['search_age_to'][0],
 						// 'phy_searchmarital_status'=>'',
@@ -551,15 +550,8 @@ class Base extends CI_Controller {
     			$data['reg_purpose'] = "full_reg";
 				$message = $this->load->view('email_template/registration', $data, TRUE);
 				$this->email->message($message);
-
-				if($this->email->send())
-				{
-	    			echo "Your email was sent.!";
-				}
-				else 
-				{
-	    			echo "Your email was not sent.!";
-				}		
+				$this->email->send();
+		
 				//SMS process
 				// echo "sms_process";
 				// print_r($data_reg_com);
@@ -594,7 +586,8 @@ class Base extends CI_Controller {
 		  		}
 		  		
 		  		// Edit Process - Start Here
-		  		if($this->input->post('editprocess') == "edit"){								  			
+		  		if($this->input->post('editprocess') == "edit"){								  	
+		  				$data_images = '';
 						$form_data = $this->input->post();					
 
 							if(!empty($_FILES['uploadedfile']['name'])){
@@ -641,14 +634,14 @@ class Base extends CI_Controller {
 
 								if($data['error']!=1){	
 								$data_images = array('reg_user_id'=>$this->input->post('quickregister_id'),'images'=>$stored_filename);	
-								$this->user_model->update_quickregister($this->input->post('quickregister_id'), $data_images);
+									// $data_images = $stored_filename;	
 								}
 							}
 							// else{
 							// 	if($data['user_gender']!=2){$default_images = "defalt_male.png";}else{$default_images = "defalt_female.png";}
 							// 	$data_images = array('reg_user_id'=>$this->input->post('quickregister_id'), 'images'=>$default_images);	
 							// }						
-					// $this->user_model->update_quickregister($this->input->post('quickregister_id'), $data_images);
+					$this->user_model->update_quickregister($this->input->post('quickregister_id'),$data_images);
 			  	    
 			  	    $data = array(
 						// 'userdetail_id'=>'',
@@ -678,15 +671,8 @@ class Base extends CI_Controller {
 	    			$data['reg_purpose'] = "full_reg";
 					$message = $this->load->view('email_template/registration', $data, TRUE);
 					$this->email->message($message);
+					$this->email->send();
 
-					if($this->email->send())
-					{
-		    			echo "Your email was sent.!";
-					}
-					else 
-					{
-		    			echo "Your email was not sent.!";
-					}	
 					//SMS process
 	    			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
 					$fields = array(
@@ -720,7 +706,9 @@ class Base extends CI_Controller {
 		  		$data['employed_in'] = $this->user_model->get_employedin();
 		  		$data['country'] = $this->user_model->get_country();
 		  		$data['familystatus'] = $this->user_model->get_familystatus();
-		  		$data['familytype'] = $this->user_model->get_familytype();		  				  		
+		  		$data['familytype'] = $this->user_model->get_familytype();		  				  	
+		  		$data['registered_by'] = $this->user_model->get_registered_by();
+
 		  		$data['bodytype'] = $this->user_model->get_bodytype();
 		  		$data['complexion'] = $this->user_model->get_complexion();		  		
 		  		$data['food'] = $this->user_model->get_food();

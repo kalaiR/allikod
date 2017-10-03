@@ -127,9 +127,9 @@
                                                         if(!empty($mother_tongue)) :
                                                             foreach ($mother_tongue as $cls_val) {
                                                                 if(strtolower($cls_val['name']) == "tamil" )
-                                                                    echo "<option value='" . $cls_val['name'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";    
+                                                                    echo "<option value='" . $cls_val['mothertongue_id'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";    
                                                                 else
-                                                                    echo "<option value='" . $cls_val['name'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                    echo "<option value='" . $cls_val['mothertongue_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
                                                             }
                                                         endif;
                                                         ?>
@@ -385,6 +385,8 @@
 	                                            endif; 
 	                                        ?>" alt="Image not loaded" class ="img_div">
 	                                        </a>
+                                        <!-- updated by kalai on sept 30th (closing div missing in server) -->
+                                        </div>
                                     </div>
                                 <?php }else{ ?>
                                     <div class="item">
