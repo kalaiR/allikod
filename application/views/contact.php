@@ -735,20 +735,21 @@
     include('include/footer.php');
 ?> 
   <!--gmaps Js-->
+  <!--==================================Map1=============================-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 <script type="text/javascript">    
    var map;
 function initialize() {
   var mapOptions = {
     zoom: 14,
-    center: {lat: 11.93084461011536, lng: 79.7850751876831}
+    center: {lat: 11.941988, lng: 79.802881}
   };
   map = new google.maps.Map(document.getElementById('googleMap3'),
       mapOptions);
 
   var marker = new google.maps.Marker({
     
-    position: {lat: 11.93084461011536, lng: 79.7850751876831},
+    position: {lat: 11.941988, lng: 79.802881},
     map: map
   });
 

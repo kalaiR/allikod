@@ -70,7 +70,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 <input type="text" class="form-control tabfield" id="register_email" placeholder="Email" name="register_email" value="<?php if(!empty($registered_data)) echo $registered_data['user_email']; ?>" />
                                             </div>
                                             <div class="col-sm-4 box">
-                                                <span id="register_email-error" class="registration-error"></span>
+                                                <span id="register_email_error" class="registration-error"></span>
                                             </div>     
                                         </div>
                                         <div class="row base-box">
@@ -167,7 +167,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>    
                                             </div>
                                             <div class="col-sm-2">
-                                                <input type='text' class="form-control datetimepicker4" name="dob" id="dob" placeholder="Birthday" value="" /> 
+                                                <input type='text' class="form-control birthday" name="dob" id="dob" placeholder="Birthday" value="" /> 
                                             </div> 
                                             <div class="col-sm-2">
                                                 <!-- <input type='text' class="form-control" placeholder="Age" name="display_age" id="display_age" value="" /> --> 

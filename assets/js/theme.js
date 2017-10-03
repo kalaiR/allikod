@@ -732,6 +732,7 @@
     /*----------------------------------------------------*/
     /*  Date Picker js
     /*----------------------------------------------------*/
+   
     $(".form_datetime").datetimepicker({format: 'dd-mm-yyyy hh:ii'});
     
     /*----------------------------------------------------*/
@@ -754,6 +755,8 @@
     // $('.datetimepicker4').datetimepicker({format:'YYYY-MM-DD',maxDate: new Date,});
     // $('.datetimepicker4').datetimepicker();
     $(".timepicker").datetimepicker({format: 'hh-mm-A'});
+    $('.birthday').datetimepicker({format:'YYYY-MM-DD',minDate: '1940-01-01',maxDate: '1999-12-31'});
+    $('.birthday').val("").datepicker("update");
     
     /*----------------------------------------------------*/
     /*Price select custome handle*/

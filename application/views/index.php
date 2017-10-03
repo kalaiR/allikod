@@ -306,7 +306,7 @@
                 </div>    
             </div>
     </section>  -->
-     <section class="adms_slider_area">
+     <!-- <section class="adms_slider_area">
             <div class="container">
             	<div class="welcome_title">
                     <h3>Success Stories</h3>
@@ -336,10 +336,43 @@
                     </div>
                 </div>
             </div>
+        </section> -->
+        <section class="adms_slider_area">
+            <div class="container">
+            	<div class="welcome_title">
+                    <h3>Success Stories</h3>
+                    <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
+                </div>
+                <div class="adms_inners">
+                    <div class="adms_slider_inners">
+                        <div class="slider_adms_active team_inner_area">                            
+                             <?php //print_r($success_stories); 
+                                if(!empty($success_stories)) :
+                                foreach ($success_stories as $suc) :
+                            ?>
+                            <div class="item">
+                                <div class="team_items">
+                                    <div class="product_div">
+                                        <img src="<?php if(!empty($suc['image'])) echo media_url()."assets/img/uploads/success/th_".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>"class="product_div" alt="Image">
+                                        <div class="overlay">
+                                            <div class="success-text"><?php echo $suc['male_name']."&". $suc['female_name'] ?>
+                                            </div>
+                                        </div> 
+                                    </div>    
+                                </div>
+                            </div>
+                            <?php
+                              endforeach;
+                              endif;
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     <!--================ End Success (selva)=================--> 
     <!--================ Featured (selva)=================--> 
-   <section class="register_members_slider">
+   <!-- <section class="register_members_slider">
             <div class="container">
                 <div class="welcome_title">
                     <h3>Featured Profiles</h3>
@@ -384,9 +417,9 @@
 	                                                echo media_url()."assets/img/no_image.jpg"; 
 	                                            endif; 
 	                                        ?>" alt="Image not loaded" class ="img_div">
-	                                        </a>
+	                                        </a> -->
                                         <!-- updated by kalai on sept 30th (closing div missing in server) -->
-                                        </div>
+                                        <!-- </div>
                                     </div>
                                 <?php }else{ ?>
                                     <div class="item">
@@ -479,7 +512,212 @@
                     </div>    
                 </div>  
             </div>
-        </section> 
+        </section>  -->
+         <section class="register_members_slider">
+            <div class="container">
+                <div class="welcome_title">
+                    <h3>Featured Profiles</h3>
+                     <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 aline-center-box">
+                        <div class="r_members_inner">
+                            <?php                             
+                            if(!empty($recent_profile['bride'])) :                                
+                              foreach ($recent_profile['bride']as $rec) :
+                                $prefix = '';
+                                $prefix_one = 'th_';
+                                $prefix_two = 'new_';
+                                $current_images = explode(',', $rec['images'] );
+                                $latest_images = end($current_images);                       
+                                if(!empty($rec['images'])){
+                                    $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$latest_images);
+                                    $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$latest_images);
+                                    $prefix_latest_images = file_exists(FCPATH."uploads/profile/".$latest_images); 
+                                }
+                                if($prefix_one_status || $prefix_two_status || $prefix_latest_images):
+                            ?>
+                            <?php if($rec['user_gender'] == 2): ?>
+                                <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                                        if(!empty($prefix_one_status))
+                                            $prefix = $prefix_one.$latest_images;
+                                        else if(!empty($prefix_two_status))
+                                            $prefix = $prefix_two.$latest_images;
+                                        else if(!empty($prefix_latest_images))
+                                            $prefix = $prefix_latest_images;
+                            ?>
+                            <?php
+                                $user_session = $this->session->userdata("login_status");
+                                if(!empty($user_session)){ ?>
+                                    <div class="item">
+                                        <a href="<?php echo base_url()."viewdetail/".$rec['userdetail_id'];?>"><img src="<?php 
+                                            if(!empty($prefix)): 
+                                                echo media_url()."uploads/profile/".$prefix; 
+                                            else:
+                                                echo media_url()."assets/img/no_image.jpg"; 
+                                            endif; 
+                                        ?>" alt="Image not loaded" class ="featured_div">
+                                        </a>
+                                    </div>
+                                <?php }else{ ?>
+                                    <div class="item">
+                                        <a href="<?php echo base_url()."viewfeatureprofile/".$rec['userdetail_id'];?>">
+                                        <img src="<?php 
+                                        if(!empty($prefix)): 
+                                        echo media_url()."uploads/profile/".$prefix; 
+                                        else:
+                                        echo media_url()."assets/img/no_image.jpg"; 
+                                        endif; 
+                                        ?>" alt="Image not loaded" class ="featured_div">
+                                        </a>
+                                    </div>
+                                <?php } ?>
+                            <?php endif; ?>
+                                        <?php
+                                    endif;
+                               endforeach;
+                              endif;
+                            ?>
+                        </div>
+                    </div>
+                </div>    
+                <div class="row featured-box">
+                     <div class="col-sm-10 aline-center-box">
+                        <div class="r_members_inner">
+                            <?php //print_r($recent_profile); 
+                                if(!empty($recent_profile['groom'])) :
+                                  foreach ($recent_profile['groom']as $rec) :
+                                    $prefix = '';
+                                    $prefix_one = 'th_';
+                                    $prefix_two = 'new_';
+                                    $current_images = explode(',', $rec['images'] );
+                                    $latest_images = end($current_images);    
+                                    if(!empty($rec['images'])){
+                                        $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$latest_images);
+                                        $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$latest_images);
+                                        $prefix_latest_images = file_exists(FCPATH."uploads/profile/".$latest_images); 
+                                    }
+                                    if($prefix_one_status || $prefix_two_status || $prefix_latest_images):
+                            ?>
+                            <?php if($rec['user_gender'] == 1): ?>
+                            <?php //echo FCPATH."uploads/profile/".$value['images']; 
+                                    if(!empty($prefix_one_status))
+                                        $prefix = $prefix_one.$latest_images;
+                                    else if(!empty($prefix_two_status))
+                                        $prefix = $prefix_two.$latest_images;
+                                    else if(!empty($prefix_latest_images))
+                                            $prefix = $prefix_latest_images;
+                            ?>                            
+                            <?php 
+                                $user_session = $this->session->userdata("login_status");
+                                if(!empty($user_session)){ ?>
+                                    <div class="item">
+                                        <a href="<?php echo base_url()."viewdetail/".$rec['userdetail_id'];?>"><img src="<?php 
+                                            if(!empty($prefix)): 
+                                                echo media_url()."uploads/profile/".$prefix; 
+                                            else:
+                                                echo media_url()."assets/img/no_image.jpg"; 
+                                            endif; 
+                                        ?>" alt="Image not loaded" class ="featured_div">
+                                        </a>
+                                    </div>
+                                <?php }else{ ?>
+                                    <div class="item">
+                                        <a href="<?php echo base_url()."viewfeatureprofile/".$rec['userdetail_id'];?>">
+                                        <img src="<?php 
+                                        if(!empty($prefix)): 
+                                        echo media_url()."uploads/profile/".$prefix; 
+                                        else:
+                                        echo media_url()."assets/img/no_image.jpg"; 
+                                        endif; 
+                                        ?>" alt="Image not loaded" class ="featured_div">
+                                        </a>
+                                    </div>
+                                <?php } ?>
+                            <?php endif; ?>
+                                        <?php
+                                    endif;
+                               endforeach;
+                              endif;
+                            ?>
+                        </div>
+                    </div>    
+                </div>  
+            </div>
+        </section>
+        <!-- STATIC CODE FOR FEATURED PROFILE -->
+        <!-- <section class="register_members_slider">
+            <div class="container">
+                <div class="welcome_title">
+                    <h3>Featured Profiles</h3>
+                     <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 aline-center-box">
+                        <div class="r_members_inner">
+                            <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/uploads/profile/4.jpg" class="featured_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/uploads/profile/22282561-99.jpg" class="featured_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/uploads/profile/96441610-73(P).jpg" class="featured_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/uploads/profile/defalt_male.jpg" class="featured_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/uploads/profile/1590-1.jpg" class="featured_div">
+          							</div>
+                            </div>
+                            
+                        </div>
+                    </div>    
+                </div>
+                <div class="row featured-box">
+                    <div class="col-sm-10 aline-center-box">
+                        <div class="r_members_inner">
+                            <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/uploads/profile/1590-1.jpg" class="featured_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/uploads/profile/60352199-77(P).jpg" class="featured_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/uploads/profile/defalt_female.jpg" class="featured_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/uploads/profile/60352199-77(P).jpg" class="featured_div">
+          							</div>
+                            </div>
+                             <div class="item">
+                            	 <div class="test_div">
+            							<img src="<?php echo media_url(); ?>assets/img/uploads/profile/defalt_female.jpg" class="featured_div">
+          							</div>
+                            </div>
+                            
+                        </div>
+                    </div>    
+                </div>    
+            </div>
+        </section>  --> 
 <!--================ End Featured (selva)=================-->
                
   <!--================ test img code (selva)=================-->       
@@ -556,8 +794,8 @@
                     </div>
                 </div>
             </div>
-        </section> 
- <section class="register_members_slider">
+        </section> -->
+ <!-- <section class="register_members_slider">
             <div class="container">
                 <div class="welcome_title">
                     <h3>Featured Profiles</h3>
@@ -628,7 +866,7 @@
                     </div>    
                 </div>    
             </div>
-        </section>  -->
+        </section> -->  
         <!--================ End test img code (selva)=================-->          
 <?php 
     include('include/footer.php');

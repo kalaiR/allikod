@@ -453,7 +453,7 @@
                                                     <div class="col-md-8">
                                                         <div class="form-group">
                                                             <div class="datepicker">
-                                                                <input type='text' class="form-control datetimepicker4 find_age" placeholder="DOB" value="<?php if(!empty($customeruser_values['user_dob'])) echo date("Y-m-d", strtotime($customeruser_values['user_dob'])); ?>" name="cus_dob"/>
+                                                                <input type='text' class="form-control birthday find_age" placeholder="DOB" value="<?php if(!empty($customeruser_values['user_dob'])) echo date("Y-m-d", strtotime($customeruser_values['user_dob'])); ?>" name="cus_dob"/>
                                                             </div>
                                                         </div>
                                                     </div>    

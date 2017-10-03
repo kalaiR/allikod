@@ -80,7 +80,7 @@ function reg_validate() {
 	if ($("#userdetails-field").css('display') != 'none') {
 		if (!($("#register_email").val())) {
 			output = false;
-			$("#register_email-error").html("Required");
+			$("#register_email_error").html("Required");
 			$("#register_email").focus();
 		}
 		if ($("#register_email").val()) {
