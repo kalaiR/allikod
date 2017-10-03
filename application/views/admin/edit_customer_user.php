@@ -24,7 +24,7 @@
 	                    echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
 	                  endif;
 	                ?> 
-					<!-- <p class='val_error'> </p> -->
+					<p class='val_error'> </p>
 					<div class="row-fluid sortable">
 							<input type="hidden" name="cus_profileoldactivestatus" 
 							value="<?php echo $customeruser_values['user_active_status'] ?>">		
@@ -620,10 +620,13 @@
 														  <div class="control-group">
 															<label class="control-label">Height : </label>
 															<div class="controls">
-															  <select data-rel="chosen" name="cus_heightcms" class="span3 height_act">
+															<?php //echo "<pre>"; print_r($selection_values['height_values']); echo "</pre>";  ?>
+															  <!-- <select data-rel="chosen" name="cus_heightcms" class="span3 height_act"> -->
+															  <!--  the above code for custom dropdown, feet jquery on change code not running when use above custom dropdown -->
+															  <select name="cus_heightcms" class="span3 height_act">	
 															  	<option value="">In cm</option>
 		                                                        <?php 
-		                                                            foreach ($selection_values['height_values'] as $height_val):  
+		                                                            foreach ($selection_values['height_values']['cms'] as $height_val):  
 		                                                                if (strpos($customeruser_values['phy_height'], 'cm') == false) 
 		                                                                    $customeruser_values['phy_height'] += "cm";   
 		                                                                if($height_val['cms']."cm" == $customeruser_values['phy_height'])  
@@ -632,12 +635,13 @@
 		                                                                    echo "<option value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";                       
 		                                                            endforeach; ?>
 															  </select>
-															  <select data-rel="chosen" name="cus_heightfeets" class="span3 feet_act">
-		                                                        <option value="">In feet</option>
+															  <!-- <select data-rel="chosen" name="cus_heightfeets" class="span3 feet_act"> -->
+		                                                      <select name="cus_heightfeets" class="span3 feet_act">  
+		                                                       	<option value="">In feet</option>
 		                                                        <?php 
 		                                                            foreach ($selection_values['height_values']['feet'] as $height_val):    
 		                                                                if($height_val['feet'] == $customeruser_values['phy_feet'])  
-		                                                                    echo "<option selected value='".$height_val['feet']."' data-heightcms='".$hrel_val['hcms']."'>".$height_val['feet']."</option>";
+		                                                                    echo "<option selected value='".$height_val['feet']."' data-heightcms='".$height_val['hcms']."'>".$height_val['feet']."</option>";
 		                                                                else
 		                                                                    echo "<option value='".$height_val['feet']."' data-heightcms='".$height_val['hcms']."'>".$height_val['feet']."</option>";                       
 		                                                            endforeach; ?>

@@ -353,8 +353,8 @@ $('.reset').click(function() {
                       // $('.val_error').html("<i class='icon-ok-sign'></i>  "+res.status);
                       $('.customer_edit_form').html(res.output);
                       $('html, body').animate({scrollTop:0},500);
-                      $('.val_error').fadeIn(500);
-                      $('.val_error').fadeOut(5000);
+                      // $('.val_error').fadeIn(500);
+                      // $('.val_error').fadeOut(5000);
                       $('.db_status').fadeOut(10000);
                   }
                 }
@@ -504,7 +504,11 @@ $('.mob_num').keypress( function(e){
     }
 });
      
-
+    //To find height in feet for selected height in cms
+    $('.height_act').on('change', function(){
+        height_cms = $('.height_act :selected').text();
+        $('.feet_act option[data-heightcms*="' + height_cms + '"]').attr("selected","selected");       
+    });  
 
 });
 
