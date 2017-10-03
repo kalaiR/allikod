@@ -177,7 +177,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 <div class="col-sm-2 box">
                                                     <span id="dob_error" class="registration-error"></span>
                                                 </div> 
-                                            <input type='hidden' class="form-control" name="user_age" id="user_age"  value=""/>     
+                                            <!-- <input type='hidden' class="form-control" name="user_age" id="user_age"  value=""/> -->     
                                         </div>
                                         <div class="row base-box">
                                             <div class="col-sm-4">
@@ -1357,15 +1357,23 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
 <?php 
 include('include/footer.php');
 if(isset($_COOKIE["register_status"])) {
-    // echo "<script type='text/javscript'>
-    //     $(document).ready(function(){
-    //         $('.modals').show();
-    //         $('.edit_error').html('<i class='icon-ok-sign'></i> Quick registration successfully completed. Please continue the full registration to activate the Acount');
-            
-    //     });
-    // </script>";
-    echo "<script>alert('Quick registration successfully completed. Please continue the full registration to activate the Acount')</script>";
-    unset($_COOKIE["register_status"]);
+      echo "<script type='text/javascript'>
+      $(document).ready(function(){
+          $('.modals').show();
+          $('.edit_error').html('Quick registration successfully completed. Please continue the full registration to activate the Account');
+      });
+      </script>";
+      unset($_COOKIE["register_status"]);
+}
+
+if(isset($_COOKIE["full_register_status"])) {
+      echo "<script type='text/javascript'>
+      $(document).ready(function(){
+          $('.modals').show();
+          $('.edit_error').html('Full registration successfully completed. Check your mail to proceed payment process and account activation');
+      });
+      </script>";
+      unset($_COOKIE["register_status"]);
 }
 //sms message for quick registration
 // if(!empty($registered_status)){

@@ -576,6 +576,7 @@ class Base extends CI_Controller {
 				// $url = $smsurl.'?user='.$fields['user'].'&pass='.$fields['pass'].'&sender='.$fields['sender'].'&phone='.$fields['phone'].'&text='.$fields['text'].'&priority='.$fields['priority'].'&stype='.$fields['stype'].'';
 				// $get = file_get_contents($url);		
 
+				setcookie("full_register_status", "success", time() + 1, "/");
 				// print_r(data_reg_com); 					  		
 		  		$this->load->view('registration',$data_reg_com);
 
@@ -690,7 +691,8 @@ class Base extends CI_Controller {
 					curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($fields));
 					curl_exec($ch);
 					curl_close($ch);
-					// print_r(data_reg_com);			  	
+					// print_r(data_reg_com);	
+					setcookie("full_register_status", "success", time() + 1, "/");		  	
 			  	}
 		  		// Edit Process - End Here //  		
 

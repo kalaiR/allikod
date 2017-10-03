@@ -525,7 +525,7 @@ $(document).ready(function() {
 	$("#dob").blur(function() {
 		var $birthday = $('#dob').val();
 		var age = calculateAge($birthday);
-		$('#user_age').val(age);
+		// $('#user_age').val(age);
 		$('#display_age').val(age);
 	});
 
@@ -945,6 +945,10 @@ $(document).ready(function() {
         height_cms = $('.height_act :selected').text();
         $('.feet_act option[data-heightcms*="' + height_cms + '"]').attr("selected","selected");       
     });  
+    $('.qreg_act').on('click', function(){
+    	$('.modals').hide();
+        $('.edit_error').html('');
+    });
 });
 
 // $(window).load(function(){
