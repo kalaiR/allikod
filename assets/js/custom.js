@@ -926,7 +926,7 @@ $(document).ready(function() {
 	});
 
 	/*End user customer user edit form End*/
-	$(".find_age,#cus_age").keypress(function(event) {
+	$(".find_age,#cus_age,.birthday,.reg_age").keypress(function(event) {
 		event.preventDefault();
 	});
     $('.find_age').on('blur', function(){

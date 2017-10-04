@@ -202,7 +202,7 @@ $('.reset').click(function() {
     });
 
     /*Admin customer user edit form Start*/
-    $('.customer_edit_form').on('submit',function(e) {
+    $('.customer_edit_form,.add_online_form').on('submit',function(e) {
         e.preventDefault();
         var error = '';
         var error_msg = $(this).find('.val_error');
@@ -363,7 +363,10 @@ $('.reset').click(function() {
     });
 
     /*Admin customer user edit form End*/
-
+	$(".dob_admin").keypress(function(event) {
+		event.preventDefault();
+	});
+	
     $("#usertype_act").on("change",function(){
       var usertype = $('option:selected',this).val();
       if(usertype == "simple")

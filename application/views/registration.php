@@ -172,7 +172,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             <div class="col-sm-2">
                                                 <!-- <input type='text' class="form-control" placeholder="Age" name="display_age" id="display_age" value="" /> --> 
                                                 <!-- updated by kalai on sept 30th (display_age) -->
-                                                <input type='text' class="form-control" placeholder="Age" name="user_age" id="display_age" value="" />
+                                                <input type='text' class="form-control reg_age" placeholder="Age" name="user_age" id="display_age" value="" />
                                             </div>   
                                                 <div class="col-sm-2 box">
                                                     <span id="dob_error" class="registration-error"></span>
