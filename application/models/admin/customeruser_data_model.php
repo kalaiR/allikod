@@ -148,7 +148,7 @@ class Customeruser_data_model extends CI_Model {
 		        $this->db->update("reg_education_occupation", $education_occupation_update_data);	
 	        }
 	        else{
-	        	$education_occupation_update_where['reg_user_id'] = $this->input->post('rid');
+	        	$education_occupation_update_data['reg_user_id'] = $this->input->post('rid');
 	        	$this->db->insert("reg_education_occupation", $education_occupation_update_data);
 	        }
 

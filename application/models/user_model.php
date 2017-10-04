@@ -534,7 +534,7 @@ class User_model extends CI_Model {
   public function get_viewdetails_byid($id){
       // View by id
       $condition = "usr.userdetail_id = ".$id."";     
-      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name, zod.name as zodiac_name, famst.name as family_statusname, famtype.name as family_typename, bdy_type.typename as body_typename, comp.name as complexion_typename, fod.name as food_name, fode.name as phy_expectationfood_name, mc.marital_name as maritalname,luk.name as lukhnam_name');
+      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name, zod.name as zodiac_name, famst.name as family_statusname, famtype.name as family_typename, bdy_type.typename as body_typename, comp.name as complexion_typename, fod.name as food_name, fode.name as phy_expectationfood_name, mc.marital_name as maritalname,luk.name as lukhnam_name,ren.totalno_of_profile as ren_totalprofile,ren.no_of_profile_viewed as ren_viewedprofile,ren.active_status as ren_activestatus,pm.totalno_of_profile as payment_totalprofile');
       $this->db->from('reg_userdetail usr');
       $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
       $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
@@ -558,6 +558,7 @@ class User_model extends CI_Model {
       $this->db->join('complexion comp','comp.complexion_id=pe.phy_complexion','left');
       $this->db->join('food fod','fod.food_id=pe.phy_food','left');
       $this->db->join('food fode','fode.food_id=pe.phy_expectationfood','left');
+      $this->db->join('renew_detail ren','ren.reg_user_id=usr.userdetail_id','left');
       $this->db->where($condition); 
       $query = $this->db->get()->row_array();
       //echo $this->db->last_query();
@@ -868,7 +869,7 @@ class User_model extends CI_Model {
  public function customer_user_profile($id){
       // View by id
       $condition = "usr.userdetail_id = ".$id."";
-      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,group_concat(images) as images,group_concat(userimages_id) as images_id');
+      $this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,group_concat(images) as images,group_concat(userimages_id) as images_id,ren.totalno_of_profile as ren_totalprofile,ren.no_of_profile_viewed as ren_viewedprofile,ren.active_status as ren_activestatus,pm.totalno_of_profile as payment_totalprofile');
       $this->db->from('reg_userdetail usr');
       $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
       $this->db->join('reg_education_occupation eo','eo.reg_user_id=usr.userdetail_id','left');
@@ -886,6 +887,7 @@ class User_model extends CI_Model {
       $this->db->join('education ed','ed.education_id=eo.edu_education','left');
       $this->db->join('occupation occ','occ.occupation_id=eo.edu_occupation','left');
       $this->db->join('employed_in ein','ein.employedin_id=eo.edu_employedin','left');
+      $this->db->join('renew_detail ren','ren.reg_user_id=usr.userdetail_id','left');
       $this->db->where($condition); 
       $model_data['customeruser_values'] = $this->db->get()->row_array();
 
