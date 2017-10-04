@@ -1,11 +1,12 @@
 <?php 
     include('include/header.php');
     include('include/menu.php');
+	$user_session = $this->session->userdata("login_status");
+    $user_session_data = $this->session->userdata("login_session");
 ?> 
         
         <!--================Slider Reg Area (selva)=================-->
-        <section class="slider_area scroll_icon">
-        	
+        <section class="slider_area scroll_icon">        	
             <div class="slider_inner">
                 <div class="rev_slider"  data-version="5.3.0.2" id="home-slider">
                     <ul> 
@@ -17,9 +18,10 @@
                             <!-- MAIN IMAGE -->
                             <img src="<?php echo media_url(); ?>assets/img/slider-img/slider-2.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
+                            <?php  if($user_session){ ?>
                             <a href="#" class="scroll-down" address="true"></a>
-                        </li>
-                        
+                            <?php } ?>
+                        </li>                        
                     </ul> 
                 </div><!-- END REVOLUTION SLIDER -->
             </div>
@@ -32,13 +34,12 @@
                         <div class="col-sm-6">
                         	<?php 
                             // if(empty($this->session->userdata("login_status"))){ 
-                            $user_session = $this->session->userdata("login_status");
-                            $user_session_data = $this->session->userdata("login_session");
+                            // $user_session = $this->session->userdata("login_status");
+                            // $user_session_data = $this->session->userdata("login_session");
                             if (empty($user_session)){
                         ?>
                             <div class="registration_form_s" style="background-color:rgba(255,255,255,0.9)">
-                                <h4>Registration</h4>
-                                	
+                                <h4>Registration</h4>                                	
                                 <form method="post" action="<?php echo base_url(); ?>index" name="index_reg" id="" class="reg_formss">
                                 <!-- <span class="val_status"></span> -->
                                  <p class='val_error val_status'></p>
@@ -87,7 +88,7 @@
                                          </div>
                                         <div class="col-md-6">     
                                             <div class="form-group">
-                                                <input type="text" class="form-control form_inputs age_reg" id="reg_age" data-message="Age" placeholder="Your Age" name="reg_age" value="">
+                                                <input type="text" class="form-control form_inputs age_regs" id="reg_age" data-message="Age" placeholder="Your Age" name="reg_age" value="">
                                                 
                                             </div>
                                         </div>    
@@ -353,7 +354,7 @@
                             <div class="item">
                                 <div class="team_items">
                                     <div class="product_div">
-                                        <img src="<?php if(!empty($suc['image'])) echo media_url()."assets/img/uploads/success/th_".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>"class="product_div" alt="Image">
+                                        <img src="<?php if(!empty($suc['image'])) echo media_url()."uploads/success/th_".$suc['image']; else echo media_url()."assets/img/no_image.jpg" ?>"class="product_div" alt="Image">
                                         <div class="overlay">
                                             <div class="success-text"><?php echo $suc['male_name']."&". $suc['female_name'] ?>
                                             </div>

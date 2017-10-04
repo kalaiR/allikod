@@ -81,7 +81,18 @@ $(document).ready(function() {
                 email.removeClass("form-field-error");
             }
         }
-
+		if(error == '') { 
+		var age =$('.age_regs').val();
+		var ages = $(this).find('.age_regs');
+            if(age<=18){
+                error = 1;
+                message = "Age should be 18 or more";
+                ages.addClass("form-field-error");
+              }else{
+                ages.removeClass("form-field-error");
+                // alert("false=>");              
+              }
+        }
         // /* Validate email exits */
         if(error == '') {
             var email1 = $(this).find('#reg_email2');

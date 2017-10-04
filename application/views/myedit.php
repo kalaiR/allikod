@@ -207,7 +207,22 @@
                                                 <p><b>Starting Date</b></p>
                                             </div>
                                             <div class="col-md-3">       
-                                                <p> : <?php if(!empty($customeruser_values['startdate'])) echo date("Y-m-d", strtotime($customeruser_values['startdate'])); ?> </p>                                            
+                                                <p> :
+                                                <?php 
+                                                if(empty($customeruser_values['renewdetail_id'])){
+                                                    if(!empty($customeruser_values['startdate'])) 
+                                                        echo date("Y-m-d", strtotime($customeruser_values['startdate'])); 
+                                                    else 
+                                                        echo "None"; 
+                                                }
+                                                else{
+                                                    if(!empty($customeruser_values['starting_date'])) 
+                                                        echo date("Y-m-d", strtotime($customeruser_values['starting_date']));
+                                                    else 
+                                                        echo "None"; 
+                                                }
+                                                ?>
+                                                </p>                                            
                                             </div>
                                         </div> 
                                         <div class="row">
@@ -215,7 +230,22 @@
                                                 <p><b>Ending Date</b></p>
                                             </div>
                                             <div class="col-md-3">       
-                                                <p> : <?php if(!empty($customeruser_values['enddate'])) echo date("Y-m-d", strtotime($customeruser_values['enddate'])); ?></p>                            
+                                                <p> :
+                                                    <?php 
+                                                    if(empty($customeruser_values['renewdetail_id'])){
+                                                        if(!empty($customeruser_values['enddate'])) 
+                                                            echo date("Y-m-d", strtotime($customeruser_values['enddate'])); 
+                                                        else 
+                                                            echo "None"; 
+                                                    }
+                                                    else{
+                                                        if(!empty($customeruser_values['ending_date'])) 
+                                                            echo date("Y-m-d", strtotime($customeruser_values['ending_date']));
+                                                        else 
+                                                            echo "None"; 
+                                                    }
+                                                    ?>
+                                                </p>                            
                                             </div>
                                         </div>     
                                     </div>
@@ -226,7 +256,22 @@
                                                 <p><b>Total Number Of Profile</b></p>
                                             </div>
                                             <div class="col-md-3">       
-                                                <p> : <?php if(!empty($customeruser_values['totalno_of_profile'])) echo $customeruser_values['totalno_of_profile'];  ?></p>                                            
+                                                <p> :
+                                                    <?php 
+                                                    if(empty($customeruser_values['renewdetail_id'])){
+                                                        if(!empty($customeruser_values['payment_totalprofile'])) 
+                                                            echo $customeruser_values['payment_totalprofile']; 
+                                                        else 
+                                                            echo "0"; 
+                                                    }
+                                                    else{
+                                                        if(!empty($customeruser_values['ren_totalprofile'])) 
+                                                            echo $customeruser_values['ren_totalprofile']; 
+                                                        else 
+                                                            echo "0"; 
+                                                    }
+                                                    ?>
+                                                    </p>                                            
                                             </div>
                                         </div> 
                                         <div class="row">
@@ -234,20 +279,41 @@
                                                 <p><b>Number Of Profile Viewed</b></p>
                                             </div>
                                             <div class="col-md-3">       
-                                                <p> : <?php echo $customeruser_values['no_of_profiles_viewed']; ?></p>                                            
+                                                <p> :
+                                                    <?php 
+                                                    if(empty($customeruser_values['renewdetail_id'])){
+                                                        if(!empty($customeruser_values['no_of_profiles_viewed'])) 
+                                                            echo $customeruser_values['no_of_profiles_viewed']; 
+                                                        else 
+                                                            echo "0"; 
+                                                    }
+                                                    else{
+                                                        if(!empty($customeruser_values['ren_viewedprofile'])) 
+                                                            echo $customeruser_values['ren_viewedprofile']; 
+                                                        else 
+                                                            echo "0"; 
+                                                    }
+                                                    ?>
+                                                    </p>                                            
                                             </div>
                                         </div>  
                                         <div class="row">
                                             <div class="col-md-5">
-                                                <p><b>Remine Profile To View</b></p>
+                                                <p><b>Remaining Profiles to View</b></p>
                                             </div>
                                             <div class="col-md-3">    
-                                                <?php
-                                                    $remaining_profile= $customeruser_values['totalno_of_profile'] - $customeruser_values['no_of_profiles_viewed'];
-                                                ?>   
-                                                <p> : <?php echo $remaining_profile; ?></a> </p>
+                                                <p> :
+                                                    <?php
+                                                        if(empty($customeruser_values['renewdetail_id'])){
+                                                            echo $remaining_profile= $customeruser_values['payment_totalprofile'] - $customeruser_values['no_of_profiles_viewed'];
+                                                        }
+                                                        else{
+                                                            echo $remaining_profile= $customeruser_values['ren_totalprofile'] - $customeruser_values['ren_viewedprofile'];
+                                                        }
+                                                    ?>
+                                                </p>
                                             </div>
-                                        </div>    
+                                        </div>  
                                     </div>
                                 </div>
                             </div>
@@ -886,7 +952,7 @@
                                                     <p><b>Height</b></p>
                                                 </div>
                                                 <div class="col-md-6">        
-                                                    <select class="height_act" name="cus_heightcms">
+                                                    <select class="height_act selectpicker" name="cus_heightcms">
                                                         <option value="">In cms</option>
                                                         <?php 
                                                             foreach ($selection_values['height_values']['cms'] as $height_val):  
@@ -898,7 +964,7 @@
                                                                     echo "<option value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";                       
                                                             endforeach; ?>
                                                     </select> 
-                                                    <select class="feet_act" name="cus_heightfeets">
+                                                    <select class="feet_act selectpicker base-box" name="cus_heightfeets">
                                                         <option value="">In feet</option>
                                                         <?php 
                                                             foreach ($selection_values['height_values']['feet'] as $height_val):    

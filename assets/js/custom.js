@@ -245,7 +245,6 @@ function reg_validate() {
 		}
 		if (!($("#reg_ESister").val() >= $("#reg_MESister").val())) {	
 			output = false;
-			// alert("selva");
 			$("#reg_ESister_error").html("It should be less than sister");
 			$("#reg_ESister").focus();
 		}
@@ -260,20 +259,20 @@ function reg_validate() {
 			// $("#family_type").focus();
 		}
 	}
-	// if ($("#exceptation-field").css('display') != 'none') {
-// 
-		// if (!($("#food").val())) {
-			// output = false;
-			// $("#food_error").html("Required");
-			// $("#food").focus();
-		// }
-		// if (!($("#search_age_from").val())) {
-			// output = false;
-			// $("#search_age_from_error").html("Required");
-			// $("#search_age_from").focus();
-		// }
-// 
-	// }
+	if ($("#exceptation-field").css('display') != 'none') {
+
+		if (!($("#food").val())) {
+			output = false;
+			$("#food_error").html("Required");
+			$("#food").focus();
+		}
+		if (!($("#search_age_from").val())) {
+			output = false;
+			$("#search_age_from_error").html("Required");
+			$("#search_age_from").focus();
+		}
+
+	}
 	// if ($("#horoscope-field").css('display') != 'none') {
 		// if (!($("#crasi_name").val())) {
 			// output = false;
@@ -789,17 +788,25 @@ $(document).ready(function() {
 		//       }
 		// }
 		// /* Check whether the input and select element has error or not */
-		var noofBro = document.getElementById("prependedInput1").value;
- 		var noofMarBro = document.getElementById("prependedInput5").value;
- 		var noofSister = document.getElementById("prependedInput3").value;
- 		var noofMarSister = document.getElementById("prependedInput7").value;
- 		 var noofyBro = document.getElementById("prependedInput2").value;
- 		var noofyMarBro = document.getElementById("prependedInput6").value;
- 		var noofySister = document.getElementById("prependedInput4").value;
- 		var noofyMarSister = document.getElementById("prependedInput8").value;
+		// var noofBro = document.getElementById("prependedInput1").value;
+ 		// var noofMarBro = document.getElementById("prependedInput5").value;
+ 		// var noofSister = document.getElementById("prependedInput3").value;
+ 		// var noofMarSister = document.getElementById("prependedInput7").value;
+ 		 // var noofyBro = document.getElementById("prependedInput2").value;
+ 		// var noofyMarBro = document.getElementById("prependedInput6").value;
+ 		// var noofySister = document.getElementById("prependedInput4").value;
+ 		// var noofyMarSister = document.getElementById("prependedInput8").value;
  		// var firstNumber = $('.first').val();
  		// var secondNumber = $('.second').val();
         if(error == '' ) {
+        	var noofBro =$('#prependedInput1').val();
+        	var noofMarBro =$('#prependedInput5').val();
+        	var noofSister =$('#prependedInput3').val();
+        	var noofMarSister =$('#prependedInput7').val();
+        	var noofyBro =$('#prependedInput2').val();
+        	var noofyMarBro =$('#prependedInput6').val();
+        	var noofySister =$('#prependedInput4').val();
+        	var noofyMarSister =$('#prependedInput8').val();
              if(!((noofBro >= noofMarBro) && (noofSister >= noofMarSister) && (noofyBro >= noofyMarBro) && (noofySister >= noofyMarSister))){
                   error = 1;
                   message = "Married brother or sister less than Brother or sister";
