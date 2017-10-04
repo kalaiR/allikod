@@ -8519,3 +8519,6 @@ overflow: auto;
     left:50%;
     top:50%;
 }
+.registration-step li a:hover{
+	cursor:default;
+}

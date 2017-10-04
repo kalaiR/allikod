@@ -49,7 +49,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                 <div></div>
                                 <div class="profile_list">                                    
                                         <?php //echo "<pre>";print_r($results);echo "</pre>"; ?>
-                                          <!-- <img src="<?php //if(!empty($results['image'])) echo base_url()."assets/img/uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No Image" style="vertical-align:bottom;width:170px;height:170px;"> -->
+                                          <!-- <img src="<?php //if(!empty($results['image'])) echo base_url()."uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No Image" style="vertical-align:bottom;width:170px;height:170px;"> -->
                                             <?php //echo FCPATH."uploads/profile/".$value['images']; 
                                                 $prefix = '';
                                                 $prefix_one = 'th_';
