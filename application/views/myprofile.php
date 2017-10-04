@@ -1,11 +1,10 @@
 <?php 
+    // echo '<pre>';
+    // print_r($results);  
+    // echo '</pre>';
+    // exit();
     include('include/header.php');
     include('include/menu.php');
-// echo '<pre>';
-// print_r($dhosham["name"]);  
-// echo '</pre>';
-// exit();
-
 ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
@@ -55,7 +54,22 @@
                                                     <p>Starting Date</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php if(!empty($results['startdate'])) echo $results['startdate']; else echo "None"; ?></p>
+                                                        <p>
+                                                        <?php 
+                                                        if(empty($results['renewdetail_id'])){
+                                                            if(!empty($results['startdate'])) 
+                                                                echo date("Y-m-d", strtotime($results['startdate'])); 
+                                                            else 
+                                                                echo "None"; 
+                                                        }
+                                                        else{
+                                                            if(!empty($results['starting_date'])) 
+                                                                echo date("Y-m-d", strtotime($results['starting_date']));
+                                                            else 
+                                                                echo "None"; 
+                                                        }
+                                                        ?>
+                                                        </p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
@@ -63,7 +77,22 @@
                                                     <p>Ending Date</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php if(!empty($results['enddate'])) echo $results['enddate']; else echo "None"; ?></p>
+                                                        <p>
+                                                        <?php 
+                                                        if(empty($results['renewdetail_id'])){
+                                                            if(!empty($results['enddate'])) 
+                                                                echo date("Y-m-d", strtotime($results['enddate']));
+                                                            else 
+                                                                echo "None"; 
+                                                        }
+                                                        else{
+                                                            if(!empty($results['ending_date'])) 
+                                                                echo date("Y-m-d", strtotime($results['ending_date']));
+                                                            else 
+                                                                echo "None"; 
+                                                        }
+                                                        ?>
+                                                        </p>
                                                     </div>
                                                 </div>                                          
                                             </div>
@@ -73,7 +102,22 @@
                                                     <p>No. of Profiles</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php if(!empty($results['totalno_of_profile'])) echo $results['totalno_of_profile']; else echo "None"; ?></p>
+                                                        <p>
+                                                        <?php 
+                                                        if(empty($results['renewdetail_id'])){
+                                                            if(!empty($results['payment_totalprofile'])) 
+                                                                echo $results['payment_totalprofile']; 
+                                                            else 
+                                                                echo "0"; 
+                                                        }
+                                                        else{
+                                                            if(!empty($results['ren_totalprofile'])) 
+                                                                echo $results['ren_totalprofile']; 
+                                                            else 
+                                                                echo "0"; 
+                                                        }
+                                                        ?>
+                                                        </p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
@@ -81,7 +125,22 @@
                                                     <p>No. of Profiles Viewed</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p><?php if(!empty($results['no_of_profiles_viewed'])) echo $results['no_of_profiles_viewed']; else echo "None"; ?></p>
+                                                        <p>
+                                                        <?php 
+                                                        if(empty($results['renewdetail_id'])){
+                                                            if(!empty($results['no_of_profiles_viewed'])) 
+                                                                echo $results['no_of_profiles_viewed']; 
+                                                            else 
+                                                                echo "0"; 
+                                                        }
+                                                        else{
+                                                            if(!empty($results['ren_viewedprofile'])) 
+                                                                echo $results['ren_viewedprofile']; 
+                                                            else 
+                                                                echo "0"; 
+                                                        }
+                                                        ?>
+                                                        </p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
@@ -90,10 +149,38 @@
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
                                                         <p><?php
-                                                    echo $remaining_profile= $results['totalno_of_profile'] - $results['no_of_profiles_viewed'];
+                                                        if(empty($results['renewdetail_id'])){
+                                                            echo $remaining_profile= $results['payment_totalprofile'] - $results['no_of_profiles_viewed'];
+                                                        }
+                                                        else{
+                                                            echo $remaining_profile= $results['ren_totalprofile'] - $results['ren_viewedprofile'];
+                                                        }
                                                 ?></p>
                                                     </div>
-                                                </div>                          
+                                                </div> 
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Payment Status</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p><?php
+                                                        if(empty($results['renewdetail_id'])){
+                                                            $status = $results['payment_status'];
+                                                            if($status == "1")
+                                                                echo "Active";
+                                                            else
+                                                                echo "InActive";
+                                                        }
+                                                        else{
+                                                            $status = $results['ren_activestatus'];
+                                                            if($status == "1")
+                                                                echo "Active";
+                                                            else
+                                                                echo "InActive";
+                                                        }
+                                                ?></p>
+                                                    </div>
+                                                </div>                             
                                             </div>
                                         </div>
                                     </div>                                                 

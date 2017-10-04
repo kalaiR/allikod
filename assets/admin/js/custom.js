@@ -30,6 +30,7 @@ $(document).ready(function() {
 $('.reset').click(function() {
 	$( ".checked" ).prop( "checked", false );
 	$("span").removeClass("checked");
+	$('img').remove();
 	$('input').attr('value', '');
    $('.dropdrop').val('').trigger('liszt:updated');
    // $('.checker').get(0).reset();

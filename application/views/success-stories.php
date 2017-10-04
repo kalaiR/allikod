@@ -30,8 +30,8 @@ include('include/menu.php');
                                     $prefix_one = 'th_';
                                     $prefix_two = 'new_';                                    
                                     if(!empty($value['image'])){
-                                        $prefix_one_status = file_exists(FCPATH."assets/img/uploads/success/".$prefix_one.$value['image']);
-                                        $prefix_two_status = file_exists(FCPATH."assets/img/uploads/success/".$prefix_two.$value['image']);
+                                        $prefix_one_status = file_exists(FCPATH."uploads/success/".$prefix_one.$value['image']);
+                                        $prefix_two_status = file_exists(FCPATH."uploads/success/".$prefix_two.$value['image']);
                                     }
 		                            if(!empty($prefix_one_status))
                                         $prefix = $prefix_one;
@@ -44,7 +44,7 @@ include('include/menu.php');
 		                            
 		                             <img src="<?php 
                                             if(!empty($value['image'])): 
-                                             echo media_url()."assets/img/uploads/success/".$prefix.$value['image']; 
+                                             echo media_url()."uploads/success/".$prefix.$value['image']; 
                                             else:
                                              	echo media_url()."assets/img/no_image.jpg"; 
                                             endif; 
