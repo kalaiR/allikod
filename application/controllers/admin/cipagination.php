@@ -18,6 +18,8 @@ public function example() {
         $config['cur_tag_close'] = '';
         $config['next_link'] = 'Next';
         $config['prev_link'] = 'Previous';
+        $config['show_count'] = TRUE;
+        // var $show_count      = true;
         $this->pagination->initialize($config);
         // echo $this->uri->segment(3);
         // $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;

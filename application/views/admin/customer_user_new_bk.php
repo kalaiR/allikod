@@ -1,4 +1,3 @@
-<?php if(!$this->input->is_ajax_request()) { ?>
 <?php 
     include('templates/header.php');
 ?>
@@ -163,7 +162,7 @@
 										</div>										
 									</div>
 								</div>
-								<!-- <div class="box-contents row">
+								<div class="box-contents row">
 									<div class="control-group pull-right">
 										<div class="controls">
 										  Search <input class="input-xlarge " id="" type="text" style="width: 75%">
@@ -179,16 +178,14 @@
 										</select> records per page
 										</div>										
 									</div>
-								</div> -->
-								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;" class="ajaxdata1">
-<?php } ?>								
+								</div>
+								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
 									<table class="table table-striped table-bordered bootstrap-datatable" id="cd-grid">
 									  <thead>
 										  <tr>
-											  <!-- <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span> -->
-											  <th><span><input id="inlineCheckbox1" type="checkbox"></span>
+											  <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span>
 											  </th>
-											  <th>S.No</th>
+											  <th>No</th>
 											  <th>Vallikodi ID</th>
 											  <!-- <th>Profile ID</th> -->		  
 											  <th>Name</th>
@@ -203,18 +200,17 @@
 										  </tr>
 									  </thead>   
 									  <tbody>
-										<?php
+									  	<?php
 						                      if(!empty($customeruser_values)) :
 						                      // echo "<pre>";
 						                      // print_r($customeruser_values);
 						                      // echo "</pre>";
-						                      // $i = $this->uri->segment(3);
-						                      $i=$offset;
+						                      $i=0;
 						                      foreach ($customeruser_values as $cus_val) :
 						                      $i++;
 			                      	    ?>
 										<tr>
-											<td><span><input id="inlineCheckbox1" type="checkbox"></span></td>
+											<td><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span></td>
 											<td class="center"><?php echo $i; ?></td>
 											<td class="center"><?php echo "VM".$cus_val['userdetail_id']; ?></td>
 											<!-- <td class="center">259</td> -->
@@ -262,12 +258,12 @@
 											</td>											
 											<td class="center">
 												<div style="width: 193px;">
-													<!-- <a class="btn btn-warning" href="<?php //echo base_url(); ?>admin/view_customer_user/<?php //echo $cus_val["userdetail_id"] ?>">
+													<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
 													<a class="btn btn-primary cboxElement"  href="http://libertyshoewarehouse.com/mt-content/uploads/2016/12/comingsoon.png">
 														<i class="icon-picture icon-white" title="Image"></i> 
-													</a> -->
+													</a>
 													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 													</a>
@@ -283,29 +279,9 @@
 										<?php
 					                      endforeach;
 					                      endif;
-					                     ?>
-				                    </tbody>
+					                     ?>						
+									  </tbody>
 								  </table>
-								  <!-- Pagination without datatable -->
-									<div class="col-md-12">
-										<!-- <div>Showing 1 to 10 of 500 entries</div> -->
-								  		<div>
-									  		<div style="margin-left: 40%" id="ajax_pagingsearc" data-gridid="1">	
-									  		<!-- <div class="pagination" style="margin-left: 40%" id="ajax_pagingsearc"> -->
-											  <!-- <a href="#">&laquo; Prev</a>
-											  <a href="#">1</a>
-											  <a href="#" class="active">2</a>
-											  <a href="#">3</a>
-											  <a href="#">4</a>
-											  <a href="#">5</a>
-											  <a href="#">6</a>
-											  <a href="#">Next&raquo;</a> -->
-											  <?php echo $links; ?>
-											  <p></p>
-											</div>
-									  	</div>
-							  		</div>
-<?php if(!$this->input->is_ajax_request()) { ?>									  
 								</div>
 							</div>
 							<!-- View Tab Ends -->
@@ -328,8 +304,7 @@
 										</div>										
 									</div>
 								</div>
-								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;" class="ajaxdata2">
-<?php } ?>
+								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
 									<table class="table table-striped table-bordered bootstrap-datatable">
 									  <thead>
 										  <tr>
@@ -349,7 +324,7 @@
 											  <th>Action</th>
 										  </tr>
 									  </thead>   
-									  <tbody>									  
+									  <tbody>
 									  	<?php
 					                      if(!empty($customeruser_values)) :
 					                      // echo "<pre>";
@@ -422,29 +397,9 @@
 											endif;
 					                      endforeach;
 					                      endif;
-					                    ?>	
-					                </tbody>
+					                    ?>							
+									  </tbody>
 								  </table>
-									<!-- Pagination without datatable -->
-									<div class="col-md-12">
-										<!-- <div>Showing 1 to 10 of 500 entries</div> -->
-								  		<div>
-									  		<div style="margin-left: 40%" id="ajax_pagingsearc" data-gridid="2">	
-									  		<!-- <div class="pagination" style="margin-left: 40%" id="ajax_pagingsearc"> -->
-											  <!-- <a href="#">&laquo; Prev</a>
-											  <a href="#">1</a>
-											  <a href="#" class="active">2</a>
-											  <a href="#">3</a>
-											  <a href="#">4</a>
-											  <a href="#">5</a>
-											  <a href="#">6</a>
-											  <a href="#">Next&raquo;</a> -->
-											  <?php echo $links; ?>
-											  <p></p>
-											</div>
-									  	</div>
-							  		</div>
-<?php if(!$this->input->is_ajax_request()) { ?>							  		
 								</div>
 							</div>
 							<!-- Online Tab Ends -->
@@ -467,8 +422,7 @@
 										</div>										
 									</div>
 								</div>
-								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;" class="ajaxdata3">
-<?php } ?>									
+								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
 									<table class="table table-striped table-bordered bootstrap-datatable">
 									  <thead>
 										  <tr>
@@ -488,7 +442,7 @@
 											  <th>Action</th>
 										  </tr>
 									  </thead>   
-									  <tbody>									
+									  <tbody>
 									  	<?php
 					                      if(!empty($customeruser_values)) :
 					                      // echo "<pre>";
@@ -561,29 +515,9 @@
 											endif;
 					                      endforeach;
 					                      endif;
-					                    ?>	
-						            </tbody>
+					                    ?>							
+									  </tbody>
 								  </table>
-								  <!-- Pagination without datatable -->
-									<div class="col-md-12">
-										<!-- <div>Showing 1 to 10 of 500 entries</div> -->
-								  		<div>
-									  		<div style="margin-left: 40%" id="ajax_pagingsearc" data-gridid="3">	
-									  		<!-- <div class="pagination" style="margin-left: 40%" id="ajax_pagingsearc"> -->
-											  <!-- <a href="#">&laquo; Prev</a>
-											  <a href="#">1</a>
-											  <a href="#" class="active">2</a>
-											  <a href="#">3</a>
-											  <a href="#">4</a>
-											  <a href="#">5</a>
-											  <a href="#">6</a>
-											  <a href="#">Next&raquo;</a> -->
-											  <?php echo $links; ?>
-											  <p></p>
-											</div>
-									  	</div>
-							  		</div>
-<?php if(!$this->input->is_ajax_request()) { ?>								  		
 								</div> <!-- End of box content -->
 							</div>
 							<!-- Simple Tab Ends -->
@@ -606,8 +540,7 @@
 										</div>										
 									</div>
 								</div>
-								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;" class="ajaxdata4">
-<?php } ?>									
+								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">								
 									<table class="table table-striped table-bordered bootstrap-datatable">
 									  <thead>
 										  <tr>
@@ -627,7 +560,7 @@
 											  <th>Action</th>
 										  </tr>
 									  </thead>   
-									  <tbody>									  
+									  <tbody>
 									  	<?php
 					                      if(!empty($customeruser_values)) :
 					                      // echo "<pre>";
@@ -695,34 +628,30 @@
 											endif;
 					                      endforeach;
 					                      endif;
-					                    ?>
-					                </tbody>
+					                    ?>							
+									  </tbody>
 								  </table>
-								  <!-- Pagination without datatable -->
-									<div class="col-md-12">
-										<!-- <div>Showing 1 to 10 of 500 entries</div> -->
-								  		<div>
-									  		<div style="margin-left: 40%" id="ajax_pagingsearc" data-gridid="4">	
-									  		<!-- <div class="pagination" style="margin-left: 40%" id="ajax_pagingsearc"> -->
-											  <!-- <a href="#">&laquo; Prev</a>
-											  <a href="#">1</a>
-											  <a href="#" class="active">2</a>
-											  <a href="#">3</a>
-											  <a href="#">4</a>
-											  <a href="#">5</a>
-											  <a href="#">6</a>
-											  <a href="#">Next&raquo;</a> -->
-											  <?php echo $links; ?>
-											  <p></p>
-											</div>
-									  	</div>
-							  		</div>
-<?php if(!$this->input->is_ajax_request()) { ?>							  		
 								</div> <!-- End of box content -->
 							</div>
 							<!-- Waiting Tab Ends -->
 						</div>
-					</div>		  		
+					</div>
+					<!-- Pagination without datatable -->
+					<div class="col-md-12">
+						<div>Showing 1 to 10 of 500 entries</div>
+			  	<div>
+			  		<div class="pagination" style="margin-left: 40%">
+					  <a href="#">&laquo; Prev</a>
+					  <a href="#">1</a>
+					  <a href="#" class="active">2</a>
+					  <a href="#">3</a>
+					  <a href="#">4</a>
+					  <a href="#">5</a>
+					  <a href="#">6</a>
+					  <a href="#">Next&raquo;</a>
+					</div>
+			  	</div>
+			  </div>
 				</div>
 			<!-- Table -->
 		</div>  <!-- span10 end -->
@@ -749,28 +678,6 @@
 <?php 
     include('templates/footer.php');
 ?>
-<script type="text/javascript">
-    $(function() {  
-      applyPagination();  
-      function applyPagination() {
-        $("#ajax_pagingsearc a").click(function() {
-        var url = $(this).attr("href");
-        var grid_id = $(this).parents('#ajax_pagingsearc').data('gridid');
-        alert(grid_id);
-          $.ajax({
-            type: "POST",
-            data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name],
-            url: url,
-           success: function(msg) {
-              $(".ajaxdata".grid_id).html(msg);
-              applyPagination();
-            }
-          });
-        return false;
-        });
-      }
-    });
-</script>
 <script type= 'text/javascript'>
     // $(document).ready(function () {
     //     $('#cd-grid').DataTable({
@@ -780,4 +687,3 @@
     //     });
     // });
 </script>
-<?php } ?>

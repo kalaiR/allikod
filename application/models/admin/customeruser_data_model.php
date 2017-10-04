@@ -148,7 +148,7 @@ class Customeruser_data_model extends CI_Model {
 		        $this->db->update("reg_education_occupation", $education_occupation_update_data);	
 	        }
 	        else{
-	        	$education_occupation_update_where['reg_user_id'] = $this->input->post('rid');
+	        	$education_occupation_update_data['reg_user_id'] = $this->input->post('rid');
 	        	$this->db->insert("reg_education_occupation", $education_occupation_update_data);
 	        }
 
@@ -649,4 +649,24 @@ class Customeruser_data_model extends CI_Model {
     $this->db->where('reg_user_id', $id);
     return $this->db->get()->result_array();
   }
+  function customeruser_record_count()
+  {
+	 return $this->db->count_all('reg_userdetail');
+  }
+  public function fetch_customeruser($limit, $start) {
+    // echo "limit".$limit;
+    // echo "start".$start;
+    	$this->db->select('*');
+	    $this->db->from('reg_userdetail usr');
+	    $this->db->join('reg_payment pm','pm.reg_user_id=usr.userdetail_id','left');
+	    $this->db->order_by('usr.userdetail_id desc');
+	    $this->db->limit($limit, $start);
+
+	   	$query = $this->db->get()->result_array();
+        // echo $this->db->last_query();
+        if (sizeof($query) > 0) {
+            return $query;
+        }
+        return false;
+   }
 }
