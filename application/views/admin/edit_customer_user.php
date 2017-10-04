@@ -623,7 +623,7 @@
 															<?php //echo "<pre>"; print_r($selection_values['height_values']); echo "</pre>";  ?>
 															  <!-- <select data-rel="chosen" name="cus_heightcms" class="span3 height_act"> -->
 															  <!--  the above code for custom dropdown, feet jquery on change code not running when use above custom dropdown -->
-															  <select name="cus_heightcms" class="span3 height_act">	
+															  <select data-rel="chosen" name="cus_heightcms" class="span3 height_act">	
 															  	<option value="">In cm</option>
 		                                                        <?php 
 		                                                            foreach ($selection_values['height_values']['cms'] as $height_val):  
@@ -636,7 +636,7 @@
 		                                                            endforeach; ?>
 															  </select>
 															  <!-- <select data-rel="chosen" name="cus_heightfeets" class="span3 feet_act"> -->
-		                                                      <select name="cus_heightfeets" class="span3 feet_act">  
+		                                                      <select data-rel="chosen" name="cus_heightfeets" class="span3 feet_act">  
 		                                                       	<option value="">In feet</option>
 		                                                        <?php 
 		                                                            foreach ($selection_values['height_values']['feet'] as $height_val):    
