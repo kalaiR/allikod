@@ -268,7 +268,7 @@
 						                        ?>
 											</td>											
 											<td class="center">
-												<div style="width: 193px;">
+												<div style="width: 115px;">
 													<!-- <a class="btn btn-warning" href="<?php //echo base_url(); ?>admin/view_customer_user/<?php //echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
@@ -301,14 +301,13 @@
 									  		<!-- <div class="pagination" style="margin-left: 40%" id="ajax_pagingsearc"> -->
 											  <!-- <a href="#">&laquo; Prev</a>
 											  <a href="#">1</a>
-											  <a href="#" class="active">2</a>
+											  <a href="#">2</a>
 											  <a href="#">3</a>
 											  <a href="#">4</a>
 											  <a href="#">5</a>
 											  <a href="#">6</a>
 											  <a href="#">Next&raquo;</a> -->
 											  <?php echo $links; ?>
-											  <p></p>
 											</div>
 									  	</div>
 							  		</div>
