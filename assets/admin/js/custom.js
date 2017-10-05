@@ -3,13 +3,16 @@ $(document).ready(function() {
   // Show and Hide Search Div
  $(function(){
   $('.search_customer').click(function() {
-  $('.slidingDiv').show("slow"); 
-
+  	$(".drop_reset")[0].selectedIndex = 0;
+  	$(".drops_reset")[0].selectedIndex = 0;
+            $('.slidingDiv').show('slow');       
   });
-  $('#myTab').click(function(){  
-  $('.slidingDiv').hide(); 
-  });
+  $('.slidingDivs').click(function(){  
+  	$('.slidingDiv').hide('slow'); 
+  	});
+  	
 });
+	
         // $(".slidingDiv").hide();
         // $('.search_customer').click(function(){
         // // $(".slidingDiv").slideToggle();
