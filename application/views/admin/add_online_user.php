@@ -14,7 +14,8 @@
 				</ul>
 			</div>
 			<!-- Table -->
-			<form id="online_form">
+			<form id="online_form" class="add_online_form">
+				<p class='val_error'> </p>
 		<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header well" data-original-title>
@@ -233,7 +234,7 @@
 											  	<div class="control-group">
 												  <label class="control-label" for="date_birth">Date of Birth * :</label>
 												  <div class="controls">
-													<input type="text" class="input-xlarge datepicker" id="date_birth" value="">
+													<input type="text" class="input-xlarge datepicker dob_admin" id="date_birth" value="">
 												  </div>
 												</div>
 												
