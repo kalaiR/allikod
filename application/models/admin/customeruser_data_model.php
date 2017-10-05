@@ -649,4 +649,41 @@ class Customeruser_data_model extends CI_Model {
     $this->db->where('reg_user_id', $id);
     return $this->db->get()->result_array();
   }
+  function customeruser_record_count()
+  {
+	 return $this->db->count_all('reg_userdetail');
+  }
+  public function fetch_customeruser($limit, $start) {
+    // echo "limit".$limit;
+    // echo "start".$start;
+    	if($this->input->post('userstatus') and !empty($this->input->post('userstatus'))){
+    		$userstatus = $this->input->post('userstatus');
+    		if($userstatus == "active" || $userstatus == "inactive"){
+	    		if($userstatus == "active")
+	    			$userstatus_data = 1;
+	    		else
+	    			$userstatus_data = 0;
+	    		$user_where = '(user_active_status="'.$userstatus_data.'")';
+    		}else{
+    			$userstatus_data = 1;
+    			$user_where = '(user_delete_status="'.$userstatus_data.'")';
+    		}
+    	}
+    	// else
+    		// $user_where = '';
+    	$this->db->select('*');
+	    $this->db->from('reg_userdetail usr');
+	    $this->db->join('reg_payment pm','pm.reg_user_id=usr.userdetail_id','left');
+	    if($this->input->post('userstatus') and !empty($this->input->post('userstatus')))
+	    	$this->db->where($user_where);
+	    $this->db->order_by('usr.userdetail_id desc');
+	    $this->db->limit($limit, $start);
+
+	   	$query = $this->db->get()->result_array();
+        // echo $this->db->last_query();
+        if (sizeof($query) > 0) {
+            return $query;
+        }
+        return false;
+   }
 }

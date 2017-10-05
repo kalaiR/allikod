@@ -133,6 +133,7 @@ $route['admin/add_contact_gallery'] 					= "admin/base/add_contact_gallery";
 $route['admin/edit_contact_gallery'] 					= "admin/base/edit_contact_gallery";
 $route['admin/cd_list'] 					= "admin/customeruser_data/cd_list";
 $route['admin/customer_user_new'] 							= "admin/customeruser_data/customer_user_new";
+$route['admin/customer_user_new/(:any)'] 							= "admin/customeruser_data/customer_user_new/$1";
 //Codeigniter Ajax pagination
 $route['admin/cipagination'] 							= "admin/cipagination/example";
 $route['admin/cipagination/(:any)'] 							= "admin/cipagination/example/$1";

@@ -1,3 +1,4 @@
+<?php if(!$this->input->is_ajax_request()) { ?>
 <?php 
     include('templates/header.php');
 ?>
@@ -129,12 +130,12 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<ul class="nav nav-tabs" id="myTab">
+						<!-- <ul class="nav nav-tabs" id="myTab">
 							<li class="active"><a href="#view">View</a></li>
 							<li><a href="#online">Online</a></li>
 							<li><a href="#simple">Simple</a></li>
 							<li><a href="#waiting">Waiting</a></li>
-						</ul>						 
+						</ul>	 -->					 
 						<div id="myTabContent" class="tab-content">
 							<!-- View Tab Begins -->
 							<div class="tab-pane active" id="view">
@@ -150,11 +151,18 @@
 								    <div class="control-group pull-left">
 										<label class="control-label" for="selectError3"></label>
 										<div class="controls">
-										  <select id="selectError3" style="float: left; width: 80px">
-											<option>Active</option>
-											<option>Inactive</option>
-											<option>Delete</option>
-										</select>
+										  <select id="selectError3" style="float: left; width: 160px" class="userstatus_act">
+										  	<option value="">Select By Userstatus</option>
+											<option value="active">Active</option>
+											<option value="inactive">Inactive</option>
+											<option value="delete">Delete</option>
+										  </select>
+										  <select id="selectError3" style="margin:0px 20px 0px 10px; float: left; width: 160px">
+										  	<option>Select By Usertype</option>
+											<option>Online</option>
+											<option>Simple</option>
+											<option>Waiting</option>
+										  </select>
 										  	<a class="btn btn-primary search_customer" id="search" href="#" style="float: left; margin-left: 5px;">
 									        <i class="glyphicon glyphicon-edit icon-white"></i>
 									        Search
@@ -162,7 +170,7 @@
 										</div>										
 									</div>
 								</div>
-								<div class="box-contents row">
+								<!-- <div class="box-contents row">
 									<div class="control-group pull-right">
 										<div class="controls">
 										  Search <input class="input-xlarge " id="" type="text" style="width: 75%">
@@ -178,14 +186,16 @@
 										</select> records per page
 										</div>										
 									</div>
-								</div>
-								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
+								</div> -->
+								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;" class="ajaxdata">
+<?php } ?>								
 									<table class="table table-striped table-bordered bootstrap-datatable" id="cd-grid">
 									  <thead>
 										  <tr>
-											  <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span>
+											  <!-- <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span> -->
+											  <th><span><input id="inlineCheckbox1" type="checkbox"></span>
 											  </th>
-											  <th>No</th>
+											  <th>S.No</th>
 											  <th>Vallikodi ID</th>
 											  <!-- <th>Profile ID</th> -->		  
 											  <th>Name</th>
@@ -200,17 +210,18 @@
 										  </tr>
 									  </thead>   
 									  <tbody>
-									  	<?php
+										<?php
 						                      if(!empty($customeruser_values)) :
 						                      // echo "<pre>";
 						                      // print_r($customeruser_values);
 						                      // echo "</pre>";
-						                      $i=0;
+						                      // $i = $this->uri->segment(3);
+						                      $i=$offset;
 						                      foreach ($customeruser_values as $cus_val) :
 						                      $i++;
 			                      	    ?>
 										<tr>
-											<td><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span></td>
+											<td><span><input id="inlineCheckbox1" type="checkbox"></span></td>
 											<td class="center"><?php echo $i; ?></td>
 											<td class="center"><?php echo "VM".$cus_val['userdetail_id']; ?></td>
 											<!-- <td class="center">259</td> -->
@@ -258,12 +269,12 @@
 											</td>											
 											<td class="center">
 												<div style="width: 193px;">
-													<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+													<!-- <a class="btn btn-warning" href="<?php //echo base_url(); ?>admin/view_customer_user/<?php //echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
 													<a class="btn btn-primary cboxElement"  href="http://libertyshoewarehouse.com/mt-content/uploads/2016/12/comingsoon.png">
 														<i class="icon-picture icon-white" title="Image"></i> 
-													</a>
+													</a> -->
 													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-zoom-in icon-white" title="View"></i>  
 													</a>
@@ -279,379 +290,33 @@
 										<?php
 					                      endforeach;
 					                      endif;
-					                     ?>						
-									  </tbody>
+					                     ?>
+				                    </tbody>
 								  </table>
-								</div>
-							</div>
-							<!-- View Tab Ends -->
-							<!-- Online Tab Begins -->
-							<div class="tab-pane" id="online">
-								<div class="box-contents row">
-									<div class="control-group pull-right">
-										<div class="controls">
-										  Search <input class="input-xlarge " id="" type="text" style="width: 75%">
-										</div>
-									</div>
-								    <div class="control-group pull-left">
-										<label class="control-label" for="selectError3"></label>
-										<div class="controls">
-										  <select id="selectError3" style="float: left; width: 50px">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-										</select> records per page
-										</div>										
-									</div>
-								</div>
-								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
-									<table class="table table-striped table-bordered bootstrap-datatable">
-									  <thead>
-										  <tr>
-											  <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span>
-											  </th>
-											  <th>No</th>
-											  <th>Vallikodi ID</th>
-											  <!-- <th>Profile ID</th> -->		  
-											  <th>Name</th>
-											  <th>Mail</th>
-											  <!-- <th>Profile <br>Viewed</th> -->
-											  <!-- <th>Reg. <br>By</th> -->
-											  <th>DOB</th>
-											  <th>Profile Status</th>
-											  <th>Payment Status</th>
-											  <th>Reg. <br>Date</th>	  
-											  <th>Action</th>
-										  </tr>
-									  </thead>   
-									  <tbody>
-									  	<?php
-					                      if(!empty($customeruser_values)) :
-					                      // echo "<pre>";
-					                      // print_r($customeruser_values);
-					                      // echo "</pre>";
-					                      $i=0;
-					                      foreach ($customeruser_values as $cus_val) :
-					                      	if(strtolower($cus_val['user_online_or_simple']) == 'online'):
-					                      		$i++;
-			                      	    ?>
-										<tr>											
-											<td><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span></td>
-											<td class="center"><?php echo $i; ?></td>
-											<td class="center"><?php echo "VM".$cus_val['userdetail_id']; ?></td>
-											<!-- <td class="center">259</td> -->
-											<td class="center"><?php echo $cus_val['user_fname']; ?></td>
-											<td class="center"><?php echo $cus_val['user_email']; ?></td>
-											<!-- <td class="center">
-												<?php //echo "self"; ?>
-											</td> -->
-											<td class="center">
-												<?php 
-						                            echo date("d/m/Y", strtotime($cus_val['user_dob'])); 
-						                        ?>
-						                    </td>
-											<td class="center">
-												<span class="label label-success"> <!--class for Not-Activated <span class="label label-danger"> -->
-													<?php 
-							                          if ($cus_val['user_active_status'] == 1) 
-							                            echo "Activated";
-							                          else
-							                            echo "Not-Activated";
-							                        ?>    	
-				                        		</span>
-											</td>
-											<td class="center">
-												<span class="label label-success"> <!--class for not paid <span class="label label-important"> -->
-													<?php 
-							                          if ($cus_val['payment_status'] == 1) 
-							                            echo "Paid";
-							                          else
-							                            echo "Not Paid";
-							                        ?>    	
-				                        		</span>
-											</td>
-											<td class="center">
-												<?php 
-						                            $created_datetime = explode(' ', $cus_val['user_added_date']);
-						                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
-						                        ?>
-											</td>										
-											<td class="center">
-											<div style="width: 160px;">
-												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
+								  <!-- Pagination without datatable -->
+									<div class="col-md-12">
+										<!-- <div>Showing 1 to 10 of 500 entries</div> -->
+								  		<div>
+									  		<div style="margin-left: 40%" id="ajax_pagingsearc">	
+									  		<!-- <div class="pagination" style="margin-left: 40%" id="ajax_pagingsearc"> -->
+											  <!-- <a href="#">&laquo; Prev</a>
+											  <a href="#">1</a>
+											  <a href="#" class="active">2</a>
+											  <a href="#">3</a>
+											  <a href="#">4</a>
+											  <a href="#">5</a>
+											  <a href="#">6</a>
+											  <a href="#">Next&raquo;</a> -->
+											  <?php echo $links; ?>
+											  <p></p>
 											</div>
-											</td>
-										</tr>
-										<?php
-											endif;
-					                      endforeach;
-					                      endif;
-					                    ?>							
-									  </tbody>
-								  </table>
+									  	</div>
+							  		</div>
+<?php if(!$this->input->is_ajax_request()) { ?>									  
 								</div>
 							</div>
-							<!-- Online Tab Ends -->
-							<!-- Simple Tab Begins -->
-							<div class="tab-pane" id="simple">
-								<div class="box-contents row">
-									<div class="control-group pull-right">
-										<div class="controls">
-										  Search <input class="input-xlarge " id="" type="text" style="width: 75%">
-										</div>
-									</div>
-								    <div class="control-group pull-left">
-										<label class="control-label" for="selectError3"></label>
-										<div class="controls">
-										  <select id="selectError3" style="float: left; width: 50px">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-										</select> records per page
-										</div>										
-									</div>
-								</div>
-								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">
-									<table class="table table-striped table-bordered bootstrap-datatable">
-									  <thead>
-										  <tr>
-											   <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span>
-											  </th>
-											  <th>No</th>
-											  <th>Vallikodi ID</th>
-											  <!-- <th>Profile ID</th> -->		  
-											  <th>Name</th>
-											  <th>Mail</th>
-											  <!-- <th>Profile <br>Viewed</th> -->
-											  <!-- <th>Reg. <br>By</th> -->
-											  <th>DOB</th>
-											  <th>Profile Status</th>
-											  <th>Payment Status</th>
-											  <th>Reg. <br>Date</th>	  
-											  <th>Action</th>
-										  </tr>
-									  </thead>   
-									  <tbody>
-									  	<?php
-					                      if(!empty($customeruser_values)) :
-					                      // echo "<pre>";
-					                      // print_r($customeruser_values);
-					                      // echo "</pre>";
-					                      $i=0;
-					                      foreach ($customeruser_values as $cus_val) :
-					                      	if(strtolower($cus_val['user_online_or_simple']) == 'simple'):
-					                      		$i++;
-			                      	    ?>
-										<tr>											
-											<td><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span></td>
-											<td class="center"><?php echo $i; ?></td>
-											<td class="center"><?php echo "VM".$cus_val['userdetail_id']; ?></td>
-											<!-- <td class="center">259</td> -->
-											<td class="center"><?php echo $cus_val['user_fname']; ?></td>
-											<td class="center"><?php echo $cus_val['user_email']; ?></td>
-											<!-- <td class="center">
-												<?php //echo "self"; ?>
-											</td> -->
-											<td class="center">
-												<?php 
-						                            echo date("d/m/Y", strtotime($cus_val['user_dob'])); 
-						                        ?>
-						                    </td>
-											<td class="center">
-												<span class="label label-success"> <!--class for Not-Activated <span class="label label-danger"> -->
-													<?php 
-							                          if ($cus_val['user_active_status'] == 1) 
-							                            echo "Activated";
-							                          else
-							                            echo "Not-Activated";
-							                        ?>    	
-				                        		</span>
-											</td>
-											<td class="center">
-												<span class="label label-success"> <!--class for Not-paid <span class="label label-important"> -->
-													<?php 
-							                          if ($cus_val['payment_status'] == 1) 
-							                            echo "Paid";
-							                          else
-							                            echo "Not Paid";
-							                        ?>    	
-				                        		</span>
-											</td>
-											<td class="center">
-												<?php 
-						                            $created_datetime = explode(' ', $cus_val['user_added_date']);
-						                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
-						                        ?>
-											</td>										
-											<td class="center">
-											<div style="width: 160px;">
-												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
-											</div>
-											</td>
-										</tr>
-										<?php
-											endif;
-					                      endforeach;
-					                      endif;
-					                    ?>							
-									  </tbody>
-								  </table>
-								</div> <!-- End of box content -->
-							</div>
-							<!-- Simple Tab Ends -->
-							<!-- Waiting Tab Begins -->
-							<div class="tab-pane" id="waiting">
-								<div class="box-contents row">
-									<div class="control-group pull-right">
-										<div class="controls">
-										  Search <input class="input-xlarge " id="" type="text" style="width: 75%">
-										</div>
-									</div>
-								    <div class="control-group pull-left">
-										<label class="control-label" for="selectError3"></label>
-										<div class="controls">
-										  <select id="selectError3" style="float: left; width: 50px">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-										</select> records per page
-										</div>										
-									</div>
-								</div>
-								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;">								
-									<table class="table table-striped table-bordered bootstrap-datatable">
-									  <thead>
-										  <tr>
-											   <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span>
-											  </th>
-											  <th>No</th>
-											  <th>Vallikodi ID</th>
-											  <!-- <th>Profile ID</th> -->		  
-											  <th>Name</th>
-											  <th>Mail</th>
-											  <!-- <th>Profile <br>Viewed</th> -->
-											  <!-- <th>Reg. <br>By</th> -->
-											  <th>DOB</th>
-											  <th>Profile Status</th>
-											  <th>Payment Status</th>
-											  <!-- <th>Reg. <br>Date</th>	   -->
-											  <th>Action</th>
-										  </tr>
-									  </thead>   
-									  <tbody>
-									  	<?php
-					                      if(!empty($customeruser_values)) :
-					                      // echo "<pre>";
-					                      // print_r($customeruser_values);
-					                      // echo "</pre>";
-					                      $i=0;
-					                      foreach ($customeruser_values as $cus_val) :
-					                      	if($cus_val['user_active_status'] == 0):
-					                      		$i++;
-			                      	    ?>
-										<tr>											
-											<td><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span></td>
-											<td class="center"><?php echo $i; ?></td>
-											<td class="center"><?php echo "VM".$cus_val['userdetail_id']; ?></td>
-											<!-- <td class="center">259</td> -->
-											<td class="center"><?php echo $cus_val['user_fname']; ?></td>
-											<td class="center"><?php echo $cus_val['user_email']; ?></td>
-											<!-- <td class="center">
-												<?php //echo "self"; ?>
-											</td> -->
-											<td class="center">
-												<?php 
-						                            echo date("d/m/Y", strtotime($cus_val['user_dob'])); 
-						                        ?>
-						                    </td>
-											<td class="center">
-												<span class="label label-success"> <!--class for Not-Activated <span class="label label-danger"> -->
-													<?php 
-							                          if ($cus_val['user_active_status'] == 1) 
-							                            echo "Activated";
-							                          else
-							                            echo "Not-Activated";
-							                        ?>    	
-				                        		</span>
-											</td>
-											<td class="center">
-												<span class="label label-success"> <!--class for Not-Activated <span class="label label-important"> -->
-													<?php 
-							                          if ($cus_val['payment_status'] == 1) 
-							                            echo "Paid";
-							                          else
-							                            echo "Not Paid";
-							                        ?>    	
-				                        		</span>
-											</td>
-																				
-											<td class="center">
-											<div style="width: 160px;">
-												<a class="btn btn-warning" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-													<i class="icon-refresh icon-white" title="Renew"></i>  
-												</a>
-													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-												</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-												</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-												</a>
-											</div>
-											</td>
-										</tr>
-										<?php
-											endif;
-					                      endforeach;
-					                      endif;
-					                    ?>							
-									  </tbody>
-								  </table>
-								</div> <!-- End of box content -->
-							</div>
-							<!-- Waiting Tab Ends -->
 						</div>
-					</div>
-					<!-- Pagination without datatable -->
-					<div class="col-md-12">
-						<div>Showing 1 to 10 of 500 entries</div>
-			  	<div>
-			  		<div class="pagination" style="margin-left: 40%">
-					  <a href="#">&laquo; Prev</a>
-					  <a href="#">1</a>
-					  <a href="#" class="active">2</a>
-					  <a href="#">3</a>
-					  <a href="#">4</a>
-					  <a href="#">5</a>
-					  <a href="#">6</a>
-					  <a href="#">Next&raquo;</a>
-					</div>
-			  	</div>
-			  </div>
+					</div>		  		
 				</div>
 			<!-- Table -->
 		</div>  <!-- span10 end -->
@@ -678,6 +343,40 @@
 <?php 
     include('templates/footer.php');
 ?>
+<script type="text/javascript">
+    $(function() {  
+      applyPagination();  
+      function applyPagination() {
+        $("#ajax_pagingsearc a").click(function() {
+        var url = $(this).attr("href");
+        var userstatus = $('.userstatus_act :selected').val();
+          $.ajax({
+            type: "POST",
+            data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus,
+            url: url,
+           success: function(msg) {
+              $(".ajaxdata").html(msg);
+              applyPagination();
+            }
+          });
+        return false;
+        });
+
+        $('.userstatus_act').on('change',function(){
+        	var userstatus = $('.userstatus_act :selected').val();
+        	$.ajax({
+            	type: "POST",
+	            data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus,
+	            url: admin_baseurl+"customer_user_new",
+	           	success: function(msg) {
+	              $(".ajaxdata").html(msg);
+	              applyPagination();
+	            }
+	        });
+        });
+      }
+    });
+</script>
 <script type= 'text/javascript'>
     // $(document).ready(function () {
     //     $('#cd-grid').DataTable({
@@ -687,3 +386,4 @@
     //     });
     // });
 </script>
+<?php } ?>

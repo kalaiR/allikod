@@ -7,6 +7,7 @@ class Customeruser_Data extends CI_Controller {
 		parent::__construct();
 		$this->load->model('admin/customeruser_data_model');
 		$this->load->library('upload');
+		$this->load->library("pagination");
 	}
 	//edit_unique is predefined function. To overwrite here to pass custom message while validation
 	function edit_unique($value, $params) 
@@ -283,11 +284,41 @@ class Customeruser_Data extends CI_Controller {
         $results = $this->customeruser_data_model->get_cd_list();
         echo json_encode($results);
     }
-    public function customer_user_new(){
-		$profile_image = array();
-		$data_values = $this->customeruser_data_model->customer_user('init',$profile_image);
-		$data['customeruser_values'] = $data_values['customeruser_values'];
-		// // $data['mapped_data'] = $data_values['mapped_data'];
-		$this->load->view('admin/customer_user_new',$data);
+ //    public function customer_user_new(){
+	// 	$profile_image = array();
+	// 	$data_values = $this->customeruser_data_model->customer_user('init',$profile_image);
+	// 	$data['customeruser_values'] = $data_values['customeruser_values'];
+	// 	// // $data['mapped_data'] = $data_values['mapped_data'];
+	// 	$this->load->view('admin/customer_user_new',$data);
+	// }
+
+	public function customer_user_new(){
+		$config = array();
+        $config["base_url"] = base_url() . "admin/customer_user_new";
+        $config["total_rows"] = $this->customeruser_data_model->customeruser_record_count();
+        $config["per_page"] = 20;
+        $config["uri_segment"] = 3;
+        $config['use_page_numbers'] = TRUE;
+        $config['cur_tag_open'] = ' ';
+        $config['cur_tag_close'] = '';
+        $config['next_link'] = 'Next';
+        $config['prev_link'] = 'Previous';
+        $this->pagination->initialize($config);
+        // echo $this->uri->segment(3);
+        // $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        //Find offset
+        $per_page = $config["per_page"];
+        preg_match("/[^\/]+$/", $this->uri->uri_string(), $values); 
+        if(is_numeric($values[0])){ 
+            $offset = (($values[0]-1)*$per_page); 
+        }else{
+            $offset = 0;
+        }   
+        // echo $page;
+        $data["customeruser_values"] = $this->customeruser_data_model->fetch_customeruser($config["per_page"], $offset);
+        // echo "offset".$offset;
+        $data["links"] = $this->pagination->create_links();
+        $data["offset"] = $offset;
+        $this->load->view('admin/customer_user_new',$data);
 	}
 }
