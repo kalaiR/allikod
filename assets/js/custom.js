@@ -343,24 +343,22 @@ $(document).ready(function() {
 	//         return false;
 	//     }
 	// });
-	// $('.bride_names,.Groom_Names').keypress(function(event){
-		// var ew = event.which;
-		// if(ew == 32)
-		// return true;
-		// if(65 <= ew && ew <= 90)
-		// return true;
-		// if(97 <= ew && ew <= 122)
-		// return true;
-		// return false;
-		// var selva = $(this).val().length;
-// 	
-		// if ($(this).val().length >= 10) {
-			// $(this).val($(this).val().substr(0, 9));
-		// }
-// 		
-	// });
+	$('.bride_names,.Groom_Names').keypress(function(event){
+		var ew = event.which;
+		if(ew == 32)
+		return true;
+		if(65 <= ew && ew <= 90)
+		return true;
+		if(97 <= ew && ew <= 122)
+		return true;
+		return false;	
+	});
 	
-	
+	$('.bride_names,.Groom_Names').keypress(function(e) {
+		if ($(this).val().length >= 25) {
+			$(this).val($(this).val().substr(0, 24));
+		}
+	});
 	// $(".income-box").blur(function (e) {
 	//      var income =parseInt($(this).val());
 	//        if (income<0 || income>100){
@@ -595,7 +593,7 @@ $(document).ready(function() {
 		// alert(count);
 		var ajx_output;
 		var output = reg_validate();
-		// ajx_output = reg_mailcheckuser();
+		ajx_output = reg_mailcheckuser();
 		//updated above line by kalai on sept 29th
 		if(output)
 			ajx_output = reg_mailcheckuser();

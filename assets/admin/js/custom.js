@@ -255,7 +255,7 @@ $('.reset').click(function() {
         if(error == '' ) {
              if(!((noofBro >= noofMarBro) && (noofSister >= noofMarSister) && (noofyBro >= noofyMarBro) && (noofySister >= noofyMarSister))){
                   error = 1;
-                  message = "Married brother or sister less than Brother or sister";
+                  message = "<i class='icon-remove-sign'></i> Married brother or sister less than Brother or sister";
                   $("#prependedInput1").addClass("form-field-error");
               }
               else {

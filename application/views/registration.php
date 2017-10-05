@@ -1058,7 +1058,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </label> -->
                                             </div>
                                             <div class="col-sm-4">
-                                               <!--  <span id="food_error" class="registration-error"></span> -->
+                                                <span id="marital_status_any_error" class="registration-error"></span>
                                             </div>     
                                     </div>
                                     <div class="row base-box">

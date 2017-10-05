@@ -147,7 +147,7 @@
 														  <div class="control-group">
 																<label class="control-label" for="focusedInput">File Id: </label>
 																<div class="controls">
-																  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['userdetail_file_id'])) echo $customeruser_values['userdetail_file_id'];  ?>" name="cus_fileid">
+																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['userdetail_file_id'])) echo $customeruser_values['userdetail_file_id'];  ?>" name="cus_fileid">
 																</div>
 														  </div>
 														  <div class="control-group">
@@ -305,13 +305,13 @@
 															  <label class="control-label" for="date01">Starting Date </label>
 															  <div class="controls">
 																<!-- <input type="text" class="input-xlarge datepicker" value="<?php //if(!empty($customeruser_values['startdate'])) echo date("d/m/Y", strtotime($customeruser_values['startdate'])); ?>" name="cus_paymentstartdate"> -->
-															  	<input type="text" class="input-xlarge datepicker" id="cus_paymentstartdate" value="<?php if($selected == 'initial') echo date("Y-m-d", strtotime($customeruser_values['startdate'])); else if($selected == 'renewal') echo date("Y-m-d", strtotime($customeruser_values['starting_date'])); ?>" name="cus_paymentstartdate">
+															  	<input type="text" class="input-xlarge datepicker dob_admin" id="cus_paymentstartdate" value="<?php if($selected == 'initial') echo date("Y-m-d", strtotime($customeruser_values['startdate'])); else if($selected == 'renewal') echo date("Y-m-d", strtotime($customeruser_values['starting_date'])); ?>" name="cus_paymentstartdate">
 															  </div>
 															</div>
 															<div class="control-group">
 															  <label class="control-label" for="date01">Ending Date</label>
 															  <div class="controls">
-																<input type="text" class="input-xlarge datepicker" id="cus_paymentenddate" value="<?php if($selected == 'initial') echo date("Y-m-d", strtotime($customeruser_values['enddate'])); else if($selected == 'renewal') echo date("Y-m-d", strtotime($customeruser_values['ending_date'])); ?>" name="cus_paymentenddate">
+																<input type="text" class="input-xlarge datepicker dob_admin" id="cus_paymentenddate" value="<?php if($selected == 'initial') echo date("Y-m-d", strtotime($customeruser_values['enddate'])); else if($selected == 'renewal') echo date("Y-m-d", strtotime($customeruser_values['ending_date'])); ?>" name="cus_paymentenddate">
 															  </div>
 															</div>
 														  <div class="control-group">
