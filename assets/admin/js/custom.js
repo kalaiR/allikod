@@ -203,7 +203,7 @@ $('.reset').click(function() {
     });
 
     /*Admin customer user edit form Start*/
-    $('.customer_edit_form').on('submit',function(e) {
+    $('.customer_edit_form,.add_online_form').on('submit',function(e) {
         e.preventDefault();
         var error = '';
         var error_msg = $(this).find('.val_error');
@@ -234,14 +234,22 @@ $('.reset').click(function() {
               } 
         }
         // Elder younger validation
-         var noofBro = document.getElementById("prependedInput1").value;
- 		var noofMarBro = document.getElementById("prependedInput5").value;
- 		var noofSister = document.getElementById("prependedInput3").value;
- 		var noofMarSister = document.getElementById("prependedInput7").value;
- 		 var noofyBro = document.getElementById("prependedInput2").value;
- 		var noofyMarBro = document.getElementById("prependedInput6").value;
- 		var noofySister = document.getElementById("prependedInput4").value;
- 		var noofyMarSister = document.getElementById("prependedInput8").value;
+         // var noofBro = document.getElementById("prependedInput1").value;
+ 		// var noofMarBro = document.getElementById("prependedInput5").value;
+ 		// var noofSister = document.getElementById("prependedInput3").value;
+ 		// var noofMarSister = document.getElementById("prependedInput7").value;
+ 		 // var noofyBro = document.getElementById("prependedInput2").value;
+ 		// var noofyMarBro = document.getElementById("prependedInput6").value;
+ 		// var noofySister = document.getElementById("prependedInput4").value;
+ 		// var noofyMarSister = document.getElementById("prependedInput8").value;
+ 			var noofBro =$('#prependedInput1').val();
+        	var noofMarBro =$('#prependedInput5').val();
+        	var noofSister =$('#prependedInput3').val();
+        	var noofMarSister =$('#prependedInput7').val();
+        	var noofyBro =$('#prependedInput2').val();
+        	var noofyMarBro =$('#prependedInput6').val();
+        	var noofySister =$('#prependedInput4').val();
+        	var noofyMarSister =$('#prependedInput8').val();
  		// var firstNumber = $('.first').val();
  		// var secondNumber = $('.second').val();
         if(error == '' ) {
@@ -364,7 +372,10 @@ $('.reset').click(function() {
     });
 
     /*Admin customer user edit form End*/
-
+	$(".dob_admin").keypress(function(event) {
+		event.preventDefault();
+	});
+	
     $("#usertype_act").on("change",function(){
       var usertype = $('option:selected',this).val();
       if(usertype == "simple")

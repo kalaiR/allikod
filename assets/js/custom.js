@@ -60,7 +60,7 @@ function reg_mailcheckuser() {
 					// alert("ajax-fasle");
 					// $("#register_email_error").html(" Email Already Registered ");
 					//updated above line by kalai on sept 29th
-					$("#register_email-error").html(" Email Already Registered ");
+					$("#register_email_error").html(" Email Already Registered ");
 					return ajx_output;
 				} else {
 					ajx_output = true;
@@ -205,7 +205,7 @@ function reg_validate() {
 		var mobile = $("#reg_mobile").val();
 		if (!(/^([0-9-+]{10})+$/.test(mobile)) && mobile.length != 10) {
 			output = false;
-			$("#reg_mobile_error").html("Invalid Number");
+			$("#reg_mobile_error").html("invalid mobile number");
 			$("#reg_mobile").focus();
 		}
 		if (!($("#reg_fname").val())) {
@@ -250,12 +250,12 @@ function reg_validate() {
 		}
 		if (!($("#reg_YBrother").val() >= $("#reg_MYBrother").val())) {	
 			output = false;
-			$("#reg_EBrother_error").html("It should be less than younger brothers");
+			$("#reg_EBrother_errors").html("It should be less than younger brothers");
 			// $("#family_type").focus();
 		}
 		if (!($("#reg_YSister").val() >= $("#reg_MYSister").val())) {	
 			output = false;
-			$("#reg_ESister_error").html("It should be less than  younger sister");
+			$("#reg_ESister_error").html("It should be less than  younger sisters");
 			// $("#family_type").focus();
 		}
 	}
@@ -300,7 +300,7 @@ function remove(array, property, value) {
 $(document).ready(function() {
 	 $('.position_images').css('display','none');
 	// reg page validation //
-	$(".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_reg").keypress(function(e) {
+	$(".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_regss").keypress(function(e) {
 		// var income =$(this).val();
 		// var income =parseInt($(this).val());
 		// var s = e.which;
@@ -343,17 +343,24 @@ $(document).ready(function() {
 	//         return false;
 	//     }
 	// });
-	// $(".alphaonly").keypress(function(event){
-	// var ew = event.which;
-	// if(ew == 32)
-	// return true;
-	// if(65 <= ew && ew <= 90)
-	// return true;
-	// if(97 <= ew && ew <= 122)
-	// return true;
-	// return false;
+	// $('.bride_names,.Groom_Names').keypress(function(event){
+		// var ew = event.which;
+		// if(ew == 32)
+		// return true;
+		// if(65 <= ew && ew <= 90)
+		// return true;
+		// if(97 <= ew && ew <= 122)
+		// return true;
+		// return false;
+		// var selva = $(this).val().length;
+// 	
+		// if ($(this).val().length >= 10) {
+			// $(this).val($(this).val().substr(0, 9));
+		// }
+// 		
 	// });
-	//
+	
+	
 	// $(".income-box").blur(function (e) {
 	//      var income =parseInt($(this).val());
 	//        if (income<0 || income>100){
@@ -363,7 +370,7 @@ $(document).ready(function() {
 	//        // alert(income);
 	// });
 	// var max_chars = 2;
-	$('.bro_sis,.age_reg').keypress(function(e) {
+	$('.bro_sis,.age_regss').keypress(function(e) {
 		if ($(this).val().length >= 1) {
 			$(this).val($(this).val().substr(0, 1));
 		}
@@ -926,7 +933,7 @@ $(document).ready(function() {
 	});
 
 	/*End user customer user edit form End*/
-	$(".find_age,#cus_age").keypress(function(event) {
+	$(".find_age,#cus_age,.birthday,.reg_age").keypress(function(event) {
 		event.preventDefault();
 	});
     $('.find_age').on('blur', function(){
@@ -991,3 +998,18 @@ $(document).ready(function() {
     // },1000);
 // }
 /* End image center and loader*/ 
+function toggle(radioBtn)
+ {   
+   if(radioBtn.checked)
+   {
+     setTimeout("disableRadio('"+diet_veg.id+"')",10);
+   } else {
+     radioBtn.checked = true;
+   }
+ }
+
+function disableRadio(radioId) {
+    el = window.document.getElementById(radioId);
+    el.checked = false;
+}
+
