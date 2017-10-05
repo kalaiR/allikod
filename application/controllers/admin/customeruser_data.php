@@ -319,18 +319,6 @@ class Customeruser_Data extends CI_Controller {
         // echo "offset".$offset;
         $data["links"] = $this->pagination->create_links();
         $data["offset"] = $offset;
-        // if($this->input->post('ajax')) {
-        //  $this->load->view('admin/customer_user_new',$data);
-        // } 
-        // else {
-        // 	// echo "<pre>";
-        // 	// print_r($data);
-        // 	// echo "</pre>";
-        //  $this->load->view('admin/customer_user_new',$data);
-        // }
-     //    echo "<pre>";
-    	// print_r($data);
-    	// echo "</pre>";
         $this->load->view('admin/customer_user_new',$data);
 	}
 }
