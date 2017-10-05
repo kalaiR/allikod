@@ -756,7 +756,7 @@
     // $('.datetimepicker4').datetimepicker();
     $(".timepicker").datetimepicker({format: 'hh-mm-A'});
     $('.birthday').datetimepicker({format:'YYYY-MM-DD',minDate: '1940-01-01',maxDate: '1999-12-31'});
-    $('.birthday').val("").datepicker("update");
+    $('.birthday').val("");
     
     /*----------------------------------------------------*/
     /*Price select custome handle*/
