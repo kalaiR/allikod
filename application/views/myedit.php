@@ -161,7 +161,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                        	<div id="overlay" class="selva">
+                        	<div id="overlay">
                         		<div class="loader_holder hide_loader"></div>
                         	</div>
                         <div class="members_about_box" >	

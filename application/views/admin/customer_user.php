@@ -110,7 +110,7 @@
 								  <div class="control-group">
 									<label class="control-label" for="focusedInput">File No ID</label>
 									<div class="controls">
-									  <input class="input-xlarge focused mob_num" id="focusedInput" type="text"  style="width: 150px">
+									  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px">
 									</div>
 								  </div>
 								  <div class="control-group">

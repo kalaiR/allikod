@@ -2,6 +2,7 @@
 <?php 
     include('templates/header.php');
 ?>
+<!-- <div class="loader_holder hide_loader"></div> -->
 	<div id="content" class="span11">
 			<!-- content starts -->
 			<div>
@@ -21,100 +22,103 @@
 						<h2><i class="icon-zoom-in"></i> Search</h2>
 						<div class="box-icon">
 							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
-							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
+							<a href="#" class="btn slidingDivs btn-round"><i class="icon-remove"></i></a>
 						</div>
 					</div>
 					<div class="box-content">
-					<form method="post" action="customer_user_new" class="searchfilter">
-	                  	<div class="row-fluid">
-	                        <div class="span4">
-	                        	<div class="form-horizontal">
-									<fieldset>
-									  <div class="control-group">
-											<label class="control-label">Gender</label>
+						<form method="post" action="customer_user_new" class="searchfilter">
+		                  	<div class="row-fluid">
+		                        <div class="span4">
+		                        	<div class="form-horizontal">
+										<fieldset>
+											 <div class="control-group">
+													<label class="control-label" for="focusedInput">Vallikodi ID</label>
+												<div class="controls">
+											  		<input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px" name="cususer_id">
+												</div>
+										  	</div>
+										  	<div class="control-group">
+											<label class="control-label" for="focusedInput">Name</label>
 											<div class="controls">
-											  <select data-rel="chosen" style="width: 75px" name="cus_gender">
-												<option value="">Gender</option>
-												<option value="1">Male</option>
-												<option value="2">Female</option>
+											  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px" name="cususer_name">
+											</div>
+										  </div>								
+										  <div class="control-group">
+											<label class="control-label">Age : </label>
+											<div class="controls">
+											  <select data-rel="chosen" style="width: 75px" name="cusage_from"> 
+												<option value="">From</option>
+												<option>25</option>
+												<option>26</option>
+											  </select>
+											  <select data-rel="chosen" style="width: 75px" name="cusage_to">
+												<option value="">To</option>
+												<option>35</option>
+												<option>36</option>
 											  </select>
 											</div>
-									  </div>	  
-									  <div class="control-group">
-										<label class="control-label">Age : </label>
-										<div class="controls">
-										  <select data-rel="chosen" style="width: 75px" name="cusage_from">
-											<option value="">From</option>
-											<option>25</option>
-											<option>26</option>
-										  </select>
-										  <select data-rel="chosen" style="width: 75px" name="cusage_to">
-											<option value="">To</option>
-											<option>35</option>
-											<option>36</option>
-										  </select>
-										</div>
-									  </div>
-									  <div class="control-group">
-										<label class="control-label" for="focusedInput">Vallikodi ID</label>
-										<div class="controls">
-										  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px" name="cususer_id">
-										</div>
-									  </div>
-									 </fieldset>
-								</div>
-	                        </div>
-	                        <div class="span4">
-	                        	<div class="form-horizontal">
-									<fieldset>
-										<div class="control-group">
-										<label class="control-label" for="focusedInput">Name</label>
-										<div class="controls">
-										  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px" name="cususer_name">
-										</div>
-									  </div>
-									  <!-- <div class="control-group">
-										<label class="control-label" for="focusedInput">Reg ID</label>
-										<div class="controls">
-										  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px" name="cususer_id">
-										</div>
-									  </div> -->
-									  <div class="control-group">
-										  <label class="control-label" for="date01">DOB</label>
-										  <div class="controls">
-											<input type="text" class="input-xlarge datepicker" id="date01" style="width: 150px" name="cus_dob">
+										  </div>								 
+										 </fieldset>
+									</div>
+		                        </div>
+		                        <div class="span4">
+		                        	<div class="form-horizontal">
+										<fieldset>
+											<div class="control-group">
+											<label class="control-label" for="focusedInput">Profile</label>
+											<div class="controls">
+											  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px" name="cus_profileid">
+											</div>
 										  </div>
-										</div>
-									 </fieldset>
-								</div>
-	                        </div>
-	                        <div class="span4">
-	                        	<div class="form-horizontal">
-									<fieldset>
-										<div class="control-group">
-										<label class="control-label" for="focusedInput">Profile</label>
-										<div class="controls">
-										  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px" name="cus_profileid">
-										</div>
-									  </div>
-									  <div class="control-group">
-										<label class="control-label" for="focusedInput">File No ID</label>
-										<div class="controls">
-										  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px" name="cus_fileid">
-										</div>
-									  </div>
-									  <div class="control-group">
-										<!-- <a style="margin-right: 15px" class="btn btn-primary pull-right" id="add" href="#">
-									        <i class="glyphicon glyphicon-edit icon-white"></i>
-									        Search
-									    </a> -->
-									    <button style="margin-right: 15px" class="btn btn-primary pull-right" id="add" type="submit">Search</button>
-									  </div>
-									 </fieldset>
-								</div>
-	                        </div>
-	                    </div>                   
-                  </div>
+										  <div class="control-group">
+												<label class="control-label">Gender</label>
+												<div class="controls">
+												  <select data-rel="chosen" style="width: 150px" name="cus_gender">
+		            									<option value="">Gender</option>
+														<option value="1">Male</option>
+														<option value="2">Female</option>
+		             								</select>
+												</div>
+										  </div>  
+										  <!-- <div class="control-group">
+											<label class="control-label" for="focusedInput">Reg ID</label>
+											<div class="controls">
+											  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px">
+											</div>
+										  </div> -->
+										 </fieldset>
+									</div>
+		                        </div>
+		                        <div class="span4">
+		                        	<div class="form-horizontal">
+										<fieldset>
+											<!-- <div class="control-group">
+											<label class="control-label" for="focusedInput">Profile</label>
+											<div class="controls">
+											  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px">
+											</div>
+										  </div> -->
+										  <div class="control-group">
+											<label class="control-label" for="focusedInput">File No ID</label>
+											<div class="controls">
+											  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px" name="cus_fileid">
+											</div>
+										  </div>
+										  <div class="control-group">
+											  <label class="control-label" for="date01">DOB</label>
+											  <div class="controls">
+												<input type="text" class="input-xlarge datepicker dob_admin" id="date01" style="width: 150px" value="02/16/12" name="cus_dob">
+											  </div>
+											</div>
+										  <div class="control-group">
+											<button style="margin-right: 15px" class="btn btn-primary pull-right" id="add" type="submit">Search</button>
+										  </div>
+										 </fieldset>
+										 </div>
+		                        </div>    
+                    		</div>  
+                		</form>                     
+                  	</div>
 				</div><!--/span-->
 			</div><!--/row-->
 			<!-- Hidden Search Div Begins -->
@@ -138,35 +142,36 @@
 							<!-- View Tab Begins -->
 							<div class="tab-pane active" id="view">
 								<div class="box-contents row">
-									<!-- <a class="btn btn-info pull-right" id="add" href="<?php //echo base_url(); ?>admin/add_online_user">
-								        <i class="glyphicon glyphicon-edit icon-white"></i>
-								        Add Online User
-								    </a> -->
-								    <a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_online_user">
-								        <i class="glyphicon glyphicon-edit icon-white"></i>
+									
+								    <a class="btn btn-primary pull-right search_customer" id="adds" href="#">
+								        <!-- <i class="glyphicon glyphicon-edit icon-white"></i> -->
+								        search
+								    </a>
+								    <a class="btn btn-primary pull-right" id="add" href="<?php //echo base_url(); ?>admin/add_online_user">
+								        <!-- <i class="glyphicon glyphicon-edit icon-white"></i> -->
 								        Add Online User
 								    </a>
 								    <div class="control-group pull-left">
 										<label class="control-label" for="selectError3"></label>
 										<div class="controls">
-										  <select id="selectError3" style="float: left; width: 160px" class="filter_act userstatus_data">
+										  <select id="selectError3" style="float: left; width: 160px" class="filter_act userstatus_data drops_reset">
 										  	<option value="">Select By Userstatus</option>
 										  	<!-- <option value="">All users</option> -->
 											<option value="active">Active</option>
 											<option value="inactive">Inactive</option>
 											<option value="deleted">Deleted</option>
 										  </select>
-										  <select id="selectError3" style="margin:0px 20px 0px 10px; float: left; width: 160px" class="filter_act usertype_data">
-										  	<option value="">Select By Usertype</option>
+										  <select id="selectError3" style="margin:0px 20px 0px 10px; float: left; width: 160px" class="filter_act usertype_data drop_reset">
+										  	<option value="" >Select By Usertype</option>
 										  	<!-- <option value="">All Users</option> -->
 											<option value="online">Online</option>
 											<option value="simple">Simple</option>
 											<option value="waiting">Waiting</option>
 										  </select>
-										  	<a class="btn btn-primary search_customer" id="search" href="#" style="float: left; margin-left: 5px;">
+										  	<!-- <button type="reset" class="btn btn-primary search_customer reset" id="search" href="#" style="float: left; margin-left: 5px;">
 									        <i class="glyphicon glyphicon-edit icon-white"></i>
 									        Search
-									    	</a>
+									    	</button> -->
 										</div>										
 									</div>
 								</div>
@@ -268,7 +273,7 @@
 						                        ?>
 											</td>											
 											<td class="center">
-												<div style="width: 193px;">
+												<div style="width: 115px;">
 													<!-- <a class="btn btn-warning" href="<?php //echo base_url(); ?>admin/view_customer_user/<?php //echo $cus_val["userdetail_id"] ?>">
 														<i class="icon-refresh icon-white" title="Renew"></i>  
 													</a>
@@ -294,21 +299,20 @@
 				                    </tbody>
 								  </table>
 								  <!-- Pagination without datatable -->
-									<div class="col-md-12">
+									<div class="col-md-5">
 										<!-- <div>Showing 1 to 10 of 500 entries</div> -->
 								  		<div>
-									  		<div style="margin-left: 40%" id="ajax_pagingsearc">	
-									  		<!-- <div class="pagination" style="margin-left: 40%" id="ajax_pagingsearc"> -->
+									  		<!-- <div style="margin-left: 40%" id="ajax_pagingsearc">	 -->
+									  		<div class="pagination cus_page"  id="ajax_pagingsearc">
 											  <!-- <a href="#">&laquo; Prev</a>
 											  <a href="#">1</a>
-											  <a href="#" class="active">2</a>
+											  <a href="#">2</a>
 											  <a href="#">3</a>
 											  <a href="#">4</a>
 											  <a href="#">5</a>
 											  <a href="#">6</a>
 											  <a href="#">Next&raquo;</a> -->
 											  <?php echo $links; ?>
-											  <p></p>
 											</div>
 									  	</div>
 							  		</div>
@@ -344,7 +348,7 @@
     include('templates/footer.php');
 ?>
 <script type="text/javascript">
-    $(function() {  
+    $(function() { 
       applyPagination();  
       function applyPagination() {
         // $("#ajax_pagingsearc a").click(function(e) {
@@ -389,15 +393,16 @@
         	e.preventDefault();
         	var userstatus = $('.userstatus_data :selected').val();
         	var usertype = $('.usertype_data :selected').val();
-        	$.ajax({
+        	$.ajax({	  
             	type: "POST",
 	            data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
 	            url: admin_baseurl+"customer_user_new",
-	           	success: function(msg) {
+	           	success: function(msg) {          		
 	              $(".ajaxdata").html(msg);
 	              applyPagination();
 	            }
 	        });
+	         
         });
 
         $('.searchfilter').on('submit',function(e){
