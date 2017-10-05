@@ -25,97 +25,95 @@
 						</div>
 					</div>
 					<div class="box-content">
-                  	<div class="row-fluid">
-                        <div class="span4">
-                        	<form class="form-horizontal">
-								<fieldset>
-									<div class="control-group">
-										<label class="control-label">Gender</label>
+					<form method="post" action="customer_user_new" class="searchfilter">
+	                  	<div class="row-fluid">
+	                        <div class="span4">
+	                        	<div class="form-horizontal">
+									<fieldset>
+									  <div class="control-group">
+											<label class="control-label">Gender</label>
+											<div class="controls">
+											  <select data-rel="chosen" style="width: 75px" name="cus_gender">
+												<option value="">Gender</option>
+												<option value="1">Male</option>
+												<option value="2">Female</option>
+											  </select>
+											</div>
+									  </div>	  
+									  <div class="control-group">
+										<label class="control-label">Age : </label>
 										<div class="controls">
-										  <label class="radio">
-											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-											Male
-										  </label>
-										  <div style="clear:both"></div>
-										  <label class="radio">
-											<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-											Female
-										  </label>
+										  <select data-rel="chosen" style="width: 75px" name="cusage_from">
+											<option value="">From</option>
+											<option>25</option>
+											<option>26</option>
+										  </select>
+										  <select data-rel="chosen" style="width: 75px" name="cusage_to">
+											<option value="">To</option>
+											<option>35</option>
+											<option>36</option>
+										  </select>
 										</div>
-								  </div>	  
-								  <div class="control-group">
-									<label class="control-label">Age : </label>
-									<div class="controls">
-									  <select data-rel="chosen" style="width: 75px">
-										<option value="">From</option>
-										<option>25</option>
-										<option>26</option>
-									  </select>
-									  <select data-rel="chosen" style="width: 75px">
-										<option value="">To</option>
-										<option>35</option>
-										<option>36</option>
-									  </select>
-									</div>
-								  </div>
-								  <div class="control-group">
-									<label class="control-label" for="focusedInput">Vallikodi ID</label>
-									<div class="controls">
-									  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px">
-									</div>
-								  </div>
-								 </fieldset>
-							</form>
-                        </div>
-                        <div class="span4">
-                        	<form class="form-horizontal">
-								<fieldset>
-									<div class="control-group">
-									<label class="control-label" for="focusedInput">Name</label>
-									<div class="controls">
-									  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px">
-									</div>
-								  </div>
-								  <div class="control-group">
-									<label class="control-label" for="focusedInput">Reg ID</label>
-									<div class="controls">
-									  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px">
-									</div>
-								  </div>
-								  <div class="control-group">
-									  <label class="control-label" for="date01">DOB</label>
-									  <div class="controls">
-										<input type="text" class="input-xlarge datepicker" id="date01" style="width: 150px" value="02/16/12">
 									  </div>
-									</div>
-								 </fieldset>
-							</form>
-                        </div>
-                        <div class="span4">
-                        	<form class="form-horizontal">
-								<fieldset>
-									<div class="control-group">
-									<label class="control-label" for="focusedInput">Profile</label>
-									<div class="controls">
-									  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px">
-									</div>
-								  </div>
-								  <div class="control-group">
-									<label class="control-label" for="focusedInput">File No ID</label>
-									<div class="controls">
-									  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px">
-									</div>
-								  </div>
-								  <div class="control-group">
-									<a style="margin-right: 15px" class="btn btn-primary pull-right" id="add" href="#">
-								        <i class="glyphicon glyphicon-edit icon-white"></i>
-								        Search
-								    </a>
-								  </div>
-								 </fieldset>
-							</form>
-                        </div>
-                    </div>                   
+									  <div class="control-group">
+										<label class="control-label" for="focusedInput">Vallikodi ID</label>
+										<div class="controls">
+										  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px" name="cususer_id">
+										</div>
+									  </div>
+									 </fieldset>
+								</div>
+	                        </div>
+	                        <div class="span4">
+	                        	<div class="form-horizontal">
+									<fieldset>
+										<div class="control-group">
+										<label class="control-label" for="focusedInput">Name</label>
+										<div class="controls">
+										  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px" name="cususer_name">
+										</div>
+									  </div>
+									  <!-- <div class="control-group">
+										<label class="control-label" for="focusedInput">Reg ID</label>
+										<div class="controls">
+										  <input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px" name="cususer_id">
+										</div>
+									  </div> -->
+									  <div class="control-group">
+										  <label class="control-label" for="date01">DOB</label>
+										  <div class="controls">
+											<input type="text" class="input-xlarge datepicker" id="date01" style="width: 150px" name="cus_dob">
+										  </div>
+										</div>
+									 </fieldset>
+								</div>
+	                        </div>
+	                        <div class="span4">
+	                        	<div class="form-horizontal">
+									<fieldset>
+										<div class="control-group">
+										<label class="control-label" for="focusedInput">Profile</label>
+										<div class="controls">
+										  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px" name="cus_profileid">
+										</div>
+									  </div>
+									  <div class="control-group">
+										<label class="control-label" for="focusedInput">File No ID</label>
+										<div class="controls">
+										  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px" name="cus_fileid">
+										</div>
+									  </div>
+									  <div class="control-group">
+										<!-- <a style="margin-right: 15px" class="btn btn-primary pull-right" id="add" href="#">
+									        <i class="glyphicon glyphicon-edit icon-white"></i>
+									        Search
+									    </a> -->
+									    <button style="margin-right: 15px" class="btn btn-primary pull-right" id="add" type="submit">Search</button>
+									  </div>
+									 </fieldset>
+								</div>
+	                        </div>
+	                    </div>                   
                   </div>
 				</div><!--/span-->
 			</div><!--/row-->
@@ -349,28 +347,65 @@
     $(function() {  
       applyPagination();  
       function applyPagination() {
-        $("#ajax_pagingsearc a").click(function() {
-        var url = $(this).attr("href");
-        var userstatus = $('.userstatus_data :selected').val();
-        var usertype = $('.usertype_data :selected').val();
-          $.ajax({
-            type: "POST",
-            data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
-            url: url,
-           success: function(msg) {
-              $(".ajaxdata").html(msg);
-              applyPagination();
-            }
-          });
-        return false;
+        // $("#ajax_pagingsearc a").click(function(e) {
+	       //  e.preventDefault();
+	       //  var url = $(this).attr("href");
+	       //  var userstatus = $('.userstatus_data :selected').val();
+	       //  var usertype = $('.usertype_data :selected').val();
+	       //    $.ajax({
+	       //      type: "POST",
+	       //      data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
+	       //      url: url,
+	       //     success: function(msg) {
+	       //        $(".ajaxdata").html(msg);
+	       //        applyPagination();
+	       //      }
+	       //    });
+	       //  return false;
+        // });
+
+        $("#ajax_pagingsearc a").click(function(e) {
+	        e.preventDefault();
+	        var url = $(this).attr("href");
+	        var userstatus = $('.userstatus_data :selected').val();
+	        var usertype = $('.usertype_data :selected').val();
+	        $(".searchfilter").submit();
+	        formdata = $('.searchfilter').serialize();
+	        // alert(JSON.stringify(formdata));
+	          $.ajax({
+	            type: "POST",
+	            // data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
+	            data: formdata+"&filtersearch=1&ajax=1&pagination=1&"+csrf_name+"="+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
+	            url: url,
+	           success: function(msg) {
+	              $(".ajaxdata").html(msg);
+	              applyPagination();
+	            }
+	          });
+	        return false;
         });
 
-        $('.filter_act').on('change',function(){
+        $('.filter_act').on('change',function(e){
+        	e.preventDefault();
         	var userstatus = $('.userstatus_data :selected').val();
         	var usertype = $('.usertype_data :selected').val();
         	$.ajax({
             	type: "POST",
 	            data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
+	            url: admin_baseurl+"customer_user_new",
+	           	success: function(msg) {
+	              $(".ajaxdata").html(msg);
+	              applyPagination();
+	            }
+	        });
+        });
+
+        $('.searchfilter').on('submit',function(e){
+        	e.preventDefault();
+        	formdata = $(this).serialize();
+        	$.ajax({
+            	type: "POST",
+	            data: formdata+"&filtersearch=1&ajax=1&"+csrf_name+"="+csfrData[csrf_name],
 	            url: admin_baseurl+"customer_user_new",
 	           	success: function(msg) {
 	              $(".ajaxdata").html(msg);
