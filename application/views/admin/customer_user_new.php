@@ -3,7 +3,7 @@
     include('templates/header.php');
 ?>
 <!-- <div class="loader_holder hide_loader"></div> -->
-	<div id="content" class="span11 selva">
+	<div id="content" class="span11">
 			<!-- content starts -->
 			<div>
 				<ul class="breadcrumb">
