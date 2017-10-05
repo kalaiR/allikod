@@ -60,6 +60,7 @@ class CI_Pagination {
 	var $query_string_segment = 'per_page';
 	var $display_pages		= TRUE;
 	var $anchor_class		= '';
+	// var $show_count      = true;
 
 	/**
 	 * Constructor
@@ -224,6 +225,20 @@ class CI_Pagination {
 
 		// And here we go...
 		$output = '';
+
+		// SHOWING LINKS
+        // if ($this->show_count){
+        //     $curr_offset = $CI->uri->segment($this->uri_segment);
+        //     $info = 'Showing ' . ( $curr_offset + 1 ) . ' to ' ;
+
+        //     if( ( $curr_offset + $this->per_page ) < ( $this->total_rows -1 ) )
+        //     $info .= $curr_offset + $this->per_page;
+        //     else
+        //     $info .= $this->total_rows;
+
+        //     $info .= ' of ' . $this->total_rows . ' | ';
+        //     $output .= $info;
+        // }
 
 		// Render the "First" link
 		if  ($this->first_link !== FALSE AND $this->cur_page > ($this->num_links + 1))

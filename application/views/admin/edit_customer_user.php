@@ -147,11 +147,11 @@
 														  <div class="control-group">
 																<label class="control-label" for="focusedInput">File Id: </label>
 																<div class="controls">
-																  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['userdetail_file_id'])) echo $customeruser_values['userdetail_file_id'];  ?>" name="cus_fileid">
+																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['userdetail_file_id'])) echo $customeruser_values['userdetail_file_id'];  ?>" name="cus_fileid">
 																</div>
 														  </div>
 														  <div class="control-group">
-															<label class="control-label">Registered By : </label>
+															<label class="control-label">Registered By <b>*</b>: </label>
 															<div class="controls">
 															  <select data-rel="chosen" name="cus_regby">
 															  <option value="">Select Registered By</option>
@@ -166,13 +166,13 @@
 															</div>
 														  </div>
 														  	<div class="control-group">
-																<label class="control-label" for="focusedInput">Name : </label>
+																<label class="control-label" for="focusedInput">Username<b>*</b> : </label>
 																<div class="controls">
 																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['user_fname'])) echo $customeruser_values['user_fname']; ?>" name="cus_fname">
 																</div>
 														  	</div>
 														  	<div class="control-group">
-															<label class="control-label">Gender : </label>
+															<label class="control-label">Gender<b>*</b> : </label>
 															<div class="controls">
 															  <select data-rel="chosen" name="cus_gender">
 															  <option value="">Select Gender</option>
@@ -183,14 +183,14 @@
 															</div>
 														  </div>
 														  	<div class="control-group">
-															  <label class="control-label" for="date01">Date of Birth </label>
+															  <label class="control-label" for="date01">Date of Birth<b>*</b> : </label>
 															  <div class="controls">
-																<input type="text" class="input-xlarge datepicker" value="<?php if(!empty($customeruser_values['user_dob'])) echo date("Y-m-d", strtotime($customeruser_values['user_dob'])); ?>" name="cus_dob">
+																<input type="text" class="input-xlarge datepicker dob_admin" value="<?php if(!empty($customeruser_values['user_dob'])) echo date("Y-m-d", strtotime($customeruser_values['user_dob'])); ?>" name="cus_dob">
 															  </div>
 															</div>
 															
 														  <div class="control-group">
-															<label class="control-label">Marital Status : </label>
+															<label class="control-label">Marital Status<b>*</b> : </label>
 															<div class="controls">
 															  <select data-rel="chosen" name="cus_marstatus">
 															  <option value="">Select Marital Status</option>
@@ -305,13 +305,13 @@
 															  <label class="control-label" for="date01">Starting Date </label>
 															  <div class="controls">
 																<!-- <input type="text" class="input-xlarge datepicker" value="<?php //if(!empty($customeruser_values['startdate'])) echo date("d/m/Y", strtotime($customeruser_values['startdate'])); ?>" name="cus_paymentstartdate"> -->
-															  	<input type="text" class="input-xlarge datepicker" id="cus_paymentstartdate" value="<?php if($selected == 'initial') echo date("Y-m-d", strtotime($customeruser_values['startdate'])); else if($selected == 'renewal') echo date("Y-m-d", strtotime($customeruser_values['starting_date'])); ?>" name="cus_paymentstartdate">
+															  	<input type="text" class="input-xlarge datepicker dob_admin" id="cus_paymentstartdate" value="<?php if($selected == 'initial') echo date("Y-m-d", strtotime($customeruser_values['startdate'])); else if($selected == 'renewal') echo date("Y-m-d", strtotime($customeruser_values['starting_date'])); ?>" name="cus_paymentstartdate">
 															  </div>
 															</div>
 															<div class="control-group">
 															  <label class="control-label" for="date01">Ending Date</label>
 															  <div class="controls">
-																<input type="text" class="input-xlarge datepicker" id="cus_paymentenddate" value="<?php if($selected == 'initial') echo date("Y-m-d", strtotime($customeruser_values['enddate'])); else if($selected == 'renewal') echo date("Y-m-d", strtotime($customeruser_values['ending_date'])); ?>" name="cus_paymentenddate">
+																<input type="text" class="input-xlarge datepicker dob_admin" id="cus_paymentenddate" value="<?php if($selected == 'initial') echo date("Y-m-d", strtotime($customeruser_values['enddate'])); else if($selected == 'renewal') echo date("Y-m-d", strtotime($customeruser_values['ending_date'])); ?>" name="cus_paymentenddate">
 															  </div>
 															</div>
 														  <div class="control-group">
@@ -348,13 +348,13 @@
 													<div class="form-horizontal">
 														<fieldset>
 														  <div class="control-group">
-															<label class="control-label" for="focusedInput">Time of Birth : </label>
+															<label class="control-label" for="focusedInput">Time of Birth<b>*</b> : </label>
 															<div class="controls">
 															  <input class="input-xlarge focused slider_example_1" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['rel_timeofbirth'])) echo $customeruser_values['rel_timeofbirth']; ?>" name="cus_birthtime">
 															</div>												
 														  </div>											  
 														  <div class="control-group">
-															<label class="control-label">Mother Tongue : </label>
+															<label class="control-label">Mother Tongue<b>*</b> : </label>
 															<div class="controls">
 															  <select data-rel="chosen" name="cus_mothertongue">
 															  <option value="">Select Mother Tongue</option>
@@ -599,7 +599,7 @@
 															</div>												
 														  </div>
 														  <div class="control-group">
-															<label class="control-label" for="focusedInput">Mobile Number : </label>
+															<label class="control-label" for="focusedInput">Mobile Number<b>*</b> : </label>
 															<div class="controls">
 															  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_mobile_no'])) echo $customeruser_values['comm_mobile_no']; ?>" name="cus_mobile">
 															</div>												
@@ -623,7 +623,7 @@
 															<?php //echo "<pre>"; print_r($selection_values['height_values']); echo "</pre>";  ?>
 															  <!-- <select data-rel="chosen" name="cus_heightcms" class="span3 height_act"> -->
 															  <!--  the above code for custom dropdown, feet jquery on change code not running when use above custom dropdown -->
-															  <select name="cus_heightcms" class="span3 height_act">	
+															  <select data-rel="chosen" name="cus_heightcms" class="span3 height_act">	
 															  	<option value="">In cm</option>
 		                                                        <?php 
 		                                                            foreach ($selection_values['height_values']['cms'] as $height_val):  
@@ -636,7 +636,7 @@
 		                                                            endforeach; ?>
 															  </select>
 															  <!-- <select data-rel="chosen" name="cus_heightfeets" class="span3 feet_act"> -->
-		                                                      <select name="cus_heightfeets" class="span3 feet_act">  
+		                                                      <select data-rel="chosen" name="cus_heightfeets" class="span3 feet_act">  
 		                                                       	<option value="">In feet</option>
 		                                                        <?php 
 		                                                            foreach ($selection_values['height_values']['feet'] as $height_val):    
@@ -724,7 +724,7 @@
 													<div class="form-horizontal">
 														<fieldset>										  
 														  <div class="control-group">
-															<label class="control-label">Food : </label>
+															<label class="control-label">Food<b>*</b> : </label>
 															<div class="controls">
 															  <select data-rel="chosen" name="cus_food">
 																<option value="">Select Food Values</option>

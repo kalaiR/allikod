@@ -172,12 +172,12 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             <div class="col-sm-2">
                                                 <!-- <input type='text' class="form-control" placeholder="Age" name="display_age" id="display_age" value="" /> --> 
                                                 <!-- updated by kalai on sept 30th (display_age) -->
-                                                <input type='text' class="form-control" placeholder="Age" name="user_age" id="display_age" value="" />
+                                                <input type='text' class="form-control reg_age" placeholder="Age" name="user_age" id="display_age" value="" />
                                             </div>   
                                                 <div class="col-sm-2 box">
                                                     <span id="dob_error" class="registration-error"></span>
                                                 </div> 
-                                            <input type='hidden' class="form-control" name="user_age" id="user_age"  value=""/>     
+                                            <!-- <input type='hidden' class="form-control" name="user_age" id="user_age"  value=""/> -->     
                                         </div>
                                         <div class="row base-box">
                                             <div class="col-sm-4">
@@ -766,6 +766,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>
                                                 <div class="col-sm-4">
                                                  <span id="reg_EBrother_error" class="registration-error base-box"></span>
+                                                 <span id="reg_EBrother_errors" class="registration-error base-box ybro"></span>
                                                 </div>   
                                             </div>
                                             <div class="row base-box">
@@ -781,7 +782,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                       <input type="text" class="form-control bro_sis" id="reg_YSister" placeholder="0" name="reg_YSister">
                                                 </div>
                                                 <div class="col-sm-4">
-                                                 <span id="reg_ESister_error" class="registration-error base-box"></span>
+                                                 <span id="reg_ESister_error" class="registration-error base-box"></span>                                
                                                 </div>  
                                             </div>
                                             <div class="row base-box">
@@ -850,6 +851,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>
                                             <div class="col-sm-2 box">                                                
                                                 <select class="form-control height_act" name="height_in_cms[]" id="height_in_cms">
+                                                	 <option value="">In cms</option>
                                                     <?php 
                                                         if(!empty($height_relation['cms'])) :
                                                             foreach ($height_relation['cms'] as $hrel_val) {
@@ -861,6 +863,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>
                                             <div class="col-sm-2 box">                                                
                                                 <select class="form-control feet_act" name="height_in_feets" id="height_in_feet">
+                                                	  <option value="">In feet</option>
                                                     <?php 
                                                         if(!empty($height_relation['feet'])) :
                                                             foreach ($height_relation['feet'] as $hrel_val) {
@@ -1055,7 +1058,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </label> -->
                                             </div>
                                             <div class="col-sm-4">
-                                               <!--  <span id="food_error" class="registration-error"></span> -->
+                                                <span id="marital_status_any_error" class="registration-error"></span>
                                             </div>     
                                     </div>
                                     <div class="row base-box">
@@ -1083,20 +1086,20 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                     <div class="row base-box">
                                             <div class="col-sm-4">
                                                 <div class="height_item">
-                                                    <h4>Diet *</h4>
+                                                    <h4>Expectation Food *</h4>
                                                 </div>    
                                             </div>
                                             <div class="col-sm-6">
                                                 <label class="radio-inline" id="white">
-                                                <input type="radio" name="diet_veg" id="diet_veg" value="1">
+                                                <input type="radio" name="diet_veg" id="diet_veg" value="1" >
                                                     Vegetarian
                                                 </label>
                                                 <label class="radio-inline" id="white">
-                                                <input type="radio" name="diet_nonveg" id="diet_nonveg" value="2">
+                                                <input type="radio" name="diet_veg" id="diet_nonveg" value="2" >
                                                     Non-Vegerarian
                                                 </label>
                                                 <label class="radio-inline" id="white">         
-                                                <input type="radio" name="diet_egg" id="diet_egg" value="3">
+                                                <input type="radio" name="diet_veg" id="diet_egg" value="3" >
                                                 Eggetarian</label> 
                                             </div>
                                             <!-- <div class="col-sm-4">
@@ -1357,15 +1360,23 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
 <?php 
 include('include/footer.php');
 if(isset($_COOKIE["register_status"])) {
-    // echo "<script type='text/javscript'>
-    //     $(document).ready(function(){
-    //         $('.modals').show();
-    //         $('.edit_error').html('<i class='icon-ok-sign'></i> Quick registration successfully completed. Please continue the full registration to activate the Acount');
-            
-    //     });
-    // </script>";
-    echo "<script>alert('Quick registration successfully completed. Please continue the full registration to activate the Acount')</script>";
-    unset($_COOKIE["register_status"]);
+      echo "<script type='text/javascript'>
+      $(document).ready(function(){
+          $('.modals').show();
+          $('.edit_error').html('Quick registration successfully completed. Please continue the full registration to activate the Account');
+      });
+      </script>";
+      unset($_COOKIE["register_status"]);
+}
+
+if(isset($_COOKIE["full_register_status"])) {
+      echo "<script type='text/javascript'>
+      $(document).ready(function(){
+          $('.modals').show();
+          $('.edit_error').html('Full registration successfully completed. Check your mail to proceed payment process and account activation');
+      });
+      </script>";
+      unset($_COOKIE["register_status"]);
 }
 //sms message for quick registration
 // if(!empty($registered_status)){

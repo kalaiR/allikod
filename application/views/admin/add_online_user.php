@@ -14,7 +14,8 @@
 				</ul>
 			</div>
 			<!-- Table -->
-			<form id="online_form">
+			<form id="online_form" class="add_online_form">
+				<p class='val_error'> </p>
 		<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header well" data-original-title>
@@ -150,13 +151,13 @@
 											  	<div class="control-group">
 												  <label class="control-label" for="start_date">Starting Date </label>
 												  <div class="controls">
-													<input type="text" class="input-xlarge datepicker1" id="start_date" value="">
+													<input type="text" class="input-xlarge datepicker1 dob_admin" id="start_date" value="">
 												  </div>
 												</div>
 												<div class="control-group">
 												  <label class="control-label" for="end_date">Ending Date</label>
 												  <div class="controls">
-													<input type="text" class="input-xlarge datepicker1" id="end_date" value="">
+													<input type="text" class="input-xlarge datepicker1 dob_admin" id="end_date" value="">
 												  </div>
 												</div>
 											  <div class="control-group">
@@ -201,7 +202,7 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">File No : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="">
+												  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
 												</div>												
 											  </div>
 											  <div class="control-group">
@@ -233,7 +234,7 @@
 											  	<div class="control-group">
 												  <label class="control-label" for="date_birth">Date of Birth * :</label>
 												  <div class="controls">
-													<input type="text" class="input-xlarge datepicker" id="date_birth" value="">
+													<input type="text" class="input-xlarge datepicker dob_admin" id="date_birth" value="">
 												  </div>
 												</div>
 												

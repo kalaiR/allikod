@@ -39,7 +39,7 @@
 								<div class="control-group">
 								  <label class="control-label" for="date01">From Date</label>
 								  <div class="controls">
-									<input type="text" class="input-xlarge datepicker" name="report_fromdate">
+									<input type="text" class="input-xlarge datepicker dob_admin" name="report_fromdate">
 								  </div>
 								</div>            
 							</div>
@@ -51,7 +51,7 @@
 								<div class="control-group">
 								  <label class="control-label" for="date01">To Date</label>
 								  <div class="controls">
-									<input type="text" class="input-xlarge datepicker" name="report_todate">
+									<input type="text" class="input-xlarge datepicker dob_admin" name="report_todate">
 								  </div>
 								</div>
 							</div>

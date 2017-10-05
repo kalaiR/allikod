@@ -28,7 +28,7 @@
                                                     <!-- <h2>Post Your Story</h2> -->
                                                     <div class="form-group featured-box">
                                                         <div class="col-md-10">
-                                                            <input type="text" class="form-control form_inputs alphaonly" id="bride_name" data-message="Female Name" placeholder="Bride Name (Female) *" name="bride_name">
+                                                            <input type="text" class="form-control form_inputs bride_names" id="bride_name" data-message="Female Name" placeholder="Bride Name (Female) *" name="bride_name">
                                                         </div>
                                                          <div class="tooltips" style="display: inline-block;">
                                                          <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Type the name of the Girl</span>
@@ -36,7 +36,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-10">
-                                                            <input type="text" class="form-control form_inputs alphaonly" id="groom_name" data-message="Male Name" placeholder="Groom Name (Male) *" name="groom_name">
+                                                            <input type="text" class="form-control form_inputs Groom_Names" id="groom_name" data-message="Male Name" placeholder="Groom Name (Male) *" name="groom_name">
                                                         </div>    
                                                         <div class="tooltips" style="display: inline-block;">
                                                             <i class="fa fa-info-circle text-box"></i><span class="tooltiptext">Type the name of the Boy</span>

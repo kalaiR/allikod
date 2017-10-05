@@ -168,8 +168,8 @@
                         <div  id="hcolor">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="col-md-2">
-                                        <h3 class="text-box" id="hcolor">Name</h3>
+                                    <div class="col-md-3">
+                                        <h3 class="text-box" id="hcolor">Name *</h3>
                                     </div>    
                                     <div class="col-md-4 names-boxs">
                                        <input type="text" class="form-control form_inputs alphaonly" data-message="User Name" id="reg_email2" placeholder="Username" value="<?php if(!empty($customeruser_values['user_fname'])) echo $customeruser_values['user_fname']; ?>" name="cus_fname">
@@ -207,7 +207,22 @@
                                                 <p><b>Starting Date</b></p>
                                             </div>
                                             <div class="col-md-3">       
-                                                <p> : <?php if(!empty($customeruser_values['startdate'])) echo date("Y-m-d", strtotime($customeruser_values['startdate'])); ?> </p>                                            
+                                                <p> :
+                                                <?php 
+                                                if(empty($customeruser_values['renewdetail_id'])){
+                                                    if(!empty($customeruser_values['startdate'])) 
+                                                        echo date("Y-m-d", strtotime($customeruser_values['startdate'])); 
+                                                    else 
+                                                        echo "None"; 
+                                                }
+                                                else{
+                                                    if(!empty($customeruser_values['starting_date'])) 
+                                                        echo date("Y-m-d", strtotime($customeruser_values['starting_date']));
+                                                    else 
+                                                        echo "None"; 
+                                                }
+                                                ?>
+                                                </p>                                            
                                             </div>
                                         </div> 
                                         <div class="row">
@@ -215,7 +230,22 @@
                                                 <p><b>Ending Date</b></p>
                                             </div>
                                             <div class="col-md-3">       
-                                                <p> : <?php if(!empty($customeruser_values['enddate'])) echo date("Y-m-d", strtotime($customeruser_values['enddate'])); ?></p>                            
+                                                <p> :
+                                                    <?php 
+                                                    if(empty($customeruser_values['renewdetail_id'])){
+                                                        if(!empty($customeruser_values['enddate'])) 
+                                                            echo date("Y-m-d", strtotime($customeruser_values['enddate'])); 
+                                                        else 
+                                                            echo "None"; 
+                                                    }
+                                                    else{
+                                                        if(!empty($customeruser_values['ending_date'])) 
+                                                            echo date("Y-m-d", strtotime($customeruser_values['ending_date']));
+                                                        else 
+                                                            echo "None"; 
+                                                    }
+                                                    ?>
+                                                </p>                            
                                             </div>
                                         </div>     
                                     </div>
@@ -226,7 +256,22 @@
                                                 <p><b>Total Number Of Profile</b></p>
                                             </div>
                                             <div class="col-md-3">       
-                                                <p> : <?php if(!empty($customeruser_values['totalno_of_profile'])) echo $customeruser_values['totalno_of_profile'];  ?></p>                                            
+                                                <p> :
+                                                    <?php 
+                                                    if(empty($customeruser_values['renewdetail_id'])){
+                                                        if(!empty($customeruser_values['payment_totalprofile'])) 
+                                                            echo $customeruser_values['payment_totalprofile']; 
+                                                        else 
+                                                            echo "0"; 
+                                                    }
+                                                    else{
+                                                        if(!empty($customeruser_values['ren_totalprofile'])) 
+                                                            echo $customeruser_values['ren_totalprofile']; 
+                                                        else 
+                                                            echo "0"; 
+                                                    }
+                                                    ?>
+                                                    </p>                                            
                                             </div>
                                         </div> 
                                         <div class="row">
@@ -234,20 +279,41 @@
                                                 <p><b>Number Of Profile Viewed</b></p>
                                             </div>
                                             <div class="col-md-3">       
-                                                <p> : <?php echo $customeruser_values['no_of_profiles_viewed']; ?></p>                                            
+                                                <p> :
+                                                    <?php 
+                                                    if(empty($customeruser_values['renewdetail_id'])){
+                                                        if(!empty($customeruser_values['no_of_profiles_viewed'])) 
+                                                            echo $customeruser_values['no_of_profiles_viewed']; 
+                                                        else 
+                                                            echo "0"; 
+                                                    }
+                                                    else{
+                                                        if(!empty($customeruser_values['ren_viewedprofile'])) 
+                                                            echo $customeruser_values['ren_viewedprofile']; 
+                                                        else 
+                                                            echo "0"; 
+                                                    }
+                                                    ?>
+                                                    </p>                                            
                                             </div>
                                         </div>  
                                         <div class="row">
                                             <div class="col-md-5">
-                                                <p><b>Remine Profile To View</b></p>
+                                                <p><b>Remaining Profiles to View</b></p>
                                             </div>
                                             <div class="col-md-3">    
-                                                <?php
-                                                    $remaining_profile= $customeruser_values['totalno_of_profile'] - $customeruser_values['no_of_profiles_viewed'];
-                                                ?>   
-                                                <p> : <?php echo $remaining_profile; ?></a> </p>
+                                                <p> :
+                                                    <?php
+                                                        if(empty($customeruser_values['renewdetail_id'])){
+                                                            echo $remaining_profile= $customeruser_values['payment_totalprofile'] - $customeruser_values['no_of_profiles_viewed'];
+                                                        }
+                                                        else{
+                                                            echo $remaining_profile= $customeruser_values['ren_totalprofile'] - $customeruser_values['ren_viewedprofile'];
+                                                        }
+                                                    ?>
+                                                </p>
                                             </div>
-                                        </div>    
+                                        </div>  
                                     </div>
                                 </div>
                             </div>
@@ -390,7 +456,7 @@
                                             </div>
                                             <div class="row com-box">
                                                 <div class="col-md-5">
-                                                    <p><b>Mobile Number</b></p>
+                                                    <p><b>Mobile Number *</b></p>
                                                  </div>
                                                 <div class="col-md-4">        
                                                      <input type="text" class="form-control form_inputs mob_num" data-message="Mobile Number" id="reg_Name" placeholder="" value="<?php if(!empty($customeruser_values['comm_mobile_no'])) echo $customeruser_values['comm_mobile_no']; ?>" name="cus_mobile">                                            
@@ -398,7 +464,7 @@
                                             </div>
                                             <div class="row com-box">
                                                 <div class="col-md-5">
-                                                    <p><b>Communication Address</b></p>
+                                                    <p><b>Communication Address *</b></p>
                                                  </div>
                                                 <div class="col-md-4">        
                                                      <textarea class="" data-message="Communication Address" id="comment" placeholder="" rows="4" name="cus_address"><?php if(!empty($customeruser_values['comm_communication_address'])) echo $customeruser_values['comm_communication_address']; ?></textarea>                                            
@@ -415,7 +481,7 @@
                                          <div class="col-md-6 text-boxs">
                                             <div class="row com-box">
                                                 <div class="col-md-5">
-                                                    <p><b>Registered By</b></p>
+                                                    <p><b>Registered By *</b></p>
                                                 </div>
                                                 <div class="col-md-3">       
                                                     <select class="selectpicker" name="cus_regby">
@@ -432,7 +498,7 @@
                                             </div> 
                                             <div class="row com-box">
                                                 <div class="col-md-5">
-                                                    <p><b>Gender</b></p>
+                                                    <p><b>Gender *</b></p>
                                                 </div>
                                                 <div class="col-md-3">       
                                                     <select class="selectpicker" name="cus_gender">
@@ -447,7 +513,7 @@
                                          <div class="col-md-6 text-boxs">
                                             <div class="row com-box">
                                                 <div class="col-md-4">
-                                                    <p><b>Date of Brith & Age</b></p>
+                                                    <p><b>DOB & Age *</b></p>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="col-md-8">
@@ -467,7 +533,7 @@
                                             </div> 
                                             <div class="row com-box">
                                                 <div class="col-md-4">
-                                                    <p><b>Marital Staus</b></p>
+                                                    <p><b>Marital Staus *</b></p>
                                                 </div>
                                                 <div class="col-md-6 marital-box">       
                                                     <select class="selectpicker" name="cus_marstatus">
@@ -498,7 +564,7 @@
                                                 <?php 
                                                     $time_of_birth = explode("-", $customeruser_values['rel_timeofbirth']);
                                                 ?>
-                                                <div class="col-md-1" style="width:13%">       
+                                                <!-- <div class="col-md-5" style="width:13%">       
                                                     <select name="cus_birthhours" class="form_inputs col-md-1 tb_drop" data-message="Birth Hour">
                                                         <option value="">Hours</option>
                                                         <?php for( $i=0; $i<=12; $i++ ):
@@ -512,8 +578,9 @@
                                                                 echo "<option value =".$i." ".$status.">".$i."</option>";
                                                         endfor; ?>
                                                     </select>                                         
-                                                </div>
-                                                <div class="col-md-1" style="width:13%">       
+                                                </div> -->
+                                               
+                                                <!-- <div class="col-md-1" style="width:13%">       
                                                     <select name="cus_birthmins" class="form_inputs col-md-2 tb_drop" data-message="Birth Minute">
                                                         <option value="">Minutes</option>
                                                         <?php for( $i=0; $i<=59; $i++ ):
@@ -527,14 +594,17 @@
                                                                 echo "<option value =".$i." ".$status.">".$i."</option>";
                                                         endfor; ?>
                                                     </select>                                         
-                                                </div>
-                                                <div class="col-md-1" style="width:13%">       
+                                                </div> -->
+                                                <!-- <div class="col-md-1" style="width:13%">       
                                                     <select name="cus_birthmer" class="form_inputs col-md-2 tb_drop" data-message="Birth Meredian">
                                                         <option value="">Meredian</option>
                                                         <option value="am" <?php if(!empty($time_of_birth[2])) if(strtolower($time_of_birth[2]) == "am") echo "selected"; ?>>AM</option>
                                                         <option value="pm" <?php if(!empty($time_of_birth[2])) if(strtolower($time_of_birth[2]) == "pm") echo "selected"; ?>>PM</option>
                                                     </select>                                         
-                                                </div>
+                                                </div> -->
+                                                 <div class="col-md-5">  
+                                                	<input type='text' class="form-control timepicker" id="reg_tim" name="reg_tim"placeholder="Time of Birth" value="">
+                                                	</div> 
                                             </div>
                                             <div class="row com-box">
                                                 <div class="col-md-5">
@@ -1035,12 +1105,12 @@
                                         <div class="col-md-12">
                                            <h3 id="hcolor">Search (Expectation / Looking For)</h3>
                                         </div>
-                                        <div class="col-md-6 text-boxs">
+                                        <div class="col-md-9 text-boxs">
                                             <div class="row com-box">
-                                                <div class="col-md-2">
-                                                    <p><b>Age</b></p>
+                                                <div class="col-md-4">
+                                                    <p><b>Age *</b></p>
                                                 </div>
-                                                <div class="col-md-2">        
+                                                <div class="col-md-3">        
                                                     <select name="cus_startage" class="tb_drop">
                                                         <option value="">From</option>
                                                         <?php for( $i=18; $i<=60; $i++ ):
@@ -1054,7 +1124,7 @@
                                                 <div class="col-md-1">        
                                                     <p><b>To</b></p> 
                                                 </div>
-                                                <div class="col-md-2">        
+                                                <div class="col-md-3">        
                                                     <select name="cus_endage" class="tb_drop">
                                                         <option value="">To</option>
                                                         <?php for( $i=18; $i<=60; $i++ ):
@@ -1067,10 +1137,10 @@
                                                 </div>
                                             </div>
                                             <div class="row com-box">
-                                                <div class="col-md-2">
-                                                    <p><b>Marital Status</b></p>
+                                                <div class="col-md-4">
+                                                    <p><b>Marital Status *</b></p>
                                                 </div>
-                                                <div class="col-md-10" style="padding: 0px">
+                                                <div class="col-md-7" style="padding: 0px">
                                                     <div class="checkbox">
                                                         <?php 
                                                         $marstatus = array();
@@ -1089,8 +1159,8 @@
                                                 </div>                                           
                                             </div>
                                             <div class="row com-box">
-                                                <div class="col-md-2">
-                                                    <p><b>Education</b></p>
+                                                <div class="col-md-4">
+                                                    <p><b>Education *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
                                                     <div class="control-group">   
@@ -1120,10 +1190,10 @@
                                                  </div>
                                             </div>
                                             <div class="row com-box">
-                                                <div class="col-md-3">
-                                                    <p><b>Expectation Food</b></p>
+                                                <div class="col-md-4">
+                                                    <p><b>Expectation Food *</b></p>
                                                 </div>
-                                                <div class="col-md-8">  
+                                                <div class="col-md-8 box">  
                                                 <?php 
                                                 foreach ($selection_values['food_values'] as $con_val):      
                                                     if($con_val['food_id'] == $customeruser_values['phy_expectationfood']){  ?>

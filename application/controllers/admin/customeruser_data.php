@@ -7,6 +7,7 @@ class Customeruser_Data extends CI_Controller {
 		parent::__construct();
 		$this->load->model('admin/customeruser_data_model');
 		$this->load->library('upload');
+		$this->load->library("pagination");
 	}
 	//edit_unique is predefined function. To overwrite here to pass custom message while validation
 	function edit_unique($value, $params) 
@@ -23,6 +24,7 @@ class Customeruser_Data extends CI_Controller {
 	        return FALSE;
 	    }
 	}
+
 	public function customer_user(){
 		$profile_image = array();
 		$data_values = $this->customeruser_data_model->customer_user('init',$profile_image);
@@ -44,7 +46,30 @@ class Customeruser_Data extends CI_Controller {
 			  		$id = $this->input->post('rid');
 			  		$action_post = $this->input->post('action');
 			   		$validation_rules = array(
-			   			array('field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|xss_clean|max_length[50]|edit_unique[reg_userdetail.userdetail_id.user_email.'.$id.']' ),);
+			   			array('field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|xss_clean|max_length[50]|edit_unique[reg_userdetail.userdetail_id.user_email.'.$id.']' ),
+			   			array('field'   => 'cus_regby','label'   => 'Registered By','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_fname','label'   => 'Customer Username','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_gender','label'   => 'Customer Gender','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_dob','label'   => 'Customer Date Of Birth','rules'   => 'trim|xss_clean|required|exact_length[10]' ),
+			   			array('field'   => 'cus_marstatus','label'   => 'Marital Status','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_birthtime','label'   => 'Time of Birth','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_mothertongue','label'   => 'Mother Tongue','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_nakshathra','label'   => 'Nakshatra','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_zodiac','label'   => 'Zodiac Sign','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_education','label'   => 'Education','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_edudetail','label'   => 'Education Detail','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_occupation','label'   => 'Occupation','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_ocudetail','label'   => 'Occupation Detail','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_empin','label'   => 'Employed In','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_mobile','label'   => 'Mobile Number','rules'   => 'trim|xss_clean|required|exact_length[10]|numeric' ),
+			   			array('field'   => 'cus_food','label'   => 'Customer Food','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_fathername','label'   => 'Customer Fathers Name','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_fatheremp','label'   => 'Customer Fathers Employment','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_mothername','label'   => 'Customer Mothers Name','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_motheremp','label'   => 'Customer Mothers Employment','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_familystatus','label'   => 'Family Status','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_familytype','label'   => 'Family Type','rules'   => 'trim|xss_clean|required' ),
+			   			);
 			    }
 
 			  	// Save data
@@ -259,11 +284,66 @@ class Customeruser_Data extends CI_Controller {
         $results = $this->customeruser_data_model->get_cd_list();
         echo json_encode($results);
     }
-    public function customer_user_new(){
-		$profile_image = array();
-		$data_values = $this->customeruser_data_model->customer_user('init',$profile_image);
-		$data['customeruser_values'] = $data_values['customeruser_values'];
-		// // $data['mapped_data'] = $data_values['mapped_data'];
-		$this->load->view('admin/customer_user_new',$data);
+ //    public function customer_user_new(){
+	// 	$profile_image = array();
+	// 	$data_values = $this->customeruser_data_model->customer_user('init',$profile_image);
+	// 	$data['customeruser_values'] = $data_values['customeruser_values'];
+	// 	// // $data['mapped_data'] = $data_values['mapped_data'];
+	// 	$this->load->view('admin/customer_user_new',$data);
+	// }
+
+	public function customer_user_new(){
+		$config = array();
+        $config["base_url"] = base_url() . "admin/customer_user_new";
+        // $config["total_rows"] = $this->customeruser_data_model->customeruser_record_count();
+        $config["per_page"] = 20;
+        $config["uri_segment"] = 3;
+        $config['use_page_numbers'] = TRUE;
+        $config['cur_tag_open'] = ' ';
+        $config['cur_tag_close'] = '';
+        $config['next_link'] = 'Next';
+        $config['prev_link'] = 'Previous';
+        $config['num_links'] = 4;
+        // Custom Configuration
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active"><a>';
+		$config['cur_tag_close'] = '</a></li>';
+		$config['next_link'] = 'Next';
+		$config['prev_link'] = 'Prev';
+		$config['first_link'] = 'First';
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_link'] = 'Last';
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+
+        
+        // echo $this->uri->segment(3);
+        // $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        // echo "total_rows".$config["total_rows"];
+        //Find offset
+        $per_page = $config["per_page"];
+        preg_match("/[^\/]+$/", $this->uri->uri_string(), $values); 
+        if(is_numeric($values[0])){ 
+            $offset = (($values[0]-1)*$per_page); 
+        }else{
+            $offset = 0;
+        }   
+        // echo $page;
+        $fetchdata = $this->customeruser_data_model->fetch_customeruser($config["per_page"], $offset);
+        $data["customeruser_values"] = $fetchdata['results'];
+        $config["total_rows"] = $fetchdata['count'];
+        $this->pagination->initialize($config);
+        // echo "offset".$offset;
+        $data["links"] = $this->pagination->create_links();
+        $data["offset"] = $offset;
+        $this->load->view('admin/customer_user_new',$data);
 	}
 }
