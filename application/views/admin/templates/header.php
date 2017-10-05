@@ -137,7 +137,7 @@
 						<li><a class="ajax-link" href="report.php"><i class="icon-list-alt"></i><span class="hidden-tablet"> Report</span></a></li>
 					</ul> -->
 				</li>
-				<li class="" id="customer_user"><a href="<?php echo base_url(); ?>admin/customer_user"><i class="icon icon-darkgray icon-users"></i><span> Customer User</a>
+				<li class="" id="customer_user"><a href="<?php echo base_url(); ?>admin/customer_user_new"><i class="icon icon-darkgray icon-users"></i><span> Customer User</a>
 					<!-- <ul class="sidebar-submenu" >
 						<li><a class="ajax-link" href="customer_user.php"><i class="icon icon-darkgray icon-users"></i><span class="hidden-tablet"> Customer User</span></a></li>
 					</ul> -->
