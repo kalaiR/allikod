@@ -656,30 +656,38 @@ class Customeruser_data_model extends CI_Model {
   public function fetch_customeruser($limit, $start) {
     // echo "limit".$limit;
     // echo "start".$start;
+    	$user_where = array();
     	if($this->input->post('userstatus') and !empty($this->input->post('userstatus'))){
     		$userstatus = $this->input->post('userstatus');
     		if($userstatus == "active" || $userstatus == "inactive"){
 	    		if($userstatus == "active")
-	    			$userstatus_data = 1;
+	    			$userstatus_data = "1";
 	    		else
-	    			$userstatus_data = 0;
-	    		$user_where = '(user_active_status="'.$userstatus_data.'")';
+	    			$userstatus_data = "0";
+	    		$user_where['user_active_status'] = $userstatus_data;
     		}else{
-    			$userstatus_data = 1;
-    			$user_where = '(user_delete_status="'.$userstatus_data.'")';
+    			$userstatus_data = "1";
+    			$user_where['user_delete_status'] = $userstatus_data;;
     		}
     	}
-    	// else
-    		// $user_where = '';
+    	if($this->input->post('usertype') and !empty($this->input->post('usertype'))){
+    		$usertype = $this->input->post('usertype');
+    		if($usertype == "waiting"){
+    			$user_where['user_active_status'] = "0";
+    		}else{
+    			$user_where['user_online_or_simple'] = $usertype;
+    		}   		
+    	}
+    	// print_r($user_where);
     	$this->db->select('*');
 	    $this->db->from('reg_userdetail usr');
 	    $this->db->join('reg_payment pm','pm.reg_user_id=usr.userdetail_id','left');
-	    if($this->input->post('userstatus') and !empty($this->input->post('userstatus')))
-	    	$this->db->where($user_where);
+	    $this->db->where($user_where);
 	    $this->db->order_by('usr.userdetail_id desc');
 	    $this->db->limit($limit, $start);
 
-	   	$query = $this->db->get()->result_array();
+	   	$query['results'] = $this->db->get()->result_array();
+	   	$query['count'] =  $this->db->where($user_where)->from("reg_userdetail")->count_all_results();
         // echo $this->db->last_query();
         if (sizeof($query) > 0) {
             return $query;

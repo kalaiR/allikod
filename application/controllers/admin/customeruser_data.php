@@ -295,7 +295,7 @@ class Customeruser_Data extends CI_Controller {
 	public function customer_user_new(){
 		$config = array();
         $config["base_url"] = base_url() . "admin/customer_user_new";
-        $config["total_rows"] = $this->customeruser_data_model->customeruser_record_count();
+        // $config["total_rows"] = $this->customeruser_data_model->customeruser_record_count();
         $config["per_page"] = 20;
         $config["uri_segment"] = 3;
         $config['use_page_numbers'] = TRUE;
@@ -303,9 +303,31 @@ class Customeruser_Data extends CI_Controller {
         $config['cur_tag_close'] = '';
         $config['next_link'] = 'Next';
         $config['prev_link'] = 'Previous';
-        $this->pagination->initialize($config);
+        $config['num_links'] = 4;
+        // Custom Configuration
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active"><a>';
+		$config['cur_tag_close'] = '</a></li>';
+		$config['next_link'] = 'Next';
+		$config['prev_link'] = 'Prev';
+		$config['first_link'] = 'First';
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_link'] = 'Last';
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+
+        
         // echo $this->uri->segment(3);
         // $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        // echo "total_rows".$config["total_rows"];
         //Find offset
         $per_page = $config["per_page"];
         preg_match("/[^\/]+$/", $this->uri->uri_string(), $values); 
@@ -315,7 +337,10 @@ class Customeruser_Data extends CI_Controller {
             $offset = 0;
         }   
         // echo $page;
-        $data["customeruser_values"] = $this->customeruser_data_model->fetch_customeruser($config["per_page"], $offset);
+        $fetchdata = $this->customeruser_data_model->fetch_customeruser($config["per_page"], $offset);
+        $data["customeruser_values"] = $fetchdata['results'];
+        $config["total_rows"] = $fetchdata['count'];
+        $this->pagination->initialize($config);
         // echo "offset".$offset;
         $data["links"] = $this->pagination->create_links();
         $data["offset"] = $offset;

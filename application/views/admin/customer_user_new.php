@@ -151,17 +151,19 @@
 								    <div class="control-group pull-left">
 										<label class="control-label" for="selectError3"></label>
 										<div class="controls">
-										  <select id="selectError3" style="float: left; width: 160px" class="userstatus_act">
+										  <select id="selectError3" style="float: left; width: 160px" class="filter_act userstatus_data">
 										  	<option value="">Select By Userstatus</option>
+										  	<!-- <option value="">All users</option> -->
 											<option value="active">Active</option>
 											<option value="inactive">Inactive</option>
-											<option value="delete">Delete</option>
+											<option value="deleted">Deleted</option>
 										  </select>
-										  <select id="selectError3" style="margin:0px 20px 0px 10px; float: left; width: 160px">
-										  	<option>Select By Usertype</option>
-											<option>Online</option>
-											<option>Simple</option>
-											<option>Waiting</option>
+										  <select id="selectError3" style="margin:0px 20px 0px 10px; float: left; width: 160px" class="filter_act usertype_data">
+										  	<option value="">Select By Usertype</option>
+										  	<!-- <option value="">All Users</option> -->
+											<option value="online">Online</option>
+											<option value="simple">Simple</option>
+											<option value="waiting">Waiting</option>
 										  </select>
 										  	<a class="btn btn-primary search_customer" id="search" href="#" style="float: left; margin-left: 5px;">
 									        <i class="glyphicon glyphicon-edit icon-white"></i>
@@ -348,10 +350,11 @@
       function applyPagination() {
         $("#ajax_pagingsearc a").click(function() {
         var url = $(this).attr("href");
-        var userstatus = $('.userstatus_act :selected').val();
+        var userstatus = $('.userstatus_data :selected').val();
+        var usertype = $('.usertype_data :selected').val();
           $.ajax({
             type: "POST",
-            data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus,
+            data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
             url: url,
            success: function(msg) {
               $(".ajaxdata").html(msg);
@@ -361,11 +364,12 @@
         return false;
         });
 
-        $('.userstatus_act').on('change',function(){
-        	var userstatus = $('.userstatus_act :selected').val();
+        $('.filter_act').on('change',function(){
+        	var userstatus = $('.userstatus_data :selected').val();
+        	var usertype = $('.usertype_data :selected').val();
         	$.ajax({
             	type: "POST",
-	            data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus,
+	            data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
 	            url: admin_baseurl+"customer_user_new",
 	           	success: function(msg) {
 	              $(".ajaxdata").html(msg);
