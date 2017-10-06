@@ -151,7 +151,7 @@
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Online User
 								    </a> -->
-								    <a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_online_user">
+								    <a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_customer_user">
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Add Online User
 								    </a>

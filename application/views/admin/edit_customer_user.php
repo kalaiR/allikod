@@ -46,76 +46,10 @@
 								        <i class="glyphicon glyphicon-edit icon-white"></i>
 								        Cancel
 								    </a> -->
-			    						 <div class="row-fluid sortable">
-											<div class="box span8">
-												<div class="box-header well">
-													<h2><!-- <i class="icon-th"> -->Login Details</h2>
-													<!-- <div class="box-icon">
-														<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
-														<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
-														<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
-													</div> -->
-												</div>
-												<div class="box-content">
-													<!-- <a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
-												        <i class="glyphicon glyphicon-edit icon-white"></i>
-												        Save
-												    </a>
-												    <a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
-												        <i class="glyphicon glyphicon-edit icon-white"></i>
-												        Cancel
-												    </a> -->
-													<div class="form-horizontal">
-														<fieldset>
-														  <div class="control-group">
-															<label class="control-label" for="focusedInput">Customer Email : </label>
-															<div class="controls">
-															  <input class="input-xlarge focused" type="email" value="<?php if(!empty($customeruser_values['user_email'])) echo $customeruser_values['user_email'];  ?>" name="cus_email">
-															</div>
-														  </div>
-														  <div class="control-group">
-															<label class="control-label" for="focusedInput">Password : </label>
-															<div class="controls">
-															  <input class="input-xlarge focused" type="text" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_password" id="new_pass">
-															</div>
-														  </div>
-														  <div class="control-group">
-															<label class="control-label" for="focusedInput">Confirm Password : </label>
-															<div class="controls">
-															  <input class="input-xlarge focused" type="text" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_confpassword" id="confirm_pass">
-															</div>
-														  </div>
-														  <!-- <div class="control-group">
-															<label class="control-label">Active Status : </label>
-															<div class="controls">
-															  <select data-rel="chosen">
-																<option>Enabled</option>
-																<option>Disabled</option>
-															  </select>
-															</div>
-														  </div>
-														   <div class="control-group">
-															<label class="control-label">Admin Type : </label>
-															<div class="controls">
-															  <select data-rel="chosen">
-																<option>Admin</option>
-																<option>Selling Admin</option>
-															  </select>
-															</div>
-														  </div> -->
-														  <!-- <div class="form-actions">
-															<button type="submit" class="btn btn-primary">Save changes</button>
-															<button class="btn">Cancel</button>
-														  </div> -->
-														</fieldset>
-													  </div>
-													</div>
-												</div>
-											</div>
 											<div class="row-fluid sortable">
 											<div class="box span8">
 												<div class="box-header well">
-													<h2><!-- <i class="icon-th"> -->Profile Details</h2>	  			
+													<h2><!-- <i class="icon-th"> -->User Details</h2>	  			
 												</div>
 												<div class="box-content">
 													<div class="form-horizontal">
@@ -137,7 +71,36 @@
 															<div class="controls">
 																<label for="focusedInput"><?php echo "VM".$customeruser_values['userdetail_id'];  ?> </label>
 															</div>
-														  </div>										
+														  </div>	
+														  <div class="control-group">
+															<label class="control-label">User Type : </label>
+															<div class="controls">
+															  <select data-rel="chosen" name="cus_usertype" id="usertype_act">
+															  <option value="">Select User Type</option>
+															  <?php foreach (unserialize(USER_TYPE) as $key => $val): ?>
+																<option value="<?php echo $key; ?>" <?php if($customeruser_values['user_online_or_simple'] == $key) echo "selected"; ?>><?php echo $val; ?></option>
+															  <?php endforeach; ?>
+															  </select>
+															</div>
+														  </div>								
+														  <div class="control-group">
+															<label class="control-label" for="focusedInput">Customer Email : </label>
+															<div class="controls">
+															  <input class="input-xlarge focused" type="email" value="<?php if(!empty($customeruser_values['user_email'])) echo $customeruser_values['user_email'];  ?>" name="cus_email">
+															</div>
+														  </div>
+														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") ?> style="display:none;">
+															<label class="control-label" for="focusedInput">Password : </label>
+															<div class="controls">
+															  <input class="input-xlarge focused" type="text" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_password" id="new_pass">
+															</div>
+														  </div>
+														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") ?> style="display:none;">
+															<label class="control-label" for="focusedInput">Confirm Password : </label>
+															<div class="controls">
+															  <input class="input-xlarge focused" type="text" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_confpassword" id="confirm_pass">
+															</div>
+														  </div>	
 														  <div class="control-group">
 																<label class="control-label" for="focusedInput">Profile Id: </label>
 																<div class="controls">
@@ -238,17 +201,6 @@
 															</div>
 														  </div>
 														  <div class="control-group">
-															<label class="control-label">User Type : </label>
-															<div class="controls">
-															  <select data-rel="chosen" name="cus_usertype" id="usertype_act">
-															  <option value="">Select User Type</option>
-															  <?php foreach (unserialize(USER_TYPE) as $key => $val): ?>
-																<option value="<?php echo $key; ?>" <?php if($customeruser_values['user_online_or_simple'] == $key) echo "selected"; ?>><?php echo $val; ?></option>
-															  <?php endforeach; ?>
-															  </select>
-															</div>
-														  </div>
-														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Payment Type : </label>
 															
 															<div class="controls">
@@ -273,7 +225,7 @@
 															  <input class="input-xlarge focused income-box" id="focusedInput" type="text" value="<?php if($selected == 'initial') echo $customeruser_values['amount']; if($selected == 'renewal') echo $customeruser_values['ren_amount']; ?>" name="cus_amount">
 															</div>
 														</div>
-														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">
+														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") ?> style="display:none;">
 																<label class="control-label" for="focusedInput">Period in Months </label>
 																<div class="controls">
 																<?php foreach (unserialize(PERIOD_IN_MONTH) as $key => $val): ?>
@@ -288,14 +240,14 @@
 																<?php endforeach; ?>
 																</div>
 															</div>
-														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">
+														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") ?> style="display:none;">
 																<label class="control-label" for="focusedInput">Total No. of profile: </label>
 																<div class="controls">
 																  <!-- <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php //if(!empty($customeruser_values['totalno_of_profile'])) echo $customeruser_values['totalno_of_profile'];  ?>" name="cus_totprofile" disabled> -->
 																	<input class="input-xlarge focused mob_num" id="cus_totprofile" type="text" value="<?php if($customeruser_values['user_online_or_simple'] == "online"): if($selected == 'initial') echo $customeruser_values['paytotprofile']; if($selected == 'renewal') echo $customeruser_values['rentotprofile']; endif;  ?>" name="cus_totprofile">
 																</div>
 														  	</div>
-														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "online") ?> style="display:block;">
+														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") ?> style="display:none;">
 																<label class="control-label" for="focusedInput">No. of profile Viewed: </label>
 																<div class="controls">
 																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if($customeruser_values['user_online_or_simple'] == "online"): if($selected == 'initial') echo $customeruser_values['no_of_profiles_viewed']; if($selected == 'renewal') echo $customeruser_values['no_of_profile_viewed']; endif; ?>" name="cus_viewprofile" disabled>
@@ -623,7 +575,7 @@
 															<?php //echo "<pre>"; print_r($selection_values['height_values']); echo "</pre>";  ?>
 															  <!-- <select data-rel="chosen" name="cus_heightcms" class="span3 height_act"> -->
 															  <!--  the above code for custom dropdown, feet jquery on change code not running when use above custom dropdown -->
-															  <select data-rel="chosen" name="cus_heightcms" class="span3 height_act">	
+															  <select name="cus_heightcms" class="span3 height_act">	
 															  	<option value="">In cm</option>
 		                                                        <?php 
 		                                                            foreach ($selection_values['height_values']['cms'] as $height_val):  
@@ -636,7 +588,7 @@
 		                                                            endforeach; ?>
 															  </select>
 															  <!-- <select data-rel="chosen" name="cus_heightfeets" class="span3 feet_act"> -->
-		                                                      <select data-rel="chosen" name="cus_heightfeets" class="span3 feet_act">  
+		                                                      <select name="cus_heightfeets" class="span3 feet_act">  
 		                                                       	<option value="">In feet</option>
 		                                                        <?php 
 		                                                            foreach ($selection_values['height_values']['feet'] as $height_val):    

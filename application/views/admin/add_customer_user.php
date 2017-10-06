@@ -34,67 +34,103 @@
 					        <i class="glyphicon glyphicon-edit icon-white"></i>
 					        Save
 					    </a> -->
-    						 <div class="row-fluid sortable">
+								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> -->Login Details</h2>
-										<!-- <div class="box-icon">
-											<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
-											<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
-											<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
-										</div> -->
+										<h2><!-- <i class="icon-th"> -->User Details</h2>	  			
 									</div>
 									<div class="box-content">
-										<!-- <a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
-									        <i class="glyphicon glyphicon-edit icon-white"></i>
-									        Save
-									    </a>
-									    <a class="btn btn-primary pull-right" id="add" href="add_successful_story.php">
-									        <i class="glyphicon glyphicon-edit icon-white"></i>
-									        Cancel
-									    </a> -->
 										<div class="form-horizontal form_reset">
 											<fieldset>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Your Email * : </label>
+												<label class="control-label">User Type : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="email" value="">
+												  <select data-rel="chosen" name="cus_usertype" id="usertype_act">
+												  <option value="">Select User Type</option>
+												  <?php foreach (unserialize(USER_TYPE) as $key => $val): ?>
+													<option value="<?php echo $key; ?>"><?php echo $val; ?></option>
+												  <?php endforeach; ?>
+												  </select>
 												</div>
 											  </div>
 											  <div class="control-group">
+												<label class="control-label" for="focusedInput">Customer Email * : </label>
+												<div class="controls">
+												  <input class="input-xlarge focused" id="focusedInput" type="email" value="" name="cus_email">
+												</div>
+											  </div>
+											  <div class="control-group online_user_field">
 												<label class="control-label" for="focusedInput">Password * : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="Password" value="">
+												  <input class="input-xlarge focused" id="focusedInput" type="Password" value="" name="cus_password">
+												</div>
+											  </div>
+											  <div class="control-group online_user_field">
+												<label class="control-label" for="focusedInput">Confirm Password * : </label>
+												<div class="controls">
+												  <input class="input-xlarge focused" id="focusedInput" type="Password" value="" name="cus_confpassword">
 												</div>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Confirm Password * : </label>
+												<label class="control-label" for="focusedInput">Profile Id : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="Password" value="">
-												</div>
+												  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="" name="cus_profileid">
+												</div>												
 											  </div>
-											  <!-- <div class="control-group">
-												<label class="control-label">Active Status : </label>
+											  <div class="control-group">
+												<label class="control-label" for="focusedInput">File Id : </label>
 												<div class="controls">
-												  <select data-rel="chosen">
-													<option>Enabled</option>
-													<option>Disabled</option>
+												  <input class="input-xlarge focused" id="focusedInput" type="text" value="" name="cus_fileid">
+												</div>												
+											  </div>
+											  <div class="control-group">
+												<label class="control-label">Registered By * : </label>
+												<div class="controls">
+												  <select data-rel="chosen" class="dropdrop" name="cus_regby">
+												  	<option value="">Select Registered By</option>
+													<?php 
+									                    foreach ($selection_values['registeredby_values'] as $reg_val):      
+									                        echo "<option value='".$reg_val['registeredby_id']."'>".$reg_val['name']."</option>";
+									                    endforeach; ?>
 												  </select>
 												</div>
 											  </div>
-											   <div class="control-group">
-												<label class="control-label">Admin Type : </label>
+											  	<div class="control-group">
+													<label class="control-label" for="focusedInput">Username * : </label>
+													<div class="controls">
+													  <input class="input-xlarge focused" id="focusedInput" type="text" value="" name="cus_fname">
+													</div>
+											  	</div>
+											  	<div class="control-group">
+												<label class="control-label">Gender * : </label>
 												<div class="controls">
-												  <select data-rel="chosen">
-													<option>Admin</option>
-													<option>Selling Admin</option>
+												  <select data-rel="chosen" class="dropdrop" name="cus_gender">
+												  	<option value="">Select Gender</option>
+													<?php foreach (unserialize(GENDER) as $key => $val): ?>
+														<option value="<?php echo $key; ?>"><?php echo $val; ?></option>
+													  <?php endforeach; ?>
 												  </select>
 												</div>
-											  </div> -->
-											  <!-- <div class="form-actions">
-												<button type="submit" class="btn btn-primary">Save changes</button>
-												<button class="btn">Cancel</button>
-											  </div> -->
+											  </div>
+											  	<div class="control-group">
+												  <label class="control-label" for="date_birth">Date of Birth * :</label>
+												  <div class="controls">
+													<input type="text" class="input-xlarge datepicker dob_admin" id="date_birth" value="" name="cus_dob">
+												  </div>
+												</div>
+												
+											  <div class="control-group">
+												<label class="control-label">Marital Status * : </label>
+												<div class="controls">
+												  <select data-rel="chosen" class="dropdrop" name="cus_marstatus">
+												  	<option value="">Select Marital Status</option>
+													<?php 
+									                    foreach ($selection_values['maritalstatus_values'] as $mar_val):      
+									                        echo "<option value='".$mar_val['maritalcategory_id']."'>".$mar_val['marital_name']."</option>";
+									                    endforeach; ?>
+												  </select>
+												</div>
+											  </div> 											  
 											</fieldset>
 										  </div>
 										</div>
@@ -109,147 +145,79 @@
 										<div class="form-horizontal form_reset1">
 											<fieldset>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Payment Type : </label>
-												
+													<label class="control-label" for="focusedInput">Payment Type : </label>
+													<div class="controls">
+													  <?php foreach (unserialize(PAYMENT_TYPE) as $key => $val): ?>
+														  <label class="radio">
+															<input type="radio" value="<?php echo $key; ?>" name="cus_paymenttype" class="paymenttype_act">
+															<?php echo $val; ?>
+														  </label>
+														  <div style="clear:both"></div>
+														<?php endforeach; ?>
+													</div>
+											  </div>
+											  <div class="control-group">
+												<label class="control-label" for="focusedInput">Bill Number </label>
 												<div class="controls">
-												  <label class="radio">
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-													Cash
-												  </label>
-												  <div style="clear:both"></div>
-												  <label class="radio">
-													<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-													DD
-												  </label>
-												  <div style="clear:both"></div>
-												  <label class="radio">
-													<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-													CHQ
-												  </label>
-												  <div style="clear:both"></div>
-												  <label class="radio">
-													<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-													Net Banking
-												  </label>
+												  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" name="cus_billnumber">
 												</div>
 											  </div>
 											  <div class="control-group">
+												<label class="control-label" for="focusedInput">Amount </label>
+												<div class="controls">
+												  <input class="input-xlarge focused income-box" id="focusedInput" type="text" name="cus_amount">
+												</div>
+											  </div>
+											  	<div class="control-group online_user_field">
 													<label class="control-label" for="focusedInput">Period in Months </label>
 													<div class="controls">
-													  <input class="input-xlarge focused" id="focusedInput" type="radio" value="">3
-													</div>
-													<div class="controls">
-													  <input style="display: inline-block;" class="input-xlarge focused" id="focusedInput" type="radio" value="">6
+													  <?php foreach (unserialize(PERIOD_IN_MONTH) as $key => $val): ?>
+														  <label class="radio">
+															 <input type="radio" class="period_monthact" value="<?php echo $key; ?>" name="cus_period">
+															<?php echo $val; ?>
+														  </label>
+														  <div style="clear:both"></div>
+														<?php endforeach; ?>
 													</div>
 												</div>
-											  	<div class="control-group">
-													<label class="control-label" for="focusedInput">No. of profile : </label>
+											  	<div class="control-group online_user_field">
+													<label class="control-label" for="focusedInput">Total No. of profile : </label>
 													<div class="controls">
-													  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="">
+													  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="" name="cus_totprofile">
 													</div>
 											  	</div>
 											  	<div class="control-group">
 												  <label class="control-label" for="start_date">Starting Date </label>
 												  <div class="controls">
-													<input type="text" class="input-xlarge datepicker1 dob_admin" id="start_date" value="">
+													<input type="text" class="input-xlarge datepicker dob_admin" id="start_date" name="cus_paymentstartdate">
 												  </div>
 												</div>
 												<div class="control-group">
 												  <label class="control-label" for="end_date">Ending Date</label>
 												  <div class="controls">
-													<input type="text" class="input-xlarge datepicker1 dob_admin" id="end_date" value="">
+													<input type="text" class="input-xlarge datepicker dob_admin" id="end_date" name="cus_paymentenddate">
 												  </div>
 												</div>
 											  <div class="control-group">
 												<label class="control-label">Payment Active Status : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_paymentactivestatus">
 												  	<option value="">Select Payment Active</option>
-													<option>Yes</option>
-													<option>No</option>
+													<option value="1">Yes</option>
+													<option value="0">No</option>
 												  </select>
 												</div>
 											  </div>
 											   <div class="control-group">
 												<label class="control-label">Profile Active Status : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_profileactivestatus">
 												  	<option value="">Select Status</option>
-													<option>Active</option>
-													<option>Not Active</option>
+													<option value="1">Active</option>
+													<option value="0">Not Active</option>
 												  </select>
 												</div>
 											  </div>											  
-											</fieldset>
-										  </div>
-										</div>
-									</div>
-								</div>
-								<div class="row-fluid sortable">
-								<div class="box span8">
-									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> -->Profile Details</h2>	  			
-									</div>
-									<div class="box-content">
-										<div class="form-horizontal form_reset">
-											<fieldset>
-											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Profile No : </label>
-												<div class="controls">
-												  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="">
-												</div>												
-											  </div>
-											  <div class="control-group">
-												<label class="control-label" for="focusedInput">File No : </label>
-												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
-												</div>												
-											  </div>
-											  <div class="control-group">
-												<label class="control-label">Registered By * : </label>
-												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
-												  	<option value="">Select Registerer By</option>
-													<option>Parents</option>
-													<option>Friend</option>
-												  </select>
-												</div>
-											  </div>
-											  	<div class="control-group">
-													<label class="control-label" for="focusedInput">Name * : </label>
-													<div class="controls">
-													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
-													</div>
-											  	</div>
-											  	<div class="control-group">
-												<label class="control-label">Gender * : </label>
-												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
-												  	<option value="">Select Gender</option>
-													<option>Male</option>
-													<option>Female</option>
-												  </select>
-												</div>
-											  </div>
-											  	<div class="control-group">
-												  <label class="control-label" for="date_birth">Date of Birth * :</label>
-												  <div class="controls">
-													<input type="text" class="input-xlarge datepicker dob_admin" id="date_birth" value="">
-												  </div>
-												</div>
-												
-											  <div class="control-group">
-												<label class="control-label">Marital Status * : </label>
-												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
-												  	<option value="">Select Marital Status</option>
-													<option>Single</option>
-													<option>Widowed</option>
-													<option>Divorced</option>
-													<option>Annualled</option>
-												  </select>
-												</div>
-											  </div> 											  
 											</fieldset>
 										  </div>
 										</div>
@@ -266,69 +234,83 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Time of Birth * : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused slider_example_1" id="focusedInput" type="time" value="">
+												  <input class="input-xlarge focused slider_example_1" id="focusedInput" type="time" value="" name="cus_birthtime">
 												</div>												
 											  </div>											  
 											  <div class="control-group">
 												<label class="control-label">Mother Tongue * : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_mothertongue">
 												  	<option value="">Select Mother Tongue</option>
-													<option>Tamil</option>
-													<option>Malayalam</option>
+													<?php 
+								                    foreach ($selection_values['mothertongue_values'] as $mt_val):      
+								                        echo "<option value='".$mt_val['mothertongue_id']."'>".$mt_val['name']."</option>";
+								                    endforeach; ?>
 												  </select>
 												</div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Religion : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="text" value="Hindu">
+												  <input class="input-xlarge focused" id="focusedInput" type="text" value="Hindu" name="cus_religion" disabled>
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Caste : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="text" value="Vanniar">
+												  <input class="input-xlarge focused" id="focusedInput" type="text" value="Vanniyar" name="cus_caste" disabled>
 												</div>												
 											  </div>
 											  	<div class="control-group">
 													<label class="control-label" for="focusedInput">Dhosham : </label>
 													<div class="controls">
-													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+													  <select data-rel="chosen" name="cus_dosham">
+														  <option value="">Select Dhosham</option>
+														  <?php 
+										                    foreach ($selection_values['dhosham_values'] as $dho_val):      
+										                        echo "<option value='".$dho_val['dhosham_id']."'>".$dho_val['name']."</option>";                       
+										                    endforeach; ?>
+													  </select>
 													</div>
 											  	</div>
 											  	<div class="control-group">
 												<label class="control-label">Nakshathra * : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_nakshathra">
 												  	<option value="">Select Nakshathra</option>
-													<option>Star</option>
-													<option>Sun</option>
+													<?php 
+								                    foreach ($selection_values['nakshathra_values'] as $nak_val):      
+								                        echo "<option value='".$nak_val['nakshathra_id']."'>".$nak_val['name']."</option>";
+								                    endforeach; ?>
 												  </select>
 												</div>
 												<div class="control-group">
 												<label class="control-label">Luknam : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_lukhnam">
 												  	<option value="">Select Luknam</option>
-													<option>Star</option>
-													<option>Sun</option>
+													<?php 
+									                    foreach ($selection_values['luknam_values'] as $luk_val):      
+									                        echo "<option value='".$luk_val['luknam_id']."'>".$luk_val['name']."</option>";
+									                    endforeach; ?>
 												  </select>
 												</div>
 											  </div>
 											  <div class="control-group">
 													<label class="control-label" for="focusedInput">Gothra : </label>
 													<div class="controls">
-													  <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+													  <input class="input-xlarge focused" id="focusedInput" type="text" value="Sambu Maharishi Gothra" name="cus_gothra" disabled>
 													</div>
 											  	</div>
 											  	<div class="control-group">
 												<label class="control-label">Zodiac Sign * : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_zodiac">
 												  	<option value="">Select Zodiac Sign</option>
-													<option>Virgo</option>
-													<option>Capricon</option>
+													<?php 
+								                    foreach ($selection_values['zodiac_values'] as $zod_val):      
+								                        echo "<option value='".$zod_val['zodiacsign_id']."'>".$zod_val['name']."</option>";
+								                    endforeach; ?>
 												  </select>
 												</div>
 											  </div>							  
@@ -349,18 +331,16 @@
 												<label class="control-label">Education * : </label>
 												<div class="control-group">				
 													<div class="controls">
-														<select data-placeholder="Education List" class="dropdrop" id="selectError2" data-rel="chosen">
-															<option value=""></option>
-															<optgroup label="Bachelors- Engineering">
-															  <option>BE</option>
-															  <option>BTech</option>
-															  <option>BArch</option>
-															</optgroup>
-															<optgroup label="Bachelors- Arts and Science">
-															  <option>BSc</option>
-															  <option>BCom</option>
-															  <option>BCA</option>
-															</optgroup>						
+														<select data-placeholder="Education List" class="dropdrop" id="selectError2" data-rel="chosen" name="cus_education">
+															<option value="">Select Education</option>
+	                                                        <?php 
+	                                                            foreach ($selection_values['education_values'] as $key => $edu_val):    
+	                                                                echo "<optgroup class='a' label='".$key."'>"; 
+	                                                                foreach ($edu_val as $e_id => $edu): 
+	                                                                    echo "<option value='".$e_id."'>".$edu."</option>";
+	                                                                endforeach;
+	                                                                echo "</optgroup>";
+	                                                            endforeach; ?>					
 													  </select>
 													</div>
 												  </div>
@@ -368,39 +348,47 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Education in Detail *  : </label>
 												<div class="controls">
-												  <textarea class="input-xlarge focused" id="focusedInput" type="text" value="Hindu"></textarea>
+												  <textarea class="input-xlarge focused" id="focusedInput" type="text" name="cus_edudetail"></textarea>
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Occupation * : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_occupation">
 												  	<option value="">Select Occupation</option>
-													<option>Admin</option>
-													<option>Manager</option>
+                                                    <?php 
+                                                        foreach ($selection_values['occupation_values'] as $key => $occ_val):    
+                                                            echo "<optgroup class='a' label='".$key."'>"; 
+                                                            foreach ($occ_val as $o_id => $ocu): 
+                                                               echo "<option value='".$o_id."'>".$ocu."</option>";
+                                                            endforeach;
+                                                            echo "</optgroup>";
+                                                        endforeach; ?>
 												  </select>
 												</div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Employed In * : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_empin">
 												  	<option value="">Select Employed In</option>
-													<option>Government</option>
-													<option>Not Working</option>
+													  <?php 
+									                    foreach ($selection_values['employedin_values'] as $emp_val):      
+									                        echo "<option value='".$emp_val['employedin_id']."'>".$emp_val['name']."</option>";                       
+									                    endforeach; ?>
 												  </select>
 												</div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Monthly Income : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused income-box" id="focusedInput" type="text" value="">
+												  <input class="input-xlarge focused income-box" id="focusedInput" type="text" value="" name="cus_moninc">
 												</div>												
 											  </div>
 											  	<div class="control-group">
 												<label class="control-label" for="focusedInput">Occupation in Detail *  : </label>
 												<div class="controls">
-												  <textarea class="input-xlarge focused" id="focusedInput" type="text" value="Hindu"></textarea>
+												  <textarea class="input-xlarge focused" id="focusedInput" type="text" name="cus_ocudetail"></textarea>
 												</div>												
 											  </div>							  
 											</fieldset>
@@ -419,51 +407,55 @@
 											  <div class="control-group">
 												<label class="control-label">Resident of : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_resident">
 												  	<option value="">Select Resident of</option>
-													<option>India</option>
-													<option>Sri Lanka</option>
+													<?php 
+									                    foreach ($selection_values['country_values'] as $con_val):      
+									                       echo "<option value='".$con_val['country_id']."'>".$con_val['name']."</option>";
+									                   endforeach; ?>>
 												  </select>
 												</div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Current Country : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_curcountry">
 												  	<option value="">Select Current Country</option>
-													<option>India</option>
-													<option>Sri Lanka</option>
+													<?php 
+									                    foreach ($selection_values['country_values'] as $con_val):      
+									                        echo "<option value='".$con_val['country_id']."'>".$con_val['name']."</option>";
+									                    endforeach; ?>
 												  </select>
 												</div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Current City : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="">
+												  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="" name="cus_curcity">
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Current District : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="">
+												  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="" name="cus_curdistrict">
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Communication Address  : </label>
 												<div class="controls">
-												  <textarea class="input-xlarge focused" id="focusedInput" type="text" value="Hindu"></textarea>
+												  <textarea class="input-xlarge focused" id="focusedInput" type="text" name="cus_address"></textarea>
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Phone Number : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused ph_num" id="focusedInput" type="text" value="">
+												  <input class="input-xlarge focused ph_num" id="focusedInput" type="text" value="" name="cus_phone">
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Mobile Number * : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="">
+												  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="" name="cus_mobile">
 												</div>												
 											  </div>					  							  
 											</fieldset>
@@ -482,22 +474,28 @@
 											  <div class="control-group">
 												<label class="control-label">Height : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
-												  	<option value="">In CMs</option>
-													<option>140</option>
-													<option>141</option>
+												  <select name="cus_heightcms" class="span3 height_act">	
+												  	<option value="">In cm</option>
+                                                    <?php 
+                                                        foreach ($selection_values['height_values']['cms'] as $height_val):  
+                                                            if (strpos($customeruser_values['phy_height'], 'cm') == false) 
+                                                                $customeruser_values['phy_height'] += "cm";   
+                                                                echo "<option value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";                       
+                                                            endforeach; ?>
 												  </select>
-												  <select data-rel="chosen" class="dropdrop">
-													<option value="">In Feet</option>
-													<option>5</option>
-													<option>6</option>
-												  </select>														  
+												  <select name="cus_heightfeets" class="span3 feet_act">  
+                                                   	<option value="">In feet</option>
+                                                    <?php 
+                                                        foreach ($selection_values['height_values']['feet'] as $height_val):    
+                                                            echo "<option value='".$height_val['feet']."' data-heightcms='".$height_val['hcms']."'>".$height_val['feet']."</option>";                       
+                                                        endforeach; ?>
+                                                </select> 	  
 												</div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Weight : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_weight">
 												  	<option value="">Select Weight</option>
 													<option>60</option>
 													<option>65</option>
@@ -507,7 +505,7 @@
 											  <div class="control-group">
 												<label class="control-label">Body Type : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_bodytype">
 												  	<option value="">Select Body Type</option>
 													<option>Slim</option>
 													<option>Heavy</option>
@@ -517,7 +515,7 @@
 											  <div class="control-group">
 												<label class="control-label">Complexion : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_complexion">
 												  	<option value="">Select Complexion</option>
 													<option>Wheatish</option>
 													<option>Dark</option>
@@ -527,7 +525,7 @@
 											  <div class="control-group">
 												<label class="control-label">Physical Status : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_phystatus">
 												  	<option value="">Select Physical Status</option>
 													<option>Normal</option>
 													<option>Phisically Challenged</option>
@@ -550,10 +548,12 @@
 											  <div class="control-group">
 												<label class="control-label">Food * : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_food">
 												  	<option value="">Select Food</option>
-													<option>Vegetarian</option>
-													<option>Non-Vegetarian</option>
+													<?php 
+									                    foreach ($selection_values['food_values'] as $con_val):      
+															echo "<option value='".$con_val['food_id']."'>".$con_val['name']."</option>";                       
+									                    endforeach; ?>
 												  </select>
 												</div>
 											  </div>  				    							  
@@ -573,31 +573,31 @@
 											<div class="control-group">
 												<label class="control-label" for="focusedInput">Father's Name * : </label>
 												<div class="controls">
-													  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="">
+													  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="" name="cus_fathername">
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Father's Employment * : </label>
 												<div class="controls">
-													  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="">
+													  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="" name="cus_fatheremp">
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label " for="focusedInput">Mother's Name * : </label>
 												<div class="controls">
-													  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="">
+													  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="" name="cus_mothername">
 												</div>												
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Mother's Employment * : </label>
 												<div class="controls">
-													  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="">
+													  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="" name="cus_motheremp">
 												</div>												
 											  </div>										  
 											  <div class="control-group">
 												<label class="control-label">Family Status * : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_familystatus">
 												  	<option value="">Select Family Status</option>
 													<option>Middle</option>
 													<option>Upper Middle</option>
@@ -607,7 +607,7 @@
 											  <div class="control-group">
 												<label class="control-label">Family Type * : </label>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_familytype">
 												  	<option value="">Select Family Type</option>
 													<option>Nuclear</option>
 													<option>Join</option>
@@ -619,8 +619,8 @@
 												<label class="control-label" for="prependedInput">No. of Brothers :</label>
 												<div class="controls">
 													<div class="input-prepend">
-													  <span class="add-on">Elder</span><input class="span4 bro_sis eldyou" id="prependedInput1" style="width: 100px" type="text" value="">
-													  <span class="add-on">Younger</span><input class="span4 bro_sis eldyou" id="prependedInput2" style="width: 100px" type="text" value="">
+													  <span class="add-on">Elder</span><input class="span4 bro_sis eldyou" id="prependedInput1" style="width: 100px" type="text" value="" name="cus_broelder">
+													  <span class="add-on">Younger</span><input class="span4 bro_sis eldyou" id="prependedInput2" style="width: 100px" type="text" value="" name="cus_broyoung">
 													</div>
 												</div>								
 											  </div>
@@ -628,8 +628,8 @@
 												<label class="control-label" for="prependedInput">No. of Sisters : </label>
 												<div class="controls">
 													<div class="input-prepend">
-													  <span class="add-on">Elder</span><input class="span4 bro_sis eldyou" id="prependedInput3" style="width: 100px" type="text" value="">
-													   <span class="add-on">Younger</span><input class="span4 bro_sis eldyou" id="prependedInput4" type="text" style="width: 100px" value="">
+													  <span class="add-on">Elder</span><input class="span4 bro_sis eldyou" id="prependedInput3" style="width: 100px" type="text" value="" name="cus_siselder">
+													   <span class="add-on">Younger</span><input class="span4 bro_sis eldyou" id="prependedInput4" type="text" style="width: 100px" value="" name="cus_sisyoung">
 													  </div>
 												</div>								
 											  </div>
@@ -637,8 +637,8 @@
 												<label class="control-label" for="prependedInput">No. of Married Brothers : </label>
 												<div class="controls">
 													<div class="input-prepend">
-													  <span class="add-on">Elder</span><input class="span4 bro_sis eldyou" id="prependedInput5" style="width: 100px" type="text" value="">
-													  <span class="add-on">Younger</span><input class="span4 bro_sis eldyou" id="prependedInput6" type="text" style="width: 100px" value="">
+													  <span class="add-on">Elder</span><input class="span4 bro_sis eldyou" id="prependedInput5" style="width: 100px" type="text" value="" name="cus_broeldermar">
+													  <span class="add-on">Younger</span><input class="span4 bro_sis eldyou" id="prependedInput6" type="text" style="width: 100px" value="" name="cus_broyoungmar">
 													 </div>
 												</div>								
 											  </div>
@@ -646,15 +646,15 @@
 												<label class="control-label" for="prependedInput">No. of Married Sisters : </label>
 												<div class="controls">
 													<div class="input-prepend">
-													  <span class="add-on">Elder</span><input class="span4 bro_sis eldyou" id="prependedInput7" style="width: 100px" type="text" value="">
-													  <span class="add-on">younger</span><input class="span4 bro_sis eldyou" id="prependedInput8" type="text" style="width: 100px" value="">
+													  <span class="add-on">Elder</span><input class="span4 bro_sis eldyou" id="prependedInput7" style="width: 100px" type="text" value="" name="cus_siseldermar">
+													  <span class="add-on">younger</span><input class="span4 bro_sis eldyou" id="prependedInput8" type="text" style="width: 100px" value="" name="cus_sisyoungmar">
 													 </div>
 												</div>								
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">More About family  : </label>
 												<div class="controls">
-												  <textarea class="input-xlarge focused" id="focusedInput" type="text" value="Hindu"></textarea>
+												  <textarea class="input-xlarge focused" id="focusedInput" type="text" name="cus_abtfamily"></textarea>
 												</div>												
 											  </div>  					  							  
 											</fieldset>
@@ -673,7 +673,7 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Personality  : </label>
 												<div class="controls">
-												  <textarea class="input-xlarge focused" id="focusedInput" type="text" value="Hindu"></textarea>
+												  <textarea class="input-xlarge focused" id="focusedInput" type="text" name="cus_personality"></textarea>
 												</div>												
 											  </div>  					  							  
 											</fieldset>
@@ -737,31 +737,28 @@
 												<label class="control-label" for="selectError1">Education * :</label>
 												<div class="controls">
 												  <select id="selectError1" multiple data-rel="chosen" class="dropdrop">
-													<option>BE/BTech</option>
-													<option selected>MBBS</option>
-													<option>BCom</option>
-													<option>BCA</option>
-													<option>BSc</option>
+													<option value="">Select Education</option>
+                                                    <?php 
+                                                        foreach ($selection_values['education_values'] as $key => $edu_val):    
+                                                            echo "<optgroup class='a' label='".$key."'>"; 
+                                                            foreach ($edu_val as $e_id => $edu): 
+                                                                echo "<option value='".$e_id."'>".$edu."</option>";
+                                                            endforeach;
+                                                            echo "</optgroup>";
+                                                        endforeach; ?>
 												  </select>
 												</div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Food * :</label>
 												<div class="controls">
-												  <label class="radio">
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-													Vegetarian
-												  </label>
-												  <div style="clear:both"></div>
-												  <label class="radio">
-													<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-													Non-Vegetarian
-												  </label>
-												  <div style="clear:both"></div>
-												  <label class="radio">
-													<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-													Eggetarian
-												  </label>
+												  <select data-rel="chosen" class="dropdrop" name="cus_expectfood">
+												  	<option value="">Select Food</option>
+													<?php 
+									                    foreach ($selection_values['food_values'] as $con_val):      
+															echo "<option value='".$con_val['food_id']."'>".$con_val['name']."</option>";                       
+									                    endforeach; ?>
+												  </select>
 												</div>
 											  </div>  					  							  
 											</fieldset>
@@ -778,9 +775,9 @@
 										<div class="form-horizontal form_reset">
 											<fieldset>											  
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Personality  : </label>
+												<label class="control-label" for="focusedInput">Expectation  : </label>
 												<div class="controls">
-												  <textarea class="input-xlarge focused" id="focusedInput" type="text" value="Hindu"></textarea>
+												  <textarea class="input-xlarge focused" id="focusedInput" type="text" name="cus_expect"></textarea>
 												</div>												
 											  </div>  					  							  
 											</fieldset>
@@ -791,7 +788,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --> Your Personality</h2>	  			
+										<h2><!-- <i class="icon-th"> --> Images</h2>	  			
 									</div>
 									<div class="box-content">
 										<div class="form-horizontal form_reset">
@@ -810,7 +807,7 @@
 															<div class="modal-body login-box clearfix">
 																<ul id="media-list" class="clearfix">
 																	<li class="myupload">
-																		<span class="user-img"><i class="icon32 icon-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload per-img-box user-img" multiple></span>
+																		<span class="user-img"><i class="icon32 icon-plus user-img" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload per-img-box user-img" name="cus_profileimage[]" multiple></span>
 																	</li>
 																</ul>
 															</div>
@@ -826,17 +823,19 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --> Image Activation</h2>	  			
+										<h2><!-- <i class="icon-th"> --> Featured Profile</h2>	  	
 									</div>
 									<div class="box-content">
 										<div class="form-horizontal form_reset">
 											<fieldset>											  
 											  <div class="control-group">
-												<label class="control-label">Image Active :</label>
+												<label class="control-label">Featured Profile Status :</label>
 												<div class="controls">
-												  <label class="radio">
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">					
-												  </label>
+												  <select data-rel="chosen" name="cus_featuredactivestatus">
+												  	<option value="">Select Featured Status</option>
+													<option value="1">Active</option>
+													<option value="0">Not Active</option>
+												  </select>
 												</div>												
 											  </div>  					  							  
 											</fieldset>

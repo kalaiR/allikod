@@ -149,9 +149,9 @@
 								        <!-- <i class="glyphicon glyphicon-edit icon-white"></i> -->
 								        search
 								    </a>
-								    <a class="btn btn-primary pull-right" id="add" href="<?php //echo base_url(); ?>admin/add_online_user">
+								    <a class="btn btn-primary pull-right" id="add" href="<?php echo base_url(); ?>admin/add_customer_user">
 								        <!-- <i class="glyphicon glyphicon-edit icon-white"></i> -->
-								        Add Online User
+								        Add Customer User
 								    </a>
 								    <div class="control-group pull-left">
 										<label class="control-label" for="selectError3"></label>
@@ -196,128 +196,126 @@
 								</div> -->
 								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;" class="ajaxdata">
 <?php } ?>								
-									<table class="table table-striped table-bordered bootstrap-datatable" id="cd-grid">
-									  <thead>
-										  <tr>
-											  <!-- <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span> -->
-											  <th><span><input id="inlineCheckbox1" type="checkbox"></span>
-											  </th>
-											  <th>S.No</th>
-											  <th>Vallikodi ID</th>
-											  <!-- <th>Profile ID</th> -->		  
-											  <th>Name</th>
-											  <th>Mail</th>
-											  <!-- <th>Profile <br>Viewed</th> -->
-											  <!-- <th>Reg. <br>By</th> -->
-											  <th>User <br>Type</th>
-											  <th>Profile Status</th>
-											  <th>Payment Status</th>
-											  <th>Reg. <br>Date</th>	  
-											  <th>Action</th>
-										  </tr>
-									  </thead>   
-									  <tbody>
-										<?php
-						                      if(!empty($customeruser_values)) :
-						                      // echo "<pre>";
-						                      // print_r($customeruser_values);
-						                      // echo "</pre>";
-						                      // $i = $this->uri->segment(3);
-						                      $i=$offset;
-						                      foreach ($customeruser_values as $cus_val) :
-						                      $i++;
-			                      	    ?>
-										<tr>
-											<td><span><input id="inlineCheckbox1" type="checkbox"></span></td>
-											<td class="center"><?php echo $i; ?></td>
-											<td class="center"><?php echo "VM".$cus_val['userdetail_id']; ?></td>
-											<!-- <td class="center">259</td> -->
-											<td class="center"><?php echo $cus_val['user_fname']; ?></td>
-											<td class="center"><?php echo $cus_val['user_email']; ?></td>
-											<!-- <td class="center">
-												<?php //echo "self"; ?>
-											</td> -->
-											<!-- <td class="center">0 / 60</td> -->
-											<td class="center">
-												<span class="label label-success"> <!--class for simpleuser <span class="label label-warning"> -->
+									<?php if(!empty($customeruser_values)) : ?>
+										<table class="table table-striped table-bordered bootstrap-datatable" id="cd-grid">
+										  <thead>
+											  <tr>
+												  <!-- <th><span><input id="inlineCheckbox1" style="opacity: 0;" type="checkbox"></span> -->
+												  <th><span><input id="inlineCheckbox1" type="checkbox"></span>
+												  </th>
+												  <th>S.No</th>
+												  <th>Vallikodi ID</th>
+												  <!-- <th>Profile ID</th> -->		  
+												  <th>Name</th>
+												  <th>Mail</th>
+												  <!-- <th>Profile <br>Viewed</th> -->
+												  <!-- <th>Reg. <br>By</th> -->
+												  <th>User <br>Type</th>
+												  <th>Profile Status</th>
+												  <th>Payment Status</th>
+												  <th>Reg. <br>Date</th>	  
+												  <th>Action</th>
+											  </tr>
+										  </thead>   
+										  <tbody>
+											<?php
+							                      $i=$offset;
+							                      foreach ($customeruser_values as $cus_val) :
+							                      $i++;
+				                      	    ?>
+											<tr>
+												<td><span><input id="inlineCheckbox1" type="checkbox"></span></td>
+												<td class="center"><?php echo $i; ?></td>
+												<td class="center"><?php echo "VM".$cus_val['userdetail_id']; ?></td>
+												<!-- <td class="center">259</td> -->
+												<td class="center"><?php echo $cus_val['user_fname']; ?></td>
+												<td class="center"><?php echo $cus_val['user_email']; ?></td>
+												<!-- <td class="center">
+													<?php //echo "self"; ?>
+												</td> -->
+												<!-- <td class="center">0 / 60</td> -->
+												<td class="center">
+													<span class="label label-success"> <!--class for simpleuser <span class="label label-warning"> -->
+														<?php 
+								                          if ($cus_val['user_online_or_simple'] == 'online') 
+								                            echo "Online";
+								                          else
+								                            echo "Simple";
+								                        ?>  
+													</span>
+												</td>
+												<td class="center">
+													<span class="label label-success"> <!--class for Not-activated <span class="label label-Danger"> -->
+														<?php 
+								                          if ($cus_val['user_active_status'] == 1) 
+								                            echo "Activated";
+								                          else
+								                            echo "Not-Activated";
+								                        ?>    	
+					                        		</span>
+												</td>
+												<td class="center">
+													<span class="label label-success"> <!--class for not-paid <span class="label label-important"> -->
+														<?php 
+								                          if ($cus_val['payment_status'] == 1) 
+								                            echo "Paid";
+								                          else
+								                            echo "Not Paid";
+								                        ?>    	
+					                        		</span>
+												</td>
+												<td class="center">
 													<?php 
-							                          if ($cus_val['user_online_or_simple'] == 'online') 
-							                            echo "Online";
-							                          else
-							                            echo "Simple";
-							                        ?>  
-												</span>
-											</td>
-											<td class="center">
-												<span class="label label-success"> <!--class for Not-activated <span class="label label-Danger"> -->
-													<?php 
-							                          if ($cus_val['user_active_status'] == 1) 
-							                            echo "Activated";
-							                          else
-							                            echo "Not-Activated";
-							                        ?>    	
-				                        		</span>
-											</td>
-											<td class="center">
-												<span class="label label-success"> <!--class for not-paid <span class="label label-important"> -->
-													<?php 
-							                          if ($cus_val['payment_status'] == 1) 
-							                            echo "Paid";
-							                          else
-							                            echo "Not Paid";
-							                        ?>    	
-				                        		</span>
-											</td>
-											<td class="center">
-												<?php 
-						                            $created_datetime = explode(' ', $cus_val['user_added_date']);
-						                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
-						                        ?>
-											</td>											
-											<td class="center">
-												<div style="width: 115px;">
-													<!-- <a class="btn btn-warning" href="<?php //echo base_url(); ?>admin/view_customer_user/<?php //echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-refresh icon-white" title="Renew"></i>  
-													</a>
-													<a class="btn btn-primary cboxElement"  href="http://libertyshoewarehouse.com/mt-content/uploads/2016/12/comingsoon.png">
-														<i class="icon-picture icon-white" title="Image"></i> 
-													</a> -->
-													<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-zoom-in icon-white" title="View"></i>  
-													</a>
-													<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
-														<i class="icon-edit icon-white" title="Edit"></i>  
-													</a>
-													<a class="btn btn-danger btn-setting" href="#">
-														<i class="icon-trash icon-white" title="Delete"></i> 
-													</a>
+							                            $created_datetime = explode(' ', $cus_val['user_added_date']);
+							                            echo date("d/m/Y", strtotime($created_datetime[0]))."&nbsp;&nbsp;&nbsp;".$created_datetime[1]; 
+							                        ?>
+												</td>											
+												<td class="center">
+													<div style="width: 115px;">
+														<!-- <a class="btn btn-warning" href="<?php //echo base_url(); ?>admin/view_customer_user/<?php //echo $cus_val["userdetail_id"] ?>">
+															<i class="icon-refresh icon-white" title="Renew"></i>  
+														</a>
+														<a class="btn btn-primary cboxElement"  href="http://libertyshoewarehouse.com/mt-content/uploads/2016/12/comingsoon.png">
+															<i class="icon-picture icon-white" title="Image"></i> 
+														</a> -->
+														<a class="btn btn-success" href="<?php echo base_url(); ?>admin/view_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+															<i class="icon-zoom-in icon-white" title="View"></i>  
+														</a>
+														<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_customer_user/<?php echo $cus_val["userdetail_id"] ?>">
+															<i class="icon-edit icon-white" title="Edit"></i>  
+														</a>
+														<a class="btn btn-danger btn-setting" href="#">
+															<i class="icon-trash icon-white" title="Delete"></i> 
+														</a>
+													</div>
+												</td>
+											</tr>
+											<?php
+						                      endforeach;
+						                     ?>
+					                    </tbody>
+									  </table>
+									  <!-- Pagination without datatable -->
+										<div class="col-md-5">
+											<!-- <div>Showing 1 to 10 of 500 entries</div> -->
+									  		<div>
+										  		<!-- <div style="margin-left: 40%" id="ajax_pagingsearc">	 -->
+										  		<div class="pagination cus_page"  id="ajax_pagingsearc">
+												  <!-- <a href="#">&laquo; Prev</a>
+												  <a href="#">1</a>
+												  <a href="#">2</a>
+												  <a href="#">3</a>
+												  <a href="#">4</a>
+												  <a href="#">5</a>
+												  <a href="#">6</a>
+												  <a href="#">Next&raquo;</a> -->
+												  <?php echo $links; ?>
 												</div>
-											</td>
-										</tr>
-										<?php
-					                      endforeach;
-					                      endif;
-					                     ?>
-				                    </tbody>
-								  </table>
-								  <!-- Pagination without datatable -->
-									<div class="col-md-5">
-										<!-- <div>Showing 1 to 10 of 500 entries</div> -->
-								  		<div>
-									  		<!-- <div style="margin-left: 40%" id="ajax_pagingsearc">	 -->
-									  		<div class="pagination cus_page"  id="ajax_pagingsearc">
-											  <!-- <a href="#">&laquo; Prev</a>
-											  <a href="#">1</a>
-											  <a href="#">2</a>
-											  <a href="#">3</a>
-											  <a href="#">4</a>
-											  <a href="#">5</a>
-											  <a href="#">6</a>
-											  <a href="#">Next&raquo;</a> -->
-											  <?php echo $links; ?>
-											</div>
-									  	</div>
-							  		</div>
+										  	</div>
+								  		</div>
+								<?php else:
+					                	echo "<tr><td>No Results Found</td></tr";
+					                endif; ?>
 <?php if(!$this->input->is_ajax_request()) { ?>									  
 								</div>
 							</div>
