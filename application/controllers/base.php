@@ -40,41 +40,44 @@ class Base extends CI_Controller {
 				);	
 		  		$this->user_model->insert_registration('reg_religion_ethnicity', $data_religion);
 		  		
-		  		//Email Process
-				$ci =& get_instance();	
-				$ci->config->load('email', true);
-				$emailsetup = $ci->config->item('email');
-				$this->load->library('email', $emailsetup);
-				$from_email = $emailsetup['smtp_user'];
-				$this->email->initialize($emailsetup);
-				$this->email->from($from_email, '');
-                $this->email->to($form_data['reg_email2']);
-    			$this->email->subject('Quick Registration Process Completed');
-    			// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
-    			$data['user_id'] = $id_userdetails;
-    			$data['reg_purpose'] = "quick_reg";
-    			$message = $this->load->view('email_template/registration', $data, TRUE);
-    			$this->email->message($message);
-    			$this->email->send();
+		  		if(!($_SERVER['SERVER_ADDR'] === '::1') && !($_SERVER['SERVER_ADDR'] === '127.0.0.1'))
+		  		{
+		  			//Email Process
+					$ci =& get_instance();	
+					$ci->config->load('email', true);
+					$emailsetup = $ci->config->item('email');
+					$this->load->library('email', $emailsetup);
+					$from_email = $emailsetup['smtp_user'];
+					$this->email->initialize($emailsetup);
+					$this->email->from($from_email, '');
+	                $this->email->to($form_data['reg_email2']);
+	    			$this->email->subject('Quick Registration Process Completed');
+	    			// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
+	    			$data['user_id'] = $id_userdetails;
+	    			$data['reg_purpose'] = "quick_reg";
+	    			$message = $this->load->view('email_template/registration', $data, TRUE);
+	    			$this->email->message($message);
+	    			$this->email->send();
 
-    			//SMS process
-    			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
-				$fields = array(
-				    'user'=> 'VALLIK',
-				    'pass'=> 'abcd1234',
-				    'sender'=> 'VALLIK',
-				    'phone'=> $form_data['reg_Mobile'],
-				    'text'=>"Dear Customer, Thanks for registering with us in vallikodivanniarmatrimonial.in. You have completed only quick registration. You account will be activated once you done the payment with full registration.",
-				    'priority'=>'ndnd',
-				    'stype'=>'normal'
-				);
-				$ch = curl_init();
-				curl_setopt($ch, CURLOPT_URL, $smsurl);
-				curl_setopt($ch, CURLOPT_POST, count($fields));
-				curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($fields));
-				curl_exec($ch);
-				curl_close($ch);
-
+	    			//SMS process
+	    			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
+					$fields = array(
+					    'user'=> 'VALLIK',
+					    'pass'=> 'abcd1234',
+					    'sender'=> 'VALLIK',
+					    'phone'=> $form_data['reg_Mobile'],
+					    'text'=>"Dear Customer, Thanks for registering with us in vallikodivanniarmatrimonial.in. You have completed only quick registration. You account will be activated once you done the payment with full registration.",
+					    'priority'=>'ndnd',
+					    'stype'=>'normal'
+					);
+					$ch = curl_init();
+					curl_setopt($ch, CURLOPT_URL, $smsurl);
+					curl_setopt($ch, CURLOPT_POST, count($fields));
+					curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($fields));
+					curl_exec($ch);
+					curl_close($ch);
+		  		}
+			  	
 				// setcookie("register_status", "success", time() + (86400 * 30), "/");
 				// setcookie("register_status", "success", time() + 1, "/");
 				setcookie("register_status", "success", time() + 1, "/");
@@ -534,47 +537,46 @@ class Base extends CI_Controller {
 				$data_horo['reg_user_id'] = $id_userdetails;
 				$id_images = $this->user_model->insert_registration('reg_image_horoscope',$data_horo);
 
-				// //Email Process
-				// echo "email_process";
-				$ci =& get_instance();	
-				$ci->config->load('email', true);
-				$emailsetup = $ci->config->item('email');
-				$this->load->library('email', $emailsetup);
-				$from_email = $emailsetup['smtp_user'];
-				$this->email->initialize($emailsetup);
-				$this->email->from($from_email, '');
-	            $this->email->to($form_data['register_email']);
-				$this->email->subject('Registration Process Completed');
-				// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
-				$data['user_id'] = $id_userdetails;
-    			$data['reg_purpose'] = "full_reg";
-				$message = $this->load->view('email_template/registration', $data, TRUE);
-				$this->email->message($message);
-				$this->email->send();
-		
-				//SMS process
-				// echo "sms_process";
-				// print_r($data_reg_com);
-    			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
-				$fields = array(
-				    'user'=> 'VALLIK',
-				    'pass'=> 'abcd1234',
-				    'sender'=> 'VALLIK',
-				    'phone'=> $form_data['reg_mobile'],
-				    'text'=>"Dear Customer, Thanks for completed your full registration process with us in vallikodivanniarmatrimonial.in. Please check your mail for further details.",
-				    'priority'=>'ndnd',
-				    'stype'=>'normal'
-				);
-				$ch = curl_init();
-				curl_setopt($ch, CURLOPT_URL, $smsurl);
-				curl_setopt($ch, CURLOPT_POST, count($fields));
-				curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($fields));
-				curl_exec($ch);
-				curl_close($ch);
-
-				// $msg = "Thanks+for+registering+at+Teachers+Recruit.+Your+Username+:+".$data['registrant_email_id']."+Your+Password+:+".$data['registrant_password']."+By+Teachers+Recruit";
-				// $url = $smsurl.'?user='.$fields['user'].'&pass='.$fields['pass'].'&sender='.$fields['sender'].'&phone='.$fields['phone'].'&text='.$fields['text'].'&priority='.$fields['priority'].'&stype='.$fields['stype'].'';
-				// $get = file_get_contents($url);		
+				if(!($_SERVER['SERVER_ADDR'] === '::1') && !($_SERVER['SERVER_ADDR'] === '127.0.0.1'))
+		  		{
+					// //Email Process
+					// echo "email_process";
+					$ci =& get_instance();	
+					$ci->config->load('email', true);
+					$emailsetup = $ci->config->item('email');
+					$this->load->library('email', $emailsetup);
+					$from_email = $emailsetup['smtp_user'];
+					$this->email->initialize($emailsetup);
+					$this->email->from($from_email, '');
+		            $this->email->to($form_data['register_email']);
+					$this->email->subject('Registration Process Completed');
+					// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
+					$data['user_id'] = $id_userdetails;
+	    			$data['reg_purpose'] = "full_reg";
+					$message = $this->load->view('email_template/registration', $data, TRUE);
+					$this->email->message($message);
+					$this->email->send();
+			
+					//SMS process
+					// echo "sms_process";
+					// print_r($data_reg_com);
+	    			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
+					$fields = array(
+					    'user'=> 'VALLIK',
+					    'pass'=> 'abcd1234',
+					    'sender'=> 'VALLIK',
+					    'phone'=> $form_data['reg_mobile'],
+					    'text'=>"Dear Customer, Thanks for completed your full registration process with us in vallikodivanniarmatrimonial.in. Please check your mail for further details.",
+					    'priority'=>'ndnd',
+					    'stype'=>'normal'
+					);
+					$ch = curl_init();
+					curl_setopt($ch, CURLOPT_URL, $smsurl);
+					curl_setopt($ch, CURLOPT_POST, count($fields));
+					curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($fields));
+					curl_exec($ch);
+					curl_close($ch);
+				}		
 
 				setcookie("full_register_status", "success", time() + 1, "/");
 				// print_r(data_reg_com); 					  		

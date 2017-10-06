@@ -351,54 +351,37 @@
 ?>
 <script type="text/javascript">
     $(function() { 
-      applyPagination();  
-      function applyPagination() {
-        // $("#ajax_pagingsearc a").click(function(e) {
-	       //  e.preventDefault();
-	       //  var url = $(this).attr("href");
-	       //  var userstatus = $('.userstatus_data :selected').val();
-	       //  var usertype = $('.usertype_data :selected').val();
-	       //    $.ajax({
-	       //      type: "POST",
-	       //      data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
-	       //      url: url,
-	       //     success: function(msg) {
-	       //        $(".ajaxdata").html(msg);
-	       //        applyPagination();
-	       //      }
-	       //    });
-	       //  return false;
-        // });
-
-        $("#ajax_pagingsearc a").click(function(e) {
-	        e.preventDefault();
-	        var url = $(this).attr("href");
-	        var userstatus = $('.userstatus_data :selected').val();
-	        var usertype = $('.usertype_data :selected').val();
-	        $(".searchfilter").submit();
-	        formdata = $('.searchfilter').serialize();
-	        // alert(JSON.stringify(formdata));
-	          $.ajax({
-	            type: "POST",
-	            // data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
-	            data: formdata+"&filtersearch=1&ajax=1&pagination=1&"+csrf_name+"="+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
-	            url: url,
-	            beforeSend: function () 
-				{ 
-					$(".loader_holder").show();
-					$(".cust_user").hide();
-						 
-                },
-	           success: function(msg) {
-	           	$(".loader_holder").hide();	
-	           	$(".cust_user").show();  
-	              $(".ajaxdata").html(msg);
-	              applyPagination();
-	            }
-	          });
-	        return false;
-        });
-
+	    applyPagination();  
+	    function applyPagination() {
+	        $("#ajax_pagingsearc a").click(function(e) {
+		        e.preventDefault();
+		        var url = $(this).attr("href");
+		        var userstatus = $('.userstatus_data :selected').val();
+		        var usertype = $('.usertype_data :selected').val();
+		        $(".searchfilter").submit();
+		        formdata = $('.searchfilter').serialize();
+		        // alert(JSON.stringify(formdata));
+		          $.ajax({
+		            type: "POST",
+		            // data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
+		            data: formdata+"&filtersearch=1&ajax=1&pagination=1&"+csrf_name+"="+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
+		            url: url,
+		            beforeSend: function () 
+					{ 
+						$(".loader_holder").show();
+						$(".cust_user").hide();
+							 
+	                },
+		           success: function(msg) {
+		           	$(".loader_holder").hide();	
+		           	$(".cust_user").show();  
+		              $(".ajaxdata").html(msg);
+		              applyPagination();
+		            }
+		          });
+		        return false;
+	        });
+	    }
         $('.filter_act').on('change',function(e){
         	e.preventDefault();
         	var userstatus = $('.userstatus_data :selected').val();
@@ -445,7 +428,6 @@
 	            }
 	        });
         });
-      }
     });
 </script>
 <script type= 'text/javascript'>
