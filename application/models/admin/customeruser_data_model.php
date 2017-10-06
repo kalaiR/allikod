@@ -649,14 +649,13 @@ class Customeruser_data_model extends CI_Model {
     $this->db->where('reg_user_id', $id);
     return $this->db->get()->result_array();
   }
-  function customeruser_record_count()
-  {
-	 return $this->db->count_all('reg_userdetail');
-  }
+  // function customeruser_record_count()
+  // {
+	 // return $this->db->count_all('reg_userdetail');
+  // }
   public function fetch_customeruser($limit, $start) {
     // echo "limit".$limit;
     // echo "start".$start;
-    	$user_where = array();
     	if($this->input->post('userstatus') and !empty($this->input->post('userstatus'))){
     		$userstatus = $this->input->post('userstatus');
     		if($userstatus == "active" || $userstatus == "inactive"){
@@ -678,20 +677,60 @@ class Customeruser_data_model extends CI_Model {
     			$user_where['user_online_or_simple'] = $usertype;
     		}   		
     	}
-    	// print_r($user_where);
-    	$this->db->select('*');
+    	if($this->input->post('filtersearch')){
+    		$cususer_id = trim($this->input->post('cususer_id'));	
+			$cus_profileid = trim($this->input->post('cus_profileid'));
+			$cus_fileid = trim($this->input->post('cus_fileid'));
+			$cususer_name = trim($this->input->post('cususer_name'));
+			$cus_gender = trim($this->input->post('cus_gender'));
+			$cus_dob = trim($this->input->post('cus_dob'));		
+			$cusage_from = trim($this->input->post('cusage_from'));	
+			$cusage_to = trim($this->input->post('cusage_to'));	
+
+			if(!empty($cususer_id))
+				$user_where = '(userdetail_id="'.$cususer_id.'")';
+			if(!empty($cus_profileid))
+				$user_where = '(userdetail_profile_id="'.$cus_profileid.'")';
+			if(!empty($cus_fileid))
+				$user_where = '(userdetail_file_id="'.$cus_fileid.'")';
+			// else{
+			// 	$user_where = '((user_fname LIKE "%'.$cususer_name.'%" AND 
+			// 					user_gender="'.$cus_gender.'") OR
+			// 					user_dob="'.$cus_dob.'" OR 
+			// 					(user_age>="'.$cusage_from.'" AND user_age<="'.$cusage_to.'")
+			// 					)';
+			// }
+			if(!empty($cususer_name))
+				$user_where = '(user_fname LIKE "%'.$cususer_name.'%")';
+			if(!empty($cus_gender))
+				$user_where = '(user_gender="'.$cus_gender.'")';
+			if(!empty($cusage_from) AND !empty($cusage_to))
+				$user_where = '(user_age>="'.$cusage_from.'" AND user_age<="'.$cusage_to.'")';
+			if(!empty($cususer_name) AND !empty($cus_gender))
+				$user_where = '(user_fname LIKE "%'.$cususer_name.'%" AND user_gender="'.$cus_gender.'")';
+			
+			
+    	}
+		   		    
+        $this->db->select('*');
 	    $this->db->from('reg_userdetail usr');
 	    $this->db->join('reg_payment pm','pm.reg_user_id=usr.userdetail_id','left');
-	    $this->db->where($user_where);
+	    if(isset($user_where)){
+	    	// print_r($user_where);
+	    	$this->db->where($user_where);	    	
+	    }    		    	
 	    $this->db->order_by('usr.userdetail_id desc');
 	    $this->db->limit($limit, $start);
-
-	   	$query['results'] = $this->db->get()->result_array();
-	   	$query['count'] =  $this->db->where($user_where)->from("reg_userdetail")->count_all_results();
-        // echo $this->db->last_query();
-        if (sizeof($query) > 0) {
-            return $query;
+	    $query['results'] = $this->db->get()->result_array();
+	    // echo $this->db->last_query();
+	    if(isset($user_where))
+	    	$query['count'] =  $this->db->where($user_where)->from("reg_userdetail")->count_all_results();
+	    else
+	    	$query['count'] =  $this->db->count_all('reg_userdetail');
+   		if (sizeof($query) > 0) {
+        	return $query;
         }
         return false;
+        
    }
 }
