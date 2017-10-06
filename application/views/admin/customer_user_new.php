@@ -2,8 +2,8 @@
 <?php 
     include('templates/header.php');
 ?>
-<!-- <div class="loader_holder hide_loader"></div> -->
-	<div id="content" class="span11">
+<div class="loader_holder"></div>
+	<div id="content" class="span11 cust_user">
 			<!-- content starts -->
 			<div>
 				<ul class="breadcrumb">
@@ -107,7 +107,7 @@
 								  <div class="control-group">
 									  <label class="control-label" for="date01">DOB</label>
 									  <div class="controls">
-										<input type="text" class="input-xlarge datepicker" id="date01" style="width: 150px" value="02/16/12">
+										<input type="text" class="input-xlarge datepicker dob_admin" id="date01" style="width: 150px" value="02/16/12">
 									  </div>
 									</div>
 								  <div class="control-group">
@@ -362,7 +362,15 @@
             type: "POST",
             data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
             url: url,
+            beforeSend: function () 
+				{ 
+					$(".loader_holder").show();
+					$(".cust_user").hide();
+						 
+                },
            success: function(msg) {
+           		$(".loader_holder").hide();	
+	           	$(".cust_user").show();  
               $(".ajaxdata").html(msg);
               applyPagination();
             }
@@ -372,11 +380,20 @@
         $('.filter_act').on('change',function(){
         	var userstatus = $('.userstatus_data :selected').val();
         	var usertype = $('.usertype_data :selected').val();
-        	$.ajax({	  
+        	$.ajax({
+        		// $(".loader_holder").show();	  
             	type: "POST",
 	            data: "ajax=1&"+csrf_name+'='+csfrData[csrf_name]+"&userstatus="+userstatus+"&usertype="+usertype,
 	            url: admin_baseurl+"customer_user_new",
-	           	success: function(msg) {          		
+	            beforeSend: function () 
+				{ 
+					$(".loader_holder").show();
+					$(".cust_user").hide();
+						 
+                },
+	           	success: function(msg) {   
+	           		$(".loader_holder").hide();	
+	           		$(".cust_user").show();        		
 	              $(".ajaxdata").html(msg);
 	              applyPagination();
 	            }

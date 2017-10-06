@@ -316,3 +316,16 @@ ul#media-list {
 {
 	text-align:center;
 }
+.loader_holder {
+ 	background: rgba(0, 0, 0, 0) url("../img/Spinner.gif") no-repeat scroll center center;
+    display:block;
+    height: 150px;
+    width: 100%;
+    top:60%;
+    position: absolute;
+    /*position: fixed;*/
+    display:none;
+    margin: 0 auto;
+    z-index: 9999;
+   
+}

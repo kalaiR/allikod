@@ -12,7 +12,9 @@ $(document).ready(function() {
   	});
   	
 });
-	
+	$('.filter_act').on('change',function(){
+		$('.slidingDiv').hide('slow'); 
+	});
         // $(".slidingDiv").hide();
         // $('.search_customer').click(function(){
         // // $(".slidingDiv").slideToggle();
