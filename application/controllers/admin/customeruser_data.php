@@ -33,7 +33,8 @@ class Customeruser_Data extends CI_Controller {
 		$this->load->view('admin/customer_user',$data);
 	}
 	public function add_customer_user(){
-		$this->load->view('admin/add_customer_user');
+		$data['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
+		$this->load->view('admin/add_customer_user',$data);
 	}
 	public function edit_customer_user(){
 		if($_POST){
@@ -277,9 +278,9 @@ class Customeruser_Data extends CI_Controller {
 		$data['amsham'] = $this->customeruser_data_model->getamsham_viewdetails_byid($id);
 		$this->load->view('admin/view_customer_user',$data);
 	}
-	public function add_online_user(){
-		$this->load->view('admin/add_online_user');
-	}
+	// public function add_customer_user(){
+	// 	$this->load->view('admin/add_customer_user');
+	// }
 	function cd_list() {
         $results = $this->customeruser_data_model->get_cd_list();
         echo json_encode($results);
