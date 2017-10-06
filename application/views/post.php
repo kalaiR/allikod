@@ -86,7 +86,7 @@
                                                                             <ul>
                                                                                 <li class="btn btn-default btn-file">
                                                                                     <span>Browse</span>
-                                                                                    <input type="file" click-type="type1" id="picupload" class="picupload form_inputs" data-message="Upload Image">
+                                                                                    <input type="file" click-type="type1" id="picupload" class="picupload form_inputs" name="uploadedfile" data-message="Upload Image">
                                                                                 </li>
                                                                             </ul>     
                                                                         </div>

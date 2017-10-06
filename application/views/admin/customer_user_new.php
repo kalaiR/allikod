@@ -34,7 +34,7 @@
 											 <div class="control-group">
 													<label class="control-label" for="focusedInput">Vallikodi ID</label>
 												<div class="controls">
-											  		<input class="input-xlarge focused" id="focusedInput" type="text" style="width: 150px" name="cususer_id">
+											  		<input class="input-xlarge focused v_id" id="focusedInput" type="text" style="width: 150px" name="cususer_id">
 												</div>
 										  	</div>
 										  	<div class="control-group">
@@ -46,15 +46,23 @@
 										  <div class="control-group">
 											<label class="control-label">Age : </label>
 											<div class="controls">
-											  <select data-rel="chosen" style="width: 75px" name="cusage_from"> 
+											  <select data-rel="chosen" style="width: 75px" name="cusage_from" class="dropdrop f_age"> 
 												<option value="">From</option>
-												<option>25</option>
-												<option>26</option>
+                                                        <?php for( $i=18; $i<=60; $i++ ):
+                                                        if($i == $customeruser_values['phy_searchage_from'])
+                                                            echo "<option value =".$i." selected>".$i."</option>";
+                                                        else
+                                                            echo "<option value =".$i.">".$i."</option>";
+                                                        endfor; ?>
 											  </select>
-											  <select data-rel="chosen" style="width: 75px" name="cusage_to">
+											  <select data-rel="chosen" style="width: 75px" name="cusage_to" class="dropdrop t_age">
 												<option value="">To</option>
-												<option>35</option>
-												<option>36</option>
+														<?php for( $i=18; $i<=60; $i++ ):
+                                                        if($i == $customeruser_values['phy_searchage_from'])
+                                                            echo "<option value =".$i." selected>".$i."</option>";
+                                                        else
+                                                            echo "<option value =".$i.">".$i."</option>";
+                                                        endfor; ?>
 											  </select>
 											</div>
 										  </div>								 
@@ -67,13 +75,13 @@
 											<div class="control-group">
 											<label class="control-label" for="focusedInput">Profile</label>
 											<div class="controls">
-											  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px" name="cus_profileid">
+											  <input class="input-xlarge focused pro_id" id="focusedInput" type="text"  style="width: 150px" name="cus_profileid">
 											</div>
 										  </div>
 										  <div class="control-group">
 												<label class="control-label">Gender</label>
 												<div class="controls">
-												  <select data-rel="chosen" style="width: 150px" name="cus_gender">
+												  <select data-rel="chosen" style="width: 150px" name="cus_gender" class="dropdrop">
 		            									<option value="">Gender</option>
 														<option value="1">Male</option>
 														<option value="2">Female</option>
@@ -95,7 +103,7 @@
 										  <div class="control-group">
 											<label class="control-label" for="focusedInput">File No ID</label>
 											<div class="controls">
-											  <input class="input-xlarge focused" id="focusedInput" type="text"  style="width: 150px" name="cus_fileid">
+											  <input class="input-xlarge focused file_id" id="focusedInput" type="text"  style="width: 150px" name="cus_fileid">
 											</div>
 										  </div>
 										  <div class="control-group">
@@ -105,7 +113,7 @@
 											  </div>
 											</div>
 										  <div class="control-group">
-											<button style="margin-right: 15px" class="btn btn-primary pull-right" id="add" type="submit">Search</button>
+											<button style="margin-right: 15px" class="btn btn-primary pull-right hide_search" id="add" type="submit">Search</button>
 										  </div>
 										 </fieldset>
 										 </div>
@@ -423,7 +431,15 @@
             	type: "POST",
 	            data: formdata+"&filtersearch=1&ajax=1&"+csrf_name+"="+csfrData[csrf_name],
 	            url: admin_baseurl+"customer_user_new",
+	             beforeSend: function () 
+				{ 
+					$(".loader_holder").show();
+					$(".cust_user").hide();
+						 
+                },
 	           	success: function(msg) {
+	           		$(".loader_holder").hide();	
+	           		$(".cust_user").show();  
 	              $(".ajaxdata").html(msg);
 	              applyPagination();
 	            }
