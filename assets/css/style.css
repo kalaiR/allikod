@@ -7758,7 +7758,7 @@ p2
 }
 
 .contact_form_area .form_inner .form-group input:focus {
-  border-color: #e74c3c;
+  /*border-color: #e74c3c;*/
 }
 
 .contact_form_area .form_inner .form-group textarea {
@@ -7808,7 +7808,7 @@ p2
 }
 
 .contact_form_area .form_inner .form-group textarea:focus {
-  border-color: #e74c3c;
+  /*border-color: #e74c3c;*/
 }
 
 .contact_form_area .form_inner .form-group:last-child {

@@ -141,7 +141,7 @@
                          <li id="gallery"><a href="<?php echo base_url(); ?>gallery">Gallery</a></li>
                          <li id="stories" class="dropdown submenu">
                             <!-- <a href="">Success Stories</a> -->
-                            <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Succes Stories</a>
+                            <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Success Stories</a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url(); ?>success_stories">Success Stories</a></li>
                                 <li><a href="<?php echo base_url(); ?>post_success">Post Your Story</a></li>

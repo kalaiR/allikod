@@ -121,12 +121,12 @@ function docReady(){
 	$( ".datepicker" ).datepicker( "option", "changeMonth", true );
 	// Year Range
 	$( ".datepicker" ).datepicker({
-	  yearRange: "1950:2000"
+	  yearRange: "1950:1999"
 	});
 	// Getter
 	var yearRange = $( ".datepicker" ).datepicker( "option", "yearRange" );
 	 // Setter
-	$( ".datepicker" ).datepicker( "option", "yearRange", "1950:2000" );
+	$( ".datepicker" ).datepicker( "option", "yearRange", "1950:1999" );
 	// Date for Marrige date, Starting and Ending Date
 	$( ".datepicker1" ).datepicker({
 	  changeMonth: true

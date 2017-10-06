@@ -14,10 +14,30 @@ $(document).ready(function() {
   $('.hide_search').click(function(){  
   		var f_age =$('.f_age').val();
         var t_age =$('.t_age').val();
-		if(!(f_age <= t_age)){
-			alert("From age must be less than To age");
-			return false;
-		  }  
+		  if(!f_age && !t_age)
+		  {
+		  	return true;
+		  	
+		  }
+		  else
+		  {
+		    if(!f_age )
+		    {
+		  		alert("please select From age");
+		  		return false;
+		  	}
+		  	else if (!t_age )
+		  	{
+		  		alert("please select To age");
+		  		return false;
+		  	}
+		  	else if (f_age > t_age)
+		  	{
+		  		alert("From age must be less than To age");
+		  		return false;
+		  	}
+		  }
+		     
   	});
   $('.slidingDivs').click(function(){  
   	$('.slidingDiv').hide('slow'); 
@@ -536,14 +556,14 @@ $(".alp").keypress(function(event){
     });
 
 // var max_chars = 2;
-$('.bro_sis,.age_reg').keypress( function(e){
-    if ($(this).val().length >= 1) { 
-        $(this).val($(this).val().substr(0, 1));
+$('.bro_sis,.age_reg').keyup( function(e){
+    if ($(this).val().length >= 2) { 
+        $(this).val($(this).val().substr(0, 2));
     }
 });
-$('.mob_num').keypress( function(e){
+$('.mob_num').keyup( function(e){
     if ($(this).val().length >= 10) { 
-        $(this).val($(this).val().substr(0, 9));
+        $(this).val($(this).val().substr(0, 10));
     }
 });
      

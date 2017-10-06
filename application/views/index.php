@@ -89,7 +89,6 @@
                                         <div class="col-md-6">     
                                             <div class="form-group">
                                                 <input type="text" class="form-control form_inputs age_regs age_regss" id="reg_age" data-message="Age" placeholder="Your Age" name="reg_age" value="">
-                                                
                                             </div>
                                         </div>    
                                     </div>    

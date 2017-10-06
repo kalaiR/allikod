@@ -10,7 +10,12 @@ var calculateAge = function(birthday) {
 	var nowYear = now.getFullYear();
 	var pastYear = past.getFullYear();
 	var age = nowYear - pastYear;
-	return age;
+	if(age>0){
+		return age;
+	}
+	else{
+		return 0;
+	}
 };
 // function mailcheckuser(){
 // if($("#reg_email2").val()){
@@ -263,9 +268,14 @@ function reg_validate() {
 
 		if (!($("#food").val())) {
 			output = false;
-			$("#food_error").html("Required");
+			$("#edus_error").html("Requidfefettredsd");
 			$("#food").focus();
 		}
+		// if (!($("#reg_Education_second").val())) {
+			// output = false;
+			// $("#edus_error").html("selva");
+			// $("#edu").focus();
+		// }
 		if (!($("#search_age_from").val())) {
 			output = false;
 			$("#search_age_from_error").html("Required");
@@ -343,20 +353,9 @@ $(document).ready(function() {
 	//         return false;
 	//     }
 	// });
-	$('.bride_names,.Groom_Names').keypress(function(event){
-		var ew = event.which;
-		if(ew == 32)
-		return true;
-		if(65 <= ew && ew <= 90)
-		return true;
-		if(97 <= ew && ew <= 122)
-		return true;
-		return false;	
-	});
-	
-	$('.bride_names,.Groom_Names').keypress(function(e) {
+	$('.bride_names,.Groom_Names').keyup(function(e) {
 		if ($(this).val().length >= 25) {
-			$(this).val($(this).val().substr(0, 24));
+			$(this).val($(this).val().substr(0, 25));
 		}
 	});
 	// $(".income-box").blur(function (e) {
@@ -368,14 +367,14 @@ $(document).ready(function() {
 	//        // alert(income);
 	// });
 	// var max_chars = 2;
-	$('.bro_sis,.age_regss').keypress(function(e) {
-		if ($(this).val().length >= 1) {
-			$(this).val($(this).val().substr(0, 1));
+	$('.bro_sis,.age_regss').keyup(function(e) {
+		if ($(this).val().length >= 2) {
+			$(this).val($(this).val().substr(0, 2));
 		}
 	});
-	$('.mob_num').keypress(function(e) {
+	$('.mob_num').keyup(function(e) {
 		if ($(this).val().length >= 10) {
-			$(this).val($(this).val().substr(0, 9));
+			$(this).val($(this).val().substr(0, 10));
 		}
 	});
 	// end reg page validation //
@@ -530,7 +529,9 @@ $(document).ready(function() {
 		var $birthday = $('#dob').val();
 		var age = calculateAge($birthday);
 		// $('#user_age').val(age);
-		$('#display_age').val(age);
+		if(age>0){
+			$('#display_age').val(age);	
+		}
 	});
 
 	$('.search_btn').on('click', '#finish', function() {
@@ -743,7 +744,7 @@ $(document).ready(function() {
 	// Active Tab Change ends
 
 	/*End user customer user edit form Start*/
-	$('.customer_edit_form').on('submit', function(e) {
+	$('.customer_edit_form,.form_inner').on('submit', function(e) {
 		e.preventDefault();
 		if ($(this).find('.bootstrap-select').hasClass('form_inputs')) {
 			$(this).find('.bootstrap-select').removeClass('form_inputs');
@@ -823,7 +824,7 @@ $(document).ready(function() {
         }
 		if ($(this).find('input,select,textarea').hasClass('form-field-error')) {
 			// if(message == '') {
-			//     message ="Please fill "+data('message');
+			    // message ="Please fill "+data('message');
 			// }
 			$('html, body').animate({
 				scrollTop : 0
@@ -943,7 +944,9 @@ $(document).ready(function() {
         var nowYear = today.getYear();
         var pastYear = dob.getYear();
         var age = nowYear - pastYear;
-        $('#cus_age').val(age);
+        if(age>0){
+		$('#cus_age').val(age);
+		}	        
     });
     //get id and store in array for removed images while edit profile
     var image_array = [];

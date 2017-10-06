@@ -690,7 +690,7 @@
                     <form action="<?php echo base_url(); ?>contact" method="post" id="contactForm" class="form_inner">
                         <div class="row">
                             <div class="box">
-                                <span class="val_status" style="display: block;"></span>
+                               <p class='val_error val_status'></p>
                             </div>
                         </div>    
                         <div class="col-md-6 box">
@@ -699,13 +699,13 @@
                                     <input type="text" class="form-control alphaonly" name="name" id="name" placeholder="Name">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <input type="email" class="form-control form_inputs" name="email" id="email" placeholder="Email">
+                                    <input type="email" class="form-control form_inputs" data-message="Email"name="email" id="email" placeholder="Email">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control form_inputs mob_num" name="subject" id="subject" placeholder="Mobile">
+                                    <input type="text" class="form-control form_inputs mob_num" data-message="Mobile" name="subject"  id="subject" placeholder="Mobile">
                                 </div>
                             </div>
                         </div>
