@@ -89,13 +89,13 @@
 															  <input class="input-xlarge focused" type="email" value="<?php if(!empty($customeruser_values['user_email'])) echo $customeruser_values['user_email'];  ?>" name="cus_email">
 															</div>
 														  </div>
-														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") ?> style="display:none;">
+														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") echo 'style="display:none;"'; else echo 'style="display:block;"'; ?>>
 															<label class="control-label" for="focusedInput">Password : </label>
 															<div class="controls">
 															  <input class="input-xlarge focused" type="text" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_password" id="new_pass">
 															</div>
 														  </div>
-														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") ?> style="display:none;">
+														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") echo 'style="display:none;"'; else echo 'style="display:block;"'; ?>>
 															<label class="control-label" for="focusedInput">Confirm Password : </label>
 															<div class="controls">
 															  <input class="input-xlarge focused" type="text" value="<?php if(!empty($customeruser_values['user_pwd'])) echo $customeruser_values['user_pwd'];  ?>" name="cus_confpassword" id="confirm_pass">
@@ -225,7 +225,7 @@
 															  <input class="input-xlarge focused income-box" id="focusedInput" type="text" value="<?php if($selected == 'initial') echo $customeruser_values['amount']; if($selected == 'renewal') echo $customeruser_values['ren_amount']; ?>" name="cus_amount">
 															</div>
 														</div>
-														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") ?> style="display:none;">
+														  <div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") echo 'style="display:none;"'; else echo 'style="display:block;"'; ?>>
 																<label class="control-label" for="focusedInput">Period in Months </label>
 																<div class="controls">
 																<?php foreach (unserialize(PERIOD_IN_MONTH) as $key => $val): ?>
@@ -240,14 +240,14 @@
 																<?php endforeach; ?>
 																</div>
 															</div>
-														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") ?> style="display:none;">
+														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") echo 'style="display:none;"'; else echo 'style="display:block;"'; ?>>
 																<label class="control-label" for="focusedInput">Total No. of profile: </label>
 																<div class="controls">
 																  <!-- <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php //if(!empty($customeruser_values['totalno_of_profile'])) echo $customeruser_values['totalno_of_profile'];  ?>" name="cus_totprofile" disabled> -->
 																	<input class="input-xlarge focused mob_num" id="cus_totprofile" type="text" value="<?php if($customeruser_values['user_online_or_simple'] == "online"): if($selected == 'initial') echo $customeruser_values['paytotprofile']; if($selected == 'renewal') echo $customeruser_values['rentotprofile']; endif;  ?>" name="cus_totprofile">
 																</div>
 														  	</div>
-														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") ?> style="display:none;">
+														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") echo 'style="display:none;"'; else echo 'style="display:block;"'; ?>>
 																<label class="control-label" for="focusedInput">No. of profile Viewed: </label>
 																<div class="controls">
 																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if($customeruser_values['user_online_or_simple'] == "online"): if($selected == 'initial') echo $customeruser_values['no_of_profiles_viewed']; if($selected == 'renewal') echo $customeruser_values['no_of_profile_viewed']; endif; ?>" name="cus_viewprofile" disabled>

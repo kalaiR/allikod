@@ -254,7 +254,7 @@ $('.reset').click(function() {
     });
 
     /*Admin customer user edit form Start*/
-    $('.customer_edit_form,.add_online_form').on('submit',function(e) {
+    $('.customer_edit_form,.add_customer_user').on('submit',function(e) {
         e.preventDefault();
         var error = '';
         var error_msg = $(this).find('.val_error');

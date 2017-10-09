@@ -33,8 +33,130 @@ class Customeruser_Data extends CI_Controller {
 		$this->load->view('admin/customer_user',$data);
 	}
 	public function add_customer_user(){
-		$data['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
-		$this->load->view('admin/add_customer_user',$data);
+		if($_POST){
+	  		$action_post = "save";
+	   		$validation_rules = array(
+	   			array('field'   => 'cus_usertype','label'   => 'Customer UserType','rules'   => 'trim|xss_clean|required' ), 	
+	   			array('field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|xss_clean|required|valid_email|max_length[50]|is_unique[reg_userdetail.user_email]' ),		
+	   			array('field'   => 'cus_regby','label'   => 'Registered By','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_fname','label'   => 'Customer Username','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_gender','label'   => 'Customer Gender','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_dob','label'   => 'Customer Date Of Birth','rules'   => 'trim|xss_clean|required|exact_length[10]' ),
+	   			array('field'   => 'cus_marstatus','label'   => 'Marital Status','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_birthtime','label'   => 'Time of Birth','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_mothertongue','label'   => 'Mother Tongue','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_nakshathra','label'   => 'Nakshatra','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_zodiac','label'   => 'Zodiac Sign','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_education','label'   => 'Education','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_edudetail','label'   => 'Education Detail','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_occupation','label'   => 'Occupation','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_ocudetail','label'   => 'Occupation Detail','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_empin','label'   => 'Employed In','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_mobile','label'   => 'Mobile Number','rules'   => 'trim|xss_clean|required|exact_length[10]|numeric' ),
+	   			// array('field'   => 'cus_food','label'   => 'Customer Food','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_fathername','label'   => 'Customer Fathers Name','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_fatheremp','label'   => 'Customer Fathers Employment','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_mothername','label'   => 'Customer Mothers Name','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_motheremp','label'   => 'Customer Mothers Employment','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_familystatus','label'   => 'Family Status','rules'   => 'trim|xss_clean|required' ),
+	   			// array('field'   => 'cus_familytype','label'   => 'Family Type','rules'   => 'trim|xss_clean|required' ),
+	   			);
+	   			if($this->input->post('cus_usertype')=="online"){
+		   			array_push($validation_rules,	   			
+		   				array('field'   => 'cus_password','label'   => 'Customer Email','rules'   => 'trim|xss_clean|max_length[50]|is_unique[reg_userdetail.user_email]' )
+		   			);
+		   		}
+		   		$this->form_validation->set_rules($validation_rules);
+		      	if ($this->form_validation->run() == FALSE) {   
+			        foreach($validation_rules as $row){
+			        	$field = $row['field']; // getting field name
+			        	$error = form_error($field); // getting error for field name
+			        	if($error){
+			            	$data['error'] = 1;
+			            	$data['status'] = strip_tags($error);
+			            	break;
+			          	}
+			        }
+		      	}
+		      	else {
+					// echo "uploaded file";
+					// print_r($_FILES['cus_profileimage']['name']);
+		      		$profile_image = array();
+		      		// print_r($_FILES['cus_profileimage']);
+		      		$filesCount = (!empty($_FILES['cus_profileimage']['name'][0])) ? sizeof($_FILES['cus_profileimage']['name']) : 0;
+					if(!empty($_FILES['cus_profileimage']['name'][0]) && $filesCount > 0){
+						// echo "if";
+						// echo $filesCount;
+						for($i = 0; $i < $filesCount; $i++){
+							// $profile_image = $_FILES['cus_profileimage']['name'];
+							$_FILES['userFile']['name'] = $_FILES['cus_profileimage']['name'][$i];
+			                $_FILES['userFile']['type'] = $_FILES['cus_profileimage']['type'][$i];
+			                $_FILES['userFile']['tmp_name'] = $_FILES['cus_profileimage']['tmp_name'][$i];
+			                // $_FILES['userFile']['error'] = $_FILES['cus_profileimage']['error'][$i];
+			                $_FILES['userFile']['size'] = $_FILES['cus_profileimage']['size'][$i];
+							// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
+							$config['upload_path'] = FCPATH.USER_PROFILE_PATH; 
+							$config['allowed_types'] = FILETYPE_ALLOWED;//FILETYPE_ALLOWED which is defined constantly in constants file
+							$config['file_name'] = "new_".$_FILES['cus_profileimage']['name'][$i];
+							// $config['thumbfile_name'] = "th_".$_FILES['cus_profileimage']['name'][$i];
+							// $config['max_size']  = '1000';
+							// $config['max_width'] = '450';
+							// $config['max_height'] = '600';
+
+							$this->upload->initialize($config);
+							if($this->upload->do_upload('userFile')){
+							    $uploadData = $this->upload->data();
+							    // print_r($uploadData);
+							    array_push($profile_image,USER_PROFILE_PATH.$uploadData['file_name']);
+								$profile_image[$i] = str_replace("new_","",$uploadData['file_name']);
+								//thumbnail code creation
+								$userprofile_logo_thumb['image_library'] = 'gd2';						
+								$userprofile_logo_thumb['source_image'] = FCPATH.USER_PROFILE_PATH.$uploadData['file_name'];
+								$userprofile_logo_thumb['create_thumb'] = FALSE;						
+								$userprofile_logo_thumb['maintain_ratio'] = TRUE;
+								$userprofile_logo_thumb['width']  = 260;
+								$userprofile_logo_thumb['height']  = 260;
+								$userprofile_logo_thumb['new_image'] = "th_".$profile_image[$i];
+								$this->load->library('image_lib');
+								$this->image_lib->initialize($userprofile_logo_thumb);
+								// Resize operation
+								if (!$this->image_lib->resize()){
+			                		$data['status'] = strip_tags($this->image_lib->display_errors()); 
+								}
+								$this->image_lib->clear();
+							}else{
+								$data['error'] = 1;
+								$data['status'] = $this->upload->display_errors();
+							    // array_push($product_image,'');
+							    $profile_image[$i] = '';
+							    break;
+							}
+						}
+					}
+		    		$data_values = $this->customeruser_data_model->insert_customer_user($profile_image); 
+		    		$data['error'] = $data_values['error'];
+			        $data['status'] = $data_values['status'];	
+		      	}
+	      	if($data['error']==1) {
+				$result['status'] = $data['status'];
+				$result['error'] = $data['error'];	
+				echo json_encode($result);
+			}
+			else if($data['error']==2) {
+				echo "else if";
+				$data_ajax['status'] = $data['status'];
+				$result['error'] = $data['error'];
+				$result['status'] = $data['status'];
+				$data_ajax['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
+				$result['output'] = $this->load->view('admin/add_customer_user',$data_ajax,true);
+				print_r($result);
+				echo json_encode($result);
+			}
+		}
+		else{	
+			$data['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
+			$this->load->view('admin/add_customer_user',$data);
+		}	
 	}
 	public function edit_customer_user(){
 		if($_POST){

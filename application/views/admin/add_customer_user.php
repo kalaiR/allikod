@@ -1,22 +1,30 @@
+<?php if(!$this->input->is_ajax_request()) { ?>
 <?php 
     include('templates/header.php');
 ?>
 	<div id="content" class="span11">
-			<!-- content starts -->
-			<div>
-				<ul class="breadcrumb">
-					<li>
-						<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
-					</li>
-					<li>
-						<a href="#">View Customer User</a>
-					</li>
-				</ul>
-			</div>
-			<!-- Table -->
-			<form id="online_form" class="add_online_form">
-				<p class='val_error'> </p>
-		<div class="row-fluid sortable">		
+		<!-- content starts -->
+		<div>
+			<ul class="breadcrumb">
+				<li>
+					<a href="<?php echo base_url(); ?>admin">Home</a> <span class="divider">/</span>
+				</li>
+				<li>
+					<a href="#">View Customer User</a>
+				</li>
+			</ul>
+		</div>
+		<!-- Table -->
+		<form method="POST" action="add_customer_user" id="online_form" class="add_customer_user" enctype="multipart/form-data">
+<?php } ?>	
+			<?php
+			  // print_r($zodiac_data);
+              if(!empty($status)) :
+                echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
+              endif;
+            ?> 
+			<p class='val_error'> </p>
+			<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header well" data-original-title>
 						<h2><i class="icon-user"></i> Add Online User</h2>
@@ -56,7 +64,7 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Customer Email * : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="email" value="" name="cus_email">
+												  <input class="input-xlarge focused" id="focusedInput" type="text" value="" name="cus_email">
 												</div>
 											  </div>
 											  <div class="control-group online_user_field">
@@ -982,12 +990,16 @@
 				</div><!--/span
 			</div><!--/row-->
 		</div><!--/.fluid-container-->
-	</div>  <!-- span10 end --></form></div>
-	<!-- external javascript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
+	</div>  <!-- span10 end -->
+<?php if(!$this->input->is_ajax_request()) { ?>
+	</form>
+	</div>
+		<!-- external javascript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
 
 
-<?php 
-    include('templates/footer.php');
-?>
+	<?php 
+	    include('templates/footer.php');
+	?>
+<?php } ?>

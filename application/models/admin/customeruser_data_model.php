@@ -733,4 +733,84 @@ class Customeruser_data_model extends CI_Model {
         return false;
         
    }
+   public function insert_customer_user($profile_image){
+   		   	$userdetail_insert_data = array(
+				'user_email' => $this->input->post('cus_email'),
+                'user_pwd' => $this->input->post('cus_password'),
+                'user_fname' => $this->input->post('cus_fname'),
+                'user_gender' => $this->input->post('cus_gender'),
+                'user_dob' => date('Y-m-d',strtotime($this->input->post('cus_dob'))),
+                'user_active_status' => $this->input->post('cus_profileactivestatus'),
+                'user_maritalstatus' => ($this->input->post('cus_marstatus'))?$this->input->post('cus_marstatus'):NULL,
+                'user_registeredby' => ($this->input->post('cus_regby')) ? $this->input->post('cus_regby') : NULL,
+                'userdetail_profile_id' => ($this->input->post('cus_profileid')) ? $this->input->post('cus_profileid') : NULL,
+                'userdetail_file_id' => ($this->input->post('cus_fileid')) ? $this->input->post('cus_fileid') : NULL,
+                'user_online_or_simple' => $this->input->post('cus_usertype'),
+                'user_featured_profile_status' => $this->input->post('cus_featuredactivestatus'),
+	        );
+   //      	// print_r($userdetail_update_data);
+   //      	$religion_ethnicity_insert_data = array(
+			// 	// 'rel_timeofbirth' => $this->input->post('cus_birthhours')."-".$this->input->post('cus_birthmins')."-".$this->input->post('cus_birthmer'),
+			// 	'rel_timeofbirth' => $this->input->post('cus_birthtime'),
+			// 	'rel_mothertongue_id' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
+			// 	// 'rel_religion' => $this->input->post('cus_religion'),
+			// 	// 'rel_caste' => $this->input->post('cus_caste'),
+			// 	'rel_dhosham' => ($this->input->post('cus_dosham')) ? $this->input->post('cus_dosham') : NULL,
+			// 	'rel_nakshathra_id' => ($this->input->post('cus_nakshathra')) ? $this->input->post('cus_nakshathra') : NULL,
+			// 	'rel_luknam_id' => ($this->input->post('cus_lukhnam')) ? $this->input->post('cus_lukhnam') : NULL,
+			// 	// 'rel_gothra' => "Sambu Maharishi Gothra",
+			// 	'rel_zodiacsign_id' => ($this->input->post('cus_zodiac')) ? $this->input->post('cus_zodiac') : NULL,
+   //          );
+	  //   	// print_r($religion_ethnicity_update_data);
+	  //   	$education_occupation_insert_data = array(
+			// 	'edu_education' => ($this->input->post('cus_education')) ? $this->input->post('cus_education') : NULL,
+			// 	'edu_educationdetails' => $this->input->post('cus_edudetail'),
+			// 	'edu_occupation' => ($this->input->post('cus_occupation')) ? $this->input->post('cus_occupation') : NULL,
+			// 	'edu_employedin' => ($this->input->post('cus_empin')) ? $this->input->post('cus_empin') : NULL,
+			// 	'edu_montlyincome' => $this->input->post('cus_moninc'),
+			// 	'edu_occupationdetail' => $this->input->post('cus_ocudetail'),
+	  //   	);
+   //      	// print_r($education_occupation_update_data);
+   //      	$communication_insert_data = array(
+			// 	'comm_residence' => $this->input->post('cus_resident'),
+			// 	'comm_current_countrycountry' => ($this->input->post('cus_curcountry')) ? $this->input->post('cus_curcountry') : NULL,
+			// 	'comm_current_city' => $this->input->post('cus_curcity'),
+			// 	'comm_current_district' => $this->input->post('cus_curdistrict'),
+			// 	'comm_communication_address' => $this->input->post('cus_address'),
+			// 	'comm_phone_no' => $this->input->post('cus_phone'),
+			// 	'comm_mobile_no' => $this->input->post('cus_mobile'),
+			// 	'comm_father_name' => $this->input->post('cus_fathername'),
+			// 	'comm_mother_name' => $this->input->post('cus_mothername'),
+			// 	'comm_father_employment' => $this->input->post('cus_fatheremp'),
+			// 	'comm_mother_employment' => $this->input->post('cus_motheremp'),
+			// 	'comm_family_status' => ($this->input->post('cus_familystatus'))?$this->input->post('cus_familystatus'):NULL,
+			// 	'comm_family_type' => ($this->input->post('cus_familytype'))?$this->input->post('cus_familytype'):NULL,
+			// 	'comm_number_of_brothers_el' => $this->input->post('cus_broelder'),
+			// 	'comm_number_of_brothers_yo' => $this->input->post('cus_broyoung'),
+			// 	'comm_number_of_brothers_el_mar' => $this->input->post('cus_broeldermar'),
+			// 	'comm_number_of_brothers_yo_mar' => $this->input->post('cus_broyoungmar'),
+			// 	'comm_number_of_sisters_el' => $this->input->post('cus_siselder'),
+			// 	'comm_number_of_sisters_yo' => $this->input->post('cus_sisyoung'),
+   //              'comm_number_of_sisters_el_mar' => $this->input->post('cus_siseldermar'),
+   //              'comm_number_of_sisters_yo_mar' => $this->input->post('cus_sisyoungmar'),
+   //              'comm_about_family' => $this->input->post('cus_abtfamily'),
+			// );
+   //      	// print_r($communication_update_data);
+   //          $physicalattributes_insert_data = array(
+			// 	'phy_height' => $this->input->post('cus_heightcms'),
+			// 	'phy_feet' => $this->input->post('cus_heightfeets'),
+   //              'phy_weight' => $this->input->post('cus_weight'),
+   //              'phy_bodytype' => ($this->input->post('cus_bodytype'))?$this->input->post('cus_bodytype'):NULL,
+   //              'phy_complexion' => ($this->input->post('cus_complexion'))?$this->input->post('cus_complexion'):NULL,
+   //              'phy_physicalstatus' => $this->input->post('cus_phystatus'),
+   //              'phy_food' => ($this->input->post('cus_food'))?$this->input->post('cus_food'):NULL,
+   //              'phy_yourpersonality' => $this->input->post('cus_personality'),
+   //              'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
+   //          );
+
+	        $this->db->insert("reg_userdetail", $userdetail_insert_data);
+	        // echo $this->db->last_query(); 
+	        $model_data['status'] = "Updated Successfully";
+	        $model_data['error'] = 2;
+   }
 }
