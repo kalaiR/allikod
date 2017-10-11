@@ -579,12 +579,12 @@
 															  	<option value="">In cm</option>
 		                                                        <?php 
 		                                                            foreach ($selection_values['height_values']['cms'] as $height_val):  
-		                                                                if (strpos($customeruser_values['phy_height'], 'cm') == false) 
-		                                                                    $customeruser_values['phy_height'] += "cm";   
-		                                                                if($height_val['cms']."cm" == $customeruser_values['phy_height'])  
-		                                                                    echo "<option selected value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";
+		                                                                // if (strpos($customeruser_values['phy_height'], 'cm') == false) 
+		                                                                //     $customeruser_values['phy_height'] += "cm";   
+		                                                                if($height_val['cms'] == $customeruser_values['phy_height'])  
+		                                                                    echo "<option selected value='".$height_val['cms']."'>".$height_val['cms']."</option>";
 		                                                                else
-		                                                                    echo "<option value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";                       
+		                                                                    echo "<option value='".$height_val['cms']."'>".$height_val['cms']."</option>";                       
 		                                                            endforeach; ?>
 															  </select>
 															  <!-- <select data-rel="chosen" name="cus_heightfeets" class="span3 feet_act"> -->

@@ -485,11 +485,9 @@
 												  <select name="cus_heightcms" class="span3 height_act">	
 												  	<option value="">In cm</option>
                                                     <?php 
-                                                        foreach ($selection_values['height_values']['cms'] as $height_val):  
-                                                            if (strpos($customeruser_values['phy_height'], 'cm') == false) 
-                                                                $customeruser_values['phy_height'] += "cm";   
-                                                                echo "<option value='".$height_val['cms']."cm'>".$height_val['cms']."</option>";                       
-                                                            endforeach; ?>
+                                                        foreach ($selection_values['height_values']['cms'] as $height_val):    
+                                                            echo "<option value='".$height_val['cms']."'>".$height_val['cms']."</option>";
+                                                        endforeach; ?>
 												  </select>
 												  <select name="cus_heightfeets" class="span3 feet_act">  
                                                    	<option value="">In feet</option>
@@ -505,8 +503,9 @@
 												<div class="controls">
 												  <select data-rel="chosen" class="dropdrop" name="cus_weight">
 												  	<option value="">Select Weight</option>
-													<option>60</option>
-													<option>65</option>
+													<?php for( $i=41; $i<=140; $i++ ):
+                                                        echo "<option value =".$i."kg>".$i."</option>";
+                                                    endfor; ?>
 												  </select>
 												</div>
 											  </div>
@@ -515,8 +514,10 @@
 												<div class="controls">
 												  <select data-rel="chosen" class="dropdrop" name="cus_bodytype">
 												  	<option value="">Select Body Type</option>
-													<option>Slim</option>
-													<option>Heavy</option>
+													<?php 
+									                    foreach ($selection_values['bodytype_values'] as $con_val):      
+									                        echo "<option value='".$con_val['bodytype_id']."'>".$con_val['typename']."</option>";                       
+									                    endforeach; ?>
 												  </select>
 												</div>
 											  </div>
@@ -525,8 +526,10 @@
 												<div class="controls">
 												  <select data-rel="chosen" class="dropdrop" name="cus_complexion">
 												  	<option value="">Select Complexion</option>
-													<option>Wheatish</option>
-													<option>Dark</option>
+													<?php 
+								                    foreach ($selection_values['complexion_values'] as $con_val):      
+								                        echo "<option value='".$con_val['complexion_id']."'>".$con_val['name']."</option>";
+								                    endforeach; ?>
 												  </select>
 												</div>
 											  </div>
@@ -535,8 +538,9 @@
 												<div class="controls">
 												  <select data-rel="chosen" class="dropdrop" name="cus_phystatus">
 												  	<option value="">Select Physical Status</option>
-													<option>Normal</option>
-													<option>Phisically Challenged</option>
+													<?php foreach (unserialize(PHYSICAL_STATUS) as $key => $val): ?>
+														<option value="<?php echo $key; ?>"><?php echo $val; ?></option>
+												  <?php endforeach; ?>
 												  </select>
 												</div>
 											  </div>				    							  
@@ -607,8 +611,10 @@
 												<div class="controls">
 												  <select data-rel="chosen" class="dropdrop" name="cus_familystatus">
 												  	<option value="">Select Family Status</option>
-													<option>Middle</option>
-													<option>Upper Middle</option>
+													<?php 
+								                    foreach ($selection_values['familystatus_values'] as $con_val):      
+								                        echo "<option value='".$con_val['familystatus_id']."'>".$con_val['name']."</option>";                       
+								                    endforeach; ?>
 												  </select>
 												</div>
 											  </div>
@@ -617,8 +623,10 @@
 												<div class="controls">
 												  <select data-rel="chosen" class="dropdrop" name="cus_familytype">
 												  	<option value="">Select Family Type</option>
-													<option>Nuclear</option>
-													<option>Join</option>
+													<?php 
+								                    foreach ($selection_values['familytype_values'] as $con_val):      
+								                        echo "<option value='".$con_val['familytype_id']."'>".$con_val['name']."</option>";                       
+								                    endforeach; ?>
 												  </select>
 												</div>
 											  </div>

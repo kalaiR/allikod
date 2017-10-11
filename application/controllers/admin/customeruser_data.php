@@ -43,29 +43,29 @@ class Customeruser_Data extends CI_Controller {
 	   			array('field'   => 'cus_gender','label'   => 'Customer Gender','rules'   => 'trim|xss_clean|required' ),
 	   			array('field'   => 'cus_dob','label'   => 'Customer Date Of Birth','rules'   => 'trim|xss_clean|required|exact_length[10]' ),
 	   			array('field'   => 'cus_marstatus','label'   => 'Marital Status','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_birthtime','label'   => 'Time of Birth','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_mothertongue','label'   => 'Mother Tongue','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_nakshathra','label'   => 'Nakshatra','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_zodiac','label'   => 'Zodiac Sign','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_education','label'   => 'Education','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_edudetail','label'   => 'Education Detail','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_occupation','label'   => 'Occupation','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_ocudetail','label'   => 'Occupation Detail','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_empin','label'   => 'Employed In','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_mobile','label'   => 'Mobile Number','rules'   => 'trim|xss_clean|required|exact_length[10]|numeric' ),
-	   			// array('field'   => 'cus_food','label'   => 'Customer Food','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_fathername','label'   => 'Customer Fathers Name','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_fatheremp','label'   => 'Customer Fathers Employment','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_mothername','label'   => 'Customer Mothers Name','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_motheremp','label'   => 'Customer Mothers Employment','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_familystatus','label'   => 'Family Status','rules'   => 'trim|xss_clean|required' ),
-	   			// array('field'   => 'cus_familytype','label'   => 'Family Type','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_birthtime','label'   => 'Time of Birth','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_mothertongue','label'   => 'Mother Tongue','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_nakshathra','label'   => 'Nakshatra','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_zodiac','label'   => 'Zodiac Sign','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_education','label'   => 'Education','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_edudetail','label'   => 'Education Detail','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_occupation','label'   => 'Occupation','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_ocudetail','label'   => 'Occupation Detail','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_empin','label'   => 'Employed In','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_mobile','label'   => 'Mobile Number','rules'   => 'trim|xss_clean|required|exact_length[10]|numeric' ),
+	   			array('field'   => 'cus_food','label'   => 'Customer Food','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_fathername','label'   => 'Customer Fathers Name','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_fatheremp','label'   => 'Customer Fathers Employment','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_mothername','label'   => 'Customer Mothers Name','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_motheremp','label'   => 'Customer Mothers Employment','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_familystatus','label'   => 'Family Status','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_familytype','label'   => 'Family Type','rules'   => 'trim|xss_clean|required' ),
 	   			);
-	   			if($this->input->post('cus_usertype')=="online"){
-		   			array_push($validation_rules,	   			
-		   				array('field'   => 'cus_password','label'   => 'Customer Email','rules'   => 'trim|xss_clean|max_length[50]|is_unique[reg_userdetail.user_email]' )
-		   			);
-		   		}
+	   			// if($this->input->post('cus_usertype')=="online"){
+		   		// 	array_push($validation_rules,	   			
+		   		// 		array('field'   => 'cus_password','label'   => 'Customer Email','rules'   => 'trim|xss_clean|max_length[50]|is_unique[reg_userdetail.user_email]' )
+		   		// 	);
+		   		// }
 		   		$this->form_validation->set_rules($validation_rules);
 		      	if ($this->form_validation->run() == FALSE) {   
 			        foreach($validation_rules as $row){
@@ -143,13 +143,11 @@ class Customeruser_Data extends CI_Controller {
 				echo json_encode($result);
 			}
 			else if($data['error']==2) {
-				echo "else if";
 				$data_ajax['status'] = $data['status'];
 				$result['error'] = $data['error'];
 				$result['status'] = $data['status'];
 				$data_ajax['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
 				$result['output'] = $this->load->view('admin/add_customer_user',$data_ajax,true);
-				print_r($result);
 				echo json_encode($result);
 			}
 		}
