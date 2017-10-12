@@ -1,6 +1,6 @@
 		<hr>
 
-		<div class="modal hide fade" id="myModal">
+<!-- 		<div class="modal hide fade" id="myModal">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">×</button>
 				<h3>Settings</h3>
@@ -12,7 +12,7 @@
 				<a href="#" class="btn" data-dismiss="modal">Close</a>
 				<a href="#" class="btn btn-primary">Save changes</a>
 			</div>
-		</div>
+		</div> -->
 		<footer>
 			<p class="pull-left">&copy; <a href="http://www.vallikodivanniarmatrimonial.com/" target="_blank">Vallikodi</a> 2017</p>
 			<p class="pull-right">Powered by: <a href="http://www.etekchnoservices.com/" target="_blank">ETekchno Services</a></p>
@@ -102,6 +102,7 @@
 
         //Admin base url declaration (route path)
         var admin_baseurl = "<?php echo base_url(); ?>admin/";
+        var media_url = "<?php echo media_url(); ?>"; 
         //Image upload
         var $imageupload = $('.imageupload');
         $imageupload.imageupload();

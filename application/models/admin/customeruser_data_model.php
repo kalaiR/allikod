@@ -101,6 +101,9 @@ class Customeruser_data_model extends CI_Model {
 	                                'phy_food' => ($this->input->post('cus_food'))?$this->input->post('cus_food'):NULL,
 	                                'phy_yourpersonality' => $this->input->post('cus_personality'),
 	                                'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
+	                                'phy_searchage_from' => $this->input->post('cus_startage'),
+				                    'phy_searchage_to' => $this->input->post('cus_endage'),
+				                    'phy_expectationfood' => ($this->input->post('cus_expectfood'))?$this->input->post('cus_expectfood'):NULL,
 	                                );
 	                // print_r($physicalattributes_update_data);
 	        // }
@@ -283,6 +286,94 @@ class Customeruser_data_model extends CI_Model {
                   $this->db->insert('user_images',array('reg_user_id' => $id,'images' =>$value));
             }
 
+            //Store raasi and amsam
+            //Update Raasi and Amsam
+            $rasi  = $this->input->post('rasi');
+            $amsam  = $this->input->post('amsam');
+            if(!empty($rasi)) { 
+                $cleanData = json_decode($rasi);    
+                foreach ($cleanData as $key => $value) {
+                  $data_horo[$value->key]= $value->value;
+                }
+            } 
+            if(!empty($amsam)) { 
+                $cleanData = json_decode($amsam);    
+                foreach ($cleanData as $key => $value) {
+                  $data_horo[$value->key]= $value->value;
+                }
+            } 
+
+            $horo = $this->db->get_where('reg_image_horoscope', array('reg_user_id' => $id))->row_array();
+            if(!empty($horo)){
+              $horoscope_where = '(reg_user_id="'.$id.'")';
+              $this->db->set($data_horo); 
+              $this->db->where($horoscope_where);
+              $this->db->update("reg_image_horoscope", $data_horo);
+            }
+            else{
+              $data_horo['reg_user_id'] = $id;
+              $this->db->insert("reg_image_horoscope", $data_horo);
+            }
+
+            //Storing multiple records for education and marital category
+            $condition = "regedu.reg_user_id = ".$id."";
+            $this->db->select('edu.education_id');
+            $this->db->from('reg_selectededucation regedu');
+            $this->db->join('education edu','edu.education_id=regedu.education_id','inner');
+            $this->db->where($condition); 
+            $model_data['customeruser_multiple_edu_values'] = $this->db->get()->result_array();
+
+            $edustatus = array();
+            foreach ($model_data['customeruser_multiple_edu_values'] as $key => $value) {
+                array_push($edustatus, $value['education_id']);
+            }
+
+            $condition = "regmar.reg_user_id = ".$id."";
+            $this->db->select('mar.maritalcategory_id');
+            $this->db->from('reg_selectedmarital regmar');
+            $this->db->join('marital_category mar','mar.maritalcategory_id=regmar.marital_category_id','inner');
+            $this->db->where($condition); 
+            $model_data['customeruser_multiple_marstatus_values'] = $this->db->get()->result_array();
+
+            $marstatus = array();
+            foreach ($model_data['customeruser_multiple_marstatus_values'] as $key => $value) {
+                array_push($marstatus, $value['maritalcategory_id']);
+            }
+
+            $marold = serialize($marstatus);
+            $marnew = serialize($this->input->post('cus_expectmarstatus'));
+
+            $eduold = serialize($edustatus);
+            $edunew = serialize($this->input->post('cus_expectedu'));
+
+            if(!empty($this->input->post('cus_expectmarstatus'))){
+              $mar_insert_batch = array();
+              foreach ($this->input->post('cus_expectmarstatus') as $value) {
+                $mar_result['reg_user_id'] = $id;
+                $mar_result['marital_category_id'] = $value;
+                array_push($mar_insert_batch, $mar_result);
+              }
+              if($marold != $marnew){
+                $this->db->where('reg_user_id', $id);
+                $this->db->delete('reg_selectedmarital'); 
+                $this->db->insert_batch('reg_selectedmarital',$mar_insert_batch);
+              }
+            }
+            
+            if(!empty($this->input->post('cus_expectedu'))){
+              $edu_insert_batch = array();
+              foreach ($this->input->post('cus_expectedu') as $value) {
+                $edu_result['reg_user_id'] = $id;
+                $edu_result['education_id'] = $value;
+                array_push($edu_insert_batch, $edu_result);
+              }
+              if($eduold != $edunew){
+                $this->db->where('reg_user_id', $id);
+                $this->db->delete('reg_selectededucation'); 
+                $this->db->insert_batch('reg_selectededucation',$edu_insert_batch);
+              }
+            } 
+
 	        // echo $this->db->last_query(); 
 	        $model_data['status'] = "Updated Successfully";
 	        $model_data['error'] = 2;
@@ -304,19 +395,20 @@ class Customeruser_data_model extends CI_Model {
 	   //    $model_data['error'] = 2;
 	   //  }
 
-	   //  // Delete data
-	   //  else if($status =='delete') {
-	   //    if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
-	   //      $zodiac_delete_where = '(zodiacsign_id="'.$this->input->post('rid').'")';
-	   //      $this->db->delete("zodiac_sign", $zodiac_delete_where); 
-	   //      $model_data['status'] = "Deleted Successfully";
-	   //      $model_data['error'] = 2; 
-	   //    }
-	   //    else {
-	   //      $model_data['error'] = 1;
-	   //      $model_data['status'] = "Something went wrong. Please try again with correct details ";
-	   //    }
-	   //  }
+	    // Delete data
+	    else if($status =='delete') {
+	      if(!empty($this->input->post('rid'))){
+	        $delete_where = '(userdetail_id="'.$this->input->post('rid').'")';
+	        $this->db->where($delete_where);
+            $this->db->delete('reg_userdetail'); 
+	        $model_data['status'] = "Deleted Successfully";
+	        $model_data['error'] = 2; 
+	      }
+	      else {
+	        $model_data['error'] = 1;
+	        $model_data['status'] = "Something went wrong. Please try again with correct details ";
+	      }
+	    }
 	    // Get data by id to send edit page
 	    else if($status =='edit') {
 	        if($_POST)
@@ -378,9 +470,20 @@ class Customeruser_data_model extends CI_Model {
       	$this->db->where($condition); 
       	$model_data['customeruser_multiple_marstatus_values'] = $this->db->get()->result_array();
 
+      	$condition = "horo.reg_user_id = ".$id."";
+      	$this->db->select('horo.r_1,horo.r_2,horo.r_3,horo.r_4,horo.r_5,horo.r_6,horo.r_7,horo.r_8,horo.r_9,horo.r_10');
+      	$this->db->from('reg_image_horoscope horo');
+      	$this->db->where($condition); 
+      	$model_data['raasi_values'] =  $this->db->get()->row_array();
+
+      	$condition = "horo.reg_user_id = ".$id."";
+      	$this->db->select('horo.a_1,horo.a_2,horo.a_3,horo.a_4,horo.a_5,horo.a_6,horo.a_7,horo.a_8,horo.a_9,horo.a_10');
+      	$this->db->from('reg_image_horoscope horo');
+      	$this->db->where($condition); 
+      	$model_data['amsam_values'] =  $this->db->get()->row_array();
 	   //  echo $this->db->last_query();
 	   //  echo "<pre>";
-  		// print_r($model_data['customeruser_values']);
+  		// print_r($model_data['raasi_values']);
   		// echo "</pre>";
   		return $model_data;
   }
@@ -814,25 +917,73 @@ class Customeruser_data_model extends CI_Model {
                 'phy_yourpersonality' => $this->input->post('cus_personality'),
                 'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
             );
-
-            $paymentinitial_data = array(
-				'reg_user_id' => $last_insert_id,
-				'payment_type' => $this->input->post('cus_paymenttype'),
-				'bill_number' => $this->input->post('cus_billnumber'),
-				'amount' => $this->input->post('cus_amount'),
-				'period_in_month' => $this->input->post('cus_period'),
-				'totalno_of_profile' => $this->input->post('cus_totprofile'),
-				'payment_status' => $this->input->post('cus_paymentactivestatus'),
-				'startdate' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
-				'enddate' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
-            );
-
 	        
 	        $this->db->insert("reg_religion_ethnicity", $religion_ethnicity_insert_data);
 	        $this->db->insert("reg_education_occupation", $education_occupation_insert_data);
 	        $this->db->insert("reg_communication_family", $communication_insert_data);
 	        $this->db->insert("reg_physical_expectation", $physicalattributes_insert_data);
-	        $this->db->insert("reg_payment", $paymentinitial_data);
+	        //Store initial payment details
+	        if(!empty($this->input->post('cus_paymentstartdate')) && !empty($this->input->post('cus_paymentenddate'))){
+	        	$paymentinitial_data = array(
+					'reg_user_id' => $last_insert_id,
+					'payment_type' => $this->input->post('cus_paymenttype'),
+					'bill_number' => $this->input->post('cus_billnumber'),
+					'amount' => $this->input->post('cus_amount'),
+					'period_in_month' => $this->input->post('cus_period'),
+					'totalno_of_profile' => $this->input->post('cus_totprofile'),
+					'payment_status' => $this->input->post('cus_paymentactivestatus'),
+					'startdate' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
+					'enddate' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
+            	);
+	        	$this->db->insert("reg_payment", $paymentinitial_data);
+	        }
+
+	        //Store search expecation details
+            if(!empty($this->input->post('cus_expectmarstatus'))){
+              $mar_insert_batch = array();
+              foreach ($this->input->post('cus_expectmarstatus') as $value) {
+                $mar_result['reg_user_id'] = $last_insert_id;
+                $mar_result['marital_category_id'] = $value;
+                array_push($mar_insert_batch, $mar_result);               
+              }
+              $this->db->insert_batch('reg_selectedmarital',$mar_insert_batch);
+            }
+            if(!empty($this->input->post('cus_expectedu'))){
+              $edu_insert_batch = array();
+              foreach ($this->input->post('cus_expectedu') as $value) {
+                $edu_result['reg_user_id'] = $last_insert_id;
+                $edu_result['education_id'] = $value;
+                array_push($edu_insert_batch, $edu_result);
+              }
+              $this->db->insert_batch('reg_selectededucation',$edu_insert_batch);
+            }   
+
+            //Store Raasi and Amsam
+            //Update Raasi and Amsam
+            $rasi  = $this->input->post('rasi');
+            $amsam  = $this->input->post('amsam');
+
+            if(!empty($rasi)) { 
+                $cleanData = json_decode($rasi);    
+                foreach ($cleanData as $key => $value) {
+                  $data_horo[$value->key]= $value->value;
+                }
+            } 
+            if(!empty($amsam)) { 
+                $cleanData = json_decode($amsam);    
+                foreach ($cleanData as $key => $value) {
+                  $data_horo[$value->key]= $value->value;
+                }
+            } 
+	        $data_horo['reg_user_id'] = $last_insert_id;
+	        $this->db->insert("reg_image_horoscope", $data_horo);
+
+	        //Store images
+	        if(!empty($profile_image)){
+                foreach ($profile_image as $value)
+                  $this->db->insert('user_images',array('reg_user_id' => $last_insert_id,'images' =>$value));
+            }
+
 	        // echo $this->db->last_query(); 
 	        $model_data['status'] = "Inserted Successfully";
 	        $model_data['error'] = 2;

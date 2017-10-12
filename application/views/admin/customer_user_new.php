@@ -195,7 +195,14 @@
 									</div>
 								</div> -->
 								<div id="table_wrapper_Datatable" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;position:relative;margin-right:5px;padding-bottom: 15px;display:block;" class="ajaxdata">
-<?php } ?>								
+<?php } ?>							
+									<?php
+									  // print_r($zodiac_data);
+						              if(!empty($status)) :
+						                echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
+						              endif;
+						            ?> 
+						            <p class='val_error'> </p>	
 									<?php if(!empty($customeruser_values)) : ?>
 										<table class="table table-striped table-bordered bootstrap-datatable" id="cd-grid">
 										  <thead>
@@ -285,7 +292,7 @@
 															<i class="icon-edit icon-white" title="Edit"></i>  
 														</a>
 														<a class="btn btn-danger btn-setting" href="#">
-															<i class="icon-trash icon-white" title="Delete"></i> 
+															<i class="icon-trash icon-white delete_record" title="Delete" data-id="<?php echo $cus_val['userdetail_id']; ?>"></i> 
 														</a>
 													</div>
 												</td>
@@ -338,7 +345,7 @@
 			</div>
 			<div class="modal-footer">
 				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-				<a href="#" class="btn btn-danger">Delete</a>
+				<a href="#" data-id="" class="btn btn-danger delete_act">Delete</a>
 			</div>
 		</div>
 	<!-- Placed at the end of the document so the pages load faster -->

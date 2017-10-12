@@ -15,7 +15,7 @@
 			</ul>
 		</div>
 		<!-- Table -->
-		<form method="POST" action="add_customer_user" id="online_form" class="add_customer_user" enctype="multipart/form-data">
+		<form method="POST" action="add_customer_user" id="online_form" class="add_customer_user success_result" enctype="multipart/form-data">
 <?php } ?>	
 			<?php
 			  // print_r($zodiac_data);
@@ -51,7 +51,7 @@
 										<div class="form-horizontal form_reset">
 											<fieldset>
 											  <div class="control-group">
-												<label class="control-label">User Type : </label>
+												<label class="control-label">User Type * : </label>
 												<div class="controls">
 												  <select data-rel="chosen" name="cus_usertype" id="usertype_act">
 												  <option value="">Select User Type</option>
@@ -70,13 +70,13 @@
 											  <div class="control-group online_user_field">
 												<label class="control-label" for="focusedInput">Password * : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="Password" value="" name="cus_password">
+												  <input class="input-xlarge focused" id="new_pass" type="Password" value="" name="cus_password">
 												</div>
 											  </div>
 											  <div class="control-group online_user_field">
 												<label class="control-label" for="focusedInput">Confirm Password * : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="Password" value="" name="cus_confpassword">
+												  <input class="input-xlarge focused" id="confirm_pass" type="Password" value="" name="cus_confpassword">
 												</div>
 											  </div>
 											  <div class="control-group">
@@ -708,18 +708,18 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Age * : </label>
 												<div class="controls">
-												  <select data-rel="chosen" value="From" class="dropdrop">
+												  <select data-rel="chosen" value="From" class="dropdrop" name="cus_startage">
 													<!-- <option>20</option>
 													<option>23</option> -->
 													<?php 
-                                                            for($i=18;$i<=60;$i++){ ?>
-                                                            <option <?php if($i==18){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                            <?php
-                                                            } ?>
+	                                                    for($i=18;$i<=60;$i++){ ?>
+	                                                    <option <?php if($i==18){?> selected="selected" <?php } ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+	                                                    <?php
+	                                                    } ?>
 												  </select>
 												</div>
 												<div class="controls">
-												  <select data-rel="chosen" class="dropdrop">
+												  <select data-rel="chosen" class="dropdrop" name="cus_endage">
 													<!-- <option>25</option>
 													<option>26</option> -->
 													<?php 
@@ -735,24 +735,18 @@
 											  <div class="control-group">
 												<label class="control-label">Marital Status * :</label>
 												<div class="controls">
-												  <label class="checkbox inline">
-													<input class="checks" type="checkbox" id="inlineCheckbox1" value="option1"> Single
+												<?php 
+									              foreach ($selection_values['maritalstatus_values'] as $mar_val): ?>     
+ 												  <label class="checkbox inline">
+													<input class="checks" type="checkbox" name="cus_expectmarstatus[]" id="inlineCheckbox1" value="<?php echo $mar_val['maritalcategory_id']; ?>"> <?php echo $mar_val['marital_name']; ?>
 												  </label>
-												  <label class="checkbox inline">
-													<input class="checks" type="checkbox" id="inlineCheckbox2" value="option2"> Widowed
-												  </label>
-												  <label class="checkbox inline">
-													<input class="checks" type="checkbox" id="inlineCheckbox3" value="option3"> Divorced
-												  </label>
-												  <label class="checkbox inline">
-													<input class="checks" type="checkbox" id="inlineCheckbox3" value="option3"> Annualled
-												  </label>
+												  <?php endforeach; ?>
 												</div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="selectError1">Education * :</label>
 												<div class="controls">
-												  <select id="selectError1" multiple data-rel="chosen" class="dropdrop">
+												  <select id="selectError1" multiple data-rel="chosen" class="dropdrop" name="cus_expectedu[]">
 													<option value="">Select Education</option>
                                                     <?php 
                                                         foreach ($selection_values['education_values'] as $key => $edu_val):    

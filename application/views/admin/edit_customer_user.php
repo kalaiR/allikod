@@ -15,7 +15,7 @@
 				</ul>
 			</div>
 			<!-- Table -->
-			<form method="POST" action="edit_customer_user/<?php if(!empty($customeruser_values['userdetail_id'])) echo $customeruser_values['userdetail_id']; ?>" class="customer_edit_form" name="customer_edit_form" enctype="multipart/form-data" data-id="<?php echo $this->uri->segment(3); ?>">
+			<form method="POST" action="edit_customer_user/<?php if(!empty($customeruser_values['userdetail_id'])) echo $customeruser_values['userdetail_id']; ?>" class="customer_edit_form success_result" name="customer_edit_form" enctype="multipart/form-data" data-id="<?php echo $this->uri->segment(3); ?>">
 <?php } ?>	
 					<?php
 					  // print_r($zodiac_data);
@@ -824,101 +824,104 @@
 													</div>
 												</div>
 											</div>
-											<!-- <div class="row-fluid sortable">
-											<div class="box span8">
-												<div class="box-header well">
-													<h2></i> Search (Expectation/Looking for</h2>	  			
-												</div>
-												<div class="box-content">
-													<div class="form-horizontal">
-														<fieldset>											  
-														  <div class="control-group">
-															<label class="control-label" for="focusedInput">Age : </label>
-															<div class="controls">
-															  <select data-rel="chosen" value="From" class="span3">
-																<option>20</option>
-																<option>23</option>
-															  </select>
-															</div>
-															<div class="controls">
-															  <select data-rel="chosen" class="span3">
-																<option>25</option>
-																<option>26</option>
-															  </select>
-															</div>												
-														  </div>
-														  <div class="control-group">
-															<label class="control-label">Marital Status :</label>
-															<div class="controls">
-															  <label class="checkbox inline">
-																<input type="checkbox" id="inlineCheckbox1" value="option1"> Single
-															  </label>
-															  <label class="checkbox inline">
-																<input type="checkbox" id="inlineCheckbox2" value="option2"> Widowed
-															  </label>
-															  <label class="checkbox inline">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> Divorced
-															  </label>
-															  <label class="checkbox inline">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> Annualled
-															  </label>
-															</div>
-														  </div>
-														  <div class="control-group">
-															<label class="control-label" for="selectError1">Education</label>
-															<div class="controls">
-															  <select id="selectError1" multiple data-rel="chosen">
-																<option>BE/BTech</option>
-																<option selected>MBBS</option>
-																<option>BCom</option>
-																<option>BCA</option>
-																<option>BSc</option>
-															  </select>
-															</div>
-														  </div>
-														  <div class="control-group">
-															<label class="control-label">Food :</label>
-															<div class="controls">
-															  <label class="radio">
-																<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-																Vegetarian
-															  </label>
-															  <div style="clear:both"></div>
-															  <label class="radio">
-																<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-																Non-Vegetarian
-															  </label>
-															  <div style="clear:both"></div>
-															  <label class="radio">
-																<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-																Eggetarian
-															  </label>
-															</div>
-														  </div>  					  							  
-														</fieldset>
-													  </div>
-													</div>
-												</div>
-											</div> -->
 											<div class="row-fluid sortable">
-											<div class="box span8">
-												<div class="box-header well">
-													<h2><!-- <i class="icon-th"> --> Expectation About Life Partner</h2>	  			
+								<div class="box span8">
+									<div class="box-header well">
+										<h2><!-- <i class="icon-th"> --> Search (Expectation/Looking for)</h2>	  			
+									</div>
+									<div class="box-content">
+										<div class="form-horizontal form_reset">
+											<fieldset>											  
+											  <div class="control-group">
+												<label class="control-label" for="focusedInput">Age * : </label>
+												<div class="controls">
+												  <select data-rel="chosen" value="From" class="dropdrop" name="cus_startage">
+													<!-- <option>20</option>
+													<option>23</option> -->
+													<option value="">From age</option>
+	                                                <?php for( $i=18; $i<=60; $i++ ):
+                                                        if($i == $customeruser_values['phy_searchage_from'])
+                                                            echo "<option value =".$i." selected>".$i."</option>";
+                                                        else
+                                                            echo "<option value =".$i.">".$i."</option>";
+                                                        endfor; ?>
+												  </select>
 												</div>
-												<div class="box-content">
-													<div class="form-horizontal">
-														<fieldset>											  
-														  <div class="control-group">
-															<label class="control-label" for="focusedInput">Expectation  : </label>
-															<div class="controls">
-															  <textarea class="input-xlarge focused" id="focusedInput" type="text" name="cus_expect"><?php if(!empty($customeruser_values['phy_expectationabout_lifepartner'])) echo $customeruser_values['phy_expectationabout_lifepartner']; ?></textarea>
-															</div>												
-														  </div>  					  							  
-														</fieldset>
-													  </div>
-													</div>
+												<div class="controls">
+												  <select data-rel="chosen" class="dropdrop" name="cus_endage">
+													<!-- <option>25</option>
+													<option>26</option> -->
+													<option value="">To age</option>
+													<?php for( $i=18; $i<=60; $i++ ):
+                                                        if($i == $customeruser_values['phy_searchage_to'])
+                                                            echo "<option value =".$i." selected>".$i."</option>";
+                                                        else
+                                                            echo "<option value =".$i.">".$i."</option>";
+                                                        endfor; ?>
+												  </select>
+												</div>												
+											  </div>
+											  <div class="control-group">
+												<label class="control-label">Marital Status * :</label>
+												<div class="controls">
+												<?php 
+                                                    $marstatus = array();
+                                                    foreach ($customeruser_multiple_marstatus_values as $key => $value) {
+                                                        array_push($marstatus, $value['maritalcategory_id']);
+                                                    }
+                                                    foreach ($selection_values['maritalstatus_values'] as $mar_val): 
+                                                    ?>     
+ 												  <label class="checkbox inline">
+													<input class="checks" type="checkbox" name="cus_expectmarstatus[]" id="inlineCheckbox1" value="<?php echo $mar_val['maritalcategory_id']; ?>" <?php $key = array_search($mar_val['maritalcategory_id'],$customeruser_multiple_marstatus_values); echo $key; if(in_array($mar_val['maritalcategory_id'],$marstatus)) echo "checked"; ?>> <?php echo $mar_val['marital_name']; ?>
+												  </label>
+												  <?php endforeach; ?>
 												</div>
-											</div>
+											  </div>
+											  <div class="control-group">
+												<label class="control-label" for="selectError1">Education * :</label>
+												<?php 
+                                                    $education = array();
+                                                    foreach ($customeruser_multiple_edu_values as $key => $value) {
+                                                        array_push($education, $value['education_id']);
+                                                    } 
+                                                ?> 
+												<div class="controls">
+												  <select id="selectError1" multiple data-rel="chosen" class="dropdrop" name="cus_expectedu[]">
+													<option value="">Select Education</option>
+                                                    <?php 
+                                                        foreach ($selection_values['education_values'] as $key => $edu_val):    
+                                                            echo "<optgroup class='a' label='".$key."'>"; 
+                                                            foreach ($edu_val as $e_id => $edu): 
+                                                                if(in_array($e_id,$education))
+                                                                    echo "<option selected value='".$e_id."'>".$edu."</option>";
+                                                                else
+                                                                    echo "<option value='".$e_id."'>".$edu."</option>";
+                                                            endforeach;
+                                                            echo "</optgroup>";
+                                                        endforeach; ?>
+												  </select>
+												</div>
+											  </div>
+											  <div class="control-group">
+												<label class="control-label">Food * :</label>
+												<div class="controls">
+												  <select data-rel="chosen" class="dropdrop" name="cus_expectfood">
+												  	<option value="">Select Food</option>
+												  	<?php 
+									                    foreach ($selection_values['food_values'] as $con_val):      
+									                        if($con_val['food_id'] == $customeruser_values['phy_expectationfood'])  
+									                        	echo "<option selected value='".$con_val['food_id']."'>".$con_val['name']."</option>";
+									                        else
+									                            echo "<option value='".$con_val['food_id']."'>".$con_val['name']."</option>";                       
+									                    endforeach; ?>
+												  </select>
+												</div>
+											  </div>  					  							  
+											</fieldset>
+										  </div>
+										</div>
+									</div>
+								</div>
 											<div class="row-fluid sortable">
 											<div class="box span8">
 												<div class="box-header well">
@@ -1150,3 +1153,43 @@
 	    include('templates/footer.php');
 	?>
 <?php } ?>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+		   var arr = <?php echo json_encode($raasi_values); ?>     
+		   $('.horo_row #box_6, #box_7, #box_10, #box_11').attr('readonly', 'readonly');   
+		   $.each(arr, function( i, val ) {    
+		     $('.third-row').each(function(){
+		        var id=$(this).data('id');
+		        var res = id.split("_");          
+		        if(res[1]==val){
+		            img='<?php echo media_url(); ?>'+'assets/admin/img/rasi/'+i+'.png';             
+		            $("#"+id).append("<img src="+img+" data-id='"+i+"'/>");
+		            //newly added for edit
+		            rasi_value = $("#rasi_name option[value='"+i+"']");
+		            rasi_value.remove();
+		            $("#crasi_name").append("<option value='"+i+"' data-id='"+id+"'>"+rasi_value.text()+"</option>");
+		        }
+		      });  
+		   }); 
+		   $("#crasi_name option:first").attr('selected','selected');
+
+		   var asham_arr = <?php echo json_encode($amsam_values); ?>    
+		   $('.asham_horo_row #abox_6, #abox_7, #abox_10, #abox_11').attr('readonly', 'readonly');
+		   $.each(asham_arr, function( i, val ) {    
+		     $('.asham-row').each(function(){
+		        var id=$(this).data('id');
+		        var res = id.split("_");          
+		        if(res[1]==val){
+		            img='<?php echo media_url(); ?>'+'assets/admin/img/rasi/'+i+'.png';             
+		            $("#"+id).append("<img src="+img+" data-id='"+i+"'/>");
+		            //newly added for edit
+		            amsam_value = $("#asham_name option[value='"+i+"']");
+		            amsam_value.remove();
+		            $("#casham_name").append("<option value='"+i+"' data-id='"+id+"'>"+amsam_value.text()+"</option>");
+		        }
+		      });  
+		   }); 
+
+		});    
+	</script>

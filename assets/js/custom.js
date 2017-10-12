@@ -411,37 +411,39 @@ $(document).ready(function() {
 
 	// Remove the Rasi from Registration Page
 	$('#rasi_cont').on('click', '#remove_rasi', function() {
-		var crasi_name = $('#crasi_name :selected').data('id');
-		var crasi_val = $('#crasi_name :selected').val();
-		// alert(crasi_val);
+		if ($('#crasi_name option').length > 0) {
+			var crasi_name = $('#crasi_name :selected').data('id');
+			var crasi_val = $('#crasi_name :selected').val();
+			// alert(crasi_val);
 
-		var cres = crasi_name.split("_");
-		var removeid;
-		//var data={};
-		// alert(JSON.stringify(results_array));
-		//results_array.forEach(function(e){
-		$('.third-row').each(function() {
-			var id = $(this).data('id');
-			var res = id.split("_");
-			if (cres[1] == res[1]) {
-				// alert($("#"+id).find('[data-id=r_' + res[1] + ']').attr('src'));
-				$("#" + id).find('[data-id=' + crasi_val + ']').remove();
-				removeid = crasi_val;
-				// data.key = crasi_name;
-				// data.value = res[1];
-				// data.text = srasi_text;
-				// data.boxid = id;
-			}
-		});
-		// alert('remove'+removeid)
-		remove(results_array, "key", removeid);
-		//newly added by kalai start
-		$('#rasi_name').append($('#crasi_name').find('option:selected').clone());
-		//end
-		$('#crasi_name').find('option:selected').remove();
-		//});
-		// alert(JSON.stringify(results_array));
-		// results_array.push(data);
+			var cres = crasi_name.split("_");
+			var removeid;
+			//var data={};
+			// alert(JSON.stringify(results_array));
+			//results_array.forEach(function(e){
+			$('.third-row').each(function() {
+				var id = $(this).data('id');
+				var res = id.split("_");
+				if (cres[1] == res[1]) {
+					// alert($("#"+id).find('[data-id=r_' + res[1] + ']').attr('src'));
+					$("#" + id).find('[data-id=' + crasi_val + ']').remove();
+					removeid = crasi_val;
+					// data.key = crasi_name;
+					// data.value = res[1];
+					// data.text = srasi_text;
+					// data.boxid = id;
+				}
+			});
+			// alert('remove'+removeid)
+			remove(results_array, "key", removeid);
+			//newly added by kalai start
+			$('#rasi_name').append($('#crasi_name').find('option:selected').clone());
+			//end
+			$('#crasi_name').find('option:selected').remove();
+			//});
+			// alert(JSON.stringify(results_array));
+			// results_array.push(data);
+		}
 	});
 	// Rasi Horoscope - End //
 
@@ -477,36 +479,38 @@ $(document).ready(function() {
 
 	// Remove the ASHAM from Registration Page
 	$('#asham_cont').on('click', '#remove_asham', function() {
-		var crasi_name = $('#casham_name :selected').data('id');
-		var crasi_val = $('#casham_name :selected').val();
+		if ($('#casham_name option').length > 0) {
+			var crasi_name = $('#casham_name :selected').data('id');
+			var crasi_val = $('#casham_name :selected').val();
 
-		var cres = crasi_name.split("_");
-		var removeid;
-		//var data={};
-		// alert(JSON.stringify(results_array));
-		//results_array.forEach(function(e){
-		$('.asham-row').each(function() {
-			var id = $(this).data('id');
-			var res = id.split("_");
-			if (cres[1] == res[1]) {
-				// alert($("#"+id).find('[data-id=r_' + res[1] + ']').attr('src'));
-				$("#" + id).find('[data-id=' + crasi_val + ']').remove();
-				removeid = crasi_val;
-				// data.key = crasi_name;
-				// data.value = res[1];
-				// data.text = srasi_text;
-				// data.boxid = id;
-			}
-		});
-		// alert('remove'+removeid)
-		remove(results_array_asham, "key", removeid);
-		//newly added by kalai start
-		$('#asham_name').append($('#casham_name').find('option:selected').clone());
-		//end
-		$('#casham_name').find('option:selected').remove();
-		//});
-		// alert(JSON.stringify(results_array));
-		// results_array.push(data);
+			var cres = crasi_name.split("_");
+			var removeid;
+			//var data={};
+			// alert(JSON.stringify(results_array));
+			//results_array.forEach(function(e){
+			$('.asham-row').each(function() {
+				var id = $(this).data('id');
+				var res = id.split("_");
+				if (cres[1] == res[1]) {
+					// alert($("#"+id).find('[data-id=r_' + res[1] + ']').attr('src'));
+					$("#" + id).find('[data-id=' + crasi_val + ']').remove();
+					removeid = crasi_val;
+					// data.key = crasi_name;
+					// data.value = res[1];
+					// data.text = srasi_text;
+					// data.boxid = id;
+				}
+			});
+			// alert('remove'+removeid)
+			remove(results_array_asham, "key", removeid);
+			//newly added by kalai start
+			$('#asham_name').append($('#casham_name').find('option:selected').clone());
+			//end
+			$('#casham_name').find('option:selected').remove();
+			//});
+			// alert(JSON.stringify(results_array));
+			// results_array.push(data);
+		}
 	});
 
 	// ASHAM Horoscope - End //

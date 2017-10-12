@@ -60,6 +60,11 @@ class Customeruser_Data extends CI_Controller {
 	   			array('field'   => 'cus_motheremp','label'   => 'Customer Mothers Employment','rules'   => 'trim|xss_clean|required' ),
 	   			array('field'   => 'cus_familystatus','label'   => 'Family Status','rules'   => 'trim|xss_clean|required' ),
 	   			array('field'   => 'cus_familytype','label'   => 'Family Type','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_startage','label'   => 'Expectation Start age','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_endage','label'   => 'Expectation End age','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_expectmarstatus[]','label'   => 'Expectation Marital Status','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_expectedu[]','label'   => 'Expectation Education','rules'   => 'trim|xss_clean|required' ),
+	   			array('field'   => 'cus_expectfood','label'   => 'Expectation Food','rules'   => 'trim|xss_clean|required' ),
 	   			);
 	   			// if($this->input->post('cus_usertype')=="online"){
 		   		// 	array_push($validation_rules,	   			
@@ -190,6 +195,11 @@ class Customeruser_Data extends CI_Controller {
 			   			array('field'   => 'cus_motheremp','label'   => 'Customer Mothers Employment','rules'   => 'trim|xss_clean|required' ),
 			   			array('field'   => 'cus_familystatus','label'   => 'Family Status','rules'   => 'trim|xss_clean|required' ),
 			   			array('field'   => 'cus_familytype','label'   => 'Family Type','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_startage','label'   => 'Expectation Start age','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_endage','label'   => 'Expectation End age','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_expectmarstatus[]','label'   => 'Expectation Marital Status','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_expectedu[]','label'   => 'Expectation Education','rules'   => 'trim|xss_clean|required' ),
+			   			array('field'   => 'cus_expectfood','label'   => 'Expectation Food','rules'   => 'trim|xss_clean|required' ),
 			   			);
 			    }
 
@@ -305,6 +315,12 @@ class Customeruser_Data extends CI_Controller {
 				$data_res = $this->customeruser_data_model->customer_user_profile($id);
 				// print_r($data_res);
 				$data_ajax['customeruser_values'] = $data_res['customeruser_values'];
+				$data_ajax['raasi_values'] = $data_res['raasi_values'];
+				$data_ajax['amsam_values'] = $data_res['amsam_values'];
+				//store the multiple values of marital status
+				$data_ajax['customeruser_multiple_marstatus_values'] = $data_res['customeruser_multiple_marstatus_values'];
+				//store the multiple values of education
+				$data_ajax['customeruser_multiple_edu_values'] = $data_res['customeruser_multiple_edu_values'];
 				$data_ajax['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
 
 				//Sending mail and sms once profile activated with payment status
@@ -379,6 +395,12 @@ class Customeruser_Data extends CI_Controller {
 			if(is_numeric($id)){
 				$data_values = $this->customeruser_data_model->customer_user_profile($id);
 				$data['customeruser_values'] = $data_values['customeruser_values'];
+				$data['raasi_values'] = $data_values['raasi_values'];
+				$data['amsam_values'] = $data_values['amsam_values'];
+				//store the multiple values of marital status
+				$data['customeruser_multiple_marstatus_values'] = $data_values['customeruser_multiple_marstatus_values'];
+				//store the multiple values of education
+				$data['customeruser_multiple_edu_values'] = $data_values['customeruser_multiple_edu_values'];
 				// echo "<pre>";
 				// print_r($data['customeruser_values']);
 				// echo "</pre>";
@@ -389,6 +411,14 @@ class Customeruser_Data extends CI_Controller {
 				$data['customerid_status'] = FALSE;		
 			$this->load->view('admin/edit_customer_user',$data);
 		}		
+	}
+	public function delete_customer_user(){
+		$profile_image = array();
+		$data_values = $this->customeruser_data_model->customer_user('delete',$profile_image);
+		$data['customeruser_values'] = $data_values['customeruser_values'];
+		$result['status'] = $data_values['status'];
+		$result['error'] = $data_values['error'];
+		echo json_encode($result);
 	}
 	public function view_customer_user(){
 		$id = $this->uri->segment(3);

@@ -1,3 +1,15 @@
+// Remove the Result array Values for Horoscope //
+function remove(array, property, value) {
+  var i,
+      j,
+      cur;
+  for ( i = array.length - 1; i >= 0; i--) {
+    cur = array[i];
+    if (cur[property] === value) {
+      array.splice(i, 1);
+    }
+  }
+}
 
 $(document).ready(function() {
   // Show and Hide Search Div
@@ -259,25 +271,11 @@ $('.reset').click(function() {
         var error = '';
         var error_msg = $(this).find('.val_error');
         var message = '';
-        /* Validate Input and Select element */
-        // $(this).find('.form_inputs').each(function() {
-        //     var this_val = $.trim($(this).val()); 
-        //     // alert(this_val);           
-        //     if(this_val == '') {
-        //         // alert($(this).attr('name'));
-        //         error = 1;
-        //         message ="Please fill all mandatory fields";
-        //         $(this).addClass('form-field-error');
-        //     }
-        //      else {            
-        //         $(this).removeClass('form-field-error');
-        //     }
-        // });
         // Validate Password comparison
         if(error == '' ) {
               if($("#new_pass").val() != $("#confirm_pass").val()) {
                   error = 1;
-                  message = "Confirm password did not match with new password";
+                  message = "<i class='icon-remove-sign'></i> Confirm password did not match with new password";
                   $("#confirm_pass").addClass("form-field-error");
               }
               else {
@@ -285,24 +283,16 @@ $('.reset').click(function() {
               } 
         }
         // Elder younger validation
-         // var noofBro = document.getElementById("prependedInput1").value;
- 		// var noofMarBro = document.getElementById("prependedInput5").value;
- 		// var noofSister = document.getElementById("prependedInput3").value;
- 		// var noofMarSister = document.getElementById("prependedInput7").value;
- 		 // var noofyBro = document.getElementById("prependedInput2").value;
- 		// var noofyMarBro = document.getElementById("prependedInput6").value;
- 		// var noofySister = document.getElementById("prependedInput4").value;
- 		// var noofyMarSister = document.getElementById("prependedInput8").value;
- 			var noofBro =$('#prependedInput1').val();
-        	var noofMarBro =$('#prependedInput5').val();
-        	var noofSister =$('#prependedInput3').val();
-        	var noofMarSister =$('#prependedInput7').val();
-        	var noofyBro =$('#prependedInput2').val();
-        	var noofyMarBro =$('#prependedInput6').val();
-        	var noofySister =$('#prependedInput4').val();
-        	var noofyMarSister =$('#prependedInput8').val();
- 		// var firstNumber = $('.first').val();
- 		// var secondNumber = $('.second').val();
+ 			  var noofBro =$('#prependedInput1').val();
+      	var noofMarBro =$('#prependedInput5').val();
+      	var noofSister =$('#prependedInput3').val();
+      	var noofMarSister =$('#prependedInput7').val();
+      	var noofyBro =$('#prependedInput2').val();
+      	var noofyMarBro =$('#prependedInput6').val();
+      	var noofySister =$('#prependedInput4').val();
+      	var noofyMarSister =$('#prependedInput8').val();
+     		// var firstNumber = $('.first').val();
+     		// var secondNumber = $('.second').val();
         if(error == '' ) {
              if(!((noofBro >= noofMarBro) && (noofSister >= noofMarSister) && (noofyBro >= noofyMarBro) && (noofySister >= noofyMarSister))){
                   error = 1;
@@ -411,7 +401,7 @@ $('.reset').click(function() {
                       // alert("no error");
                       // alert(res.output);
                       // $('.val_error').html("<i class='icon-ok-sign'></i>  "+res.status);
-                      $('.customer_edit_form').html(res.output);
+                      $('.success_result').html(res.output);
                       $('html, body').animate({scrollTop:0},500);
                       // $('.val_error').fadeIn(500);
                       // $('.val_error').fadeOut(5000);
@@ -573,5 +563,163 @@ $('.mob_num').keyup( function(e){
         $('.feet_act option[data-heightcms*="' + height_cms + '"]').attr("selected","selected");       
     });  
 
+    // Rasi Horoscope - Start //
+    var results_array = [];
+    // Add the Rasi
+    $('#rasi_cont').on('click', '#add_rasi', function() {
+      if ($('#rasi_name option').length > 0) {
+        var srasi_val = $('#rasi_name :selected').val();
+        var srasi_text = $('#rasi_name :selected').text();
+        var sres = $('#box_id :selected').val();
+        var data = {};
+        $('.third-row').each(function() {
+          var id = $(this).data('id');
+          var res = id.split("_");
+          if (res[1] == sres) {
+            img = media_url + 'assets/admin/img/rasi/' + srasi_val + '.png';
+            $("#" + id).append("<img src=" + img + " data-id=" + srasi_val + " />");
+            data.key = srasi_val;
+            data.value = res[1];
+            data.text = srasi_text;
+            data.boxid = id;
+          }
+        });
+        results_array.push(data);
+        $("#rasi_name option[value='" + srasi_val + "']").remove();
+        $("#crasi_name").append('<option value="' + data.key + '" data-id="' + data.boxid + '">' + data.text + '</option>');
+        // alert(JSON.stringify(results_array));
+      }
+    });
+
+    // Remove the Rasi
+    $('#rasi_cont').on('click', '#remove_rasi', function() {
+      if ($('#crasi_name option').length > 0) {
+        var crasi_name = $('#crasi_name :selected').data('id');
+        var crasi_val = $('#crasi_name :selected').val();
+        // alert(crasi_val);
+
+        var cres = crasi_name.split("_");
+        var removeid;
+        //var data={};
+        // alert(JSON.stringify(results_array));
+        //results_array.forEach(function(e){
+        $('.third-row').each(function() {
+          var id = $(this).data('id');
+          var res = id.split("_");
+          if (cres[1] == res[1]) {
+            // alert($("#"+id).find('[data-id=r_' + res[1] + ']').attr('src'));
+            $("#" + id).find('[data-id=' + crasi_val + ']').remove();
+            removeid = crasi_val;
+            // data.key = crasi_name;
+            // data.value = res[1];
+            // data.text = srasi_text;
+            // data.boxid = id;
+          }
+        });
+        // alert('remove'+removeid)
+        remove(results_array, "key", removeid);
+        //newly added by kalai start
+        $('#rasi_name').append($('#crasi_name').find('option:selected').clone());
+        //end
+        $('#crasi_name').find('option:selected').remove();
+        //});
+        // alert(JSON.stringify(results_array));
+        // results_array.push(data);
+      }
+    });
+    // Rasi Horoscope - End //
+
+    // ASHAM Horoscope - Start //
+    var results_array_asham = [];
+    // Add the ASHAM
+    $('#asham_cont').on('click', '#add_asham', function() {
+      if ($('#asham_name option').length > 0) {
+        var srasi_val = $('#asham_name :selected').val();
+        var srasi_text = $('#asham_name :selected').text();
+        var sres = $('#ashambox_id :selected').val();
+        var data = {};
+        $('.asham-row').each(function() {
+          var id = $(this).data('id');
+          var res = id.split("_");
+          if (res[1] == sres) {
+            img = media_url + 'assets/admin/img/rasi/' + srasi_val + '.png';
+            $("#" + id).append("<img src=" + img + " data-id=" + srasi_val + " />");
+            data.key = srasi_val;
+            data.value = res[1];
+            data.text = srasi_text;
+            data.boxid = id;
+          }
+        });
+        results_array_asham.push(data);
+        $("#asham_name option[value='" + srasi_val + "']").remove();
+        $("#casham_name").append('<option value="' + data.key + '" data-id="' + data.boxid + '">' + data.text + '</option>');
+        // alert(JSON.stringify(results_array));
+      }
+    });
+
+    // Remove the ASHAM
+    $('#asham_cont').on('click', '#remove_asham', function() {
+      if ($('#casham_name option').length > 0) {
+        var crasi_name = $('#casham_name :selected').data('id');
+        var crasi_val = $('#casham_name :selected').val();
+
+        var cres = crasi_name.split("_");
+        var removeid;
+        //var data={};
+        // alert(JSON.stringify(results_array));
+        //results_array.forEach(function(e){
+        $('.asham-row').each(function() {
+          var id = $(this).data('id');
+          var res = id.split("_");
+          if (cres[1] == res[1]) {
+            // alert($("#"+id).find('[data-id=r_' + res[1] + ']').attr('src'));
+            $("#" + id).find('[data-id=' + crasi_val + ']').remove();
+            removeid = crasi_val;
+            // data.key = crasi_name;
+            // data.value = res[1];
+            // data.text = srasi_text;
+            // data.boxid = id;
+          }
+        });
+        // alert('remove'+removeid)
+        remove(results_array_asham, "key", removeid);
+        //newly added by kalai start
+        $('#asham_name').append($('#casham_name').find('option:selected').clone());
+        //end
+        $('#casham_name').find('option:selected').remove();
+        //});
+        // alert(JSON.stringify(results_array));
+        // results_array.push(data);
+      }
+    });
+    
+    $(document).on('click','.delete_record',function(e){
+      $('.delete_act').attr("data-id",$(this).data("id"));
+    });
+    $(document).on('click','.delete_act',function(e){
+      // e.preventDefault();
+      var id =$(this).data('id');
+      $.ajax({
+          type : "POST",
+          url : admin_baseurl+"delete_customer_user",
+          data : "rid="+id+'&'+csrf_name+'='+csfrData[csrf_name] ,
+          dataType : 'json',
+          success: function(res) {
+            $('#myModal1,.modal,.modal-backdrop,.fade').hide();
+            if(res.error==1) {
+                $('.val_error').html("<i class='icon-remove-sign'></i>  "+res.status);
+                $('html, body').animate({scrollTop:0},500);
+                $('.val_error').fadeIn(500);
+                $('.val_error').fadeOut(5000);
+            }
+              else if(res.error==2) {
+                alert("Vallikodi ID "+id+" has been deleted");
+                location.reload();
+            }
+          }
+      });
+    });
+
 });
 
+  

@@ -137,7 +137,7 @@ $route['admin/customer_user_new/(:any)'] 							= "admin/customeruser_data/custo
 //Codeigniter Ajax pagination
 $route['admin/cipagination'] 							= "admin/cipagination/example";
 $route['admin/cipagination/(:any)'] 							= "admin/cipagination/example/$1";
-
+$route['admin/delete_customer_user'] 							= "admin/customeruser_data/delete_customer_user";
 
 
 // $route['main'] = 'admin/admin_login/teac_admin_login';

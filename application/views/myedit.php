@@ -1171,7 +1171,7 @@
                                                             } 
                                                         ?>                  
                                                         <div class="controls">
-                                                            <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4" name="cus_expectedu[]">
+                                                            <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4" name="cus_expectedu">
                                                                 <option value="">Select Education</option>
                                                                 <?php 
                                                                     foreach ($selection_values['education_values'] as $key => $edu_val):    
