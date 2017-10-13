@@ -477,7 +477,7 @@ $('.reset').click(function() {
       // alert(paymenttype);
     });
 
-  $(".income-box").keyup(function (e) {
+   $(".income-box").keyup(function (e) {
     var inc =$(".income-box");
     var key = String.fromCharCode( e.charCode || e.which);
     var income =parseInt($(this).val());
@@ -487,10 +487,6 @@ $('.reset').click(function() {
              $(this).val($(this).val().substr(0, 0));
                
             }
-    if(come == '0' && key == '0'){
-          $(this).val($(this).val().substr(0, 0));
-                    return false;
-          }
      if($(this).val().length >= 8) {
         $(this).val($(this).val().slice(0, 8));
         return false;
@@ -504,7 +500,7 @@ $('.reset').click(function() {
             image_array.push(image_id);
     });
        
-    $(".bro_sis,.mob_num,.valli_id,.man_id,.age_reg,.only_num").keypress(function (e) {
+    $(".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_reg,.only_num").keypress(function (e) {
     // var income =$(this).val();
     // var income =parseInt($(this).val());
     // var s = e.which;
@@ -517,16 +513,7 @@ $('.reset').click(function() {
        // }
        // alert(income)   
 });
-$(".income-box").keypress(function (e) {
-		    var inc =$(".income-box");
-		    var key = String.fromCharCode( e.charCode || e.which);
-		    var come = (inc.get(0).selectionStart - 0);
-		    if(come == '0' && key == '0'){
-		                    return false;
-		       }
-		        $(this).val($(this).val().slice(0, 7));
-		       	    
-		});
+
 $(".ph_num").keyup(function (e) {
 		    $(this).val($(this).val().replace(/[^\d , -]+/, ""));
 		});

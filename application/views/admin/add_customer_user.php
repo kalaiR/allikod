@@ -115,7 +115,7 @@
 											  	<div class="control-group">
 												  <label class="control-label" for="date_birth">Date of Birth * :</label>
 												  <div class="controls">
-													<input type="text" class="input-xlarge datepicker dob_admin" id="date_birth" value="" name="cus_dob">
+													<input type="text" class="input-xlarge datepickerdob dob_admin" id="date_birth" value="" name="cus_dob">
 												  </div>
 												</div>
 												
