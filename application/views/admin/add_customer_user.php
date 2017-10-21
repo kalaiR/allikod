@@ -191,19 +191,19 @@
 											  	<div class="control-group online_user_field">
 													<label class="control-label" for="focusedInput">Total No. of profile : </label>
 													<div class="controls">
-													  <input class="input-xlarge focused mob_num" id="focusedInput" type="text" value="" name="cus_totprofile">
+													  <input class="input-xlarge focused mob_num" id="cus_totprofile" type="text" value="" name="cus_totprofile">
 													</div>
 											  	</div>
 											  	<div class="control-group">
 												  <label class="control-label" for="start_date">Starting Date </label>
 												  <div class="controls">
-													<input type="text" class="input-xlarge datepicker dob_admin" id="start_date" name="cus_paymentstartdate">
+													<input type="text" class="input-xlarge datepicker dob_admin" id="cus_paymentstartdate" name="cus_paymentstartdate">
 												  </div>
 												</div>
 												<div class="control-group">
 												  <label class="control-label" for="end_date">Ending Date</label>
 												  <div class="controls">
-													<input type="text" class="input-xlarge datepicker dob_admin" id="end_date" name="cus_paymentenddate">
+													<input type="text" class="input-xlarge datepicker dob_admin" id="cus_paymentenddate" name="cus_paymentenddate">
 												  </div>
 												</div>
 											  <div class="control-group">
