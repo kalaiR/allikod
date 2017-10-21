@@ -358,7 +358,8 @@
     $(function() { 
 	    applyPagination();  
 	    function applyPagination() {
-	        $("#ajax_pagingsearc a").click(function(e) {
+	    	$(document).on('click','.#ajax_pagingsearc a',function(e){
+	        // $("#ajax_pagingsearc a").click(function(e) {
 		        e.preventDefault();
 		        var url = $(this).attr("href");
 		        var userstatus = $('.userstatus_data :selected').val();
@@ -387,7 +388,8 @@
 		        return false;
 	        });
 	    }
-        $('.filter_act').on('change',function(e){
+	    $(document).on('change','.filter_act',function(e){
+        // $('.filter_act').on('change',function(e){
         	e.preventDefault();
         	var userstatus = $('.userstatus_data :selected').val();
         	var usertype = $('.usertype_data :selected').val();
@@ -411,8 +413,8 @@
 	        });
 	         
         });
-
-        $('.searchfilter').on('submit',function(e){
+	    $(document).on('submit','.searchfilter',function(e){
+        // $('.searchfilter').on('submit',function(e){
         	e.preventDefault();
         	formdata = $(this).serialize();
         	$.ajax({

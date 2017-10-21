@@ -916,6 +916,9 @@ class Customeruser_data_model extends CI_Model {
                 'phy_food' => ($this->input->post('cus_food'))?$this->input->post('cus_food'):NULL,
                 'phy_yourpersonality' => $this->input->post('cus_personality'),
                 'phy_expectationabout_lifepartner' => $this->input->post('cus_expect'),
+                'phy_searchage_from' => $this->input->post('cus_startage'),
+                'phy_searchage_to' => $this->input->post('cus_endage'),
+                'phy_expectationfood' => ($this->input->post('cus_expectfood'))?$this->input->post('cus_expectfood'):NULL,
             );
 	        
 	        $this->db->insert("reg_religion_ethnicity", $religion_ethnicity_insert_data);

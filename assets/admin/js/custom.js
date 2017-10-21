@@ -706,6 +706,10 @@ $('.mob_num').keyup( function(e){
           }
       });
     });
+    $(document).on('click','.btn-setting',function(e){
+      e.preventDefault();
+      $('#myModal').modal('show');
+    });
 
 });
 
