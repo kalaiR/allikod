@@ -106,42 +106,18 @@ function docReady(){
 	$('.cleditor').cleditor();
 	
 	//datepicker
-	$('.datepicker').datepicker({dateFormat:'yy-mm-dd'});
-	// Date for DOB
-		// Year change Getter
-	var changeYear = $( ".datepicker" ).datepicker( "option", "changeYear" );
-	 // Setter
-	$( ".datepicker" ).datepicker( "option", "changeYear", true );
-	// Month Change
-	$( ".datepicker" ).datepicker({
-	  changeMonth: true
-	});
-	var changeMonth = $( ".selector" ).datepicker( "option", "changeMonth" );
-	 // Setter
-	$( ".datepicker" ).datepicker( "option", "changeMonth", true );
-	// Year Range
-	$( ".datepicker" ).datepicker({
-	  yearRange: "1950:1999"
-	});
-	// Getter
-	var yearRange = $( ".datepicker" ).datepicker( "option", "yearRange" );
-	 // Setter
-	$( ".datepicker" ).datepicker( "option", "yearRange", "1950:1999" );
-	// Date for Marrige date, Starting and Ending Date
-	$( ".datepicker1" ).datepicker({
-	  changeMonth: true
-	});
-		// Year change Getter
-	var changeYear = $( ".datepicker1" ).datepicker( "option", "changeYear" );
-	 // Setter
-	$( ".datepicker1" ).datepicker( "option", "changeYear", true );
-	// Month Change
-	$( ".datepicker1" ).datepicker({
-	  changeMonth: true
-	});
-	var changeMonth = $( ".selector" ).datepicker( "option", "changeMonth" );
-	 // Setter
-	$( ".datepicker1" ).datepicker( "option", "changeMonth", true );
+	
+	$('.datepicker').datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true});
+
+    $('.datepickerdob').datepicker({
+
+        dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true,defaultDate: '1999-01-01', yearRange: '-67:-18'
+
+    });
+
+
+
+	
 	// Time
 	$('.slider_example_1').timepicker({
 	hourGrid: 4,
