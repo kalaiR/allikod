@@ -603,7 +603,7 @@
                                                     </select>                                         
                                                 </div> -->
                                                  <div class="col-md-5">  
-                                                	<input type='text' class="form-control timepicker" id="reg_tim" name="reg_tim"placeholder="Time of Birth" value="">
+                                                	<input type='text' class="form-control timepicker form_inputs" id="reg_tim" name="cus_tob" placeholder="Time of Birth" value="<?php echo $customeruser_values['rel_timeofbirth']; ?>">
                                                 	</div> 
                                             </div>
                                             <div class="row com-box">

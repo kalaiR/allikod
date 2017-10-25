@@ -1000,7 +1000,8 @@ class User_model extends CI_Model {
                               );
             // print_r($userdetail_update_data);
             $religion_ethnicity_update_data = array(
-                    'rel_timeofbirth' => $this->input->post('cus_birthhours')."-".$this->input->post('cus_birthmins')."-".$this->input->post('cus_birthmer'),
+                    // 'rel_timeofbirth' => $this->input->post('cus_birthhours')."-".$this->input->post('cus_birthmins')."-".$this->input->post('cus_birthmer'),
+                  'rel_timeofbirth' => $this->input->post('cus_tob'),
                     'rel_mothertongue_id' => ($this->input->post('cus_mothertongue')) ? $this->input->post('cus_mothertongue') : NULL,
                     // 'rel_religion' => $this->input->post('cus_religion'),
                     // 'rel_caste' => $this->input->post('cus_caste'),

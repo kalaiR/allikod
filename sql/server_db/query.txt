@@ -265,6 +265,6 @@ LEFT JOIN user_images img ON img.reg_user_id=usr.userdetail_id
 group by usr.userdetail_id order by usr.user_email
 
 
-
+ALTER TABLE `reg_userdetail` CHANGE `userdetail_file_id` `userdetail_file_id` VARCHAR(20) NULL DEFAULT NULL COMMENT 'It will enter by admin for both online and simple user';
 
 
