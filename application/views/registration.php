@@ -951,8 +951,9 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             <div class="col-sm-4">
                                                <select class="form-control" name="physical_status[]" id="physical_status">
                                                         <option value="">Select</option>
-                                                        <option value="1">Physically Challenged</option>
-                                                        <option value="2">Normal</option>
+                                                        <?php foreach (unserialize(PHYSICAL_STATUS) as $key => $val): ?>
+                                                        <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
+                                                      <?php endforeach; ?>
                                                  </select>
                                             </div>
                                             <!-- <div class="col-sm-4">

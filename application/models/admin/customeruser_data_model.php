@@ -29,12 +29,17 @@ class Customeruser_data_model extends CI_Model {
 	      { 
 	        // if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
 	      	// Login Detials Update
+					$dateOfBirth = date('Y-m-d',strtotime($this->input->post('cus_dob')));
+					$today = date("Y-m-d");
+					$diff = date_diff(date_create($dateOfBirth), date_create($today));
+					// echo 'Age is '.$diff->format('%y');
 	            	$userdetail_update_data = array(
 	            					'user_email' => $this->input->post('cus_email'),
 	                                'user_pwd' => $this->input->post('cus_password'),
 	                                'user_fname' => $this->input->post('cus_fname'),
 	                                'user_gender' => $this->input->post('cus_gender'),
 	                                'user_dob' => date('Y-m-d',strtotime($this->input->post('cus_dob'))),
+	                                'user_age' => $diff->format('%y'),
 	                                'user_active_status' => $this->input->post('cus_profileactivestatus'),
 	                                'user_maritalstatus' => ($this->input->post('cus_marstatus'))?$this->input->post('cus_marstatus'):NULL,
 	                                'user_registeredby' => ($this->input->post('cus_regby')) ? $this->input->post('cus_regby') : NULL,
@@ -837,12 +842,16 @@ class Customeruser_data_model extends CI_Model {
         
    }
    public function insert_customer_user($profile_image){
+   		   	$dateOfBirth = date('Y-m-d',strtotime($this->input->post('cus_dob')));
+			$today = date("Y-m-d");
+			$diff = date_diff(date_create($dateOfBirth), date_create($today));
    		   	$userdetail_insert_data = array(
 				'user_email' => $this->input->post('cus_email'),
                 'user_pwd' => $this->input->post('cus_password'),
                 'user_fname' => $this->input->post('cus_fname'),
                 'user_gender' => $this->input->post('cus_gender'),
                 'user_dob' => date('Y-m-d',strtotime($this->input->post('cus_dob'))),
+                'user_age' => $diff->format('%y'),
                 'user_active_status' => $this->input->post('cus_profileactivestatus'),
                 'user_maritalstatus' => ($this->input->post('cus_marstatus'))?$this->input->post('cus_marstatus'):NULL,
                 'user_registeredby' => ($this->input->post('cus_regby')) ? $this->input->post('cus_regby') : NULL,

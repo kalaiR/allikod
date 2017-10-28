@@ -503,10 +503,10 @@
 																<option value="">Select Resident</option>
 																  <?php 
 												                    foreach ($selection_values['country_values'] as $con_val):      
-												                        if($con_val['country_id'] == $customeruser_values['comm_residence'])  
-												                        	echo "<option selected value='".$con_val['country_id']."'>".$con_val['name']."</option>";
+												                        if($con_val['name'] == $customeruser_values['comm_residence'])  
+												                        	echo "<option selected value='".$con_val['name']."'>".$con_val['name']."</option>";
 												                        else
-												                            echo "<option value='".$con_val['country_id']."'>".$con_val['name']."</option>";                       
+												                            echo "<option value='".$con_val['name']."'>".$con_val['name']."</option>";                       
 												                    endforeach; ?>
 															  </select>
 															</div>
@@ -518,10 +518,10 @@
 															  <option value="">Select Current Country</option>
 																<?php 
 												                    foreach ($selection_values['country_values'] as $con_val):      
-												                        if($con_val['country_id'] == $customeruser_values['comm_residence'])  
-												                        	echo "<option selected value='".$con_val['country_id']."'>".$con_val['name']."</option>";
+												                        if($con_val['name'] == $customeruser_values['comm_current_countrycountry'])  
+												                        	echo "<option selected value='".$con_val['name']."'>".$con_val['name']."</option>";
 												                        else
-												                            echo "<option value='".$con_val['country_id']."'>".$con_val['name']."</option>";                       
+												                            echo "<option value='".$con_val['name']."'>".$con_val['name']."</option>";                       
 												                    endforeach; ?>
 															  </select>
 															</div>

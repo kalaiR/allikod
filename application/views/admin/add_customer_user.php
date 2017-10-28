@@ -419,7 +419,7 @@
 												  	<option value="">Select Resident of</option>
 													<?php 
 									                    foreach ($selection_values['country_values'] as $con_val):      
-									                       echo "<option value='".$con_val['country_id']."'>".$con_val['name']."</option>";
+									                       echo "<option value='".$con_val['name']."'>".$con_val['name']."</option>";
 									                   endforeach; ?>>
 												  </select>
 												</div>
@@ -431,7 +431,7 @@
 												  	<option value="">Select Current Country</option>
 													<?php 
 									                    foreach ($selection_values['country_values'] as $con_val):      
-									                        echo "<option value='".$con_val['country_id']."'>".$con_val['name']."</option>";
+									                        echo "<option value='".$con_val['name']."'>".$con_val['name']."</option>";
 									                    endforeach; ?>
 												  </select>
 												</div>
