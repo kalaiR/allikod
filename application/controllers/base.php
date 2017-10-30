@@ -418,15 +418,17 @@ class Base extends CI_Controller {
 				);
 		  		
 
-				if(!empty($form_data['diet_veg'])){
-					$data_reg_phy['phy_expectationfood']=$form_data['diet_veg'];	
-				}elseif(!empty($form_data['diet_nonveg'])){
-					$data_reg_phy['phy_expectationfood']=$form_data['diet_nonveg'];	
-				}elseif(!empty($form_data['diet_egg'])){
-					$data_reg_phy['phy_expectationfood']=$form_data['diet_egg'];	
+				// if(!empty($form_data['diet_veg'])){
+				// 	$data_reg_phy['phy_expectationfood']=$form_data['diet_veg'];	
+				// }elseif(!empty($form_data['diet_nonveg'])){
+				// 	$data_reg_phy['phy_expectationfood']=$form_data['diet_nonveg'];	
+				// }elseif(!empty($form_data['diet_egg'])){
+				// 	$data_reg_phy['phy_expectationfood']=$form_data['diet_egg'];	
+				// }
+
+		  		if(!empty($form_data['diet_veg'])){
+					$data_reg_phy['phy_expectationfood']= $form_data['diet_veg'];
 				}
-
-
 				if(!empty($form_data['height_in_cms'][0])){
 					$data_reg_phy['phy_height']= $form_data['height_in_cms'][0];
 				}
@@ -472,20 +474,7 @@ class Base extends CI_Controller {
 			        $config['max_size']    = '20480'; // Maximum size - 1MB
 			    	$config['max_width']  = '10240'; // Maximumm width - 1024px
 			    	$config['max_height']  = '76800'; // Maximum height - 768px	
-			    	$config['file_name'] = $imagename;	
-
-			    	//For Watermark
-					$config['wm_type'] = 'overlay';
-                    $config['wm_overlay_path'] = FCPATH.USER_PROFILE_PATH."vallikodi-watermark.png";
-                    //$config['wm_opacity'] = '50';
-                    $config['wm_vrt_alignment'] = 'middle';
-                    $config['wm_hor_alignment'] = 'center';
-
-					$this->load->library('image_lib');
-					$this->image_lib->initialize($config);
-					$this->image_lib->watermark();	
-			    	
-
+			    	$config['file_name'] = $imagename;		    						
 			        $this->upload->initialize($config); // Initialize the configuration		
            			if($this->upload->do_upload('uploadedfile')){
                 		$upload_data = $this->upload->data();                 		
@@ -499,7 +488,6 @@ class Base extends CI_Controller {
 						$userprofile_logo_thumb['width']  = 260;
 						$userprofile_logo_thumb['height']  = 260;
 						$userprofile_logo_thumb['new_image'] = $thumbimagename;
-
 						$this->load->library('image_lib');
 						$this->image_lib->initialize($userprofile_logo_thumb);
 						// Resize operation
