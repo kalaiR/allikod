@@ -18,7 +18,9 @@
 			<form method="POST" action="edit_customer_user/<?php if(!empty($customeruser_values['userdetail_id'])) echo $customeruser_values['userdetail_id']; ?>" class="customer_edit_form success_result" name="customer_edit_form" enctype="multipart/form-data" data-id="<?php echo $this->uri->segment(3); ?>">
 <?php } ?>	
 					<?php
-					  // print_r($zodiac_data);
+					// echo "<pre>";
+					//   print_r($customeruser_values);
+					//   echo "</pre>";
 					if($customerid_status == TRUE){
 	                  if(!empty($status)) :
 	                    echo "<p class='db_status update_success_md'><i class=' icon-ok-sign'></i>  $status </p>";
