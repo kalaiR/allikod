@@ -27,24 +27,24 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs registration-step" role="tablist">
                         <li role="presentation" class="highlight active" id="userdetails">
-                            <a href="search.html#base" aria-controls="base" role="tab" data-toggle="tab">User Details</a>
+                            <a href="search.html#base" class="avoid-clicks" aria-controls="base" role="tab" data-toggle="tab">User Details</a>
                         </li>
                         <li role="presentation" class="#" id="ethnicity">
-                            <a href="search.html#advanced-search" aria-controls="advanced-search" role="tab" data-toggle="tab">Ethnicity</a>
+                            <a href="search.html#advanced-search" class="avoid-clicks" aria-controls="advanced-search" role="tab" data-toggle="tab">Ethnicity</a>
                         </li>
                         <li role="presentation" class="#" id="education">
-                            <a href="search.html#vallikodi" aria-controls="vallikodi" role="tab" data-toggle="tab">
+                            <a href="search.html#vallikodi" class="avoid-clicks" aria-controls="vallikodi" role="tab" data-toggle="tab">
                             Education</a>
                         </li>
                         <li role="presentation" class="#" id="com">
-                            <a href="search.html#manual-id" aria-controls="manual-id" role="tab" data-toggle="tab">
+                            <a href="search.html#manual-id" class="avoid-clicks" aria-controls="manual-id" role="tab" data-toggle="tab">
                             Communication</a>
                         </li>
                         <li role="presentation" class="#" id="exceptation">
-                            <a href="search.html#dh-id" aria-controls="dh-id" role="tab" data-toggle="tab">Expectation</a>
+                            <a href="search.html#dh-id" class="avoid-clicks" aria-controls="dh-id" role="tab" data-toggle="tab">Expectation</a>
                         </li>
                         <li role="presentation" class="#" id="horoscope">
-                            <a href="search.html#dh-id" aria-controls="dh-id" role="tab" data-toggle="tab">Image &amp; Horoscope</a>
+                            <a href="search.html#dh-id" class="avoid-clicks" aria-controls="dh-id" role="tab" data-toggle="tab">Image &amp; Horoscope</a>
                         </li>
                     </ul>
                 <form name="frmRegistration" id="registration-form" method="post" action="registration" enctype="multipart/form-data">    

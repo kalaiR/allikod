@@ -8522,3 +8522,6 @@ overflow: auto;
 .registration-step li a:hover{
 	cursor:default;
 }
+.avoid-clicks {
+  pointer-events: none;
+}
