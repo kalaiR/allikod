@@ -111,6 +111,21 @@ class Customeruser_Data extends CI_Controller {
 							$this->upload->initialize($config);
 							if($this->upload->do_upload('userFile')){
 							    $uploadData = $this->upload->data();
+
+							    //Code added for watermark
+		                		$config['image_library'] = 'gd2'; //default value
+			                    $config['source_image'] = $uploadData['full_path']; //get original image
+			                    $config['wm_type'] = 'overlay';
+			                    $config['wm_overlay_path'] = FCPATH.USER_PROFILE_PATH."vallikodi-watermark.png";
+			                    // $config['wm_opacity'] = '50';
+			                    $config['wm_vrt_alignment'] = 'middle';
+			                    $config['wm_hor_alignment'] = 'center';
+			                    $this->load->library('image_lib');
+			                    $this->image_lib->initialize($config);
+			                    if (!$this->image_lib->watermark()) {
+			                        $data['status'] = strip_tags($this->image_lib->display_errors());
+			                    }      
+
 							    // print_r($uploadData);
 							    array_push($profile_image,USER_PROFILE_PATH.$uploadData['file_name']);
 								$profile_image[$i] = str_replace("new_","",$uploadData['file_name']);
@@ -258,6 +273,21 @@ class Customeruser_Data extends CI_Controller {
 								$this->upload->initialize($config);
 								if($this->upload->do_upload('userFile')){
 								    $uploadData = $this->upload->data();
+
+								    //Code added for watermark
+			                		$config['image_library'] = 'gd2'; //default value
+				                    $config['source_image'] = $uploadData['full_path']; //get original image
+				                    $config['wm_type'] = 'overlay';
+				                    $config['wm_overlay_path'] = FCPATH.USER_PROFILE_PATH."vallikodi-watermark.png";
+				                    // $config['wm_opacity'] = '50';
+				                    $config['wm_vrt_alignment'] = 'middle';
+				                    $config['wm_hor_alignment'] = 'center';
+				                    $this->load->library('image_lib');
+				                    $this->image_lib->initialize($config);
+				                    if (!$this->image_lib->watermark()) {
+				                        $data['status'] = strip_tags($this->image_lib->display_errors());
+				                    }      
+			                    
 								    // print_r($uploadData);
 								    array_push($profile_image,USER_PROFILE_PATH.$uploadData['file_name']);
 									$profile_image[$i] = str_replace("new_","",$uploadData['file_name']);
