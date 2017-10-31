@@ -478,7 +478,20 @@ class Base extends CI_Controller {
 			        $this->upload->initialize($config); // Initialize the configuration		
            			if($this->upload->do_upload('uploadedfile')){
                 		$upload_data = $this->upload->data();                 		
-                		$targetfile_details = $upload_data['file_name'];
+                		// $targetfile_details = $upload_data['file_name'];
+
+                		//Code added for watermark
+                		$config['image_library'] = 'gd2'; //default value
+	                    $config['source_image'] = $upload_data['full_path']; //get original image
+	                    $config['wm_type'] = 'overlay';
+	                    $config['wm_overlay_path'] = FCPATH.USER_PROFILE_PATH."vallikodi-watermark.png";
+	                    // $config['wm_opacity'] = '50';
+	                    $config['wm_vrt_alignment'] = 'middle';
+	                    $config['wm_hor_alignment'] = 'center';
+	                    $this->load->library('image_lib', $config);
+	                    if (!$this->image_lib->watermark()) {
+	                        $data['status'] = strip_tags($this->image_lib->display_errors());
+	                    }      
 
                 		//newly added for thumbnail
                 		$userprofile_logo_thumb['image_library'] = 'gd2';						
@@ -488,7 +501,6 @@ class Base extends CI_Controller {
 						$userprofile_logo_thumb['width']  = 260;
 						$userprofile_logo_thumb['height']  = 260;
 						$userprofile_logo_thumb['new_image'] = $thumbimagename;
-
 						$this->load->library('image_lib');
 						$this->image_lib->initialize($userprofile_logo_thumb);
 						// Resize operation
@@ -1162,6 +1174,21 @@ class Base extends CI_Controller {
 					$this->upload->initialize($config);
 					if($this->upload->do_upload('userFile')){
 					    $uploadData = $this->upload->data();
+
+					    //Code added for watermark
+                		$config['image_library'] = 'gd2'; //default value
+	                    $config['source_image'] = $uploadData['full_path']; //get original image
+	                    $config['wm_type'] = 'overlay';
+	                    $config['wm_overlay_path'] = FCPATH.USER_PROFILE_PATH."vallikodi-watermark.png";
+	                    // $config['wm_opacity'] = '50';
+	                    $config['wm_vrt_alignment'] = 'middle';
+	                    $config['wm_hor_alignment'] = 'center';
+	                    $this->load->library('image_lib');
+	                    $this->image_lib->initialize($config);
+	                    if (!$this->image_lib->watermark()) {
+	                        $data['status'] = strip_tags($this->image_lib->display_errors());
+	                    }      
+	                    
 					    // print_r($uploadData);
 					    array_push($profile_image,USER_PROFILE_PATH.$uploadData['file_name']);
 						$profile_image[$i] = str_replace("new_","",$uploadData['file_name']);
@@ -1298,5 +1325,66 @@ class Base extends CI_Controller {
 	}
 	public function error500_page(){
 		$this->load->view('500page');
+	}
+	public function test_watermark(){
+		if($this->input->post()){	
+			if(!empty($_FILES['uploadedfile']['name'])){
+		   		$imagePrefix = "new_"; 
+				$imagename = $imagePrefix.$_FILES["uploadedfile"]['name'];
+
+				$thumbimagePrefix = "th_"; 
+				$thumbimagename = $thumbimagePrefix.$_FILES["uploadedfile"]['name'];
+
+				$stored_filename = $_FILES["uploadedfile"]['name'];
+
+    			$config['upload_path'] = FCPATH.USER_PROFILE_PATH; 
+    			// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
+		        $config['allowed_types'] = 'jpg|jpeg|png'; // Allowed tupes
+		        // $config['encrypt_name'] = TRUE; // Encrypted file name for security purpose
+		        $personnal_logo['file_ext_tolower'] 	= TRUE;
+		        $config['max_size']    = '20480'; // Maximum size - 1MB
+		    	$config['max_width']  = '10240'; // Maximumm width - 1024px
+		    	$config['max_height']  = '76800'; // Maximum height - 768px	
+		    	$config['file_name'] = $imagename;		    						
+		        $this->upload->initialize($config); // Initialize the configuration
+		        if($this->upload->do_upload('uploadedfile')){
+            		$upload_data = $this->upload->data();          
+            		$config['image_library'] = 'gd2'; //default value
+                    $config['source_image'] = $upload_data['full_path']; //get original image
+                    $config['wm_type'] = 'overlay';
+                    $config['wm_overlay_path'] = FCPATH.USER_PROFILE_PATH."vallikodi-watermark.png";
+                    // $config['wm_opacity'] = '200';
+                    $config['wm_vrt_alignment'] = 'middle';
+                    $config['wm_hor_alignment'] = 'center';
+                    $this->load->library('image_lib', $config);
+                    if (!$this->image_lib->watermark()) {
+                        $data['status'] = strip_tags($this->image_lib->display_errors());
+                    }       		
+
+            		//newly added for thumbnail
+            		$userprofile_logo_thumb['image_library'] = 'gd2';						
+					$userprofile_logo_thumb['source_image'] = FCPATH.USER_PROFILE_PATH.$upload_data['file_name'];
+					$userprofile_logo_thumb['create_thumb'] = FALSE;						
+					$userprofile_logo_thumb['maintain_ratio'] = TRUE;
+					$userprofile_logo_thumb['width']  = 260;
+					$userprofile_logo_thumb['height']  = 260;
+					$userprofile_logo_thumb['new_image'] = $thumbimagename;
+
+					$this->load->library('image_lib');
+					$this->image_lib->initialize($userprofile_logo_thumb);
+					// Resize operation
+					if (!$this->image_lib->resize()){
+                		$data['status'] = strip_tags($this->image_lib->display_errors()); 
+					}
+					$this->image_lib->clear();
+            		$data['error'] = 0;
+	            }else{
+                	$data['status'] = $this->upload->display_errors(); 
+                	$upload_error = 1;
+                	$data['error'] = 1;
+                }
+			}
+		}
+		$this->load->view('test_watermark');
 	}
 }

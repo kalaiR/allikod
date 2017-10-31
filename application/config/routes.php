@@ -138,6 +138,8 @@ $route['admin/customer_user_new/(:any)'] 							= "admin/customeruser_data/custo
 $route['admin/cipagination'] 							= "admin/cipagination/example";
 $route['admin/cipagination/(:any)'] 							= "admin/cipagination/example/$1";
 $route['admin/delete_customer_user'] 							= "admin/customeruser_data/delete_customer_user";
+$route['test_watermark'] 							= "base/test_watermark";
+$route['test_watermark_multiple'] 							= "admin/customeruser_data/test_watermark_multiple";
 
 
 // $route['main'] = 'admin/admin_login/teac_admin_login';

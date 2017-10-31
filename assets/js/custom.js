@@ -310,7 +310,7 @@ function remove(array, property, value) {
 $(document).ready(function() {
 	 $('.position_images').css('display','none');
 	// reg page validation //
-	$(".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_regss").keypress(function(e) {
+	$(document).on('keypress',".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_regss",function(e) {
 		// var income =$(this).val();
 		// var income =parseInt($(this).val());
 		// var s = e.which;
@@ -327,7 +327,7 @@ $(document).ready(function() {
 		// }
 		// alert(income)
 	});
-	$(".income-box").keypress(function(e) {
+	$(document).on('keypress',".income-box",function(e) {
 		var inc = $(".income-box");
 		var key = String.fromCharCode(e.charCode || e.which);
 		var come = (inc.get(0).selectionStart - 0);
@@ -337,7 +337,7 @@ $(document).ready(function() {
 		$(this).val($(this).val().slice(0, 7));
 
 	});
-	$(".ph_num").keyup(function(e) {
+	$(document).on('keyup',".ph_num",function(e) {
 		$(this).val($(this).val().replace(/[^\d , -]+/, ""));
 	});
 
@@ -353,7 +353,7 @@ $(document).ready(function() {
 	//         return false;
 	//     }
 	// });
-	$('.bride_names,.Groom_Names').keyup(function(e) {
+	$(document).on('keyup','.bride_names,.Groom_Names',function(e) {
 		if ($(this).val().length >= 25) {
 			$(this).val($(this).val().substr(0, 25));
 		}
@@ -367,12 +367,12 @@ $(document).ready(function() {
 	//        // alert(income);
 	// });
 	// var max_chars = 2;
-	$('.bro_sis,.age_regss').keyup(function(e) {
+	$(document).on('keyup','.bro_sis,.age_regss',function(e) {
 		if ($(this).val().length >= 2) {
 			$(this).val($(this).val().substr(0, 2));
 		}
 	});
-	$('.mob_num').keyup(function(e) {
+	$(document).on('keyup','.mob_num',function(e) {
 		if ($(this).val().length >= 10) {
 			$(this).val($(this).val().substr(0, 10));
 		}
@@ -382,7 +382,7 @@ $(document).ready(function() {
 	// Rasi Horoscope - Start //
 	var results_array = [];
 	// Add the Rasi on registration Page
-	$('#rasi_cont').on('click', '#add_rasi', function() {
+	$(document).on('click', '#add_rasi', function() {
 		//added if condition only by kalai
 		// alert($('#rasi_name option').length);
 		if ($('#rasi_name option').length > 0) {
@@ -410,7 +410,7 @@ $(document).ready(function() {
 	});
 
 	// Remove the Rasi from Registration Page
-	$('#rasi_cont').on('click', '#remove_rasi', function() {
+	$(document).on('click', '#remove_rasi', function() {
 		if ($('#crasi_name option').length > 0) {
 			var crasi_name = $('#crasi_name :selected').data('id');
 			var crasi_val = $('#crasi_name :selected').val();
@@ -450,7 +450,7 @@ $(document).ready(function() {
 	// ASHAM Horoscope - Start //
 	var results_array_asham = [];
 	// Add the ASHAM on registration Page
-	$('#asham_cont').on('click', '#add_asham', function() {
+	$(document).on('click', '#add_asham', function() {
 		//added if condition only by kalai
 		// alert($('#asham_name option').length);
 		if ($('#asham_name option').length > 0) {
@@ -478,7 +478,7 @@ $(document).ready(function() {
 	});
 
 	// Remove the ASHAM from Registration Page
-	$('#asham_cont').on('click', '#remove_asham', function() {
+	$(document).on('click', '#remove_asham', function() {
 		if ($('#casham_name option').length > 0) {
 			var crasi_name = $('#casham_name :selected').data('id');
 			var crasi_val = $('#casham_name :selected').val();
@@ -748,7 +748,7 @@ $(document).ready(function() {
 	// Active Tab Change ends
 
 	/*End user customer user edit form Start*/
-	$('.customer_edit_form,.form_inner').on('submit', function(e) {
+	$(document).on('submit','.customer_edit_form,.form_inner', function(e) {
 		e.preventDefault();
 		if ($(this).find('.bootstrap-select').hasClass('form_inputs')) {
 			$(this).find('.bootstrap-select').removeClass('form_inputs');
@@ -936,10 +936,10 @@ $(document).ready(function() {
 	});
 
 	/*End user customer user edit form End*/
-	$(".find_age,#cus_age,.birthday,.reg_age").keypress(function(event) {
+	$(document).on('keypress',".find_age,#cus_age,.birthday,.reg_age",function(event) {
 		event.preventDefault();
 	});
-    $('.find_age').on('blur', function(){
+    $(document).on('blur','.find_age', function(){
         date_value = $(this).val().split('-');
         // dob = $.datepicker.formatDate('dd/mm/yy', new Date(date_value[2],date_value[1]-1,date_value[0]));
         // var today = $.datepicker.formatDate('dd/mm/yy', new Date());
@@ -954,17 +954,17 @@ $(document).ready(function() {
     });
     //get id and store in array for removed images while edit profile
     var image_array = [];
-    $('.remove_act').on('click', function(){
+    $(document).on('click','.remove_act', function(){
         var image_id = $(this).parents("li").find('.cus_img').data('id');
         if ($.inArray(image_id.toString(), image_array) != 0)
             image_array.push(image_id);
     });   
     //To find height in feet for selected height in cms
-    $('.height_act').on('change', function(){
+    $(document).on('change','.height_act', function(){
         height_cms = $('.height_act :selected').text();
         $('.feet_act option[data-heightcms*="' + height_cms + '"]').attr("selected","selected");       
     });  
-    $('.qreg_act').on('click', function(){
+    $(document).on('click','.qreg_act', function(){
     	$('.modals').hide();
         $('.edit_error').html('');
     });
