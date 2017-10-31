@@ -1,7 +1,7 @@
 <?php 
-				echo "<pre>";
-				print_r($customeruser_values);
-				echo "</pre>";
+				// echo "<pre>";
+				// print_r($customeruser_values);
+				// echo "</pre>";
     include('templates/header.php');
 ?>
 	<div id="content" class="span11">
