@@ -1298,4 +1298,45 @@ class Base extends CI_Controller {
 	public function error500_page(){
 		$this->load->view('500page');
 	}
+	public function test_watermark(){
+		if($this->input->post()){	
+
+			if(!empty($_FILES['uploadedfile']['name'])){
+			   // $config['image_library'] = 'gd2';
+			   $config['source_image'] = $_FILES['uploadedfile']['name'];
+			   $config['create_thumb'] = TRUE;
+			   $config['maintain_ratio'] = TRUE;
+			   $config['width'] = 125;
+			   $config['height'] = 125;
+			   $this->load->library('image_lib');
+			   $this->image_lib->initialize($config);
+
+			   if($this->image_lib->resize()) {
+			    $prep_thumb = explode('.', $image);
+			    $thumb = $prep_thumb[0] . '_thumb.' . $prep_thumb[1];
+			    $this->_moveimage($thumb, $account, TRUE);
+			   }
+
+			   $this->image_lib->clear();
+
+			   //Settings to create watermark overlay
+			   $config = array();
+			   $config['upload_path'] = FCPATH.USER_PROFILE_PATH;
+			   $config['source_image'] = $_FILES['uploadedfile']['name'];
+			   $config['wm_type'] = 'overlay';
+			   $config['wm_overlay_path'] = FCPATH.USER_PROFILE_PATH."vallikodi-watermark.png";
+			   $config['wm_vrt_alignment'] = 'middle';
+			   $config['wm_hor_alignment'] = 'center';
+
+			   $this->image_lib->initialize($config);
+
+			   if(!$this->image_lib->watermark()){
+			    echo $this->image_lib->display_errors();
+			   }
+
+			   $this->image_lib->clear();
+			}
+		}
+		$this->load->view('test_watermark');
+	}
 }
