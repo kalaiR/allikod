@@ -827,6 +827,25 @@
 												</div>
 											</div>
 											<div class="row-fluid sortable">
+											<div class="box span8">
+												<div class="box-header well">
+													<h2><!-- <i class="icon-th"> -->  Expectation About Your Life Partner</h2>	  			
+												</div>
+												<div class="box-content">
+													<div class="form-horizontal">
+														<fieldset>											  
+														  <div class="control-group">
+															<label class="control-label" for="focusedInput">Expectation  : </label>
+															<div class="controls">
+															  <textarea class="input-xlarge focused" id="focusedInput" type="text" name="cus_expect"><?php if(!empty($customeruser_values['phy_expectationabout_lifepartner'])) echo $customeruser_values['phy_expectationabout_lifepartner']; ?></textarea>
+															</div>												
+														  </div>  					  							  
+														</fieldset>
+													  </div>
+													</div>
+												</div>
+											</div>
+											<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
 										<h2><!-- <i class="icon-th"> --> Search (Expectation/Looking for)</h2>	  			

@@ -489,13 +489,6 @@ class Base extends CI_Controller {
 						$userprofile_logo_thumb['height']  = 260;
 						$userprofile_logo_thumb['new_image'] = $thumbimagename;
 
-						//For Watermark
-						$config['wm_type'] = 'overlay';
-	                    $config['wm_overlay_path'] = FCPATH.USER_PROFILE_PATH."vallikodi-watermark.png";
-	                    //$config['wm_opacity'] = '50';
-	                    $config['wm_vrt_alignment'] = 'middle';
-	                    $config['wm_hor_alignment'] = 'center';
-
 						$this->load->library('image_lib');
 						$this->image_lib->initialize($userprofile_logo_thumb);
 						// Resize operation
