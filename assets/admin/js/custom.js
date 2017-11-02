@@ -437,6 +437,7 @@ $('.reset').click(function() {
         // alert(after_threemonth);
         $("#cus_paymentstartdate").val($.datepicker.formatDate('yy-mm-dd', today));
         $("#cus_paymentenddate").val(after_threemonth);
+        $("#cus_viewprofile").val(0);
         $("#cus_totprofile").val(60);
       }
       else if(period_month == 6){
@@ -448,6 +449,7 @@ $('.reset').click(function() {
         // alert(after_sixmonth);
         $("#cus_paymentstartdate").val($.datepicker.formatDate('yy-mm-dd', today));
         $("#cus_paymentenddate").val(after_sixmonth);
+        $("#cus_viewprofile").val(0);
         $("#cus_totprofile").val(120);
       }
     });
@@ -709,6 +711,8 @@ $('.reset').click(function() {
       e.preventDefault();
       $('#myModal').modal('show');
     });
+
+    $('.report_datepicker').datepicker({dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true});
 
 });
 

@@ -191,6 +191,7 @@ class Customeruser_data_model extends CI_Model {
 				'amount' => $this->input->post('cus_amount'),
 				'period_in_month' => $this->input->post('cus_period'),
 				'totalno_of_profile' => $this->input->post('cus_totprofile'),
+				'no_of_profiles_viewed' => $this->input->post('cus_viewprofile'),
 				'payment_status' => $this->input->post('cus_paymentactivestatus'),
 				'startdate' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
 				'enddate' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
@@ -204,6 +205,7 @@ class Customeruser_data_model extends CI_Model {
 				'ren_amount' => $this->input->post('cus_amount'),
 				'ren_period_in_month' => $this->input->post('cus_period'),
 				'totalno_of_profile' => $this->input->post('cus_totprofile'),
+				'no_of_profiles_viewed' => $this->input->post('cus_viewprofile'),
 				'active_status' => $this->input->post('cus_paymentactivestatus'),
 				'starting_date' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
 				'ending_date' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
@@ -999,6 +1001,7 @@ class Customeruser_data_model extends CI_Model {
 	        // echo $this->db->last_query(); 
 	        $model_data['status'] = "Inserted Successfully";
 	        $model_data['error'] = 2;
+	        $model_data['userdetail_id'] = $last_insert_id;
 	        return $model_data;
    }
 }
