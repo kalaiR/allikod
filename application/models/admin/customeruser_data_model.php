@@ -439,7 +439,7 @@ class Customeruser_data_model extends CI_Model {
   public function customer_user_profile($id){
   		// View by id
   		$condition = "usr.userdetail_id = ".$id."";
-    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,pay.*,ren.*,pay.totalno_of_profile as paytotprofile,ren.totalno_of_profile as rentotprofile,ren.active_status as renewalstatus,
+    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,luk.name as lukhnam_name,zod.name as zodiac_name,pay.*,ren.*,pay.totalno_of_profile as paytotprofile,ren.totalno_of_profile as rentotprofile,ren.active_status as renewalstatus,
     		group_concat(images) as images,group_concat(userimages_id) as images_id');
 	    $this->db->from('reg_userdetail usr');
 	    $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
