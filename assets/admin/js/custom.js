@@ -405,7 +405,7 @@ $('.reset').click(function() {
                       $('html, body').animate({scrollTop:0},500);
                       // $('.val_error').fadeIn(500);
                       // $('.val_error').fadeOut(5000);
-                      $('.db_status').fadeOut(10000);
+                      setTimeout(function(){ $('.db_status').fadeOut(1000);location.reload();}, 1500);                     
                   }
                 }
             });
@@ -681,14 +681,17 @@ $('.mob_num').keyup( function(e){
     });
     
     $(document).on('click','.delete_record',function(e){
-      $('.delete_act').attr("data-id",$(this).data("id"));
+      e.preventDefault();
+      $('.delete_act').attr("data-id",$(this).attr('data-id'));
+      $('#myModal1,.modal,.modal-backdrop,.fade').show();
     });
     $(document).on('click','.delete_act',function(e){
-      // e.preventDefault();
-      var id =$(this).data('id');
+      e.preventDefault();
+      var id =$(this).attr('data-id');
+      var href_url = $(this).attr('data-href');
       $.ajax({
           type : "POST",
-          url : admin_baseurl+"delete_customer_user",
+          url : admin_baseurl+href_url,
           data : "rid="+id+'&'+csrf_name+'='+csfrData[csrf_name] ,
           dataType : 'json',
           success: function(res) {
@@ -700,7 +703,7 @@ $('.mob_num').keyup( function(e){
                 $('.val_error').fadeOut(5000);
             }
               else if(res.error==2) {
-                alert("Vallikodi ID "+id+" has been deleted");
+                alert("ID "+id+" has been deleted");
                 location.reload();
             }
           }

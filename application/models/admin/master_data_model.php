@@ -186,7 +186,8 @@ class Master_data_model extends CI_Model {
   {
     $model_data['status'] = 0;
     $model_data['error'] = 0;
-
+    // echo "status".$status;
+    // echo "id".$this->input->post('rid');
     //To check whether the data is mapped with already or not
     // $this->db->select('s.state_id');
     // $this->db->from('tr_state s');
@@ -246,11 +247,13 @@ class Master_data_model extends CI_Model {
       $model_data['error'] = 2;
     }
 
+
     // Delete data
     else if($status =='delete') {
-      if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
+      if(!empty($this->input->post('rid'))){
         $successstory_delete_where = '(successstories_id="'.$this->input->post('rid').'")';
-        $this->db->delete("success_stories", $successstory_delete_where); 
+        $this->db->where($successstory_delete_where);
+        $this->db->delete('success_stories'); 
         $model_data['status'] = "Deleted Successfully";
         $model_data['error'] = 2; 
       }
@@ -259,6 +262,7 @@ class Master_data_model extends CI_Model {
         $model_data['status'] = "Something went wrong. Please try again with correct details ";
       }
     }
+
     // Get data by id to send edit page
     else if($status =='edit') {
         if($_POST)

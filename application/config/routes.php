@@ -139,6 +139,7 @@ $route['admin/cipagination'] 							= "admin/cipagination/example";
 $route['admin/cipagination/(:any)'] 							= "admin/cipagination/example/$1";
 $route['admin/delete_customer_user'] 							= "admin/customeruser_data/delete_customer_user";
 $route['test_watermark'] 							= "base/test_watermark";
+$route['admin/delete_success_story'] 							= "admin/master_data/delete_success_story";
 
 
 // $route['main'] = 'admin/admin_login/teac_admin_login';

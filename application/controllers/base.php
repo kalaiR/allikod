@@ -762,10 +762,13 @@ class Base extends CI_Controller {
 				$height_to = $form_data['height_in_feets'][0];
 				$mar_status = $form_data['marital_status'][0];				
 				$mother_tongue = $form_data['mother_tongue'];
-				$education = $form_data['education'];
+				// $education = $form_data['education'];
 				$show_profile = $form_data['images'][0];
-				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'education'=>$education, 'show_profile'=>$show_profile);				
-
+				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'show_profile'=>$show_profile);				
+				if(!empty($form_data['education'])){
+					$education = $form_data['education'];
+					$values['education'] = $education;
+				}
 				$data = $this->user_model->get_basicsearch($values, $per_page, $offset);
 				$this->session->set_userdata('search_inputs',$values);
 

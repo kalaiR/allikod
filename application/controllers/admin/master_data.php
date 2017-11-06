@@ -835,6 +835,15 @@ class Master_Data extends CI_Controller {
 		$this->load->view('admin/edit_administration',$status);
 	}
 
+	public function delete_success_story(){
+		$profile_image = array();
+		$data_values = $this->master_data_model->successful_story('delete');
+		$data['successtory_values'] = $data_values['successtory_values'];
+		$result['status'] = $data_values['status'];
+		$result['error'] = $data_values['error'];
+		echo json_encode($result);
+	}
+
 	/* ===========            Administration Controller End       ============ */
 }
 /* End of file Master_Data.php */ 

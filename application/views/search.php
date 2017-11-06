@@ -183,7 +183,7 @@ include('include/menu.php');
                                                     </div>
                                                     <div class="col-sm-6 box">
                                                         <div class="col-sm-5 box">
-                                                            <select multiple style="width:300px;" tabindex="4" class="chosen-select form-control form_inputs" data-message="Education" data-placeholder="Please Select" name="education[]" id="education second">
+                                                            <select multiple style="width:300px;" tabindex="4" class="chosen-select form-control" data-message="Education" data-placeholder="Please Select" name="education[]" id="education second">
                                                             <?php 
                                                             if(!empty($education_category)) :
                                                                 foreach ($education_category as $cls_val) {
@@ -461,7 +461,7 @@ include('include/menu.php');
                                                 <div class="col-sm-6 box">
                                                     <div class="col-sm-5 box">                          
 
-                                                        <select multiple style="width:300px;" tabindex="4" class="chosen-select form-control form_inputs" data-message="Education" data-placeholder="Please Select" name="education[]" id="education second">
+                                                        <select multiple style="width:300px;" tabindex="4" class="chosen-select form-control" data-message="Education" data-placeholder="Please Select" name="education[]" id="education second">
                                                         <?php 
                                                         if(!empty($education_category)) :
                                                             foreach ($education_category as $cls_val) {

@@ -380,30 +380,30 @@ class User_model extends CI_Model {
                $show_profile = '(img.images ="" OR img.images!="" OR img.images IS NULL)';
              }  
         }
-                
-       // Get education category based on education
-        $like_where = "(";
-          $cval =1;
-          foreach ($values['education'] as $ckey => $cvalue) {
-            $val =1;
-            $catedu = $this->get_catgoryeducation($cvalue);        
-              foreach ($catedu as $key => $value) {          
-                if($val!= count($catedu)){
-                  $like_where .= 'edu.edu_education = "'.$value['education_id'].'" OR ';
-                }else{
-                  $like_where .= 'edu.edu_education = "'.$value['education_id'].'"';
-                }           
-                $val++;          
-              }               
-              // echo $cval.'=='.count($values['education']);
-              if($cval!= count($values['education']))             
-                $like_where .= 'OR ';
-           $cval++;   
-        }
-        $like_where .= ")";  
-        // echo $like_where;
-        // exit();
-
+        if(!empty($values['education'])){   
+          // Get education category based on education
+          $like_where = "(";
+            $cval =1;
+            foreach ($values['education'] as $ckey => $cvalue) {
+              $val =1;
+              $catedu = $this->get_catgoryeducation($cvalue);        
+                foreach ($catedu as $key => $value) {          
+                  if($val!= count($catedu)){
+                    $like_where .= 'edu.edu_education = "'.$value['education_id'].'" OR ';
+                  }else{
+                    $like_where .= 'edu.edu_education = "'.$value['education_id'].'"';
+                  }           
+                  $val++;          
+                }               
+                // echo $cval.'=='.count($values['education']);
+                if($cval!= count($values['education']))             
+                  $like_where .= 'OR ';
+             $cval++;   
+          }
+          $like_where .= ")";  
+          // echo $like_where;
+          // exit();
+        }  
 
         // Get mother tongue category based on mother tongue
         $like_wheres = "("; 
@@ -421,8 +421,10 @@ class User_model extends CI_Model {
         $like_wheres .= ")"; 
         // echo $like_wheres;
         // exit();
-
-        $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND '.$like_wheres.' AND '.$show_profile.' AND '.$like_where.' AND usr.user_delete_status!=1 AND usr.user_active_status!=0)';
+        if(isset($like_where))
+          $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND '.$like_wheres.' AND '.$show_profile.' AND '.$like_where.' AND usr.user_delete_status!=1 AND usr.user_active_status!=0)';
+        else
+          $user_where = '(usr.user_gender="'.$values['gender'].'" AND usr.user_age >= "'.$values['age_from'].'" AND usr.user_age <="'.$values['age_to'].'" AND phy.phy_height >="'.$values['height_from'].'"  AND phy.phy_height <= "'.$values['height_to'].'" AND usr.user_maritalstatus = "'.$values['mar_status'].'" AND usr.user_gender!=3 AND '.$like_wheres.' AND '.$show_profile.' AND usr.user_delete_status!=1 AND usr.user_active_status!=0)';
         $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_gender, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, group_concat(img.images) as images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district');
         $this->db->from('reg_userdetail usr');
         $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
