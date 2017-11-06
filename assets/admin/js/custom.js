@@ -128,15 +128,13 @@ $('.reset').click(function() {
     $('.datatable').dataTable({
       "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span12'i><'span12 center'p>>",
       "sPaginationType": "bootstrap",
-      "bSortable": false, //newly added
+      "bSort": false, //newly added
       "oLanguage": {
       "sLengthMenu": "_MENU_ records per page"
       }  
     });
 
-    ajax = function (params,action,element){
-      params['action'] = action;
-      params[csrf_name] = csfrData[csrf_name];
+    ajax = function (formData,element){
       // alert(JSON.stringify(params));
       $.ajax({
           type : "POST",
@@ -202,39 +200,38 @@ $('.reset').click(function() {
   
     //************ Start ***********
     $(document).on('submit','.add_form,.edit_form',function(e) {
-          form_inputs = $(this).find('.form_inputs');
-          var formdata = {};
-          form_inputs.each(function() {
-              var value = $(this).val();   
-              if($(this).attr('type') == 'file') {
-                // // var file = $(this)[0].files[0];
-                // alert($(this).get(0).files[0]);
-                // if(!empty($(this).get(0).files[0])){
-                //   echo "if";
-                //   // formdata[$(this).attr('name')] = $(this).get(0).files[0];                                          
-                // }
-                // else
-                  formdata[$(this).attr('name')] = "";              
-              }
-              else {
-                if($.isArray(value)) {
-                  value = value.toString();
-                }
-                formdata[$(this).attr('name')] = value;
-              }
-              // formdata[$(this).attr('name')] = value;
-          });
-          // alert(JSON.stringify(formdata));
+          e.preventDefault(); 
+          var formData = new FormData($(this)[0]);
+          formData.append(csrf_name,csfrData[csrf_name]);
           if($(this).hasClass('edit_form')){
-            formdata['rid'] = $(this).data('id');
-            action = "update";
+            formData.append('action',"update");
+            formData.append('rid', $(this).data('id'));
           }
           else{
-            action = "save";
+            formData.append('action',"save");
           }
-          // alert(JSON.stringify(formdata));
-          ajax(formdata,action,$(this));
-          return false;
+          $.ajax({
+               type: "POST",
+               url: admin_baseurl+$(this).attr('action'),
+               data: formData,
+               async: false,
+               contentType: false,
+               processData: false,
+               dataType: 'json', 
+               success: function(res) {  
+                // alert(JSON.stringify(res));
+                  if(res.error==1) {
+                      $('.val_error').html("<i class='icon-remove-sign'></i>  "+res.status);
+                      $('.val_error').fadeIn(500);
+                      $('.val_error').fadeOut(5000);
+                  }
+                  else if(res.error==2) {
+                      $('.success_result').html(res.output);
+                      $('html, body').animate({scrollTop:0},500);
+                      setTimeout(function(){ $('.db_status').fadeOut(1000);location.reload();}, 1500);
+                  }
+                }
+          });
     });
 
     //************ End *************

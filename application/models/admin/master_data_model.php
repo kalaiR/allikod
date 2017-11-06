@@ -182,8 +182,9 @@ class Master_data_model extends CI_Model {
    /* ===========            Successful Story Model Start       ============ */
 
   // successful_story - Add Edit Delete View
-  public function successful_story($status)
+  public function successful_story($status,$couplephoto)
   {
+    // echo "couplephoto".$couplephoto;
     $model_data['status'] = 0;
     $model_data['error'] = 0;
     // echo "status".$status;
@@ -198,7 +199,7 @@ class Master_data_model extends CI_Model {
 
     // Update data
     if($status=='update') {
-      $res = $this->db->get_where('zodiac_sign', array('zodiacsign_id' => $this->input->post('rid')))->row_array();
+      $res = $this->db->get_where('success_stories', array('successstories_id' => $this->input->post('rid')))->row_array();
       if(is_numeric($this->input->post('rid')) && !empty($res))
       { 
         // if(!in_array($this->input->post('rid'),$model_data['mapped_data'])) {
@@ -206,7 +207,7 @@ class Master_data_model extends CI_Model {
                                 'vallikodi_id' => $this->input->post('suc_vallikodiid'),
                                 'male_name' => $this->input->post('suc_groomname'),
                                 'female_name' => $this->input->post('suc_bridename'),
-                                // 'image' => $this->input->post('suc_couplephoto'),
+                                // 'image' => $couplephoto,
                                 'description' => $this->input->post('suc_description'),
                                 'marriage_date' => date('Y-m-d',strtotime($this->input->post('suc_marriagedate'))), 
                                 'active_status' => $this->input->post('suc_status')
@@ -237,7 +238,7 @@ class Master_data_model extends CI_Model {
                             'vallikodi_id' => $this->input->post('suc_vallikodiid'),
                             'male_name' => $this->input->post('suc_groomname'),
                             'female_name' => $this->input->post('suc_bridename'),
-                            // 'image' => $this->input->post('suc_couplephoto'),
+                            'image' => $couplephoto,
                             'description' => $this->input->post('suc_description'),
                             'marriage_date' => date('Y-m-d',strtotime($this->input->post('suc_marriagedate'))), 
                             'active_status' => $this->input->post('suc_status')
@@ -259,7 +260,7 @@ class Master_data_model extends CI_Model {
       }
       else {
         $model_data['error'] = 1;
-        $model_data['status'] = "Something went wrong. Please try again with correct details ";
+        $model_data['status'] = "Something went wrong. Please try again with correct details";
       }
     }
 

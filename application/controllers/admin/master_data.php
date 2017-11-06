@@ -6,6 +6,7 @@ class Master_Data extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('admin/master_data_model');
+		$this->load->library('upload');
 	}
 
 	// Alpha with white space
@@ -589,6 +590,7 @@ class Master_Data extends CI_Controller {
 
 	// zodiac_sign - Add Edit Delete View Functionality
 	public function successful_story(){
+		$couplephoto = '';
 		if($_POST) {
 			$secure_error = '';
 			// Validate add and update data
@@ -600,7 +602,8 @@ class Master_Data extends CI_Controller {
 			   		$validation_rules = array(
 						array( 'field'   => 'suc_bridename','label'   => 'Bridename','rules'   => 'trim|required|xss_clean|max_length[50]' ),
 		            	array( 'field'   => 'suc_groomname','label'   => 'Groomname','rules'   => 'trim|required|xss_clean|max_length[50]' ),
-		            	array( 'field'   => 'suc_marriagedate','label'   => 'Marriage Date','rules'   => 'trim|required|xss_clean|callback_valid_date_required' ),
+		            	// array( 'field'   => 'suc_marriagedate','label'   => 'Marriage Date','rules'   => 'trim|required|xss_clean|callback_valid_date_required' ),
+		            	array( 'field'   => 'suc_marriagedate','label'   => 'Marriage Date','rules'   => 'trim|required|xss_clean' ),
 		            	array( 'field'   => 'suc_vallikodiid','label'   => 'Vallikodi ID of Bride or Groom','rules'   => 'trim|required|xss_clean' ),
 		            	array( 'field'   => 'suc_description','label'   => 'Description','rules'   => 'trim|required|xss_clean|min_length[10]|max_length[150]' ),
 		            	array( 'field'   => 'suc_couplephoto','label'   => 'Couple Photo','rules'   => 'trim|xss_clean'),
@@ -613,7 +616,8 @@ class Master_Data extends CI_Controller {
 		      		$validation_rules = array(
 		            	array( 'field'   => 'suc_bridename','label'   => 'Bridename','rules'   => 'trim|required|xss_clean|max_length[50]' ),
 		            	array( 'field'   => 'suc_groomname','label'   => 'Groomname','rules'   => 'trim|required|xss_clean|max_length[50]' ),
-		            	array( 'field'   => 'suc_marriagedate','label'   => 'Marriage Date','rules'   => 'trim|required|xss_clean|callback_valid_date_required' ),
+		            	// array( 'field'   => 'suc_marriagedate','label'   => 'Marriage Date','rules'   => 'trim|required|xss_clean|callback_valid_date_required' ),
+		            	array( 'field'   => 'suc_marriagedate','label'   => 'Marriage Date','rules'   => 'trim|required|xss_clean' ),
 		            	array( 'field'   => 'suc_vallikodiid','label'   => 'Vallikodi ID of Bride or Groom','rules'   => 'trim|required|xss_clean' ),
 		            	array( 'field'   => 'suc_description','label'   => 'Description','rules'   => 'trim|required|xss_clean|min_length[10]|max_length[150]' ),
 		            	array( 'field'   => 'suc_couplephoto','label'   => 'Couple Photo','rules'   => 'trim|xss_clean'),
@@ -642,16 +646,24 @@ class Master_Data extends CI_Controller {
 		      		else {
 		      			// echo "else no other";
 		      			// echo $_FILES['suc_couplephoto']['name'];
+		      			// print_r($_FILES['suc_couplephoto']);
 		      			//Check whether user upload picture
 						if(!empty($_FILES['suc_couplephoto']['name'])){
+
+							$imagePrefix = "new_"; 
+							$imagename = $imagePrefix.$_FILES["suc_couplephoto"]['name'];
+
+							$thumbimagePrefix = "th_"; 
+							$thumbimagename = $thumbimagePrefix.$_FILES["suc_couplephoto"]['name'];
+
 							// echo "image uploaded";
 							// echo $_FILES['category_image']['name'];
 							$couplephoto = $_FILES['suc_couplephoto']['name'];
 							// echo $couplephoto;
 							// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
-							$config['upload_path'] = FCPATH.ADMIN_UPLOAD_MEDIA_PATH; 
+							$config['upload_path'] = FCPATH.USER_SUCCESS_PATH; 
 							$config['allowed_types'] = FILETYPE_ALLOWED;//FILETYPE_ALLOWED which is defined constantly in constants file
-							$config['file_name'] = $_FILES['suc_couplephoto']['name'];
+							$config['file_name'] = $imagename;
 							$config['max_size']  = '1000000';
 							$config['max_width'] = '300';
 							$config['max_height'] = '300';
@@ -659,7 +671,25 @@ class Master_Data extends CI_Controller {
 							$this->upload->initialize($config);
 							if($this->upload->do_upload('suc_couplephoto')){
 							    $uploadData = $this->upload->data();
-							    $couplephoto = ADMIN_UPLOAD_MEDIA_PATH.$uploadData['file_name'];
+							    // $couplephoto = ADMIN_UPLOAD_MEDIA_PATH.$uploadData['file_name'];
+							    $couplephoto = preg_replace('/^new_/', '', $uploadData['file_name']);
+
+								//newly added for thumbnail
+		                		$successprofile_logo_thumb['image_library'] = 'gd2';						
+								$successprofile_logo_thumb['source_image'] = FCPATH.USER_SUCCESS_PATH.$uploadData['file_name'];
+								$successprofile_logo_thumb['create_thumb'] = FALSE;						
+								$successprofile_logo_thumb['maintain_ratio'] = TRUE;
+								$successprofile_logo_thumb['width']         = 260;
+								$successprofile_logo_thumb['height']       = 260;
+								$successprofile_logo_thumb['new_image']	= "th_".$couplephoto;
+								$this->load->library('image_lib');
+								$this->image_lib->initialize($successprofile_logo_thumb);
+								// Resize operation
+								if ( ! $this->image_lib->resize())
+								{
+			                		$data['status'] = strip_tags($this->image_lib->display_errors()); 
+								}
+								$this->image_lib->clear();
 							}else{
 								$errors = $this->upload->display_errors();
 								// echo $errors;
@@ -668,7 +698,7 @@ class Master_Data extends CI_Controller {
 							    $data['status'] = strip_tags($errors);
 							}
 						}
-			    		$data_values = $this->master_data_model->successful_story($action_post); 
+			    		$data_values = $this->master_data_model->successful_story($action_post,$couplephoto); 
 			    		$data['error'] = $data_values['error'];
 				        $data['status'] = $data_values['status'];	
 		      		}
@@ -676,7 +706,7 @@ class Master_Data extends CI_Controller {
 	      	}
 	      	// Delete data
 	    	else if($this->input->post('action')=='delete' && $this->input->post('rid')) {
-	      		$data_values = $this->master_data_model->successful_story('delete'); 	
+	      		$data_values = $this->master_data_model->successful_story('delete',$couplephoto); 	
 	      		$data['error'] = $data_values['error'];
 			    $data['status'] = $data_values['status'];
 	      	}
@@ -698,7 +728,7 @@ class Master_Data extends CI_Controller {
 				if($this->input->post('action') == 'save')
 					$result['output'] = $this->load->view('admin/add_successful_story',$data_ajax,true);
 				else if($this->input->post('action') == 'update'){
-					$data_res = $this->master_data_model->successful_story('edit');
+					$data_res = $this->master_data_model->successful_story('edit',$couplephoto);
 					$data_ajax['successtory_data'] = $data_res['successtory_data'];
 					$result['output'] = $this->load->view('admin/edit_successful_story',$data_ajax,true);
 				}
@@ -709,7 +739,7 @@ class Master_Data extends CI_Controller {
 		}
 		else {
 		    $data['status'] = 0;
-	    	$data_values = $this->master_data_model->successful_story('init');
+	    	$data_values = $this->master_data_model->successful_story('init',$couplephoto);
 			$data['successtory_values'] = $data_values['successtory_values'];
 			// $data['mapped_data'] = $data_values['mapped_data'];
 			$this->load->view('admin/successful_story',$data);
@@ -721,7 +751,8 @@ class Master_Data extends CI_Controller {
 	}
 	// zodiac_sign - Load Edit page
 	public function edit_successful_story(){
-		$data_res = $this->master_data_model->successful_story('edit');
+		$couplephoto = '';
+		$data_res = $this->master_data_model->successful_story('edit',$couplephoto);
 		$status['successtory_data'] = $data_res['successtory_data'];
 		$this->load->view('admin/edit_successful_story',$status);
 	}
@@ -837,7 +868,8 @@ class Master_Data extends CI_Controller {
 
 	public function delete_success_story(){
 		$profile_image = array();
-		$data_values = $this->master_data_model->successful_story('delete');
+		$couplephoto = '';
+		$data_values = $this->master_data_model->successful_story('delete',$couplephoto);
 		$data['successtory_values'] = $data_values['successtory_values'];
 		$result['status'] = $data_values['status'];
 		$result['error'] = $data_values['error'];

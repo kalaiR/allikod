@@ -479,6 +479,7 @@ class Base extends CI_Controller {
            			if($this->upload->do_upload('uploadedfile')){
                 		$upload_data = $this->upload->data();                 		
                 		// $targetfile_details = $upload_data['file_name'];
+                		$targetfile_details = preg_replace('/^new_/', '',$upload_data['file_name']);
 
                 		//Code added for watermark
                 		$config['image_library'] = 'gd2'; //default value
@@ -500,7 +501,7 @@ class Base extends CI_Controller {
 						$userprofile_logo_thumb['maintain_ratio'] = TRUE;
 						$userprofile_logo_thumb['width']  = 260;
 						$userprofile_logo_thumb['height']  = 260;
-						$userprofile_logo_thumb['new_image'] = $thumbimagename;
+						$userprofile_logo_thumb['new_image'] = "th_".$targetfile_details;
 						$this->load->library('image_lib');
 						$this->image_lib->initialize($userprofile_logo_thumb);
 						// Resize operation
@@ -519,7 +520,7 @@ class Base extends CI_Controller {
 						$data_images = array(
 								// 'userimages_id'=>'',
 								'reg_user_id'=>$id_userdetails,						
-								'images'=>$stored_filename
+								'images'=>$targetfile_details
 						);	
 						$id_images = $this->user_model->insert_registration('user_images',$data_images);
 					}
@@ -626,7 +627,8 @@ class Base extends CI_Controller {
 								$this->upload->initialize($config); // Initialize the configuration		
 								if($this->upload->do_upload('uploadedfile')){
 									$upload_data = $this->upload->data();                 		
-									$targetfile_details = $upload_data['file_name'];
+									// $targetfile_details = $upload_data['file_name'];
+									$targetfile_details = preg_replace('/^new_/', '', $upload_data['file_name']);
 
 									//newly added for thumbnail
 									$userprofile_logo_thumb['image_library'] = 'gd2';						
@@ -635,7 +637,7 @@ class Base extends CI_Controller {
 									$userprofile_logo_thumb['maintain_ratio'] = TRUE;
 									$userprofile_logo_thumb['width']  = 260;
 									$userprofile_logo_thumb['height']  = 260;
-									$userprofile_logo_thumb['new_image'] = $thumbimagename;
+									$userprofile_logo_thumb['new_image'] = "th_".$targetfile_details;
 									$this->load->library('image_lib');
 									$this->image_lib->initialize($userprofile_logo_thumb);
 									// Resize operation
@@ -651,7 +653,7 @@ class Base extends CI_Controller {
 								}
 
 								if($data['error']!=1){	
-								$data_images = array('reg_user_id'=>$this->input->post('quickregister_id'),'images'=>$stored_filename);	
+								$data_images = array('reg_user_id'=>$this->input->post('quickregister_id'),'images'=>$targetfile_details);	
 									// $data_images = $stored_filename;	
 								}
 							}
@@ -960,7 +962,8 @@ class Base extends CI_Controller {
            			if($this->upload->do_upload('uploadedfile'))
             		{
                 		$upload_data = $this->upload->data();                 		
-                		$targetfile_details = $upload_data['file_name'];
+                		// $targetfile_details = $upload_data['file_name'];
+                		$targetfile_details = preg_replace('/^new_/', '', $upload_data['file_name']);
 
                 		//newly added for thumbnail
                 		$successprofile_logo_thumb['image_library'] = 'gd2';						
@@ -969,7 +972,7 @@ class Base extends CI_Controller {
 						$successprofile_logo_thumb['maintain_ratio'] = TRUE;
 						$successprofile_logo_thumb['width']         = 260;
 						$successprofile_logo_thumb['height']       = 260;
-						$successprofile_logo_thumb['new_image']	= $thumbimagename;
+						$successprofile_logo_thumb['new_image']	= "th_".$targetfile_details;
 						$this->load->library('image_lib');
 						$this->image_lib->initialize($successprofile_logo_thumb);
 						// Resize operation
@@ -989,7 +992,7 @@ class Base extends CI_Controller {
                 }
 
 		    // Insert Success-Queries //
-            if($data['error']!=1){	$images = $stored_filename;	}else{	$images = ''; }
+            if($data['error']!=1){	$images = $targetfile_details;	}else{	$images = ''; }
 			if($form_data['vallikodi_id']){	$vallikodi_id = $form_data['vallikodi_id'];	}else{	$vallikodi_id = ''; }
 
 			$data_success_stories = array(
@@ -1008,9 +1011,10 @@ class Base extends CI_Controller {
 				if($data['error']!=1){
 			  		$success_stories = $this->user_model->insert_registration('success_stories', $data_success_stories);
 			  		$data['success_stories'] = $success_stories;
-			  		$data['success_msg'] = 'Data Inserted successfully';
+			  		$data['success_msg'] = 'Thanks for posting your Success story. You have to wait for Admin Approval';
 		  		}
-				redirect('success_stories/');
+				// redirect('success_stories/');
+				$this->load->view('post', $data);
 		}else{
 
 			$data = $this->user_model->get_success_stories($per_page, $offset);
@@ -1371,7 +1375,7 @@ class Base extends CI_Controller {
 					$userprofile_logo_thumb['maintain_ratio'] = TRUE;
 					$userprofile_logo_thumb['width']  = 260;
 					$userprofile_logo_thumb['height']  = 260;
-					$userprofile_logo_thumb['new_image'] = $thumbimagename;
+					$userprofile_logo_thumb['new_image'] = "th_".$upload_data['file_name'];
 
 					$this->load->library('image_lib');
 					$this->image_lib->initialize($userprofile_logo_thumb);

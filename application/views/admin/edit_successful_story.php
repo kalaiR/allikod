@@ -24,7 +24,7 @@
 							</div>
 						</div>
 						<div class="box-content">
-							<form enctype="multipart/form-data" class="form-horizontal edit_form" method="post" action="successful_story" data-id="<?php echo $this->uri->segment(3); ?>">
+							<form enctype="multipart/form-data" class="form-horizontal edit_form success_result" method="post" action="successful_story" data-id="<?php echo $this->uri->segment(3); ?>">
 <?php } ?>
 							<?php
 							  // print_r($zodiac_data);
@@ -49,7 +49,7 @@
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Marriage Date : </label>
 								<div class="controls">
-								  <input class="input-xlarge focused form_inputs datepicker" id="date01" type="date" name="suc_marriagedate" value="<?php if(!empty($successtory_data)) echo date('m/d/Y',strtotime($successtory_data['marriage_date'])); ?>">
+								  <input class="input-xlarge focused form_inputs datepicker" id="date01" type="date" name="suc_marriagedate" value="<?php if(!empty($successtory_data)) echo date('Y-m-d',strtotime($successtory_data['marriage_date'])); ?>">
 								</div>
 							  </div>
 							  <div class="control-group">
@@ -61,7 +61,7 @@
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Success Story : </label>
 								<div class="controls">
-								  <textarea class="input-xlarge focused form_inputs" id="focusedInput" type="text" rows="5" name="suc_description" value="<?php if(!empty($successtory_data)) echo $successtory_data['description']; ?>"> </textarea>
+								  <textarea class="input-xlarge focused form_inputs" id="focusedInput" type="text" rows="5" name="suc_description"><?php if(!empty($successtory_data['description'])) echo $successtory_data['description']; ?></textarea>
 								</div>
 							  </div>
 							  <div class="control-group">
