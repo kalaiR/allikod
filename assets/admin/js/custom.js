@@ -50,13 +50,12 @@ $(document).ready(function() {
 		  	}
 		  }
 		     
-  	});
+  });
   $('.slidingDivs').click(function(){  
   	$('.slidingDiv').hide('slow'); 
-  	});
-  	
-});
-	$(".focused").blur(function (e){
+  	}); 	
+  });
+  $(document).on('blur',".focused",function(e){
 		 if($(this).hasClass('v_id')) {   
 		   $('.pro_id').val('');
 		   $('.file_id').val('');
@@ -69,10 +68,10 @@ $(document).ready(function() {
 	        $('.pro_id').val('');
 	        $('.v_id').val('');   
 	      }            
-});
-	$('.filter_act').on('change',function(){
-		$('.slidingDiv').hide('slow');
-	});
+  });
+  	$(document).on('change','.filter_act',function(){
+  		$('.slidingDiv').hide('slow');
+  	});
         // $(".slidingDiv").hide();
         // $('.search_customer').click(function(){
         // // $(".slidingDiv").slideToggle();
@@ -266,7 +265,7 @@ $('.reset').click(function() {
     });
 
     /*Admin customer user edit form Start*/
-    $('.customer_edit_form,.add_customer_user').on('submit',function(e) {
+    $(document).on('submit','.customer_edit_form,.add_customer_user',function(e) {
         e.preventDefault();
         var error = '';
         var error_msg = $(this).find('.val_error');
@@ -413,11 +412,11 @@ $('.reset').click(function() {
     });
 
     /*Admin customer user edit form End*/
-	$(".dob_admin").keypress(function(event) {
-		event.preventDefault();
-	});
+    $(document).on('keypress',".dob_admin",function (event) {
+  		event.preventDefault();
+  	});
 	
-    $("#usertype_act").on("change",function(){
+    $(document).on('change',"#usertype_act",function (e) {
       var usertype = $('option:selected',this).val();
       if(usertype == "simple")
         $(".online_user_field").hide();
@@ -425,7 +424,7 @@ $('.reset').click(function() {
         $(".online_user_field").show();
 
     });
-    $(".period_monthact").on("change",function(){
+    $(document).on('change',".period_monthact",function (e) {
       var period_month = $(this).val();
       // alert(period_month);
       // var today = $.datepicker.formatDate('dd/mm/yy', new Date());
@@ -438,6 +437,7 @@ $('.reset').click(function() {
         // alert(after_threemonth);
         $("#cus_paymentstartdate").val($.datepicker.formatDate('yy-mm-dd', today));
         $("#cus_paymentenddate").val(after_threemonth);
+        $("#cus_viewprofile").val(0);
         $("#cus_totprofile").val(60);
       }
       else if(period_month == 6){
@@ -449,10 +449,11 @@ $('.reset').click(function() {
         // alert(after_sixmonth);
         $("#cus_paymentstartdate").val($.datepicker.formatDate('yy-mm-dd', today));
         $("#cus_paymentenddate").val(after_sixmonth);
+        $("#cus_viewprofile").val(0);
         $("#cus_totprofile").val(120);
       }
     });
-    $(".paymentmode_act").on("change",function(e){
+    $(document).on('change',".paymentmode_act",function (e) {
       var paymentmode = $('option:selected',this).val();
       if($('.payment_mode').val() =="not_paid" && paymentmode == "renewal"){
         alert("Could not able to renewal because still this customer is not paid");
@@ -461,13 +462,13 @@ $('.reset').click(function() {
         $(this).find("option[value='']").siblings("option").removeAttr("selected");
       }
     });
-    $(".paymenttype_act").on("change",function(){
+    $(document).on('change',".paymenttype_act",function (e) {
       // alert("yes");
       var paymenttype = $(this).val();
       // alert(paymenttype);
     });
 
-   $(".income-box").keyup(function (e) {
+   $(document).on('keyup',".income-box",function (e) {
     var inc =$(".income-box");
     var key = String.fromCharCode( e.charCode || e.which);
     var income =parseInt($(this).val());
@@ -484,27 +485,27 @@ $('.reset').click(function() {
   });  
     //get id and store in array for removed images while edit profile
     var image_array = [];
-    $('.remove_act').on('click', function(){
+    $(document).on('click','.remove_act', function(){
         var image_id = $(this).parents("li").find('.cus_img').data('id');
         if ($.inArray(image_id.toString(), image_array) != 0)
             image_array.push(image_id);
     });
        
-    $(".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_reg,.only_num").keypress(function (e) {
-    // var income =$(this).val();
-    // var income =parseInt($(this).val());
-    // var s = e.which;
-     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+    $(document).on('keypress',".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_reg,.only_num",function (e) {
+      // var income =$(this).val();
+      // var income =parseInt($(this).val());
+      // var s = e.which;
+      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
         return false;
-       }
-       // var income =$(this).val();
-       // if (income<0 && income>100){
-       //  return false;
-       // }
-       // alert(income)   
-});
+      }
+         // var income =$(this).val();
+         // if (income<0 && income>100){
+         //  return false;
+         // }
+         // alert(income)   
+    });
 
-$(".ph_num").keyup(function (e) {
+    $(document).on('keyup', '.ph_num', function(e) {
 		    $(this).val($(this).val().replace(/[^\d , -]+/, ""));
 		});
 // $('.mob_num,.income-box').keypress(function() {
@@ -519,7 +520,7 @@ $(".ph_num").keyup(function (e) {
 //         return false;
 //     }
 // });
-$(".alp").keypress(function(event){
+    $(document).on('keypress', '.alp', function() {
          var ew = event.which;
         if(ew == 32)
             return true;
@@ -532,20 +533,20 @@ $(".alp").keypress(function(event){
         return false;
     });
 
-// var max_chars = 2;
-$('.bro_sis,.age_reg').keyup( function(e){
-    if ($(this).val().length >= 2) { 
-        $(this).val($(this).val().substr(0, 2));
-    }
-});
-$('.mob_num').keyup( function(e){
-    if ($(this).val().length >= 10) { 
-        $(this).val($(this).val().substr(0, 10));
-    }
-});
+    // var max_chars = 2;
+    $(document).on('keyup', '.bro_sis,.age_reg', function(e) {
+        if ($(this).val().length >= 2) { 
+            $(this).val($(this).val().substr(0, 2));
+        }
+    });
+    $(document).on('keyup', '.mob_num', function(e) {
+        if ($(this).val().length >= 10) { 
+            $(this).val($(this).val().substr(0, 10));
+        }
+    });
      
     //To find height in feet for selected height in cms
-    $('.height_act').on('change', function(){
+    $(document).on('change','.height_act',function(e){
         height_cms = $('.height_act :selected').text();
         $('.feet_act option[data-heightcms*="' + height_cms + '"]').attr("selected","selected");       
     });  
@@ -553,7 +554,7 @@ $('.mob_num').keyup( function(e){
     // Rasi Horoscope - Start //
     var results_array = [];
     // Add the Rasi
-    $('#rasi_cont').on('click', '#add_rasi', function() {
+    $(document).on('click', '#add_rasi', function() {
       if ($('#rasi_name option').length > 0) {
         var srasi_val = $('#rasi_name :selected').val();
         var srasi_text = $('#rasi_name :selected').text();
@@ -579,7 +580,7 @@ $('.mob_num').keyup( function(e){
     });
 
     // Remove the Rasi
-    $('#rasi_cont').on('click', '#remove_rasi', function() {
+    $(document).on('click', '#remove_rasi', function() {
       if ($('#crasi_name option').length > 0) {
         var crasi_name = $('#crasi_name :selected').data('id');
         var crasi_val = $('#crasi_name :selected').val();
@@ -619,7 +620,7 @@ $('.mob_num').keyup( function(e){
     // ASHAM Horoscope - Start //
     var results_array_asham = [];
     // Add the ASHAM
-    $('#asham_cont').on('click', '#add_asham', function() {
+    $(document).on('click', '#add_asham', function() {
       if ($('#asham_name option').length > 0) {
         var srasi_val = $('#asham_name :selected').val();
         var srasi_text = $('#asham_name :selected').text();
@@ -645,7 +646,7 @@ $('.mob_num').keyup( function(e){
     });
 
     // Remove the ASHAM
-    $('#asham_cont').on('click', '#remove_asham', function() {
+    $(document).on('click', '#remove_asham', function() {
       if ($('#casham_name option').length > 0) {
         var crasi_name = $('#casham_name :selected').data('id');
         var crasi_val = $('#casham_name :selected').val();
@@ -713,6 +714,8 @@ $('.mob_num').keyup( function(e){
       e.preventDefault();
       $('#myModal').modal('show');
     });
+
+    $('.report_datepicker').datepicker({dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true});
 
 });
 

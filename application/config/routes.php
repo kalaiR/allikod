@@ -142,6 +142,7 @@ $route['test_watermark'] 							= "base/test_watermark";
 $route['admin/delete_success_story'] 							= "admin/master_data/delete_success_story";
 
 
+
 // $route['main'] = 'admin/admin_login/teac_admin_login';
 
 

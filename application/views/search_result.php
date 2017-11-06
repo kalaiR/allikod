@@ -224,7 +224,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                                             ?>
                                             <?php if(!empty($value['comm_current_city'])){ echo " / ".$value['comm_current_city'];}
                                             ?>
-                                            <?php if(!empty($value['comm_current_district'])){ echo " / ".$value['comm_current_district'];}
+                                            <?php //if(!empty($value['comm_current_district'])){ echo " / ".$value['comm_current_district'];}
                                             ?>
                                             </p>
                                         </div>

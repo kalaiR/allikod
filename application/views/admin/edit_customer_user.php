@@ -252,7 +252,7 @@
 														  	<div class="control-group online_user_field" <?php if($customeruser_values['user_online_or_simple'] == "simple") echo 'style="display:none;"'; else echo 'style="display:block;"'; ?>>
 																<label class="control-label" for="focusedInput">No. of profile Viewed: </label>
 																<div class="controls">
-																  <input class="input-xlarge focused" id="focusedInput" type="text" value="<?php if($customeruser_values['user_online_or_simple'] == "online"): if($selected == 'initial') echo $customeruser_values['no_of_profiles_viewed']; if($selected == 'renewal') echo $customeruser_values['no_of_profile_viewed']; endif; ?>" name="cus_viewprofile" disabled>
+																  <input class="input-xlarge focused" id="cus_viewprofile" type="text" value="<?php if($customeruser_values['user_online_or_simple'] == "online"): if($selected == 'initial') echo $customeruser_values['no_of_profiles_viewed']; if($selected == 'renewal') echo $customeruser_values['no_of_profile_viewed']; endif; ?>" name="cus_viewprofile">
 																</div>
 														  	</div>
 														  	<div class="control-group">
@@ -819,6 +819,25 @@
 															<label class="control-label" for="focusedInput">Personality  : </label>
 															<div class="controls">
 															  <textarea class="input-xlarge focused" id="focusedInput" type="text" name="cus_personality"><?php if(!empty($customeruser_values['phy_yourpersonality'])) echo $customeruser_values['phy_yourpersonality']; ?></textarea>
+															</div>												
+														  </div>  					  							  
+														</fieldset>
+													  </div>
+													</div>
+												</div>
+											</div>
+											<div class="row-fluid sortable">
+											<div class="box span8">
+												<div class="box-header well">
+													<h2><!-- <i class="icon-th"> -->  Expectation About Your Life Partner</h2>	  			
+												</div>
+												<div class="box-content">
+													<div class="form-horizontal">
+														<fieldset>											  
+														  <div class="control-group">
+															<label class="control-label" for="focusedInput">Expectation  : </label>
+															<div class="controls">
+															  <textarea class="input-xlarge focused" id="focusedInput" type="text" name="cus_expect"><?php if(!empty($customeruser_values['phy_expectationabout_lifepartner'])) echo $customeruser_values['phy_expectationabout_lifepartner']; ?></textarea>
 															</div>												
 														  </div>  					  							  
 														</fieldset>
