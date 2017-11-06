@@ -229,6 +229,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                                             </p>
                                         </div>
                                 <?php } ?>    
+                                <div style="clear:both"></div>
                             <div class="text-box-name">
                              <?php
                                $user_session = $this->session->userdata("login_status");
@@ -242,7 +243,8 @@ if(isset($per_page)&&(!empty($total_rows)))
                                 <?php } ?>    
                             </div>
                         <!-- </div> -->
-                    </div>      
+                    </div> 
+
                     <?php } 
                     }else{?>
                          <div class="text-box-name" align="center">
@@ -250,6 +252,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                          </div>
                     <?php }
                     ?>
+
                         <div class="col-md-12" style="display: inline-block;"">
                             <div>
                             <?php
@@ -283,7 +286,305 @@ if(isset($per_page)&&(!empty($total_rows)))
                             ?>
                             </div> <!-- col-md-12 ends -->
                     </div> <!-- col-md-9 -->
+
                 </div> <!-- row ends  -->    
+                 <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <div class="s_title">
+                                    <h4>Searching Options</h4>
+                                    <img src="img/widget-title-border.png" alt="">
+                                </div>
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Age Limit</b></a></li>
+                                </ul>
+                                <div class="s_widget price_widget age-box">
+                                    <div id="price_select"></div>
+                                        <div class="price_inner">
+                                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                        <!-- <a href="#">$50</a>
+                                        <a href="#">$350</a> -->
+                                    </div>
+                                </div>    
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Height Limit</b></a></li>
+                                </ul>
+                                <div class="s_widget price_widget age-box">
+                                    <div id="height_select"></div>
+                                        <div class="price_inner">
+                                        <input type="text" id="height" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                        <!-- <a href="#">$50</a>
+                                        <a href="#">$350</a> -->
+                                    </div>
+                                </div>    
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Weight Limit<b></a></li>
+                                </ul>
+                                <div class="s_widget price_widget age-box">
+                                    <div id="weight_select"></div>
+                                        <div class="price_inner">
+                                        <input type="text" id="weight" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                        <!-- <a href="#">$50</a>
+                                        <a href="#">$350</a> -->
+                                    </div>
+                                </div>    
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Marital Status<b></a></li>
+                                </ul>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Single
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Widowed
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Divorced
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Annulled
+                                    </label>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Occupation</b></a></li>
+                                </ul>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Admin
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Airline
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Agriculture
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Other
+                                    </label>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Education</b></a></li>
+                                </ul>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Bachelor of Architecture - B.Arch.
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Bachelor of Arts - B.A.
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Bachelor of Computer Applications - B.C.A.
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Other
+                                    </label>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Employed In</b></a></li>
+                                </ul>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Business
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Defence
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                           Self Employed
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Other
+                                    </label>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Food</b></a></li>
+                                </ul>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                           Vegtarian
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                           Non - Vegtarian
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            Eggetartion
+                                    </label>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Complexion</b></a></li>
+                                </ul>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                           Very Fair
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                           Fair
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                           Wheatish
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                           Dark
+                                    </label>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Body Type</b></a></li>
+                                </ul>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                           Average
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                          Althletic
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                          Slim
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                           Heavy
+                                    </label>
+                                </div>
+                        </div>
+                    </div>
             </div> <!-- container ends -->
         </section>
 <?php 
