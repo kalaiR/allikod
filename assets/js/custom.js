@@ -308,6 +308,10 @@ function remove(array, property, value) {
 
 
 $(document).ready(function() {
+	// menu button
+	$('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
+		$(this).toggleClass('open');
+	});
 	 $('.position_images').css('display','none');
 	// reg page validation //
 	$(".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_regss").keypress(function(e) {
@@ -1017,4 +1021,5 @@ function disableRadio(radioId) {
     el = window.document.getElementById(radioId);
     el.checked = false;
 }
+
 

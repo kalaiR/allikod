@@ -73,7 +73,7 @@
         display: none;
     }
     .header_menu_area .navbar-default .navbar-collapse .navbar-nav li a {
-        line-height: 50px;
+        line-height: 40px;
     }
     .header_menu_area .navbar-default .navbar-collapse .navbar-nav li.submenu .dropdown-menu li a {
         padding-left: 20px;
@@ -156,11 +156,11 @@
         padding-right: 15px;
     }
     .navbar-default .navbar-toggle {
-        border-color: #e74c3c;
-        background: transparent;
+        border-color: #5c7500;
+        background: #5c7500;
     }
     .navbar-default .navbar-toggle:hover {
-        background: transparent;
+        background: #5c7500;
     }
     .navbar-default .navbar-toggle .icon-bar {
         background-color: #e74c3c;
@@ -276,7 +276,7 @@
         top: 0px;
     }
     .header_menu_area .navbar-default .navbar-collapse {
-        max-height: 350px;
+        max-height: 450px;
     }
     .registration_form_area .col-sm-6:nth-child(2){
         position: absolute;

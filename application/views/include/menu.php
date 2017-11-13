@@ -122,11 +122,10 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display (selva)-->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                    <button id="nav-icon1" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </button>
                     <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="<?php echo media_url(); ?>assets/img/logo1.png" alt=""></a>
                 </div>
@@ -162,18 +161,20 @@
                             if (!empty($user_session)){
                         ?>
                         <li class="dropdown submenu">
-                            <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome,&nbsp&nbsp<?php echo $user_session_data['user_fname']; ?>&nbsp&nbsp<i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                            <a href="success-stories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome,&nbsp&nbsp<?php echo $user_session_data['user_fname']; ?>&nbsp&nbsp<i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp&nbsp<i class="fa fa-caret-down" aria-hidden="true"></i>
+</a>
                             <ul class="dropdown-menu">
                                 <!--li><a href="<?php //echo base_url(); ?>mymatches">Matches</a></li-->
                                 <li><a href="<?php echo base_url(); ?>myprofile">My Profile</a></li>
                                 <li><a href="<?php echo base_url(); ?>myview">My View</a></li>
-                                <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
+                                <li id="log"><a href="<?php echo base_url(); ?>logout">Logout</a></li>
                             </ul>
                         </li>
                         <?php }else{ ?>
                                 <ul class="nav navbar-nav navbar-right">
                                 <li id="login"><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
                                 <li id="register"><a href="<?php echo base_url(); ?>registration"><i class="fa fa-user-plus"></i>Registration</a></li>
+                                <li><a href=""></i></a></li>
                                 </ul>
                         <?php } ?>
                         </ul>
