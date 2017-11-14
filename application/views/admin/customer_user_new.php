@@ -161,7 +161,7 @@
 										  	<!-- <option value="">All users</option> -->
 											<option value="active">Active</option>
 											<option value="inactive">Inactive</option>
-											<option value="deleted">Deleted</option>
+											<!-- <option value="deleted">Deleted</option> -->
 										  </select>
 										  <select id="selectError3" style="margin:0px 20px 0px 10px; float: left; width: 160px" class="filter_act usertype_data drop_reset">
 										  	<option value="" >Select By Usertype</option>
@@ -345,7 +345,7 @@
 			</div>
 			<div class="modal-footer">
 				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-				<a href="#" data-id="" class="btn btn-danger delete_act">Delete</a>
+				<a href="#" data-id="" data-href="delete_customer_user" class="btn btn-danger delete_act">Delete</a>
 			</div>
 		</div>
 	<!-- Placed at the end of the document so the pages load faster -->

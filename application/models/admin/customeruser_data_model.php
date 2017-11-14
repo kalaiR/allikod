@@ -191,6 +191,7 @@ class Customeruser_data_model extends CI_Model {
 				'amount' => $this->input->post('cus_amount'),
 				'period_in_month' => $this->input->post('cus_period'),
 				'totalno_of_profile' => $this->input->post('cus_totprofile'),
+				'no_of_profiles_viewed' => $this->input->post('cus_viewprofile'),
 				'payment_status' => $this->input->post('cus_paymentactivestatus'),
 				'startdate' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
 				'enddate' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
@@ -204,6 +205,7 @@ class Customeruser_data_model extends CI_Model {
 				'ren_amount' => $this->input->post('cus_amount'),
 				'ren_period_in_month' => $this->input->post('cus_period'),
 				'totalno_of_profile' => $this->input->post('cus_totprofile'),
+				'no_of_profiles_viewed' => $this->input->post('cus_viewprofile'),
 				'active_status' => $this->input->post('cus_paymentactivestatus'),
 				'starting_date' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
 				'ending_date' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
@@ -437,7 +439,7 @@ class Customeruser_data_model extends CI_Model {
   public function customer_user_profile($id){
   		// View by id
   		$condition = "usr.userdetail_id = ".$id."";
-    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,pay.*,ren.*,pay.totalno_of_profile as paytotprofile,ren.totalno_of_profile as rentotprofile,ren.active_status as renewalstatus,
+    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,luk.name as lukhnam_name,zod.name as zodiac_name,pay.*,ren.*,pay.totalno_of_profile as paytotprofile,ren.totalno_of_profile as rentotprofile,ren.active_status as renewalstatus,
     		group_concat(images) as images,group_concat(userimages_id) as images_id');
 	    $this->db->from('reg_userdetail usr');
 	    $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
@@ -999,6 +1001,7 @@ class Customeruser_data_model extends CI_Model {
 	        // echo $this->db->last_query(); 
 	        $model_data['status'] = "Inserted Successfully";
 	        $model_data['error'] = 2;
+	        $model_data['userdetail_id'] = $last_insert_id;
 	        return $model_data;
    }
 }

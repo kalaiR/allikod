@@ -147,13 +147,13 @@
 						<li><a class="ajax-link" href="successful_story.php"><i class="icon icon-darkgray icon-book"></i><span class="hidden-tablet"> Successful Story</span></a></li>
 					</ul> -->
 				</li>
-				<li class="" id="mail"><a href="#"><i class="icon-envelope"></i><span> Mail</a>
+				<!-- <li class="" id="mail"><a href="#"><i class="icon-envelope"></i><span> Mail</a>
 					<ul class="sidebar-submenu">
-						<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/"><i class="icon-envelope"></i><span class="hidden-tablet"> Mail</span></a></li>
-						<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/"><i class="icon-envelope"></i><span class="hidden-tablet"> Send Mail</span></a></li>
-						<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/"><i class="icon-comment"></i><span class="hidden-tablet">Send SMS</span></a></li>
+						<li><a class="ajax-link" href="<?php //echo base_url(); ?>admin/"><i class="icon-envelope"></i><span class="hidden-tablet"> Mail</span></a></li>
+						<li><a class="ajax-link" href="<?php //echo base_url(); ?>admin/"><i class="icon-envelope"></i><span class="hidden-tablet"> Send Mail</span></a></li>
+						<li><a class="ajax-link" href="<?php //echo base_url(); ?>admin/"><i class="icon-comment"></i><span class="hidden-tablet">Send SMS</span></a></li>
 					</ul>
-				</li>
+				</li> -->
 				<li class="" id="gallery"><a href="#"><i class="icon-picture"></i> Gallery</a>
 					<ul class="sidebar-submenu">
 						<li><a class="ajax-link" href="<?php echo base_url(); ?>admin/gallery_upload"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery Upload</span></a></li>

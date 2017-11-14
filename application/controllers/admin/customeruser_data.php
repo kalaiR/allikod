@@ -111,6 +111,21 @@ class Customeruser_Data extends CI_Controller {
 							$this->upload->initialize($config);
 							if($this->upload->do_upload('userFile')){
 							    $uploadData = $this->upload->data();
+
+							    //Code added for watermark
+		                		$config['image_library'] = 'gd2'; //default value
+			                    $config['source_image'] = $uploadData['full_path']; //get original image
+			                    $config['wm_type'] = 'overlay';
+			                    $config['wm_overlay_path'] = FCPATH.USER_PROFILE_PATH."vallikodi-watermark.png";
+			                    // $config['wm_opacity'] = '50';
+			                    $config['wm_vrt_alignment'] = 'middle';
+			                    $config['wm_hor_alignment'] = 'center';
+			                    $this->load->library('image_lib');
+			                    $this->image_lib->initialize($config);
+			                    if (!$this->image_lib->watermark()) {
+			                        $data['status'] = strip_tags($this->image_lib->display_errors());
+			                    }      
+
 							    // print_r($uploadData);
 							    array_push($profile_image,USER_PROFILE_PATH.$uploadData['file_name']);
 								$profile_image[$i] = str_replace("new_","",$uploadData['file_name']);
@@ -152,6 +167,53 @@ class Customeruser_Data extends CI_Controller {
 				$result['error'] = $data['error'];
 				$result['status'] = $data['status'];
 				$data_ajax['selection_values'] = $this->customeruser_data_model->customer_user_selectiondata();
+
+				// if(!($_SERVER['SERVER_ADDR'] === '::1') && !($_SERVER['SERVER_ADDR'] === '127.0.0.1'))
+		  		// {
+		  			//Email Process
+					$ci =& get_instance();	
+					$ci->config->load('email', true);
+					$emailsetup = $ci->config->item('email');
+					$this->load->library('email', $emailsetup);
+					$from_email = $emailsetup['smtp_user'];
+					$this->email->initialize($emailsetup);
+					$this->email->from($from_email, '');
+	                $this->email->to($this->input->post('cus_email'));
+	    			$this->email->subject('Registration Process Completed');
+	    			// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
+	    			$data['user_id'] = $data_values['userdetail_id'];
+	    			$data['reg_purpose'] = "full_reg";
+	    			$message = $this->load->view('email_template/registration', $data, TRUE);
+	    			$this->email->message($message);
+	    			$this->email->send();
+
+	    			//SMS process
+	    			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
+					$fields = array(
+					    'user'=> 'VALLIK',
+					    'pass'=> 'abcd1234',
+					    'sender'=> 'VALLIK',
+					    'phone'=> $this->input->post('cus_mobile'),
+					    'text'=>"Dear Customer, Thanks for registering with us in vallikodivanniarmatrimonial.in. You have completed only quick registration. You account will be activated once you done the payment with full registration.",
+					    'priority'=>'ndnd',
+					    'stype'=>'normal'
+					);
+					$ch = curl_init();
+					curl_setopt($ch, CURLOPT_URL, $smsurl);
+					curl_setopt($ch, CURLOPT_POST, count($fields));
+					curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($fields));
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					curl_exec($ch);
+					curl_close($ch);
+
+					//Message not sending when use file_get_contents
+	    			$mobile_no = $this->input->post('cus_mobile');
+	    			$msg = "Dear Customer, Thanks for registering with us in vallikodivanniarmatrimonial.in. You have completed only quick registration. You account will be activated once you done the payment with full registration.";
+					$url = 'http://dnd.blackholesolution.com/api/sendmsg.php?user=VALLIK&pass=abcd1234&sender=VALLIK&phone='.$mobile_no.'&text='.$msg.'&priority=ndnd&stype=normal';
+					$get = file_get_contents($url);
+
+		  		// }
+
 				$result['output'] = $this->load->view('admin/add_customer_user',$data_ajax,true);
 				echo json_encode($result);
 			}
@@ -258,6 +320,21 @@ class Customeruser_Data extends CI_Controller {
 								$this->upload->initialize($config);
 								if($this->upload->do_upload('userFile')){
 								    $uploadData = $this->upload->data();
+
+								    //Code added for watermark
+			                		$config['image_library'] = 'gd2'; //default value
+				                    $config['source_image'] = $uploadData['full_path']; //get original image
+				                    $config['wm_type'] = 'overlay';
+				                    $config['wm_overlay_path'] = FCPATH.USER_PROFILE_PATH."vallikodi-watermark.png";
+				                    // $config['wm_opacity'] = '50';
+				                    $config['wm_vrt_alignment'] = 'middle';
+				                    $config['wm_hor_alignment'] = 'center';
+				                    $this->load->library('image_lib');
+				                    $this->image_lib->initialize($config);
+				                    if (!$this->image_lib->watermark()) {
+				                        $data['status'] = strip_tags($this->image_lib->display_errors());
+				                    }      
+			                    
 								    // print_r($uploadData);
 								    array_push($profile_image,USER_PROFILE_PATH.$uploadData['file_name']);
 									$profile_image[$i] = str_replace("new_","",$uploadData['file_name']);
@@ -372,6 +449,7 @@ class Customeruser_Data extends CI_Controller {
 					curl_setopt($ch, CURLOPT_URL, $smsurl);
 					curl_setopt($ch, CURLOPT_POST, count($fields));
 					curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($fields));
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 					curl_exec($ch);
 					curl_close($ch);
 

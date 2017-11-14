@@ -8,6 +8,7 @@ class Base extends CI_Controller {
 		$this->load->model('user_model');
 		$this->load->library(array('form_validation', 'session')); 
 		$this->load->library('upload');
+		$this->load->library("pagination");
 		session_start();
 	}
 	public function index(){
@@ -418,15 +419,17 @@ class Base extends CI_Controller {
 				);
 		  		
 
-				if(!empty($form_data['diet_veg'])){
-					$data_reg_phy['phy_expectationfood']=$form_data['diet_veg'];	
-				}elseif(!empty($form_data['diet_nonveg'])){
-					$data_reg_phy['phy_expectationfood']=$form_data['diet_nonveg'];	
-				}elseif(!empty($form_data['diet_egg'])){
-					$data_reg_phy['phy_expectationfood']=$form_data['diet_egg'];	
+				// if(!empty($form_data['diet_veg'])){
+				// 	$data_reg_phy['phy_expectationfood']=$form_data['diet_veg'];	
+				// }elseif(!empty($form_data['diet_nonveg'])){
+				// 	$data_reg_phy['phy_expectationfood']=$form_data['diet_nonveg'];	
+				// }elseif(!empty($form_data['diet_egg'])){
+				// 	$data_reg_phy['phy_expectationfood']=$form_data['diet_egg'];	
+				// }
+
+		  		if(!empty($form_data['diet_veg'])){
+					$data_reg_phy['phy_expectationfood']= $form_data['diet_veg'];
 				}
-
-
 				if(!empty($form_data['height_in_cms'][0])){
 					$data_reg_phy['phy_height']= $form_data['height_in_cms'][0];
 				}
@@ -476,7 +479,21 @@ class Base extends CI_Controller {
 			        $this->upload->initialize($config); // Initialize the configuration		
            			if($this->upload->do_upload('uploadedfile')){
                 		$upload_data = $this->upload->data();                 		
-                		$targetfile_details = $upload_data['file_name'];
+                		// $targetfile_details = $upload_data['file_name'];
+                		$targetfile_details = preg_replace('/^new_/', '',$upload_data['file_name']);
+
+                		//Code added for watermark
+                		$config['image_library'] = 'gd2'; //default value
+	                    $config['source_image'] = $upload_data['full_path']; //get original image
+	                    $config['wm_type'] = 'overlay';
+	                    $config['wm_overlay_path'] = FCPATH.USER_PROFILE_PATH."vallikodi-watermark.png";
+	                    // $config['wm_opacity'] = '50';
+	                    $config['wm_vrt_alignment'] = 'middle';
+	                    $config['wm_hor_alignment'] = 'center';
+	                    $this->load->library('image_lib', $config);
+	                    if (!$this->image_lib->watermark()) {
+	                        $data['status'] = strip_tags($this->image_lib->display_errors());
+	                    }      
 
                 		//newly added for thumbnail
                 		$userprofile_logo_thumb['image_library'] = 'gd2';						
@@ -485,7 +502,7 @@ class Base extends CI_Controller {
 						$userprofile_logo_thumb['maintain_ratio'] = TRUE;
 						$userprofile_logo_thumb['width']  = 260;
 						$userprofile_logo_thumb['height']  = 260;
-						$userprofile_logo_thumb['new_image'] = $thumbimagename;
+						$userprofile_logo_thumb['new_image'] = "th_".$targetfile_details;
 						$this->load->library('image_lib');
 						$this->image_lib->initialize($userprofile_logo_thumb);
 						// Resize operation
@@ -504,7 +521,7 @@ class Base extends CI_Controller {
 						$data_images = array(
 								// 'userimages_id'=>'',
 								'reg_user_id'=>$id_userdetails,						
-								'images'=>$stored_filename
+								'images'=>$targetfile_details
 						);	
 						$id_images = $this->user_model->insert_registration('user_images',$data_images);
 					}
@@ -611,7 +628,8 @@ class Base extends CI_Controller {
 								$this->upload->initialize($config); // Initialize the configuration		
 								if($this->upload->do_upload('uploadedfile')){
 									$upload_data = $this->upload->data();                 		
-									$targetfile_details = $upload_data['file_name'];
+									// $targetfile_details = $upload_data['file_name'];
+									$targetfile_details = preg_replace('/^new_/', '', $upload_data['file_name']);
 
 									//newly added for thumbnail
 									$userprofile_logo_thumb['image_library'] = 'gd2';						
@@ -620,7 +638,7 @@ class Base extends CI_Controller {
 									$userprofile_logo_thumb['maintain_ratio'] = TRUE;
 									$userprofile_logo_thumb['width']  = 260;
 									$userprofile_logo_thumb['height']  = 260;
-									$userprofile_logo_thumb['new_image'] = $thumbimagename;
+									$userprofile_logo_thumb['new_image'] = "th_".$targetfile_details;
 									$this->load->library('image_lib');
 									$this->image_lib->initialize($userprofile_logo_thumb);
 									// Resize operation
@@ -636,7 +654,7 @@ class Base extends CI_Controller {
 								}
 
 								if($data['error']!=1){	
-								$data_images = array('reg_user_id'=>$this->input->post('quickregister_id'),'images'=>$stored_filename);	
+								$data_images = array('reg_user_id'=>$this->input->post('quickregister_id'),'images'=>$targetfile_details);	
 									// $data_images = $stored_filename;	
 								}
 							}
@@ -760,10 +778,13 @@ class Base extends CI_Controller {
 				$height_to = $form_data['height_in_feets'][0];
 				$mar_status = $form_data['marital_status'][0];				
 				$mother_tongue = $form_data['mother_tongue'];
-				$education = $form_data['education'];
+				// $education = $form_data['education'];
 				$show_profile = $form_data['images'][0];
-				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'education'=>$education, 'show_profile'=>$show_profile);				
-
+				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'show_profile'=>$show_profile);				
+				if(!empty($form_data['education'])){
+					$education = $form_data['education'];
+					$values['education'] = $education;
+				}
 				$data = $this->user_model->get_basicsearch($values, $per_page, $offset);
 				$this->session->set_userdata('search_inputs',$values);
 
@@ -905,6 +926,9 @@ class Base extends CI_Controller {
 		print_r($data);
 		echo '</pre>';
 		exit();*/
+		$data['selection_values'] = $this->user_model->customer_user_selectiondata();
+		$data['occupation_category'] = $this->user_model->get_occupationcategory();
+		$data['education_category'] = $this->user_model->get_educationcategory();
 		$this->load->view('search_result',$data);
 		
 	}
@@ -942,7 +966,8 @@ class Base extends CI_Controller {
            			if($this->upload->do_upload('uploadedfile'))
             		{
                 		$upload_data = $this->upload->data();                 		
-                		$targetfile_details = $upload_data['file_name'];
+                		// $targetfile_details = $upload_data['file_name'];
+                		$targetfile_details = preg_replace('/^new_/', '', $upload_data['file_name']);
 
                 		//newly added for thumbnail
                 		$successprofile_logo_thumb['image_library'] = 'gd2';						
@@ -951,7 +976,7 @@ class Base extends CI_Controller {
 						$successprofile_logo_thumb['maintain_ratio'] = TRUE;
 						$successprofile_logo_thumb['width']         = 260;
 						$successprofile_logo_thumb['height']       = 260;
-						$successprofile_logo_thumb['new_image']	= $thumbimagename;
+						$successprofile_logo_thumb['new_image']	= "th_".$targetfile_details;
 						$this->load->library('image_lib');
 						$this->image_lib->initialize($successprofile_logo_thumb);
 						// Resize operation
@@ -971,7 +996,7 @@ class Base extends CI_Controller {
                 }
 
 		    // Insert Success-Queries //
-            if($data['error']!=1){	$images = $stored_filename;	}else{	$images = ''; }
+            if($data['error']!=1){	$images = $targetfile_details;	}else{	$images = ''; }
 			if($form_data['vallikodi_id']){	$vallikodi_id = $form_data['vallikodi_id'];	}else{	$vallikodi_id = ''; }
 
 			$data_success_stories = array(
@@ -990,9 +1015,10 @@ class Base extends CI_Controller {
 				if($data['error']!=1){
 			  		$success_stories = $this->user_model->insert_registration('success_stories', $data_success_stories);
 			  		$data['success_stories'] = $success_stories;
-			  		$data['success_msg'] = 'Data Inserted successfully';
+			  		$data['success_msg'] = 'Thanks for posting your Success story. You have to wait for Admin Approval';
 		  		}
-				redirect('success_stories/');
+				// redirect('success_stories/');
+				$this->load->view('post', $data);
 		}else{
 
 			$data = $this->user_model->get_success_stories($per_page, $offset);
@@ -1159,6 +1185,21 @@ class Base extends CI_Controller {
 					$this->upload->initialize($config);
 					if($this->upload->do_upload('userFile')){
 					    $uploadData = $this->upload->data();
+
+					    //Code added for watermark
+                		$config['image_library'] = 'gd2'; //default value
+	                    $config['source_image'] = $uploadData['full_path']; //get original image
+	                    $config['wm_type'] = 'overlay';
+	                    $config['wm_overlay_path'] = FCPATH.USER_PROFILE_PATH."vallikodi-watermark.png";
+	                    // $config['wm_opacity'] = '50';
+	                    $config['wm_vrt_alignment'] = 'middle';
+	                    $config['wm_hor_alignment'] = 'center';
+	                    $this->load->library('image_lib');
+	                    $this->image_lib->initialize($config);
+	                    if (!$this->image_lib->watermark()) {
+	                        $data['status'] = strip_tags($this->image_lib->display_errors());
+	                    }      
+	                    
 					    // print_r($uploadData);
 					    array_push($profile_image,USER_PROFILE_PATH.$uploadData['file_name']);
 						$profile_image[$i] = str_replace("new_","",$uploadData['file_name']);
@@ -1295,5 +1336,117 @@ class Base extends CI_Controller {
 	}
 	public function error500_page(){
 		$this->load->view('500page');
+	}
+	public function test_watermark(){
+		if($this->input->post()){	
+			if(!empty($_FILES['uploadedfile']['name'])){
+		   		$imagePrefix = "new_"; 
+				$imagename = $imagePrefix.$_FILES["uploadedfile"]['name'];
+
+				$thumbimagePrefix = "th_"; 
+				$thumbimagename = $thumbimagePrefix.$_FILES["uploadedfile"]['name'];
+
+				$stored_filename = $_FILES["uploadedfile"]['name'];
+
+    			$config['upload_path'] = FCPATH.USER_PROFILE_PATH; 
+    			// FCPATH is the codeigniter default variable to get our application location path and ADMIN_MEDIA_PATH is the constant variable which is defined in constants.php file
+		        $config['allowed_types'] = 'jpg|jpeg|png'; // Allowed tupes
+		        // $config['encrypt_name'] = TRUE; // Encrypted file name for security purpose
+		        $personnal_logo['file_ext_tolower'] 	= TRUE;
+		        $config['max_size']    = '20480'; // Maximum size - 1MB
+		    	$config['max_width']  = '10240'; // Maximumm width - 1024px
+		    	$config['max_height']  = '76800'; // Maximum height - 768px	
+		    	$config['file_name'] = $imagename;		    						
+		        $this->upload->initialize($config); // Initialize the configuration
+		        if($this->upload->do_upload('uploadedfile')){
+            		$upload_data = $this->upload->data();          
+            		$config['image_library'] = 'gd2'; //default value
+                    $config['source_image'] = $upload_data['full_path']; //get original image
+                    $config['wm_type'] = 'overlay';
+                    $config['wm_overlay_path'] = FCPATH.USER_PROFILE_PATH."vallikodi-watermark.png";
+                    // $config['wm_opacity'] = '200';
+                    $config['wm_vrt_alignment'] = 'middle';
+                    $config['wm_hor_alignment'] = 'center';
+                    $this->load->library('image_lib', $config);
+                    if (!$this->image_lib->watermark()) {
+                        $data['status'] = strip_tags($this->image_lib->display_errors());
+                    }       		
+
+            		//newly added for thumbnail
+            		$userprofile_logo_thumb['image_library'] = 'gd2';						
+					$userprofile_logo_thumb['source_image'] = FCPATH.USER_PROFILE_PATH.$upload_data['file_name'];
+					$userprofile_logo_thumb['create_thumb'] = FALSE;						
+					$userprofile_logo_thumb['maintain_ratio'] = TRUE;
+					$userprofile_logo_thumb['width']  = 260;
+					$userprofile_logo_thumb['height']  = 260;
+					$userprofile_logo_thumb['new_image'] = "th_".$upload_data['file_name'];
+
+					$this->load->library('image_lib');
+					$this->image_lib->initialize($userprofile_logo_thumb);
+					// Resize operation
+					if (!$this->image_lib->resize()){
+                		$data['status'] = strip_tags($this->image_lib->display_errors()); 
+					}
+					$this->image_lib->clear();
+            		$data['error'] = 0;
+	            }else{
+                	$data['status'] = $this->upload->display_errors(); 
+                	$upload_error = 1;
+                	$data['error'] = 1;
+                }
+			}
+		}
+		$this->load->view('test_watermark');
+	}
+	function filter_search(){
+		$config = array();
+        $config["base_url"] = base_url() . "filter_search";
+        // $config["total_rows"] = $this->customeruser_data_model->customeruser_record_count();
+        $config["per_page"] = 10;
+        $config["uri_segment"] = 3;
+        $config['use_page_numbers'] = TRUE;
+        $config['cur_tag_open'] = ' ';
+        $config['cur_tag_close'] = '';
+        $config['next_link'] = 'Next';
+        $config['prev_link'] = 'Previous';
+        $config['num_links'] = 4;
+        // Custom Configuration
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active"><a>';
+		$config['cur_tag_close'] = '</a></li>';
+		$config['next_link'] = 'Next';
+		$config['prev_link'] = 'Prev';
+		$config['first_link'] = 'First';
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_link'] = 'Last';
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+
+		$per_page = $config["per_page"];
+		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);				
+		if($values[0]){	
+			$offset = (($values[0]-1)*$per_page); 
+		}else{
+		 	$offset = 0;
+		}	
+		
+		$fetchdata = $this->user_model->get_filter_search($per_page, $offset);
+		$data["results"] = $fetchdata['results'];
+		// print_r($fetchdata["results"]);
+		// echo $fetchdata['total_rows'];
+        $config["total_rows"] = $fetchdata['total_rows'];
+        $this->pagination->initialize($config);
+        $data["links"] = $this->pagination->create_links();
+        $data["offset"] = $offset;
+		// print_r($data);
+		$this->load->view('search_result',$data);
 	}
 }

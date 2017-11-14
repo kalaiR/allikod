@@ -80,12 +80,10 @@
 										View                                            
 									</a> -->
 									<a class="btn btn-info" href="<?php echo base_url(); ?>admin/edit_successful_story/<?php echo $suc_val["successstories_id"] ?>">
-										<i class="icon-edit icon-white"></i>  
-										Edit                                            
+										<i class="icon-edit icon-white" title="Edit"></i>                                            
 									</a>
 									<a class="btn btn-danger btn-setting" href="#">
-										<i class="icon-trash icon-white"></i> 
-										Delete
+										<i class="icon-trash icon-white delete_record" title="Delete" data-id="<?php echo $suc_val['successstories_id']; ?>"></i> 
 									</a>
 								</td>
 							</tr>
@@ -114,7 +112,7 @@
 			</div>
 			<div class="modal-footer">
 				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-				<a href="#" class="btn btn-danger">Delete</a>
+				<a href="#"  data-id="" data-href="delete_success_story" class="btn btn-danger delete_act">Delete</a>
 			</div>
 		</div>
 	<!-- Placed at the end of the document so the pages load faster -->

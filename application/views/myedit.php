@@ -955,8 +955,8 @@
                                                 <div class="col-md-5 ">
                                                     <p><b>Height</b></p>
                                                 </div>
-                                                <div class="col-md-6">        
-                                                    <select class="height_act selectpicker" name="cus_heightcms">
+                                                <div class="col-md-6">     
+                                                    <select class="height_act select_adjust" name="cus_heightcms">
                                                         <option value="">In cms</option>
                                                         <?php 
                                                             foreach ($selection_values['height_values']['cms'] as $height_val):  
@@ -968,7 +968,7 @@
                                                                     echo "<option value='".$height_val['cms']."'>".$height_val['cms']."</option>";                       
                                                             endforeach; ?>
                                                     </select> 
-                                                    <select class="feet_act selectpicker base-box" name="cus_heightfeets">
+                                                    <select class="feet_act select_adjust" name="cus_heightfeets">
                                                         <option value="">In feet</option>
                                                         <?php 
                                                             foreach ($selection_values['height_values']['feet'] as $height_val):    
@@ -1171,7 +1171,7 @@
                                                             } 
                                                         ?>                  
                                                         <div class="controls">
-                                                            <select id="second" data-placeholder="Please Select" class="chosen-select" multiple style="width:300px;" tabindex="4" name="cus_expectedu">
+                                                            <select id="second" data-placeholder="Please Select" class="chosen-select form_inputs" data-message="Education Expectation" multiple style="width:300px;" tabindex="4" name="cus_expectedu[]">
                                                                 <option value="">Select Education</option>
                                                                 <?php 
                                                                     foreach ($selection_values['education_values'] as $key => $edu_val):    
