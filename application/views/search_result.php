@@ -55,14 +55,14 @@ if(isset($per_page)&&(!empty($total_rows)))
                  <div class="row">
                      <div class="col-md-12 ">                     
                         <div class="col-md-8">
-                            <?php if(!empty($total_rows)) : ?>
+                            <!-- <?php if(!empty($total_rows)) : ?>
                                 <p>
                                     Search Results :  <?php echo  $current_tot; ?> of <?php echo $total_rows; ?>
                                     <?php if(!empty($rdisplayresults)) : ?>
                                         <?php echo  " - ".$rdisplayresults;?>
                                     <?php endif; ?>    
                                 </p>
-                            <?php endif; ?>
+                            <?php endif; ?> -->
                         </div>
                         <div class="search_btn back-box">
                                 <a href="<?php echo base_url(); ?>search" class="register_angkar_btn">Back</a>
@@ -72,6 +72,14 @@ if(isset($per_page)&&(!empty($total_rows)))
                 <div class="row ajaxdata">
 <?php } ?>
                 <div class="col-md-9">
+                	<?php if(!empty($total_rows)) : ?>
+                                <p>
+                                    Search Results :  <?php echo  $current_tot; ?> of <?php echo $total_rows; ?>
+                                    <?php if(!empty($rdisplayresults)) : ?>
+                                        <?php echo  " - ".$rdisplayresults;?>
+                                    <?php endif; ?>    
+                                </p>
+                            <?php endif; ?>
                 <?php
                 if(!empty($results)){                    
                 foreach($results as $key => $value) { 
