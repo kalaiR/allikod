@@ -7374,7 +7374,7 @@ p2
 }
 
 .search_option .nav.nav-tabs {
-  max-width: 955px;
+  max-width: 756px;
   margin: 0 auto 40px;
   padding: 0px 50px;
 }
@@ -8597,4 +8597,7 @@ overflow: auto;
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
 	background-color: #5c7500 !important;
+}
+.right_float{
+	float:right;
 }
