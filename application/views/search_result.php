@@ -300,14 +300,14 @@ include('include/menu.php');
                 <?php //if(sizeof($results) > 1): ?>
                 <div class="col-md-3 right_float">
                  <div class="col-md-12">
-                        <input type="hidden" class="filter_start_age" value="18">
-                        <input type="hidden" class="filter_end_age" value="34">
-                        <input type="hidden" class="filter_start_height" value="137">
-                        <input type="hidden" class="filter_end_height" value="213">
+                        <input type="hidden" class="filter_start_age" value="<?php echo $search_data['start_age']; ?>">
+                        <input type="hidden" class="filter_end_age" value="<?php echo $search_data['end_age']; ?>">
+                        <input type="hidden" class="filter_start_height" value="<?php echo $search_data['start_height']; ?>">
+                        <input type="hidden" class="filter_end_height" value="<?php echo $search_data['end_height']; ?>">
                         <input type="hidden" class="filter_start_weight" value="41">
                         <input type="hidden" class="filter_end_weight" value="140">
                         <input type="hidden" class="filter_occ">
-                        <input type="hidden" class="filter_edu">
+                        <input type="hidden" class="filter_edu" value="<?php if(isset($search_data['education'])) echo implode(",",$search_data['education']); ?>">
                         <input type="hidden" class="filter_emp">
                         <input type="hidden" class="filter_food">
                         <input type="hidden" class="filter_comp">
@@ -373,16 +373,26 @@ include('include/menu.php');
                                 foreach ($selection_values['maritalstatus_values'] as $mar_val): 
                                     // echo "search_mar_status".$search_data['mar_status'];
                                     // echo "mar_id".$mar_val['maritalcategory_id']; 
+                                    if(strtolower($mar_val['marital_name'])=="single" && $search_data['mar_status'] == $mar_val['maritalcategory_id']) {
+                                        $filter_mar_status = $mar_val['maritalcategory_id']; 
+                                    }
+                                    elseif($search_data['mar_status'] == $mar_val['maritalcategory_id']) 
+                                        $filter_mar_status = $search_data['mar_status'];
+
                                 ?>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" class="mar_status_act" value="<?php echo $mar_val['maritalcategory_id'] ?>" <?php if(strtolower($mar_val['marital_name'])=="single" && $search_data['mar_status'] == $mar_val['maritalcategory_id']){ echo "checked";} elseif($search_data['mar_status'] == $mar_val['maritalcategory_id']) echo "checked"; ?>>
+                                        <input type="checkbox" class="mar_status_act" value="<?php echo $mar_val['maritalcategory_id'] ?>" <?php if(strtolower($mar_val['marital_name'])=="single" && $search_data['mar_status'] == $mar_val['maritalcategory_id']) echo "checked"; elseif($search_data['mar_status'] == $mar_val['maritalcategory_id']) echo "checked"; ?>>
                                             <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                             <?php echo $mar_val['marital_name'] ?>
                                     </label>
-                                </div>   
-                                <input type="hidden" class="filter_mar_status" value="<?php if(strtolower($mar_val['marital_name'])=="single") echo $mar_val['maritalcategory_id']; ?>">                        
-                                <?php endforeach; ?>        
+                                </div>  
+                                <?php
+                                // echo "search_Status".$search_data['mar_status'];
+                                // echo "mar_id".$mar_val['maritalcategory_id'];
+                                ?>                        
+                                <?php endforeach; ?>  
+                                <input type="hidden" class="filter_mar_status" value="<?php echo $filter_mar_status; ?>">      
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -412,10 +422,11 @@ include('include/menu.php');
                                 </ul>
                                 <?php 
                                 // print_r($education_category);
-                                  foreach ($education_category as $edu_val): ?>
+                                  foreach ($education_category as $edu_val):
+                                    ?>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" class="education_act" value="<?php echo $edu_val['educationcategory_id']; ?>">
+                                            <input type="checkbox" class="education_act" value="<?php echo $edu_val['educationcategory_id']; ?>" <?php if(isset($search_data['education'])) if (in_array($edu_val['educationcategory_id'],$search_data['education'])) echo "checked"; ?>>
                                                 <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                                 <?php echo ucfirst(strtolower($edu_val['cat_name'])); ?>
                                         </label>
