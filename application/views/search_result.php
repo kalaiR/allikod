@@ -78,7 +78,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                                     <?php if(!empty($rdisplayresults)) : ?>
                                         <?php echo  " - ".$rdisplayresults;?>
                                     <?php endif; ?>    
-                                </p>
+                                </p><br>
                             <?php endif; ?>
                 <?php
                 if(!empty($results)){                    
