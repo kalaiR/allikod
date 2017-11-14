@@ -298,7 +298,8 @@ include('include/menu.php');
                 </div> <!-- col-md-9 -->
             </div> <!-- row ends  --> 
                 <?php //if(sizeof($results) > 1): ?>
-                 <div class="col-md-3">
+                <div class="col-md-3 right_float">
+                 <div class="col-md-12">
                         <input type="hidden" class="filter_start_age" value="18">
                         <input type="hidden" class="filter_end_age" value="34">
                         <input type="hidden" class="filter_start_height" value="137">
@@ -330,7 +331,7 @@ include('include/menu.php');
                                 </div>    
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -346,7 +347,7 @@ include('include/menu.php');
                                 </div>    
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -362,7 +363,7 @@ include('include/menu.php');
                                 </div>    
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -384,7 +385,7 @@ include('include/menu.php');
                                 <?php endforeach; ?>        
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -403,7 +404,7 @@ include('include/menu.php');
                                 <?php endforeach; ?> 
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -422,7 +423,7 @@ include('include/menu.php');
                                 <?php endforeach; ?> 
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -441,7 +442,7 @@ include('include/menu.php');
                                 <?php endforeach; ?> 
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -460,7 +461,7 @@ include('include/menu.php');
                                 <?php endforeach; ?> 
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -479,7 +480,7 @@ include('include/menu.php');
                                 <?php endforeach; ?>  
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
@@ -499,6 +500,7 @@ include('include/menu.php');
                         </div>
                     </div>
                 <?php //endif; ?>
+                </div>
             </div> <!-- container ends -->
         </section>
 <?php 
