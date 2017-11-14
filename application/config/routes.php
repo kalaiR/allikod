@@ -76,8 +76,10 @@ $route['countprofile_viewed'] 				= "base/countprofile_viewed";
 $route['viewfeatureprofile/(:any)'] 		= "base/viewfeatureprofile/$1";
 $route['myview'] 							= "base/myview";
 $route['testemail'] 						= "base/testemail";
-$route['404page'] 						= "base/error404_page";
-$route['500page'] 						= "base/error500_page";
+$route['404page'] 							= "base/error404_page";
+$route['500page'] 							= "base/error500_page";
+$route['filter_search'] 					= "base/filter_search";
+$route['filter_search/(:any)'] 				= "base/filter_search/$1";
 
 
 // $route['admin'] 							= "admin/base/index";

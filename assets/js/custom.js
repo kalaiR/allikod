@@ -306,8 +306,67 @@ function remove(array, property, value) {
 	}
 }
 
+function applyPagination() {
+	$(document).on('click','.pagination a',function(e){
+		// alert("pagination clicked");
+        e.preventDefault();
+        pagination_url = $(this).attr("href");
+        filter_ajax();
+    });
+}
 
+function filter_ajax(){
+	filter_start_age = $('.filter_start_age').val();
+	filter_end_age = $('.filter_end_age').val();
+	filter_start_height = $('.filter_start_height').val();
+	filter_end_height = $('.filter_end_height').val();
+	filter_start_weight = $('.filter_start_weight').val();
+	filter_end_weight = $('.filter_end_weight').val();
+	filter_mar_status = $('.filter_mar_status').val();
+	filter_occ = $('.filter_occ').val();
+	filter_edu = $('.filter_edu').val();
+	filter_emp = $('.filter_emp').val();
+	filter_food = $('.filter_food').val();
+	filter_comp = $('.filter_comp').val();
+	filter_btype = $('.filter_btype').val();
+	// alert(pagination_url);
+	if(pagination_url=='')
+		url = baseurl + "filter_search";
+	else
+		url = pagination_url;
+	// data[csrf_name] = csfrData[csrf_name];
+	$.ajax({
+		url : url,
+		data : "filter_start_age="+filter_start_age+"&filter_end_age="+filter_end_age+
+				"&filter_start_height="+filter_start_height+"&filter_end_height="+filter_end_height+
+				"&filter_start_weight="+filter_start_weight+"&filter_end_weight="+filter_end_weight+
+				"&filter_mar_status="+filter_mar_status+"&filter_occ="+filter_occ+
+				"&filter_edu="+filter_edu+"&filter_emp="+filter_emp+
+				"&filter_food="+filter_food+"&filter_comp="+filter_comp+
+				"&filter_btype="+filter_btype+"&"+csrf_name+"="+csfrData[csrf_name],
+		type : "post",
+		// dataType : 'json',
+		success : function(res) {
+			// alert(res);
+			$(".ajaxdata").html(res);
+			applyPagination();
+			// // alert(JSON.stringify(res));
+			// if (res['status'] == 'hide')
+			// 	alert("You have already viewed profile or credit limit exceeded");
+			// else
+			// 	$(".slidingDiv").slideToggle();
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			// console.log("The following error occured: "+ textStatus, errorThrown);
+			// $('#register_email-error').html(response);
+			//     return false;
+		}
+	});
+}
+
+var pagination_url = '';
 $(document).ready(function() {
+	
 	 $('.position_images').css('display','none');
 	// reg page validation //
 	$(document).on('keypress',".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_regss",function(e) {
@@ -968,6 +1027,101 @@ $(document).ready(function() {
     	$('.modals').hide();
         $('.edit_error').html('');
     });
+    $(document).on('click','.age_limit_act input', function(){
+    	var age_limit = $(this).val().replace(/\s+/g, ' ').split(' ');
+    	$start_age = age_limit[0];
+    	$end_age = age_limit[1];
+    	$('.filter_start_age').val($start_age);
+    	$('.filter_end_age').val($end_age);
+    	filter_ajax();
+    });
+    $(document).on('click','.height_limit_act input', function(){
+    	var height_limit = $(this).val().replace(/\s+/g, ' ').split(' ');
+    	$start_height = height_limit[0];
+    	$end_height = height_limit[1];
+    	$('.filter_start_height').val($start_height);
+    	$('.filter_end_height').val($end_height);
+    	filter_ajax();
+    });
+    $(document).on('click','.weight_limit_act input', function(){
+    	var weight_limit = $(this).val().replace(/\s+/g, ' ').split(' ');
+    	$start_weight = weight_limit[0];
+    	$end_weight = weight_limit[1];
+    	$('.filter_start_weight').val($start_weight);
+    	$('.filter_end_weight').val($end_weight);
+    	filter_ajax();
+    });
+    $(document).on('change','.mar_status_act', function(){
+    	$mar_status_val =[];
+    	$('.mar_status_act').each(function() {
+    		if($(this).is(':checked'))
+    			$mar_status_val.push($(this).val());
+    	});
+    	$('.filter_mar_status').val($mar_status_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+    $(document).on('change','.occupation_act', function(){
+    	$occuaption_val =[];
+    	$('.occupation_act').each(function() {
+    		if($(this).is(':checked'))
+    			$occuaption_val.push($(this).val());
+    	});
+    	$('.filter_occ').val($occuaption_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+    $(document).on('change','.education_act', function(){
+    	$education_val =[];
+    	$('.education_act').each(function() {
+    		if($(this).is(':checked'))
+    			$education_val.push($(this).val());
+    	});
+    	$('.filter_edu').val($education_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+    $(document).on('change','.employedin_act', function(){
+    	$employedin_val =[];
+    	$('.employedin_act').each(function() {
+    		if($(this).is(':checked'))
+    			$employedin_val.push($(this).val());
+    	});
+    	$('.filter_emp').val($employedin_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+    $(document).on('change','.food_act', function(){
+    	$food_val =[];
+    	$('.food_act').each(function() {
+    		if($(this).is(':checked'))
+    			$food_val.push($(this).val());
+    	});
+    	$('.filter_food').val($food_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+    $(document).on('change','.complexion_act', function(){
+    	$comp_val =[];
+    	$('.complexion_act').each(function() {
+    		if($(this).is(':checked'))
+    			$comp_val.push($(this).val());
+    	});
+    	$('.filter_comp').val($comp_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+    $(document).on('change','.btype_act', function(){
+    	$btype_val =[];
+    	$('.btype_act').each(function() {
+    		if($(this).is(':checked'))
+    			$btype_val.push($(this).val());
+    	});
+    	$('.filter_btype').val($btype_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+
 });
 
 // $(window).load(function(){

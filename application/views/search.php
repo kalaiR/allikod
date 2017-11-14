@@ -187,11 +187,12 @@ include('include/menu.php');
                                                             <?php 
                                                             if(!empty($education_category)) :
                                                                 foreach ($education_category as $cls_val) {
-                                                                    if($cls_val['educationcategory_id'] == '13') {
-                                                                        echo "<option value='" . $cls_val['educationcategory_id'] . "' selected>" . ucfirst($cls_val['cat_name']) . "</option>";
-                                                                    }else{ 
-                                                                        echo "<option value='" . $cls_val['educationcategory_id'] . "'>" . ucfirst($cls_val['cat_name']) . "</option>";
-                                                                    }
+                                                                    echo "<option value='" . $cls_val['educationcategory_id'] . "'>" . ucfirst($cls_val['cat_name']) . "</option>";
+                                                                    // if($cls_val['educationcategory_id'] == '13') {
+                                                                    //     echo "<option value='" . $cls_val['educationcategory_id'] . "' selected>" . ucfirst($cls_val['cat_name']) . "</option>";
+                                                                    // }else{ 
+                                                                    //     echo "<option value='" . $cls_val['educationcategory_id'] . "'>" . ucfirst($cls_val['cat_name']) . "</option>";
+                                                                    // }
                                                                 }
                                                             endif;
                                                             ?>
