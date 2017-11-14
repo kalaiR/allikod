@@ -821,9 +821,9 @@
     /*----------------------------------------------------*/
     $( "#price_select" ).slider({
       range: true,
-      min: 16,
-      max: 38,
-      values: [ 19, 35 ],
+      min: 18,
+      max: 60,
+      values: [ 18, 34 ],
       slide: function( event, ui ) {
         $( "#amount" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
       }
@@ -833,9 +833,9 @@
     
     $( "#height_select" ).slider({
       range: true,
-      min: 160,
-      max: 380,
-      values: [ 180, 350 ],
+      min: 137,
+      max: 213,
+      values: [ 137, 213 ],
       slide: function( event, ui ) {
         $( "#height" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
       }
@@ -845,9 +845,9 @@
 
     $( "#weight_select" ).slider({
       range: true,
-      min: 40,
-      max: 130,
-      values: [ 50, 70 ],
+      min: 41,
+      max: 140,
+      values: [ 41, 140 ],
       slide: function( event, ui ) {
         $( "#weight" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
       }

@@ -24,7 +24,7 @@
 							</div>
 						</div>
 						<div class="box-content">
-							<form enctype="multipart/form-data" class="form-horizontal add_form" method="post" action="successful_story">
+							<form enctype="multipart/form-data" class="form-horizontal add_form success_result" method="post" action="successful_story">
 <?php } ?>
 							<?php
 			                  if(!empty($status)) :
@@ -48,7 +48,7 @@
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Marriage Date : </label>
 								<div class="controls">
-								<input type="text" class="input-xlarge focused form_inputs datepicker1" id="date01" name="suc_marriagedate">
+								<input type="text" class="input-xlarge focused form_inputs datepicker" id="date01" name="suc_marriagedate">
 								  <!-- <input class="input-xlarge focused form_inputs" id="focusedInput" type="date" name="suc_marriagedate"> -->
 								</div>
 							  </div>
@@ -91,7 +91,7 @@
 										        <ul>
 										            <li class="btn btn-default btn-file">
 										                <span>Browse</span>
-										                <input type="file" click-type="type1" id="picupload" class="picupload" multiple>
+										       <input type="file" click-type="type1" id="picupload" class="picupload" name="suc_couplephoto">
 										            </li>
 										        </ul>     
 										    </div>

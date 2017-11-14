@@ -1,4 +1,7 @@
 <?php 
+				// echo "<pre>";
+				// print_r($customeruser_values);
+				// echo "</pre>";
     include('templates/header.php');
 ?>
 	<div id="content" class="span11">
@@ -148,6 +151,14 @@
 												</label>
 											  </div>
 											  <div class="control-group">
+												<label class="control-label">Profile Id : </label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['userdetail_profile_id'])) echo $customeruser_values['userdetail_profile_id']; else echo "--"; ?></label>
+											  </div>
+											  <div class="control-group">
+												<label class="control-label">File Id : </label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['userdetail_file_id'])) echo $customeruser_values['userdetail_file_id']; else echo "--"; ?></label>
+											  </div>
+											  <div class="control-group">
 													<label class="control-label" for="focusedInput">Period in Months :</label>
 													<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['period_in_month'])) echo $customeruser_values['period_in_month']; else echo "--"; ?></label>
 												</div>
@@ -157,7 +168,7 @@
 												</div>
 												<div class="control-group">
 												  <label class="control-label" for="date01">Ending Date :</label>
-												  <label class="control-label" for="date01"><?php if(!empty($customeruser_values['endate'])) echo date("d/m/Y", strtotime($customeruser_values['endate'])); else echo "--"; ?> </label>
+												  <label class="control-label" for="date01"><?php if(!empty($customeruser_values['enddate'])) echo date("d/m/Y", strtotime($customeruser_values['enddate'])); else echo "--"; ?> </label>
 												</div>
 											  <div class="control-group">
 												<label class="control-label">Payment Active Status : </label>
@@ -218,7 +229,7 @@
 												</div>
 												<div class="control-group">
 												<label class="control-label">Luknam : </label>
-												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['luknam_name'])) echo $customeruser_values['luknam_name']; else echo "--"; ?></label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['lukhnam_name'])) echo $customeruser_values['lukhnam_name']; else echo "--"; ?></label>
 											  </div>
 											  <div class="control-group">
 													<label class="control-label" for="focusedInput">Gothra : </label>
@@ -298,6 +309,7 @@
 												<label class="control-label" for="focusedInput">Communication Address  : </label>
 												<div class="controls">
 												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_communication_address']; ?></label>
+											  </div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Phone Number : </label>

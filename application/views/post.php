@@ -12,7 +12,7 @@
         </section>
         <!--================End Banner Area =================-->  
        <!--================post grid Area =================-->
- <section class="blog_grid_area">
+        <section class="blog_grid_area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 aline-center-box">
@@ -22,6 +22,12 @@
                             <div class="registration_form_area" id="registration_form_are">
                                 <div class="row">
                                     <form action="success_stories" class="post_success_form" method="post" name="success_stories" id="success_stories" enctype="multipart/form-data">
+                                    <?php
+                                      // print_r($zodiac_data);
+                                      if(!empty($success_msg)) :
+                                        echo "<p class='val_error val_status'><i class=' icon-ok-sign'></i>  $success_msg </p>";
+                                      endif;
+                                    ?> 
                                     	 <p class='val_error val_status'></p>
                                         <div class="col-md-12">
                                             <div class="registration_form_s aline-center-box det_border" id="registration_form_s">
@@ -142,3 +148,8 @@
 <?php 
     include('include/footer.php');
 ?>
+<script type="text/javascript">
+ $(document).ready(function(){
+    $('.val_error').fadeOut(2000);
+ });
+</script>

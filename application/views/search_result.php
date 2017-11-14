@@ -1,3 +1,4 @@
+<?php if(!$this->input->is_ajax_request()) { ?>
 <?php 
 include('include/header.php');
 include('include/menu.php');
@@ -68,7 +69,8 @@ if(isset($per_page)&&(!empty($total_rows)))
                         </div>
                      </div>
                 </div>
-                <div class="row">
+                <div class="row ajaxdata">
+<?php } ?>
                 <div class="col-md-9">
                 <?php
                 if(!empty($results)){                    
@@ -224,11 +226,12 @@ if(isset($per_page)&&(!empty($total_rows)))
                                             ?>
                                             <?php if(!empty($value['comm_current_city'])){ echo " / ".$value['comm_current_city'];}
                                             ?>
-                                            <?php if(!empty($value['comm_current_district'])){ echo " / ".$value['comm_current_district'];}
+                                            <?php //if(!empty($value['comm_current_district'])){ echo " / ".$value['comm_current_district'];}
                                             ?>
                                             </p>
                                         </div>
                                 <?php } ?>    
+                                <div style="clear:both"></div>
                             <div class="text-box-name">
                              <?php
                                $user_session = $this->session->userdata("login_status");
@@ -242,7 +245,8 @@ if(isset($per_page)&&(!empty($total_rows)))
                                 <?php } ?>    
                             </div>
                         <!-- </div> -->
-                    </div>      
+                    </div> 
+
                     <?php } 
                     }else{?>
                          <div class="text-box-name" align="center">
@@ -250,6 +254,7 @@ if(isset($per_page)&&(!empty($total_rows)))
                          </div>
                     <?php }
                     ?>
+
                         <div class="col-md-12" style="display: inline-block;"">
                             <div>
                             <?php
@@ -283,10 +288,210 @@ if(isset($per_page)&&(!empty($total_rows)))
                             ?>
                             </div> <!-- col-md-12 ends -->
                     </div> <!-- col-md-9 -->
-                </div> <!-- row ends  -->    
+<?php if(!$this->input->is_ajax_request()) { ?>
+            </div> <!-- row ends  --> 
+                <?php //if(sizeof($results) > 1): ?>
+                 <div class="col-md-3">
+                        <input type="hidden" class="filter_start_age" value="18">
+                        <input type="hidden" class="filter_end_age" value="34">
+                        <input type="hidden" class="filter_start_height" value="137">
+                        <input type="hidden" class="filter_end_height" value="213">
+                        <input type="hidden" class="filter_start_weight" value="41">
+                        <input type="hidden" class="filter_end_weight" value="140">
+                        <input type="hidden" class="filter_occ">
+                        <input type="hidden" class="filter_edu">
+                        <input type="hidden" class="filter_emp">
+                        <input type="hidden" class="filter_food">
+                        <input type="hidden" class="filter_comp">
+                        <input type="hidden" class="filter_btype">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <div class="s_title">
+                                    <h4>Searching Options</h4>
+                                    <img src="img/widget-title-border.png" alt="">
+                                </div>
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Age Limit</b></a></li>
+                                </ul>
+                                <div class="s_widget price_widget age-box age_limit_act">
+                                    <div id="price_select"></div>
+                                        <div class="price_inner">
+                                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                        <!-- <a href="#">$50</a>
+                                        <a href="#">$350</a> -->
+                                    </div>
+                                </div>    
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Height Limit</b></a></li>
+                                </ul>
+                                <div class="s_widget price_widget age-box height_limit_act">
+                                    <div id="height_select"></div>
+                                        <div class="price_inner">
+                                        <input type="text" id="height" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                        <!-- <a href="#">$50</a>
+                                        <a href="#">$350</a> -->
+                                    </div>
+                                </div>    
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Weight Limit<b></a></li>
+                                </ul>
+                                <div class="s_widget price_widget age-box weight_limit_act">
+                                    <div id="weight_select"></div>
+                                        <div class="price_inner">
+                                        <input type="text" id="weight" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                        <!-- <a href="#">$50</a>
+                                        <a href="#">$350</a> -->
+                                    </div>
+                                </div>    
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Marital Status<b></a></li>
+                                </ul>
+                                <?php 
+                                foreach ($selection_values['maritalstatus_values'] as $mar_val): ?>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" class="mar_status_act" value="<?php echo $mar_val['maritalcategory_id'] ?>" <?php if(strtolower($mar_val['marital_name'])=="single") echo "checked"; ?>>
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                            <?php echo $mar_val['marital_name'] ?>
+                                    </label>
+                                </div>   
+                                <input type="hidden" class="filter_mar_status" value="<?php if(strtolower($mar_val['marital_name'])=="single") echo $mar_val['maritalcategory_id']; ?>">                        
+                                <?php endforeach; ?>        
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Occupation</b></a></li>
+                                </ul>
+                                <?php 
+                                // print_r($occupation_category);
+                                  foreach ($occupation_category as $occ_val): ?>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="occupation_act" value="<?php echo $occ_val['occ_category_id']; ?>">
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                <?php echo ucfirst(strtolower($occ_val['occupation_name'])); ?>
+                                        </label>
+                                    </div>
+                                <?php endforeach; ?> 
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Education</b></a></li>
+                                </ul>
+                                <?php 
+                                // print_r($education_category);
+                                  foreach ($education_category as $edu_val): ?>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="education_act" value="<?php echo $edu_val['educationcategory_id']; ?>">
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                <?php echo ucfirst(strtolower($edu_val['cat_name'])); ?>
+                                        </label>
+                                    </div>
+                                <?php endforeach; ?> 
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Employed In</b></a></li>
+                                </ul>
+                                <?php 
+                                  //print_r($selection_values['employedin_values']);
+                                  foreach ($selection_values['employedin_values'] as $emp_val): ?>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="employedin_act" value="<?php echo $emp_val['employedin_id']; ?>">
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                <?php echo ucfirst(strtolower($emp_val['name'])); ?>
+                                        </label>
+                                    </div>
+                                <?php endforeach; ?> 
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Food</b></a></li>
+                                </ul>
+                                <?php 
+                                  //print_r($selection_values['food_values']);
+                                  foreach ($selection_values['food_values'] as $food_val): ?>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="food_act" value="<?php echo $food_val['food_id']; ?>">
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                <?php echo ucfirst(strtolower($food_val['name'])); ?>
+                                        </label>
+                                    </div>
+                                <?php endforeach; ?> 
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Complexion</b></a></li>
+                                </ul>
+                                <?php 
+                                  //print_r($selection_values['complexion_values']);
+                                  foreach ($selection_values['complexion_values'] as $com_val): ?>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="complexion_act" value="<?php echo $com_val['complexion_id']; ?>">
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                <?php echo ucfirst(strtolower($com_val['name'])); ?>
+                                        </label>
+                                    </div>
+                                <?php endforeach; ?>  
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>Body Type</b></a></li>
+                                </ul>
+                                <?php 
+                                  //print_r($selection_values['food_values']);
+                                  foreach ($selection_values['bodytype_values'] as $body_val): ?>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="<?php echo $body_val['bodytype_id']; ?>">
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                <?php echo ucfirst(strtolower($body_val['typename'])); ?>
+                                        </label>
+                                    </div>
+                                <?php endforeach; ?>  
+                        </div>
+                    </div>
+                <?php //endif; ?>
             </div> <!-- container ends -->
         </section>
 <?php 
     include('include/footer.php');
 ?> 
-
+<?php } ?>

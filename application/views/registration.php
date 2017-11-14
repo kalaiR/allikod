@@ -107,11 +107,10 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>
                                             <div class="col-sm-4">
                                                <select class="form-control customize_plan " name="register_by[]" id="register_by">
-                                                   <option value="">Select</option>
-                                                    <?php
+                                                   <?php
                                                     if(!empty($registered_by)) :
                                                     foreach ($registered_by as $reg_val) {
-                                                        if($reg_val['registeredby_id']==$reg_val['registeredby_id']){
+                                                        if($reg_val['registeredby_id']==$registered_data['user_registeredby']){
                                                              echo "<option value='" . $reg_val['registeredby_id'] . "' selected>" . ucfirst($reg_val['name']) . "</option>";
                                                         }else{    
                                                         echo "<option value='" . $reg_val['registeredby_id'] . "'>" . ucfirst($reg_val['name']) . "</option>";
@@ -541,7 +540,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                                     if(strtolower($cls_val['name']) == "india" )
                                                                     echo "<option value='" . $cls_val['name'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";    
                                                                 else
-                                                                    echo "<option value='" . $cls_val[' country_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                    echo "<option value='" . $cls_val['name'] . "'>" . ucfirst($cls_val['name']) . "</option>";
                                                                     }
                                                                 endif;
                                                             ?> 
@@ -566,7 +565,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                                     if(strtolower($cls_val['name']) == "india" )
                                                                     echo "<option value='" . $cls_val['name'] . "' selected>" . ucfirst($cls_val['name']) . "</option>";    
                                                                 else
-                                                                    echo "<option value='" . $cls_val[' name'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                    echo "<option value='" . $cls_val['name'] . "'>" . ucfirst($cls_val['name']) . "</option>";
                                                                     }
                                                                     endif;
                                                             ?> 
@@ -1091,17 +1090,10 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>    
                                             </div>
                                             <div class="col-sm-6">
-                                                <label class="radio-inline" id="white">
-                                                <input type="radio" name="diet_veg" id="diet_veg" value="1" >
-                                                    Vegetarian
-                                                </label>
-                                                <label class="radio-inline" id="white">
-                                                <input type="radio" name="diet_veg" id="diet_nonveg" value="2" >
-                                                    Non-Vegerarian
-                                                </label>
-                                                <label class="radio-inline" id="white">         
-                                                <input type="radio" name="diet_veg" id="diet_egg" value="3" >
-                                                Eggetarian</label> 
+                                                <?php 
+                                                foreach ($food as $food_val): ?>     
+                                                    <label class="radio-inline" id="white"><input type="radio" name="diet_veg" id="diet_veg" value="<?php echo $food_val['food_id']; ?>"><?php echo $food_val['name']; ?></label>
+                                                <?php endforeach; ?>   
                                             </div>
                                             <!-- <div class="col-sm-4">
                                                <span id="resident_error" class="registration-error"></span>

@@ -39,7 +39,7 @@
 								<div class="control-group">
 								  <label class="control-label" for="date01">From Date</label>
 								  <div class="controls">
-									<input type="text" class="input-xlarge datepicker dob_admin" name="report_fromdate">
+									<input type="text" class="input-xlarge report_datepicker dob_admin" name="report_fromdate">
 								  </div>
 								</div>            
 							</div>
@@ -51,7 +51,7 @@
 								<div class="control-group">
 								  <label class="control-label" for="date01">To Date</label>
 								  <div class="controls">
-									<input type="text" class="input-xlarge datepicker dob_admin" name="report_todate">
+									<input type="text" class="input-xlarge report_datepicker dob_admin" name="report_todate">
 								  </div>
 								</div>
 							</div>
@@ -83,19 +83,19 @@
 			                            <div class="span6 pad">
 			                            Online No. of Registration :
 			                            </div>
-			                            <div class="span2 pad">0</div>
+			                            <div class="span2 pad"><?php if(!empty($post_report_data)) echo $post_report_data['all_onlineuser']; else if(!empty($report_data)) echo $report_data['total_onlineuser']; ?></div>
 			                        </div>
 			                        <div class="span8" style="margin: 0px">
 			                            <div class="span6 pad">
 			                            Simple No. of Registration :
 			                            </div>
-			                            <div class="span2 pad"> 0 </div>
+			                            <div class="span2 pad"> <?php if(!empty($post_report_data)) echo $post_report_data['all_simpleuser']; else if(!empty($report_data)) echo $report_data['total_simpleuser']; ?> </div>
 			                        </div>
 			                        <div class="span8" style="margin: 0px">
 			                            <div class="span6 pad">
 			                            Total No. of Registration :
 			                            </div>
-			                            <div class="span2 pad"> 0 </div>
+			                            <div class="span2 pad"> <?php if(!empty($post_report_data)) echo $post_report_data['totaluser']; else if(!empty($report_data)) echo $report_data['total']; ?> </div>
 			                        </div>
 	                        	</div>
 								<!-- <div class="control-group">

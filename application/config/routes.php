@@ -76,8 +76,10 @@ $route['countprofile_viewed'] 				= "base/countprofile_viewed";
 $route['viewfeatureprofile/(:any)'] 		= "base/viewfeatureprofile/$1";
 $route['myview'] 							= "base/myview";
 $route['testemail'] 						= "base/testemail";
-$route['404page'] 						= "base/error404_page";
-$route['500page'] 						= "base/error500_page";
+$route['404page'] 							= "base/error404_page";
+$route['500page'] 							= "base/error500_page";
+$route['filter_search'] 					= "base/filter_search";
+$route['filter_search/(:any)'] 				= "base/filter_search/$1";
 
 
 // $route['admin'] 							= "admin/base/index";
@@ -138,6 +140,9 @@ $route['admin/customer_user_new/(:any)'] 							= "admin/customeruser_data/custo
 $route['admin/cipagination'] 							= "admin/cipagination/example";
 $route['admin/cipagination/(:any)'] 							= "admin/cipagination/example/$1";
 $route['admin/delete_customer_user'] 							= "admin/customeruser_data/delete_customer_user";
+$route['test_watermark'] 							= "base/test_watermark";
+$route['admin/delete_success_story'] 							= "admin/master_data/delete_success_story";
+
 
 
 // $route['main'] = 'admin/admin_login/teac_admin_login';

@@ -306,7 +306,65 @@ function remove(array, property, value) {
 	}
 }
 
+function applyPagination() {
+	$(document).on('click','.pagination a',function(e){
+		// alert("pagination clicked");
+        e.preventDefault();
+        pagination_url = $(this).attr("href");
+        filter_ajax();
+    });
+}
 
+function filter_ajax(){
+	filter_start_age = $('.filter_start_age').val();
+	filter_end_age = $('.filter_end_age').val();
+	filter_start_height = $('.filter_start_height').val();
+	filter_end_height = $('.filter_end_height').val();
+	filter_start_weight = $('.filter_start_weight').val();
+	filter_end_weight = $('.filter_end_weight').val();
+	filter_mar_status = $('.filter_mar_status').val();
+	filter_occ = $('.filter_occ').val();
+	filter_edu = $('.filter_edu').val();
+	filter_emp = $('.filter_emp').val();
+	filter_food = $('.filter_food').val();
+	filter_comp = $('.filter_comp').val();
+	filter_btype = $('.filter_btype').val();
+	// alert(pagination_url);
+	if(pagination_url=='')
+		url = baseurl + "filter_search";
+	else
+		url = pagination_url;
+	// data[csrf_name] = csfrData[csrf_name];
+	$.ajax({
+		url : url,
+		data : "filter_start_age="+filter_start_age+"&filter_end_age="+filter_end_age+
+				"&filter_start_height="+filter_start_height+"&filter_end_height="+filter_end_height+
+				"&filter_start_weight="+filter_start_weight+"&filter_end_weight="+filter_end_weight+
+				"&filter_mar_status="+filter_mar_status+"&filter_occ="+filter_occ+
+				"&filter_edu="+filter_edu+"&filter_emp="+filter_emp+
+				"&filter_food="+filter_food+"&filter_comp="+filter_comp+
+				"&filter_btype="+filter_btype+"&"+csrf_name+"="+csfrData[csrf_name],
+		type : "post",
+		// dataType : 'json',
+		success : function(res) {
+			// alert(res);
+			$(".ajaxdata").html(res);
+			applyPagination();
+			// // alert(JSON.stringify(res));
+			// if (res['status'] == 'hide')
+			// 	alert("You have already viewed profile or credit limit exceeded");
+			// else
+			// 	$(".slidingDiv").slideToggle();
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			// console.log("The following error occured: "+ textStatus, errorThrown);
+			// $('#register_email-error').html(response);
+			//     return false;
+		}
+	});
+}
+
+var pagination_url = '';
 $(document).ready(function() {
 	// menu button
 	$('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
@@ -314,7 +372,7 @@ $(document).ready(function() {
 	});
 	 $('.position_images').css('display','none');
 	// reg page validation //
-	$(".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_regss").keypress(function(e) {
+	$(document).on('keypress',".income-box,.bro_sis,.mob_num,.valli_id,.man_id,.age_regss",function(e) {
 		// var income =$(this).val();
 		// var income =parseInt($(this).val());
 		// var s = e.which;
@@ -331,7 +389,7 @@ $(document).ready(function() {
 		// }
 		// alert(income)
 	});
-	$(".income-box").keypress(function(e) {
+	$(document).on('keypress',".income-box",function(e) {
 		var inc = $(".income-box");
 		var key = String.fromCharCode(e.charCode || e.which);
 		var come = (inc.get(0).selectionStart - 0);
@@ -341,7 +399,7 @@ $(document).ready(function() {
 		$(this).val($(this).val().slice(0, 7));
 
 	});
-	$(".ph_num").keyup(function(e) {
+	$(document).on('keyup',".ph_num",function(e) {
 		$(this).val($(this).val().replace(/[^\d , -]+/, ""));
 	});
 
@@ -357,7 +415,7 @@ $(document).ready(function() {
 	//         return false;
 	//     }
 	// });
-	$('.bride_names,.Groom_Names').keyup(function(e) {
+	$(document).on('keyup','.bride_names,.Groom_Names',function(e) {
 		if ($(this).val().length >= 25) {
 			$(this).val($(this).val().substr(0, 25));
 		}
@@ -371,12 +429,12 @@ $(document).ready(function() {
 	//        // alert(income);
 	// });
 	// var max_chars = 2;
-	$('.bro_sis,.age_regss').keyup(function(e) {
+	$(document).on('keyup','.bro_sis,.age_regss',function(e) {
 		if ($(this).val().length >= 2) {
 			$(this).val($(this).val().substr(0, 2));
 		}
 	});
-	$('.mob_num').keyup(function(e) {
+	$(document).on('keyup','.mob_num',function(e) {
 		if ($(this).val().length >= 10) {
 			$(this).val($(this).val().substr(0, 10));
 		}
@@ -386,7 +444,7 @@ $(document).ready(function() {
 	// Rasi Horoscope - Start //
 	var results_array = [];
 	// Add the Rasi on registration Page
-	$('#rasi_cont').on('click', '#add_rasi', function() {
+	$(document).on('click', '#add_rasi', function() {
 		//added if condition only by kalai
 		// alert($('#rasi_name option').length);
 		if ($('#rasi_name option').length > 0) {
@@ -414,7 +472,7 @@ $(document).ready(function() {
 	});
 
 	// Remove the Rasi from Registration Page
-	$('#rasi_cont').on('click', '#remove_rasi', function() {
+	$(document).on('click', '#remove_rasi', function() {
 		if ($('#crasi_name option').length > 0) {
 			var crasi_name = $('#crasi_name :selected').data('id');
 			var crasi_val = $('#crasi_name :selected').val();
@@ -454,7 +512,7 @@ $(document).ready(function() {
 	// ASHAM Horoscope - Start //
 	var results_array_asham = [];
 	// Add the ASHAM on registration Page
-	$('#asham_cont').on('click', '#add_asham', function() {
+	$(document).on('click', '#add_asham', function() {
 		//added if condition only by kalai
 		// alert($('#asham_name option').length);
 		if ($('#asham_name option').length > 0) {
@@ -482,7 +540,7 @@ $(document).ready(function() {
 	});
 
 	// Remove the ASHAM from Registration Page
-	$('#asham_cont').on('click', '#remove_asham', function() {
+	$(document).on('click', '#remove_asham', function() {
 		if ($('#casham_name option').length > 0) {
 			var crasi_name = $('#casham_name :selected').data('id');
 			var crasi_val = $('#casham_name :selected').val();
@@ -752,7 +810,7 @@ $(document).ready(function() {
 	// Active Tab Change ends
 
 	/*End user customer user edit form Start*/
-	$('.customer_edit_form,.form_inner').on('submit', function(e) {
+	$(document).on('submit','.customer_edit_form,.form_inner', function(e) {
 		e.preventDefault();
 		if ($(this).find('.bootstrap-select').hasClass('form_inputs')) {
 			$(this).find('.bootstrap-select').removeClass('form_inputs');
@@ -940,10 +998,10 @@ $(document).ready(function() {
 	});
 
 	/*End user customer user edit form End*/
-	$(".find_age,#cus_age,.birthday,.reg_age").keypress(function(event) {
+	$(document).on('keypress',".find_age,#cus_age,.birthday,.reg_age",function(event) {
 		event.preventDefault();
 	});
-    $('.find_age').on('blur', function(){
+    $(document).on('blur','.find_age', function(){
         date_value = $(this).val().split('-');
         // dob = $.datepicker.formatDate('dd/mm/yy', new Date(date_value[2],date_value[1]-1,date_value[0]));
         // var today = $.datepicker.formatDate('dd/mm/yy', new Date());
@@ -958,20 +1016,115 @@ $(document).ready(function() {
     });
     //get id and store in array for removed images while edit profile
     var image_array = [];
-    $('.remove_act').on('click', function(){
+    $(document).on('click','.remove_act', function(){
         var image_id = $(this).parents("li").find('.cus_img').data('id');
         if ($.inArray(image_id.toString(), image_array) != 0)
             image_array.push(image_id);
     });   
     //To find height in feet for selected height in cms
-    $('.height_act').on('change', function(){
+    $(document).on('change','.height_act', function(){
         height_cms = $('.height_act :selected').text();
         $('.feet_act option[data-heightcms*="' + height_cms + '"]').attr("selected","selected");       
     });  
-    $('.qreg_act').on('click', function(){
+    $(document).on('click','.qreg_act', function(){
     	$('.modals').hide();
         $('.edit_error').html('');
     });
+    $(document).on('click','.age_limit_act input', function(){
+    	var age_limit = $(this).val().replace(/\s+/g, ' ').split(' ');
+    	$start_age = age_limit[0];
+    	$end_age = age_limit[1];
+    	$('.filter_start_age').val($start_age);
+    	$('.filter_end_age').val($end_age);
+    	filter_ajax();
+    });
+    $(document).on('click','.height_limit_act input', function(){
+    	var height_limit = $(this).val().replace(/\s+/g, ' ').split(' ');
+    	$start_height = height_limit[0];
+    	$end_height = height_limit[1];
+    	$('.filter_start_height').val($start_height);
+    	$('.filter_end_height').val($end_height);
+    	filter_ajax();
+    });
+    $(document).on('click','.weight_limit_act input', function(){
+    	var weight_limit = $(this).val().replace(/\s+/g, ' ').split(' ');
+    	$start_weight = weight_limit[0];
+    	$end_weight = weight_limit[1];
+    	$('.filter_start_weight').val($start_weight);
+    	$('.filter_end_weight').val($end_weight);
+    	filter_ajax();
+    });
+    $(document).on('change','.mar_status_act', function(){
+    	$mar_status_val =[];
+    	$('.mar_status_act').each(function() {
+    		if($(this).is(':checked'))
+    			$mar_status_val.push($(this).val());
+    	});
+    	$('.filter_mar_status').val($mar_status_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+    $(document).on('change','.occupation_act', function(){
+    	$occuaption_val =[];
+    	$('.occupation_act').each(function() {
+    		if($(this).is(':checked'))
+    			$occuaption_val.push($(this).val());
+    	});
+    	$('.filter_occ').val($occuaption_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+    $(document).on('change','.education_act', function(){
+    	$education_val =[];
+    	$('.education_act').each(function() {
+    		if($(this).is(':checked'))
+    			$education_val.push($(this).val());
+    	});
+    	$('.filter_edu').val($education_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+    $(document).on('change','.employedin_act', function(){
+    	$employedin_val =[];
+    	$('.employedin_act').each(function() {
+    		if($(this).is(':checked'))
+    			$employedin_val.push($(this).val());
+    	});
+    	$('.filter_emp').val($employedin_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+    $(document).on('change','.food_act', function(){
+    	$food_val =[];
+    	$('.food_act').each(function() {
+    		if($(this).is(':checked'))
+    			$food_val.push($(this).val());
+    	});
+    	$('.filter_food').val($food_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+    $(document).on('change','.complexion_act', function(){
+    	$comp_val =[];
+    	$('.complexion_act').each(function() {
+    		if($(this).is(':checked'))
+    			$comp_val.push($(this).val());
+    	});
+    	$('.filter_comp').val($comp_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+    $(document).on('change','.btype_act', function(){
+    	$btype_val =[];
+    	$('.btype_act').each(function() {
+    		if($(this).is(':checked'))
+    			$btype_val.push($(this).val());
+    	});
+    	$('.filter_btype').val($btype_val);
+    	// alert($mar_status_val);
+    	filter_ajax();
+    });
+
 });
 
 // $(window).load(function(){
