@@ -2,33 +2,7 @@
 <?php 
 include('include/header.php');
 include('include/menu.php');
-
 // print_r($results);
-
-
-$session_search = $this->session->all_userdata();
-if(!empty($session_search['search_inputs']['show_profile'])){
-    $displayresults =  $session_search['search_inputs']['show_profile'];
-    if($displayresults == 'both'){
-        $rdisplayresults = "With All Photos";
-    }elseif($displayresults == 'with_photo'){
-        $rdisplayresults = "With Photos";
-    }elseif($displayresults == 'without_photo'){
-        $rdisplayresults = "Without Photos";    
-    }
-}
-
-preg_match("/[^\/]+$/", $this->uri->uri_string(), $values); 
-$current_tot = '';
-if($values[0]!=0){
-    $current_tot = $values[0];
-    $current_tot = $current_tot*10; 
-}else{
-    $current_tot = 10;
-}
-if(isset($per_page)&&(!empty($total_rows)))
-    $pages = ceil($total_rows/$per_page);
-
 ?> 
      <!--================Banner Area =================-->
         <section class="banner_area">
@@ -55,55 +29,81 @@ if(isset($per_page)&&(!empty($total_rows)))
                  <div class="row">
                      <div class="col-md-12 ">                     
                         <div class="col-md-8">
-                            <!-- <?php if(!empty($total_rows)) : ?>
+                            <!-- <?php //if(!empty($total_rows)) : ?>
                                 <p>
-                                    Search Results :  <?php echo  $current_tot; ?> of <?php echo $total_rows; ?>
-                                    <?php if(!empty($rdisplayresults)) : ?>
-                                        <?php echo  " - ".$rdisplayresults;?>
-                                    <?php endif; ?>    
+                                    Search Results :  <?php //echo  $current_tot; ?> of <?php //echo $total_rows; ?>
+                                    <?php //if(!empty($rdisplayresults)) : ?>
+                                        <?php //echo  " - ".$rdisplayresults;?>
+                                    <?php //endif; ?>    
                                 </p>
-                            <?php endif; ?> -->
+                            <?php //endif; ?> -->
                         </div>
                         <div class="search_btn back-box">
                                 <a href="<?php echo base_url(); ?>search" class="register_angkar_btn">Back</a>
                         </div>
                      </div>
                 </div>
-                <div class="row ajaxdata">
+                <div class="row">
+                    <div class="col-md-9 ajaxdata">
 <?php } ?>
-                <div class="col-md-9">
+                    <?php 
+                        // if(isset($search_data))
+                        //     print_r($search_data);
+                        $session_search = $this->session->all_userdata();
+                        if(!empty($session_search['search_inputs']['show_profile'])){
+                            $displayresults =  $session_search['search_inputs']['show_profile'];
+                            if($displayresults == 'both'){
+                                $rdisplayresults = "With All Photos";
+                            }elseif($displayresults == 'with_photo'){
+                                $rdisplayresults = "With Photos";
+                            }elseif($displayresults == 'without_photo'){
+                                $rdisplayresults = "Without Photos";    
+                            }
+                        }
+
+                        preg_match("/[^\/]+$/", $this->uri->uri_string(), $values); 
+                        $current_tot = '';
+                        if($values[0]!=0){
+                            $current_tot = $values[0];
+                            $current_tot = $current_tot*10; 
+                        }else{
+                            $current_tot = 10;
+                        }
+                        if(isset($per_page)&&(!empty($total_rows)))
+                            $pages = ceil($total_rows/$per_page);
+                    ?>
                 	<?php if(!empty($total_rows)) : ?>
-                                <p>
-                                    Search Results :  <?php echo  $current_tot; ?> of <?php echo $total_rows; ?>
-                                    <?php if(!empty($rdisplayresults)) : ?>
-                                        <?php echo  " - ".$rdisplayresults;?>
-                                    <?php endif; ?>    
-                                </p>
-                            <?php endif; ?>
-                <?php
-                if(!empty($results)){                    
-                foreach($results as $key => $value) { 
-                    $prefix = '';
-                    $prefix_one = 'th_';
-                    $prefix_two = 'new_';
-                    $prefix_latest_images = '';
-                    $default_images = '';
-                    $latest_images = '';  
-                    unset($current_images);
-                    $current_images = array();                      
-                    if(!empty($value['images'])){
-                        $current_images = explode(',', $value['images'] );
-                        $latest_images = end($current_images);                       
-                        $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$latest_images);
-                        $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$latest_images); 
-                        $prefix_latest_images = file_exists(FCPATH."uploads/profile/".$latest_images); 
-                    }
-                    // To get Gender based image for display //
-                    if((!empty($value['user_gender']))&&($value['user_gender']!=1)){
-                            $default_images = "defalt_female.png";
-                    }else{
-                            $default_images = "defalt_male.png";
-                    }
+                        <p>
+                            Search Results :  <?php echo  $current_tot; ?> of <?php echo $total_rows; ?>
+                            <?php if(!empty($rdisplayresults)) : ?>
+                                <?php echo  " - ".$rdisplayresults;?>
+                            <?php endif; ?>    
+                        </p>
+                    <?php endif; ?>
+                    <?php
+                        if(!empty($results)){                    
+                        foreach($results as $key => $value) { 
+                            $prefix = '';
+                            $prefix_one = 'th_';
+                            $prefix_two = 'new_';
+                            $prefix_latest_images = '';
+                            $default_images = '';
+                            $latest_images = '';  
+                            unset($current_images);
+                            $current_images = array();                      
+                            if(!empty($value['images'])){
+                                $current_images = explode(',', $value['images'] );
+                                $latest_images = end($current_images);                       
+                                $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$latest_images);
+                                $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$latest_images); 
+                                $prefix_latest_images = file_exists(FCPATH."uploads/profile/".$latest_images); 
+                            }
+                            // To get Gender based image for display //
+                            if((!empty($value['user_gender']))&&($value['user_gender']!=1)){
+                                    $default_images = "defalt_female.png";
+                            }else{
+                                    $default_images = "defalt_male.png";
+                            }
                     ?>                        
                     <div class="col-md-4 col-xs-6">                    
                          <?php                             
@@ -254,7 +254,6 @@ if(isset($per_page)&&(!empty($total_rows)))
                             </div>
                         <!-- </div> -->
                     </div> 
-
                     <?php } 
                     }else{?>
                          <div class="text-box-name" align="center">
@@ -263,40 +262,40 @@ if(isset($per_page)&&(!empty($total_rows)))
                     <?php }
                     ?>
 
-                        <div class="col-md-12" style="display: inline-block;"">
-                            <div>
-                            <?php
-                            if(!empty($links)) :
-                                echo "<div class='col-md-8 nopadding pull-right '>
-                                            <div class='col-md-5 col-xs-12 pagination-box clearfix' style='display:inline-block'>" .$links . "
-                                            </div>";
-                                            if(!empty($pages)) : ?>
-                                            <!-- <div class="col-md-2 goto">Go to</div> -->
-                                            <div class="col-md-4 dir_page">Go to
-                                              <select class="extra_drop pagination_scrol" name="pagination_dropdown" id="pagination_dropdown" 
-                                              onchange="location = this.value;">                                               
-                                                    <?php                     
-                                                    for($i=1;$i<=$pages;$i++){
-                                                        if($i!=$values[0]){?>
-                                                        <option value="<?php echo base_url()."search_result/".$i;?>">
-                                                            <?php echo $i; 
-                                                        ?>
-                                                        </option>
-                                                        <?php }else{?>
-                                                        <option value="<?php echo base_url()."search_result/".$i;?>" selected>
-                                                            <?php echo $i;?>
-                                                        </option>
-                                                        <?php }
-                                                    }?>
-                                            </select>
-                                            </div>
-                                            <?php endif; ?>
-                                        </div>
-                            <?php endif;
-                            ?>
-                            </div> <!-- col-md-12 ends -->
-                    </div> <!-- col-md-9 -->
+                    <div class="col-md-12" style="display: inline-block;">
+                        <div>
+                        <?php
+                        if(!empty($links)) :
+                            echo "<div class='col-md-8 nopadding pull-right '>
+                                        <div class='col-md-5 col-xs-12 pagination-box clearfix' style='display:inline-block'>" .$links . "
+                                    </div>";
+                            if(!empty($pages)) : ?>
+                            <!-- <div class="col-md-2 goto">Go to</div> -->
+                            <div class="col-md-4 dir_page">Go to
+                              <select class="extra_drop pagination_scrol" name="pagination_dropdown" id="pagination_dropdown" 
+                              onchange="location = this.value;">                                               
+                                    <?php                     
+                                    for($i=1;$i<=$pages;$i++){
+                                        if($i!=$values[0]){?>
+                                        <option value="<?php echo base_url()."search_result/".$i;?>">
+                                            <?php echo $i; 
+                                        ?>
+                                        </option>
+                                        <?php }else{?>
+                                        <option value="<?php echo base_url()."search_result/".$i;?>" selected>
+                                            <?php echo $i;?>
+                                        </option>
+                                        <?php }
+                                    }?>
+                            </select>
+                            </div>
+                            <?php endif; ?>
+                        </div>
+                        <?php endif;
+                        ?>
+                    </div> <!-- col-md-12 ends -->                    
 <?php if(!$this->input->is_ajax_request()) { ?>
+                </div> <!-- col-md-9 -->
             </div> <!-- row ends  --> 
                 <?php //if(sizeof($results) > 1): ?>
                  <div class="col-md-3">
@@ -322,9 +321,9 @@ if(isset($per_page)&&(!empty($total_rows)))
                                     <li><a href="#"><img src="img/categories-list.png" alt=""><b>Age Limit</b></a></li>
                                 </ul>
                                 <div class="s_widget price_widget age-box age_limit_act">
-                                    <div id="price_select"></div>
+                                    <div id="price_select" class="age_select"></div>
                                         <div class="price_inner">
-                                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                        <input type="text" id="age_value" readonly style="border:0; color:#f6931f; font-weight:bold;">
                                         <!-- <a href="#">$50</a>
                                         <a href="#">$350</a> -->
                                     </div>
@@ -370,10 +369,13 @@ if(isset($per_page)&&(!empty($total_rows)))
                                     <li><a href="#"><img src="img/categories-list.png" alt=""><b>Marital Status<b></a></li>
                                 </ul>
                                 <?php 
-                                foreach ($selection_values['maritalstatus_values'] as $mar_val): ?>
+                                foreach ($selection_values['maritalstatus_values'] as $mar_val): 
+                                    // echo "search_mar_status".$search_data['mar_status'];
+                                    // echo "mar_id".$mar_val['maritalcategory_id']; 
+                                ?>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" class="mar_status_act" value="<?php echo $mar_val['maritalcategory_id'] ?>" <?php if(strtolower($mar_val['marital_name'])=="single") echo "checked"; ?>>
+                                        <input type="checkbox" class="mar_status_act" value="<?php echo $mar_val['maritalcategory_id'] ?>" <?php if(strtolower($mar_val['marital_name'])=="single" && $search_data['mar_status'] == $mar_val['maritalcategory_id']){ echo "checked";} elseif($search_data['mar_status'] == $mar_val['maritalcategory_id']) echo "checked"; ?>>
                                             <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                             <?php echo $mar_val['marital_name'] ?>
                                     </label>

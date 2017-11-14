@@ -1030,30 +1030,61 @@ $(document).ready(function() {
     	$('.modals').hide();
         $('.edit_error').html('');
     });
-    $(document).on('click','.age_limit_act input', function(){
-    	var age_limit = $(this).val().replace(/\s+/g, ' ').split(' ');
+
+    /*----------------------------------------------------*/
+    /*Price Select*/
+    /*----------------------------------------------------*/
+    $( "#price_select" ).slider({
+      range: true,
+      min: 18,
+      max: 60,
+      values: [ 18, 34 ],
+      slide: function( event, ui ) {
+        $( "#age_value" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
+      	var age_limit = $('#age_value').val().replace(/\s+/g, ' ').split(' ');
     	$start_age = age_limit[0];
     	$end_age = age_limit[1];
     	$('.filter_start_age').val($start_age);
     	$('.filter_end_age').val($end_age);
     	filter_ajax();
+      }
     });
-    $(document).on('click','.height_limit_act input', function(){
-    	var height_limit = $(this).val().replace(/\s+/g, ' ').split(' ');
+    $( "#age_value" ).val( "" + $( "#price_select" ).slider( "values", 0 ) + "                                                                                " + $( "#price_select" ).slider( "values", 1 ) );
+    
+    $( "#height_select" ).slider({
+      range: true,
+      min: 137,
+      max: 213,
+      values: [ 137, 213 ],
+      slide: function( event, ui ) {
+        $( "#height" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
+        var height_limit = $("#height").val().replace(/\s+/g, ' ').split(' ');
     	$start_height = height_limit[0];
     	$end_height = height_limit[1];
     	$('.filter_start_height').val($start_height);
     	$('.filter_end_height').val($end_height);
     	filter_ajax();
+      }
     });
-    $(document).on('click','.weight_limit_act input', function(){
-    	var weight_limit = $(this).val().replace(/\s+/g, ' ').split(' ');
+    $( "#height" ).val( "" + $( "#height_select" ).slider( "values", 0 ) + "                                                                                " + $( "#height_select" ).slider( "values", 1 ) );
+
+    $( "#weight_select" ).slider({
+      range: true,
+      min: 41,
+      max: 140,
+      values: [ 41, 140 ],
+      slide: function( event, ui ) {
+        $( "#weight" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
+      	var weight_limit = $("#weight").val().replace(/\s+/g, ' ').split(' ');
     	$start_weight = weight_limit[0];
     	$end_weight = weight_limit[1];
     	$('.filter_start_weight').val($start_weight);
     	$('.filter_end_weight').val($end_weight);
     	filter_ajax();
+      }
     });
+    $( "#weight" ).val( "" + $( "#weight_select" ).slider( "values", 0 ) + "                                                                                " + $( "#weight_select" ).slider( "values", 1 ) );
+    
     $(document).on('change','.mar_status_act', function(){
     	$mar_status_val =[];
     	$('.mar_status_act').each(function() {

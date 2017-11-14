@@ -929,6 +929,25 @@ class Base extends CI_Controller {
 		$data['selection_values'] = $this->user_model->customer_user_selectiondata();
 		$data['occupation_category'] = $this->user_model->get_occupationcategory();
 		$data['education_category'] = $this->user_model->get_educationcategory();
+
+		$mar_status_default_value = $this->db->query("select maritalcategory_id from marital_category where LOWER(marital_name)='single' LIMIT 1")->row_array();
+
+		//load searched values for filter search from basic, advanced
+		if($_POST){
+			$data['search_data'] = array(
+									'gender' => ($form_data['gender'][0])?$form_data['gender'][0]:'',
+									'start_age' => ($form_data['search_age_from'][0])?$form_data['search_age_from'][0]:'18',
+									'end_age' => ($form_data['search_age_to'][0])?$form_data['search_age_to'][0]:'60',
+									'start_height' => ($form_data['height_in_cms'][0])?$form_data['height_in_cms'][0]:137,
+									'end_height' => ($form_data['height_in_feets'][0])?$form_data['height_in_feets'][0]:'213',
+									'mar_status' => ($form_data['marital_status'][0])?$form_data['marital_status'][0]:$mar_status_default_value['maritalcategory_id'],
+									'mot_tongue' => $form_data['mother_tongue'],
+									'show_profile' => $form_data['images'][0],
+					);
+			if(isset($form_data['education']))
+				$data['search_data']['education'] = $form_data['education'];
+		}
+		// print_r($_POST);
 		$this->load->view('search_result',$data);
 		
 	}
@@ -1442,7 +1461,7 @@ class Base extends CI_Controller {
 		$data["results"] = $fetchdata['results'];
 		// print_r($fetchdata["results"]);
 		// echo $fetchdata['total_rows'];
-        $config["total_rows"] = $fetchdata['total_rows'];
+        $config["total_rows"] = $data["total_rows"] = $fetchdata['total_rows'];
         $this->pagination->initialize($config);
         $data["links"] = $this->pagination->create_links();
         $data["offset"] = $offset;

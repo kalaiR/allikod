@@ -1671,35 +1671,35 @@ class User_model extends CI_Model {
   }
   public function get_filter_search($limit, $start){
       // print_r($_POST);
-      // $filter_start_age = ($_POST['filter_start_age']) ? $_POST['filter_start_age'] : 18;
-      // $filter_end_age = ($_POST['filter_end_age']) ? $_POST['filter_end_age'] : 34;
-      // $filter_start_height = ($_POST['filter_start_height']) ? $_POST['filter_start_height'] : 137;
-      // $filter_end_height = ($_POST['filter_end_height']) ? $_POST['filter_end_height'] : 213;
-      // $filter_start_weight = ($_POST['filter_start_weight']) ? $_POST['filter_start_weight'] : 41;
-      // $filter_end_weight = ($_POST['filter_end_weight']) ? $_POST['filter_end_weight'] : 140;
-      // $filter_mar_status = $_POST['filter_mar_status'];
-      // $filter_occ = $_POST['filter_occ'];
-      // $filter_edu = $_POST['filter_edu'];
-      // $filter_emp = $_POST['filter_emp'];
-      // $filter_food = $_POST['filter_food'];
-      // $filter_comp = $_POST['filter_comp'];
-      // $filter_btype = $_POST['filter_btype'];
+      $filter_start_age = ($_POST['filter_start_age']) ? $_POST['filter_start_age'] : 18;
+      $filter_end_age = ($_POST['filter_end_age']) ? $_POST['filter_end_age'] : 34;
+      $filter_start_height = ($_POST['filter_start_height']) ? $_POST['filter_start_height'] : 137;
+      $filter_end_height = ($_POST['filter_end_height']) ? $_POST['filter_end_height'] : 213;
+      $filter_start_weight = ($_POST['filter_start_weight']) ? $_POST['filter_start_weight'] : 41;
+      $filter_end_weight = ($_POST['filter_end_weight']) ? $_POST['filter_end_weight'] : 140;
+      $filter_mar_status = $_POST['filter_mar_status'];
+      $filter_occ = $_POST['filter_occ'];
+      $filter_edu = $_POST['filter_edu'];
+      $filter_emp = $_POST['filter_emp'];
+      $filter_food = $_POST['filter_food'];
+      $filter_comp = $_POST['filter_comp'];
+      $filter_btype = $_POST['filter_btype'];
 
-      $filter_start_age = 18;
-      $filter_end_age = 34;
-      $filter_start_height = 137;
-      $filter_end_height = 213;
-      $filter_start_weight = 41;
-      $filter_end_weight = 140;
-      $filter_mar_status = "1,2";
-      // $filter_occ = "3,2";
-      // $filter_edu = "1,2,3";
-      $filter_occ = "5,3";
-      $filter_edu = "6,7,8";
-      $filter_emp = "5,6";
-      $filter_food = "2,3";
-      $filter_comp = "3,4";
-      $filter_btype = "1,2";
+      // $filter_start_age = 18;
+      // $filter_end_age = 34;
+      // $filter_start_height = 137;
+      // $filter_end_height = 213;
+      // $filter_start_weight = 41;
+      // $filter_end_weight = 140;
+      // $filter_mar_status = "1,2";
+      // // $filter_occ = "3,2";
+      // // $filter_edu = "1,2,3";
+      // $filter_occ = "5,3";
+      // $filter_edu = "6,7,8";
+      // $filter_emp = "5,6";
+      // $filter_food = "2,3";
+      // $filter_comp = "3,4";
+      // $filter_btype = "1,2";
 
       $user_where = '(usr.user_age BETWEEN '. $filter_start_age.' AND '.$filter_end_age.') 
                   AND (phy.phy_height BETWEEN '. $filter_start_height.' AND '.$filter_end_height.') 

@@ -816,44 +816,44 @@
       " - $" + $( ".average" ).slider( "values", 1 ) );
     
     
-    /*----------------------------------------------------*/
-    /*Price Select*/
-    /*----------------------------------------------------*/
-    $( "#price_select" ).slider({
-      range: true,
-      min: 18,
-      max: 60,
-      values: [ 18, 34 ],
-      slide: function( event, ui ) {
-        $( "#amount" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
-      }
-    });
-    $( "#amount" ).val( "" + $( "#price_select" ).slider( "values", 0 ) +
-      "                                                                                " + $( "#price_select" ).slider( "values", 1 ) );
+    // /*----------------------------------------------------*/
+    // /*Price Select*/
+    // /*----------------------------------------------------*/
+    // $( "#price_select" ).slider({
+    //   range: true,
+    //   min: 18,
+    //   max: 60,
+    //   values: [ 18, 34 ],
+    //   slide: function( event, ui ) {
+    //     $( "#amount" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
+    //   }
+    // });
+    // $( "#amount" ).val( "" + $( "#price_select" ).slider( "values", 0 ) +
+    //   "                                                                                " + $( "#price_select" ).slider( "values", 1 ) );
     
-    $( "#height_select" ).slider({
-      range: true,
-      min: 137,
-      max: 213,
-      values: [ 137, 213 ],
-      slide: function( event, ui ) {
-        $( "#height" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
-      }
-    });
-    $( "#height" ).val( "" + $( "#height_select" ).slider( "values", 0 ) +
-      "                                                                                " + $( "#height_select" ).slider( "values", 1 ) );
+    // $( "#height_select" ).slider({
+    //   range: true,
+    //   min: 137,
+    //   max: 213,
+    //   values: [ 137, 213 ],
+    //   slide: function( event, ui ) {
+    //     $( "#height" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
+    //   }
+    // });
+    // $( "#height" ).val( "" + $( "#height_select" ).slider( "values", 0 ) +
+    //   "                                                                                " + $( "#height_select" ).slider( "values", 1 ) );
 
-    $( "#weight_select" ).slider({
-      range: true,
-      min: 41,
-      max: 140,
-      values: [ 41, 140 ],
-      slide: function( event, ui ) {
-        $( "#weight" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
-      }
-    });
-    $( "#weight" ).val( "" + $( "#weight_select" ).slider( "values", 0 ) +
-      "                                                                                " + $( "#weight_select" ).slider( "values", 1 ) );
+    // $( "#weight_select" ).slider({
+    //   range: true,
+    //   min: 41,
+    //   max: 140,
+    //   values: [ 41, 140 ],
+    //   slide: function( event, ui ) {
+    //     $( "#weight" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
+    //   }
+    // });
+    // $( "#weight" ).val( "" + $( "#weight_select" ).slider( "values", 0 ) +
+    //   "                                                                                " + $( "#weight_select" ).slider( "values", 1 ) );
     
     /*----------------------------------------------------*/
     /*  Google map js
