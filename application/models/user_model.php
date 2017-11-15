@@ -1684,6 +1684,9 @@ class User_model extends CI_Model {
       $filter_food = $_POST['filter_food'];
       $filter_comp = $_POST['filter_comp'];
       $filter_btype = $_POST['filter_btype'];
+      $filter_gender = $_POST['filter_gender'];
+      $filter_mot_tongue = $_POST['filter_mot_tongue'];
+      $filter_show_profile = $_POST['filter_show_profile'];
 
       // $filter_start_age = 18;
       // $filter_end_age = 34;
@@ -1705,6 +1708,7 @@ class User_model extends CI_Model {
                   AND (phy.phy_height BETWEEN '. $filter_start_height.' AND '.$filter_end_height.') 
                   AND (phy.phy_weight BETWEEN '. $filter_start_weight.' AND '.$filter_end_weight.')';
       // echo $user_where;
+      $user_where.= ' AND (usr.user_gender='.$_POST['filter_gender'].' AND rel.rel_mothertongue_id IN('.$filter_mot_tongue.'))';
 
       if(!empty($filter_mar_status)){
         $user_where.=' AND (usr.user_maritalstatus IN ('.$filter_mar_status.'))';
@@ -1736,7 +1740,12 @@ class User_model extends CI_Model {
       $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
       $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
       $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
-      $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');           
+      if($filter_show_profile == "both")
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');           
+      elseif($filter_show_profile == "without_photo")
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');           
+      else
+        $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','right');           
       $this->db->where($user_where);  
       $this->db->group_by('usr.userdetail_id','desc');        
       $this->db->order_by('usr.userdetail_id','desc'); 

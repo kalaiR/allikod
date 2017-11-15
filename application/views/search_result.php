@@ -300,18 +300,23 @@ include('include/menu.php');
                 <?php //if(sizeof($results) > 1): ?>
                 <div class="col-md-3 right_float">
                  <div class="col-md-12">
-                        <input type="hidden" class="filter_start_age" value="<?php echo $search_data['start_age']; ?>">
-                        <input type="hidden" class="filter_end_age" value="<?php echo $search_data['end_age']; ?>">
-                        <input type="hidden" class="filter_start_height" value="<?php echo $search_data['start_height']; ?>">
-                        <input type="hidden" class="filter_end_height" value="<?php echo $search_data['end_height']; ?>">
-                        <input type="hidden" class="filter_start_weight" value="41">
-                        <input type="hidden" class="filter_end_weight" value="140">
-                        <input type="hidden" class="filter_occ">
-                        <input type="hidden" class="filter_edu" value="<?php if(isset($search_data['education'])) echo implode(",",$search_data['education']); ?>">
-                        <input type="hidden" class="filter_emp">
-                        <input type="hidden" class="filter_food">
-                        <input type="hidden" class="filter_comp">
-                        <input type="hidden" class="filter_btype">
+                    <form method="post" class="filter_data">
+                        <input type="hidden" name="filter_start_age" class="filter_start_age" value="<?php echo $search_data['start_age']; ?>">
+                        <input type="hidden" name="filter_end_age" class="filter_end_age" value="<?php echo $search_data['end_age']; ?>">
+                        <input type="hidden" name="filter_start_height" class="filter_start_height" value="<?php echo $search_data['start_height']; ?>">
+                        <input type="hidden" name="filter_end_height" class="filter_end_height" value="<?php echo $search_data['end_height']; ?>">
+                        <input type="hidden" name="filter_start_weight" class="filter_start_weight" value="41">
+                        <input type="hidden" name="filter_end_weight" class="filter_end_weight" value="140">
+                        <input type="hidden" name="filter_occ" class="filter_occ">
+                        <input type="hidden" name="filter_edu" class="filter_edu" value="<?php if(isset($search_data['education'])) echo implode(",",$search_data['education']); ?>">
+                        <input type="hidden" name="filter_emp" class="filter_emp">
+                        <input type="hidden" name="filter_food" class="filter_food">
+                        <input type="hidden" name="filter_comp" class="filter_comp">
+                        <input type="hidden" name="filter_btype" class="filter_btype">
+                        <input type="hidden" name="filter_gender" class="filter_gender" value="<?php echo $search_data['gender']; ?>">
+                        <input type="hidden" name="filter_mot_tongue" class="filter_mot_tongue" value="<?php echo implode(",", $search_data['mot_tongue']); ?>">
+                        <input type="hidden" name="filter_show_profile" class="filter_show_profile" value="<?php echo $search_data['show_profile']; ?>">
+                    </form>     
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <div class="s_title">

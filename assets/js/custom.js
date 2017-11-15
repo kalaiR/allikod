@@ -329,7 +329,9 @@ function filter_ajax(){
 	filter_food = $('.filter_food').val();
 	filter_comp = $('.filter_comp').val();
 	filter_btype = $('.filter_btype').val();
-	// alert(pagination_url);
+	filter_gender = $('.filter_gender').val();
+	filter_mot_tongue = $('.filter_mot_tongue').val();
+	filter_show_profile = $('.filter_show_profile').val();
 	if(pagination_url=='')
 		url = baseurl + "filter_search";
 	else
@@ -343,7 +345,9 @@ function filter_ajax(){
 				"&filter_mar_status="+filter_mar_status+"&filter_occ="+filter_occ+
 				"&filter_edu="+filter_edu+"&filter_emp="+filter_emp+
 				"&filter_food="+filter_food+"&filter_comp="+filter_comp+
-				"&filter_btype="+filter_btype+"&"+csrf_name+"="+csfrData[csrf_name],
+				"&filter_btype="+filter_btype+"&filter_gender="+filter_gender+
+				"&filter_mot_tongue="+filter_mot_tongue+"&filter_show_profile="+filter_show_profile+
+				"&"+csrf_name+"="+csfrData[csrf_name],
 		type : "post",
 		// dataType : 'json',
 		success : function(res) {
@@ -1038,7 +1042,7 @@ $(document).ready(function() {
       range: true,
       min: 18,
       max: 60,
-      values: [ 18, 34 ],
+      values: [ $('.filter_start_age').val(), $('.filter_end_age').val() ],
       slide: function( event, ui ) {
         $( "#age_value" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
       	var age_limit = $('#age_value').val().replace(/\s+/g, ' ').split(' ');
@@ -1055,7 +1059,7 @@ $(document).ready(function() {
       range: true,
       min: 137,
       max: 213,
-      values: [ 137, 213 ],
+      values: [ $('.filter_start_height').val(), $('.filter_end_height').val() ],
       slide: function( event, ui ) {
         $( "#height" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
         var height_limit = $("#height").val().replace(/\s+/g, ' ').split(' ');
@@ -1072,7 +1076,7 @@ $(document).ready(function() {
       range: true,
       min: 41,
       max: 140,
-      values: [ 41, 140 ],
+      values: [ $('.filter_start_weight').val(), $('.filter_end_weight').val() ],
       slide: function( event, ui ) {
         $( "#weight" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
       	var weight_limit = $("#weight").val().replace(/\s+/g, ' ').split(' ');
