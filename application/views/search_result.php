@@ -185,7 +185,7 @@ include('include/menu.php');
                               <p><b>DOB/Age</b></p>
                             </div>
                             <div class="col-md-6 col-xs-6">
-                                <p> <?php if(!empty($value['user_dob'])){ echo $value['user_dob'];}?></p>
+                                <p> <?php if(!empty($value['user_dob'])){ echo $value['user_dob']." / ".$value['user_age'];}?></p>
                             </div>
                             <div class="col-md-5 col-xs-5 name-box">
                                 <p><b>Star</b></p>
