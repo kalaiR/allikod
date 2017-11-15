@@ -1044,7 +1044,7 @@ $(document).ready(function() {
       max: 60,
       values: [ $('.filter_start_age').val(), $('.filter_end_age').val() ],
       slide: function( event, ui ) {
-        $( "#age_value" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
+        $( "#age_value" ).val( "" + ui.values[ 0 ] + "                                                                    " + ui.values[ 1 ] );
       	var age_limit = $('#age_value').val().replace(/\s+/g, ' ').split(' ');
     	$start_age = age_limit[0];
     	$end_age = age_limit[1];
@@ -1053,7 +1053,7 @@ $(document).ready(function() {
     	filter_ajax();
       }
     });
-    $( "#age_value" ).val( "" + $( "#price_select" ).slider( "values", 0 ) + "                                                                                " + $( "#price_select" ).slider( "values", 1 ) );
+    $( "#age_value" ).val( "" + $( "#price_select" ).slider( "values", 0 ) + "                                                                    " + $( "#price_select" ).slider( "values", 1 ) );
     
     $( "#height_select" ).slider({
       range: true,
@@ -1061,7 +1061,7 @@ $(document).ready(function() {
       max: 213,
       values: [ $('.filter_start_height').val(), $('.filter_end_height').val() ],
       slide: function( event, ui ) {
-        $( "#height" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
+        $( "#height" ).val( "" + ui.values[ 0 ] + "                                                                    " + ui.values[ 1 ] );
         var height_limit = $("#height").val().replace(/\s+/g, ' ').split(' ');
     	$start_height = height_limit[0];
     	$end_height = height_limit[1];
@@ -1070,7 +1070,7 @@ $(document).ready(function() {
     	filter_ajax();
       }
     });
-    $( "#height" ).val( "" + $( "#height_select" ).slider( "values", 0 ) + "                                                                                " + $( "#height_select" ).slider( "values", 1 ) );
+    $( "#height" ).val( "" + $( "#height_select" ).slider( "values", 0 ) + "                                                                    " + $( "#height_select" ).slider( "values", 1 ) );
 
     $( "#weight_select" ).slider({
       range: true,
@@ -1078,7 +1078,7 @@ $(document).ready(function() {
       max: 140,
       values: [ $('.filter_start_weight').val(), $('.filter_end_weight').val() ],
       slide: function( event, ui ) {
-        $( "#weight" ).val( "" + ui.values[ 0 ] + "                                                                             " + ui.values[ 1 ] );
+        $( "#weight" ).val( "" + ui.values[ 0 ] + "                                                                    " + ui.values[ 1 ] );
       	var weight_limit = $("#weight").val().replace(/\s+/g, ' ').split(' ');
     	$start_weight = weight_limit[0];
     	$end_weight = weight_limit[1];
@@ -1087,7 +1087,7 @@ $(document).ready(function() {
     	filter_ajax();
       }
     });
-    $( "#weight" ).val( "" + $( "#weight_select" ).slider( "values", 0 ) + "                                                                                " + $( "#weight_select" ).slider( "values", 1 ) );
+    $( "#weight" ).val( "" + $( "#weight_select" ).slider( "values", 0 ) + "                                                                    " + $( "#weight_select" ).slider( "values", 1 ) );
     
     $(document).on('change','.mar_status_act', function(){
     	$mar_status_val =[];

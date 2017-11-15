@@ -989,7 +989,7 @@ class Base extends CI_Controller {
 		// 		$data['search_data']['education'] = $form_data['education'];
 		// }
 		// print_r($_POST);
-		print_r($data['search_data']);
+		// print_r($data['search_data']);
 		$this->load->view('search_result',$data);
 		
 	}
