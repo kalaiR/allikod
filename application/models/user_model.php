@@ -1742,7 +1742,7 @@ class User_model extends CI_Model {
       $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
       if($filter_show_profile == "both")
         $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');           
-      elseif($filter_show_profile == "without_photo")
+      elseif($filter_show_profile == "with_photo")
         $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');           
       else
         $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','right');           

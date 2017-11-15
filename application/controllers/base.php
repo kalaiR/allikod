@@ -1460,18 +1460,31 @@ class Base extends CI_Controller {
 		$this->load->view('test_watermark');
 	}
 	function filter_search(){
-		$config = array();
-        $config["base_url"] = base_url() . "filter_search";
-        // $config["total_rows"] = $this->customeruser_data_model->customeruser_record_count();
-        $config["per_page"] = 10;
-        $config["uri_segment"] = 3;
-        $config['use_page_numbers'] = TRUE;
-        $config['cur_tag_open'] = ' ';
-        $config['cur_tag_close'] = '';
-        $config['next_link'] = 'Next';
-        $config['prev_link'] = 'Previous';
-        $config['num_links'] = 4;
-        // Custom Configuration
+		$per_page = 10;
+		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);				
+		if($values[0]){	
+			$offset = (($values[0]-1)*$per_page); 
+		}else{
+		 	$offset = 0;
+		}	
+
+		//pagination
+		$data['per_page'] = $per_page;
+
+		$fetchdata = $this->user_model->get_filter_search($per_page, $offset);
+		$data["results"] = $fetchdata['results'];
+		// print_r($fetchdata["results"]);
+		// echo $fetchdata['total_rows'];
+        $config["total_rows"] = $data["total_rows"] = $fetchdata['total_rows'];
+
+		// Pagination configuration
+		$config['base_url'] = base_url().'filter_search';
+		$config['per_page'] = $per_page;		
+		$config['uri_segment'] = 2;
+		$config['num_links'] = 4;
+		$config['use_page_numbers'] = TRUE;
+
+		// Custom Configuration
 		$config['full_tag_open'] = '<ul class="pagination">';
 		$config['full_tag_close'] = '</ul>';
 		$config['next_tag_open'] = '<li>';
@@ -1491,22 +1504,60 @@ class Base extends CI_Controller {
 		$config['last_tag_open'] = '<li>';
 		$config['last_tag_close'] = '</li>';
 
-		$per_page = $config["per_page"];
-		preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);				
-		if($values[0]){	
-			$offset = (($values[0]-1)*$per_page); 
-		}else{
-		 	$offset = 0;
-		}	
+		// Pagination Inititalization
+		$this->pagination->initialize($config);
+
+		// Navigation Links
+		$pagination_links = $this->pagination->create_links();
+		$data["links"] = $pagination_links;	
+
+		// $config = array();
+  //       $config["base_url"] = base_url() . "filter_search";
+  //       // $config["total_rows"] = $this->customeruser_data_model->customeruser_record_count();
+  //       $config["per_page"] = 10;
+  //       $config["uri_segment"] = 3;
+  //       $config['use_page_numbers'] = TRUE;
+  //       $config['cur_tag_open'] = ' ';
+  //       $config['cur_tag_close'] = '';
+  //       $config['next_link'] = 'Next';
+  //       $config['prev_link'] = 'Previous';
+  //       $config['num_links'] = 4;
+  //       // Custom Configuration
+		// $config['full_tag_open'] = '<ul class="pagination">';
+		// $config['full_tag_close'] = '</ul>';
+		// $config['next_tag_open'] = '<li>';
+		// $config['next_tag_close'] = '</li>';
+		// $config['prev_tag_open'] = '<li>';
+		// $config['prev_tag_close'] = '</li>';
+		// $config['num_tag_open'] = '<li>';
+		// $config['num_tag_close'] = '</li>';
+		// $config['cur_tag_open'] = '<li class="active"><a>';
+		// $config['cur_tag_close'] = '</a></li>';
+		// $config['next_link'] = 'Next';
+		// $config['prev_link'] = 'Prev';
+		// $config['first_link'] = 'First';
+		// $config['first_tag_open'] = '<li>';
+		// $config['first_tag_close'] = '</li>';
+		// $config['last_link'] = 'Last';
+		// $config['last_tag_open'] = '<li>';
+		// $config['last_tag_close'] = '</li>';
+
+		// $per_page = $config["per_page"];
+		// preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);				
+		// if($values[0]){	
+		// 	$offset = (($values[0]-1)*$per_page); 
+		// }else{
+		//  	$offset = 0;
+		// }	
 		
-		$fetchdata = $this->user_model->get_filter_search($per_page, $offset);
-		$data["results"] = $fetchdata['results'];
-		// print_r($fetchdata["results"]);
-		// echo $fetchdata['total_rows'];
-        $config["total_rows"] = $data["total_rows"] = $fetchdata['total_rows'];
-        $this->pagination->initialize($config);
-        $data["links"] = $this->pagination->create_links();
-        $data["offset"] = $offset;
+		// $fetchdata = $this->user_model->get_filter_search($per_page, $offset);
+		// $data["results"] = $fetchdata['results'];
+		// // print_r($fetchdata["results"]);
+		// // echo $fetchdata['total_rows'];
+  //       $config["total_rows"] = $data["total_rows"] = $fetchdata['total_rows'];
+  //       $this->pagination->initialize($config);
+  //       $data["links"] = $this->pagination->create_links();
+  //       $data["offset"] = $offset;
 		// print_r($data);
 		$this->load->view('search_result',$data);
 	}
