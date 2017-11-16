@@ -495,7 +495,7 @@ class User_model extends CI_Model {
 
 
   /** Search by vallikodi Id **/
-  public function get_datauserId($values, $limit, $start){     
+  public function get_datauserId($values, $limit, $start){ 
         $user_where = '(usr.userdetail_id="'.$values.'" AND usr.user_delete_status!=1 AND usr.user_gender !=3 AND usr.user_active_status!=0)';
         $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, group_concat(img.images) as images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district, usr.user_gender');
         $this->db->from('reg_userdetail usr');
@@ -1708,7 +1708,12 @@ class User_model extends CI_Model {
                   AND (phy.phy_height BETWEEN '. $filter_start_height.' AND '.$filter_end_height.') 
                   AND (phy.phy_weight BETWEEN '. $filter_start_weight.' AND '.$filter_end_weight.')';
       // echo $user_where;
-      $user_where.= ' AND (usr.user_gender='.$_POST['filter_gender'].' AND rel.rel_mothertongue_id IN('.$filter_mot_tongue.'))';
+      if(!empty($filter_gender)){            
+        $user_where.= ' AND (usr.user_gender='.$filter_gender.')';
+      }
+      if(!empty($filter_mot_tongue)){
+        $user_where.=' AND (rel.rel_mothertongue_id IN ('.$filter_mot_tongue.'))';
+      }
 
       if(!empty($filter_mar_status)){
         $user_where.=' AND (usr.user_maritalstatus IN ('.$filter_mar_status.'))';
@@ -1722,6 +1727,15 @@ class User_model extends CI_Model {
         }
         $user_where.=' AND (edu.edu_occupation IN ('.implode(",", $occ_results).'))';
       }
+      if(!empty($filter_edu)){
+        $edu_res = $this->db->query("select education_id from education where edu_categoryid IN ($filter_edu)")->result_array();
+        $edu_results = array();
+        foreach($edu_res as $val)
+        {
+            $edu_results[] = $val['education_id']; // add each user id to the array
+        }
+        $user_where.=' AND (edu.edu_occupation IN ('.implode(",", $edu_results).'))';
+      }
       if(!empty($filter_emp)){
         $user_where.=' AND (edu.edu_employedin IN ('.$filter_emp.'))';
       }  
@@ -1729,7 +1743,7 @@ class User_model extends CI_Model {
         $user_where.=' AND (phy.phy_food IN ('.$filter_food.'))';
       }  
       if(!empty($filter_comp)){
-        $user_where.=' AND (phy.phy_complexion IN ('.$filter_food.'))';
+        $user_where.=' AND (phy.phy_complexion IN ('.$filter_comp.'))';
       }  
       if(!empty($filter_btype)){
         $user_where.=' AND (phy.phy_bodytype IN ('.$filter_btype.'))';

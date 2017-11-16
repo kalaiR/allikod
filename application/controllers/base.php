@@ -823,12 +823,14 @@ class Base extends CI_Controller {
 				// Search by Vallikodi ID //
 				$searchid = $form_data['searchby_id'];				
 				$data = $this->user_model->get_datauserId($searchid, $per_page, $offset);
+				$data['total_rows'] = 1;
 				$this->session->set_userdata('search_inputs_id',$searchid);
 				$search_inputs_ids = $this->session->userdata('search_inputs_id');
 			}elseif($form_data['search_type'] =='search_manual_type'){
 				// Search by Manual ID //
 				$searchmanual_id = $form_data['search_manual_id'];				
 				$data = $this->user_model->get_datauser_manualId($searchmanual_id, $per_page, $offset);
+				$data['total_rows'] = 1;
 				$this->session->set_userdata('searchmanual_id',$searchmanual_id);				
 				$searchmanual_id = $this->session->userdata('searchmanual_id');
 			}elseif($form_data['search_type'] =='search_dhosham'){
@@ -844,25 +846,40 @@ class Base extends CI_Controller {
 				$this->session->set_userdata('search_quick',$values);
 				$search_quick = $this->session->userdata('search_quick');					
 			}
-			//load searched values for filter search from basic, advanced initial search
-			$data['search_data'] = array(
-							'gender' => ($form_data['gender'][0])?$form_data['gender'][0]:'',
-							'start_age' => ($form_data['search_age_from'][0])?$form_data['search_age_from'][0]:'18',
-							'end_age' => ($form_data['search_age_to'][0])?$form_data['search_age_to'][0]:'60',
-							'start_height' => ($form_data['height_in_cms'][0])?$form_data['height_in_cms'][0]:'137',
-							'end_height' => ($form_data['height_in_feets'][0])?$form_data['height_in_feets'][0]:'213',
-							'mar_status' => ($form_data['marital_status'][0])?$form_data['marital_status'][0]:$mar_status_default_value['maritalcategory_id'],
-							'mot_tongue' => $form_data['mother_tongue'],
-							'show_profile' => $form_data['images'][0],
-			);
-			if(isset($form_data['education']))
-				$data['search_data']['education'] = $form_data['education'];
+			if(!($form_data['search_type'] =='search_id') && !($form_data['search_type'] =='search_manual_id') && !($form_data['search_type'] =='search_dhosham')){
+				//load searched values for filter search from basic, advanced initial search
+				// $data['search_data'] = array(
+				// 				'gender' => ($form_data['gender'][0])?$form_data['gender'][0]:'',
+				// 				'start_age' => ($form_data['search_age_from'][0])?$form_data['search_age_from'][0]:'18',
+				// 				'end_age' => ($form_data['search_age_to'][0])?$form_data['search_age_to'][0]:'60',
+				// 				'start_height' => ($form_data['height_in_cms'][0])?$form_data['height_in_cms'][0]:'137',
+				// 				'end_height' => ($form_data['height_in_feets'][0])?$form_data['height_in_feets'][0]:'213',
+				// 				'mar_status' => ($form_data['marital_status'][0])?$form_data['marital_status'][0]:$mar_status_default_value['maritalcategory_id'],
+				// 				'mot_tongue' => $form_data['mother_tongue'],
+				// 				'show_profile' => $form_data['images'][0],
+				// );
+				$data['search_data'] = array(
+								'gender' => ($form_data['gender'][0])?$form_data['gender'][0]:'',
+								'start_age' => ($form_data['search_age_from'][0])?$form_data['search_age_from'][0]:'18',
+								'end_age' => ($form_data['search_age_to'][0])?$form_data['search_age_to'][0]:'60'
+				);
+				if($form_data['search_type'] =='basicsearch' || $form_data['search_type'] =='advance_search'){
+					$data['search_data']['start_height'] = ($form_data['height_in_cms'][0])?$form_data['height_in_cms'][0]:'137';
+					$data['search_data']['end_height'] = ($form_data['height_in_feets'][0])?$form_data['height_in_feets'][0]:'213';
+					$data['search_data']['mar_status'] = ($form_data['marital_status'][0])?$form_data['marital_status'][0]:$mar_status_default_value['maritalcategory_id'];
+					$data['search_data']['mot_tongue'] = $form_data['mother_tongue'];
+					$data['search_data']['show_profile'] = $form_data['images'][0];
+					if(isset($form_data['education']))
+						$data['search_data']['education'] = $form_data['education'];
+				}
+			}
 		}else{		
 			// Pagination Session Data			
 			$search_inputs = $this->session->userdata('search_inputs');
 			$search_quick = $this->session->userdata('search_quick');
 			$search_dhosham = $this->session->userdata('search_dhoshamid');			
-			$advance_search = $this->session->userdata('advance_search_sess');						
+			$advance_search = $this->session->userdata('advance_search_sess');		
+			$search_id = $this->session->userdata('search_inputs_id');				
 			// print_r($search_inputs);
 			// print_r($search_quick);
 			// print_r($search_dhosham);
@@ -917,7 +934,10 @@ class Base extends CI_Controller {
 				);
 				if(isset($advance_search['education']))
 					$data['search_data']['education'] = $advance_search['education'];
-			}			
+			}	
+			elseif(!empty($search_id)){
+				$data = $this->user_model->get_datauserId($search_id, $per_page,$offset);
+			}		
 		}
 
 		//pagination
@@ -971,25 +991,9 @@ class Base extends CI_Controller {
 		exit();*/
 		$data['selection_values'] = $this->user_model->customer_user_selectiondata();
 		$data['occupation_category'] = $this->user_model->get_occupationcategory();
-		$data['education_category'] = $this->user_model->get_educationcategory();		
-
-		//load searched values for filter search from basic, advanced
-		// if($_POST){
-		// 	$data['search_data'] = array(
-		// 							'gender' => ($form_data['gender'][0])?$form_data['gender'][0]:'',
-		// 							'start_age' => ($form_data['search_age_from'][0])?$form_data['search_age_from'][0]:'18',
-		// 							'end_age' => ($form_data['search_age_to'][0])?$form_data['search_age_to'][0]:'60',
-		// 							'start_height' => ($form_data['height_in_cms'][0])?$form_data['height_in_cms'][0]:'137',
-		// 							'end_height' => ($form_data['height_in_feets'][0])?$form_data['height_in_feets'][0]:'213',
-		// 							'mar_status' => ($form_data['marital_status'][0])?$form_data['marital_status'][0]:$mar_status_default_value['maritalcategory_id'],
-		// 							'mot_tongue' => $form_data['mother_tongue'],
-		// 							'show_profile' => $form_data['images'][0],
-		// 			);
-		// 	if(isset($form_data['education']))
-		// 		$data['search_data']['education'] = $form_data['education'];
-		// }
-		// print_r($_POST);
-		// print_r($data['search_data']);
+		$data['education_category'] = $this->user_model->get_educationcategory();	
+		// echo "data_res";
+		// print_r($data['results']);
 		$this->load->view('search_result',$data);
 		
 	}
