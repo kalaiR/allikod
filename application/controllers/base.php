@@ -925,7 +925,7 @@ class Base extends CI_Controller {
 		$data['per_page'] = $per_page;
 
 		// Pagination configuration
-  		$config['base_url'] = base_url().'search_result';
+  		$config['base_url'] = $data['goto_url'] = base_url().'search_result';
 		$config['per_page'] = $per_page;		
 		if((isset($search_inputs_ids))||(isset($searchmanual_id)))
 		{
@@ -1478,7 +1478,7 @@ class Base extends CI_Controller {
         $config["total_rows"] = $data["total_rows"] = $fetchdata['total_rows'];
 
 		// Pagination configuration
-		$config['base_url'] = base_url().'filter_search';
+		$config['base_url'] = $data['goto_url'] = base_url().'filter_search';
 		$config['per_page'] = $per_page;		
 		$config['uri_segment'] = 2;
 		$config['num_links'] = 4;

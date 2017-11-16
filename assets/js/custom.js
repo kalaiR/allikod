@@ -308,46 +308,51 @@ function remove(array, property, value) {
 
 function applyPagination() {
 	$(document).on('click','.pagination a',function(e){
-		// alert("pagination clicked");
         e.preventDefault();
         pagination_url = $(this).attr("href");
+        filter_ajax();
+    });
+    $(document).on('change','.goto_pagination',function(e){
+        e.preventDefault();
+        pagination_url = $('.goto_pagination option:selected').val();
         filter_ajax();
     });
 }
 
 function filter_ajax(){
-	filter_start_age = $('.filter_start_age').val();
-	filter_end_age = $('.filter_end_age').val();
-	filter_start_height = $('.filter_start_height').val();
-	filter_end_height = $('.filter_end_height').val();
-	filter_start_weight = $('.filter_start_weight').val();
-	filter_end_weight = $('.filter_end_weight').val();
-	filter_mar_status = $('.filter_mar_status').val();
-	filter_occ = $('.filter_occ').val();
-	filter_edu = $('.filter_edu').val();
-	filter_emp = $('.filter_emp').val();
-	filter_food = $('.filter_food').val();
-	filter_comp = $('.filter_comp').val();
-	filter_btype = $('.filter_btype').val();
-	filter_gender = $('.filter_gender').val();
-	filter_mot_tongue = $('.filter_mot_tongue').val();
-	filter_show_profile = $('.filter_show_profile').val();
-	if(pagination_url=='')
-		url = baseurl + "filter_search";
-	else
-		url = pagination_url;
-	// data[csrf_name] = csfrData[csrf_name];
+	if(pagination_url == '' || pagination_url.indexOf('filter_search')>0){
+		filter_start_age = $('.filter_start_age').val();
+		filter_end_age = $('.filter_end_age').val();
+		filter_start_height = $('.filter_start_height').val();
+		filter_end_height = $('.filter_end_height').val();
+		filter_start_weight = $('.filter_start_weight').val();
+		filter_end_weight = $('.filter_end_weight').val();
+		filter_mar_status = $('.filter_mar_status').val();
+		filter_occ = $('.filter_occ').val();
+		filter_edu = $('.filter_edu').val();
+		filter_emp = $('.filter_emp').val();
+		filter_food = $('.filter_food').val();
+		filter_comp = $('.filter_comp').val();
+		filter_btype = $('.filter_btype').val();
+		filter_gender = $('.filter_gender').val();
+		filter_mot_tongue = $('.filter_mot_tongue').val();
+		filter_show_profile = $('.filter_show_profile').val();
+		data = "filter_start_age="+filter_start_age+"&filter_end_age="+filter_end_age+
+					"&filter_start_height="+filter_start_height+"&filter_end_height="+filter_end_height+
+					"&filter_start_weight="+filter_start_weight+"&filter_end_weight="+filter_end_weight+
+					"&filter_mar_status="+filter_mar_status+"&filter_occ="+filter_occ+
+					"&filter_edu="+filter_edu+"&filter_emp="+filter_emp+
+					"&filter_food="+filter_food+"&filter_comp="+filter_comp+
+					"&filter_btype="+filter_btype+"&filter_gender="+filter_gender+
+					"&filter_mot_tongue="+filter_mot_tongue+"&filter_show_profile="+filter_show_profile+
+					"&"+csrf_name+"="+csfrData[csrf_name];		
+	}
+	else{
+		data = csrf_name+"="+csfrData[csrf_name];
+	}
 	$.ajax({
-		url : url,
-		data : "filter_start_age="+filter_start_age+"&filter_end_age="+filter_end_age+
-				"&filter_start_height="+filter_start_height+"&filter_end_height="+filter_end_height+
-				"&filter_start_weight="+filter_start_weight+"&filter_end_weight="+filter_end_weight+
-				"&filter_mar_status="+filter_mar_status+"&filter_occ="+filter_occ+
-				"&filter_edu="+filter_edu+"&filter_emp="+filter_emp+
-				"&filter_food="+filter_food+"&filter_comp="+filter_comp+
-				"&filter_btype="+filter_btype+"&filter_gender="+filter_gender+
-				"&filter_mot_tongue="+filter_mot_tongue+"&filter_show_profile="+filter_show_profile+
-				"&"+csrf_name+"="+csfrData[csrf_name],
+		url : pagination_url,
+		data : data,
 		type : "post",
 		// dataType : 'json',
 		success : function(res) {
@@ -370,6 +375,7 @@ function filter_ajax(){
 
 var pagination_url = '';
 $(document).ready(function() {
+	applyPagination();
 	// menu button
 	$('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
 		$(this).toggleClass('open');
@@ -1050,7 +1056,8 @@ $(document).ready(function() {
     	$end_age = age_limit[1];
     	$('.filter_start_age').val($start_age);
     	$('.filter_end_age').val($end_age);
-    	filter_ajax();
+    	pagination_url = baseurl + "filter_search";
+    	filter_ajax();    	
       }
     });
     $( "#age_value" ).val( "" + $( "#price_select" ).slider( "values", 0 ) + "                                                                    " + $( "#price_select" ).slider( "values", 1 ) );
@@ -1067,7 +1074,8 @@ $(document).ready(function() {
     	$end_height = height_limit[1];
     	$('.filter_start_height').val($start_height);
     	$('.filter_end_height').val($end_height);
-    	filter_ajax();
+    	pagination_url = baseurl + "filter_search";
+    	filter_ajax();    	
       }
     });
     $( "#height" ).val( "" + $( "#height_select" ).slider( "values", 0 ) + "                                                                    " + $( "#height_select" ).slider( "values", 1 ) );
@@ -1084,7 +1092,8 @@ $(document).ready(function() {
     	$end_weight = weight_limit[1];
     	$('.filter_start_weight').val($start_weight);
     	$('.filter_end_weight').val($end_weight);
-    	filter_ajax();
+    	pagination_url = baseurl + "filter_search";
+    	filter_ajax();    	
       }
     });
     $( "#weight" ).val( "" + $( "#weight_select" ).slider( "values", 0 ) + "                                                                    " + $( "#weight_select" ).slider( "values", 1 ) );
@@ -1097,7 +1106,8 @@ $(document).ready(function() {
     	});
     	$('.filter_mar_status').val($mar_status_val);
     	// alert($mar_status_val);
-    	filter_ajax();
+    	pagination_url = baseurl + "filter_search";
+    	filter_ajax();    	
     });
     $(document).on('change','.occupation_act', function(){
     	$occuaption_val =[];
@@ -1107,7 +1117,8 @@ $(document).ready(function() {
     	});
     	$('.filter_occ').val($occuaption_val);
     	// alert($mar_status_val);
-    	filter_ajax();
+    	pagination_url = baseurl + "filter_search";
+    	filter_ajax();    	
     });
     $(document).on('change','.education_act', function(){
     	$education_val =[];
@@ -1117,7 +1128,8 @@ $(document).ready(function() {
     	});
     	$('.filter_edu').val($education_val);
     	// alert($mar_status_val);
-    	filter_ajax();
+    	pagination_url = baseurl + "filter_search";
+    	filter_ajax();    	
     });
     $(document).on('change','.employedin_act', function(){
     	$employedin_val =[];
@@ -1127,7 +1139,8 @@ $(document).ready(function() {
     	});
     	$('.filter_emp').val($employedin_val);
     	// alert($mar_status_val);
-    	filter_ajax();
+    	pagination_url = baseurl + "filter_search";
+    	filter_ajax();    	
     });
     $(document).on('change','.food_act', function(){
     	$food_val =[];
@@ -1137,7 +1150,8 @@ $(document).ready(function() {
     	});
     	$('.filter_food').val($food_val);
     	// alert($mar_status_val);
-    	filter_ajax();
+    	pagination_url = baseurl + "filter_search";
+    	filter_ajax();    	
     });
     $(document).on('change','.complexion_act', function(){
     	$comp_val =[];
@@ -1147,7 +1161,8 @@ $(document).ready(function() {
     	});
     	$('.filter_comp').val($comp_val);
     	// alert($mar_status_val);
-    	filter_ajax();
+    	pagination_url = baseurl + "filter_search";
+    	filter_ajax();    	
     });
     $(document).on('change','.btype_act', function(){
     	$btype_val =[];
@@ -1157,7 +1172,8 @@ $(document).ready(function() {
     	});
     	$('.filter_btype').val($btype_val);
     	// alert($mar_status_val);
-    	filter_ajax();
+    	pagination_url = baseurl + "filter_search";
+    	filter_ajax();    	
     });
 
 });

@@ -63,7 +63,10 @@ include('include/menu.php');
 
                         preg_match("/[^\/]+$/", $this->uri->uri_string(), $values); 
                         $current_tot = '';
-                        if($values[0]!=0){
+                        if(count($results) < 10){
+                            $current_tot = $total_rows;
+                        }
+                        elseif($values[0]!=0){
                             $current_tot = $values[0];
                             $current_tot = $current_tot*10; 
                         }else{
@@ -272,17 +275,16 @@ include('include/menu.php');
                             if(!empty($pages)) : ?>
                             <!-- <div class="col-md-2 goto">Go to</div> -->
                             <div class="col-md-4 dir_page">Go to
-                              <select class="extra_drop pagination_scrol" name="pagination_dropdown" id="pagination_dropdown" 
-                              onchange="location = this.value;">                                               
+                              <select class="extra_drop pagination_scrol goto_pagination" name="pagination_dropdown" id="pagination_dropdown">                                               
                                     <?php                     
                                     for($i=1;$i<=$pages;$i++){
                                         if($i!=$values[0]){?>
-                                        <option value="<?php echo base_url()."search_result/".$i;?>">
+                                        <option value="<?php echo $goto_url."/".$i;?>">
                                             <?php echo $i; 
                                         ?>
                                         </option>
                                         <?php }else{?>
-                                        <option value="<?php echo base_url()."search_result/".$i;?>" selected>
+                                        <option value="<?php echo $goto_url."/".$i;?>" selected>
                                             <?php echo $i;?>
                                         </option>
                                         <?php }
