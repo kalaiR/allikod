@@ -346,6 +346,7 @@ function filter_ajax(){
 					"&filter_btype="+filter_btype+"&filter_gender="+filter_gender+
 					"&filter_mot_tongue="+filter_mot_tongue+"&filter_show_profile="+filter_show_profile+
 					"&"+csrf_name+"="+csfrData[csrf_name];		
+
 	}
 	else{
 		data = csrf_name+"="+csfrData[csrf_name];
@@ -364,6 +365,7 @@ function filter_ajax(){
 			// 	alert("You have already viewed profile or credit limit exceeded");
 			// else
 			// 	$(".slidingDiv").slideToggle();
+			window.scrollTo(0,200);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			// console.log("The following error occured: "+ textStatus, errorThrown);
