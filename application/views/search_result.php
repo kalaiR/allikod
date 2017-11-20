@@ -265,39 +265,37 @@ include('include/menu.php');
                     <?php }
                     ?>
 
-                    <div class="col-md-12" style="display: inline-block;">
-                        <div>
+                    <div class="col-md-12 text-center">
+                       
                         <?php
                         if(!empty($links)) :
-                            echo "<div class='col-md-8 nopadding pull-right '>
-                                        <div class='col-md-5 col-xs-12 pagination-box clearfix' style='display:inline-block'>" .$links . "
+                            echo "<div class='pagination-box clearfix' style='display:inline-block'>" .$links . "
                                     </div>";
                             if(!empty($pages)) : ?>
                             <!-- <div class="col-md-2 goto">Go to</div> -->
-                            <div class="col-md-4 dir_page">Go to
-                              <select class="extra_drop pagination_scrol goto_pagination" name="pagination_dropdown" id="pagination_dropdown">                                               
-                                    <?php                     
-                                    for($i=1;$i<=$pages;$i++){
-                                        if($i!=$values[0]){?>
-                                        <option value="<?php echo $goto_url."/".$i;?>">
-                                            <?php echo $i; 
-                                        ?>
-                                        </option>
-                                        <?php }else{?>
-                                        <option value="<?php echo $goto_url."/".$i;?>" selected>
-                                            <?php echo $i;?>
-                                        </option>
-                                        <?php }
-                                    }?>
-                            </select>
+                            <div class="dir_page">Go to
+								  <select class="extra_drop pagination_scrol goto_pagination" name="pagination_dropdown" id="pagination_dropdown">                                               
+								    <?php                     
+								    for($i=1;$i<=$pages;$i++){
+								        if($i!=$values[0]){?>
+								        <option value="<?php echo $goto_url."/".$i;?>">
+								            <?php echo $i; 
+								        ?>
+								        </option>
+								        <?php }else{?>
+								        <option value="<?php echo $goto_url."/".$i;?>" selected>
+								            <?php echo $i;?>
+								        </option>
+								        <?php }
+								    }?>
+								</select>
                             </div>
                             <?php endif; ?>
-                        </div>
                         <?php endif;
                         ?>
                     </div> <!-- col-md-12 ends -->                    
 <?php if(!$this->input->is_ajax_request()) { ?>
-                </div> <!-- col-md-9 -->
+                
             </div> <!-- row ends  --> 
                 <?php //if(sizeof($results) > 1): ?>
                 <div class="col-md-3 right_float">
