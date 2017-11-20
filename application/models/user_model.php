@@ -1688,6 +1688,9 @@ class User_model extends CI_Model {
       $filter_mot_tongue = $_POST['filter_mot_tongue'];
       $filter_show_profile = $_POST['filter_show_profile'];
 
+      //for advance search
+      $filter_phy_status = ($_POST['filter_phy_status']) ? $_POST['filter_phy_status'] : 'normal';
+      $filter_location = $_POST['filter_location'];
       // $filter_start_age = 18;
       // $filter_end_age = 34;
       // $filter_start_height = 137;
@@ -1748,12 +1751,19 @@ class User_model extends CI_Model {
       if(!empty($filter_btype)){
         $user_where.=' AND (phy.phy_bodytype IN ('.$filter_btype.'))';
       }  
+      if(!empty($filter_phy_status)){
+        $user_where.=' AND (phy.phy_physicalstatus="'.$filter_phy_status.'")';
+      }  
+      if(!empty($filter_location)){
+        $user_where.=' AND (com.comm_current_countrycountry="'.$filter_location.'")';
+      }  
 
       $this->db->select('*');
       $this->db->from('reg_userdetail usr');
       $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
       $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
-      $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
+      $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','left');
+      $this->db->join('reg_communication_family com','com.reg_user_id = usr.userdetail_id','inner');
       if($filter_show_profile == "both")
         $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');           
       elseif($filter_show_profile == "with_photo")

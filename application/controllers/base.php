@@ -759,7 +759,7 @@ class Base extends CI_Controller {
 		// echo '</pre>';
 		// exit();
 		$mar_status_default_value = $this->db->query("select maritalcategory_id from marital_category where LOWER(marital_name)='single' LIMIT 1")->row_array();
-
+		$location_default_value = $this->db->query("select country_id from country where LOWER(name)='india' LIMIT 1")->row_array();		
 		if($this->input->post()){	
 			$form_data = $this->input->post();			
 			$this->session->unset_userdata("search_inputs");
@@ -812,7 +812,6 @@ class Base extends CI_Controller {
 
 				if(!empty($form_data['occupation'][0])){
 					$values['occupation_catagory'] = $form_data['occupation'][0];
-
 				}
 				$data = $this->user_model->get_advancesearch($values, $per_page, $offset);				
 				$this->session->set_userdata('advance_search_sess',$values);				
@@ -871,6 +870,12 @@ class Base extends CI_Controller {
 					$data['search_data']['show_profile'] = $form_data['images'][0];
 					if(isset($form_data['education']))
 						$data['search_data']['education'] = $form_data['education'];
+				}
+				if($form_data['search_type'] =='advance_search'){
+					$data['search_data']['location'] = ($form_data['country'][0])?$form_data['country'][0]:$location_default_value['country_id'];
+					$data['search_data']['phy_status'] = ($form_data['phy_status'][0])?$form_data['phy_status'][0]:'normal';
+					if(!empty($form_data['occupation'][0]))
+						$data['search_data']['occupation'] = $form_data['occupation'][0];					
 				}
 			}
 		}else{		

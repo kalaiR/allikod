@@ -305,17 +305,17 @@ include('include/menu.php');
 <?php if(!$this->input->is_ajax_request()) { ?>
                 </div> <!-- col-md-9 -->
             </div> <!-- row ends  --> 
+            <form method="post" class="filter_data">
                 <?php //if(sizeof($results) > 1): ?>
                 <div class="col-md-3 right_float">
                  <div class="col-md-12">
-                    <form method="post" class="filter_data">
                         <input type="hidden" name="filter_start_age" class="filter_start_age" value="<?php if(isset($search_data['start_age'])) echo $search_data['start_age']; else echo "18"; ?>">
                         <input type="hidden" name="filter_end_age" class="filter_end_age" value="<?php if(isset($search_data['end_age'])) echo $search_data['end_age']; else echo "34"; ?>">
                         <input type="hidden" name="filter_start_height" class="filter_start_height" value="<?php if(isset($search_data['start_height'])) echo $search_data['start_height']; else echo "137"; ?>">
                         <input type="hidden" name="filter_end_height" class="filter_end_height" value="<?php if(isset($search_data['end_height'])) echo $search_data['end_height']; else echo "213"; ?>">
                         <input type="hidden" name="filter_start_weight" class="filter_start_weight" value="41">
                         <input type="hidden" name="filter_end_weight" class="filter_end_weight" value="140">
-                        <input type="hidden" name="filter_occ" class="filter_occ">
+                        <input type="hidden" name="filter_occ" class="filter_occ" value="<?php if(isset($search_data['occupation'])) echo $search_data['occupation']; ?>">
                         <input type="hidden" name="filter_edu" class="filter_edu" value="<?php if(isset($search_data['education'])) echo implode(",",$search_data['education']); ?>">
                         <input type="hidden" name="filter_emp" class="filter_emp">
                         <input type="hidden" name="filter_food" class="filter_food">
@@ -323,8 +323,9 @@ include('include/menu.php');
                         <input type="hidden" name="filter_btype" class="filter_btype">
                         <input type="hidden" name="filter_gender" class="filter_gender" value="<?php if(isset($search_data['gender'])) echo $search_data['gender']; ?>">
                         <input type="hidden" name="filter_mot_tongue" class="filter_mot_tongue" value="<?php if(isset($search_data['mot_tongue'])) echo implode(",", $search_data['mot_tongue']); ?>">
-                        <input type="hidden" name="filter_show_profile" class="filter_show_profile" value="<?php if(isset($search_data['show_profile'])) echo $search_data['show_profile']; ?>">
-                    </form>     
+                        <input type="hidden" name="filter_show_profile" class="filter_show_profile" value="<?php if(isset($search_data['show_profile'])) echo $search_data['show_profile']; ?>"> 
+                        <input type="hidden" name="filter_location" class="filter_location" value="<?php if(isset($search_data['location'])) echo $search_data['location']; ?>">   
+                        <input type="hidden" name="filter_phy_status" class="filter_phy_status" value="<?php if(isset($search_data['phy_status'])) echo $search_data['phy_status']; ?>">           
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <div class="s_title">
@@ -420,7 +421,7 @@ include('include/menu.php');
                                 // echo "mar_id".$mar_val['maritalcategory_id'];
                                 ?>                        
                                 <?php endforeach; ?>  
-                                <input type="hidden" class="filter_mar_status" value="<?php echo $filter_mar_status; ?>">      
+                                <input type="hidden" class="filter_mar_status" name="filter_mar_status" value="<?php echo $filter_mar_status; ?>">      
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -434,7 +435,7 @@ include('include/menu.php');
                                   foreach ($occupation_category as $occ_val): ?>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" class="occupation_act" value="<?php echo $occ_val['occ_category_id']; ?>">
+                                            <input type="checkbox" class="occupation_act" value="<?php echo $occ_val['occ_category_id']; ?>" <?php if(isset($search_data['occupation'])){ if($search_data['occupation']==$occ_val['occ_category_id']) echo "checked"; }?>>
                                                 <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                                 <?php echo ucfirst(strtolower($occ_val['occupation_name'])); ?>
                                         </label>
@@ -539,9 +540,10 @@ include('include/menu.php');
                         </div>
                     </div>
                 <?php //endif; ?>
-                </div>
-            </div> <!-- container ends -->
-        </section>
+            </form>
+        </div>
+    </div> <!-- container ends -->
+</section>
 <?php 
     include('include/footer.php');
 ?> 

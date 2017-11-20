@@ -321,31 +321,34 @@ function applyPagination() {
 
 function filter_ajax(){
 	if(pagination_url == '' || pagination_url.indexOf('filter_search')>0){
-		filter_start_age = $('.filter_start_age').val();
-		filter_end_age = $('.filter_end_age').val();
-		filter_start_height = $('.filter_start_height').val();
-		filter_end_height = $('.filter_end_height').val();
-		filter_start_weight = $('.filter_start_weight').val();
-		filter_end_weight = $('.filter_end_weight').val();
-		filter_mar_status = $('.filter_mar_status').val();
-		filter_occ = $('.filter_occ').val();
-		filter_edu = $('.filter_edu').val();
-		filter_emp = $('.filter_emp').val();
-		filter_food = $('.filter_food').val();
-		filter_comp = $('.filter_comp').val();
-		filter_btype = $('.filter_btype').val();
-		filter_gender = $('.filter_gender').val();
-		filter_mot_tongue = $('.filter_mot_tongue').val();
-		filter_show_profile = $('.filter_show_profile').val();
-		data = "filter_start_age="+filter_start_age+"&filter_end_age="+filter_end_age+
-					"&filter_start_height="+filter_start_height+"&filter_end_height="+filter_end_height+
-					"&filter_start_weight="+filter_start_weight+"&filter_end_weight="+filter_end_weight+
-					"&filter_mar_status="+filter_mar_status+"&filter_occ="+filter_occ+
-					"&filter_edu="+filter_edu+"&filter_emp="+filter_emp+
-					"&filter_food="+filter_food+"&filter_comp="+filter_comp+
-					"&filter_btype="+filter_btype+"&filter_gender="+filter_gender+
-					"&filter_mot_tongue="+filter_mot_tongue+"&filter_show_profile="+filter_show_profile+
-					"&"+csrf_name+"="+csfrData[csrf_name];		
+		// alert(JSON.stringify($('.filter_data').serialize()));
+		filter_data = $('.filter_data').serialize();
+		// filter_start_age = $('.filter_start_age').val();
+		// filter_end_age = $('.filter_end_age').val();
+		// filter_start_height = $('.filter_start_height').val();
+		// filter_end_height = $('.filter_end_height').val();
+		// filter_start_weight = $('.filter_start_weight').val();
+		// filter_end_weight = $('.filter_end_weight').val();
+		// filter_mar_status = $('.filter_mar_status').val();
+		// filter_occ = $('.filter_occ').val();
+		// filter_edu = $('.filter_edu').val();
+		// filter_emp = $('.filter_emp').val();
+		// filter_food = $('.filter_food').val();
+		// filter_comp = $('.filter_comp').val();
+		// filter_btype = $('.filter_btype').val();
+		// filter_gender = $('.filter_gender').val();
+		// filter_mot_tongue = $('.filter_mot_tongue').val();
+		// filter_show_profile = $('.filter_show_profile').val();
+		// data = "filter_start_age="+filter_start_age+"&filter_end_age="+filter_end_age+
+		// 			"&filter_start_height="+filter_start_height+"&filter_end_height="+filter_end_height+
+		// 			"&filter_start_weight="+filter_start_weight+"&filter_end_weight="+filter_end_weight+
+		// 			"&filter_mar_status="+filter_mar_status+"&filter_occ="+filter_occ+
+		// 			"&filter_edu="+filter_edu+"&filter_emp="+filter_emp+
+		// 			"&filter_food="+filter_food+"&filter_comp="+filter_comp+
+		// 			"&filter_btype="+filter_btype+"&filter_gender="+filter_gender+
+		// 			"&filter_mot_tongue="+filter_mot_tongue+"&filter_show_profile="+filter_show_profile+
+		// 			"&"+csrf_name+"="+csfrData[csrf_name];	
+		data = filter_data+"&"+csrf_name+"="+csfrData[csrf_name];		
 
 	}
 	else{
@@ -365,7 +368,10 @@ function filter_ajax(){
 			// 	alert("You have already viewed profile or credit limit exceeded");
 			// else
 			// 	$(".slidingDiv").slideToggle();
-			window.scrollTo(0,200);
+			window.scrollTo(0,300);
+			// $('html, body').animate({
+			// 	scrollTop : 300
+			// }, 500);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			// console.log("The following error occured: "+ textStatus, errorThrown);
