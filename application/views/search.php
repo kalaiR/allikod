@@ -17,7 +17,7 @@ include('include/menu.php');
                     <h3>Search People Here</h3>
                     <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
-                <div class="search_option">
+                <div class="search_option search_menu">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="search.html#base" aria-controls="bases" role="tab" data-toggle="tab">Basic Search</a></li>

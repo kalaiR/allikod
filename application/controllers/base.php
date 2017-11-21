@@ -1480,7 +1480,35 @@ class Base extends CI_Controller {
 		//pagination
 		$data['per_page'] = $per_page;
 
-		$fetchdata = $this->user_model->get_filter_search($per_page, $offset);
+		if($this->input->post()){	
+			// print_r($_POST);
+			$values = array(
+				'filter_start_age' => ($_POST['filter_start_age']) ? $_POST['filter_start_age'] : 18,
+		      	'filter_end_age' => ($_POST['filter_end_age']) ? $_POST['filter_end_age'] : 34,
+		      	'filter_start_height' => ($_POST['filter_start_height']) ? $_POST['filter_start_height'] : 137,
+		      	'filter_end_height' => ($_POST['filter_end_height']) ? $_POST['filter_end_height'] : 213,
+		      	'filter_start_weight' => ($_POST['filter_start_weight']) ? $_POST['filter_start_weight'] : 41,
+		      	'filter_end_weight' => ($_POST['filter_end_weight']) ? $_POST['filter_end_weight'] : 140,
+		      	'filter_mar_status' => $_POST['filter_mar_status'],
+		      	'filter_occ' => $_POST['filter_occ'],
+		      	'filter_edu' => $_POST['filter_edu'],
+		      	'filter_emp' => $_POST['filter_emp'],
+		      	'filter_food' => $_POST['filter_food'],
+		      	'filter_comp' => $_POST['filter_comp'],
+		      	'filter_btype' => $_POST['filter_btype'],
+		      	'filter_gender' => $_POST['filter_gender'],
+		      	'filter_mot_tongue' => $_POST['filter_mot_tongue'],
+		      	'filter_show_profile' => $_POST['filter_show_profile'],
+	      		'filter_phy_status' => ($_POST['filter_phy_status']) ? $_POST['filter_phy_status'] : 'normal',
+	      		'filter_location' => $_POST['filter_location']
+			);
+			$this->session->set_userdata("filter_search_inputs",$values);
+		}
+		else{
+			$values = $this->session->userdata('filter_search_inputs');
+		}
+		
+		$fetchdata = $this->user_model->get_filter_search($values,$per_page, $offset);
 		$data["results"] = $fetchdata['results'];
 		// print_r($fetchdata["results"]);
 		// echo $fetchdata['total_rows'];
@@ -1520,54 +1548,9 @@ class Base extends CI_Controller {
 		$pagination_links = $this->pagination->create_links();
 		$data["links"] = $pagination_links;	
 
-		// $config = array();
-  //       $config["base_url"] = base_url() . "filter_search";
-  //       // $config["total_rows"] = $this->customeruser_data_model->customeruser_record_count();
-  //       $config["per_page"] = 10;
-  //       $config["uri_segment"] = 3;
-  //       $config['use_page_numbers'] = TRUE;
-  //       $config['cur_tag_open'] = ' ';
-  //       $config['cur_tag_close'] = '';
-  //       $config['next_link'] = 'Next';
-  //       $config['prev_link'] = 'Previous';
-  //       $config['num_links'] = 4;
-  //       // Custom Configuration
-		// $config['full_tag_open'] = '<ul class="pagination">';
-		// $config['full_tag_close'] = '</ul>';
-		// $config['next_tag_open'] = '<li>';
-		// $config['next_tag_close'] = '</li>';
-		// $config['prev_tag_open'] = '<li>';
-		// $config['prev_tag_close'] = '</li>';
-		// $config['num_tag_open'] = '<li>';
-		// $config['num_tag_close'] = '</li>';
-		// $config['cur_tag_open'] = '<li class="active"><a>';
-		// $config['cur_tag_close'] = '</a></li>';
-		// $config['next_link'] = 'Next';
-		// $config['prev_link'] = 'Prev';
-		// $config['first_link'] = 'First';
-		// $config['first_tag_open'] = '<li>';
-		// $config['first_tag_close'] = '</li>';
-		// $config['last_link'] = 'Last';
-		// $config['last_tag_open'] = '<li>';
-		// $config['last_tag_close'] = '</li>';
-
-		// $per_page = $config["per_page"];
-		// preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);				
-		// if($values[0]){	
-		// 	$offset = (($values[0]-1)*$per_page); 
-		// }else{
-		//  	$offset = 0;
-		// }	
-		
-		// $fetchdata = $this->user_model->get_filter_search($per_page, $offset);
-		// $data["results"] = $fetchdata['results'];
-		// // print_r($fetchdata["results"]);
-		// // echo $fetchdata['total_rows'];
-  //       $config["total_rows"] = $data["total_rows"] = $fetchdata['total_rows'];
-  //       $this->pagination->initialize($config);
-  //       $data["links"] = $this->pagination->create_links();
-  //       $data["offset"] = $offset;
-		// print_r($data);
+		$data['selection_values'] = $this->user_model->customer_user_selectiondata();
+		$data['occupation_category'] = $this->user_model->get_occupationcategory();
+		$data['education_category'] = $this->user_model->get_educationcategory();
 		$this->load->view('search_result',$data);
 	}
 }

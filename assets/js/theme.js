@@ -667,24 +667,25 @@
         console.log("by jquery: ", this.value);
     })
     
-    /*----------------------------------------------------*/
-    /*  Popup js
-    /*----------------------------------------------------*/
-    $('.popup-with-zoom-anim').magnificPopup({
-        type: 'inline',
+    //This code is moved to our custom.js file. Because the popup was not loaded after ajax calls
+    // /*----------------------------------------------------*/
+    // /*  Popup js
+    // /*----------------------------------------------------*/
+    // $('.popup-with-zoom-anim').magnificPopup({
+    //     type: 'inline',
 
-        fixedContentPos: false,
-        fixedBgPos: true,
+    //     fixedContentPos: false,
+    //     fixedBgPos: true,
 
-        overflowY: 'auto',
+    //     overflowY: 'auto',
 
-        closeBtnInside: true,
-        preloader: false,
+    //     closeBtnInside: true,
+    //     preloader: false,
 
-        midClick: true,
-        removalDelay: 300,
-        mainClass: 'my-mfp-zoom-in'
-    });
+    //     midClick: true,
+    //     removalDelay: 300,
+    //     mainClass: 'my-mfp-zoom-in'
+    // });
 
         
     /*----------------------------------------------------*/
