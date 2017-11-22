@@ -234,7 +234,7 @@ class Customeruser_Data extends CI_Controller {
 			  		$id = $this->input->post('rid');
 			  		$action_post = $this->input->post('action');
 			   		$validation_rules = array(
-			   			array('field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|xss_clean|max_length[50]|edit_unique[reg_userdetail.userdetail_id.user_email.'.$id.']' ),
+			   			array('field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|xss_clean|required|max_length[50]|edit_unique[reg_userdetail.userdetail_id.user_email.'.$id.']' ),
 			   			array('field'   => 'cus_regby','label'   => 'Registered By','rules'   => 'trim|xss_clean|required' ),
 			   			array('field'   => 'cus_fname','label'   => 'Customer Username','rules'   => 'trim|xss_clean|required' ),
 			   			array('field'   => 'cus_gender','label'   => 'Customer Gender','rules'   => 'trim|xss_clean|required' ),

@@ -205,7 +205,7 @@ class Customeruser_data_model extends CI_Model {
 				'ren_amount' => $this->input->post('cus_amount'),
 				'ren_period_in_month' => $this->input->post('cus_period'),
 				'totalno_of_profile' => $this->input->post('cus_totprofile'),
-				'no_of_profiles_viewed' => $this->input->post('cus_viewprofile'),
+				'no_of_profile_viewed' => $this->input->post('cus_viewprofile'),
 				'active_status' => $this->input->post('cus_paymentactivestatus'),
 				'starting_date' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
 				'ending_date' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
