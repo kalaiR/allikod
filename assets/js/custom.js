@@ -356,7 +356,7 @@ function filter_ajax(){
 		success : function(res) {
 			// alert(res);
 			$(".ajaxdata").html(res);
-			applyPagination();
+			// applyPagination();
 			window.scrollTo(0,300);
 			magnify_popup();
 			// $('html, body').animate({
