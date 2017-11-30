@@ -494,6 +494,8 @@ class Customeruser_data_model extends CI_Model {
       	$this->db->from('reg_image_horoscope horo');
       	$this->db->where($condition); 
       	$model_data['amsam_values'] =  $this->db->get()->row_array();
+
+      	
 	   //  echo $this->db->last_query();
 	   //  echo "<pre>";
   		// print_r($model_data['raasi_values']);
@@ -1050,7 +1052,7 @@ class Customeruser_data_model extends CI_Model {
       }
       return $query;
   }
-  
+
   public function get_martialstatusbyId($id){
         $condition = "martial.active_status = 1 AND maritalcategory_id = '".$id."'";
         $this->db->select('*');
