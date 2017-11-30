@@ -98,6 +98,14 @@
 													<label class="control-label" for="focusedInput"><?php echo $customeruser_values['user_fname']; ?></label>
 											  	</div>
 											  	<div class="control-group">
+													<label class="control-label">Profile Id : </label>
+													<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['userdetail_profile_id'])) echo $customeruser_values['userdetail_profile_id']; else echo "--"; ?></label>
+												 </div>
+												<div class="control-group">
+													<label class="control-label">File Id : </label>
+													<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['userdetail_file_id'])) echo $customeruser_values['userdetail_file_id']; else echo "--"; ?></label>
+												 </div>
+											  	<div class="control-group">
 												<label class="control-label">Gender : </label>
 												<label class="control-label" for="focusedInput">
 													<?php 
@@ -149,14 +157,6 @@
 													endif;
 													?>
 												</label>
-											  </div>
-											  <div class="control-group">
-												<label class="control-label">Profile Id : </label>
-												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['userdetail_profile_id'])) echo $customeruser_values['userdetail_profile_id']; else echo "--"; ?></label>
-											  </div>
-											  <div class="control-group">
-												<label class="control-label">File Id : </label>
-												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['userdetail_file_id'])) echo $customeruser_values['userdetail_file_id']; else echo "--"; ?></label>
 											  </div>
 											  <div class="control-group">
 													<label class="control-label" for="focusedInput">Period in Months :</label>
@@ -212,7 +212,7 @@
 												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['mother_tongue_name'])) echo $customeruser_values['mother_tongue_name']; else echo "--"; ?></label>
 											  </div>
 											  <div class="control-group">
-												<label class="control-label" for="focusedInput">Religion No : </label>
+												<label class="control-label" for="focusedInput">Religion : </label>
 												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['rel_religion'])) echo $customeruser_values['rel_religion']; else echo "--"; ?></label>
 											  </div>
 											  <div class="control-group">
@@ -221,7 +221,7 @@
 											  </div>
 											  	<div class="control-group">
 													<label class="control-label" for="focusedInput">Dhosham : </label>
-													<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['rel_dhosham'])) echo $customeruser_values['rel_dhosham']; else echo "--"; ?></label>
+													<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['dhosham_name'])) echo $customeruser_values['dhosham_name']; else echo "--"; ?></label>
 											  	</div>
 											  	<div class="control-group">
 												<label class="control-label">Nakshathra : </label>
@@ -346,11 +346,11 @@
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Body Type : </label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_bodytype']; ?></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['typename']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Complexion : </label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_complexion']; ?></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['complexion_name']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Physical Status : </label>
@@ -371,7 +371,7 @@
 											<fieldset>										  
 											  <div class="control-group">
 												<label class="control-label">Food : </label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_food']; ?></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['food_name']; ?></label>
 											  </div>  				    							  
 											</fieldset>
 										  </form>
@@ -404,11 +404,11 @@
 											  </div>										  
 											  <div class="control-group">
 												<label class="control-label">Family Status : </label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_physicalstatus']; ?></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['family_status']; ?></label>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Family Type : </label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['comm_family_status']; ?></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['family_type']; ?></label>
 											  </div>
 											  <!-- <div class="control-group">
 												<label class="control-label" for="focusedInput"></label>
@@ -482,27 +482,21 @@
 											  <div class="control-group">
 												<label class="control-label">Marital Status :</label>
 												<div class="controls">
-												  <label class="checkbox inline">
-													<!-- <input type="checkbox" id="inlineCheckbox1" value="option1"> --> 
-													Single
-												  </label>
-												  <label class="checkbox inline">
-													<!-- <input type="checkbox" id="inlineCheckbox2" value="option2"> -->
-													Widowed
-												  </label>
-												  <label class="checkbox inline">
-													<!-- <input type="checkbox" id="inlineCheckbox3" value="option3"> -->
-													Divorced
-												  </label>
-												  <label class="checkbox inline">
-													<!-- <input type="checkbox" id="inlineCheckbox3" value="option3"> -->
-													Annualled
-												  </label>
+												  <?php if(!empty($expected_maritalstatus)){
+                                                    foreach($expected_maritalstatus as $key => $value) { ?>
+                                                        <li><?php echo $value[0]['marital_name']; ?></li>
+                                                        <?php 
+                                                	}} ?>
 												</div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="selectError1">Education</label>
-												<label class="control-label" for="focusedInput"><?php //echo $customeruser_values['phy_searchedu_status']; ?></label>
+												<?php 
+                                                    if(!empty($expected_education)){
+                                                        foreach($expected_education as $key => $value) { ?>
+                                                                <li><?php echo $value['edu_name']; ?></li>
+                                                        <?php }
+                                                    }?>  
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Food :</label>

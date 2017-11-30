@@ -504,6 +504,25 @@ class Customeruser_Data extends CI_Controller {
 		$data['customeruser_values'] = $data_values['customeruser_values'];
 		$data['rasi'] = $this->customeruser_data_model->getrasi_viewdetails_byid($id);		
 		$data['amsham'] = $this->customeruser_data_model->getamsham_viewdetails_byid($id);
+
+		// Education Excepted from Selected Education Table
+		$data['eeducation'] = $this->customeruser_data_model->get_selected_education($id);
+		foreach($data['eeducation'] as $key => $value) {
+			$get_educationlist[] = $this->customeruser_data_model->get_education($value['education_id']);			  
+		}
+		if(!empty($get_educationlist)){
+			$data['expected_education']	 =  $get_educationlist;
+		}
+
+		// Marital Excepted from Selected Marital Table
+		$data['emaritalstatus'] = $this->customeruser_data_model->get_selected_maritalstatus($id);
+		foreach($data['emaritalstatus'] as $key => $value) {			  
+			$get_martial[] = $this->customeruser_data_model->get_martialstatusbyId($value['marital_category_id']);
+		}		
+		if(!empty($get_martial)){		
+			$data['expected_maritalstatus'] = $get_martial;
+		}
+		
 		$this->load->view('admin/view_customer_user',$data);
 	}
 	// public function add_customer_user(){
