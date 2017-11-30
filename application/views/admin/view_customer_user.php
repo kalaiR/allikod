@@ -724,9 +724,9 @@
 										</div> <!-- box content Ends -->
 									</div>
 								</div>
-								<div class="form-actions">
+								<!-- <div class="form-actions">
 								<button type="submit" class="btn btn-primary">Save</button>						
-							  </div>            
+							  </div>    -->         
 					</div>
 				</div><!--/span-->
 			</div><!--/row-->
