@@ -439,7 +439,7 @@ class Customeruser_data_model extends CI_Model {
   public function customer_user_profile($id){
   		// View by id
   		$condition = "usr.userdetail_id = ".$id."";
-    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,luk.name as lukhnam_name,zod.name as zodiac_name,dho.name as dhosham_name,cx.name as complexion_name,fd.name as food_name,fs.name as family_status,ft.name as family_type,pay.*,ren.*,pay.totalno_of_profile as paytotprofile,ren.totalno_of_profile as rentotprofile,ren.active_status as renewalstatus,
+    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,luk.name as lukhnam_name,zod.name as zodiac_name,dho.name as dhosham_name,cx.name as complexion_name,fd.name as food_name,fs.name as family_status,ft.name as family_type,efd.name as expect_food,pay.*,ren.*,pay.totalno_of_profile as paytotprofile,ren.totalno_of_profile as rentotprofile,ren.active_status as renewalstatus,
     		group_concat(images) as images,group_concat(userimages_id) as images_id');
 	    $this->db->from('reg_userdetail usr');
 	    $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
@@ -465,7 +465,8 @@ class Customeruser_data_model extends CI_Model {
 	    $this->db->join('complexion cx','cx.complexion_id=pe.phy_complexion','left');
 	    $this->db->join('food fd','fd.food_id=pe.phy_food','left');
 	    $this->db->join('family_status fs','fs.familystatus_id=cf.comm_family_status','left'); 
-	    $this->db->join('family_type ft','ft.familytype_id=cf.comm_family_type','left');    
+	    $this->db->join('family_type ft','ft.familytype_id=cf.comm_family_type','left');  
+	    $this->db->join('food efd','efd.food_id=pe.phy_expectationfood','left');  
 	    $this->db->where($condition); 
 	    $model_data['customeruser_values'] = $this->db->get()->row_array();
 
@@ -495,7 +496,7 @@ class Customeruser_data_model extends CI_Model {
       	$this->db->where($condition); 
       	$model_data['amsam_values'] =  $this->db->get()->row_array();
 
-      	
+
 	   //  echo $this->db->last_query();
 	   //  echo "<pre>";
   		// print_r($model_data['raasi_values']);

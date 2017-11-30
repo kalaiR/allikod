@@ -500,10 +500,9 @@
                                                     }?> 
                                                 </div> 
 											  </div>
-											  </div>
 											  <div class="control-group">
 												<label class="control-label">Food :</label>
-												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['phy_expectationfood']; ?></label>
+												<label class="control-label" for="focusedInput"><?php echo $customeruser_values['expect_food']; ?></label>
 											  </div>  					  							  
 											</fieldset>
 										  </form>
@@ -540,36 +539,39 @@
 												<div class="control-group">
 												  <!-- <div class="profile_list"> -->
 												  	<div class="controls">
-                                        <?php //echo "<pre>";print_r($results);echo "</pre>"; ?>
-                                          <!-- <img src="<?php //if(!empty($results['image'])) echo base_url()."uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No Image" style="vertical-align:bottom;width:170px;height:170px;"> -->
-                                            <?php //echo FCPATH."uploads/profile/".$value['images']; 
-                                                $prefix = '';
-                                                $prefix_one = 'th_';
-                                                $prefix_two = 'new_';
-                                                $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$customeruser_values['images']);
-                                                $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$customeruser_values['images']);
-                                                if($prefix_one_status)
-                                                    $prefix = $prefix_one;
-                                                else if($prefix_two_status)
-                                                    $prefix = $prefix_two;
-                                            ?><ul>
-                                            <li class="per_image">
-                                            <img src="<?php 
-                                                if(!empty($customeruser_values['images'])): 
-                                                    echo media_url()."uploads/profile/".$prefix.$customeruser_values['images']; 
-                                                    // echo "string";
-                                                else:
-                                                    echo media_url()."assets/img/no_image.jpg"; 
-                                                endif; 
-                                            ?>" alt="Image not loaded" style="width:100px;height:100px;"></li>
+											<ul>
+	                                            <?php //echo FCPATH."uploads/profile/".$value['images'];
+	                                            $images = explode(",",$customeruser_values['images']);
+	                                            foreach ($images as $img) { 
+	                                                $prefix = '';
+	                                                $prefix_one = 'th_';
+	                                                $prefix_two = 'new_';
+	                                                $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$img);
+	                                                $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$img);
+	                                                if($prefix_one_status)
+	                                                    $prefix = $prefix_one;
+	                                                else if($prefix_two_status)
+	                                                    $prefix = $prefix_two;
+	                                            ?>
+		                                            <li class="per_image">
+			                                            <img src="<?php 
+			                                                if(!empty($img)): 
+			                                                    echo media_url()."uploads/profile/".$prefix.$img; 
+			                                                    // echo "string";
+			                                                else:
+			                                                    echo media_url()."assets/img/no_image.jpg"; 
+			                                                endif; 
+			                                            ?>" style="width:100px;height:100px;">
+		                                            </li>
+	                                            <?php } ?>
                                             <!-- <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
                                             <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
                                             <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
                                             <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
                                             <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
                                             <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
-                                            <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
-                                            </ul> -->
+                                            <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li> -->
+                                            </ul> 
                                     </div>                  
                                 </div>
 												</div>												
