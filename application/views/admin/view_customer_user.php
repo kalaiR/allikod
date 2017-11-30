@@ -497,7 +497,8 @@
                                                         foreach($expected_education as $key => $value) { ?>
                                                                 <li><?php echo $value['edu_name']; ?></li>
                                                         <?php }
-                                                    }?>  
+                                                    }?> 
+                                                </div> 
 											  </div>
 											  </div>
 											  <div class="control-group">
@@ -529,7 +530,7 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Your Personality</h2>	  			
+										<h2><!-- <i class="icon-th"> --></i> Images</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
@@ -581,14 +582,21 @@
 								<div class="row-fluid sortable">
 								<div class="box span8">
 									<div class="box-header well">
-										<h2><!-- <i class="icon-th"> --></i> Image Activation</h2>	  			
+										<h2><!-- <i class="icon-th"> --></i> Featured Profile</h2>	  			
 									</div>
 									<div class="box-content">
 										<form class="form-horizontal">
 											<fieldset>											  
 											  <div class="control-group">
-												<label class="control-label">Image Active :</label>
-												<label class="control-label" for="focusedInput"></label>
+												<label class="control-label">Featured Profile Status :</label>
+												<label class="control-label" for="focusedInput">
+													<?php 
+							                          if ($customeruser_values['user_featured_profile_status'] == 1) 
+							                            echo "Active";
+							                          else
+							                            echo "InActive";
+							                        ?>
+												</label>
 											  </div>  					  							  
 											</fieldset>
 										  </form>
