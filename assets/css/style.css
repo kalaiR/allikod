@@ -7374,9 +7374,12 @@ p2
 }
 
 .search_option .nav.nav-tabs {
-  max-width: 756px;
+  max-width: 920px;
   margin: 0 auto 40px;
   padding: 0px 50px;
+}
+.search_menu .nav.nav-tabs {
+  max-width: 750px !important;
 }
 
 .search_option .nav.nav-tabs li {

@@ -86,7 +86,7 @@
 															</div>
 														  </div>								
 														  <div class="control-group">
-															<label class="control-label" for="focusedInput">Customer Email : </label>
+															<label class="control-label" for="focusedInput">Customer Email<b>*</b> : </label>
 															<div class="controls">
 															  <input class="input-xlarge focused" type="email" value="<?php if(!empty($customeruser_values['user_email'])) echo $customeruser_values['user_email'];  ?>" name="cus_email">
 															</div>

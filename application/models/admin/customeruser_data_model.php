@@ -205,7 +205,7 @@ class Customeruser_data_model extends CI_Model {
 				'ren_amount' => $this->input->post('cus_amount'),
 				'ren_period_in_month' => $this->input->post('cus_period'),
 				'totalno_of_profile' => $this->input->post('cus_totprofile'),
-				'no_of_profiles_viewed' => $this->input->post('cus_viewprofile'),
+				'no_of_profile_viewed' => $this->input->post('cus_viewprofile'),
 				'active_status' => $this->input->post('cus_paymentactivestatus'),
 				'starting_date' => date('Y-m-d',strtotime($this->input->post('cus_paymentstartdate'))),
 				'ending_date' => date('Y-m-d',strtotime($this->input->post('cus_paymentenddate'))),
@@ -439,7 +439,7 @@ class Customeruser_data_model extends CI_Model {
   public function customer_user_profile($id){
   		// View by id
   		$condition = "usr.userdetail_id = ".$id."";
-    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,luk.name as lukhnam_name,zod.name as zodiac_name,pay.*,ren.*,pay.totalno_of_profile as paytotprofile,ren.totalno_of_profile as rentotprofile,ren.active_status as renewalstatus,
+    	$this->db->select('*,rb.name as registered_by_name,mt.name as mother_tongue_name,nak.name as nakshathra_name,ein.name as empin_name,luk.name as lukhnam_name,zod.name as zodiac_name,dho.name as dhosham_name,cx.name as complexion_name,fd.name as food_name,fs.name as family_status,ft.name as family_type,pay.*,ren.*,pay.totalno_of_profile as paytotprofile,ren.totalno_of_profile as rentotprofile,ren.active_status as renewalstatus,
     		group_concat(images) as images,group_concat(userimages_id) as images_id');
 	    $this->db->from('reg_userdetail usr');
 	    $this->db->join('reg_religion_ethnicity re','re.reg_user_id=usr.userdetail_id','left');
@@ -460,6 +460,12 @@ class Customeruser_data_model extends CI_Model {
 	    $this->db->join('employed_in ein','ein.employedin_id=eo.edu_employedin','left');
 	    $this->db->join('reg_payment pay','pay.reg_user_id=usr.userdetail_id','left');
 	    $this->db->join('renew_detail ren','ren.reg_user_id=usr.userdetail_id','left');
+	    $this->db->join('dhosham dho','dho.dhosham_id=re.rel_dhosham','left');
+	    $this->db->join('body_type bt','bt.bodytype_id=pe.phy_bodytype','left');
+	    $this->db->join('complexion cx','cx.complexion_id=pe.phy_complexion','left');
+	    $this->db->join('food fd','fd.food_id=pe.phy_food','left');
+	    $this->db->join('family_status fs','fs.familystatus_id=cf.comm_family_status','left'); 
+	    $this->db->join('family_type ft','ft.familytype_id=cf.comm_family_type','left');    
 	    $this->db->where($condition); 
 	    $model_data['customeruser_values'] = $this->db->get()->row_array();
 
@@ -1004,4 +1010,54 @@ class Customeruser_data_model extends CI_Model {
 	        $model_data['userdetail_id'] = $last_insert_id;
 	        return $model_data;
    }
+
+   public function get_selected_education($id){
+    // $this->db->select('images');
+    // $image_data = $this->db->get_where('user_images', array('reg_user_id' => $id ))->result();
+    $this->db->select('education_id'); 
+    $this->db->from('reg_selectededucation');   
+    $this->db->where('reg_user_id', $id);
+    $query = $this->db->get()->result_array();
+    return $query; 
+  }
+
+
+  public function get_selected_maritalstatus($id){
+    // $this->db->select('images');
+    // $image_data = $this->db->get_where('user_images', array('reg_user_id' => $id ))->result();
+    $this->db->select('marital_category_id'); 
+    $this->db->from('reg_selectedmarital');   
+    $this->db->where('reg_user_id', $id);
+    return $this->db->get()->result_array();
+  }
+
+  public function get_education($edu_id=""){
+      if($edu_id!=''){
+        // Education Id Id based search    
+        $condition = "edu.active_status = 1 AND edu.education_id = ".$edu_id."";  
+        $this->db->select('*');
+        $this->db->from('education AS edu');
+        $this->db->where($condition);      
+        $this->db->order_by('edu.education_id','asc');
+        $query = $this->db->get()->row_array();          
+      }else{
+        $condition = "edu.active_status = 1";  
+        $this->db->select('*');
+        $this->db->from('education AS edu');
+        $this->db->where($condition);      
+        $this->db->order_by('edu.education_id','asc');
+        $query = $this->db->get()->result_array();          
+      }
+      return $query;
+  }
+  
+  public function get_martialstatusbyId($id){
+        $condition = "martial.active_status = 1 AND maritalcategory_id = '".$id."'";
+        $this->db->select('*');
+        $this->db->from('marital_category AS martial');
+        $this->db->where($condition);      
+        $this->db->order_by('martial.maritalcategory_id','asc');
+        $query = $this->db->get()->result_array(); 
+      return $query;
+  }
 }

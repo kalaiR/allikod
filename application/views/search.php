@@ -17,7 +17,7 @@ include('include/menu.php');
                     <h3>Search People Here</h3>
                     <img src="<?php echo media_url(); ?>assets/img/w-title-b.png" alt="">
                 </div>
-                <div class="search_option">
+                <div class="search_option search_menu">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="search.html#base" aria-controls="bases" role="tab" data-toggle="tab">Basic Search</a></li>
@@ -280,9 +280,9 @@ include('include/menu.php');
                                                         if(!empty($country)) :
                                                         foreach ($country as $cls_val) {
                                                             if($cls_val['country_id']=='93'){
-                                                            echo "<option value='".$cls_val['country_id']."' selected>". ucfirst($cls_val['name'])."</option>";  
+                                                            echo "<option value='".strtolower($cls_val['name'])."' selected>". ucfirst($cls_val['name'])."</option>";  
                                                             }else{
-                                                            echo "<option value='" . $cls_val['country_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                            echo "<option value='" . strtolower($cls_val['name']) . "'>" . ucfirst($cls_val['name']) . "</option>";
                                                             }            
                                                         }
                                                         endif;
@@ -327,8 +327,9 @@ include('include/menu.php');
                                                 <div class="col-sm-6 box">
                                                     <div class="col-sm-5 box">
                                                         <select class="form-control" name="phy_status[]" id="phy_status">      
-                                                            <option value="1" selected>Normal</option>
-                                                            <option value="2">Physically challenged</option>
+                                                            <?php foreach (unserialize(PHYSICAL_STATUS) as $key => $val): ?>
+                                                                <option value="<?php echo $key; ?>" <?php if(strtolower($key)=="normal") echo "selected"; ?>><?php echo $val; ?></option>
+                                                            <?php endforeach; ?>
                                                         </select>
                                                     </div>
                                                  

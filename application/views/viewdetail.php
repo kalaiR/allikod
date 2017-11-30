@@ -527,7 +527,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                 <p>No.of Married Sisters</p>
                                                 </div>
                                                 <div class="col-md-3 col-xs-3 dark">
-                                                    <p><?php if(!empty($results['comm_number_of_sisters_yo_mar'])) echo $results['comm_number_of_sisters_el_mar']; else echo "-"; ?></p>
+                                                    <p><?php if(!empty($results['comm_number_of_sisters_el_mar'])) echo $results['comm_number_of_sisters_el_mar']; else echo "-"; ?></p>
                                                 </div >
                                                 <div class="col-md-3 col-xs-3 dark">
                                                 <p><?php if(!empty($results['comm_number_of_sisters_yo_mar'])) echo $results['comm_number_of_sisters_yo_mar']; else echo "-"; ?>

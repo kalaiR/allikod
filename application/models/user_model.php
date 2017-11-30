@@ -495,7 +495,7 @@ class User_model extends CI_Model {
 
 
   /** Search by vallikodi Id **/
-  public function get_datauserId($values, $limit, $start){     
+  public function get_datauserId($values, $limit, $start){ 
         $user_where = '(usr.userdetail_id="'.$values.'" AND usr.user_delete_status!=1 AND usr.user_gender !=3 AND usr.user_active_status!=0)';
         $this->db->select('usr.userdetail_id, usr.user_fname, usr.user_dob, usr.user_age, rel.rel_nakshathra_id, rel.rel_religion, edu.edu_education, edu.edu_occupation, group_concat(img.images) as images, regcomm.comm_current_countrycountry, regcomm.comm_current_city, regcomm.comm_current_district, usr.user_gender');
         $this->db->from('reg_userdetail usr');
@@ -1669,52 +1669,22 @@ class User_model extends CI_Model {
       // echo $this->db->last_query();             
       return $query;
   }
-  public function get_filter_search($limit, $start){
-      // print_r($_POST);
-      $filter_start_age = ($_POST['filter_start_age']) ? $_POST['filter_start_age'] : 18;
-      $filter_end_age = ($_POST['filter_end_age']) ? $_POST['filter_end_age'] : 34;
-      $filter_start_height = ($_POST['filter_start_height']) ? $_POST['filter_start_height'] : 137;
-      $filter_end_height = ($_POST['filter_end_height']) ? $_POST['filter_end_height'] : 213;
-      $filter_start_weight = ($_POST['filter_start_weight']) ? $_POST['filter_start_weight'] : 41;
-      $filter_end_weight = ($_POST['filter_end_weight']) ? $_POST['filter_end_weight'] : 140;
-      $filter_mar_status = $_POST['filter_mar_status'];
-      $filter_occ = $_POST['filter_occ'];
-      $filter_edu = $_POST['filter_edu'];
-      $filter_emp = $_POST['filter_emp'];
-      $filter_food = $_POST['filter_food'];
-      $filter_comp = $_POST['filter_comp'];
-      $filter_btype = $_POST['filter_btype'];
-      $filter_gender = $_POST['filter_gender'];
-      $filter_mot_tongue = $_POST['filter_mot_tongue'];
-      $filter_show_profile = $_POST['filter_show_profile'];
-
-      // $filter_start_age = 18;
-      // $filter_end_age = 34;
-      // $filter_start_height = 137;
-      // $filter_end_height = 213;
-      // $filter_start_weight = 41;
-      // $filter_end_weight = 140;
-      // $filter_mar_status = "1,2";
-      // // $filter_occ = "3,2";
-      // // $filter_edu = "1,2,3";
-      // $filter_occ = "5,3";
-      // $filter_edu = "6,7,8";
-      // $filter_emp = "5,6";
-      // $filter_food = "2,3";
-      // $filter_comp = "3,4";
-      // $filter_btype = "1,2";
-
-      $user_where = '(usr.user_age BETWEEN '. $filter_start_age.' AND '.$filter_end_age.') 
-                  AND (phy.phy_height BETWEEN '. $filter_start_height.' AND '.$filter_end_height.') 
-                  AND (phy.phy_weight BETWEEN '. $filter_start_weight.' AND '.$filter_end_weight.')';
+  public function get_filter_search($values,$limit,$start){
+      $user_where = '(usr.user_age BETWEEN '. $values['filter_start_age'].' AND '.$values['filter_end_age'].') AND (phy.phy_height BETWEEN '. $values['filter_start_height'].' AND '.$values['filter_end_height'].') AND (phy.phy_weight BETWEEN '. $values['filter_start_weight'].' AND '.$values['filter_end_weight'].')';
       // echo $user_where;
-      $user_where.= ' AND (usr.user_gender='.$_POST['filter_gender'].' AND rel.rel_mothertongue_id IN('.$filter_mot_tongue.'))';
+      if(!empty($values['filter_gender'])){            
+        $user_where.= ' AND (usr.user_gender='.$values['filter_gender'].')';
+      }
+      if(!empty($values['filter_mot_tongue'])){
+        $user_where.=' AND (rel.rel_mothertongue_id IN ('.$values['filter_mot_tongue'].'))';
+      }
 
-      if(!empty($filter_mar_status)){
-        $user_where.=' AND (usr.user_maritalstatus IN ('.$filter_mar_status.'))';
+      if(!empty($values['filter_mar_status'])){
+        $user_where.=' AND (usr.user_maritalstatus IN ('.$values['filter_mar_status'].'))';
       }              
-      if(!empty($filter_occ)){
-        $occ_res = $this->db->query("select occupation_id from occupation where occupation_catid IN ($filter_occ)")->result_array();
+      if(!empty($values['filter_occ'])){
+        $occ_val = $values['filter_occ'];
+        $occ_res = $this->db->query("select occupation_id from occupation where occupation_catid IN ($occ_val)")->result_array();
         $occ_results = array();
         foreach($occ_res as $val)
         {
@@ -1722,27 +1692,44 @@ class User_model extends CI_Model {
         }
         $user_where.=' AND (edu.edu_occupation IN ('.implode(",", $occ_results).'))';
       }
-      if(!empty($filter_emp)){
-        $user_where.=' AND (edu.edu_employedin IN ('.$filter_emp.'))';
+      if(!empty($values['filter_edu'])){
+        $edu_val = $values['filter_edu'];
+        $edu_res = $this->db->query("select education_id from education where edu_categoryid IN ($edu_val)")->result_array();
+        $edu_results = array();
+        foreach($edu_res as $val)
+        {
+            $edu_results[] = $val['education_id']; // add each user id to the array
+        }
+        $user_where.=' AND (edu.edu_occupation IN ('.implode(",", $edu_results).'))';
+      }
+      if(!empty($values['filter_emp'])){
+        $user_where.=' AND (edu.edu_employedin IN ('.$values['filter_emp'].'))';
       }  
-      if(!empty($filter_food)){
-        $user_where.=' AND (phy.phy_food IN ('.$filter_food.'))';
+      if(!empty($values['filter_food'])){
+        $user_where.=' AND (phy.phy_food IN ('.$values['filter_food'].'))';
       }  
-      if(!empty($filter_comp)){
-        $user_where.=' AND (phy.phy_complexion IN ('.$filter_food.'))';
+      if(!empty($values['filter_comp'])){
+        $user_where.=' AND (phy.phy_complexion IN ('.$values['filter_comp'].'))';
       }  
-      if(!empty($filter_btype)){
-        $user_where.=' AND (phy.phy_bodytype IN ('.$filter_btype.'))';
+      if(!empty($values['filter_btype'])){
+        $user_where.=' AND (phy.phy_bodytype IN ('.$values['filter_btype'].'))';
+      }  
+      if(!empty($values['filter_phy_status'])){
+        $user_where.=' AND (phy.phy_physicalstatus="'.$values['filter_phy_status'].'")';
+      }  
+      if(!empty($values['filter_location'])){
+        $user_where.=' AND (com.comm_current_countrycountry="'.$values['filter_location'].'")';
       }  
 
       $this->db->select('*');
       $this->db->from('reg_userdetail usr');
       $this->db->join('reg_physical_expectation phy','phy.reg_user_id = usr.userdetail_id','inner');
       $this->db->join('reg_education_occupation edu','edu.reg_user_id = usr.userdetail_id','inner');
-      $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','inner');
-      if($filter_show_profile == "both")
+      $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id = usr.userdetail_id','left');
+      $this->db->join('reg_communication_family com','com.reg_user_id = usr.userdetail_id','inner');
+      if($values['filter_show_profile'] == "both")
         $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','left');           
-      elseif($filter_show_profile == "with_photo")
+      elseif($values['filter_show_profile'] == "with_photo")
         $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','inner');           
       else
         $this->db->join('user_images img','img.reg_user_id = usr.userdetail_id','right');           

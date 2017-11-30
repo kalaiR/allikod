@@ -234,7 +234,7 @@ class Customeruser_Data extends CI_Controller {
 			  		$id = $this->input->post('rid');
 			  		$action_post = $this->input->post('action');
 			   		$validation_rules = array(
-			   			array('field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|xss_clean|max_length[50]|edit_unique[reg_userdetail.userdetail_id.user_email.'.$id.']' ),
+			   			array('field'   => 'cus_email','label'   => 'Customer Email','rules'   => 'trim|xss_clean|required|max_length[50]|edit_unique[reg_userdetail.userdetail_id.user_email.'.$id.']' ),
 			   			array('field'   => 'cus_regby','label'   => 'Registered By','rules'   => 'trim|xss_clean|required' ),
 			   			array('field'   => 'cus_fname','label'   => 'Customer Username','rules'   => 'trim|xss_clean|required' ),
 			   			array('field'   => 'cus_gender','label'   => 'Customer Gender','rules'   => 'trim|xss_clean|required' ),
@@ -504,6 +504,25 @@ class Customeruser_Data extends CI_Controller {
 		$data['customeruser_values'] = $data_values['customeruser_values'];
 		$data['rasi'] = $this->customeruser_data_model->getrasi_viewdetails_byid($id);		
 		$data['amsham'] = $this->customeruser_data_model->getamsham_viewdetails_byid($id);
+
+		// Education Excepted from Selected Education Table
+		$data['eeducation'] = $this->customeruser_data_model->get_selected_education($id);
+		foreach($data['eeducation'] as $key => $value) {
+			$get_educationlist[] = $this->customeruser_data_model->get_education($value['education_id']);			  
+		}
+		if(!empty($get_educationlist)){
+			$data['expected_education']	 =  $get_educationlist;
+		}
+
+		// Marital Excepted from Selected Marital Table
+		$data['emaritalstatus'] = $this->customeruser_data_model->get_selected_maritalstatus($id);
+		foreach($data['emaritalstatus'] as $key => $value) {			  
+			$get_martial[] = $this->customeruser_data_model->get_martialstatusbyId($value['marital_category_id']);
+		}		
+		if(!empty($get_martial)){		
+			$data['expected_maritalstatus'] = $get_martial;
+		}
+		
 		$this->load->view('admin/view_customer_user',$data);
 	}
 	// public function add_customer_user(){

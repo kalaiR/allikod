@@ -306,11 +306,30 @@ function remove(array, property, value) {
 	}
 }
 
+function magnify_popup(){
+	$('.popup-with-zoom-anim').magnificPopup({
+        type: 'inline',
+
+        fixedContentPos: false,
+        fixedBgPos: true,
+
+        overflowY: 'auto',
+
+        closeBtnInside: true,
+        preloader: false,
+
+        midClick: true,
+        removalDelay: 300,
+        mainClass: 'my-mfp-zoom-in'
+    });
+}
+
 function applyPagination() {
 	$(document).on('click','.pagination a',function(e){
         e.preventDefault();
         pagination_url = $(this).attr("href");
-        filter_ajax();
+        if(typeof pagination_url != "undefined")
+        	filter_ajax();
     });
     $(document).on('change','.goto_pagination',function(e){
         e.preventDefault();
@@ -321,31 +340,10 @@ function applyPagination() {
 
 function filter_ajax(){
 	if(pagination_url == '' || pagination_url.indexOf('filter_search')>0){
-		filter_start_age = $('.filter_start_age').val();
-		filter_end_age = $('.filter_end_age').val();
-		filter_start_height = $('.filter_start_height').val();
-		filter_end_height = $('.filter_end_height').val();
-		filter_start_weight = $('.filter_start_weight').val();
-		filter_end_weight = $('.filter_end_weight').val();
-		filter_mar_status = $('.filter_mar_status').val();
-		filter_occ = $('.filter_occ').val();
-		filter_edu = $('.filter_edu').val();
-		filter_emp = $('.filter_emp').val();
-		filter_food = $('.filter_food').val();
-		filter_comp = $('.filter_comp').val();
-		filter_btype = $('.filter_btype').val();
-		filter_gender = $('.filter_gender').val();
-		filter_mot_tongue = $('.filter_mot_tongue').val();
-		filter_show_profile = $('.filter_show_profile').val();
-		data = "filter_start_age="+filter_start_age+"&filter_end_age="+filter_end_age+
-					"&filter_start_height="+filter_start_height+"&filter_end_height="+filter_end_height+
-					"&filter_start_weight="+filter_start_weight+"&filter_end_weight="+filter_end_weight+
-					"&filter_mar_status="+filter_mar_status+"&filter_occ="+filter_occ+
-					"&filter_edu="+filter_edu+"&filter_emp="+filter_emp+
-					"&filter_food="+filter_food+"&filter_comp="+filter_comp+
-					"&filter_btype="+filter_btype+"&filter_gender="+filter_gender+
-					"&filter_mot_tongue="+filter_mot_tongue+"&filter_show_profile="+filter_show_profile+
-					"&"+csrf_name+"="+csfrData[csrf_name];		
+		// alert(JSON.stringify($('.filter_data').serialize()));
+		filter_data = $('.filter_data').serialize();
+		data = filter_data+"&"+csrf_name+"="+csfrData[csrf_name];		
+
 	}
 	else{
 		data = csrf_name+"="+csfrData[csrf_name];
@@ -358,12 +356,12 @@ function filter_ajax(){
 		success : function(res) {
 			// alert(res);
 			$(".ajaxdata").html(res);
-			applyPagination();
-			// // alert(JSON.stringify(res));
-			// if (res['status'] == 'hide')
-			// 	alert("You have already viewed profile or credit limit exceeded");
-			// else
-			// 	$(".slidingDiv").slideToggle();
+			// applyPagination();
+			window.scrollTo(0,300);
+			magnify_popup();
+			// $('html, body').animate({
+			// 	scrollTop : 300
+			// }, 500);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			// console.log("The following error occured: "+ textStatus, errorThrown);
@@ -376,6 +374,7 @@ function filter_ajax(){
 var pagination_url = '';
 $(document).ready(function() {
 	applyPagination();
+	magnify_popup();
 	// menu button
 	$('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
 		$(this).toggleClass('open');

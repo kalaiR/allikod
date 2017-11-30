@@ -62,13 +62,19 @@ include('include/menu.php');
                         }
 
                         preg_match("/[^\/]+$/", $this->uri->uri_string(), $values); 
-                        $current_tot = '';
-                        if(count($results) < 10){
+                        $current_tot = 0;
+                        if(!isset($results) || !isset($total_rows)){
+                            $total_rows = 0;
+                        }
+                        if(count($results) < 10 && count($results)!=0){
                             $current_tot = $total_rows;
                         }
                         elseif($values[0]!=0){
                             $current_tot = $values[0];
                             $current_tot = $current_tot*10; 
+                        }
+                        elseif(count($results)==0){
+                            $total_rows = 0;
                         }else{
                             $current_tot = 10;
                         }
@@ -84,7 +90,7 @@ include('include/menu.php');
                         </p>
                     <?php endif; ?>
                     <?php
-                        if(!empty($results)){                    
+                        if(!empty($results)){                   
                         foreach($results as $key => $value) { 
                             $prefix = '';
                             $prefix_one = 'th_';
@@ -297,26 +303,27 @@ include('include/menu.php');
 <?php if(!$this->input->is_ajax_request()) { ?>
                 
             </div> <!-- row ends  --> 
+            <form method="post" class="filter_data">
                 <?php //if(sizeof($results) > 1): ?>
                 <div class="col-md-3 right_float">
                  <div class="col-md-12">
-                    <form method="post" class="filter_data">
-                        <input type="hidden" name="filter_start_age" class="filter_start_age" value="<?php echo $search_data['start_age']; ?>">
-                        <input type="hidden" name="filter_end_age" class="filter_end_age" value="<?php echo $search_data['end_age']; ?>">
-                        <input type="hidden" name="filter_start_height" class="filter_start_height" value="<?php echo $search_data['start_height']; ?>">
-                        <input type="hidden" name="filter_end_height" class="filter_end_height" value="<?php echo $search_data['end_height']; ?>">
+                        <input type="hidden" name="filter_start_age" class="filter_start_age" value="<?php if(isset($search_data['start_age'])) echo $search_data['start_age']; else echo "18"; ?>">
+                        <input type="hidden" name="filter_end_age" class="filter_end_age" value="<?php if(isset($search_data['end_age'])) echo $search_data['end_age']; else echo "34"; ?>">
+                        <input type="hidden" name="filter_start_height" class="filter_start_height" value="<?php if(isset($search_data['start_height'])) echo $search_data['start_height']; else echo "137"; ?>">
+                        <input type="hidden" name="filter_end_height" class="filter_end_height" value="<?php if(isset($search_data['end_height'])) echo $search_data['end_height']; else echo "213"; ?>">
                         <input type="hidden" name="filter_start_weight" class="filter_start_weight" value="41">
                         <input type="hidden" name="filter_end_weight" class="filter_end_weight" value="140">
-                        <input type="hidden" name="filter_occ" class="filter_occ">
+                        <input type="hidden" name="filter_occ" class="filter_occ" value="<?php if(isset($search_data['occupation'])) echo $search_data['occupation']; ?>">
                         <input type="hidden" name="filter_edu" class="filter_edu" value="<?php if(isset($search_data['education'])) echo implode(",",$search_data['education']); ?>">
                         <input type="hidden" name="filter_emp" class="filter_emp">
                         <input type="hidden" name="filter_food" class="filter_food">
                         <input type="hidden" name="filter_comp" class="filter_comp">
                         <input type="hidden" name="filter_btype" class="filter_btype">
-                        <input type="hidden" name="filter_gender" class="filter_gender" value="<?php echo $search_data['gender']; ?>">
-                        <input type="hidden" name="filter_mot_tongue" class="filter_mot_tongue" value="<?php echo implode(",", $search_data['mot_tongue']); ?>">
-                        <input type="hidden" name="filter_show_profile" class="filter_show_profile" value="<?php echo $search_data['show_profile']; ?>">
-                    </form>     
+                        <input type="hidden" name="filter_gender" class="filter_gender" value="<?php if(isset($search_data['gender'])) echo $search_data['gender']; ?>">
+                        <input type="hidden" name="filter_mot_tongue" class="filter_mot_tongue" value="<?php if(isset($search_data['mot_tongue'])) echo implode(",", $search_data['mot_tongue']); ?>">
+                        <input type="hidden" name="filter_show_profile" class="filter_show_profile" value="<?php if(isset($search_data['show_profile'])) echo $search_data['show_profile']; ?>"> 
+                        <input type="hidden" name="filter_location" class="filter_location" value="<?php if(isset($search_data['location'])) echo $search_data['location']; ?>">   
+                        <input type="hidden" name="filter_phy_status" class="filter_phy_status" value="<?php if(isset($search_data['phy_status'])) echo $search_data['phy_status']; ?>">           
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <div class="s_title">
@@ -378,16 +385,31 @@ include('include/menu.php');
                                 foreach ($selection_values['maritalstatus_values'] as $mar_val): 
                                     // echo "search_mar_status".$search_data['mar_status'];
                                     // echo "mar_id".$mar_val['maritalcategory_id']; 
-                                    if(strtolower($mar_val['marital_name'])=="single" && $search_data['mar_status'] == $mar_val['maritalcategory_id']) {
-                                        $filter_mar_status = $mar_val['maritalcategory_id']; 
+                                    $filter_mar_status = '';
+                                    $checked_status = '';
+                                    if(isset($search_data['mar_status'])){
+                                        // echo "if1";
+                                        if(strtolower($mar_val['marital_name'])=="single" && $search_data['mar_status'] == $mar_val['maritalcategory_id']) {
+                                            // echo "if2";
+                                            $filter_mar_status = $mar_val['maritalcategory_id']; 
+                                            $checked_status ="checked";
+                                        }
+                                        elseif($search_data['mar_status'] == $mar_val['maritalcategory_id']) {
+                                            // echo "elseif1";
+                                            $filter_mar_status = $search_data['mar_status'];
+                                            $checked_status ="checked";
+                                        }
                                     }
-                                    elseif($search_data['mar_status'] == $mar_val['maritalcategory_id']) 
-                                        $filter_mar_status = $search_data['mar_status'];
+                                    elseif(!isset($search_data['mar_status']) && strtolower($mar_val['marital_name'])=="single"){
+                                        // echo "elseif2";
+                                        $filter_mar_status = $mar_val['maritalcategory_id']; 
+                                        $checked_status ="checked";
+                                    }
 
                                 ?>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" class="mar_status_act" value="<?php echo $mar_val['maritalcategory_id'] ?>" <?php if(strtolower($mar_val['marital_name'])=="single" && $search_data['mar_status'] == $mar_val['maritalcategory_id']) echo "checked"; elseif($search_data['mar_status'] == $mar_val['maritalcategory_id']) echo "checked"; ?>>
+                                        <input type="checkbox" class="mar_status_act" value="<?php echo $mar_val['maritalcategory_id'] ?>" <?php echo $checked_status; ?>>
                                             <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                             <?php echo $mar_val['marital_name'] ?>
                                     </label>
@@ -397,7 +419,7 @@ include('include/menu.php');
                                 // echo "mar_id".$mar_val['maritalcategory_id'];
                                 ?>                        
                                 <?php endforeach; ?>  
-                                <input type="hidden" class="filter_mar_status" value="<?php echo $filter_mar_status; ?>">      
+                                <input type="hidden" class="filter_mar_status" name="filter_mar_status" value="<?php echo $filter_mar_status; ?>">      
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -411,7 +433,7 @@ include('include/menu.php');
                                   foreach ($occupation_category as $occ_val): ?>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" class="occupation_act" value="<?php echo $occ_val['occ_category_id']; ?>">
+                                            <input type="checkbox" class="occupation_act" value="<?php echo $occ_val['occ_category_id']; ?>" <?php if(isset($search_data['occupation'])){ if($search_data['occupation']==$occ_val['occ_category_id']) echo "checked"; }?>>
                                                 <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                                 <?php echo ucfirst(strtolower($occ_val['occupation_name'])); ?>
                                         </label>
@@ -516,9 +538,10 @@ include('include/menu.php');
                         </div>
                     </div>
                 <?php //endif; ?>
-                </div>
-            </div> <!-- container ends -->
-        </section>
+            </form>
+        </div>
+    </div> <!-- container ends -->
+</section>
 <?php 
     include('include/footer.php');
 ?> 
