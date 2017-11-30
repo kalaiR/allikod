@@ -143,38 +143,90 @@
 										<form class="form-horizontal">
 											<fieldset>
 											  <div class="control-group">
+												<label class="control-label" for="focusedInput">Payment Mode : </label>
+												<label class="control-label" for="focusedInput">
+													<?php 
+													  	if(empty($customeruser_values['renewdetail_id']) && empty($customeruser_values['regpayment_id']))
+													  		$selected = "Not_paid";
+													  	else if(!empty($customeruser_values['renewdetail_id'])) 
+													  		$selected = "Renewal"; 
+													  	else 
+													  		$selected = "Initial"; 
+													  	echo $selected;
+													  	?>
+												</label>
+											  </div>
+											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Payment Type : </label>
 												<label class="control-label" for="focusedInput">
 													<?php 
-													if(!empty($customeruser_values['payment_type'])):
-														foreach (unserialize(PAYMENT_TYPE) as $key => $val):
-															if($customeruser_values['payment_type'] == $key):
+													  	if(empty($customeruser_values['renewdetail_id']) && empty($customeruser_values['regpayment_id']))
+													  		$selected = "Not_paid";
+													  	else if(!empty($customeruser_values['renewdetail_id'])) 
+													  		$selected = $customeruser_values['plan_id']; 
+													  	else 
+													  		$selected = $customeruser_values['payment_type']; 
+													  	// echo $selected;
+													  	foreach (unserialize(PAYMENT_TYPE) as $key => $val):
+															if($selected == $key):
 																echo $val; 
+																break;	
 															endif;
 														endforeach; 
-													else:
-														echo "--";
-													endif;
 													?>
 												</label>
 											  </div>
 											  <div class="control-group">
 													<label class="control-label" for="focusedInput">Period in Months :</label>
-													<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['period_in_month'])) echo $customeruser_values['period_in_month']; else echo "--"; ?></label>
+													<label class="control-label" for="focusedInput">
+													<?php 
+													  	if(empty($customeruser_values['renewdetail_id']) && empty($customeruser_values['regpayment_id']))
+													  		$selected = "Not_paid";
+													  	else if(!empty($customeruser_values['renewdetail_id'])) 
+													  		$selected = $customeruser_values['ren_period_in_month']; 
+													  	else 
+													  		$selected = $customeruser_values['period_in_month']; 
+													  	echo $selected;
+													  	?>
+													</label>
 												</div>
 											  	<div class="control-group">
 												  <label class="control-label" for="date01">Starting Date : </label>
-												  <label class="control-label" for="date01"><?php if(!empty($customeruser_values['startdate'])) echo date("d/m/Y", strtotime($customeruser_values['startdate'])); else echo "--"; ?> </label>
+												  <label class="control-label" for="date01">
+												  	<?php 
+													  	if(empty($customeruser_values['renewdetail_id']) && empty($customeruser_values['regpayment_id']))
+													  		$selected = "Not_paid";
+													  	else if(!empty($customeruser_values['renewdetail_id'])) 
+													  		$selected = date("Y/m/d", strtotime($customeruser_values['starting_date']));
+													  	else 
+													  		$selected = date("Y/m/d", strtotime($customeruser_values['startdate'])); 
+													  	echo $selected;
+													?>  	
 												</div>
 												<div class="control-group">
 												  <label class="control-label" for="date01">Ending Date :</label>
-												  <label class="control-label" for="date01"><?php if(!empty($customeruser_values['enddate'])) echo date("d/m/Y", strtotime($customeruser_values['enddate'])); else echo "--"; ?> </label>
+												  <label class="control-label" for="date01"><?php 
+													  	if(empty($customeruser_values['renewdetail_id']) && empty($customeruser_values['regpayment_id']))
+													  		$selected = "Not_paid";
+													  	else if(!empty($customeruser_values['renewdetail_id'])) 
+													  		$selected = date("Y/m/d", strtotime($customeruser_values['ending_date']));
+													  	else 
+													  		$selected = date("Y/m/d", strtotime($customeruser_values['enddate'])); 
+													  	echo $selected;
+													?>  	
+												 </label>
 												</div>
 											  <div class="control-group">
 												<label class="control-label">Payment Active Status : </label>
 												<span class="label label-success"> <!--class for not-paid <span class="label label-important"> -->
 													<?php 
-							                          if ($customeruser_values['payment_status'] == 1) 
+													  if(empty($customeruser_values['renewdetail_id']) && empty($customeruser_values['regpayment_id']))
+													  		$payment_selected = "Not_paid";
+													  	else if(!empty($customeruser_values['renewdetail_id'])) 
+													  		$payment_selected = $customeruser_values['active_status'];
+													  	else 
+													  		$payment_selected = $customeruser_values['payment_status']; 
+							                          if ($payment_selected == 1) 
 							                            echo "Paid";
 							                          else
 							                            echo "Not Paid";
