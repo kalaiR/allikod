@@ -329,3 +329,8 @@ ul#media-list {
     z-index: 9999;
    
 }
+.per_image
+{
+	text-align:center;
+	display:inline-block;
+}

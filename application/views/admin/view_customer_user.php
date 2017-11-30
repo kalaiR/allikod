@@ -491,12 +491,14 @@
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="selectError1">Education</label>
+												<div class="controls">
 												<?php 
                                                     if(!empty($expected_education)){
                                                         foreach($expected_education as $key => $value) { ?>
                                                                 <li><?php echo $value['edu_name']; ?></li>
                                                         <?php }
                                                     }?>  
+											  </div>
 											  </div>
 											  <div class="control-group">
 												<label class="control-label">Food :</label>
@@ -535,7 +537,8 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Image  : </label>
 												<div class="control-group">
-												  <label class="control-label" for="focusedInput"><div class="profile_list">                                    
+												  <!-- <div class="profile_list"> -->
+												  	<div class="controls">
                                         <?php //echo "<pre>";print_r($results);echo "</pre>"; ?>
                                           <!-- <img src="<?php //if(!empty($results['image'])) echo base_url()."uploads/success/".$suc['image']; else echo base_url()."assets/img/no_image.jpg" ?>" alt="No Image" style="vertical-align:bottom;width:170px;height:170px;"> -->
                                             <?php //echo FCPATH."uploads/profile/".$value['images']; 
@@ -548,7 +551,8 @@
                                                     $prefix = $prefix_one;
                                                 else if($prefix_two_status)
                                                     $prefix = $prefix_two;
-                                            ?>
+                                            ?><ul>
+                                            <li class="per_image">
                                             <img src="<?php 
                                                 if(!empty($customeruser_values['images'])): 
                                                     echo media_url()."uploads/profile/".$prefix.$customeruser_values['images']; 
@@ -556,9 +560,17 @@
                                                 else:
                                                     echo media_url()."assets/img/no_image.jpg"; 
                                                 endif; 
-                                            ?>" alt="Image not loaded" style="width:170px;height:170px;">
+                                            ?>" alt="Image not loaded" style="width:100px;height:100px;"></li>
+                                            <!-- <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
+                                            <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
+                                            <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
+                                            <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
+                                            <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
+                                            <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
+                                            <li class="per_image"><img src="<?php echo media_url(); ?>assets/img/search-result-page/img1.jpg" alt="Smiley face" width="100" height="100"></li>
+                                            </ul> -->
                                     </div>                  
-                                </div></label>
+                                </div>
 												</div>												
 											  </div>  					  							  
 											</fieldset>
