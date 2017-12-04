@@ -271,7 +271,7 @@ include('include/menu.php');
                     <?php }
                     ?>
 
-                    <div class="col-md-12 text-center">
+                    <div class="text-center">
                        
                         <?php
                         if(!empty($links)) :

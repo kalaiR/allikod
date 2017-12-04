@@ -448,8 +448,13 @@ $(document).ready(function() {
 			$(this).val($(this).val().substr(0, 10));
 		}
 	});
-	// end reg page validation //
+	// end reg page validation //	
 	$('.long').hide();
+	$('.text_short').each(function(){
+		if($(this).text().length>12){
+			$(this).parents('div').children('.long').show();
+		}
+	});
 	// Rasi Horoscope - Start //
 	var results_array = [];
 	// Add the Rasi on registration Page

@@ -482,9 +482,9 @@
                                                 <div class="col-md-4 col-xs-4 dark">
                                                     <p class="text_short"><?php if(!empty($results['comm_mother_employment'])) echo $results['comm_mother_employment']; else echo "None"; ?></p>
                                                 </div>
-                                                <div class="col-md-1 col-xs-1 tooltips long">
-                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext"><?php if(!empty($results['comm_mother_employment'])) echo $results['comm_mother_employment']; else echo "None"; ?></span>
-                                                </div>
+		                                                <div class="col-md-1 col-xs-1 tooltips long">
+		                                                    <i class="fa fa-eye " aria-hidden="true"></i><span class="tooltiptext "><?php if(!empty($results['comm_mother_employment'])) echo $results['comm_mother_employment']; else echo "None"; ?></span>
+		                                                </div>
                                             </div>
                                             <div class="col-xs-12">
                                                 <div class="col-md-6 col-xs-6">
@@ -777,10 +777,10 @@
                                                 <div class="row com-box">
                                                     <div class="col-xs-12">
                                                         <div class="col-md-3 col-xs-6">
-                                                            <p>Expectation Food</p>
+                                                            Expectation Food
                                                         </div>
                                                         <div class="col-md-8 col-xs-6">
-                                                            <p><b><?php echo $results['phy_expectationfood_name']; ?></b></p>
+                                                            <b><?php echo $results['phy_expectationfood_name']; ?></b>
                                                         </div>
                                                     </div>
                                                 </div>
