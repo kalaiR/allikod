@@ -1246,7 +1246,7 @@ p2
   margin-bottom: 10px;
   text-align: center;
 }
-.popupbox .baamini
+.popupbox .baamini, .popupbox_horoscope_tab .baamini
 {
   font-family: baamini;
   font-size: 12px !important;
