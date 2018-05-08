@@ -52,7 +52,7 @@ if($_SERVER['SERVER_ADDR'] === '::1' || $_SERVER['SERVER_ADDR'] === '127.0.0.1')
 	$db['default']['hostname'] = 'localhost';
 	$db['default']['username'] = 'root';
 	$db['default']['password'] = 'root';
-	$db['default']['database'] = 'vallikodi_live_30_09_17';
+	$db['default']['database'] = 'vallikodi';
 
 }
 //Local IP address (Testing server)
@@ -83,7 +83,7 @@ else{
 	$db['default']['hostname'] = 'localhost';
 	$db['default']['username'] = 'root';
 	$db['default']['password'] = 'V@lL#k0D#';
-	$db['default']['database'] = 'vallikodi_live_30_09_17';
+	$db['default']['database'] = 'vallikodi';
 }
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';

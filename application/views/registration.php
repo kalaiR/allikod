@@ -203,10 +203,29 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                     </div>
                                     <div class="search_btn">
                                         
-                                    </div>      
+                                    </div> 
+                                    <div class="popupbox_outer"> 
+                                    
+                                        <div class="popupbox">   
+                                          <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                          <p class="baamini">தயவுசெய்து அனைத்து<br> விவரங்களையும் பதிவு செய்யவும்.<br> அப்பொழுதுதான் தங்களின் <br>விண்ணப்பம் இலவச<br> இனைப்பு செய்யபடும்.</p>
+                                       </div>
+                                    </div> 
+                             
+
                              </div>
+
+                             
                             </div>
-                        </div>       
+                              <div class="popupbox_mob">   
+                                  <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                
+                                  <p class="baamini">தயவுசெய்து அனைத்து விவரங்களையும் பதிவு செய்யவும். அப்பொழுதுதான் தங்களின் விண்ணப்பம் இலவச இனைப்பு செய்யபடும்.</p>
+
+                               </div>
+                        </div>
+                        
+                          
                         <div role="tabpanel" class="tab-pane fade in" id="ethnicity-field">
                             <div class="row">
                                 <div class="col-sm-12 aline-center-box">
@@ -395,8 +414,21 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>     
                                         </div>
                                     </div>
+                                    <div class="popupbox_outer"> 
+                                    
+                                        <div class="popupbox">   
+                                          <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                          <p class="baamini">தயவுசெய்து அனைத்து<br> விவரங்களையும் பதிவு செய்யவும்.<br> அப்பொழுதுதான் தங்களின் <br>விண்ணப்பம் இலவச<br> இனைப்பு செய்யபடும்.</p>
+                                       </div>
+                                    </div>
                                 </div>    
-                            </div>                          
+                            </div> 
+                            <div class="popupbox_mob">   
+                                  <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                
+                                  <p class="baamini">தயவுசெய்து அனைத்து விவரங்களையும் பதிவு செய்யவும். அப்பொழுதுதான் தங்களின் விண்ணப்பம் இலவச இனைப்பு செய்யபடும்.</p>
+
+                               </div>                         
                         </div>
                         <div role="tabpanel" class="tab-pane fade in" id="education-field">
                              <div class="row">
@@ -512,8 +544,21 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                    <span id="occupationdetail_error" class="registration-error"></span>
                                                 </div>     
                                             </div>
-                                        </div>                          
+                                        </div>
+                                        <div class="popupbox_outer"> 
+                                    
+                                            <div class="popupbox">   
+                                              <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                              <p class="baamini">தயவுசெய்து அனைத்து<br> விவரங்களையும் பதிவு செய்யவும்.<br> அப்பொழுதுதான் தங்களின் <br>விண்ணப்பம் இலவச<br> இனைப்பு செய்யபடும்.</p>
+                                           </div>
+                                       </div>                          
                                 </div>
+                            </div>
+                            <div class="popupbox_mob">   
+                                  <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                
+                                  <p class="baamini">தயவுசெய்து அனைத்து விவரங்களையும் பதிவு செய்யவும். அப்பொழுதுதான் தங்களின் விண்ணப்பம் இலவச இனைப்பு செய்யபடும்.</p>
+
                             </div>
                         </div>                         
                         <div role="tabpanel" class="tab-pane fade in" id="com-field">
@@ -830,7 +875,20 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div> -->     
                                             </div>
                                         </div>
+                                        <div class="popupbox_outer"> 
+                                    
+                                            <div class="popupbox">   
+                                              <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                              <p class="baamini">தயவுசெய்து அனைத்து<br> விவரங்களையும் பதிவு செய்யவும்.<br> அப்பொழுதுதான் தங்களின் <br>விண்ணப்பம் இலவச<br> இனைப்பு செய்யபடும்.</p>
+                                           </div>
+                                       </div>
                                 </div>                         
+                            </div>
+                            <div class="popupbox_mob">   
+                                  <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                
+                                  <p class="baamini">தயவுசெய்து அனைத்து விவரங்களையும் பதிவு செய்யவும். அப்பொழுதுதான் தங்களின் விண்ணப்பம் இலவச இனைப்பு செய்யபடும்.</p>
+
                             </div>
                         </div>    
                         <div role="tabpanel" class="tab-pane fade in" id="exceptation-field">
@@ -1008,7 +1066,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                  <h4>Age *</h4>
                                                 </div>    
                                             </div>
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-2 box">
                                                 <select class="form-control" name="search_age_from[]" id="search_age_from">
                                                     <?php 
                                                     for($i=18;$i<=60;$i++){ ?>
@@ -1017,7 +1075,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     } ?>
                                                 </select>
                                             </div>
-                                            <div class="col-sm-4 box">
+                                            <div class="col-sm-2 box">
                                                 <select class="form-control" name="search_age_to[]" id="search_age_to">
                                                     <?php 
                                                     for($i=18;$i<=60;$i++){
@@ -1113,12 +1171,25 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                             </div>   -->   
                                     </div>
                                 </div>
+                                <div class="popupbox_outer"> 
+                                    
+                                        <div class="popupbox">   
+                                          <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                          <p class="baamini">தயவுசெய்து அனைத்து<br> விவரங்களையும் பதிவு செய்யவும்.<br> அப்பொழுதுதான் தங்களின் <br>விண்ணப்பம் இலவச<br> இனைப்பு செய்யபடும்.</p>
+                                       </div>
+                                </div>
                             </div>  
-                            </div>                         
+                            </div> 
+                            <div class="popupbox_mob">   
+                                  <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                
+                                  <p class="baamini">தயவுசெய்து அனைத்து விவரங்களையும் பதிவு செய்யவும். அப்பொழுதுதான் தங்களின் விண்ணப்பம் இலவச இனைப்பு செய்யபடும்.</p>
+
+                            </div>                        
                         </div>
                         <div role="tabpanel" class="tab-pane fade in" id="horoscope-field">
                         <div class="row">
-                            <div class="col-sm-10 aline-center-box">
+                            <div class="col-sm-8 aline-center-box">
                                      <!-- <div class="col-sm-3 aline-center-box box">
                                         <div class="height_item">      
                                             <h3 id="white">Image</h3>.
@@ -1165,7 +1236,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                         </div>
                         <!-- Horo Scope Start -->
                         <div class="row">
-                            <div class="col-sm-12 aline-center-box">
+                            <div class="col-sm-8 aline-center-box">
                              <div class="col-sm-3 aline-center-box box">
                                 <div class="height_item">      
                                     <h3 id="white">Horoscope</h3>.
@@ -1214,7 +1285,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                         <option value="r_10"> &#2986;&#3009;&#2980;&#2985;&#3021;</option> 
                                                     </select>
 
-                                                    <select id="box_id" style="width: 70px" class="drop_horo styled-select blue semi-square" >
+                                                    <select id="box_id" style="width: 45px" class="drop_horo styled-select blue semi-square" >
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -1281,7 +1352,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                             <option value="a_10"> &#2986;&#3009;&#2980;&#2985;&#3021;</option> 
                                                         </select>
 
-                                                        <select id="ashambox_id" style="width: 70px" class="drop_horo styled-select blue semi-square" >
+                                                        <select id="ashambox_id" style="width: 45px" class="drop_horo styled-select blue semi-square" >
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
                                                             <option value="3">3</option>
@@ -1309,8 +1380,22 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                     </div> <!-- row ends -->
                                 </div>
                             </div>
+                            <div class="popupbox_outer"> 
+                                    
+                                        <div class="popupbox_horoscope_tab">   
+                                          <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                          <p class="baamini">தயவுசெய்து அனைத்து<br> விவரங்களையும் பதிவு செய்யவும்.<br> அப்பொழுதுதான் தங்களின் <br>விண்ணப்பம் இலவச<br> இனைப்பு செய்யபடும்.</p>
+                                       </div>
+                            </div>
+
                         </div>
                         <!-- Horo Scope End -->
+                        <div class="popupbox_mob">   
+                                  <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                
+                                  <p class="baamini">தயவுசெய்து அனைத்து விவரங்களையும் பதிவு செய்யவும். அப்பொழுதுதான் தங்களின் விண்ணப்பம் இலவச இனைப்பு செய்யபடும்.</p>
+
+                        </div>
                     </div>
                 
                         <div class="col-sm-4 pull-right next-box"> 

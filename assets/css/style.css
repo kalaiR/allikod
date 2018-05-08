@@ -61,6 +61,12 @@ Table of Content:
 */
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
+@font-face 
+{
+    font-family: baamini;
+    src: url(../fonts/baamini.ttf);
+}
+
 ul {
   list-style: none;
   margin: 0px;
@@ -583,6 +589,7 @@ p2
     visibility: visible;
     left: 0%;
   }
+ 
 }
 
 .header_menu_area .navbar-default .navbar-collapse .navbar-nav.navbar-right {
@@ -1214,7 +1221,51 @@ p2
   cursor: pointer;
   line-height: normal;
 }
-
+.tab-content .popupbox
+{
+   position: relative;
+   left: 900px;
+   bottom: 290px;
+}
+.popupbox_horoscope_tab
+{
+   position: relative;
+   left: 960px;
+   bottom: 290px;
+}
+.popupbox_outer
+{
+  position: absolute;
+}
+.popupbox p,.popupbox_mob p
+{
+  color:#fff;
+  border:2px solid #fff;
+  border-radius: 25px;
+  background: #5c7500;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.popupbox .baamini
+{
+  font-family: baamini;
+  font-size: 12px !important;
+}
+.popupbox_mob
+{
+  display: none;
+}
+@media (max-width: 768px) 
+{
+  .popupbox_mob
+  {
+     display: block;
+  }
+  .popupbox
+  {
+    display: none;
+  }
+}
 /* End Main Menu area css
 ============================================================================================ */
 /*---------------------------------------------------- */
