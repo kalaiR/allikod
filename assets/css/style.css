@@ -1237,7 +1237,7 @@ p2
 {
   position: absolute;
 }
-.popupbox p,.popupbox_mob p
+.popupbox p,.popupbox_mob p ,.popupbox_horoscope_tab p
 {
   color:#fff;
   border:2px solid #fff;

@@ -207,7 +207,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                     <div class="popupbox_outer"> 
                                     
                                         <div class="popupbox">   
-                                          <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                          <p>Please fill all the details, only<br> then your application will<br> be activated for free status</p>
                                           <p class="baamini">தயவுசெய்து அனைத்து<br> விவரங்களையும் பதிவு செய்யவும்.<br> அப்பொழுதுதான் தங்களின் <br>விண்ணப்பம் இலவச<br> இனைப்பு செய்யபடும்.</p>
                                        </div>
                                     </div> 
@@ -218,7 +218,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                              
                             </div>
                               <div class="popupbox_mob">   
-                                  <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                  <p>Please fill all the details, only<br> then your application will<br> be activated for free status</p>
                                 
                                   <p class="baamini">தயவுசெய்து அனைத்து விவரங்களையும் பதிவு செய்யவும். அப்பொழுதுதான் தங்களின் விண்ணப்பம் இலவச இனைப்பு செய்யபடும்.</p>
 
@@ -417,14 +417,14 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                     <div class="popupbox_outer"> 
                                     
                                         <div class="popupbox">   
-                                          <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                          <p>Please fill all the details, only<br> then your application will<br> be activated for free status</p>
                                           <p class="baamini">தயவுசெய்து அனைத்து<br> விவரங்களையும் பதிவு செய்யவும்.<br> அப்பொழுதுதான் தங்களின் <br>விண்ணப்பம் இலவச<br> இனைப்பு செய்யபடும்.</p>
                                        </div>
                                     </div>
                                 </div>    
                             </div> 
                             <div class="popupbox_mob">   
-                                  <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                  <p>Please fill all the details, only<br> then your application will<br> be activated for free status</p>
                                 
                                   <p class="baamini">தயவுசெய்து அனைத்து விவரங்களையும் பதிவு செய்யவும். அப்பொழுதுதான் தங்களின் விண்ணப்பம் இலவச இனைப்பு செய்யபடும்.</p>
 
@@ -548,14 +548,14 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                         <div class="popupbox_outer"> 
                                     
                                             <div class="popupbox">   
-                                              <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                              <p>Please fill all the details, only<br> then your application will<br> be activated for free status</p>
                                               <p class="baamini">தயவுசெய்து அனைத்து<br> விவரங்களையும் பதிவு செய்யவும்.<br> அப்பொழுதுதான் தங்களின் <br>விண்ணப்பம் இலவச<br> இனைப்பு செய்யபடும்.</p>
                                            </div>
                                        </div>                          
                                 </div>
                             </div>
                             <div class="popupbox_mob">   
-                                  <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                  <p>Please fill all the details, only<br> then your application will<br> be activated for free status</p>
                                 
                                   <p class="baamini">தயவுசெய்து அனைத்து விவரங்களையும் பதிவு செய்யவும். அப்பொழுதுதான் தங்களின் விண்ணப்பம் இலவச இனைப்பு செய்யபடும்.</p>
 
@@ -878,14 +878,14 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                         <div class="popupbox_outer"> 
                                     
                                             <div class="popupbox">   
-                                              <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                              <p>Please fill all the details, only<br> then your application will<br> be activated for free status</p>
                                               <p class="baamini">தயவுசெய்து அனைத்து<br> விவரங்களையும் பதிவு செய்யவும்.<br> அப்பொழுதுதான் தங்களின் <br>விண்ணப்பம் இலவச<br> இனைப்பு செய்யபடும்.</p>
                                            </div>
                                        </div>
                                 </div>                         
                             </div>
                             <div class="popupbox_mob">   
-                                  <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                  <p>Please fill all the details, only<br> then your application will<br> be activated for free status</p>
                                 
                                   <p class="baamini">தயவுசெய்து அனைத்து விவரங்களையும் பதிவு செய்யவும். அப்பொழுதுதான் தங்களின் விண்ணப்பம் இலவச இனைப்பு செய்யபடும்.</p>
 
@@ -1174,14 +1174,14 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                 <div class="popupbox_outer"> 
                                     
                                         <div class="popupbox">   
-                                          <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                          <p>Please fill all the details, only<br> then your application will<br> be activated for free status</p>
                                           <p class="baamini">தயவுசெய்து அனைத்து<br> விவரங்களையும் பதிவு செய்யவும்.<br> அப்பொழுதுதான் தங்களின் <br>விண்ணப்பம் இலவச<br> இனைப்பு செய்யபடும்.</p>
                                        </div>
                                 </div>
                             </div>  
                             </div> 
                             <div class="popupbox_mob">   
-                                  <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                  <p>Please fill all the details, only<br> then your application will<br> be activated for free status</p>
                                 
                                   <p class="baamini">தயவுசெய்து அனைத்து விவரங்களையும் பதிவு செய்யவும். அப்பொழுதுதான் தங்களின் விண்ணப்பம் இலவச இனைப்பு செய்யபடும்.</p>
 
@@ -1383,7 +1383,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                             <div class="popupbox_outer"> 
                                     
                                         <div class="popupbox_horoscope_tab">   
-                                          <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                          <p>Please fill all the details, only<br> then your application will<br> be activated for free status</p>
                                           <p class="baamini">தயவுசெய்து அனைத்து<br> விவரங்களையும் பதிவு செய்யவும்.<br> அப்பொழுதுதான் தங்களின் <br>விண்ணப்பம் இலவச<br> இனைப்பு செய்யபடும்.</p>
                                        </div>
                             </div>
@@ -1391,7 +1391,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                         </div>
                         <!-- Horo Scope End -->
                         <div class="popupbox_mob">   
-                                  <p>Please fill all the details than<br> only your application should<br> be activated in the free status</p>
+                                  <p>Please fill all the details, only<br> then your application will<br> be activated for free status</p>
                                 
                                   <p class="baamini">தயவுசெய்து அனைத்து விவரங்களையும் பதிவு செய்யவும். அப்பொழுதுதான் தங்களின் விண்ணப்பம் இலவச இனைப்பு செய்யபடும்.</p>
 
