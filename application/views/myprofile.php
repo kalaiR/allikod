@@ -330,12 +330,30 @@
                                                 </div>
                                                 <div class="col-xs-12">
                                                     <div class="col-md-6 col-xs-6">
+                                                    <p>Caste</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p>Data</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Sub Caste</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p>Data</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
                                                     <p>Dhosham</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
                                                          <p><?php if(!empty($dhosham['name'])) echo $dhosham['name']; else echo "None"; ?></p>
                                                     </div>
-                                                </div>
+                                                </div>                                           
+                                            </div>
+                                            <div class="col-md-6">
                                                 <div class="col-xs-12">
                                                     <div class="col-md-6 col-xs-6">
                                                     <p>Nakshathra</p>
@@ -343,9 +361,7 @@
                                                     <div class="col-md-6 col-xs-6 dark">
                                                         <p><?php if(!empty($results['nakshathra_name'])) echo $results['nakshathra_name']; else echo "None"; ?></p>
                                                     </div>
-                                                </div>                                           
-                                            </div>
-                                            <div class="col-md-6">
+                                                </div>
                                                 <div class="col-xs-12">              
                                                     <div class="col-md-6 col-xs-6">
                                                     <p>Luknam</p>

@@ -625,6 +625,22 @@
                                             </div>
                                             <div class="row com-box">
                                                 <div class="col-md-5">
+                                                    <p><b>Caste</b></p>
+                                                </div>
+                                                <div class="col-md-5">       
+                                                    <input type="text" class="form-control" id="reg_Name" placeholder="Vanniar"  disabled="disabled" value="">
+                                                 </div>
+                                            </div>
+                                            <div class="row com-box">
+                                                <div class="col-md-5">
+                                                    <p><b>Sub Caste</b></p>
+                                                </div>
+                                                <div class="col-md-5">       
+                                                    <input type="text" class="form-control" id="reg_Name" placeholder="Sub caste" value="">
+                                                 </div>
+                                            </div>
+                                            <div class="row com-box">
+                                                <div class="col-md-5">
                                                     <p><b>Dhosham</b></p>
                                                 </div>
                                                 <div class="col-md-5">
@@ -647,8 +663,10 @@
                                                     </select>
                                                  </div>
                                             </div>
+                                        </div>
+                                        <div class="col-md-6 text-boxs">
                                             <div class="row com-box">
-                                                <div class="col-md-5">
+                                                <div class="col-md-4">
                                                     <p><b>Nakshathra *</b></p>
                                                 </div>
                                                 <div class="col-md-6">       
@@ -664,8 +682,6 @@
                                                     </select>     
                                                  </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6 text-boxs">
                                             <div class="row com-box">
                                                 <div class="col-md-4">
                                                     <p><b>Luknam</b></p>

@@ -283,13 +283,29 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <div class="col-md-6 col-xs-6 dark">
                                                         <p><?php if(!empty($results['rel_timeofbirth'])) echo $results['rel_timeofbirth']; else echo "None"; ?></p>
                                                     </div>
-                                                </div>        
+                                                </div>
                                                 <div class="col-xs-12">
                                                     <div class="col-md-6 col-xs-6">
                                                     <p>Mother Tongue</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
                                                         <p><?php if(!empty($results['mother_tongue_name'])) echo $results['mother_tongue_name']; else echo "None"; ?></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Caste</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p>Data</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-6 col-xs-6">
+                                                    <p>Sub Caste</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-6 dark">
+                                                        <p>Data</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
@@ -301,7 +317,9 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                             if(!empty($dhosham['name'])) echo $dhosham['name']; else echo "None"; ?>
                                                         </p>                         
                                                     </div>
-                                                </div>
+                                                </div>                                         
+                                            </div>
+                                            <div class="col-md-6">
                                                 <div class="col-xs-12">
                                                     <div class="col-md-6 col-xs-6">
                                                     <p>Nakshathra</p>
@@ -311,9 +329,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                         if(!empty($results['nakshathra_name'])) echo $results['nakshathra_name']; else echo "None"; ?>
                                                         </p> 
                                                     </div>
-                                                </div>                                         
-                                            </div>
-                                            <div class="col-md-6">
+                                                </div>
                                                 <div class="col-xs-12">              
                                                     <div class="col-md-6 col-xs-6">
                                                     <p>Luknam</p>

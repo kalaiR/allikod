@@ -271,6 +271,10 @@
 												<label class="control-label" for="focusedInput">Caste : </label>
 												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['rel_caste'])) echo $customeruser_values['rel_caste']; else echo "--"; ?></label>
 											  </div>
+											  <div class="control-group">
+												<label class="control-label" for="focusedInput">Sub Caste : </label>
+												<label class="control-label" for="focusedInput">Data</label>
+											  </div>
 											  	<div class="control-group">
 													<label class="control-label" for="focusedInput">Dhosham : </label>
 													<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['dhosham_name'])) echo $customeruser_values['dhosham_name']; else echo "--"; ?></label>

@@ -297,7 +297,20 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                               <input type="text" class="form-control" id="reg_caste" name="reg_caste"placeholder="Caste" value="Vanniar" readonly="readonly">
+                                               <input type="text" class="form-control" id="reg_caste" name="reg_caste" placeholder="Caste" value="Vanniar" readonly="readonly">
+                                            </div>
+                                            <!-- <div class="col-sm-4 box">
+                                               <span id="mother_error" class="registration-error"></span>
+                                            </div>  -->    
+                                        </div>
+                                        <div class="row base-box">
+                                            <div class="col-sm-4">
+                                                <div class="height_item">
+                                                  <h4>Sub Caste</h4>
+                                                </div>    
+                                            </div>
+                                            <div class="col-sm-4">
+                                               <input type="text" class="form-control" id="reg_caste" name="reg_caste" placeholder="Sub caste" value="">
                                             </div>
                                             <!-- <div class="col-sm-4 box">
                                                <span id="mother_error" class="registration-error"></span>
