@@ -167,6 +167,12 @@
                                 <!--li><a href="<?php //echo base_url(); ?>mymatches">Matches</a></li-->
                                 <li><a href="<?php echo base_url(); ?>myprofile">My Profile</a></li>
                                 <li><a href="<?php echo base_url(); ?>myview">My View</a></li>
+                                <li><a href="" class="dropdown_interest">My Interest</a>
+                                    <ul class="dropdown-content_int">
+                                        <li><a href="<?php echo base_url(); ?>sent_interest">Sent</a></li>
+                                        <li><a href="<?php echo base_url(); ?>receive_interest">Receive</a></li>
+                                    </ul>
+                                </li>
                                 <li id="log"><a href="<?php echo base_url(); ?>logout">Logout</a></li>
                             </ul>
                         </li>

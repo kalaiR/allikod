@@ -167,3 +167,16 @@
         var $imageupload = $('.imageupload');
         $imageupload.imageupload();
     </script>
+     <script type="text/javascript">
+        $(document).ready(function() {
+                $('#interest_clicked').on('click', () => {
+                    $('#interest_clicked').text('Interest sent')
+                    // $('#interest_clicked').css("background-color", "#5c7500");
+                    // $('#interest_clicked').css("color", "#fff");
+                    // $('#interest_clicked').css("font-weight", "700");
+                    // $('#interest_clicked').addClass("interest_btn_clicked");
+                    $("#interest_clicked").addClass("interest_btn_clicked");
+                })
+            });
+
+    </script>

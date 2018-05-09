@@ -80,6 +80,8 @@ $route['404page'] 							= "base/error404_page";
 $route['500page'] 							= "base/error500_page";
 $route['filter_search'] 					= "base/filter_search";
 $route['filter_search/(:any)'] 				= "base/filter_search/$1";
+$route['sent_interest'] 					= "base/sent_interest";
+$route['receive_interest'] 					= "base/receive_interest";
 
 
 // $route['admin'] 							= "admin/base/index";

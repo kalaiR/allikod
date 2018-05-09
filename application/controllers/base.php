@@ -201,6 +201,12 @@ class Base extends CI_Controller {
 	public function post_success(){
 		$this->load->view('post');
 	}
+	public function sent_interest(){
+		$this->load->view('sent_interest');
+	}
+	public function receive_interest(){
+		$this->load->view('receive_interest');
+	}
 	public function myview(){
 		$login_session = $this->session->userdata("login_session");
 		$user_id = $login_session['userdetail_id'];

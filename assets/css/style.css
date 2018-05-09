@@ -1255,6 +1255,51 @@ p2
 {
   display: none;
 }
+.interested_btn
+{
+  margin-left: 350px;
+  margin-top: -45px;
+  margin-bottom: 30px;
+}
+.interested_btn button
+{
+  width: 160px;
+  height: 50px;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #e74c3c;
+  border:0 !important;
+  box-shadow:0 !important;
+}
+.interest_btn_clicked
+{
+  color:#fff !important;
+  background-color:#5c7500 !important;
+  background-image: url(../img/check-mark.png) !important; 
+  background-repeat: no-repeat !important;
+  font-weight: 700 !important;
+  background-position: 88% 53% !important;
+  padding-right: 30px;
+}
+.dropdown_interest
+{
+    position: relative;
+}
+.dropdown-content_int 
+{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 170px;
+    width: 125px;
+    bottom: 1px;
+}
+.dropdown-menu li:hover .dropdown-content_int 
+{
+   display: block !important;
+}
+
 @media (max-width: 768px) 
 {
   .popupbox_mob
@@ -1264,6 +1309,12 @@ p2
   .popupbox
   {
     display: none;
+  }
+  .interested_btn
+  {
+    margin-left: 30px;
+    margin-top: 0;
+
   }
 }
 /* End Main Menu area css

@@ -137,8 +137,13 @@ if(!empty($session_search['search_inputs']['offset'])){
                                         <ul>
                                             <li><a><?php echo $results['user_fname']; ?></a></li>
                                             <li><a><?php echo $results['userdetail_id']; ?></a></li>
-                                        </ul>                                        
-                                    </div>                  
+                                        </ul>
+
+                                    </div> 
+                                    <div class="interested_btn">
+                                        <button type="submit" value="submit" class="" id="interest_clicked"><strong>Send Interest</strong></button> 
+                                    </div> 
+
                                 </div>
                                  <div class="members_about_box">                                    
                                     <h3 id="hcolor">Communication Detail</h3>
