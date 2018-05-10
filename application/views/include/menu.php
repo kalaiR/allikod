@@ -28,9 +28,9 @@
      <div class="box">
         <input type="text" placeholder="email" name="email_id" name="email_id" data-message="Email" class="form_inputs email_value">
      </div>   
-       <div class="login_btn_area">
+     <div class="login_btn_area">
            <button type="submit" value="LogIn" class="btn form-control login_btn" name="user-submit" id="user_submit">Send</button>
-       </div>
+     </div>
    </form>
    <img class="mfp-close" src="<?php echo media_url(); ?>assets/img/close-btn.png" alt="">
 </div>       
