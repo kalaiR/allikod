@@ -46,14 +46,19 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
         </tr>
             <tr style="color:black;margin-top:5px; margin-left: 45px; ">
                     <!-- <p1>Welcome to Vallikodi Vanniar Matrimonial.Thanks for Registered with us.Our support team will contact you soon for Verification process.We will activate your account once finished our Verification process. (Net Banking payment will be avilable)<p1> -->
-               <tr>
-                    <td><p style="margin:0 30px; text-align: justify;" >Welcome to Vallikodi Matrimonial!<br><br>Thanks for registering with us.  You have completed your quick registration process. Kindly fill in all the details to find the best matching profiles.<br>Our support team will contact you soon for Verification Process and your profile will be activated once the Verification process is done.</p></td>
-                </tr>      
+                <tr>
+                    <td><p style="margin:0 30px; text-align: justify;" >Here are exculsive matches for you. <p></td>
+                </tr>
             </tr>
             
             <tr style="color:black;margin-top:5px; margin-left: 30px; font-weight: bold; ">
                 <td><p style="margin:10px 30px; padding-bottom:15px;">Suggested Profile :- </p></td>
             </tr>
+             <tr style="color:black;margin-top:5px; margin-left: 30px; ">
+                <td><p style="margin:10px 30px; padding-bottom:15px;">Recently registered profiles are shown below :- </p></td>
+            </tr>
+                      
+
             <tr style="color:black">
                 <tr style="color: rgba(0,0,0,); text-align:center;">
                     <td style="width: 200px; display: inline-block; /*background-color:rgba(192,192,192,0.2);*/ padding:15px; margin-right:15px; border-radius: 25px; border: 1px solid rgba(192,192,192,0.5);">
