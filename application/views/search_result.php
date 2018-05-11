@@ -537,6 +537,267 @@ include('include/menu.php');
                                 <?php endforeach; ?>  
                         </div>
                     </div>
+                    <div class="col-md-12">
+                        <div class="right_sidebar_area">
+                            <aside class="s_widget categories_widget">
+                                <ul>
+                                    <li><a href="#"><img src="img/categories-list.png" alt=""><b>District</b></a></li>
+                                </ul>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Kancheepuram
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Chennai
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Vellore
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Thiruvallur
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Salem
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Viluppuram
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Coimbatore
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Tirunelveli
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Madurai
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">    
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Tiruchirappalli
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Cuddalore
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Tiruppur
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Tiruvannamalai
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Thanjavur
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Erode
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">   
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Dindigul
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Virudhunagar
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Krishnagiri
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Kanniyakumari
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Thoothukkudi
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Namakkal
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Pudukkottai
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Nagapattinam
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Dharmapuri
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Ramanathapuram
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Sivaganga
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Thiruvarur
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Theni
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Karur
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Ariyalur
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">The Nilgiris
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Perambalur
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Puducherry
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Karaikal
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Yanam
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="btype_act" value="">Mahe
+                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        
+                                        </label>
+                                </div>
+  
+                        </div>
+                    </div>
                 <?php //endif; ?>
             </form>
         </div>

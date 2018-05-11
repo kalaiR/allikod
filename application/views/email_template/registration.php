@@ -57,7 +57,7 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
             <tr style="color:black">
                 <tr style="color: rgba(0,0,0,); text-align:center;">
                     <td style="width: 200px; display: inline-block; /*background-color:rgba(192,192,192,0.2);*/ padding:15px; margin-right:15px; border-radius: 25px; border: 1px solid rgba(192,192,192,0.5);">
-                        <img style="max-width: 100%;" src="assets/img/no_image.jpg">
+                        <a href="#"><img style="max-width: 100%;" src="assets/img/no_image.jpg"></a>
                         <p><a href="#" style="text-decoration: none; color:#000;font-size: 12px;">Id:123</a></p>
                         <p style="font-size: 11px;"><span style="padding:0 5px">25 yrs,</span><span style="padding:0 5px">BE,</span><span style="padding:0 5px">Star</span></p>
                     </td>
