@@ -59,7 +59,7 @@
 					<!-- <span class="notification green">4</span> -->
 				</a>
 
-				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin/customer_user">
+				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo base_url(); ?>admin/customer_user_new">
 					<span class="icon32 icon-green icon-users"></span>
 					<div>Customer</div>
 					<!-- <div>$13320</div> -->

@@ -273,7 +273,7 @@
 											  </div>
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Sub Caste : </label>
-												<label class="control-label" for="focusedInput">Data</label>
+												<label class="control-label" for="focusedInput"><?php if(!empty($customeruser_values['rel_subcaste'])) echo $customeruser_values['rel_subcaste']; else echo "--"; ?></label>
 											  </div>
 											  	<div class="control-group">
 													<label class="control-label" for="focusedInput">Dhosham : </label>

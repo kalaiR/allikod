@@ -288,6 +288,9 @@ class Base extends CI_Controller {
 				if(!empty($form_data['reg_caste'])){
 					$data_reg['rel_caste']= $form_data['reg_caste'];
 				}
+				if(!empty($form_data['reg_subcaste'])){
+					$data_reg['rel_subcaste']= $form_data['reg_subcaste'];
+				}
 				if(!empty($form_data['reg_Dhosham'])){
 					$data_reg['rel_dhosham']= $form_data['reg_Dhosham'];
 				}

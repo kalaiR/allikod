@@ -302,7 +302,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p>Caste</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p>Data</p>
+                                                        <p><?php if(!empty($results['rel_caste'])) echo $results['rel_caste']; else echo "None"; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
@@ -310,7 +310,7 @@ if(!empty($session_search['search_inputs']['offset'])){
                                                     <p>Sub Caste</p>
                                                     </div>
                                                     <div class="col-md-6 col-xs-6 dark">
-                                                        <p>Data</p>
+                                                        <p><?php if(!empty($results['rel_subcaste'])) echo $results['rel_subcaste']; else echo "None"; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
