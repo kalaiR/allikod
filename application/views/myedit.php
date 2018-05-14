@@ -636,7 +636,7 @@
                                                     <p><b>Sub Caste</b></p>
                                                 </div>
                                                 <div class="col-md-5">       
-                                                    <input type="text" class="form-control" id="reg_Name" placeholder="Sub caste" value="">
+                                                    <input type="text" class="form-control" id="reg_Name" placeholder="Sub caste"  value="<?php echo $customeruser_values['rel_subcaste']; ?>" name="cus_subcaste">
                                                  </div>
                                             </div>
                                             <div class="row com-box">

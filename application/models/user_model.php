@@ -1012,6 +1012,7 @@ class User_model extends CI_Model {
                     'rel_luknam_id' => ($this->input->post('cus_lukhnam')) ? $this->input->post('cus_lukhnam') : NULL,
                     'rel_gothra' => "Sambu Maharishi Gothra",
                     'rel_zodiacsign_id' => ($this->input->post('cus_zodiac')) ? $this->input->post('cus_zodiac') : NULL,
+                    'rel_subcaste' => $this->input->post('cus_subcaste'),
                               );
             // print_r($religion_ethnicity_update_data);
             $education_occupation_update_data = array(

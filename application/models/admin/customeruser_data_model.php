@@ -887,8 +887,9 @@ class Customeruser_data_model extends CI_Model {
 				'rel_luknam_id' => ($this->input->post('cus_lukhnam')) ? $this->input->post('cus_lukhnam') : NULL,
 				// 'rel_gothra' => "Sambu Maharishi Gothra",
 				'rel_zodiacsign_id' => ($this->input->post('cus_zodiac')) ? $this->input->post('cus_zodiac') : NULL,
+				'rel_subcaste' => $this->input->post('cus_subcaste'),
             );
-	  //   	// print_r($religion_ethnicity_update_data);
+	    	// print_r($religion_ethnicity_insert_data);
 	    	$education_occupation_insert_data = array(
 	    		'reg_user_id' => $last_insert_id,
 				'edu_education' => ($this->input->post('cus_education')) ? $this->input->post('cus_education') : NULL,

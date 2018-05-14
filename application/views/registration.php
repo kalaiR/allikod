@@ -310,7 +310,7 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                 </div>    
                                             </div>
                                             <div class="col-sm-4">
-                                               <input type="text" class="form-control" id="reg_caste" name="reg_caste" placeholder="Sub caste" value="">
+                                               <input type="text" class="form-control" id="reg_subcaste" name="reg_subcaste" placeholder="Sub caste" value="">
                                             </div>
                                             <!-- <div class="col-sm-4 box">
                                                <span id="mother_error" class="registration-error"></span>

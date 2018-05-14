@@ -272,7 +272,7 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Sub Caste :</label>
 												<div class="controls">
-												  <input class="input-xlarge focused" id="focusedInput" type="text" value="" name="">
+												  <input class="input-xlarge focused" id="focusedInput" type="text" value="" name="cus_subcaste">
 												</div>												
 											  </div>
 											  	<div class="control-group">
