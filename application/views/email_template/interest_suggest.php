@@ -46,7 +46,7 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
         </tr>
                 <tr style="color:black;margin-top:5px; margin-left: 45px; ">
                    <tr>
-                        <td><p style="margin:10 30px;">  Profile name is interested in your profile.</p></td>
+                        <td><p style="margin:10 30px;">Profile name is interested in your profile, Kindly log in using your vallikodi ID or click on the profile below to know more about the candidate.</p></td>
                     </tr>      
                 </tr>
                 <tr style="color:black">

@@ -1224,7 +1224,7 @@ p2
 .tab-content .popupbox
 {
    position: relative;
-   left: 900px;
+   left: 960px;
    bottom: 290px;
 }
 .popupbox_horoscope_tab
@@ -1250,6 +1250,7 @@ p2
 {
   font-family: baamini;
   font-size: 12px !important;
+  font-weight: bold;
 }
 .popupbox_mob
 {
