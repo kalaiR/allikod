@@ -38,7 +38,7 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
         </tr>
         <tr>
             <td>
-                <img style="margin:0 50px;" src="img/logo1.png">
+                <img style="margin:5px 50px;" src="img/logo1.png">
             </td>
         </tr>
         <tr style="color: #3c6a3c;margin-top: 30px; margin-left: 30px; font-size:25px; font-weight: bold;">
@@ -78,7 +78,7 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                     </tr>
                     <tr>
                         <td>
-                            <img style="margin:0px 30px;"src="img/fav.ico">
+                            <img style="margin:5px 30px;"src="img/fav.ico">
                         </td>
                     </tr>
                     <tr> <td style="margin:0px 30px;background-color: #5c7500;height: 1px;"></td>
