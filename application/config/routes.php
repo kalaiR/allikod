@@ -82,6 +82,9 @@ $route['filter_search'] 					= "base/filter_search";
 $route['filter_search/(:any)'] 				= "base/filter_search/$1";
 $route['sent_interest'] 					= "base/sent_interest";
 $route['receive_interest'] 					= "base/receive_interest";
+$route['send_interests'] 					= "base/send_interests";
+$route['viewdetail_from_email/(:any)'] 		= "base/viewdetail_from_email/$1";
+
 
 
 // $route['admin'] 							= "admin/base/index";

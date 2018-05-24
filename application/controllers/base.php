@@ -202,10 +202,16 @@ class Base extends CI_Controller {
 		$this->load->view('post');
 	}
 	public function sent_interest(){
-		$this->load->view('sent_interest');
+		$login_session = $this->session->userdata("login_session");
+		$user_id = $login_session['userdetail_id'];
+		$data['results'] = $this->user_model->get_interested_profile_sent($user_id);
+		$this->load->view('sent_interest',$data);
 	}
 	public function receive_interest(){
-		$this->load->view('receive_interest');
+		$login_session = $this->session->userdata("login_session");
+		$user_id = $login_session['userdetail_id'];
+		$data['results'] = $this->user_model->get_interested_profile_receive($user_id);
+		$this->load->view('receive_interest',$data);
 	}
 	public function myview(){
 		$login_session = $this->session->userdata("login_session");
@@ -1179,7 +1185,8 @@ class Base extends CI_Controller {
 		if(!empty($get_martial)){		
 			$data['expected_maritalstatus'] = $get_martial;
 		}
-
+		$data['check_send_interests'] = $this->user_model->check_send_interests($data['results']['userdetail_id']);
+		// echo $data['check_send_interests'];
 		$this->load->view('viewdetail',$data);
 	}
 	public function myprofile(){
@@ -1562,4 +1569,66 @@ class Base extends CI_Controller {
 		$data['education_category'] = $this->user_model->get_educationcategory();
 		$this->load->view('search_result',$data);
 	}
+
+	public function send_interests(){				
+		if($this->input->post()){						
+			$vallikodi_id = $this->input->post('vallikodi_id');
+			$this->user_model->set_send_interests($vallikodi_id);
+			$login_session = $this->session->userdata("login_session");
+			$data['sender_profile_details'] = $this->user_model->customer_user_profile($login_session['userdetail_id'])['customeruser_values'];
+			$data['receiver_profile_details'] = $this->user_model->customer_user_profile($vallikodi_id)['customeruser_values'];
+			// print_r($data['receiver_profile_details']);
+
+			if(!($_SERVER['SERVER_ADDR'] === '::1') && !($_SERVER['SERVER_ADDR'] === '127.0.0.1'))
+		  	{
+	  			//Email Process
+				$ci =& get_instance();	
+				$ci->config->load('email', true);
+				$emailsetup = $ci->config->item('email');
+				$this->load->library('email', $emailsetup);
+				$from_email = $emailsetup['smtp_user'];
+				$this->email->initialize($emailsetup);
+				$this->email->from($from_email, '');
+	            $this->email->to($data['receiver_profile_details']['user_email']);
+				$this->email->subject($data['sender_profile_details']['user_fname'].' (VM'.$data['sender_profile_details']['userdetail_id'].')'.' is interested in your profile');
+				// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
+				$message = $this->load->view('email_template/interest_suggest', $data, TRUE);
+				$this->email->message($message);
+				$this->email->send();
+
+				//SMS process
+				$link_text = base_url().'viewdetail_from_email/'.$data['sender_profile_details']['userdetail_id'];	
+				$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
+				$fields = array(
+				    'user'=> 'VALLIK',
+				    'pass'=> 'abcd1234',
+				    'sender'=> 'VALLIK',
+				    'phone'=> $data['receiver_profile_details']['comm_mobile_no'],
+				    // 'text'=>"Dear ".$data['receiver_profile_details']['user_fname'].", ".$data['sender_profile_details']['user_fname']." (VM".$data['sender_profile_details']['userdetail_id'].")"." is interested in your profile. Kindy check the full detail of this profile in below website"."<br/><a href='".$link_text."'>".$link_text."</a>",
+				    'text'=>"Dear ".$data['receiver_profile_details']['user_fname'].", ".$data['sender_profile_details']['user_fname']." (VM".$data['sender_profile_details']['userdetail_id'].")"." is interested in your profile. Kindy check the vallikodi website to know the full detail of this profile",
+				    'priority'=>'ndnd',
+				    'stype'=>'normal'
+				);
+				$ch = curl_init();
+				curl_setopt($ch, CURLOPT_URL, $smsurl);
+				curl_setopt($ch, CURLOPT_POST, count($fields));
+				curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($fields));
+				curl_exec($ch);
+				curl_close($ch);
+		  	}
+		}
+	}
+	public function viewdetail_from_email(){
+		$login_session = $this->session->userdata("login_session");
+		$user_id = $login_session['userdetail_id'];
+		if(!empty($user_id)){
+			preg_match("/[^\/]+$/", $this->uri->uri_string(), $values);
+			$id = $values[0];
+			redirect(base_url().'viewdetail/'.$id);
+		}
+		else{
+			redirect(base_url().'index');
+		}
+	}
+
 }

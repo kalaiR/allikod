@@ -136,14 +136,17 @@ if(!empty($session_search['search_inputs']['offset'])){
                                         </ul>
                                         <ul>
                                             <li><a><?php echo $results['user_fname']; ?></a></li>
-                                            <li><a><?php echo $results['userdetail_id']; ?></a></li>
+                                            <li><a id="vallikodi_id"><?php echo $results['userdetail_id']; ?></a></li>
                                         </ul>
 
                                     </div> 
-                                    <!-- <div class="interested_btn">
-                                        <button type="submit" value="submit" class="" id="interest_clicked"><strong>Send Interest</strong></button> 
-                                    </div>  -->
-
+                                    <div class="interested_btn">
+                                        <?php if($check_send_interests) { ?>
+                                            <button type="submit" class="interest_btn_clicked"><strong>Interest Sent</strong></button> 
+                                        <?php } else { ?>
+                                            <button type="submit" id="interest_clicked"><strong>Send Interest</strong></button>
+                                        <?php } ?>
+                                    </div> 
                                 </div>
                                  <div class="members_about_box">                                    
                                     <h3 id="hcolor">Communication Detail</h3>

@@ -33,6 +33,8 @@
                                     </h3>
                                 </div>                               
                                 <div class="profile_list">
+                                <?php 
+                                    if(!empty($results)){ ?>
                                     <div class="row myview_head">
                                         <div class="col-md-4">Vallikodi ID
                                         </div>
@@ -41,33 +43,34 @@
                                         <div class="col-md-4">Sent Date 
                                         </div>
                                     </div>
-                                    <p>you can change the functionality by refering myview.php</p>
-                                    <?php 
-                                    if(!empty($results)){
+                                    <!-- <p>you can change the functionality by refering myview.php</p> -->
+                                    <?php
                                         foreach($results as $key => $value) { 
                                             if($key % 2 == 0){ ?>                                        
                                                 <div class="row myview_con">
                                                     <div class="col-md-4">
-                                                    <a href="<?php echo base_url()."viewdetail/".$value['profile_id'];?>">
-                                                    <?php echo $value['profile_id'];?>
+                                                    <a href="<?php echo base_url()."viewdetail/".$value['receiver_profile_id'];?>">
+                                                    <?php echo $value['receiver_profile_id'];?>
                                                     </a>
                                                     </div>
                                                     <div class="col-md-4"><?php echo $value['user_fname'];?>
                                                     </div>
-                                                    <div class="col-md-4"><?php echo $value['added_date'];?>
+                                                    <div class="col-md-4"><?php echo $value['interests_created_date'];?>
                                                     </div>
                                                 </div>
                                             <?php }else{ ?>
                                                 <div class="row myview_nor">
-                                                    <div class="col-md-4"><a href="<?php echo base_url()."viewdetail/".$value['profile_id'];?>"><?php echo $value['profile_id'];?></a>
+                                                    <div class="col-md-4"><a href="<?php echo base_url()."viewdetail/".$value['receiver_profile_id'];?>"><?php echo $value['receiver_profile_id'];?></a>
                                                     </div>
                                                     <div class="col-md-4"><?php echo $value['user_fname'];?>
                                                     </div>
-                                                    <div class="col-md-4"><?php echo $value['added_date'];?> 
+                                                    <div class="col-md-4"><?php echo $value['interests_created_date'];?> 
                                                     </div>
                                                 </div>
                                             <?php }
                                         }
+                                    } else{
+                                        echo "No record found";
                                     }
                                     ?>            
                                 </div>                   

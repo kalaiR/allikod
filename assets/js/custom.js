@@ -1179,6 +1179,21 @@ $(document).ready(function() {
     	pagination_url = baseurl + "filter_search";
     	filter_ajax();    	
     });
+    $(document).on('click','#interest_clicked', function(e){
+        $('#interest_clicked').text('Interest sent')
+        $("#interest_clicked").addClass("interest_btn_clicked");       
+        data = "vallikodi_id="+$('#vallikodi_id').text()+"&"+csrf_name+"="+csfrData[csrf_name];
+        $.ajax({
+			url : baseurl + "send_interests",
+			type : "post",
+			data : data,
+			async : false,
+			success : function(results_array) {
+				// alert(results_array);
+			}
+		});
+		$(this).prop('disabled', true);
+    });
 
 });
 

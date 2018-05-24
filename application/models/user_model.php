@@ -1756,6 +1756,55 @@ class User_model extends CI_Model {
 
       return $query;
   }
+
+  public function set_send_interests($vallikodi_id){
+      $login_session = $this->session->userdata("login_session");
+      $send_interests = array(
+          'sender_profile_id' => $login_session['userdetail_id'],
+          'receiver_profile_id' => $vallikodi_id,
+      );
+      $this->db->insert("interests_profile", $send_interests);
+  }
+  public function check_send_interests($vallikodi_id){
+      $login_session = $this->session->userdata("login_session");
+      $send_interests = array(
+          'sender_profile_id' => $login_session['userdetail_id'],
+          'receiver_profile_id' => $vallikodi_id,
+      );
+      $check_query = $this->db->get_where('interests_profile',$send_interests);
+      // echo $this->db->last_query();  
+      // echo "check_query".$check_query;
+      // print_r($check_query);
+      if($check_query->num_rows())
+        return 1;
+      else
+        return 0;
+      // $this->db->insert("interests_profile", $send_interests);
+  }
+  public function get_interested_profile_sent($user_id){
+      $condition = "int_prof.sender_profile_id = '".$user_id."'";
+      $this->db->select('int_prof.receiver_profile_id, int_prof.interests_created_date, reg.user_fname');
+      $this->db->from('interests_profile AS int_prof');
+      $this->db->join('reg_userdetail reg','reg.userdetail_id=int_prof.receiver_profile_id','inner');
+      $this->db->where($condition);      
+      $this->db->order_by('int_prof.interests_created_date','desc');
+      $query = $this->db->get()->result_array(); 
+      // echo $this->db->last_query();
+      // print_r($query);
+      return $query;
+  }
+  public function get_interested_profile_receive($user_id){
+      $condition = "int_prof.receiver_profile_id = '".$user_id."'";
+      $this->db->select('int_prof.sender_profile_id, int_prof.interests_created_date, reg.user_fname');
+      $this->db->from('interests_profile AS int_prof');
+      $this->db->join('reg_userdetail reg','reg.userdetail_id=int_prof.sender_profile_id','inner');
+      $this->db->where($condition);      
+      $this->db->order_by('int_prof.interests_created_date','desc');
+      $query = $this->db->get()->result_array(); 
+      // echo $this->db->last_query();
+      // print_r($query);
+      return $query;
+  }
  
 }
 /* End of file User_model.php */
