@@ -140,13 +140,17 @@ if(!empty($session_search['search_inputs']['offset'])){
                                         </ul>
 
                                     </div> 
-                                    <div class="interested_btn">
-                                        <?php if($check_send_interests) { ?>
-                                            <button type="submit" class="interest_btn_clicked"><strong>Interest Sent</strong></button> 
-                                        <?php } else { ?>
-                                            <button type="submit" id="interest_clicked"><strong>Send Interest</strong></button>
-                                        <?php } ?>
-                                    </div> 
+                                    <?php 
+                                    $user_session = $this->session->userdata("login_session");
+                                    if($user_session['userdetail_id'] != $results['userdetail_id']) { ?>
+                                        <div class="interested_btn">
+                                            <?php if($check_send_interests) { ?>
+                                                <button type="submit" class="interest_btn_clicked"><strong>Interest Sent</strong></button> 
+                                            <?php } else { ?>
+                                                <button type="submit" id="interest_clicked"><strong>Send Interest</strong></button>
+                                            <?php } ?>
+                                        </div> 
+                                    <?php } ?>
                                 </div>
                                  <div class="members_about_box">                                    
                                     <h3 id="hcolor">Communication Detail</h3>
