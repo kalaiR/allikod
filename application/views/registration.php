@@ -217,7 +217,8 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
 
                              
                             </div>
-                              <div class="popupbox_mob">   
+                              <div class="popupbox_mob"> 
+                                  <a href="<?php echo base_url(); ?>testregistration_email">test</a>  
                                   <p>Please fill all the details, only<br> then your application will<br> be activated for free status</p>
                                 
                                   <p class="baamini">தயவுசெய்து அனைத்து விவரங்களையும் பதிவு செய்யவும். அப்பொழுதுதான் தங்களின் விண்ணப்பம் இலவச இனைப்பு செய்யபடும்.</p>

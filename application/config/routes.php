@@ -148,7 +148,7 @@ $route['admin/delete_customer_user'] 							= "admin/customeruser_data/delete_cu
 $route['test_watermark'] 							= "base/test_watermark";
 $route['admin/delete_success_story'] 							= "admin/master_data/delete_success_story";
 
-
+$route['testregistration_email'] = "base/testregistration_email";
 
 // $route['main'] = 'admin/admin_login/teac_admin_login';
 

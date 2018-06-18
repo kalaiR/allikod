@@ -1805,6 +1805,46 @@ class User_model extends CI_Model {
       // print_r($query);
       return $query;
   }
+  public function getmatching_profile_after_registration(){
+    // $expected_age_from = 25;
+    // $expected_age_to = 30;
+    // $expected_education = "8,9,10";
+    // //if condition have to write(to get opposite gender)
+    // $gender = 1;
+    $form_data = $this->input->post();
+    $expected_age_from = $form_data['search_age_from'][0];
+    $expected_age_to = $form_data['search_age_to'][0];
+    $expected_education = implode(",",$form_data['reg_Education']);
+    // echo "expected_education".$expected_education;
+    //if condition have to write(to get opposite gender)
+    if($form_data['gender'][0] == 1)
+      $gender = 0;
+    else
+      $gender = 1;
+    
+    $condition = '(usr.user_gender="'.$gender.'" AND phy.phy_searchage_from >= "'.$expected_age_from.'" AND phy.phy_searchage_from <="'.$expected_age_to.'" AND edu.education_id IN ('.$expected_education.') AND usr.user_age !=0)';
+    $this->db->select('usr.userdetail_id,usr.user_age,edu.edu_name,img.images,nak.name');
+    $this->db->from('reg_userdetail usr');
+    $this->db->join('reg_physical_expectation phy','phy.reg_user_id=usr.userdetail_id','inner');
+    $this->db->join('reg_selectededucation reg_edu','reg_edu.reg_user_id=usr.userdetail_id','inner');
+    $this->db->join('education edu','edu.education_id=reg_edu.education_id','inner');
+    $this->db->join('user_images img','img.reg_user_id=usr.userdetail_id','inner');
+    $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id=usr.userdetail_id','inner');
+    $this->db->join('nakshathra nak','nak.nakshathra_id=rel.rel_nakshathra_id','inner');
+    $this->db->where($condition);      
+    $this->db->order_by('usr.user_age','asc');
+    $this->db->group_by('usr.userdetail_id');
+    $this->db->limit(3);
+    // echo $this->db->last_query();
+    $query = $this->db->get()->result_array(); 
+    // echo $this->db->get()->num_rows();
+    // echo $this->db->last_query();
+    // echo "<pre>";
+    // print_r($query);
+    // echo "</pre>";
+    return $query;
+    
+  }
  
 }
 /* End of file User_model.php */

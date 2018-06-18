@@ -585,6 +585,7 @@ class Base extends CI_Controller {
 					// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
 					$data['user_id'] = $id_userdetails;
 	    			$data['reg_purpose'] = "full_reg";
+	    			$data['matching_profile'] = $this->user_model->getmatching_profile_after_registration();
 					$message = $this->load->view('email_template/registration', $data, TRUE);
 					$this->email->message($message);
 					$this->email->send();
@@ -705,6 +706,7 @@ class Base extends CI_Controller {
 					// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
 					$data['user_id'] = $this->input->post('quickregister_id');
 	    			$data['reg_purpose'] = "full_reg";
+	    			$data['matching_profile'] = $this->user_model->getmatching_profile_after_registration();
 					$message = $this->load->view('email_template/registration', $data, TRUE);
 					$this->email->message($message);
 					$this->email->send();
@@ -1629,6 +1631,11 @@ class Base extends CI_Controller {
 		else{
 			redirect(base_url().'index');
 		}
+	}
+	public function testregistration_email(){
+		$data['matching_profile'] = $this->user_model->getmatching_profile_after_registration();
+		// print_r($data['matching_profile']);
+		$this->load->view('email_template/registration',$data);
 	}
 
 }
