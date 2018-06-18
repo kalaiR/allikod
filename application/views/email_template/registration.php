@@ -135,14 +135,14 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                     // echo $prefix_two_status
                 ?>
                     <td style="width: 200px; display: inline-block; /*background-color:rgba(192,192,192,0.2);*/ padding:15px; margin-right:15px; border-radius: 25px; border: 1px solid rgba(192,192,192,0.5);">
-                        <a href="#"><img style="max-width: 100%;" src="<?php 
+                        <a href="<?php echo base_url().'viewdetail_from_email/'.$value['userdetail_id'];?>"><img style="max-width: 100%;" src="<?php 
                             if(!empty($value['images'])): 
                                 echo media_url()."uploads/profile/".$prefix.$value['images']; 
                             else:
                                 echo media_url()."assets/img/no_image.jpg"; 
                             endif; 
                         ?>"></a>
-                        <p><a href="#" style="text-decoration: none; color:#000;font-size: 12px;">Vallikodi Id: <?php echo $value['userdetail_id']; ?></a></p>
+                        <p><a href="<?php echo base_url().'viewdetail_from_email/'.$value['userdetail_id'];?>" style="text-decoration: none; color:#000;font-size: 12px;">Vallikodi Id: <?php echo $value['userdetail_id']; ?></a></p>
                         <p style="font-size: 11px;"><span style="padding:0 5px"><?php echo $value['user_age']; ?> yrs,</span><span style="padding:0 5px"><?php echo $value['edu_name']; ?>,</span><span style="padding:0 5px"><?php echo $value['name']; ?></span></p>
                     </td>
                 <?php } ?>

@@ -21,7 +21,7 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
 // message --> 
 <!-- $message_mailForSender = ' -->
 
-<table style=" width:960px;height:auto;margin:0 auto; border="0"; cellpadding="0"; cellspacing="0">
+<table style=" width:960px;height:auto;margin:0 auto; border=0; cellpadding=0; cellspacing=0;">
          <tr style=" background-color: #5c7500; margin-top: 50px;height: 50px;">
             <td><p style="text-align: center;color:#fff; padding-top: 15px;">Vallikodi Vanniyar Martimonial.com</p></td>
         </tr>
