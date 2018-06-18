@@ -58,37 +58,21 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                     </td>
                 </tr>      
             </tr>
-            <tr>
-                <td style="color:black;margin-top:5px; margin-left: 30px; font-weight: bold; ">
-                    <p1>Your Login Credentials :- </p1>
-                </td>
-                <td style="color:black;margin-top:5px; margin-left: 45px;">
-                    <div style="padding-top: 10px;">
-                        <div style="width: 200px; display: inline-block;">
-                            <p1>Vallikodi ID <p1>
-                        </div>
-                        <div style="width: 200px; display: inline-block;">
-                            <p1>: <?php if(!empty($user_id)) echo "VM".$user_id; ?><p1>
-                        </div>
-                    </div> 
-                    <div style="padding-top: 10px;">
-                        <div style="width: 200px;display: inline-block;">
-                            <p1>User Name/Login ID</p1>
-                        </div>
-                        <div style="width: 200px; display: inline-block;">
-                            <p1>: <?php if(!empty($user_email)) echo $user_email; ?><p1>
-                        </div>
-                    </div> 
-                    <div style="padding-top: 10px;">
-                        <div style="width: 200px;display: inline-block;">
-                            <p1>Password</p1>
-                        </div>
-                        <div style="width: 200px; display: inline-block;">
-                            <p1>: <?php if(!empty($user_pwd)) echo $user_pwd; ?><p1>
-                        </div>
-                    </div>
-                </td>            
-            </tr>     
+            <tr style="color:black;margin-top:5px; margin-left: 30px; font-weight: bold; ">
+                <td><p style="margin:10px 30px;">Your Login Credentials :-<p></td>
+            </tr>
+            <tr style="color:black;padding-top:10px; margin-left: 70px;">
+                <tr>
+                    <td><p style="margin:10px 30px;"> Vallikodi ID: <?php if(!empty($user_id)) echo "VM".$user_id; ?></p></td>
+                </tr>
+                <tr>
+                    <td><a style="margin:10px 30px;">User Name/Login ID: <?php if(!empty($user_email)) echo $user_email; ?></a></td>
+                </tr>
+            </tr>
+            <tr style="color:black;padding-top:40px; margin-left: 45px;">
+                <td><p style="margin:10px 30px;">Password: <?php if(!empty($user_pwd)) echo $user_pwd; ?></p1></td>
+            </tr>
+
             <?php if($reg_purpose == "full_reg"){ ?>
             <tr style="color:black;margin-top:5px; margin-left: 30px; font-weight: bold; ">
                 <td><p style="margin:10px 30px; padding-bottom:15px;">Suggested Profile :- </p></td>
