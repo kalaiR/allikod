@@ -451,7 +451,14 @@
 											  <div class="control-group">
 												<label class="control-label" for="focusedInput">Current District : </label>
 												<div class="controls">
-												  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="" name="cus_curdistrict">
+												<select data-rel="chosen" class="dropdrop" name="cus_curdistrict">
+												  	<option value="">Select Current District</option>
+													<?php 
+									                    foreach (unserialize(DISTRICT) as $key => $val){     
+									                        echo "<option value='".$key."'>".$val."</option>";
+									                    }; ?>
+												  </select>
+												  <!-- <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="" name="cus_curdistrict"> -->
 												</div>												
 											  </div>
 											  <div class="control-group">

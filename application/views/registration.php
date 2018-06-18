@@ -654,7 +654,13 @@ if((!empty($values[0]))&&(is_numeric($values[0]))){
                                                     </div>    
                                                 </div>
                                                 <div class="col-sm-4">
-                                                    <input type="text" class="form-control alphaonly" id="reg_district" placeholder="District" name="reg_district">
+                                                    <select class="form-control" id="reg_district" name="reg_district">
+                                                        <option value="">Select</option>
+                                                        <?php foreach (unserialize(DISTRICT) as $key => $val){?>
+                                                            <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
+                                                        <?php }?>       
+                                                    </select>
+                                                    <!-- <input type="text" class="form-control alphaonly" id="reg_district" placeholder="District" name="reg_district"> -->
                                                 </div>
                                                 <!-- <div class="col-sm-4 box">
                                                   <span id="cur_country_error" class="registration-error"></span>

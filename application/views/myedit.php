@@ -440,8 +440,14 @@
                                                 <div class="col-md-5">
                                                     <p><b>Current District</b></p>
                                                 </div>
-                                                <div class="col-md-5">       
-                                                    <input type="text" class="form-control alphaonly" id="reg_Name" placeholder="Current District" value="<?php if(!empty($customeruser_values['comm_current_district'])) echo $customeruser_values['comm_current_district']; ?>" name="cus_curdistrict">                                       
+                                                <div class="col-md-5">
+                                                    <select class="form-control" id="reg_district" name="cus_curdistrict">
+                                                        <option value="">Select</option>
+                                                        <?php foreach (unserialize(DISTRICT) as $key => $val){?>
+                                                            <option value="<?php echo $key; ?>" <?php if($customeruser_values['comm_current_district']==$key) echo "selected" ?>><?php echo $val; ?></option>
+                                                        <?php }?>       
+                                                    </select>       
+                                                    <!-- <input type="text" class="form-control alphaonly" id="reg_Name" placeholder="Current District" value="<?php if(!empty($customeruser_values['comm_current_district'])) echo $customeruser_values['comm_current_district']; ?>" name="cus_curdistrict">                                        -->
                                                 </div>
                                             </div> 
                                         </div>    

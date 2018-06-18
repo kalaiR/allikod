@@ -543,7 +543,17 @@
 														  <div class="control-group">
 															<label class="control-label" for="focusedInput">Current District : </label>
 															<div class="controls">
-															  <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_current_district'])) echo $customeruser_values['comm_current_district']; ?>" name="cus_curdistrict">
+																<select data-rel="chosen" name="cus_curdistrict">
+																  <option value="">Select Current District</option>
+																	<?php 
+													                    foreach (unserialize(DISTRICT) as $key => $val):      
+													                        if($key == $customeruser_values['comm_current_district'])  
+													                        	echo "<option selected value='".$key."'>".$val."</option>";
+													                        else
+													                            echo "<option value='".$key."'>".$val."</option>";                       
+													                    endforeach; ?>
+																  </select>
+															  <!-- <input class="input-xlarge focused alphaonly" id="focusedInput" type="text" value="<?php if(!empty($customeruser_values['comm_current_district'])) echo $customeruser_values['comm_current_district']; ?>" name="cus_curdistrict"> -->
 															</div>												
 														  </div>
 														  <div class="control-group">
