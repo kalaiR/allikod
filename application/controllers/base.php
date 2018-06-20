@@ -810,6 +810,7 @@ class Base extends CI_Controller {
 				// Search by Advance Search //				
 				$gender = $form_data['gender'][0];	
 				$country = $form_data['country'][0];
+				$district = $form_data['district'];
 				// $occupation = $form_data['occupation'][0];	
 				$physical_status = $form_data['phy_status'][0];					
 				$age_from = $form_data['search_age_from'][0];
@@ -821,7 +822,7 @@ class Base extends CI_Controller {
 				// $education = $form_data['education_category'];
 				$show_profile = $form_data['images'][0];
 
-				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'show_profile'=>$show_profile, 'country'=>$country, 'physical_status'=>$physical_status, );
+				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'show_profile'=>$show_profile, 'country'=>$country,'district'=>$district, 'physical_status'=>$physical_status, );
 
 				if(!empty($form_data['education'])){					
 					$values['education_category'] = $form_data['education'];

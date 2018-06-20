@@ -239,11 +239,11 @@ include('include/menu.php');
                                         </div>
                                         <div class="col-md-6 col-xs-6">
                                             <p> 
-                                            <?php if(!empty($value['comm_current_countrycountry'])){ echo $value['comm_current_countrycountry'];}
+                                            <?php //if(!empty($value['comm_current_countrycountry'])){ echo $value['comm_current_countrycountry'];}
                                             ?>
-                                            <?php if(!empty($value['comm_current_city'])){ echo " / ".$value['comm_current_city'];}
+                                            <?php if(!empty($value['comm_current_city'])){ echo $value['comm_current_city'];}
                                             ?>
-                                            <?php //if(!empty($value['comm_current_district'])){ echo " / ".$value['comm_current_district'];}
+                                            <?php if(!empty($value['comm_current_district'])){ echo " / ".$value['comm_current_district'];}
                                             ?>
                                             </p>
                                         </div>

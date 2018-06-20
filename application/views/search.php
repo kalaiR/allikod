@@ -302,45 +302,11 @@ include('include/menu.php');
                                                 </div>
                                                 <div class="col-sm-6 box">
                                                     <div class="col-sm-5 box">
-                                                        <select class="form-control customize_plan" name="country[]" id="country" placeholder="Country Name">
+                                                        <select class="form-control customize_plan" id="reg_district" name="district">
                                                             <option value="">Select</option>
-                                                            <option value="">Kancheepuram</option>
-                                                            <option value="">Chennai</option>
-                                                            <option value="">Vellore</option>
-                                                            <option value="">Thiruvallur</option>
-                                                            <option value="">Salem</option>
-                                                            <option value="">Viluppuram</option>
-                                                            <option value="">Coimbatore</option>
-                                                            <option value="">Tirunelveli</option>
-                                                            <option value="">Madurai</option>
-                                                            <option value="">Tiruchirappalli</option>
-                                                            <option value="">Cuddalore</option>
-                                                            <option value="">Tiruppur</option>
-                                                            <option value="">Tiruvannamalai</option>
-                                                            <option value="">Thanjavur</option>
-                                                            <option value="">Erode</option>
-                                                            <option value="">Dindigul</option>
-                                                            <option value="">Virudhunagar</option>
-                                                            <option value="">Krishnagiri</option>
-                                                            <option value="">Kanniyakumari</option>
-                                                            <option value="">Thoothukkudi</option>
-                                                            <option value="">Namakkal</option>
-                                                            <option value="">Pudukkottai</option>
-                                                            <option value="">Nagapattinam</option>
-                                                            <option value="">Dharmapuri</option>
-                                                            <option value="">Ramanathapuram</option>
-                                                            <option value="">Sivaganga</option>
-                                                            <option value="">Thiruvarur</option>
-                                                            <option value="">Theni</option>
-                                                            <option value="">Karur</option>
-                                                            <option value="">Ariyalur</option>
-                                                            <option value="">The Nilgiris</option>
-                                                            <option value="">Perambalur</option>
-                                                            <option value="">Puducherry</option>
-                                                            <option value="">Karaikal</option>
-                                                            <option value="">Yanam</option>
-                                                            <option value="">Mahe</option>
-                                                            <option value="">Others</option>
+                                                            <?php foreach (unserialize(DISTRICT) as $key => $val){?>
+                                                                <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
+                                                            <?php }?>       
                                                         </select>
                                                     </div>
                                                  
