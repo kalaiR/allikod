@@ -271,7 +271,7 @@ include('include/menu.php');
                     <?php }
                     ?>
 
-                    <div class="text-center">
+                    <div class="col-md-12 col-xs-12 text-center clearfix">
                        
                         <?php
                         if(!empty($links)) :
@@ -537,22 +537,22 @@ include('include/menu.php');
                                 <?php endforeach; ?>  
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <!-- <div class="col-md-12">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
                                 <ul>
                                     <li><a href="#"><img src="img/categories-list.png" alt=""><b>District</b></a></li>
                                 </ul>
-                                <?php foreach (unserialize(DISTRICT) as $key => $val){?>
+                                <?php //foreach (unserialize(DISTRICT) as $key => $val){?>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" class="btype_act" value="<?php echo $key; ?>"><?php echo $val; ?>
+                                            <input type="checkbox" class="btype_act" value="<?php //echo $key; ?>"><?php //echo $val; ?>
                                                 <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                         </label>
                                     </div>
-                                <?php }?>         
+                                <?php //}?>         
                         </div>
-                    </div>
+                    </div> -->
                 <?php //endif; ?>
             </form>
         </div>

@@ -187,6 +187,7 @@ class Base extends CI_Controller {
 		$data['dhosham'] = $this->user_model->get_dhosham();
 		$data['mother_tongue'] = $this->user_model->get_mothertongue();
 		$data['martial_status'] = $this->user_model->get_martialstatus();
+		$data['nakshathra'] = $this->user_model->get_nakshathra();
 		$this->load->view('search', $data);
 	}
 	public function contact(){
@@ -809,6 +810,7 @@ class Base extends CI_Controller {
 			}elseif($form_data['search_type'] =='advance_search'){
 				// Search by Advance Search //				
 				$gender = $form_data['gender'][0];	
+				$nakshathra = $form_data['nakshathra'][0];	
 				$country = $form_data['country'][0];
 				$district = $form_data['district'];
 				// $occupation = $form_data['occupation'][0];	
@@ -822,7 +824,7 @@ class Base extends CI_Controller {
 				// $education = $form_data['education_category'];
 				$show_profile = $form_data['images'][0];
 
-				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'show_profile'=>$show_profile, 'country'=>$country,'district'=>$district, 'physical_status'=>$physical_status, );
+				$values = array('gender' => $gender, 'age_from' => $age_from, 'age_to' => $age_to, 'height_from'=>$height_from, 'height_to'=>$height_to, 'mar_status'=>$mar_status, 'mother_tongue'=>$mother_tongue, 'show_profile'=>$show_profile, 'country'=>$country,'district'=>$district, 'physical_status'=>$physical_status,'nakshathra'=>$nakshathra);
 
 				if(!empty($form_data['education'])){					
 					$values['education_category'] = $form_data['education'];

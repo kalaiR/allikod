@@ -269,6 +269,29 @@ include('include/menu.php');
                                             <div class="row">
                                                 <div class="col-sm-4 base-box">
                                                     <div class="height_item">
+                                                    <h4>Nakshathra</h4>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-sm-6 box">
+                                                    <div class="col-sm-5 box">
+                                                        <select class="form-control" name="nakshathra[]" id="nakshathra">
+                                                            <option value="">Select</option>
+                                                            <?php 
+                                                                if(!empty($nakshathra)) :
+                                                                foreach ($nakshathra as $cls_val) {
+                                                                echo "<option value='" . $cls_val['nakshathra_id'] . "'>" . ucfirst($cls_val['name']) . "</option>";
+                                                                }
+                                                            endif;
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>        
+                                        </div>  
+                                        <div class="col-sm-10  aline-center-box">
+                                            <div class="row">
+                                                <div class="col-sm-4 base-box">
+                                                    <div class="height_item">
                                                         <h4>Location</h4>
                                                     </div>    
                                                 </div>
