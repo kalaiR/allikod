@@ -109,7 +109,7 @@
 										  <div class="control-group">
 											  <label class="control-label" for="date01">DOB</label>
 											  <div class="controls">
-												<input type="text" class="input-xlarge datepicker dob_admin" id="date01" style="width: 150px" value="02/16/12" name="cus_dob">
+												<input type="text" class="input-xlarge datepicker dob_admin" id="date01" style="width: 150px" name="cus_dob">
 											  </div>
 											</div>
 										  <div class="control-group">
