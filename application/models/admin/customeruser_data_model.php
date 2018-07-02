@@ -820,6 +820,8 @@ class Customeruser_data_model extends CI_Model {
 			// 					(user_age>="'.$cusage_from.'" AND user_age<="'.$cusage_to.'")
 			// 					)';
 			// }
+			if(!empty($cus_dob))
+				$user_where = '(user_dob="'.$cus_dob.'")';
 			if(!empty($cususer_name))
 				$user_where = '(user_fname LIKE "%'.$cususer_name.'%")';
 			if(!empty($cus_gender))

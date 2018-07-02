@@ -107,7 +107,7 @@ function docReady(){
 	
 	//datepicker
 	
-	$('.datepicker').datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true});
+	$('.datepicker').datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true, yearRange: '-48:-18'});
 
     $('.datepickerdob').datepicker({
 

@@ -119,12 +119,8 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                     // echo $prefix_two_status
                 ?>
                     <td style="width: 200px; display: inline-block; /*background-color:rgba(192,192,192,0.2);*/ padding:15px; margin-right:15px; border-radius: 25px; border: 1px solid rgba(192,192,192,0.5);">
-                        <a href="<?php echo base_url().'viewdetail_from_email/'.$value['userdetail_id'];?>"><img style="max-width: 100%;" src="<?php 
-                            if(!empty($value['images'])): 
-                                echo media_url()."uploads/profile/".$prefix.$value['images']; 
-                            else:
-                                echo media_url()."assets/img/no_image.jpg"; 
-                            endif; 
+                        <a href="<?php echo base_url().'viewdetail_from_email/'.$value['userdetail_id'];?>"><img style="width:200px;height:200px;" src="<?php 
+                            if(!empty($value['images'])): echo media_url()."uploads/profile/".$prefix.$value['images']; else: echo media_url()."assets/img/no_image.jpg"; endif; 
                         ?>"></a>
                         <p><a href="<?php echo base_url().'viewdetail_from_email/'.$value['userdetail_id'];?>" style="text-decoration: none; color:#000;font-size: 12px;">Vallikodi Id: <?php echo $value['userdetail_id']; ?></a></p>
                         <p style="font-size: 11px;"><span style="padding:0 5px"><?php echo $value['user_age']; ?> yrs,</span><span style="padding:0 5px"><?php echo $value['edu_name']; ?>,</span><span style="padding:0 5px"><?php echo $value['name']; ?></span></p>
@@ -168,7 +164,7 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
             </tr>
             <tr>
                 <td>
-                    <img style="margin:0px 30px;" src="assets/img/fav.ico">
+                    <img style="margin:0px 30px;height:20px;width:20px;" src="<?php echo media_url(); ?>assets/img/logo1.png">
                 </td>
             </tr>
             <tr> <td style="margin:0px 30px;background-color: #5c7500;height: 1px;"></td>
