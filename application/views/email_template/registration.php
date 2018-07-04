@@ -73,59 +73,61 @@ $subject_mailForSender = 'Vallikodi Vanniar Matrimonial';
                 <td><p style="margin:10px 30px;">Password: <?php if(!empty($user_pwd)) echo $user_pwd; ?></p1></td>
             </tr>
 
-            <?php if($reg_purpose == "full_reg"){ ?>
-            <tr style="color:black;margin-top:5px; margin-left: 30px; font-weight: bold; ">
-                <td><p style="margin:10px 30px; padding-bottom:15px;">Suggested Profile :- </p></td>
-            </tr>
-            <tr style="color:black">
-            <tr style="color: rgba(0,0,0,); text-align:center;">
-                <?php 
-                // print_r($matching_profile);
-                foreach($matching_profile as $key => $value) { 
-                    // echo $value['images'];
-                    // echo $value['userdetail_id'];
-                    $prefix = '';
-                    $prefix_one = 'th_';
-                    $prefix_two = 'new_';
-                    $prefix_latest_images = '';
-                    $prefix_latest_images = '';
-                    $default_images = '';
-                    $latest_images = '';  
-                    unset($current_images);
-                    $current_images = array(); 
-                    if(!empty($value['images'])){
-                        // echo "if";
-                        $current_images = explode(',', $value['images'] );
-                        $latest_images = end($current_images);                       
-                        $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$value['images']);
-                        $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$value['images']);
-                        $prefix_latest_images = file_exists(FCPATH."uploads/profile/".$latest_images); 
-                    }
+            <?php 
+            // print_r($matching_profile);
+            if(isset($matching_profile) && !empty($matching_profile)){
+                if($reg_purpose == "full_reg"){ ?>
+                <tr style="color:black;margin-top:5px; margin-left: 30px; font-weight: bold; ">
+                    <td><p style="margin:10px 30px; padding-bottom:15px;">Suggested Profile :- </p></td>
+                </tr>
+                <tr style="color:black">
+                <tr style="color: rgba(0,0,0,); text-align:center;">
+                    <?php 
+                    foreach($matching_profile as $key => $value) { 
+                        // echo $value['images'];
+                        // echo $value['userdetail_id'];
+                        $prefix = '';
+                        $prefix_one = 'th_';
+                        $prefix_two = 'new_';
+                        $prefix_latest_images = '';
+                        $prefix_latest_images = '';
+                        $default_images = '';
+                        $latest_images = '';  
+                        unset($current_images);
+                        $current_images = array(); 
+                        if(!empty($value['images'])){
+                            // echo "if";
+                            $current_images = explode(',', $value['images'] );
+                            $latest_images = end($current_images);                       
+                            $prefix_one_status = file_exists(FCPATH."uploads/profile/".$prefix_one.$value['images']);
+                            $prefix_two_status = file_exists(FCPATH."uploads/profile/".$prefix_two.$value['images']);
+                            $prefix_latest_images = file_exists(FCPATH."uploads/profile/".$latest_images); 
+                        }
 
-                    // To get Gender based image for display //
-                    if((!empty($value['user_gender']))&&($value['user_gender']!=1)){
-                            $default_images = "defalt_female.png";
-                    }else{
-                            $default_images = "defalt_male.png";
-                    }
+                        // To get Gender based image for display //
+                        if((!empty($value['user_gender']))&&($value['user_gender']!=1)){
+                                $default_images = "defalt_female.png";
+                        }else{
+                                $default_images = "defalt_male.png";
+                        }
 
-                    if(!empty($value['images'])){   
-                        if($prefix_one_status)
-                            $prefix = $prefix_one;
-                        else if($prefix_two_status)
-                            $prefix = $prefix_two;
-                    }
-                    // echo $prefix_one_status;
-                    // echo $prefix_two_status
-                ?>
-                    <td style="width: 200px; display: inline-block; /*background-color:rgba(192,192,192,0.2);*/ padding:15px; margin-right:15px; border-radius: 25px; border: 1px solid rgba(192,192,192,0.5);">
-                        <a href="<?php echo base_url().'viewdetail_from_email/'.$value['userdetail_id'];?>"><img style="width:200px;height:200px;" src="<?php 
-                            if(!empty($value['images'])): echo media_url()."uploads/profile/".$prefix.$value['images']; else: echo media_url()."assets/img/no_image.jpg"; endif; 
-                        ?>"></a>
-                        <p><a href="<?php echo base_url().'viewdetail_from_email/'.$value['userdetail_id'];?>" style="text-decoration: none; color:#000;font-size: 12px;">Vallikodi Id: <?php echo $value['userdetail_id']; ?></a></p>
-                        <p style="font-size: 11px;"><span style="padding:0 5px"><?php echo $value['user_age']; ?> yrs,</span><span style="padding:0 5px"><?php echo $value['edu_name']; ?>,</span><span style="padding:0 5px"><?php echo $value['name']; ?></span></p>
-                    </td>
-                <?php } ?>
+                        if(!empty($value['images'])){   
+                            if($prefix_one_status)
+                                $prefix = $prefix_one;
+                            else if($prefix_two_status)
+                                $prefix = $prefix_two;
+                        }
+                        // echo $prefix_one_status;
+                        // echo $prefix_two_status
+                    ?>
+                        <td style="width: 200px; display: inline-block; /*background-color:rgba(192,192,192,0.2);*/ padding:15px; margin-right:15px; border-radius: 25px; border: 1px solid rgba(192,192,192,0.5);">
+                            <a href="<?php echo base_url().'viewdetail_from_email/'.$value['userdetail_id'];?>"><img style="width:200px;height:200px;" src="<?php 
+                                if(!empty($value['images'])): echo media_url()."uploads/profile/".$prefix.$value['images']; else: echo media_url()."assets/img/no_image.jpg"; endif; 
+                            ?>"></a>
+                            <p><a href="<?php echo base_url().'viewdetail_from_email/'.$value['userdetail_id'];?>" style="text-decoration: none; color:#000;font-size: 12px;">Vallikodi Id: <?php echo $value['userdetail_id']; ?></a></p>
+                            <p style="font-size: 11px;"><span style="padding:0 5px"><?php echo $value['user_age']; ?> yrs,</span><span style="padding:0 5px"><?php echo $value['edu_name']; ?>,</span><span style="padding:0 5px"><?php echo $value['name']; ?></span></p>
+                        </td>
+                <?php }} ?>
                 <!-- <td style="width: 200px; display: inline-block;/*background-color:rgba(192,192,192,0.2);*/padding: 15px;margin-right:15px; border-radius: 25px;border: 1px solid rgba(192,192,192,0.5);">
                    <img style="max-width: 100%;" src="assets/img/no_image.jpg">
                     <p><a href="#" style="text-decoration: none; color:#000;font-size: 12px;">Id:123</a></p>
