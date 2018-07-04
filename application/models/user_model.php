@@ -3,7 +3,7 @@
 class User_model extends CI_Model {
 
   public function __construct()
-  {
+  {   
     $this->load->database();
   }
 
@@ -1863,7 +1863,121 @@ class User_model extends CI_Model {
     return $query;
     
   }
- 
+  public function cronjob_schedule_matching_profile(){   
+    // $data ['userdetail_id'] = 2149;
+    // $data ['user_email'] = "kalaiarasi@etekchnoservices.com";
+    // $data ['user_fname'] = "kalai";
+    // $data ['user_mobile'] = "7200300448";
+
+    // $data['matching_profile'] = array(
+    //     array(
+    //       "userdetail_id" => 82295,
+    //       "user_age" => 26,
+    //       "edu_name" => "BE/B Tech",
+    //       "images" => "7200.jpg",
+    //       "name" => "Revathi",
+    //       "created_date" => "",
+    //       "profile_matching_id" => "",
+    //       "user_email" => "kanitenu2@gmail.com",
+    //       "user_fname" => "S Kanimozhi"
+    //     ),
+    //     array(
+    //     "userdetail_id" => 81969,
+    //     "user_age" => 25,
+    //     "edu_name" => "BE/B Tech",
+    //     "images" => "6998.jpg",
+    //     "name" => "Bharani",
+    //     "created_date" => "",
+    //     "profile_matching_id" => "",
+    //     "user_email" => "ezhilarasi92@gmail.com",
+    //     "user_fname" => "S Ezhilarasi"
+    //   ),
+    //   array(
+    //     "userdetail_id" => 81881,
+    //     "user_age" => 35,
+    //     "edu_name" => "BE/B Tech",
+    //     "images" => "6891.jpg",
+    //     "name" => "Rohini",
+    //     "created_date" => "",
+    //     "profile_matching_id" => "",
+    //     "user_email" => "veeraragavan82@gmail.com",
+    //     "user_fname" => "Veeraragavan.E"
+    //   )
+    // );
+    // $controllerInstance = & get_instance();
+    // $controllerInstance->send_email_and_sms_cronjob_matching_profile($data);
+
+
+    // echo date('Y-m-d', strtotime(date('Y-m-d H:i:s'). ' -1 day'));
+    // echo date('Y-m-d', strtotime(date('Y-m-d H:i:s'). ' -10 day'));
+
+    $current_date = date('Y-m-d', strtotime(date('Y-m-d H:i:s')));       
+    $condition = '(usr.user_age !=0 AND usr.user_active_status = 1 AND (es.created_date IS NULL OR DATE(es.created_date)!="'.$current_date.'"))';
+    $this->db->select('usr.userdetail_id,usr.user_gender,phy.phy_searchage_from,phy.phy_searchage_to,group_concat(reg_edu.education_id) as education_id,es.created_date,com.comm_phone_no,usr.user_email,usr.user_fname');
+    $this->db->from('reg_userdetail usr');
+    $this->db->join('reg_communication_family com','com.reg_user_id=usr.userdetail_id','inner');
+    $this->db->join('reg_physical_expectation phy','phy.reg_user_id=usr.userdetail_id','inner');
+    $this->db->join('reg_selectededucation reg_edu','reg_edu.reg_user_id=usr.userdetail_id','inner');
+    $this->db->join('cronjob_matchingprofile_to_existing_user es','es.reg_user_id=usr.userdetail_id','left');
+    $this->db->where($condition);  
+    $this->db->group_by('usr.userdetail_id');
+    $this->db->order_by('usr.userdetail_id','asc');
+    $this->db->limit(1000);
+    $query = $this->db->get()->result_array(); 
+    
+    // echo $this->db->last_query();
+    // echo "<pre>";
+    // print_r($query);
+    // echo "</pre>";
+
+    $resultant_query =  array();
+    foreach ($query as $key => $value) {
+        if($value['user_gender']==1)
+          $gender = 0;
+        else
+          $gender = 1;
+        $expected_age_from = $value['phy_searchage_from'];
+        $expected_age_to = $value['phy_searchage_to'];
+        $expected_education = $value['education_id'];
+        $userdetail_id = $value['userdetail_id'];
+
+        // echo $userdetail_id;
+        $condition_match = '(usr.user_gender="'.$gender.'" AND phy.phy_searchage_from >= "'.$expected_age_from.'" AND phy.phy_searchage_from <="'.$expected_age_to.'" AND edu.education_id IN ('.$expected_education.') AND usr.user_age !=0 AND es.profile_matching_id IS NULL)';
+        $this->db->select('usr.userdetail_id,usr.user_age,edu.edu_name,img.images,nak.name,es.created_date,es.profile_matching_id,usr.user_email,usr.user_fname');
+        $this->db->from('reg_userdetail usr');
+        $this->db->join('reg_physical_expectation phy','phy.reg_user_id=usr.userdetail_id','inner');
+        $this->db->join('reg_selectededucation reg_edu','reg_edu.reg_user_id=usr.userdetail_id','inner');
+        $this->db->join('education edu','edu.education_id=reg_edu.education_id','inner');
+        $this->db->join('user_images img','img.reg_user_id=usr.userdetail_id','inner');
+        $this->db->join('reg_religion_ethnicity rel','rel.reg_user_id=usr.userdetail_id','inner');
+        $this->db->join('nakshathra nak','nak.nakshathra_id=rel.rel_nakshathra_id','inner');
+        $this->db->join('cronjob_matchingprofile_to_existing_user es','es.profile_matching_id=usr.userdetail_id AND es.reg_user_id='.$userdetail_id,'left');
+        $this->db->where($condition_match);      
+        $this->db->order_by('usr.user_added_date','desc');
+        $this->db->group_by('usr.userdetail_id');
+        $this->db->limit(3);       
+        $query_match = $this->db->get()->result_array(); 
+
+        // echo $this->db->last_query();
+        // echo "<pre>";
+        // print_r($query_match);
+        // echo "</pre>";
+        foreach ($query_match as $key => $value1) {
+            $matching_profile =  array('reg_user_id' => $value['userdetail_id'],'profile_matching_id' => $value1['userdetail_id'] ); 
+            $this->db->insert("cronjob_matchingprofile_to_existing_user", $matching_profile); 
+        }     
+
+        $data ['userdetail_id'] = $value['userdetail_id'];
+        $data ['user_email'] = $value['user_email'];
+        $data ['user_fname'] = $value['user_fname'];
+        $data ['user_mobile'] = $value['comm_phone_no'];
+        $data['matching_profile'] = $query_match;
+
+        $controllerInstance = & get_instance();
+        $controllerInstance->send_email_and_sms_cronjob_matching_profile($data);
+    }
+  }
+
 }
 /* End of file User_model.php */
 /* Location: ./application/controllers/base.php */

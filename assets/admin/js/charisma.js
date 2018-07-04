@@ -107,11 +107,12 @@ function docReady(){
 	
 	//datepicker
 	
-	$('.datepicker').datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true, yearRange: '-48:-18'});
+	// $('.datepicker_dob').datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true, yearRange: '-48:-18'});
+	$('.datepicker').datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true});
 
     $('.datepickerdob').datepicker({
 
-        dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true,defaultDate: '1999-01-01', yearRange: '-67:-18'
+        dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true,defaultDate: '1999-01-01', yearRange: '-48:-18'
 
     });
 

@@ -149,6 +149,7 @@ $route['test_watermark'] 							= "base/test_watermark";
 $route['admin/delete_success_story'] 							= "admin/master_data/delete_success_story";
 
 $route['testregistration_email'] = "base/testregistration_email";
+$route['cronjob_schedule_matching_profile'] = "base/cronjob_schedule_matching_profile";
 
 // $route['main'] = 'admin/admin_login/teac_admin_login';
 

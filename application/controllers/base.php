@@ -1640,5 +1640,60 @@ class Base extends CI_Controller {
 		// print_r($data['matching_profile']);
 		$this->load->view('email_template/registration',$data);
 	}
+	public function cronjob_schedule_matching_profile(){
+		// echo "cronjob_schedule_matching_profile";
+		// $file = dirname(__FILE__).'/output.txt';
+		// $data = "hello, its from codeigniter ". date('d/m/Y H:i:s')."\n";
+		// file_put_contents($file, $data, FILE_APPEND);
+		$data['cronjob_matching_profile'] = $this->user_model->cronjob_schedule_matching_profile();
+	}
+	public function send_email_and_sms_cronjob_matching_profile($data){
+			// echo "<pre>";
+	  //       print_r($data);
+	  //       echo "</pre>";
+	        // $this->load->view('email_template/cronjob_suggest_profile', $data);
+
+		if(!($_SERVER['SERVER_ADDR'] === '::1') && !($_SERVER['SERVER_ADDR'] === '127.0.0.1'))
+	  	{
+  			//Email Process
+			$ci =& get_instance();	
+			$ci->config->load('email', true);
+			$emailsetup = $ci->config->item('email');
+			$this->load->library('email', $emailsetup);
+			$from_email = $emailsetup['smtp_user'];
+			$this->email->initialize($emailsetup);
+			$this->email->from($from_email, '');
+            $this->email->to($data['user_email']);
+			$this->email->subject('Matching Profile');
+			// $this->email->message("Your registered password is ".$user_values['admin_user_password']);
+			$message = $this->load->view('email_template/cronjob_suggest_profile', $data, TRUE);
+			$this->email->message($message);
+			$this->email->send();
+
+			$group_userdetail_id = array();
+			foreach ($data['matching_profile'] as $key => $value) {
+				array_push($group_userdetail_id,"VM".$value['userdetail_id']);
+			}
+			//SMS process
+			$link_text = base_url().'viewdetail_from_email/'.$data['sender_profile_details']['userdetail_id'];	
+			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
+			$fields = array(
+			    'user'=> 'VALLIK',
+			    'pass'=> 'abcd1234',
+			    'sender'=> 'VALLIK',
+			    'phone'=> $data['user_mobile'],
+			    'text'=>"Hi ".ucwords($data['user_fname']).", recent exclusive matches for you. ".implode(",",$group_userdetail_id).". Kindy check the vallikodi website to know the full detail of these profiles.",
+			    'priority'=>'ndnd',
+			    'stype'=>'normal'
+			);
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $smsurl);
+			curl_setopt($ch, CURLOPT_POST, count($fields));
+			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($fields));
+			curl_exec($ch);
+			curl_close($ch);
+	  	}
+		
+	}
 
 }
