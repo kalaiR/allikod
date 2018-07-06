@@ -1840,7 +1840,7 @@ class User_model extends CI_Model {
     else
       $gender = 1;
     
-    $condition = '(usr.user_gender="'.$gender.'" AND phy.phy_searchage_from >= "'.$expected_age_from.'" AND phy.phy_searchage_from <="'.$expected_age_to.'" AND edu.education_id IN ('.$expected_education.') AND usr.user_age !=0)';
+    $condition = '(usr.user_gender="'.$gender.'" AND usr.user_age >= "'.$expected_age_from.'" AND usr.user_age <="'.$expected_age_to.'" AND edu.education_id IN ('.$expected_education.') AND usr.user_age !=0)';
     $this->db->select('usr.userdetail_id,usr.user_age,edu.edu_name,img.images,nak.name');
     $this->db->from('reg_userdetail usr');
     $this->db->join('reg_physical_expectation phy','phy.reg_user_id=usr.userdetail_id','inner');
@@ -1933,16 +1933,16 @@ class User_model extends CI_Model {
     $resultant_query =  array();
     foreach ($query as $key => $value) {
         if($value['user_gender']==1)
-          $gender = 1;
-        else
           $gender = 2;
+        else
+          $gender = 1;
         $expected_age_from = $value['phy_searchage_from'];
         $expected_age_to = $value['phy_searchage_to'];
         $expected_education = $value['education_id'];
         $userdetail_id = $value['userdetail_id'];
 
         // echo $userdetail_id;
-        $condition_match = '(usr.user_gender="'.$gender.'" AND phy.phy_searchage_from >= "'.$expected_age_from.'" AND phy.phy_searchage_from <="'.$expected_age_to.'" AND edu.education_id IN ('.$expected_education.') AND usr.user_age !=0 AND es.profile_matching_id IS NULL)';
+        $condition_match = '(usr.user_gender="'.$gender.'" AND usr.user_age >= "'.$expected_age_from.'" AND usr.user_age <="'.$expected_age_to.'" AND edu.education_id IN ('.$expected_education.') AND usr.user_age !=0 AND es.profile_matching_id IS NULL)';
         $this->db->select('usr.userdetail_id,usr.user_age,edu.edu_name,img.images,nak.name,es.created_date,es.profile_matching_id,usr.user_email,usr.user_fname');
         $this->db->from('reg_userdetail usr');
         $this->db->join('reg_physical_expectation phy','phy.reg_user_id=usr.userdetail_id','inner');
