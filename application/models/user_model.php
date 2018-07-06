@@ -1836,7 +1836,7 @@ class User_model extends CI_Model {
     // echo "expected_education".$expected_education;
     //if condition have to write(to get opposite gender)
     if($form_data['gender'][0] == 1)
-      $gender = 0;
+      $gender = 2;
     else
       $gender = 1;
     
@@ -1933,9 +1933,9 @@ class User_model extends CI_Model {
     $resultant_query =  array();
     foreach ($query as $key => $value) {
         if($value['user_gender']==1)
-          $gender = 0;
-        else
           $gender = 1;
+        else
+          $gender = 2;
         $expected_age_from = $value['phy_searchage_from'];
         $expected_age_to = $value['phy_searchage_to'];
         $expected_education = $value['education_id'];
