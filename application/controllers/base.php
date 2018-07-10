@@ -1614,7 +1614,7 @@ class Base extends CI_Controller {
 				    'sender'=> 'VALLIK',
 				    'phone'=> $data['receiver_profile_details']['comm_mobile_no'],
 				    // 'text'=>"Dear ".$data['receiver_profile_details']['user_fname'].", ".$data['sender_profile_details']['user_fname']." (VM".$data['sender_profile_details']['userdetail_id'].")"." is interested in your profile. Kindy check the full detail of this profile in below website"."<br/><a href='".$link_text."'>".$link_text."</a>",
-				    'text'=>"Dear ".$data['receiver_profile_details']['user_fname'].", ".$data['sender_profile_details']['user_fname']." (VM".$data['sender_profile_details']['userdetail_id'].")"." is interested in your profile. Kindy check the vallikodi website to know the full detail of this profile",
+				    'text'=>"Dear ".$data['receiver_profile_details']['user_fname'].", ".$data['sender_profile_details']['user_fname']." (VM".$data['sender_profile_details']['userdetail_id'].")"." is interested in your profile. Kindly check the vallikodi website to know the full details of this profile",
 				    'priority'=>'ndnd',
 				    'stype'=>'normal'
 				);
@@ -1679,23 +1679,23 @@ class Base extends CI_Controller {
 				array_push($group_userdetail_id,"VM".$value['userdetail_id']);
 			}
 			//SMS process
-			$link_text = base_url().'viewdetail_from_email/'.$data['sender_profile_details']['userdetail_id'];	
-			$smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
-			$fields = array(
-			    'user'=> 'VALLIK',
-			    'pass'=> 'abcd1234',
-			    'sender'=> 'VALLIK',
-			    'phone'=> $data['user_mobile'],
-			    'text'=>"Hi ".ucwords($data['user_fname']).", recent exclusive matches for you. ".implode(",",$group_userdetail_id).". Kindy check the vallikodi website to know the full detail of these profiles.",
-			    'priority'=>'ndnd',
-			    'stype'=>'normal'
-			);
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, $smsurl);
-			curl_setopt($ch, CURLOPT_POST, count($fields));
-			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($fields));
-			curl_exec($ch);
-			curl_close($ch);
+			// $link_text = base_url().'viewdetail_from_email/'.$data['sender_profile_details']['userdetail_id'];	
+			// $smsurl = 'http://dnd.blackholesolution.com/api/sendmsg.php';
+			// $fields = array(
+			//     'user'=> 'VALLIK',
+			//     'pass'=> 'abcd1234',
+			//     'sender'=> 'VALLIK',
+			//     'phone'=> $data['user_mobile'],
+			//     'text'=>"Hi ".ucwords($data['user_fname']).", recent exclusive matches for you. ".implode(",",$group_userdetail_id).". Kindly check the vallikodi website to know the full details of these profiles.",
+			//     'priority'=>'ndnd',
+			//     'stype'=>'normal'
+			// );
+			// $ch = curl_init();
+			// curl_setopt($ch, CURLOPT_URL, $smsurl);
+			// curl_setopt($ch, CURLOPT_POST, count($fields));
+			// curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($fields));
+			// curl_exec($ch);
+			// curl_close($ch);
 	  	}
 		
 	}

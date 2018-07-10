@@ -1912,7 +1912,8 @@ class User_model extends CI_Model {
     // echo date('Y-m-d', strtotime(date('Y-m-d H:i:s'). ' -10 day'));
 
     $current_date = date('Y-m-d', strtotime(date('Y-m-d H:i:s')));       
-    $condition = '(usr.user_age !=0 AND usr.user_active_status = 1 AND (es.created_date IS NULL OR DATE(es.created_date)!="'.$current_date.'"))';
+    // $condition = '(usr.user_age !=0 AND usr.user_active_status = 1 AND usr.user_online_or_simple = "online" AND (es.created_date IS NULL OR DATE(es.created_date)!="'.$current_date.'"))';
+    $condition = '(usr.userdetail_id=69583 AND usr.user_age !=0 AND usr.user_active_status = 1 AND usr.user_online_or_simple = "online" AND (es.created_date IS NULL OR DATE(es.created_date)!="'.$current_date.'"))';
     $this->db->select('usr.userdetail_id,usr.user_gender,phy.phy_searchage_from,phy.phy_searchage_to,group_concat(reg_edu.education_id) as education_id,es.created_date,com.comm_phone_no,usr.user_email,usr.user_fname');
     $this->db->from('reg_userdetail usr');
     $this->db->join('reg_communication_family com','com.reg_user_id=usr.userdetail_id','inner');
@@ -1966,15 +1967,16 @@ class User_model extends CI_Model {
             $matching_profile =  array('reg_user_id' => $value['userdetail_id'],'profile_matching_id' => $value1['userdetail_id'] ); 
             $this->db->insert("cronjob_matchingprofile_to_existing_user", $matching_profile); 
         }     
-
-        $data ['userdetail_id'] = $value['userdetail_id'];
-        $data ['user_email'] = $value['user_email'];
-        $data ['user_fname'] = $value['user_fname'];
-        $data ['user_mobile'] = $value['comm_phone_no'];
-        $data['matching_profile'] = $query_match;
-
-        $controllerInstance = & get_instance();
-        $controllerInstance->send_email_and_sms_cronjob_matching_profile($data);
+        if(!empty($query_match))
+        {
+          $data ['userdetail_id'] = $value['userdetail_id'];
+          $data ['user_email'] = $value['user_email'];
+          $data ['user_fname'] = $value['user_fname'];
+          $data ['user_mobile'] = $value['comm_mobile_no'];
+          $data['matching_profile'] = $query_match;
+          $controllerInstance = & get_instance();
+          $controllerInstance->send_email_and_sms_cronjob_matching_profile($data);
+        }
     }
   }
 
