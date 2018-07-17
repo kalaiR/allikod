@@ -425,7 +425,8 @@ p2
   }
 }
 
-@keyframes loadingAfter {
+@keyframes loadingAfter 
+{
   0% {
     -webkit-transform: translateX(-50px);
     transform: translateX(-50px);
@@ -439,7 +440,14 @@ p2
     transform: translateX(-50px);
   }
 }
-
+.home_ban_text p
+{
+  text-shadow: -1px -1px #ff7b00;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #000;
+}
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 /* Main Menu area css
