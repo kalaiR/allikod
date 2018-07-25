@@ -702,14 +702,17 @@ p2
   border: none;
 }
 
-@media (min-width: 768px) {
-  .header_menu_area .navbar-default .navbar-collapse .navbar-nav li.submenu:hover .dropdown-menu {
+@media (min-width: 768px) 
+{
+  .header_menu_area .navbar-default .navbar-collapse .navbar-nav li.submenu:hover .dropdown-menu 
+  {
     top: 101%;
     opacity: 1;
     visibility: visible;
     left: 0%;
   }
  
+  
 }
 
 .header_menu_area .navbar-default .navbar-collapse .navbar-nav.navbar-right {
@@ -1435,6 +1438,28 @@ p2
     margin-left: 30px;
     margin-top: 0;
 
+  }
+  .home_ban_text
+  {
+
+    padding: 15px;
+    border-radius: 40px;
+    width: 300px;
+    position: absolute;
+    right: unset;
+    z-index: 17;
+    top: 120px;
+    left:50%;
+    transform:translateX(-50%);
+  }
+  .home_ban_text h3
+  {
+    font-size: 20px;
+  }
+  .home_ban_text p
+  {
+    font-size:12px;
+    padding:0;
   }
 }
 /* End Main Menu area css
