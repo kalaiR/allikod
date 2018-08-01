@@ -214,17 +214,18 @@
                                 <img src="<?php //echo media_url(); ?>assets/img/registration-man.png" alt="">
                             </div>
                         </div>-->
-                        <div class="home_ban_text text-center blink-image">
-                            <!-- <p>மருத்துவர் ஐயா அவர்களின் பிறந்த நாளை முன்னிட்டு வள்ளிக்கொடியில் சிறப்பு சலுகை கட்டணம் - 25 ஜூலை 2018 முதல் 31 ஜூலை 2018 வரை</p>
+                        <!-- <div class="home_ban_text text-center blink-image">
+                            <p>மருத்துவர் ஐயா அவர்களின் பிறந்த நாளை முன்னிட்டு வள்ளிக்கொடியில் சிறப்பு சலுகை கட்டணம் - 25 ஜூலை 2018 முதல் 31 ஜூலை 2018 வரை</p>
                             <p>இணையதளத்தில் பதிவு - 3-மாதம் - <span style="text-decoration: line-through;">Rs: 2500/-</span> Rs: 1500/-</p>
-                            <p>இணையதளத்தில் பதிவு - 6-மாதம் - <span style="text-decoration: line-through;">Rs: 4000/-</span> Rs: 3000/-</p> -->
-                            <!-- <div><img class="blink-image    " src="<?php echo media_url(); ?>assets/img/special.png" width="150px"alt=""/></div> -->
+                            <p>இணையதளத்தில் பதிவு - 6-மாதம் - <span style="text-decoration: line-through;">Rs: 4000/-</span> Rs: 3000/-</p>
+                            <div><img class="blink-image    " src="<?php //echo media_url(); ?>assets/img/special.png" width="150px"alt=""/></div>
+                        </div> -->
+                        <!-- <div class="home_ban_text text-center blink-image">
                             <h3>Special Offer</h3>
                             <p>*Online registration 3 months - <span style="text-decoration: line-through;">Rs: 2500/-</span> -> 1500/- only   </p>
                             <p>*Online registration 6 months - <span style="text-decoration: line-through;">Rs: 4000/-</span> -> 3000/- only</p>
                             <p class="offerdate">From 25th - 31st july 2018 </p>
-
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
