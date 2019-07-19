@@ -211,7 +211,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form_man">
-                                <img src="<?php echo media_url(); ?>assets/img/offer.jpg" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/offer.jpg" style="width:100%">
                             </div>
                         </div>
                         <!-- <div class="home_ban_text text-center blink-image">
