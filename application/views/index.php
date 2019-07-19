@@ -209,11 +209,11 @@
                             </div>
                             <?php }?>
                         </div>
-                        <!--<div class="col-sm-6">
+                        <div class="col-sm-6">
                             <div class="form_man">
-                                <img src="<?php //echo media_url(); ?>assets/img/registration-man.png" alt="">
+                                <img src="<?php echo media_url(); ?>assets/img/offer.jpg" alt="">
                             </div>
-                        </div>-->
+                        </div>
                         <!-- <div class="home_ban_text text-center blink-image">
                             <p>மருத்துவர் ஐயா அவர்களின் பிறந்த நாளை முன்னிட்டு வள்ளிக்கொடியில் சிறப்பு சலுகை கட்டணம் - 25 ஜூலை 2018 முதல் 31 ஜூலை 2018 வரை</p>
                             <p>இணையதளத்தில் பதிவு - 3-மாதம் - <span style="text-decoration: line-through;">Rs: 2500/-</span> Rs: 1500/-</p>
